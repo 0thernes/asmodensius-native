@@ -885,8 +885,7 @@ fetch("/api/state",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(info=>{
   if(info && info.config){
     const n=clampPop(info.config.n??8000);
     $("popTarget").value=String(n);
-    const c=Number(info.config.cap??0);
-    $("popCap").value=String(!c || c===autoCap(n)?0:c);
+    $("popCap").value="0";
     $("popMode").value=info.config.lab?"lab":"wild";
     if(info.config.kernels!==undefined)$("popKernels").checked=!!info.config.kernels;
   }
