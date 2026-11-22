@@ -236,7 +236,9 @@ static bool stream_poll(StreamState *s, LiveIn *in)
     return true;
 }
 
-static int stream_run(AzWorld *w, LiveIn *in, const LiveCtl *c, u32 sps, u32 tps, u32 observer_ms, bool free_pace, u32 max_ticks, u32 arena_locked)
+static int stream_run(AzWorld *w, LiveIn *in, const LiveCtl *c, u32 sps, u32 tps, u32 observer_ms, bool free_pace,
+                      u32 max_ticks, u32 arena_locked, bool gpu_on, const char *gpu_name, bool ecores_on,
+                      u32 large_pages, u32 prefetch_on, u32 kernels_on)
 {
     StreamState s = {0};
     s.tick_end_unix_ms = stream_unix_ms();
@@ -266,13 +268,17 @@ static int stream_run(AzWorld *w, LiveIn *in, const LiveCtl *c, u32 sps, u32 tps
         stream_touch(s.capture.scratch, (size_t)w->cap * AZST_RECORD_BYTES, si.dwPageSize);
         stream_touch(s.capture.uid_index, s.capture.index_count * sizeof *s.capture.uid_index, si.dwPageSize);
     }
-    char json[800];
+    char json[1200];
     snprintf(json, sizeof json, "{\"event\":\"start\",\"abi\":%u,\"mode\":\"%s\",\"tick\":%" PRIu64
              ",\"seed\":\"%016" PRIx64 "\",\"origin\":\"%08x%08x\",\"grid\":[%u,%u,%u],\"cap\":%u,"
-             "\"locked\":%u,\"sps\":%u,\"tps\":%u,\"observer_ms\":%u,\"size\":[%u,%u],\"workers\":%u,\"observer_workers\":%u}",
+             "\"locked\":%u,\"large_pages\":%u,\"kernels\":%u,\"prefetch\":%u,\"ecores\":%s,"
+             "\"gpu\":%s,\"gpu_name\":\"%s\",\"sps\":%u,\"tps\":%u,\"observer_ms\":%u,\"size\":[%u,%u],"
+             "\"workers\":%u,\"observer_workers\":%u}",
              AZ_ABI_VERSION, w->cfg.mode == AZ_MODE_WILD ? "wild" : "lab", w->tick,
              w->cfg.seed, w->key[1], w->key[0], w->gx, w->gy, w->gz, w->cap,
-             arena_locked, sps, tps, observer_ms, c->iw, c->ih, w->host->n_workers, s.hasher.workers);
+             arena_locked, large_pages, kernels_on, prefetch_on, ecores_on ? "true" : "false",
+             gpu_on ? "true" : "false", gpu_name ? gpu_name : "",
+             sps, tps, observer_ms, c->iw, c->ih, w->host->n_workers, s.hasher.workers);
     if (ok) ok = stream_json(&s.writer, json) && stream_snapshot(&s, false);
     u64 next_tick = 0;
     while (ok && !s.writer.failed) {

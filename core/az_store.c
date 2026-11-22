@@ -122,6 +122,22 @@ void az_store_compact(AzWorld *w)
     w->store_base = w->store_units - w->store_base;
     w->store_top = at;
     w->store_live = at - 1u;
+    w->store_sync_top = 0u;
+    w->store_dirty_n = 0u;
+    w->store_in_place_gen++;
+}
+
+static void store_mark_brain_dirty(AzWorld *w, u32 h, u32 units)
+{
+    if (h >= w->store_sync_top) return;
+    if (w->store_dirty_n < 1024u) {
+        w->store_dirty_h[w->store_dirty_n] = h;
+        w->store_dirty_u[w->store_dirty_n] = units;
+        w->store_dirty_n++;
+    } else {
+        w->store_dirty_n = 0u;
+        w->store_in_place_gen++;
+    }
 }
 
 /* ---------------------------------------------------------------------- */
@@ -189,6 +205,7 @@ void az_blk_fit(AzWorld *w, u32 slot, const u32 len[AZ_SEG_COUNT])
     AzBlk *b = blk_at(w, w->store_base, h);
     u8 *base = (u8 *)(void *)b;
     const u32 old_units = b->units;
+    const u32 old_boff = b->off[AZ_SEG_BRAIN], old_blen = b->len[AZ_SEG_BRAIN];
     u32 at = AZ_UNIT;
     for (u32 k = 0; k < AZ_SEG_COUNT; k++) {
         const u32 n = len[k] < b->len[k] ? len[k] : b->len[k];
@@ -205,6 +222,8 @@ void az_blk_fit(AzWorld *w, u32 slot, const u32 len[AZ_SEG_COUNT])
     az_memset(base + at, 0, ((size_t)old_units << 6) - at);
     b->units = units;
     store_shrink(w, h, old_units, units);
+    if (b->off[AZ_SEG_BRAIN] != old_boff || b->len[AZ_SEG_BRAIN] != old_blen)
+        store_mark_brain_dirty(w, h, units);
 }
 
 /* copy n bytes toward higher addresses (dst > src, the ranges may overlap) */
@@ -250,6 +269,7 @@ bool az_blk_resize(AzWorld *w, u32 slot, u32 seg, u32 bytes)
         /* the pads of the moved segments: clear what the shift left behind */
         for (u32 k = seg + 1u; k < AZ_SEG_COUNT; k++)
             az_memset(base + b->off[k] + b->len[k], 0, seg_pad(b->len[k]) - b->len[k]);
+        if (seg <= AZ_SEG_BRAIN) store_mark_brain_dirty(w, w->blk[slot], units);
         return true;
     }
     const u32 nh = store_take(w, units);

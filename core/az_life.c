@@ -157,7 +157,7 @@ static bool wake(AzWorld *w, u32 s, u32 worker)
 }
 
 /* one step of the life history (phased; the trait row is read here) */
-static void life_check(AzWorld *w, u32 s, u32 worker)
+static void life_check(AzWorld *w, u32 s, u32 worker, u32 r0, u32 r1)
 {
     const u8 *tr = &w->trait[(size_t)s * AZ_TRAITS];
     const u64 uid = w->uid[s];
@@ -169,8 +169,6 @@ static void life_check(AzWorld *w, u32 s, u32 worker)
         const u64 spread = ((u64)onset * wp(w, AZ_WP_LIFE_FOUNDER_SPREAD)) >> 8;
         if (spread) age += az_mix64(uid ^ ((u64)w->key[1] << 32 | w->key[0])) % spread;
     }
-    const u32 r0 = az_rand(w, uid, AZ_RS_LIFE, 0);
-    const u32 r1 = az_rand(w, uid, AZ_RS_LIFE, 1);
 
     if ((r0 & 0xFFFFFu) < wp(w, AZ_WP_LIFE_HAZARD)) { az_request_death(w, s, AZ_DIE_HAZARD); return; }
 
@@ -230,22 +228,72 @@ static void life_check(AzWorld *w, u32 s, u32 worker)
     }
 }
 
+enum { LIFE_RNG_BATCH = 32 };
+
 void az_life_range(AzWorld *w, u32 begin, u32 end, u32 worker)
 {
     const u32 log2p = wp(w, AZ_WP_LIFE_CHECK_LOG2);
-    for (u32 s = begin; s < end; s++) {
-        u8 fl = w->flags[s];
-        if (!(fl & AZ_F_ALIVE)) continue;
-        const u8 req = w->pair[s].req;
-        if (req & AZ_RQ_DIE) { az_life_kill(w, s, worker); continue; }
-        bool woke = false;
-        if (req & AZ_RQ_HATCH) { woke = wake(w, s, worker); fl = w->flags[s]; }
-        if ((fl & AZ_F_RECEPT) && !(fl & (AZ_F_EGG | AZ_F_DORMANT)) &&
-            w->motor[(size_t)s * AZ_MOT + AZ_M_REPRO] > 0 &&
-            (w->phen[(size_t)s * AZ_PHEN + AZ_P_MATE] & 7u) == AZ_MM_BUD)
-            (void)az_life_brood(w, s, AZ_NONE, worker);
-        if (!woke && az_phase_due(w, w->uid[s], AZ_RS_LIFE, log2p)) life_check(w, s, worker);
-        if (w->pair[s].req & AZ_RQ_DIE) az_life_kill(w, s, worker);
+    const u32 tick_lo = (u32)w->tick;
+    u32 r0_buf[LIFE_RNG_BATCH], r1_buf[LIFE_RNG_BATCH];
+    u8 map[LIFE_RNG_BATCH];
+
+    for (u32 bb = begin; bb < end; bb += LIFE_RNG_BATCH) {
+        const u32 count = end - bb < LIFE_RNG_BATCH ? end - bb : LIFE_RNG_BATCH;
+        u32 *pbuf = (u32 *)az_scratch(w, worker);
+        u32 n_due = 0;
+        for (u32 k = 0; k < count; k++) {
+            const u32 s = bb + k;
+            const u8 fl = w->flags[s];
+            const u8 req = w->pair[s].req;
+            const bool will_wake = (req & AZ_RQ_HATCH) && (fl & (AZ_F_EGG | AZ_F_DORMANT));
+            if (!(fl & AZ_F_ALIVE) || (req & AZ_RQ_DIE) || will_wake) {
+                map[k] = 0xFFu;
+                continue;
+            }
+            const u64 uid = w->uid[s];
+            if (az_phase_due(w, uid, AZ_RS_LIFE, log2p) && (uid >> 32) == 0u) {
+                u32 *c0 = &pbuf[n_due * 8u];
+                u32 *c1 = c0 + 4u;
+                c0[0] = (u32)uid; c0[1] = tick_lo; c0[2] = AZ_RS_LIFE; c0[3] = 0u;
+                c1[0] = (u32)uid; c1[1] = tick_lo; c1[2] = AZ_RS_LIFE; c1[3] = 1u;
+                map[k] = (u8)n_due++;
+            } else {
+                map[k] = 0xFFu;
+            }
+        }
+        if (n_due) {
+            w->k.philox_n(pbuf, pbuf, w->tkey, n_due * 2u);
+            for (u32 i = 0; i < n_due; i++) {
+                r0_buf[i] = pbuf[i * 8u];
+                r1_buf[i] = pbuf[i * 8u + 4u];
+            }
+        }
+        for (u32 k = 0; k < count; k++) {
+            const u32 s = bb + k;
+            u8 fl = w->flags[s];
+            if (!(fl & AZ_F_ALIVE)) continue;
+            const u8 req = w->pair[s].req;
+            if (req & AZ_RQ_DIE) { az_life_kill(w, s, worker); continue; }
+            bool woke = false;
+            if (req & AZ_RQ_HATCH) { woke = wake(w, s, worker); fl = w->flags[s]; }
+            if ((fl & AZ_F_RECEPT) && !(fl & (AZ_F_EGG | AZ_F_DORMANT)) &&
+                w->motor[(size_t)s * AZ_MOT + AZ_M_REPRO] > 0 &&
+                (w->phen[(size_t)s * AZ_PHEN + AZ_P_MATE] & 7u) == AZ_MM_BUD)
+                (void)az_life_brood(w, s, AZ_NONE, worker);
+            if (!woke && az_phase_due(w, w->uid[s], AZ_RS_LIFE, log2p)) {
+                u32 r0, r1;
+                if (map[k] != 0xFFu) {
+                    r0 = r0_buf[map[k]];
+                    r1 = r1_buf[map[k]];
+                } else {
+                    const u64 uid = w->uid[s];
+                    r0 = az_rand(w, uid, AZ_RS_LIFE, 0);
+                    r1 = az_rand(w, uid, AZ_RS_LIFE, 1);
+                }
+                life_check(w, s, worker, r0, r1);
+            }
+            if (w->pair[s].req & AZ_RQ_DIE) az_life_kill(w, s, worker);
+        }
     }
 }
 

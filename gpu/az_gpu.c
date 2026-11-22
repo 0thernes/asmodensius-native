@@ -45,7 +45,8 @@ struct AzGpu {
     HMODULE dll;
     CUcontext ctx;
     CUmodule mod;
-    CUfunction k_layout, k_philox, k_brain, k_empty;
+    CUstream stream;
+    CUfunction k_layout, k_philox, k_brain, k_tile_brain, k_kin_axis, k_empty;
     u32 block;
     char err[512];
 
@@ -59,15 +60,23 @@ struct AzGpu {
     CUresult (CUDAAPI *cuCtxCreate)(CUcontext *, unsigned int, CUdevice);
     CUresult (CUDAAPI *cuCtxDestroy)(CUcontext);
     CUresult (CUDAAPI *cuCtxSynchronize)(void);
+    CUresult (CUDAAPI *cuStreamCreate)(CUstream *, unsigned int);
+    CUresult (CUDAAPI *cuStreamDestroy)(CUstream);
+    CUresult (CUDAAPI *cuStreamSynchronize)(CUstream);
     CUresult (CUDAAPI *cuModuleLoadDataEx)(CUmodule *, const void *, unsigned int, int *, void **);
     CUresult (CUDAAPI *cuModuleUnload)(CUmodule);
     CUresult (CUDAAPI *cuModuleGetFunction)(CUfunction *, CUmodule, const char *);
     CUresult (CUDAAPI *cuMemAlloc)(CUdeviceptr *, size_t);
     CUresult (CUDAAPI *cuMemFree)(CUdeviceptr);
+    CUresult (CUDAAPI *cuMemGetInfo)(size_t *, size_t *);
     CUresult (CUDAAPI *cuMemAllocHost)(void **, size_t);
     CUresult (CUDAAPI *cuMemFreeHost)(void *);
+    CUresult (CUDAAPI *cuMemHostRegister)(void *, size_t, unsigned int);
+    CUresult (CUDAAPI *cuMemHostUnregister)(void *);
     CUresult (CUDAAPI *cuMemcpyHtoD)(CUdeviceptr, const void *, size_t);
     CUresult (CUDAAPI *cuMemcpyDtoH)(void *, CUdeviceptr, size_t);
+    CUresult (CUDAAPI *cuMemcpyHtoDAsync)(CUdeviceptr, const void *, size_t, CUstream);
+    CUresult (CUDAAPI *cuMemcpyDtoHAsync)(void *, CUdeviceptr, size_t, CUstream);
     CUresult (CUDAAPI *cuLaunchKernel)(CUfunction, unsigned int, unsigned int, unsigned int,
                                        unsigned int, unsigned int, unsigned int,
                                        unsigned int, CUstream, void **, void **);
@@ -144,15 +153,23 @@ static const char *resolve(AzGpu *g)
     SYM(cuCtxCreate, "cuCtxCreate_v2");
     SYM(cuCtxDestroy, "cuCtxDestroy_v2");
     SYM(cuCtxSynchronize, "cuCtxSynchronize");
+    SYM(cuStreamCreate, "cuStreamCreate");
+    SYM(cuStreamDestroy, "cuStreamDestroy_v2");
+    SYM(cuStreamSynchronize, "cuStreamSynchronize");
     SYM(cuModuleLoadDataEx, "cuModuleLoadDataEx");
     SYM(cuModuleUnload, "cuModuleUnload");
     SYM(cuModuleGetFunction, "cuModuleGetFunction");
     SYM(cuMemAlloc, "cuMemAlloc_v2");
     SYM(cuMemFree, "cuMemFree_v2");
+    SYM(cuMemGetInfo, "cuMemGetInfo_v2");
     SYM(cuMemAllocHost, "cuMemAllocHost_v2");
     SYM(cuMemFreeHost, "cuMemFreeHost");
+    SYM(cuMemHostRegister, "cuMemHostRegister_v2");
+    SYM(cuMemHostUnregister, "cuMemHostUnregister");
     SYM(cuMemcpyHtoD, "cuMemcpyHtoD_v2");
     SYM(cuMemcpyDtoH, "cuMemcpyDtoH_v2");
+    SYM(cuMemcpyHtoDAsync, "cuMemcpyHtoDAsync_v2");
+    SYM(cuMemcpyDtoHAsync, "cuMemcpyDtoHAsync_v2");
     SYM(cuLaunchKernel, "cuLaunchKernel");
 #undef SYM
     return NULL;
@@ -186,12 +203,17 @@ static void ptx_header(const char *ptx, const char *key, char *out, size_t cap)
 }
 
 /* one 1D launch covering n threads */
-static int launch(AzGpu *g, CUfunction f, const char *what, void **params, u32 n)
+static int launch_on(AzGpu *g, CUfunction f, const char *what, void **params, u32 n, CUstream st)
 {
     u32 block = g->block;
     u32 grid = n ? (u32)(((u64)n + block - 1) / block) : 1;
-    CUresult r = g->cuLaunchKernel(f, grid, 1, 1, block, 1, 1, 0, NULL, params, NULL);
+    CUresult r = g->cuLaunchKernel(f, grid, 1, 1, block, 1, 1, 0, st, params, NULL);
     return r ? fail(g, what, r) : AZ_GPU_OK;
+}
+
+static int launch(AzGpu *g, CUfunction f, const char *what, void **params, u32 n)
+{
+    return launch_on(g, f, what, params, n, NULL);
 }
 
 /* run the layout kernel and compare with the host's own layout words */
@@ -276,6 +298,8 @@ int az_gpu_open(AzGpu **out, const AzGpuOptions *opt, AzGpuInfo *info)
     info->mem_bytes = total;
     r = g->cuCtxCreate(&g->ctx, 0, dev);
     if (r) LEAVE(AZ_GPU_NO_DEVICE, "cuCtxCreate failed: CUresult %d (%s)", r, cu_name(g, r));
+    r = g->cuStreamCreate(&g->stream, 0);
+    if (r) LEAVE(AZ_GPU_ERROR, "cuStreamCreate failed: CUresult %d (%s)", r, cu_name(g, r));
 
     /* 3. the device module: PTX text, compiled by the driver */
     const char *ptx = o.ptx_text;
@@ -309,10 +333,12 @@ int az_gpu_open(AzGpu **out, const AzGpuOptions *opt, AzGpuInfo *info)
         if (r) goto done;
     }
     {
-        static const char *const names[4] = { "az_gpu_k_layout", "az_gpu_k_philox",
-                                              "az_gpu_k_brain", "az_gpu_k_empty" };
-        CUfunction *slots[4] = { &g->k_layout, &g->k_philox, &g->k_brain, &g->k_empty };
-        for (int i = 0; i < 4; i++) {
+        static const char *const names[6] = { "az_gpu_k_layout", "az_gpu_k_philox",
+                                              "az_gpu_k_brain", "az_gpu_k_tile_brain",
+                                              "az_gpu_k_kin_axis", "az_gpu_k_empty" };
+        CUfunction *slots[6] = { &g->k_layout, &g->k_philox, &g->k_brain,
+                                 &g->k_tile_brain, &g->k_kin_axis, &g->k_empty };
+        for (int i = 0; i < 6; i++) {
             r = g->cuModuleGetFunction(slots[i], g->mod, names[i]);
             if (r) LEAVE(AZ_GPU_BAD_MODULE, "the PTX module has no kernel %s: CUresult %d (%s)",
                          names[i], r, cu_name(g, r));
@@ -345,10 +371,22 @@ done:
 void az_gpu_close(AzGpu *g)
 {
     if (!g) return;
+    if (g->stream && g->cuStreamDestroy) g->cuStreamDestroy(g->stream);
     if (g->mod && g->cuModuleUnload) g->cuModuleUnload(g->mod);
     if (g->ctx && g->cuCtxDestroy) g->cuCtxDestroy(g->ctx);
     if (g->dll) FreeLibrary(g->dll);
     free(g);
+}
+
+int az_gpu_mem_info(AzGpu *g, u64 *free_bytes, u64 *total_bytes)
+{
+    if (!g) return AZ_GPU_BAD_ARG;
+    size_t f = 0, t = 0;
+    CUresult r = g->cuMemGetInfo(&f, &t);
+    if (r) return fail(g, "cuMemGetInfo", r);
+    if (free_bytes) *free_bytes = (u64)f;
+    if (total_bytes) *total_bytes = (u64)t;
+    return AZ_GPU_OK;
 }
 
 /* ---- device buffers --------------------------------------------------- */
@@ -395,6 +433,29 @@ int az_gpu_download(AzGpu *g, void *dst, AzGpuBuf b, u64 offset, u64 bytes)
     return r ? fail(g, "cuMemcpyDtoH", r) : AZ_GPU_OK;
 }
 
+int az_gpu_upload_async(AzGpu *g, AzGpuBuf b, u64 offset, const void *src, u64 bytes)
+{
+    if (!g || !src || !in_range(b, offset, bytes)) return bad_arg(g, "az_gpu_upload_async range");
+    if (bytes == 0) return AZ_GPU_OK;
+    CUresult r = g->cuMemcpyHtoDAsync(b.dptr + offset, src, (size_t)bytes, g->stream);
+    return r ? fail(g, "cuMemcpyHtoDAsync", r) : AZ_GPU_OK;
+}
+
+int az_gpu_download_async(AzGpu *g, void *dst, AzGpuBuf b, u64 offset, u64 bytes)
+{
+    if (!g || !dst || !in_range(b, offset, bytes)) return bad_arg(g, "az_gpu_download_async range");
+    if (bytes == 0) return AZ_GPU_OK;
+    CUresult r = g->cuMemcpyDtoHAsync(dst, b.dptr + offset, (size_t)bytes, g->stream);
+    return r ? fail(g, "cuMemcpyDtoHAsync", r) : AZ_GPU_OK;
+}
+
+int az_gpu_stream_sync(AzGpu *g)
+{
+    if (!g) return AZ_GPU_BAD_ARG;
+    CUresult r = g->cuStreamSynchronize(g->stream);
+    return r ? fail(g, "cuStreamSynchronize", r) : AZ_GPU_OK;
+}
+
 int az_gpu_sync(AzGpu *g)
 {
     if (!g) return AZ_GPU_BAD_ARG;
@@ -414,6 +475,18 @@ void *az_gpu_host_alloc(AzGpu *g, u64 bytes)
 void az_gpu_host_free(AzGpu *g, void *p)
 {
     if (g && p) g->cuMemFreeHost(p);
+}
+
+int az_gpu_host_register(AzGpu *g, void *p, u64 bytes)
+{
+    if (!g || !p || bytes == 0) return bad_arg(g, "az_gpu_host_register");
+    CUresult r = g->cuMemHostRegister(p, (size_t)bytes, 0u);
+    return r ? fail(g, "cuMemHostRegister", r) : AZ_GPU_OK;
+}
+
+void az_gpu_host_unregister(AzGpu *g, void *p)
+{
+    if (g && p && g->cuMemHostUnregister) g->cuMemHostUnregister(p);
 }
 
 /* ---- kernels ---------------------------------------------------------- */
@@ -443,6 +516,41 @@ int az_gpu_brain_step(AzGpu *g, const AzGpuBrain *b, u32 n)
     void *params[9] = { &a.sens.dptr, &a.hid.dptr, &a.gain.dptr, &a.bias.dptr, &a.clade.dptr,
                         &a.clades.dptr, &a.n_clades, &a.motor.dptr, &nn };
     return launch(g, g->k_brain, "cuLaunchKernel(az_gpu_k_brain)", params, n);
+}
+
+int az_gpu_tile_brain(AzGpu *g, const AzGpuTileBrain *tb, u32 n, bool async_stream)
+{
+    if (!g || !tb) return bad_arg(g, "az_gpu_tile_brain");
+    if (n == 0) return AZ_GPU_OK;
+    if (!tb->store.dptr ||
+        !in_range(tb->brain_off8, 0, (u64)n * sizeof(u32)) ||
+        !in_range(tb->mind_off8, 0, (u64)n * sizeof(u32)) ||
+        !in_range(tb->hid_off8, 0, (u64)n * sizeof(u32)) ||
+        !in_range(tb->sens_in, 0, (u64)n * AZ_SENS) ||
+        !in_range(tb->gain_in, 0, (u64)n * 8u) ||
+        !in_range(tb->bias_in, 0, (u64)n * 8u) ||
+        !in_range(tb->motor_out, 0, (u64)n * AZ_MOT) ||
+        !tb->mind_scratch.dptr)
+        return bad_arg(g, "az_gpu_tile_brain: buffer smaller than n creatures need");
+    AzGpuTileBrain a = *tb;
+    u32 nn = n;
+    void *params[12] = { &a.store.dptr, &a.brain_off8.dptr, &a.mind_off8.dptr, &a.hid_off8.dptr,
+                         &a.sens_in.dptr, &a.hid_in.dptr, &a.gain_in.dptr, &a.bias_in.dptr,
+                         &a.mind_scratch.dptr, &a.hid_out.dptr, &a.motor_out.dptr, &nn };
+    return launch_on(g, g->k_tile_brain, "cuLaunchKernel(az_gpu_k_tile_brain)", params, n,
+                     async_stream ? g->stream : NULL);
+}
+
+int az_gpu_kin_axis(AzGpu *g, AzGpuBuf pos, AzGpuBuf vel, AzGpuBuf dv, AzGpuBuf drag, u32 n, u32 shift)
+{
+    if (!g) return bad_arg(g, "az_gpu_kin_axis");
+    if (n == 0) return AZ_GPU_OK;
+    if (!in_range(pos, 0, (u64)n * sizeof(u32)) || !in_range(vel, 0, (u64)n * sizeof(i16)) ||
+        !in_range(dv, 0, (u64)n * sizeof(i16)) || !in_range(drag, 0, (u64)n * sizeof(u8)))
+        return bad_arg(g, "az_gpu_kin_axis: buffer smaller than n entities need");
+    u32 nn = n, sh = shift;
+    void *params[6] = { &pos.dptr, &vel.dptr, &dv.dptr, &drag.dptr, &nn, &sh };
+    return launch(g, g->k_kin_axis, "cuLaunchKernel(az_gpu_k_kin_axis)", params, n);
 }
 
 int az_gpu_empty(AzGpu *g)
@@ -503,5 +611,28 @@ int az_gpu_brain_step_host(AzGpu *g, const AzDenseNet *clades, u32 n_clades,
     az_gpu_free(g, &b.clade);
     az_gpu_free(g, &b.motor);
     az_gpu_free(g, &b.clades);
+    return s;
+}
+
+int az_gpu_kin_axis_host(AzGpu *g, u32 *pos, i16 *vel, const i16 *dv, const u8 *drag, u32 n, u32 shift)
+{
+    if (!g || !pos || !vel || !dv || !drag) return bad_arg(g, "az_gpu_kin_axis_host");
+    if (n == 0) return AZ_GPU_OK;
+    AzGpuBuf bp = { 0, 0 }, bv = { 0, 0 }, bd = { 0, 0 }, br = { 0, 0 };
+    int s = az_gpu_alloc(g, &bp, (u64)n * sizeof(u32));
+    if (!s) s = az_gpu_alloc(g, &bv, (u64)n * sizeof(i16));
+    if (!s) s = az_gpu_alloc(g, &bd, (u64)n * sizeof(i16));
+    if (!s) s = az_gpu_alloc(g, &br, (u64)n * sizeof(u8));
+    if (!s) s = az_gpu_upload(g, bp, 0, pos, (u64)n * sizeof(u32));
+    if (!s) s = az_gpu_upload(g, bv, 0, vel, (u64)n * sizeof(i16));
+    if (!s) s = az_gpu_upload(g, bd, 0, dv, (u64)n * sizeof(i16));
+    if (!s) s = az_gpu_upload(g, br, 0, drag, (u64)n * sizeof(u8));
+    if (!s) s = az_gpu_kin_axis(g, bp, bv, bd, br, n, shift);
+    if (!s) s = az_gpu_download(g, pos, bp, 0, (u64)n * sizeof(u32));
+    if (!s) s = az_gpu_download(g, vel, bv, 0, (u64)n * sizeof(i16));
+    az_gpu_free(g, &bp);
+    az_gpu_free(g, &bv);
+    az_gpu_free(g, &bd);
+    az_gpu_free(g, &br);
     return s;
 }

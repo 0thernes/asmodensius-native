@@ -235,7 +235,10 @@ table.data th { color: var(--ink-2); font-weight: 600; }
     </div>
     <div class="field"><label for="species">Founder species (1-100)</label><input id="species" type="number" min="1" max="100" value="100"></div>
     <div class="field"><label for="cap">Slots (memory; 0 = auto, up to 1M)</label><input id="cap" type="number" min="0" max="2000000" step="10000" value="0"></div>
-    <div class="row"><label style="display:flex;gap:6px;align-items:center"><input id="kernels" type="checkbox" checked> Bare-metal AVX2/VNNI kernels</label></div>
+    <div class="row"><label style="display:flex;gap:6px;align-items:center"><input id="kernels" type="checkbox" checked> AVX2/VNNI + Bulk Philox</label></div>
+    <div class="row"><label style="display:flex;gap:6px;align-items:center"><input id="ecores" type="checkbox" checked> All 24 cores (8P + 16E)</label></div>
+    <div class="row"><label style="display:flex;gap:6px;align-items:center"><input id="prefetch" type="checkbox" checked> DDR5 streaming prefetch</label></div>
+    <div class="row"><label style="display:flex;gap:6px;align-items:center"><input id="gpu" type="checkbox"> RTX 5070 Ti CUDA PTX brains</label></div>
     <p class="hint" id="popMeta"></p>
     <details><summary>Lesions: switch a part of life off</summary>
       <div class="lesions" id="lesions"></div>
@@ -656,7 +659,8 @@ async function startWorld(load) {
   const n = clampPop($("#n").value);
   const body = Object.assign({ n, species: +$("#species").value, cap: +$("#cap").value, lab: S.lab,
     seed: +$("#seed").value, every: +$("#every").value, fps: +$("#fps").value, lesions: chosenLesions($("#lesions")),
-    params: changedParams(), threads: 0, kernels: $("#kernels").checked }, sizeWH());
+    params: changedParams(), threads: 0, kernels: $("#kernels").checked, ecores: $("#ecores").checked,
+    prefetch: $("#prefetch").checked, gpu: $("#gpu").checked }, sizeWH());
   if (load) body.load = load;
   $("#startHint").textContent = "starting\u2026";
   try {

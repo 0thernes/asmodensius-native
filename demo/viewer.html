@@ -53,7 +53,10 @@
 </div>
 <div class="control"><label for="popCap">Slots (0=auto)</label><input id="popCap" type="number" min="0" max="2000000" step="10000" value="0" title="0 chooses bare-metal memory slots automatically up to 1,004,096"></div>
 <div class="control"><label for="popMode">Mode</label><select id="popMode"><option value="wild">Wild (OS entropy)</option><option value="lab">Lab (seeded)</option></select></div>
-<label class="check"><input id="popKernels" type="checkbox" checked> Bare-metal AVX2/VNNI kernels</label>
+<label class="check"><input id="popKernels" type="checkbox" checked> AVX2/VNNI + Bulk Philox</label>
+<label class="check"><input id="popEcores" type="checkbox" checked> All 24 cores (8P + 16E)</label>
+<label class="check"><input id="popPrefetch" type="checkbox" checked> DDR5 streaming prefetch</label>
+<label class="check"><input id="popGpu" type="checkbox"> RTX 5070 Ti CUDA PTX brains</label>
 <p class="status" id="popMeta"></p>
 <button class="primary" type="button" id="applyPop">Apply population</button>
 <p class="status" id="popStatus" role="status"></p>

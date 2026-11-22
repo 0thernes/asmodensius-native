@@ -99,5 +99,45 @@ AZ_GPU_KERNEL void az_gpu_k_brain(const u8 *sens, u8 *hid, const u8 *gain, const
                     gain + (size_t)i * AZ_DENSE_MODG, bias + (size_t)i * AZ_DENSE_MODG, mo);
 }
 
+/* Real per-creature sparse tiled brain step (TR-18, core/az_brain.c).
+ * store holds the active half of AzWorld.store in VRAM. Offsets are in 8-byte
+ * units (supporting up to 32 GiB stores in u32); brain_off8[i] == 0xFFFFFFFFu
+ * skips slots without a brain (eggs, dormant, or empty).
+ * Runs the literal freestanding az_brain_step_mod_c with live per-tick
+ * gain/bias and writes raw unmasked h2 and motor outputs for bit-exact hash
+ * equivalence with the CPU under every lesion. */
+AZ_GPU_KERNEL void az_gpu_k_tile_brain(const u8 *store, const u32 *brain_off8, const u32 *mind_off8,
+                                       const u32 *hid_off8, const u8 *sens_in, const u8 *hid_in,
+                                       const u8 *gain_in, const i8 *bias_in, u8 *mind_scratch,
+                                       u8 *hid_out, i8 *motor_out, u32 n)
+{
+    u32 i = az_gpu_tid();
+    if (i >= n) return;
+    u32 bo8 = brain_off8[i];
+    if (bo8 == 0xFFFFFFFFu) return;
+    const AzBrain *br = (const AzBrain *)(const void *)(store + ((size_t)bo8 << 3));
+    const u32 nh = 8u * (u32)br->n_hb;
+    u8 *mind = mind_scratch + ((size_t)mind_off8[i] << 3);
+    const u8 *si = sens_in + (size_t)i * AZ_SENS;
+    for (u32 k = 0; k < AZ_SENS; k++) mind[k] = si[k];
+    const size_t ho = (size_t)hid_off8[i] << 3;
+    const u8 *hi = hid_in + ho;
+    u8 *mh = mind + AZ_SENS;
+    for (u32 k = 0; k < nh; k++) mh[k] = hi[k];
+    i8 *mo = motor_out + (size_t)i * AZ_MOT;
+    az_brain_step_mod_c(br, gain_in + (size_t)i * 8u, bias_in + (size_t)i * 8u, mind, mo);
+    const u8 *h2 = mh + nh;
+    u8 *hout = hid_out + ho;
+    for (u32 k = 0; k < nh; k++) hout[k] = h2[k];
+}
+
+/* One wrapping horizontal kinematics axis (TR-18, core/az_kin_axis.c). */
+AZ_GPU_KERNEL void az_gpu_k_kin_axis(u32 *pos, i16 *vel, const i16 *dv, const u8 *drag, u32 n, u32 shift)
+{
+    u32 i = az_gpu_tid();
+    if (i >= n) return;
+    az_kin_axis_c(pos + i, vel + i, dv + i, drag + i, 1u, shift);
+}
+
 /* an empty kernel: measures the fixed cost of one launch */
 AZ_GPU_KERNEL void az_gpu_k_empty(void) {}

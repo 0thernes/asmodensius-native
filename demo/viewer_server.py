@@ -286,7 +286,8 @@ def auto_cap(n):
 
 def parse_engine_options(options):
     cfg = {"n": 5000, "cap": 0, "species": 100, "lab": False, "seed": 42,
-           "grid": None, "kernels": 0, "loaded": False}
+           "grid": None, "kernels": 0, "gpu": 0, "ecores": False, "prefetch": 1,
+           "large_pages": False, "loaded": False}
     i = 0
     while i < len(options):
         tok = options[i]
@@ -294,7 +295,15 @@ def parse_engine_options(options):
             cfg["lab"] = True
             i += 1
             continue
-        if tok in ("--n", "--cap", "--species", "--seed", "--kernels", "--grid", "--load") and i + 1 < len(options):
+        if tok == "--ecores":
+            cfg["ecores"] = True
+            i += 1
+            continue
+        if tok == "--large-pages":
+            cfg["large_pages"] = True
+            i += 1
+            continue
+        if tok in ("--n", "--cap", "--species", "--seed", "--kernels", "--gpu", "--prefetch", "--grid", "--load") and i + 1 < len(options):
             val = options[i + 1]
             if tok == "--grid":
                 cfg["grid"] = val
@@ -311,13 +320,15 @@ def parse_engine_options(options):
     return cfg
 
 
-def rebuild_engine_options(base_options, n, cap, species, lab, seed, grid, kernels):
-    drop_with_val = {"--n", "--cap", "--species", "--seed", "--grid", "--load", "--kernels"}
+def rebuild_engine_options(base_options, n, cap, species, lab, seed, grid, kernels,
+                           gpu=None, ecores=None, prefetch=None, large_pages=None):
+    drop_with_val = {"--n", "--cap", "--species", "--seed", "--grid", "--load", "--kernels", "--gpu", "--prefetch"}
+    drop_flags = {"--lab", "--ecores", "--large-pages"}
     preserved = []
     i = 0
     while i < len(base_options):
         tok = base_options[i]
-        if tok == "--lab":
+        if tok in drop_flags:
             i += 1
             continue
         if tok in drop_with_val:
@@ -332,6 +343,14 @@ def rebuild_engine_options(base_options, n, cap, species, lab, seed, grid, kerne
         out.extend(["--lab", "--seed", str(seed)])
     if kernels is not None:
         out.extend(["--kernels", "1" if kernels else "0"])
+    if gpu is not None:
+        out.extend(["--gpu", "1" if gpu else "0"])
+    if prefetch is not None:
+        out.extend(["--prefetch", "1" if prefetch else "0"])
+    if ecores:
+        out.append("--ecores")
+    if large_pages:
+        out.append("--large-pages")
     out.extend(preserved)
     return out
 
@@ -403,7 +422,8 @@ class App:
                 self.finish_save({"event": "error", "detail": "engine ended before confirming the save"})
             store.end()
 
-    def restart_world(self, n, cap=0, species=None, lab=None, seed=None, grid=None, kernels=None):
+    def restart_world(self, n, cap=0, species=None, lab=None, seed=None, grid=None,
+                      kernels=None, gpu=None, ecores=None, prefetch=None, large_pages=None):
         with self.lifecycle_lock:
             if self.engine is None or not self.engine.is_file():
                 return False, "engine executable unavailable for restart"
@@ -417,8 +437,13 @@ class App:
             eff_lab = self.config.get("lab", False) if lab is None else bool(lab)
             eff_seed = self.config.get("seed", 42) if seed is None else int(seed)
             eff_kernels = self.config.get("kernels", 0) if kernels is None else (1 if kernels else 0)
+            eff_gpu = self.config.get("gpu", 0) if gpu is None else (1 if gpu else 0)
+            eff_ecores = self.config.get("ecores", False) if ecores is None else bool(ecores)
+            eff_prefetch = self.config.get("prefetch", 1) if prefetch is None else (1 if prefetch else 0)
+            eff_lp = self.config.get("large_pages", False) if large_pages is None else bool(large_pages)
             new_options = rebuild_engine_options(
-                self.options, eff_n, eff_cap, eff_sp, eff_lab, eff_seed, grid, eff_kernels
+                self.options, eff_n, eff_cap, eff_sp, eff_lab, eff_seed, grid, eff_kernels,
+                gpu=eff_gpu, ecores=eff_ecores, prefetch=eff_prefetch, large_pages=eff_lp
             )
             old_proc = self.process
             old_reader = self.reader
@@ -756,8 +781,22 @@ def handler(app):
                     raw_kernels = body.get("kernels")
                     if raw_kernels is not None and (isinstance(raw_kernels, bool) or raw_kernels not in (0, 1)):
                         return self.response(400, {"error": "kernels must be 0 or 1"})
+                    raw_gpu = body.get("gpu")
+                    if raw_gpu is not None and (isinstance(raw_gpu, bool) or raw_gpu not in (0, 1)):
+                        return self.response(400, {"error": "gpu must be 0 or 1"})
+                    raw_ecores = body.get("ecores")
+                    if raw_ecores is not None and not isinstance(raw_ecores, bool):
+                        return self.response(400, {"error": "ecores must be true or false"})
+                    raw_prefetch = body.get("prefetch")
+                    if raw_prefetch is not None and (isinstance(raw_prefetch, bool) or raw_prefetch not in (0, 1)):
+                        return self.response(400, {"error": "prefetch must be 0 or 1"})
+                    raw_lp = body.get("large_pages")
+                    if raw_lp is not None and not isinstance(raw_lp, bool):
+                        return self.response(400, {"error": "large_pages must be true or false"})
                     ok, result = app.restart_world(raw_n, cap=raw_cap, species=raw_sp, lab=raw_lab,
-                                                   seed=raw_seed, grid=raw_grid, kernels=raw_kernels)
+                                                   seed=raw_seed, grid=raw_grid, kernels=raw_kernels,
+                                                   gpu=raw_gpu, ecores=raw_ecores, prefetch=raw_prefetch,
+                                                   large_pages=raw_lp)
                     if not ok:
                         return self.response(409, {"error": result})
                     return self.response(200, result)

@@ -229,11 +229,81 @@ static void job_field_commit(AzWorld *w, u32 b, u32 e, u32 worker) { az_field_co
 /* Every creature has a brain of its own, so the next brain is not in cache
  * the way a shared one was: ask for the front of its block (header, brain
  * header, biases, the first tiles) while the current creature is worked on.
- * A prefetch reads nothing and cannot fault. */
+ * A prefetch reads nothing and cannot fault. (TR-01: gated by !no_prefetch.) */
 AZ_INLINE void blk_prefetch(const AzWorld *w, u32 slot)
 {
     const u8 *b = (const u8 *)(const void *)az_blk(w, slot);
     for (u32 q = 0; q < 1024u; q += 64u) __builtin_prefetch(b + q, 0, 3);
+}
+
+AZ_INLINE void blk_prefetch_far(const AzWorld *w, u32 slot)
+{
+    const u8 *b = (const u8 *)(const void *)az_blk(w, slot);
+    for (u32 q = 0; q < 512u; q += 64u) __builtin_prefetch(b + q, 0, 1);
+}
+
+/* Streaming DDR5 software prefetch of the next AZ_CHUNK SoA columns into L2
+ * ahead of job_act (TR-01). Reads nothing, cannot fault, zero state effect. */
+AZ_INLINE void prefetch_span(const void *ptr, size_t bytes, int rw)
+{
+    const u8 *p = (const u8 *)ptr;
+    for (size_t off = 0; off < bytes; off += 64u) __builtin_prefetch(p + off, rw, 1);
+}
+
+static void chunk_prefetch_act(const AzWorld *w, u32 cb, u32 ce)
+{
+    const size_t n = (size_t)(ce - cb);
+    prefetch_span(&w->flags[cb], n * sizeof(u8), 1);
+    prefetch_span(&w->pair[cb], n * sizeof(AzPair), 0);
+    prefetch_span(&w->motor[(size_t)cb * AZ_MOT], n * AZ_MOT, 0);
+    prefetch_span(&w->blk[cb], n * sizeof(u32), 0);
+    prefetch_span(&w->cell[cb], n * sizeof(u32), 0);
+    prefetch_span(&w->pos_x[cb], n * sizeof(u32), 1);
+    prefetch_span(&w->pos_y[cb], n * sizeof(u32), 1);
+    prefetch_span(&w->pos_z[cb], n * sizeof(u32), 1);
+    prefetch_span(&w->vel_x[cb], n * sizeof(i16), 1);
+    prefetch_span(&w->vel_y[cb], n * sizeof(i16), 1);
+    prefetch_span(&w->vel_z[cb], n * sizeof(i16), 1);
+    prefetch_span(&w->energy[cb], n * sizeof(i32), 1);
+    prefetch_span(&w->mass[cb], n * sizeof(u32), 1);
+    prefetch_span(&w->pool_a[cb], n * sizeof(u32), 1);
+}
+
+/* Pre-draw AZ_RS_NOISE for one perceive scan batch via w->k.philox_n (TR-13).
+ * Uses az_scratch(w, worker) transiently before any per-entity hook runs.
+ * Bit-identical to az_rand(w, uid, AZ_RS_NOISE, 0) & 127u for every uid. */
+static void batch_noise_draws(const AzWorld *w, u32 p0, u32 count, u32 worker, u8 noise[AZ_SCAN_BATCH])
+{
+    u32 *pbuf = (u32 *)az_scratch(w, worker);
+    u8 map[AZ_SCAN_BATCH];
+    u32 n_fast = 0;
+    const u32 tick_lo = (u32)w->tick;
+    for (u32 k = 0; k < count; k++) {
+        u32 slot = w->order[p0 + k];
+        if (w->flags[slot] & (AZ_F_EGG | AZ_F_DORMANT)) {
+            map[k] = 0xFFu;
+            noise[k] = 0u;
+            continue;
+        }
+        const u64 uid = w->uid[slot];
+        if ((uid >> 32) == 0u) {
+            u32 *c = &pbuf[n_fast * 4u];
+            c[0] = (u32)uid;
+            c[1] = tick_lo;
+            c[2] = AZ_RS_NOISE;
+            c[3] = 0u;
+            map[k] = (u8)n_fast++;
+        } else {
+            map[k] = 0xFFu;
+            noise[k] = (u8)(az_rand(w, uid, AZ_RS_NOISE, 0) & 127u);
+        }
+    }
+    if (n_fast) {
+        w->k.philox_n(pbuf, pbuf, w->tkey, n_fast);
+        for (u32 k = 0; k < count; k++) {
+            if (map[k] != 0xFFu) noise[k] = (u8)(pbuf[(u32)map[k] * 4u] & 127u);
+        }
+    }
 }
 
 /* b, e are sorted positions; a part always starts and ends on a cell boundary */
@@ -242,6 +312,7 @@ static void job_perceive(AzWorld *w, u32 b, u32 e, u32 worker)
     AzPercept *pc = (AzPercept *)az_ws_tick(w, worker);
     AzCellSense cs;
     u8 sens[AZ_SENS] AZ_ALIGNED(32);
+    u8 noise[AZ_SCAN_BATCH];
     const u32 lesion = w->cfg.lesion;
     /* lesions are masks on one code path: the same instructions run either way */
     const i8 motor_mask = (lesion & AZ_LESION_BRAIN) ? 0 : -1;
@@ -250,12 +321,17 @@ static void job_perceive(AzWorld *w, u32 b, u32 e, u32 worker)
     const u8 extero_mask = (lesion & AZ_LESION_SENSES) ? 0 : 0xFF;
     u32 cur_cell = AZ_NONE;
 
+    const bool do_pf = !w->no_prefetch;
     for (u32 p0 = b; p0 < e; p0 += AZ_SCAN_BATCH) {
         u32 count = e - p0 < AZ_SCAN_BATCH ? e - p0 : AZ_SCAN_BATCH;
         az_scan_range(w, p0, count, pc, worker);
+        batch_noise_draws(w, p0, count, worker, noise);
         for (u32 k = 0; k < count; k++) {
             u32 slot = w->order[p0 + k];
-            if (k + 2u < count) blk_prefetch(w, w->order[p0 + k + 2u]);
+            if (do_pf) {
+                if (k + 2u < count) blk_prefetch(w, w->order[p0 + k + 2u]);
+                if (k + 4u < count) blk_prefetch_far(w, w->order[p0 + k + 4u]);
+            }
             i8 *motor = &w->motor[(size_t)slot * AZ_MOT];
             u8 fin = 0;
             u8 fl = w->flags[slot];
@@ -264,7 +340,7 @@ static void job_perceive(AzWorld *w, u32 b, u32 e, u32 worker)
             } else {
                 u32 c = w->cell[slot];
                 if (c != cur_cell) { az_sense_cell(w, c, &cs); cur_cell = c; }
-                fin = az_sense_and_fin(w, slot, &pc[k], &cs, sens);
+                fin = az_sense_and_fin_noise(w, slot, &pc[k], &cs, sens, noise[k]);
                 sens[AZ_S_NOISE] &= noise_mask;
                 for (u32 i = 0; i < AZ_SENS; i++)
                     sens[i] &= (u8)(extero_mask | (az_interoceptive[i] ? 0xFF : 0));
@@ -306,6 +382,109 @@ static void job_perceive(AzWorld *w, u32 b, u32 e, u32 worker)
             az_metab_demand(w, slot, worker);
             az_physics_steer_fin(w, slot, &pc[k], fin, worker);
         }
+    }
+}
+
+/* Split Phase 1 for hosted GPU brain-step batching (TR-04):
+ *   1a. job_perceive_sense     scan + sense + write mind[0..AZ_SENS)
+ *   1b. host->brain_batch      GPU az_gpu_k_tile_brain (or job_perceive_brain_cpu fallback)
+ *   1c. job_perceive_intent    social/econ/mate intents + metab demand + physics steer
+ * Produces bit-identical state to fused job_perceive under every lesion. */
+static void job_perceive_sense(AzWorld *w, u32 b, u32 e, u32 worker)
+{
+    AzPercept *all_pc = w->host->gpu_percepts;
+    u8 *all_fin = w->host->gpu_fin;
+    AzCellSense cs;
+    u8 sens[AZ_SENS] AZ_ALIGNED(32);
+    u8 noise[AZ_SCAN_BATCH];
+    const u32 lesion = w->cfg.lesion;
+    const u8 noise_mask = (lesion & AZ_LESION_NOISE) ? 0 : 0xFF;
+    const u8 extero_mask = (lesion & AZ_LESION_SENSES) ? 0 : 0xFF;
+    const bool do_pf = !w->no_prefetch;
+    u32 cur_cell = AZ_NONE;
+
+    for (u32 p0 = b; p0 < e; p0 += AZ_SCAN_BATCH) {
+        u32 count = e - p0 < AZ_SCAN_BATCH ? e - p0 : AZ_SCAN_BATCH;
+        AzPercept *pc = &all_pc[p0];
+        az_scan_range(w, p0, count, pc, worker);
+        batch_noise_draws(w, p0, count, worker, noise);
+        for (u32 k = 0; k < count; k++) {
+            u32 slot = w->order[p0 + k];
+            if (do_pf && k + 2u < count) blk_prefetch_far(w, w->order[p0 + k + 2u]);
+            i8 *motor = &w->motor[(size_t)slot * AZ_MOT];
+            u8 fin = 0;
+            u8 fl = w->flags[slot];
+            if (fl & (AZ_F_EGG | AZ_F_DORMANT)) {
+                for (u32 m = 0; m < AZ_MOT; m++) motor[m] = 0;
+            } else {
+                u32 c = w->cell[slot];
+                if (c != cur_cell) { az_sense_cell(w, c, &cs); cur_cell = c; }
+                fin = az_sense_and_fin_noise(w, slot, &pc[k], &cs, sens, noise[k]);
+                sens[AZ_S_NOISE] &= noise_mask;
+                for (u32 i = 0; i < AZ_SENS; i++)
+                    sens[i] &= (u8)(extero_mask | (az_interoceptive[i] ? 0xFF : 0));
+                u32 bb, mb;
+                const AzBrain *br = az_brain(w, slot, &bb);
+                u8 *mind = (u8 *)az_seg(w, slot, AZ_SEG_MIND, &mb);
+                if (bb >= sizeof(AzBrain) && mb >= AZ_SENS + 16u * br->n_hb) {
+                    az_memcpy(mind, sens, AZ_SENS);
+#ifdef AZ_OBSERVE_MIND_WRITE
+                    AZ_OBSERVE_MIND_WRITE(worker, sens);
+#endif
+                } else {
+                    for (u32 m = 0; m < AZ_MOT; m++) motor[m] = 0;
+                }
+            }
+            all_fin[p0 + k] = fin;
+        }
+    }
+}
+
+static void job_perceive_brain_cpu(AzWorld *w, u32 b, u32 e, u32 worker)
+{
+    (void)worker;
+    const u32 lesion = w->cfg.lesion;
+    const i8 motor_mask = (lesion & AZ_LESION_BRAIN) ? 0 : -1;
+    const u8 hid_mask = (lesion & AZ_LESION_RECURRENCE) ? 0 : 0xFF;
+    const bool do_pf = !w->no_prefetch;
+    for (u32 i = b; i < e; i++) {
+        u32 slot = w->order[i];
+        if (do_pf && i + 2u < e) blk_prefetch(w, w->order[i + 2u]);
+        if (w->flags[slot] & (AZ_F_EGG | AZ_F_DORMANT)) continue;
+        u32 bb, mb;
+        const AzBrain *br = az_brain(w, slot, &bb);
+        u8 *mind = (u8 *)az_seg(w, slot, AZ_SEG_MIND, &mb);
+        if (bb >= sizeof(AzBrain) && mb >= AZ_SENS + 16u * br->n_hb) {
+            const u32 nh = 8u * br->n_hb;
+            u8 *hid = mind + AZ_SENS;
+            i8 *motor = &w->motor[(size_t)slot * AZ_MOT];
+            w->k.brain_step(br, mind, motor);
+            for (u32 h = 0; h < nh; h++) hid[h] = hid[nh + h] & hid_mask;
+            for (u32 m = 0; m < AZ_MOT; m++) motor[m] &= motor_mask;
+        }
+    }
+}
+
+static void job_perceive_intent(AzWorld *w, u32 b, u32 e, u32 worker)
+{
+    const AzPercept *all_pc = w->host->gpu_percepts;
+    const u8 *all_fin = w->host->gpu_fin;
+    const u32 lesion = w->cfg.lesion;
+    for (u32 i = b; i < e; i++) {
+        u32 slot = w->order[i];
+        u8 fl = w->flags[slot];
+        AzPair *pr = &w->pair[slot];
+        az_social_intent(w, slot, &all_pc[i], worker);
+        u8 a0 = pr->act, u0 = pr->urge; u32 t0 = pr->peer;
+        az_econ_intent(w, slot, &all_pc[i], worker);
+        if ((lesion & AZ_LESION_TRADE) && pr->act == AZ_ACT_TRADE) { pr->act = a0; pr->urge = u0; pr->peer = t0; }
+        a0 = pr->act; u0 = pr->urge; t0 = pr->peer;
+        az_mate_intent(w, slot, &all_pc[i], worker);
+        if ((lesion & AZ_LESION_MATING) && pr->act == AZ_ACT_MATE) { pr->act = a0; pr->urge = u0; pr->peer = t0; }
+        if (lesion & AZ_LESION_SOCIAL) { pr->act = AZ_ACT_NONE; pr->peer = AZ_NONE; pr->urge = 0; }
+        if (!(fl & AZ_F_INIT)) { pr->act = AZ_ACT_NONE; pr->peer = AZ_NONE; pr->urge = 0; }
+        az_metab_demand(w, slot, worker);
+        az_physics_steer_fin(w, slot, &all_pc[i], all_fin[i], worker);
     }
 }
 
@@ -357,8 +536,13 @@ static void job_settle(AzWorld *w, u32 b, u32 e, u32 worker)
 static void job_act(AzWorld *w, u32 b, u32 e, u32 worker)
 {
     AzTally *ty = az_tally(w, worker);
+    const bool do_pf = !w->no_prefetch;
     for (u32 cb = b; cb < e; cb += AZ_CHUNK) {
         u32 ce = cb + AZ_CHUNK < e ? cb + AZ_CHUNK : e;
+        if (do_pf && ce < e) {
+            u32 ne = ce + AZ_CHUNK < e ? ce + AZ_CHUNK : e;
+            chunk_prefetch_act(w, ce, ne);
+        }
         for (u32 s = cb; s < ce; s++) {
             u8 fl = w->flags[s];
             if (!(fl & AZ_F_ALIVE)) continue;
@@ -450,7 +634,15 @@ void az_tick(AzWorld *w)
     t1 = now(w); w->prof_ns[AZ_PROF_GRID] += t1 - t0; t0 = t1;
 
     parts = split_sorted_by_cells(w);
-    run_parts(w, job_perceive, parts);
+    if (w->host && w->host->brain_batch && w->host->gpu_percepts && w->host->gpu_fin &&
+        w->host->gpu_cap >= w->n_sorted && w->n_sorted > 0) {
+        run_parts(w, job_perceive_sense, parts);
+        if (!w->host->brain_batch(w->host->gpu_ctx, w, w->n_sorted))
+            run_parts(w, job_perceive_brain_cpu, parts);
+        run_parts(w, job_perceive_intent, parts);
+    } else {
+        run_parts(w, job_perceive, parts);
+    }
     t1 = now(w); w->prof_ns[AZ_PROF_PERCEIVE] += t1 - t0; t0 = t1;
 
     parts = split_even(w, w->n_slots, AZ_CHUNK);

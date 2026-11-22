@@ -26,5 +26,11 @@ void az_memcpy(void *dst, const void *src, size_t n)
     const u8 *s = (const u8 *)src;
     for (size_t i = 0; i < n; i++) d[i] = s[i];
 }
+/* az_ledger.c is not linked: az_clade_assign in core/az_brain.c is unreachable
+ * from test_gpu/az_gpubench, but COFF ld resolves before --gc-sections drops it. */
+void az_emit(AzWorld *w, u32 worker, u32 kind, u32 aux, u64 a, u64 b, i64 v)
+{
+    (void)w; (void)worker; (void)kind; (void)aux; (void)a; (void)b; (void)v;
+}
 
 #include "az_gpu_dev_srcs.h"   /* #include "<...>/az_rng.c" and "<...>/az_brain.c" */

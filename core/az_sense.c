@@ -158,7 +158,7 @@ static i64 body_up(const AzBodyAxes *axes,const i32 gravity[3],u32 acuity)
     return -(i64)az_body_axis(axes,precise,2)*127*acuity/((i64)length*128);
 }
 
-u8 az_sense_and_fin(const AzWorld *w, u32 slot, const AzPercept *p, const AzCellSense *cs, u8 sens[AZ_SENS])
+u8 az_sense_and_fin_noise(const AzWorld *w, u32 slot, const AzPercept *p, const AzCellSense *cs, u8 sens[AZ_SENS], u8 noise)
 {
     const AzSenseMemory *history=az_sense_memory(w,slot);
     const u8 *ph=&w->phen[(size_t)slot*AZ_PHEN];
@@ -245,7 +245,7 @@ u8 az_sense_and_fin(const AzWorld *w, u32 slot, const AzPercept *p, const AzCell
     sens[AZ_S_UP]=bipolar(body_up(&axes,cs->grav,acuity),curve);
     sens[AZ_S_RANK]=bipolar(w->rank[slot]/256,0);
     sens[AZ_S_DAY]=response((u32)az_clamp_i64(((i64)w->gstate[AZ_G_SUN0_LIGHT]+w->gstate[AZ_G_SUN1_LIGHT])/4,0,127),curve);
-    sens[AZ_S_NOISE]=(u8)(az_rand(w,w->uid[slot],AZ_RS_NOISE,0)&127u);
+    sens[AZ_S_NOISE]=(u8)(noise&127u);
     sens[AZ_S_AROUSAL]=w->arousal[slot]>>1;
     i32 temp=az_body_axis(&axes,cs->temp_grad,0);
     sens[AZ_S_GRAD_T]=bipolar(((i64)temp*gain/128)/(1ll<<shift),curve);
@@ -264,6 +264,11 @@ u8 az_sense_and_fin(const AzWorld *w, u32 slot, const AzPercept *p, const AzCell
     sens[AZ_S_PAYOFF]=(u8)az_clamp_i32(64+(history ? history->payoff : 0),0,127);
     sens[AZ_S_STAKE]=(u8)az_min_u32(127,p->faced_stake);
     return parts.fin;
+}
+
+u8 az_sense_and_fin(const AzWorld *w, u32 slot, const AzPercept *p, const AzCellSense *cs, u8 sens[AZ_SENS])
+{
+    return az_sense_and_fin_noise(w, slot, p, cs, sens, (u8)(az_rand(w, w->uid[slot], AZ_RS_NOISE, 0) & 127u));
 }
 
 void az_sense(const AzWorld *w, u32 slot, const AzPercept *p, const AzCellSense *cs, u8 sens[AZ_SENS])

@@ -60,7 +60,7 @@ AZ_INLINE void tile_add(u32 acc[8], const i8 *wt, const u8 *xi)
                         (i32)wt[k * 4u + 2u] * x2 + (i32)wt[k * 4u + 3u] * x3);
 }
 
-void az_brain_step_c(const AzBrain *b, u8 *mind, i8 *motor)
+void az_brain_step_mod_c(const AzBrain *b, const u8 gain[8], const i8 bias[8], u8 *mind, i8 *motor)
 {
     const i32 *b1 = BR_AT_C(i32, b, off_b1), *b2 = BR_AT_C(i32, b, off_b2);
     const u16 *c1 = BR_AT_C(u16, b, off_c1), *c2 = BR_AT_C(u16, b, off_c2);
@@ -76,8 +76,8 @@ void az_brain_step_c(const AzBrain *b, u8 *mind, i8 *motor)
         for (u32 t = c1[hb]; t; t--, it++, wt += 32) tile_add(acc, wt, mind + 4u * (u32)*it);
         for (u32 k = 0; k < 8u; k++) {
             i32 a = (i32)acc[k] >> s1;
-            a = (i32)((u32)a * (u32)b->gain[k]) >> 6;
-            a = (i32)((u32)a + (u32)(2 * (i32)b->bias[k]));
+            a = (i32)((u32)a * (u32)gain[k]) >> 6;
+            a = (i32)((u32)a + (u32)(2 * (i32)bias[k]));
             h2[hb * 8u + k] = (u8)az_clamp_i32(a, 0, 127);
         }
     }
@@ -90,6 +90,11 @@ void az_brain_step_c(const AzBrain *b, u8 *mind, i8 *motor)
         for (u32 k = 0; k < 8u; k++)
             motor[mb * 8u + k] = (i8)az_clamp_i32((i32)acc[k] >> s2, -127, 127);
     }
+}
+
+void az_brain_step_c(const AzBrain *b, u8 *mind, i8 *motor)
+{
+    az_brain_step_mod_c(b, b->gain, b->bias, mind, motor);
 }
 
 bool az_brain_ok(const AzBrain *b, u32 bytes, u32 mind_bytes)

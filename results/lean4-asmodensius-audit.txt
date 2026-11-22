@@ -14,3 +14,7 @@
 'AsmodensiusProofs.A14_eps_bio_positive' depends on axioms: [propext, Quot.sound]
 'AsmodensiusProofs.A15_dual_visual_worlds_verified' does not depend on any axioms
 'AsmodensiusProofs.A16_ecosystem_240_pure_lean4_theorems' does not depend on any axioms
+'AsmodensiusProofs.A17_bulk_philox_key_equivalence' depends on axioms: [propext, Quot.sound]
+'AsmodensiusProofs.A18_gpu_cpu_twin_hash_parity' does not depend on any axioms
+'AsmodensiusProofs.A19_prefetch_observational_transparency' does not depend on any axioms
+'AsmodensiusProofs.A20_ecosystem_244_pure_lean4_theorems' does not depend on any axioms

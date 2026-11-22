@@ -13,7 +13,7 @@ endif()
 
 file(READ "${IN}" ptx)
 
-foreach(k az_gpu_k_layout az_gpu_k_philox az_gpu_k_brain az_gpu_k_empty)
+foreach(k az_gpu_k_layout az_gpu_k_philox az_gpu_k_brain az_gpu_k_tile_brain az_gpu_k_kin_axis az_gpu_k_empty)
   if(NOT ptx MATCHES "\\.visible \\.entry ${k}\\(")
     message(FATAL_ERROR "az gpu: ${IN} has no entry point ${k}")
   endif()

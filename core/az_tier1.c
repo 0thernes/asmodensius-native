@@ -184,7 +184,7 @@ AZ_NOINLINE static u64 remember(AzWorld *w, u32 s, u32 worker, const u8 *t, cons
     return recalled;
 }
 
-static void visit(AzWorld *w, u32 s, u32 worker)
+static void visit_with_rng(AzWorld *w, u32 s, u32 worker, const u32 rr[4], u32 qsv_r0)
 {
     const u8 fl = w->flags[s];
     const i32 energy = w->energy[s];
@@ -194,13 +194,10 @@ static void visit(AzWorld *w, u32 s, u32 worker)
     const u8 *mind = (const u8 *)az_seg(w, s, AZ_SEG_MIND, &mbytes);
     if (bbytes < sizeof(AzBrain) || mbytes < AZ_SENS) { w->rprev[s] = energy; return; }
     const u8 *t = &w->trait[(size_t)s * AZ_TRAITS];
-    const u64 uid = w->uid[s];
     const u32 lesion = w->cfg.lesion;
     T1 *x = (T1 *)az_scratch(w, worker);
     i8 *elig = &w->elig[(size_t)s * 8];
     i8 *ctx = &w->ctx[(size_t)s * 8];
-    u32 rr[4];
-    az_rand4(w, uid, AZ_RS_TIER1, 0, rr);
 
     /* 1. reward and surprise */
     const i32 reward = (i32)az_clamp_i64((i64)energy - (i64)w->rprev[s], -32767, 32767);
@@ -235,7 +232,7 @@ static void visit(AzWorld *w, u32 s, u32 worker)
         metric = q_state(x, n_ops, used);
         i16 *qs = &w->qstate[(size_t)s * TK_QSV_LEN];
         for (u32 i = 0; i < TK_QSV_LEN; i++) qs[i] = x->psi[i];
-        const u32 lane = tk_qsv_sample(x->psi, az_rand(w, uid, AZ_RS_QSV, 0)) & 7u;
+        const u32 lane = tk_qsv_sample(x->psi, qsv_r0) & 7u;
         elig[lane] = sat_i8((i32)elig[lane] + (i32)(t[AZ_T_Q_COUPLE] >> 3));
         dctx[lane] += (i32)(t[AZ_T_Q_COUPLE] >> 4);
     }
@@ -316,8 +313,61 @@ static void visit(AzWorld *w, u32 s, u32 worker)
     }
 }
 
+enum { T1_RNG_BATCH = 16 };
+
+static void tier1_flush_batch(AzWorld *w, const u32 *slots, u32 n, u32 worker, bool want_q)
+{
+    if (!n) return;
+    u32 rr[T1_RNG_BATCH][4];
+    u32 qsv[T1_RNG_BATCH];
+    u32 *pbuf = (u32 *)az_scratch(w, worker);
+    const u32 tick_lo = (u32)w->tick;
+    const u32 stride = want_q ? 2u : 1u;
+    for (u32 i = 0; i < n; i++) {
+        const u32 uid_lo = (u32)w->uid[slots[i]];
+        u32 *c0 = &pbuf[(i * stride) * 4u];
+        c0[0] = uid_lo; c0[1] = tick_lo; c0[2] = AZ_RS_TIER1; c0[3] = 0u;
+        if (want_q) {
+            u32 *c1 = c0 + 4u;
+            c1[0] = uid_lo; c1[1] = tick_lo; c1[2] = AZ_RS_QSV; c1[3] = 0u;
+        }
+    }
+    w->k.philox_n(pbuf, pbuf, w->tkey, n * stride);
+    for (u32 i = 0; i < n; i++) {
+        const u32 *o0 = &pbuf[(i * stride) * 4u];
+        rr[i][0] = o0[0]; rr[i][1] = o0[1]; rr[i][2] = o0[2]; rr[i][3] = o0[3];
+        qsv[i] = want_q ? o0[4] : 0u;
+    }
+    for (u32 i = 0; i < n; i++) visit_with_rng(w, slots[i], worker, rr[i], qsv[i]);
+}
+
 void az_tier1_range(AzWorld *w, u32 begin, u32 end, u32 worker)
 {
-    for (u32 s = begin; s < end; s++)
-        if ((w->flags[s] & AZ_F_ALIVE) && w->blk[s] && az_tier1_due(w, w->uid[s])) visit(w, s, worker);
+    u32 slots[T1_RNG_BATCH];
+    u32 n_batch = 0;
+    const bool want_q = !(w->cfg.lesion & AZ_LESION_TIER1_Q);
+    for (u32 s = begin; s < end; s++) {
+        const u8 fl = w->flags[s];
+        if (!(fl & AZ_F_ALIVE) || !w->blk[s] || !az_tier1_due(w, w->uid[s])) continue;
+        if (fl & (AZ_F_EGG | AZ_F_DORMANT)) {
+            w->rprev[s] = w->energy[s];
+            continue;
+        }
+        const u64 uid = w->uid[s];
+        if ((uid >> 32) == 0u) {
+            slots[n_batch++] = s;
+            if (n_batch == T1_RNG_BATCH) {
+                tier1_flush_batch(w, slots, n_batch, worker, want_q);
+                n_batch = 0;
+            }
+        } else {
+            tier1_flush_batch(w, slots, n_batch, worker, want_q);
+            n_batch = 0;
+            u32 rr[4];
+            az_rand4(w, uid, AZ_RS_TIER1, 0, rr);
+            const u32 qsv_r0 = want_q ? az_rand(w, uid, AZ_RS_QSV, 0) : 0u;
+            visit_with_rng(w, s, worker, rr, qsv_r0);
+        }
+    }
+    tier1_flush_batch(w, slots, n_batch, worker, want_q);
 }

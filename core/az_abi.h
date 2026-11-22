@@ -949,15 +949,24 @@ typedef struct AzHost {
      * event can be looked into afterwards; nothing ever reads it back into a
      * run. */
     void (*entropy_log)(void *ctx, u64 tick, const u8 bytes[16]);
+    /* Optional GPU brain-step batch offload (TR-04, hosted only; NULL = CPU).
+     * When brain_batch != NULL and gpu_cap >= w->n_sorted, Phase 1 splits into
+     * parallel sense -> GPU brain_batch -> parallel intent/demand/steer.
+     * Returning false falls back to CPU brain_step with identical results. */
+    bool (*brain_batch)(void *gpu_ctx, struct AzWorld *w, u32 n_sorted);
+    void      *gpu_ctx;
+    AzPercept *gpu_percepts;
+    u8        *gpu_fin;
+    u32        gpu_cap;
 } AzHost;
 
 /* kernel dispatch: C reference by default, assembly twins when enabled. A
  * twin must be bit-identical to its reference on every input.
  * philox_n is az_philox4x32_n (C) unless the AVX2 twin is installed: never
- * NULL (the owner asked for a C default; findings v35, v46, v74). No tick
- * stage calls it yet: every draw goes through az_rand4 one block at a time,
- * so asm_mask says which twins are INSTALLED, not which ones run. The first
- * caller will be a stage that draws in bulk. */
+ * NULL (the owner asked for a C default; findings v35, v46, v74). It runs
+ * live in job_perceive (AZ_RS_NOISE), az_life_range (AZ_RS_LIFE) and
+ * az_tier1_range (AZ_RS_TIER1, AZ_RS_QSV) for batched counter draws with
+ * key == w->tkey, with exact scalar fallback when uid >= 2^32 (TR-13). */
 typedef struct AzKernels {
     void (*brain_step)(const AzBrain *b, u8 *mind, i8 *motor);
     void (*philox_n)(u32 *out4n, const u32 *ctr4n, const u32 key[2], u32 n);
@@ -1073,6 +1082,12 @@ typedef struct AzWorld {
     u32      *ev_fill;         /* events in each closed block                   */
     u32       ev_blocks;       /* blocks in the pool                            */
     u32       ev_next;         /* next block to hand out (atomic)               */
+    u64       store_in_place_gen; /* bumped on compaction or dirty overflow (TR-04) */
+    u32       store_dirty_h[1024]; /* block handles whose AZ_SEG_BRAIN moved in place */
+    u32       store_dirty_u[1024]; /* block sizes (units) for dirty handles         */
+    u32       store_dirty_n;      /* entries in store_dirty_h (0..1024)            */
+    u32       store_sync_top;     /* GPU-synced unit watermark (0 when no GPU)     */
+    u8        no_prefetch;     /* 0 = DDR5 streaming prefetch on (TR-01), 1 = off */
     AzWorker  workers[AZ_MAX_WORKERS];
 } AzWorld;
 
@@ -1569,10 +1584,12 @@ u32  az_scan_list(const AzWorld *w, u32 slot, i32 (*off)[3], u32 *oslot, u32 max
 void az_sense_cell(const AzWorld *w, u32 c, AzCellSense *cs);
 void az_sense(const AzWorld *w, u32 slot, const AzPercept *p, const AzCellSense *cs, u8 sens[AZ_SENS]);
 u8 az_sense_and_fin(const AzWorld *w, u32 slot, const AzPercept *p, const AzCellSense *cs, u8 sens[AZ_SENS]); /* one traversal of the body in phase 1 */
+u8 az_sense_and_fin_noise(const AzWorld *w, u32 slot, const AzPercept *p, const AzCellSense *cs, u8 sens[AZ_SENS], u8 noise); /* phase 1 with pre-drawn AZ_RS_NOISE byte */
 
 /* ---- az_brain.c : the per-creature int8 recurrent network; lineages ---- */
 /* One step: mind = sens ++ hid ++ hid2 (see AzBrain); writes hid2 and
  * motor[AZ_MOT]. Defined for every header that az_brain_ok accepts. */
+void az_brain_step_mod_c(const AzBrain *b, const u8 gain[8], const i8 bias[8], u8 *mind, i8 *motor);
 void az_brain_step_c(const AzBrain *b, u8 *mind, i8 *motor);
 /* bytes of a brain segment and of its mind segment */
 u64  az_brain_bytes(u32 n_hb, u32 n_t1, u32 n_t2);

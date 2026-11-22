@@ -40,6 +40,9 @@
 #include "../core/az_abi.h"
 #include "../platform/win/az_host_win.h"
 #include "../kernels/az_kernels.h"
+#ifdef AZ_HAVE_GPU
+#include "../gpu/az_gpu.h"
+#endif
 #include "../view/az_view.h"
 #include "az_tools.h"
 #include "az_stats_report.h"
@@ -53,16 +56,18 @@
 
 static const char *const opt_value[] = {
     "--dir", "--n", "--seed", "--grid", "--cap", "--species", "--lesion", "--param", "--load", "--threads",
-    "--kernels", "--size", "--every", "--fps", "--keep", "--max-ticks", "--label", "--sps", "--tps", "--pace", "--observer-ms", NULL
+    "--kernels", "--gpu", "--prefetch", "--size", "--every", "--fps", "--keep", "--max-ticks", "--label",
+    "--sps", "--tps", "--pace", "--observer-ms", NULL
 };
-static const char *const opt_flag[] = { "--lab", "--stream", NULL };
+static const char *const opt_flag[] = { "--lab", "--stream", "--ecores", "--large-pages", NULL };
 
 static int usage(void)
 {
     printf("usage: az_live --dir DIR [--n N] [--lab [--seed S]] [--grid x,y,z] [--cap C] [--species 1..100]\n"
-           "               [--lesion 0..0x%x] [--param name=value,...] [--load FILE] [--threads 0..%u]\n"
-           "               [--kernels 0|1] [--size WxH] [--every K] [--fps F] [--keep K] [--max-ticks T]\n"
-           "               [--label TEXT] [--stream [--sps 1..60] [--tps T] [--observer-ms M] [--pace free|picture]]\n"
+           "               [--lesion 0..0x%x] [--param name=value,...] [--load FILE] [--threads 0..%u] [--ecores]\n"
+           "               [--large-pages] [--kernels 0|1] [--gpu 0|1] [--prefetch 0|1] [--size WxH] [--every K]\n"
+           "               [--fps F] [--keep K] [--max-ticks T] [--label TEXT]\n"
+           "               [--stream [--sps 1..60] [--tps T] [--observer-ms M] [--pace free|picture]]\n"
            "  The world is wild (fresh entropy every tick, no seed, never the same twice) unless --lab is given;\n"
            "  --lab is the seeded, repeatable test bench, and --seed needs it.\n"
            "  stdin commands: run | pause | step [K] | every K | fps F | camera YAW PITCH DIST | size WxH |\n"
@@ -292,11 +297,11 @@ static void spread_print(const char *name, const Spread *s, u64 n, bool comma)
 int main(int argc, char **argv)
 {
     const char *dir = NULL, *size = "960x540", *params = NULL, *load = NULL, *label = "asmodensius-native live";
-    u32 n = 20000, cap = 0, species = 100, lesion = 0, threads = 0, kernels = 0;
+    u32 n = 20000, cap = 0, species = 100, lesion = 0, threads = 0, kernels = 0, gpu_req = 0, prefetch = 1;
     u32 every = 1, fps = 8, keep = 8, max_ticks = 0;
     u64 seed = 42;
     u32 grid[3] = { 6, 6, 5 }, iw = 960, ih = 540;
-    bool grid_given = false, lab = false, stream = false;
+    bool grid_given = false, lab = false, stream = false, ecores = false, large_pages = false;
     u32 sps = 15, tps = 0, observer_ms = 0;
     const char *pace = "free";
 
@@ -312,6 +317,8 @@ int main(int argc, char **argv)
               azt_str(argc, argv, 1, "--load", &load) &&
               azt_u32(argc, argv, 1, "--threads", 0, AZ_MAX_WORKERS, &threads) &&
               azt_u32(argc, argv, 1, "--kernels", 0, 1, &kernels) &&
+              azt_u32(argc, argv, 1, "--gpu", 0, 1, &gpu_req) &&
+              azt_u32(argc, argv, 1, "--prefetch", 0, 1, &prefetch) &&
               azt_str(argc, argv, 1, "--size", &size) &&
               azt_u32(argc, argv, 1, "--every", 1, 10000, &every) &&
               azt_u32(argc, argv, 1, "--fps", 1, 60, &fps) &&
@@ -320,6 +327,8 @@ int main(int argc, char **argv)
               azt_str(argc, argv, 1, "--label", &label) &&
               azt_flag(argc, argv, 1, "--lab", &lab) &&
               azt_flag(argc, argv, 1, "--stream", &stream) &&
+              azt_flag(argc, argv, 1, "--ecores", &ecores) &&
+              azt_flag(argc, argv, 1, "--large-pages", &large_pages) &&
               azt_u32(argc, argv, 1, "--sps", 1, 60, &sps) &&
               azt_u32(argc, argv, 1, "--tps", 0, UINT32_MAX, &tps) &&
               azt_u32(argc, argv, 1, "--observer-ms", 0, UINT32_MAX, &observer_ms) &&
@@ -396,7 +405,9 @@ int main(int argc, char **argv)
 
     AzWinInfo info;
     memset(&info, 0, sizeof info);
-    AzHost *host = az_win_host_create(threads, 0, &info);
+    const u32 hflags = ecores ? AZ_WIN_USE_ECORES : 0u;
+    const u32 aflags = AZ_WIN_LOCK | (large_pages ? AZ_WIN_LARGE_PAGES : 0u);
+    AzHost *host = az_win_host_create(threads, hflags, &info);
     if (!host) { fprintf(stderr, "host creation failed\n"); free(snap); return 2; }
     const u64 bytes = az_world_bytes(&cfg);
     if (!bytes) {
@@ -407,7 +418,7 @@ int main(int argc, char **argv)
     }
     AzArena arena;
     AztTeaching teaching;
-    if (!azt_teaching_arena(&arena, bytes, cfg.cap, AZ_WIN_LOCK, &info, !stream, &teaching)) {
+    if (!azt_teaching_arena(&arena, bytes, cfg.cap, aflags, &info, !stream, &teaching)) {
         fprintf(stderr, "error: the %.1f MB arena %s (%s)\n", (double)bytes / 1048576.0,
                 info.arena_refused ? "could not be locked in RAM; try fewer creatures" : "could not be allocated",
                 info.note);
@@ -427,8 +438,32 @@ int main(int argc, char **argv)
         return 2;
     }
     if (w->rock_repaired_on_load) fprintf(stderr, "--load: repaired %u live positions in bedrock\n", w->rock_repaired_on_load);
+    w->no_prefetch = prefetch ? 0u : 1u;
     if (w->cfg.kernels) az_kernels_install(w, AZ_K_ALL);
+    bool gpu_active = false;
+    char gpu_name[128] = "";
+#ifdef AZ_HAVE_GPU
+    AzGpuTick *gpu_tick = NULL;
+    if (gpu_req) {
+        AzGpuInfo gi;
+        memset(&gi, 0, sizeof gi);
+        int gs = az_gpu_tick_create(&gpu_tick, w->cap, &gi);
+        if (gs == AZ_GPU_OK) {
+            az_gpu_tick_attach(gpu_tick, host);
+            gpu_active = true;
+            snprintf(gpu_name, sizeof gpu_name, "%s", gi.device_name);
+        } else {
+            fprintf(stderr, "warning: --gpu 1 requested but unavailable (%s: %s); running on CPU\n",
+                    az_gpu_status_name(gs), gi.msg);
+        }
+    }
+#else
+    if (gpu_req) fprintf(stderr, "warning: --gpu 1 requested but this binary has no GPU component; running on CPU\n");
+#endif
     if (params && !azt_params(w, params)) {
+#ifdef AZ_HAVE_GPU
+        if (gpu_tick) { az_gpu_tick_detach(gpu_tick, host); az_gpu_tick_destroy(gpu_tick); }
+#endif
         az_win_host_destroy(host);
         az_win_arena_free(&arena);
         return 2;
@@ -451,7 +486,11 @@ int main(int argc, char **argv)
     in.pipe = in.h && in.h != INVALID_HANDLE_VALUE && GetFileType(in.h) == FILE_TYPE_PIPE;
 
     if (stream) {
-        int rc = stream_run(w, &in, &c, sps, tps, observer_ms, !strcmp(pace, "free"), max_ticks, info.arena_locked);
+        int rc = stream_run(w, &in, &c, sps, tps, observer_ms, !strcmp(pace, "free"), max_ticks,
+                            info.arena_locked, gpu_active, gpu_name, ecores, info.arena_large, prefetch, w->cfg.kernels);
+#ifdef AZ_HAVE_GPU
+        if (gpu_tick) { az_gpu_tick_detach(gpu_tick, host); az_gpu_tick_destroy(gpu_tick); }
+#endif
         az_win_host_destroy(host);
         az_win_arena_free(&arena);
         return rc;
@@ -461,6 +500,9 @@ int main(int argc, char **argv)
     u32 *px = malloc((size_t)c.iw * c.ih * sizeof *px);
     if (!v || !px) {
         fprintf(stderr, "out of memory for a %ux%u view\n", c.iw, c.ih);
+#ifdef AZ_HAVE_GPU
+        if (gpu_tick) { az_gpu_tick_detach(gpu_tick, host); az_gpu_tick_destroy(gpu_tick); }
+#endif
         az_win_host_destroy(host);
         az_win_arena_free(&arena);
         return 2;
@@ -483,10 +525,15 @@ int main(int argc, char **argv)
     if (wild) printf("\"origin\":\"%08x%08x\",", w->key[1], w->key[0]);
     else printf("\"seed\":%" PRIu64 ",", w->cfg.seed);
     printf("\"n\":%u,\"cap\":%u,\"species\":%u,\"grid\":[%u,%u,%u],\"cells\":%u,\"lesion\":%u,\"workers\":%u,"
-           "\"arena_mb\":%.1f,\"locked\":%u,\"size\":[%u,%u],\"every\":%u,\"fps\":%u,\"tick\":%" PRIu64 ","
-           "\"loaded\":%s,\"matter0\":%" PRIu64 ",\"energy0\":%" PRId64 ",\"pipe\":%s,\"label\":",
+           "\"arena_mb\":%.1f,\"locked\":%u,\"large_pages\":%u,\"kernels\":%u,\"prefetch\":%u,\"ecores\":%s,"
+           "\"gpu\":%s,\"gpu_name\":",
            w->cfg.n_initial, w->cap, w->cfg.n_species, w->gx, w->gy, w->gz, w->n_cells, w->cfg.lesion,
-           host->n_workers, (double)arena.size / 1048576.0, info.arena_locked, c.iw, c.ih, c.every, c.fps,
+           host->n_workers, (double)arena.size / 1048576.0, info.arena_locked, info.arena_large,
+           w->cfg.kernels, prefetch, ecores ? "true" : "false", gpu_active ? "true" : "false");
+    json_str(gpu_name);
+    printf(",\"size\":[%u,%u],\"every\":%u,\"fps\":%u,\"tick\":%" PRIu64 ","
+           "\"loaded\":%s,\"matter0\":%" PRIu64 ",\"energy0\":%" PRId64 ",\"pipe\":%s,\"label\":",
+           c.iw, c.ih, c.every, c.fps,
            w->tick, load ? "true" : "false", matter0, energy0, in.pipe ? "true" : "false");
     json_str(label);
     printf("}\n");
@@ -713,6 +760,9 @@ int main(int argc, char **argv)
     azt_intake_detach();
 #endif
     azt_teaching_detach(&teaching);
+#ifdef AZ_HAVE_GPU
+    if (gpu_tick) { az_gpu_tick_detach(gpu_tick, host); az_gpu_tick_destroy(gpu_tick); }
+#endif
     free(px);
     az_view_destroy(v);
     az_win_host_destroy(host);

@@ -51,6 +51,9 @@
 #include "../platform/win/az_host_win.h"
 #include "../platform/win/az_sink_win.h"
 #include "../kernels/az_kernels.h"
+#ifdef AZ_HAVE_GPU
+#include "../gpu/az_gpu.h"
+#endif
 #include "az_tools.h"
 #include "az_stats_report.h"
 #include "az_teaching_observer.h"
@@ -76,7 +79,7 @@ enum {
 
 static const char *const opt_value[] = {
     "--n", "--ticks", "--seed", "--threads", "--grid", "--cap", "--species", "--reorder", "--k1", "--k2",
-    "--stride", "--lesion", "--max-clades", "--split-seed", "--kernels", "--hash-every", "--audit-every",
+    "--stride", "--lesion", "--max-clades", "--split-seed", "--kernels", "--gpu", "--prefetch", "--hash-every", "--audit-every",
     "--save", "--load", "--ledger", "--param", "--store-units", "--store-period", "--entropy-journal", NULL
 };
 static const char *const opt_flag[] = {
@@ -88,7 +91,7 @@ static int usage(void)
     printf("usage: az_run [--n N] [--ticks T] [--lab [--seed S]] [--threads 0..%u] [--ecores] [--no-pin]\n"
            "              [--grid x,y,z] [--cap C] [--species 1..100] [--reorder 0..255] [--k1 0..255]\n"
            "              [--k2 0..65535] [--stride 0|2..128] [--lesion 0..0x%x] [--max-clades 0..%u]\n"
-           "              [--split-seed S] [--kernels 0|1] [--hash-every K] [--audit-every K]\n"
+           "              [--split-seed S] [--kernels 0|1] [--gpu 0|1] [--prefetch 0|1] [--hash-every K] [--audit-every K]\n"
            "              [--save FILE] [--load FILE] [--ledger FILE] [--entropy-journal FILE]\n"
            "              [--param name=value,...] [--store-units U] [--store-period K]\n"
            "              [--no-lock] [--allow-pageable] [--large-pages] [--quiet]\n"
@@ -152,7 +155,8 @@ static bool same_as_snapshot(int argc, char **argv, const char *name, u64 given,
 int main(int argc, char **argv)
 {
     u32 n = 100000, ticks = 1000, cap = 0, species = 100, reorder = 16, k1 = 32, k2 = 256, stride = 8;
-    u32 lesion = 0, max_clades = 0, split = 0, kernels = 0, threads = 0, hash_every = 0, audit_every = 0;
+    u32 lesion = 0, max_clades = 0, split = 0, kernels = 0, gpu_req = 0, prefetch = 1;
+    u32 threads = 0, hash_every = 0, audit_every = 0;
     u64 seed = 42;
     u32 grid[3] = { 6, 6, 5 };
     bool grid_given = false, ecores = false, no_pin = false, no_lock = false, pageable = false;
@@ -176,6 +180,8 @@ int main(int argc, char **argv)
               azt_u32(argc, argv, 1, "--max-clades", 0, 1u << 24, &max_clades) &&
               azt_u32(argc, argv, 1, "--split-seed", 0, 0xFFFFFFFFu, &split) &&
               azt_u32(argc, argv, 1, "--kernels", 0, 1, &kernels) &&
+              azt_u32(argc, argv, 1, "--gpu", 0, 1, &gpu_req) &&
+              azt_u32(argc, argv, 1, "--prefetch", 0, 1, &prefetch) &&
               azt_u32(argc, argv, 1, "--hash-every", 0, 0xFFFFFFFFu, &hash_every) &&
               azt_u32(argc, argv, 1, "--audit-every", 0, 0xFFFFFFFFu, &audit_every) &&
               azt_str(argc, argv, 1, "--save", &save) &&
@@ -370,9 +376,37 @@ int main(int argc, char **argv)
         return 2;
     }
     if (w->rock_repaired_on_load) fprintf(stderr, "--load: repaired %u live positions in bedrock\n", w->rock_repaired_on_load);
+    w->no_prefetch = prefetch ? 0u : 1u;
     u32 twins = cfg.kernels ? az_kernels_install(w, AZ_K_ALL) : 0;
+#ifdef AZ_HAVE_GPU
+    AzGpuTick *gpu_tick = NULL;
+    AzGpuInfo gpu_info;
+    memset(&gpu_info, 0, sizeof gpu_info);
+    if (gpu_req) {
+        int gs = az_gpu_tick_create(&gpu_tick, w->cap, &gpu_info);
+        if (gs != AZ_GPU_OK) {
+            fprintf(stderr, "--gpu 1: %s (%s)\n", az_gpu_status_name(gs), gpu_info.msg);
+            if (sink) az_sink_close(sink, NULL);
+            az_win_host_destroy(host);
+            az_win_arena_free(&arena);
+            return 2;
+        }
+        az_gpu_tick_attach(gpu_tick, run_host);
+    }
+#else
+    if (gpu_req) {
+        fprintf(stderr, "--gpu 1: this binary was built without the GPU component\n");
+        if (sink) az_sink_close(sink, NULL);
+        az_win_host_destroy(host);
+        az_win_arena_free(&arena);
+        return 2;
+    }
+#endif
     if (params && (load || !azt_params(w, params))) {
         if (load) fprintf(stderr, "--param: a loaded world keeps the parameters it was saved with\n");
+#ifdef AZ_HAVE_GPU
+        if (gpu_tick) { az_gpu_tick_detach(gpu_tick, run_host); az_gpu_tick_destroy(gpu_tick); }
+#endif
         if (sink) az_sink_close(sink, NULL);
         az_win_host_destroy(host);
         az_win_arena_free(&arena);
@@ -393,13 +427,19 @@ int main(int argc, char **argv)
                info.pool_note[0] ? "; " : "", info.pool_note);
         printf("arena: %.1f MB, locked=%u, large_pages=%u %s\n", (double)arena.size / 1048576.0,
                info.arena_locked, info.arena_large, info.note);
-        /* name what runs (finding v35): the brain step runs every tick; no stage
-         * calls bulk Philox yet, so its twin is installed but idle */
-        printf("kernels: brain step %s; bulk Philox %s, not called by any stage yet; horizontal physics %s (twin mask 0x%x, cpu "
+        /* name what runs (TR-13 / TR-01 / TR-04): brain step, bulk Philox (perceive/life/tier1),
+         * horizontal physics, DDR5 streaming prefetch, and optional CUDA PTX GPU brain batch. */
+        printf("kernels: brain step %s; bulk Philox %s (perceive/life/tier1); horizontal physics %s; prefetch=%u (twin mask 0x%x, cpu "
                "features 0x%x)\n",
-               (twins & AZ_K_BRAIN_VNNI) ? "AVX-VNNI twin" : (twins & AZ_K_BRAIN_AVX2) ? "AVX2 twin" : "C reference",
-               (twins & AZ_K_PHILOX_AVX2) ? "AVX2 twin installed" : "C reference",
-               (twins & AZ_K_KIN_AVX2) ? "AVX2 twin installed" : "C reference", twins, az_cpu_features());
+               gpu_req ? "CUDA PTX GPU (az_gpu_k_tile_brain)"
+                       : (twins & AZ_K_BRAIN_VNNI) ? "AVX-VNNI twin"
+                       : (twins & AZ_K_BRAIN_AVX2) ? "AVX2 twin" : "C reference",
+               (twins & AZ_K_PHILOX_AVX2) ? "AVX2 twin active" : "C reference",
+               (twins & AZ_K_KIN_AVX2) ? "AVX2 twin active" : "C reference",
+               prefetch, twins, az_cpu_features());
+#ifdef AZ_HAVE_GPU
+        if (gpu_tick) printf("gpu: %s\n", gpu_info.msg);
+#endif
         if (w->cfg.mode == AZ_MODE_WILD)
             printf("mode: WILD - made of fresh entropy from the operating system, 16 more bytes drawn every tick; no "
                    "seed, never the same twice (origin %08x%08x)%s%s\n", w->key[1], w->key[0],
@@ -492,6 +532,23 @@ int main(int argc, char **argv)
         for (u32 k = 0; k < AZ_PROF_COUNT; k++)
             printf(" %s=%.3f", azt_prof_name(k), (double)w->prof_ns[k] / 1e6 / ticks);
         printf("\n");
+#ifdef AZ_HAVE_GPU
+        if (gpu_tick) {
+            AzGpuTickStats gs;
+            az_gpu_tick_stats(gpu_tick, &gs);
+            printf("gpu_tick: gpu_ticks=%" PRIu64 " fallbacks=%" PRIu64 " brains=%" PRIu64
+                   " store_tx=%.1f MB vram_store=%.1f MB vram_scratch=%.1f MB"
+                   " (ms/tick: pack=%.3f h2d=%.3f kernel+d2h=%.3f unpack=%.3f)\n",
+                   gs.ticks_gpu, gs.ticks_fallback, gs.brains_eval,
+                   (double)gs.store_bytes_tx / 1048576.0,
+                   (double)gs.vram_store_bytes / 1048576.0,
+                   (double)gs.vram_scratch_bytes / 1048576.0,
+                   (double)gs.pack_ns / 1e6 / ticks,
+                   (double)gs.h2d_ns / 1e6 / ticks,
+                   (double)gs.kernel_ns / 1e6 / ticks,
+                   (double)gs.unpack_ns / 1e6 / ticks);
+        }
+#endif
     }
     printf("births %" PRIu64 " deaths %" PRIu64 " cap_denied %" PRIu64 " clades %u colonies %u max_generation %u\n",
            w->totals.births, w->totals.deaths, w->totals.cap_denied, st.n_clades, st.n_colonies, st.max_generation);
@@ -595,6 +652,9 @@ int main(int argc, char **argv)
             rc = 1;
         }
     }
+#ifdef AZ_HAVE_GPU
+    if (gpu_tick) { az_gpu_tick_detach(gpu_tick, run_host); az_gpu_tick_destroy(gpu_tick); }
+#endif
     az_win_host_destroy(host);
     az_win_arena_free(&arena);
     return rc;

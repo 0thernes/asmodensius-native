@@ -247,6 +247,15 @@ function(az_needs_view out name)
   endforeach()
 endfunction()
 
+# --- optional component with its own build file: gpu ----------------------------
+# There is no boot-image or no-OS component: the owner's rule L6 (2026-11-17)
+# says the engine runs only as a Windows program from Z:.
+# Added before tools so az_run and az_live can optionally link az_gpu (TR-04).
+az_selected(sel AZ_COMPONENTS "gpu")
+if(sel AND EXISTS "${CMAKE_SOURCE_DIR}/gpu/CMakeLists.txt")
+  add_subdirectory("${CMAKE_SOURCE_DIR}/gpu" "${CMAKE_BINARY_DIR}/gpu")
+endif()
+
 # --- tools: tools/az_<name>.c -------------------------------------------------
 file(GLOB AZ_TOOL_SRCS CONFIGURE_DEPENDS "${AZ_GLOB_ROOT}/tools/az_*.c")
 foreach(src ${AZ_TOOL_SRCS})
@@ -257,6 +266,10 @@ foreach(src ${AZ_TOOL_SRCS})
   if(sel AND (NOT nv OR AZ_HAVE_VIEW))
     add_executable(${exe} "${src}")
     az_link(${exe})
+    if(TARGET az_gpu AND (exe STREQUAL "az_run" OR exe STREQUAL "az_live"))
+      target_link_libraries(${exe} PRIVATE az_gpu)
+      target_compile_definitions(${exe} PRIVATE AZ_HAVE_GPU=1)
+    endif()
   endif()
 endforeach()
 # The hosted reporters and their causal witnesses must use the same instrumented
@@ -413,6 +426,8 @@ if("${AZ_TESTS}" STREQUAL "ALL")
     if(TARGET az_run AND TARGET az_live)
       add_test(NAME cli_live_smoke COMMAND ${AZ_PYTHON} -I "${CMAKE_SOURCE_DIR}/tests/cli/live_smoke.py"
                "$<TARGET_FILE:az_live>" "$<TARGET_FILE:az_run>" "${CMAKE_BINARY_DIR}/cli_live_smoke")
+      add_test(NAME cli_gpu_tick_parity COMMAND ${AZ_PYTHON} -I -B "${CMAKE_SOURCE_DIR}/tests/cli/gpu_tick_parity.py"
+               "$<TARGET_FILE:az_run>")
     endif()
     if(TARGET az_intake_core AND TARGET az_run AND TARGET az_live AND "${AZ_ONLY}" STREQUAL "ALL")
       if("econ" IN_LIST AZ_REAL)
@@ -494,14 +509,6 @@ endif()
 if(AZ_UBSAN)
   add_executable(ubsan_probe "${CMAKE_SOURCE_DIR}/tests/ubsan_probe.c")
   target_compile_options(ubsan_probe PRIVATE ${AZ_WARN} -O2 ${AZ_SAN})
-endif()
-
-# --- optional component with its own build file: gpu ----------------------------
-# There is no boot-image or no-OS component: the owner's rule L6 (2026-11-17)
-# says the engine runs only as a Windows program from Z:.
-az_selected(sel AZ_COMPONENTS "gpu")
-if(sel AND EXISTS "${CMAKE_SOURCE_DIR}/gpu/CMakeLists.txt")
-  add_subdirectory("${CMAKE_SOURCE_DIR}/gpu" "${CMAKE_BINARY_DIR}/gpu")
 endif()
 
 if(AZ_RESIDENCY_RECEIPTS)

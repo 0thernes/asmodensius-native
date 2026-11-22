@@ -193,6 +193,14 @@ class LiveRun:
                 args += ["--grid", o["grid"]]
         if o.get("kernels"):
             args += ["--kernels", "1"]
+        if o.get("ecores"):
+            args += ["--ecores"]
+        if o.get("gpu"):
+            args += ["--gpu", "1"]
+        if o.get("prefetch") is not None:
+            args += ["--prefetch", "1" if o["prefetch"] else "0"]
+        if o.get("large_pages"):
+            args += ["--large-pages"]
         proc = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                 cwd=str(WORK), creationflags=NO_WINDOW, bufsize=0)
         with self.lock:
@@ -540,6 +548,10 @@ def world_options(body, lesion_bits):
         "threads": clamp_int(body.get("threads"), 0, 64, 0),
         "ticks": clamp_int(body.get("ticks"), 1, 100000, 200),
         "kernels": bool(body.get("kernels", True)),
+        "ecores": bool(body.get("ecores", True)),
+        "prefetch": bool(body.get("prefetch", True)),
+        "gpu": bool(body.get("gpu", False)),
+        "large_pages": bool(body.get("large_pages", False)),
         "lesion": 0,
         "params": [],
         "grid": None,

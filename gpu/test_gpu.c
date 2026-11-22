@@ -406,6 +406,234 @@ static void test_brain_guards(AzGpu *g, const BrainData *d)
     free(alt); free(hid); free(mot);
 }
 
+/* ---- 4. TR-18: real sparse tiled brain (core/az_brain.c) & kinematics ---- */
+static u64 pad8_u64(u64 x) { return (x + 7u) & ~7ull; }
+
+static void build_random_tile_brain(u8 *dst, u32 n_hb, u32 n_t1, u32 n_t2)
+{
+    AzBrain *b = (AzBrain *)(void *)dst;
+    memset(b, 0, sizeof *b);
+    u32 at = (u32)sizeof(AzBrain);
+    b->n_hb = (u16)n_hb; b->n_mb = (u16)(AZ_MOT / 8u);
+    b->n_t1 = n_t1; b->n_t2 = n_t2;
+    b->n_sg = (u8)(AZ_SENS / 4u); b->pad = 0;
+    b->off_b1 = at;  at += 32u * n_hb;
+    b->off_b2 = at;  at += 4u * AZ_MOT;
+    b->off_c1 = at;  at += (u32)pad8_u64(2ull * n_hb);
+    b->off_c2 = at;  at += (u32)pad8_u64(2ull * b->n_mb);
+    b->off_in1 = at; at += (u32)pad8_u64(2ull * n_t1);
+    b->off_in2 = at; at += (u32)pad8_u64(2ull * n_t2);
+    b->off_w1 = at;  at += 32u * n_t1;
+    b->off_w2 = at;
+    b->shift1 = (u8)(td_u64() & 15u);
+    b->shift2 = (u8)(td_u64() & 15u);
+    for (u32 k = 0; k < 8; k++) {
+        b->gain[k] = (u8)(1u + (td_u64() % 255u));
+        b->bias[k] = (i8)(td_u64() & 255u);
+    }
+    i32 *b1 = (i32 *)(void *)(dst + b->off_b1);
+    i32 *b2 = (i32 *)(void *)(dst + b->off_b2);
+    u16 *c1 = (u16 *)(void *)(dst + b->off_c1);
+    u16 *c2 = (u16 *)(void *)(dst + b->off_c2);
+    u16 *in1 = (u16 *)(void *)(dst + b->off_in1);
+    u16 *in2 = (u16 *)(void *)(dst + b->off_in2);
+    i8 *w1 = (i8 *)(void *)(dst + b->off_w1);
+    i8 *w2 = (i8 *)(void *)(dst + b->off_w2);
+    for (u32 i = 0; i < 8u * n_hb; i++) b1[i] = (i32)(td_u64() % 2097153u) - 1048576;
+    for (u32 i = 0; i < AZ_MOT; i++) b2[i] = (i32)(td_u64() % 2097153u) - 1048576;
+    u32 rem1 = n_t1, max_g1 = (AZ_SENS / 4u) + 2u * n_hb;
+    for (u32 hb = 0; hb < n_hb; hb++) {
+        u32 cnt = (hb + 1u == n_hb) ? rem1 : (rem1 / (n_hb - hb));
+        if (cnt > max_g1) cnt = max_g1;
+        c1[hb] = (u16)cnt;
+        rem1 -= cnt;
+    }
+    u32 pos = 0;
+    for (u32 hb = 0; hb < n_hb; hb++) {
+        for (u32 t = 0; t < c1[hb]; t++) in1[pos++] = (u16)(t % max_g1);
+    }
+    b->n_t1 = pos;
+    u32 rem2 = n_t2, max_g2 = n_hb ? 2u * n_hb : 1u;
+    for (u32 mb = 0; mb < b->n_mb; mb++) {
+        u32 cnt = n_hb ? ((mb + 1u == b->n_mb) ? rem2 : (rem2 / (b->n_mb - mb))) : 0u;
+        if (cnt > max_g2) cnt = max_g2;
+        c2[mb] = (u16)cnt;
+        rem2 -= cnt;
+    }
+    pos = 0;
+    for (u32 mb = 0; mb < b->n_mb; mb++) {
+        for (u32 t = 0; t < c2[mb]; t++) in2[pos++] = (u16)(t % max_g2);
+    }
+    b->n_t2 = pos;
+    td_fill(w1, 32u * n_t1);
+    td_fill(w2, 32u * n_t2);
+}
+
+static void test_tile_brain(AzGpu *g)
+{
+    /* 128 distinct variable-size sparse AzBrain templates (0..6 hidden blocks)
+     * instantiated across 1,000,000 creatures (including 0-hidden and skipped
+     * slots) and verified bit-for-bit against core/az_brain.c az_brain_step_mod_c. */
+    const u32 n_tpl = 128, n = 1000000;
+    u32 tpl_off[128], tpl_nhb[128];
+    u64 store_bytes = 64;
+    for (u32 t = 0; t < n_tpl; t++) {
+        u32 nhb = (t == 0) ? 0u : (1u + (t % 6u));
+        u32 nt1 = nhb ? (nhb * (3u + (t % 5u))) : 0u;
+        u32 nt2 = nhb ? ((AZ_MOT / 8u) * (1u + (t % (2u * nhb)))) : 0u;
+        u64 bbytes = pad8_u64(az_brain_bytes(nhb, nt1, nt2));
+        tpl_off[t] = (u32)store_bytes;
+        tpl_nhb[t] = nhb;
+        store_bytes += bbytes;
+    }
+    u8 *store = xalloc((size_t)store_bytes);
+    memset(store, 0, (size_t)store_bytes);
+    for (u32 t = 0; t < n_tpl; t++) {
+        u32 nhb = tpl_nhb[t];
+        u32 nt1 = nhb ? (nhb * (3u + (t % 5u))) : 0u;
+        u32 nt2 = nhb ? ((AZ_MOT / 8u) * (1u + (t % (2u * nhb)))) : 0u;
+        build_random_tile_brain(store + tpl_off[t], nhb, nt1, nt2);
+    }
+
+    u32 *bo8 = xalloc((size_t)n * sizeof(u32));
+    u32 *mo8 = xalloc((size_t)n * sizeof(u32));
+    u32 *ho8 = xalloc((size_t)n * sizeof(u32));
+    u8 *sens = xalloc((size_t)n * AZ_SENS);
+    u8 *gain = xalloc((size_t)n * 8u);
+    i8 *bias = xalloc((size_t)n * 8u);
+    td_fill(sens, (size_t)n * AZ_SENS);
+    for (size_t i = 0; i < (size_t)n * AZ_SENS; i++) sens[i] &= 127u;
+    td_fill(gain, (size_t)n * 8u);
+    td_fill(bias, (size_t)n * 8u);
+
+    u64 m_u8 = 0, h_u8 = 0;
+    for (u32 i = 0; i < n; i++) {
+        if ((i & 63u) == 63u) {
+            bo8[i] = 0xFFFFFFFFu; mo8[i] = 0u; ho8[i] = 0u;
+            continue;
+        }
+        u32 t = i % n_tpl;
+        bo8[i] = tpl_off[t] >> 3;
+        mo8[i] = (u32)m_u8;
+        ho8[i] = (u32)h_u8;
+        m_u8 += (AZ_SENS / 8u) + 2u * tpl_nhb[t];
+        h_u8 += tpl_nhb[t];
+    }
+    const u64 total_mind = m_u8 << 3;
+    const u64 total_hid = h_u8 << 3;
+    u8 *hid_in = xalloc((size_t)total_hid);
+    u8 *hid_cpu = xalloc((size_t)total_hid);
+    u8 *hid_gpu = xalloc((size_t)total_hid);
+    i8 *mot_cpu = xalloc((size_t)n * AZ_MOT);
+    i8 *mot_gpu = xalloc((size_t)n * AZ_MOT);
+    td_fill(hid_in, (size_t)total_hid);
+    for (size_t i = 0; i < (size_t)total_hid; i++) hid_in[i] &= 127u;
+    memset(hid_cpu, 0, (size_t)total_hid);
+    memset(hid_gpu, 0xA5, (size_t)total_hid);
+    memset(mot_cpu, 0, (size_t)n * AZ_MOT);
+    memset(mot_gpu, 0, (size_t)n * AZ_MOT);
+
+    /* CPU reference via literal core/az_brain.c az_brain_step_mod_c */
+    u8 mind_tmp[AZ_SENS + 16 * 8];
+    for (u32 i = 0; i < n; i++) {
+        if (bo8[i] == 0xFFFFFFFFu) continue;
+        const AzBrain *br = (const AzBrain *)(const void *)(store + ((size_t)bo8[i] << 3));
+        const u32 nh = 8u * (u32)br->n_hb;
+        memcpy(mind_tmp, &sens[(size_t)i * AZ_SENS], AZ_SENS);
+        if (nh) memcpy(mind_tmp + AZ_SENS, &hid_in[(size_t)ho8[i] << 3], nh);
+        az_brain_step_mod_c(br, &gain[(size_t)i * 8u], &bias[(size_t)i * 8u], mind_tmp, &mot_cpu[(size_t)i * AZ_MOT]);
+        if (nh) memcpy(&hid_cpu[(size_t)ho8[i] << 3], mind_tmp + AZ_SENS + nh, nh);
+    }
+
+    AzGpuTileBrain tb;
+    memset(&tb, 0, sizeof tb);
+    CHECK_EQ(az_gpu_alloc(g, &tb.store, store_bytes), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_alloc(g, &tb.brain_off8, (u64)n * sizeof(u32)), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_alloc(g, &tb.mind_off8, (u64)n * sizeof(u32)), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_alloc(g, &tb.hid_off8, (u64)n * sizeof(u32)), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_alloc(g, &tb.sens_in, (u64)n * AZ_SENS), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_alloc(g, &tb.hid_in, total_hid), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_alloc(g, &tb.gain_in, (u64)n * 8u), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_alloc(g, &tb.bias_in, (u64)n * 8u), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_alloc(g, &tb.mind_scratch, total_mind), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_alloc(g, &tb.hid_out, total_hid), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_alloc(g, &tb.motor_out, (u64)n * AZ_MOT), AZ_GPU_OK);
+
+    CHECK_EQ(az_gpu_upload(g, tb.store, 0, store, store_bytes), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_upload(g, tb.brain_off8, 0, bo8, (u64)n * sizeof(u32)), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_upload(g, tb.mind_off8, 0, mo8, (u64)n * sizeof(u32)), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_upload(g, tb.hid_off8, 0, ho8, (u64)n * sizeof(u32)), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_upload(g, tb.sens_in, 0, sens, (u64)n * AZ_SENS), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_upload(g, tb.hid_in, 0, hid_in, total_hid), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_upload(g, tb.gain_in, 0, gain, (u64)n * 8u), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_upload(g, tb.bias_in, 0, bias, (u64)n * 8u), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_upload(g, tb.motor_out, 0, mot_gpu, (u64)n * AZ_MOT), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_tile_brain(g, &tb, n, false), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_download(g, hid_gpu, tb.hid_out, 0, total_hid), AZ_GPU_OK);
+    CHECK_EQ(az_gpu_download(g, mot_gpu, tb.motor_out, 0, (u64)n * AZ_MOT), AZ_GPU_OK);
+
+    u32 d_hid = 0, d_mot = 0;
+    for (u32 i = 0; i < n; i++) {
+        if (bo8[i] == 0xFFFFFFFFu) {
+            d_mot += memcmp(&mot_gpu[(size_t)i * AZ_MOT], &mot_cpu[(size_t)i * AZ_MOT], AZ_MOT) != 0;
+            continue;
+        }
+        const AzBrain *br = (const AzBrain *)(const void *)(store + ((size_t)bo8[i] << 3));
+        const u32 nh = 8u * (u32)br->n_hb;
+        if (nh) d_hid += memcmp(&hid_gpu[(size_t)ho8[i] << 3], &hid_cpu[(size_t)ho8[i] << 3], nh) != 0;
+        d_mot += memcmp(&mot_gpu[(size_t)i * AZ_MOT], &mot_cpu[(size_t)i * AZ_MOT], AZ_MOT) != 0;
+    }
+    CHECK_EQ(d_hid, 0);
+    CHECK_EQ(d_mot, 0);
+    printf("tile brain 1M  : %u variable-size sparse AzBrains (0..48 hid, 128 templates), gpu vs cpu diffs: hid=%u motor=%u\n",
+           n, d_hid, d_mot);
+
+    az_gpu_free(g, &tb.store); az_gpu_free(g, &tb.brain_off8); az_gpu_free(g, &tb.mind_off8);
+    az_gpu_free(g, &tb.hid_off8); az_gpu_free(g, &tb.sens_in); az_gpu_free(g, &tb.hid_in);
+    az_gpu_free(g, &tb.gain_in); az_gpu_free(g, &tb.bias_in); az_gpu_free(g, &tb.mind_scratch);
+    az_gpu_free(g, &tb.hid_out); az_gpu_free(g, &tb.motor_out);
+    free(store); free(bo8); free(mo8); free(ho8); free(sens); free(gain); free(bias);
+    free(hid_in); free(hid_cpu); free(hid_gpu); free(mot_cpu); free(mot_gpu);
+}
+
+static void test_kin_axis(AzGpu *g)
+{
+    const u32 n = 1000000;
+    u32 *pos0 = xalloc((size_t)n * sizeof(u32));
+    u32 *pos_c = xalloc((size_t)n * sizeof(u32));
+    u32 *pos_g = xalloc((size_t)n * sizeof(u32));
+    i16 *vel0 = xalloc((size_t)n * sizeof(i16));
+    i16 *vel_c = xalloc((size_t)n * sizeof(i16));
+    i16 *vel_g = xalloc((size_t)n * sizeof(i16));
+    i16 *dv = xalloc((size_t)n * sizeof(i16));
+    u8 *drag = xalloc(n);
+    td_fill(pos0, (size_t)n * sizeof(u32));
+    td_fill(vel0, (size_t)n * sizeof(i16));
+    td_fill(dv, (size_t)n * sizeof(i16));
+    td_fill(drag, n);
+    /* extremes in first 6 lanes: clamping, wrap-around, full drag, zero drag */
+    vel0[0] = 32767; dv[0] = 32767; drag[0] = 0; pos0[0] = 0xFFFFFFFFu;
+    vel0[1] = -32768; dv[1] = -32768; drag[1] = 0; pos0[1] = 0u;
+    vel0[2] = 16000; dv[2] = 0; drag[2] = 255; pos0[2] = 12345u;
+    vel0[3] = -16000; dv[3] = 0; drag[3] = 255; pos0[3] = 0x80000000u;
+
+    u32 shifts[3] = { 16u, 22u, 26u };
+    u32 total_diff = 0;
+    for (u32 k = 0; k < 3; k++) {
+        memcpy(pos_c, pos0, (size_t)n * sizeof(u32));
+        memcpy(pos_g, pos0, (size_t)n * sizeof(u32));
+        memcpy(vel_c, vel0, (size_t)n * sizeof(i16));
+        memcpy(vel_g, vel0, (size_t)n * sizeof(i16));
+        az_kin_axis_c(pos_c, vel_c, dv, drag, n, shifts[k]);
+        CHECK_EQ(az_gpu_kin_axis_host(g, pos_g, vel_g, dv, drag, n, shifts[k]), AZ_GPU_OK);
+        total_diff += diff_records(pos_g, pos_c, n, sizeof(u32));
+        total_diff += diff_records(vel_g, vel_c, n, sizeof(i16));
+    }
+    CHECK_EQ(total_diff, 0);
+    printf("kin axis 1M    : %u entities x 3 shifts (16,22,26), gpu vs cpu differing lanes = %u\n", n, total_diff);
+    free(pos0); free(pos_c); free(pos_g); free(vel0); free(vel_c); free(vel_g); free(dv); free(drag);
+}
+
 /* a text that is not PTX must be refused cleanly */
 static void test_bad_module(void)
 {
@@ -455,6 +683,9 @@ int main(void)
     test_brain_recurrent(g, &d);
     test_brain_guards(g, &d);
     brain_data_free(&d);
+
+    test_tile_brain(g);
+    test_kin_axis(g);
 
     CHECK_EQ(az_gpu_empty(g), AZ_GPU_OK);
     CHECK_EQ(az_gpu_sync(g), AZ_GPU_OK);

@@ -868,11 +868,14 @@ async function applyPopulation(){
   const cap=rawCap?Math.max(n,rawCap):0;
   const lab=$("popMode").value==="lab";
   const kernels=$("popKernels").checked?1:0;
+  const ecores=$("popEcores").checked;
+  const prefetch=$("popPrefetch").checked?1:0;
+  const gpu=$("popGpu").checked?1:0;
   $("applyPop").disabled=true;
-  setText("popStatus","Launching bare-metal world ("+n.toLocaleString()+" founders)...");
+  setText("popStatus","Launching bare-metal world ("+n.toLocaleString()+" founders"+(gpu?", RTX GPU":"")+(ecores?", 24 cores":"")+")...");
   issue("");
   try{
-    await post("/api/world",{n,cap,lab,kernels});
+    await post("/api/world",{n,cap,lab,kernels,ecores,prefetch,gpu});
     location.reload();
   }catch(e){
     setText("popStatus",e.message);
@@ -888,6 +891,9 @@ fetch("/api/state",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(info=>{
     $("popCap").value="0";
     $("popMode").value=info.config.lab?"lab":"wild";
     if(info.config.kernels!==undefined)$("popKernels").checked=!!info.config.kernels;
+    if(info.config.ecores!==undefined)$("popEcores").checked=!!info.config.ecores;
+    if(info.config.prefetch!==undefined)$("popPrefetch").checked=!!info.config.prefetch;
+    if(info.config.gpu!==undefined)$("popGpu").checked=!!info.config.gpu;
   }
   refreshPopUI();
 }).catch(()=>refreshPopUI());

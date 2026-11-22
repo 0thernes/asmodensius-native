@@ -72,6 +72,21 @@ typedef struct AzGpuBrain {
     u32      n_clades;
 } AzGpuBrain;
 
+/* device buffers of the real sparse tiled brain step (TR-18, core/az_brain.c) */
+typedef struct AzGpuTileBrain {
+    AzGpuBuf store;         /* active half of AzWorld.store in VRAM               */
+    AzGpuBuf brain_off8;    /* u32 [n], byte offset >> 3 in store (0xFFFFFFFF=skip) */
+    AzGpuBuf mind_off8;     /* u32 [n], byte offset >> 3 in mind_scratch          */
+    AzGpuBuf hid_off8;      /* u32 [n], byte offset >> 3 in hid_in / hid_out      */
+    AzGpuBuf sens_in;       /* u8  [n * AZ_SENS]                                  */
+    AzGpuBuf hid_in;        /* u8  [total_hid_bytes]                              */
+    AzGpuBuf gain_in;       /* u8  [n * 8]                                        */
+    AzGpuBuf bias_in;       /* i8  [n * 8]                                        */
+    AzGpuBuf mind_scratch;  /* u8  [total_mind_bytes] (device working scratch)    */
+    AzGpuBuf hid_out;       /* u8  [total_hid_bytes] (raw unmasked h2)            */
+    AzGpuBuf motor_out;     /* i8  [n * AZ_MOT]      (raw unmasked motor)         */
+} AzGpuTileBrain;
+
 const char *az_gpu_status_name(int status);
 
 /* Open the driver, create a context, load the device module, verify the
@@ -83,23 +98,31 @@ int  az_gpu_open(AzGpu **out, const AzGpuOptions *opt, AzGpuInfo *info);
 void az_gpu_close(AzGpu *g);
 const char *az_gpu_error(const AzGpu *g);     /* text of the last failure on g */
 int  az_gpu_set_block(AzGpu *g, u32 block);   /* threads per block, 1..1024; results do not depend on it */
+int  az_gpu_mem_info(AzGpu *g, u64 *free_bytes, u64 *total_bytes);
 
 /* device buffers */
 int az_gpu_alloc(AzGpu *g, AzGpuBuf *b, u64 bytes);
 int az_gpu_free(AzGpu *g, AzGpuBuf *b);
 int az_gpu_upload(AzGpu *g, AzGpuBuf b, u64 offset, const void *src, u64 bytes);
 int az_gpu_download(AzGpu *g, void *dst, AzGpuBuf b, u64 offset, u64 bytes);
+int az_gpu_upload_async(AzGpu *g, AzGpuBuf b, u64 offset, const void *src, u64 bytes);
+int az_gpu_download_async(AzGpu *g, void *dst, AzGpuBuf b, u64 offset, u64 bytes);
+int az_gpu_stream_sync(AzGpu *g);             /* wait for queued work on g's stream */
 int az_gpu_sync(AzGpu *g);                    /* wait for queued kernels */
 
 /* page-locked host memory from the driver (faster copies); free with az_gpu_host_free */
 void *az_gpu_host_alloc(AzGpu *g, u64 bytes);
 void  az_gpu_host_free(AzGpu *g, void *p);
+int   az_gpu_host_register(AzGpu *g, void *p, u64 bytes);
+void  az_gpu_host_unregister(AzGpu *g, void *p);
 
 /* Kernel launches on device buffers. They queue the kernel and return; call
- * az_gpu_sync (or download, which waits) before reading results. Every
- * launch checks the buffer sizes against n first. */
+ * az_gpu_sync / az_gpu_stream_sync (or download, which waits) before reading
+ * results. Every launch checks the buffer sizes against n first. */
 int az_gpu_philox(AzGpu *g, AzGpuBuf out4n, AzGpuBuf ctr4n, const u32 key[2], u32 n);
 int az_gpu_brain_step(AzGpu *g, const AzGpuBrain *b, u32 n);
+int az_gpu_tile_brain(AzGpu *g, const AzGpuTileBrain *tb, u32 n, bool async_stream);
+int az_gpu_kin_axis(AzGpu *g, AzGpuBuf pos, AzGpuBuf vel, AzGpuBuf dv, AzGpuBuf drag, u32 n, u32 shift);
 int az_gpu_empty(AzGpu *g);
 
 /* Whole-trip conveniences on host memory: allocate, upload, run, download, free. */
@@ -107,5 +130,31 @@ int az_gpu_philox_host(AzGpu *g, u32 *out4n, const u32 *ctr4n, const u32 key[2],
 int az_gpu_brain_step_host(AzGpu *g, const AzDenseNet *clades, u32 n_clades,
                            const u8 *sens, u8 *hid, const u8 *gain, const i8 *bias,
                            const u16 *clade, i8 *motor, u32 n);
+int az_gpu_kin_axis_host(AzGpu *g, u32 *pos, i16 *vel, const i16 *dv, const u8 *drag, u32 n, u32 shift);
+
+/* Live tick GPU brain-batch engine (TR-04, implemented in gpu/az_gpu_tick.c).
+ * Attaches to an AzHost so az_tick offloads all per-creature sparse tiled
+ * brains to the RTX GPU via az_gpu_k_tile_brain with bit-exact state hashes. */
+typedef struct AzGpuTick AzGpuTick;
+
+typedef struct AzGpuTickStats {
+    u64 ticks_gpu;
+    u64 ticks_fallback;
+    u64 brains_eval;
+    u64 store_bytes_tx;
+    u64 pack_ns;
+    u64 h2d_ns;
+    u64 kernel_ns;
+    u64 d2h_ns;
+    u64 unpack_ns;
+    u64 vram_store_bytes;
+    u64 vram_scratch_bytes;
+} AzGpuTickStats;
+
+int  az_gpu_tick_create(AzGpuTick **out, u32 cap, AzGpuInfo *info);
+void az_gpu_tick_attach(AzGpuTick *gt, AzHost *host);
+void az_gpu_tick_detach(AzGpuTick *gt, AzHost *host);
+void az_gpu_tick_stats(const AzGpuTick *gt, AzGpuTickStats *out);
+void az_gpu_tick_destroy(AzGpuTick *gt);
 
 #endif /* AZ_GPU_H */

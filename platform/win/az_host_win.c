@@ -411,7 +411,7 @@ AzHost *az_win_host_create(u32 n_workers, u32 flags, AzWinInfo *info)
     const bool ecores = (flags & AZ_WIN_USE_ECORES) != 0;
     u32 avail = info->n_pcores + (ecores ? info->n_ecores : 0);
     if (avail == 0) { avail = 1; info->pcore_lp[0] = 0; info->n_pcores = 1; }
-    if (n_workers == 0) n_workers = info->n_pcores ? info->n_pcores : 1;
+    if (n_workers == 0) n_workers = ecores ? avail : (info->n_pcores ? info->n_pcores : 1);
     if (avail > AZ_MAX_WORKERS) avail = AZ_MAX_WORKERS;
     if (n_workers > avail) {             /* say so (finding v14) */
         snprintf(info->pool_note, sizeof info->pool_note, "lowered from %u to %u: %s", n_workers, avail,
