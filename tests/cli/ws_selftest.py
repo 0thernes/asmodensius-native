@@ -304,6 +304,41 @@ class Tests(unittest.TestCase):
             self.assertEqual(r.read(), b"--azframe\r\nContent-Type: image/png\r\nContent-Length: 7\r\n\r\n"
                                        b"PNGdata\r\n--azframe--\r\n")
 
+    def test_world_restart_validation_and_auto_cap(self):
+        self.assertEqual(srv.auto_cap(1), 4100)
+        self.assertEqual(srv.auto_cap(5000), 24096)
+        self.assertEqual(srv.auto_cap(250000), 1004096)
+        self.assertEqual(srv.auto_cap(1000000), 1004096)
+        for bad in (b'{"n":0}', b'{"n":1000001}', b'{"n":true}', b'{"n":100,"cap":50}', b'{"n":100,"species":101}'):
+            with connection(self.app, http("POST", "/api/world", body=bad)) as (_, _, code, _):
+                self.assertEqual(code, 400, bad)
+        engine = Path(self.temp.name) / "az_live.exe"
+        engine.touch()
+        self.app.engine = engine
+        self.app.options = ["--n", "5000", "--cap", "24096", "--species", "100", "--sps", "10", "--tps", "14"]
+        self.app.config = srv.parse_engine_options(self.app.options)
+        old_run = self.app.run_id
+        with patch.object(srv.App, "start", autospec=True) as mock_start:
+            def fake_start(inst, eng, opts):
+                inst.engine = Path(eng)
+                inst.options = list(opts)
+                inst.config = srv.parse_engine_options(opts)
+            mock_start.side_effect = fake_start
+            with connection(self.app, http("POST", "/api/world", body=b'{"n":1000000,"cap":0,"kernels":1}')) as (_, r, code, h):
+                self.assertEqual(code, 200)
+                data = json.loads(r.read(int(h["content-length"])))
+                self.assertTrue(data["ok"])
+                self.assertNotEqual(data["run_id"], old_run)
+                self.assertEqual(data["config"]["n"], 1000000)
+                self.assertEqual(data["config"]["cap"], 1004096)
+                self.assertEqual(data["config"]["kernels"], 1)
+            with connection(self.app, http("POST", "/api/world", body=b'{"n":1,"cap":0}')) as (_, r, code, h):
+                self.assertEqual(code, 200)
+                data = json.loads(r.read(int(h["content-length"])))
+                self.assertEqual(data["config"]["n"], 1)
+                self.assertEqual(data["config"]["cap"], 4100)
+                self.assertEqual(data["config"]["species"], 1)
+
 
 if __name__ == "__main__":
     # socketpair on Windows internally uses loopback in the standard library.

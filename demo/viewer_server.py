@@ -26,6 +26,9 @@ JSON, CREATURES, STATIC, FIELDS, SHAPES, PICTURE = range(1, 7)
 SHAPE_BYTES = 4634
 ORDER = (STATIC, SHAPES, JSON, FIELDS, CREATURES, PICTURE)
 MAX_BODY = 1048576
+POP_MIN = 1
+POP_MAX = 1000000
+CAP_MAX_UI = 2000000
 ASSETS = {
     "/": ("viewer.html", "text/html; charset=utf-8"),
     "/viewer.html": ("viewer.html", "text/html; charset=utf-8"),
@@ -275,6 +278,64 @@ def valid_command(cmd):
     return lo <= int(match[2]) <= hi
 
 
+def auto_cap(n):
+    if n <= 250000:
+        return min(1004096, n * 4 + 4096)
+    return max(n + 4096, 1004096)
+
+
+def parse_engine_options(options):
+    cfg = {"n": 5000, "cap": 0, "species": 100, "lab": False, "seed": 42,
+           "grid": None, "kernels": 0, "loaded": False}
+    i = 0
+    while i < len(options):
+        tok = options[i]
+        if tok == "--lab":
+            cfg["lab"] = True
+            i += 1
+            continue
+        if tok in ("--n", "--cap", "--species", "--seed", "--kernels", "--grid", "--load") and i + 1 < len(options):
+            val = options[i + 1]
+            if tok == "--grid":
+                cfg["grid"] = val
+            elif tok == "--load":
+                cfg["loaded"] = True
+            else:
+                try:
+                    cfg[tok[2:]] = int(val)
+                except ValueError:
+                    pass
+            i += 2
+            continue
+        i += 1
+    return cfg
+
+
+def rebuild_engine_options(base_options, n, cap, species, lab, seed, grid, kernels):
+    drop_with_val = {"--n", "--cap", "--species", "--seed", "--grid", "--load", "--kernels"}
+    preserved = []
+    i = 0
+    while i < len(base_options):
+        tok = base_options[i]
+        if tok == "--lab":
+            i += 1
+            continue
+        if tok in drop_with_val:
+            i += 2
+            continue
+        preserved.append(tok)
+        i += 1
+    out = ["--n", str(n), "--cap", str(cap), "--species", str(species)]
+    if grid:
+        out.extend(["--grid", grid])
+    if lab:
+        out.extend(["--lab", "--seed", str(seed)])
+    if kernels is not None:
+        out.extend(["--kernels", "1" if kernels else "0"])
+    out.extend(preserved)
+    return out
+
+
 class App:
     def __init__(self, port, directory):
         self.port = port
@@ -285,44 +346,110 @@ class App:
         self.process = None
         self.reader = None
         self.write_lock = threading.Lock()
+        self.lifecycle_lock = threading.Lock()
         self.run_dir = self.directory / "runs" / self.run_id
         self.pending_save = None
+        self.engine = None
+        self.options = []
+        self.config = {"n": 5000, "cap": 0, "species": 100, "lab": False, "seed": 42,
+                       "grid": None, "kernels": 0, "loaded": False}
 
     def start(self, engine, options):
+        self.engine = Path(engine)
+        self.options = list(options)
+        self.config = parse_engine_options(self.options)
         run = self.run_dir
-        run.mkdir(parents=True)
+        run.mkdir(parents=True, exist_ok=True)
         self.log = run / "engine-stderr.log"
-        command = [str(engine), "--stream", "--dir", str(run)] + options
+        command = [str(self.engine), "--stream", "--dir", str(run)] + self.options
         with self.log.open("wb") as log:
-            self.process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
-                                            stderr=log, cwd=str(run), bufsize=0,
-                                            creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
-        self.reader = threading.Thread(target=self.read_engine, daemon=True)
+            proc = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                    stderr=log, cwd=str(run), bufsize=0,
+                                    creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+        self.process = proc
+        store = self.store
+        log_path = self.log
+        self.reader = threading.Thread(target=self.read_engine, args=(proc, store, log_path), daemon=True)
         self.reader.start()
 
-    def read_engine(self):
+    def read_engine(self, proc=None, store=None, log_path=None):
+        proc = proc if proc is not None else self.process
+        store = store if store is not None else self.store
+        log_path = log_path if log_path is not None else getattr(self, "log", None)
+        err = None
         try:
-            with self.process.stdout as out:
+            with proc.stdout as out:
                 for frame in frames(out):
-                    self.store.publish(frame)
-                    if frame.kind == JSON and self.pending_save:
+                    store.publish(frame)
+                    if frame.kind == JSON and self.pending_save and self.store is store:
                         event = json.loads(bytes(frame.wire()[HEADER.size:]))
                         if event.get("what") == "save":
                             self.finish_save(event)
-                    if frame.kind == CREATURES:
+                    if frame.kind == CREATURES and self.process is proc:
                         self.send("ack %d" % frame.sequence)
         except (OSError, EOFError, ValueError, MemoryError) as exc:
-            self.error = str(exc)
-            if self.process.poll() is None:
-                self.process.terminate()
+            err = str(exc)
+            if proc.poll() is None:
+                proc.terminate()
         finally:
-            code = self.process.wait()
-            if code and not self.error:
-                with self.log.open("rb") as log:
-                    log.seek(max(0, self.log.stat().st_size - 2000))
-                    self.error = log.read().decode("utf-8", "replace").strip() or "engine exit %d" % code
-            self.finish_save({"event": "error", "detail": "engine ended before confirming the save"})
-            self.store.end()
+            code = proc.wait()
+            if code and not err and log_path is not None and log_path.exists():
+                with log_path.open("rb") as log:
+                    log.seek(max(0, log_path.stat().st_size - 2000))
+                    err = log.read().decode("utf-8", "replace").strip() or "engine exit %d" % code
+            if err and self.store is store:
+                self.error = err
+            if self.store is store:
+                self.finish_save({"event": "error", "detail": "engine ended before confirming the save"})
+            store.end()
+
+    def restart_world(self, n, cap=0, species=None, lab=None, seed=None, grid=None, kernels=None):
+        with self.lifecycle_lock:
+            if self.engine is None or not self.engine.is_file():
+                return False, "engine executable unavailable for restart"
+            eff_n = int(n)
+            eff_cap = int(cap) if cap else auto_cap(eff_n)
+            if eff_cap < eff_n:
+                eff_cap = eff_n
+            base_sp = self.config.get("species", 100)
+            eff_sp = int(species) if species is not None else base_sp
+            eff_sp = max(1, min(100, eff_sp, eff_n))
+            eff_lab = self.config.get("lab", False) if lab is None else bool(lab)
+            eff_seed = self.config.get("seed", 42) if seed is None else int(seed)
+            eff_kernels = self.config.get("kernels", 0) if kernels is None else (1 if kernels else 0)
+            new_options = rebuild_engine_options(
+                self.options, eff_n, eff_cap, eff_sp, eff_lab, eff_seed, grid, eff_kernels
+            )
+            old_proc = self.process
+            old_reader = self.reader
+            old_store = self.store
+            if old_proc is not None:
+                with self.write_lock:
+                    if old_proc.poll() is None and old_proc.stdin and not old_proc.stdin.closed:
+                        try:
+                            old_proc.stdin.write(b"quit\n")
+                            old_proc.stdin.flush()
+                        except (BrokenPipeError, OSError):
+                            pass
+                        try:
+                            old_proc.stdin.close()
+                        except OSError:
+                            pass
+                try:
+                    old_proc.wait(timeout=8)
+                except subprocess.TimeoutExpired:
+                    old_proc.kill()
+                    old_proc.wait()
+                if old_reader is not None and old_reader.is_alive():
+                    old_reader.join(timeout=3)
+            self.run_id = uuid.uuid4().hex
+            self.run_dir = self.directory / "runs" / self.run_id
+            self.error = None
+            self.pending_save = None
+            self.store = Store()
+            old_store.end()
+            self.start(self.engine, new_options)
+            return True, {"ok": True, "run_id": self.run_id, "config": dict(self.config)}
 
     def save_world(self):
         with self.write_lock:
@@ -404,12 +531,15 @@ class App:
             return self.write_commands([cmd])
 
     def state(self):
-        code = self.process.poll() if self.process is not None else None
-        with self.store.changed:
-            return {"running": self.process is not None and code is None, "run_id": self.run_id,
-                    "exit_code": code, "error": self.error, "latest": dict(self.store.latest_events),
-                    "events": list(self.store.events),
-                    "frames": {k: f.sequence for k, f in self.store.latest.items()}}
+        proc = self.process
+        store = self.store
+        code = proc.poll() if proc is not None else None
+        with store.changed:
+            return {"running": proc is not None and code is None, "run_id": self.run_id,
+                    "exit_code": code, "error": self.error, "config": dict(self.config),
+                    "latest": dict(store.latest_events),
+                    "events": list(store.events),
+                    "frames": {k: f.sequence for k, f in store.latest.items()}}
 
     def stop(self):
         if self.process:
@@ -602,6 +732,35 @@ def handler(app):
                     self.end_headers()
                     self.wfile.write(png)
                     return
+                if path == "/api/world":
+                    raw_n = body.get("n")
+                    if isinstance(raw_n, bool) or not isinstance(raw_n, int) or not POP_MIN <= raw_n <= POP_MAX:
+                        return self.response(400, {"error": "population n must be an integer from 1 to 1000000"})
+                    raw_cap = body.get("cap", 0)
+                    if isinstance(raw_cap, bool) or not isinstance(raw_cap, int) or not 0 <= raw_cap <= CAP_MAX_UI:
+                        return self.response(400, {"error": "cap must be 0 (auto) or an integer up to 2000000"})
+                    if raw_cap and raw_cap < raw_n:
+                        return self.response(400, {"error": "cap must be 0 (auto) or at least n"})
+                    raw_sp = body.get("species")
+                    if raw_sp is not None and (isinstance(raw_sp, bool) or not isinstance(raw_sp, int) or not 1 <= raw_sp <= 100):
+                        return self.response(400, {"error": "species must be an integer from 1 to 100"})
+                    raw_lab = body.get("lab")
+                    if raw_lab is not None and not isinstance(raw_lab, bool):
+                        return self.response(400, {"error": "lab must be true or false"})
+                    raw_seed = body.get("seed")
+                    if raw_seed is not None and (isinstance(raw_seed, bool) or not isinstance(raw_seed, int) or raw_seed < 0 or raw_seed >= (1 << 63)):
+                        return self.response(400, {"error": "seed must be a non-negative integer"})
+                    raw_grid = body.get("grid")
+                    if raw_grid is not None and (not isinstance(raw_grid, str) or not re.fullmatch(r"\d{1,2},\d{1,2},\d{1,2}", raw_grid)):
+                        return self.response(400, {"error": "grid must be x,y,z bit widths or omitted for auto"})
+                    raw_kernels = body.get("kernels")
+                    if raw_kernels is not None and (isinstance(raw_kernels, bool) or raw_kernels not in (0, 1)):
+                        return self.response(400, {"error": "kernels must be 0 or 1"})
+                    ok, result = app.restart_world(raw_n, cap=raw_cap, species=raw_sp, lab=raw_lab,
+                                                   seed=raw_seed, grid=raw_grid, kernels=raw_kernels)
+                    if not ok:
+                        return self.response(409, {"error": result})
+                    return self.response(200, result)
                 if path == "/api/perf":
                     return self.response(200, {"ok": True, "file": app.save_perf(body)})
                 if path == "/api/shutdown":
@@ -640,16 +799,17 @@ def handler(app):
                             self.connection.sendall(payload)
 
             def sender():
+                store = app.store
                 cursor = dict.fromkeys(ORDER, -1)
                 try:
                     while not done.is_set():
-                        batch = app.store.batch(cursor, 0.5)
+                        batch = store.batch(cursor, 0.5)
                         for frame in batch:
                             if done.is_set():
                                 break
                             send(2, frame.wire())
                             cursor[frame.kind] = frame.sequence
-                        if not batch and app.store.closed:
+                        if not batch and store.closed:
                             send(8, struct.pack(">H", 1000))
                             break
                 except OSError:

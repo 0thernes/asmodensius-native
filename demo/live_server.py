@@ -519,26 +519,34 @@ def clamp_int(v, lo, hi, default):
     return max(lo, min(hi, v))
 
 
+def auto_cap(n):
+    if n <= 250000:
+        return min(1004096, n * 4 + 4096)
+    return max(n + 4096, 1004096)
+
+
 def world_options(body, lesion_bits):
+    n_val = clamp_int(body.get("n"), 1, 2000000, 5000)
+    sp_val = clamp_int(body.get("species"), 1, 100, 100)
     o = {
-        "n": clamp_int(body.get("n"), 1, 2000000, 5000),
-        "species": clamp_int(body.get("species"), 1, 100, 100),
+        "n": n_val,
+        "species": min(sp_val, n_val),
         "lab": bool(body.get("lab")),
         "seed": clamp_int(body.get("seed"), 0, 2 ** 63 - 1, 42),
         "every": clamp_int(body.get("every"), 1, 10000, 1),
-        "fps": clamp_int(body.get("fps"), 1, 30, 8),
+        "fps": clamp_int(body.get("fps"), 1, 60, 8),
         "width": clamp_int(body.get("width"), 64, 4096, 960),
         "height": clamp_int(body.get("height"), 64, 4096, 540),
         "threads": clamp_int(body.get("threads"), 0, 64, 0),
         "ticks": clamp_int(body.get("ticks"), 1, 100000, 200),
-        "kernels": bool(body.get("kernels")),
+        "kernels": bool(body.get("kernels", True)),
         "lesion": 0,
         "params": [],
         "grid": None,
         "load": None,
     }
     cap = clamp_int(body.get("cap"), 0, 0x7FFFFFC0, 0)
-    o["cap"] = cap if cap else o["n"] * 4 + 4096
+    o["cap"] = max(o["n"], cap) if cap else auto_cap(o["n"])
     for b in body.get("lesions", []) or []:
         b = clamp_int(b, 0, 31, -1)
         if b in lesion_bits:

@@ -17,6 +17,47 @@
 <aside>
 <section><h2>World</h2>
 <div class="numbers"><div><strong id="population">&mdash;</strong><small>Creatures</small></div><div><strong id="fps">&mdash;</strong><small>Display FPS</small></div></div>
+<div class="pop-box" aria-label="Population control">
+<div class="control"><label for="popTarget">Population (1-1M)</label><input id="popTarget" type="number" min="1" max="1000000" step="1000" value="8000"></div>
+<div class="pop-label">Step increment</div>
+<div class="segments pop-steps" role="group" aria-label="Population step increment">
+<button type="button" data-pop-step="100" aria-pressed="false">100</button>
+<button type="button" data-pop-step="1000" aria-pressed="true">1k</button>
+<button type="button" data-pop-step="10000" aria-pressed="false">10k</button>
+<button type="button" data-pop-step="100000" aria-pressed="false">100k</button>
+</div>
+<div class="controlsRow pop-stepper">
+<button type="button" id="popDec">&minus;1,000</button>
+<button type="button" id="popInc">+1,000</button>
+</div>
+<div class="pop-grid" aria-label="Decrease population">
+<button type="button" data-pop-delta="-100000">&minus;100k</button>
+<button type="button" data-pop-delta="-10000">&minus;10k</button>
+<button type="button" data-pop-delta="-1000">&minus;1k</button>
+<button type="button" data-pop-delta="-100">&minus;100</button>
+</div>
+<div class="pop-grid" aria-label="Increase population">
+<button type="button" data-pop-delta="100">+100</button>
+<button type="button" data-pop-delta="1000">+1k</button>
+<button type="button" data-pop-delta="10000">+10k</button>
+<button type="button" data-pop-delta="100000">+100k</button>
+</div>
+<div class="pop-presets" aria-label="Population presets">
+<button type="button" data-pop-set="1">1</button>
+<button type="button" data-pop-set="100">100</button>
+<button type="button" data-pop-set="1000">1k</button>
+<button type="button" data-pop-set="10000">10k</button>
+<button type="button" data-pop-set="100000">100k</button>
+<button type="button" data-pop-set="250000">250k</button>
+<button type="button" data-pop-set="1000000">1M</button>
+</div>
+<div class="control"><label for="popCap">Slots (0=auto)</label><input id="popCap" type="number" min="0" max="2000000" step="10000" value="0" title="0 chooses bare-metal memory slots automatically up to 1,004,096"></div>
+<div class="control"><label for="popMode">Mode</label><select id="popMode"><option value="wild">Wild (OS entropy)</option><option value="lab">Lab (seeded)</option></select></div>
+<label class="check"><input id="popKernels" type="checkbox" checked> Bare-metal AVX2/VNNI kernels</label>
+<p class="status" id="popMeta"></p>
+<button class="primary" type="button" id="applyPop">Apply population</button>
+<p class="status" id="popStatus" role="status"></p>
+</div>
 <dl class="stats"><dt>Frame time, p99</dt><dd id="p99">&mdash;</dd><dt>Snapshots</dt><dd id="sps">&mdash;</dd><dt>World ticks</dt><dd id="tps">&mdash;</dd><dt>Last snapshot received</dt><dd id="lastReceipt">&mdash;</dd><dt>Snapshot age at arrival</dt><dd id="age">&mdash;</dd><dt>Observer failures</dt><dd id="observer">&mdash;</dd></dl>
 <button class="primary" id="measure" disabled>Measure 30 s</button><p class="status" id="measureStatus" role="status"></p>
 </section>

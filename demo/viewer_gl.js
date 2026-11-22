@@ -646,6 +646,10 @@ function inspectReply(j){
 function applyJSON(j){
   if(j.event==="start"){
     setText("worldMode",j.mode==="wild"?"Wild world":"Lab world");$("rate").value=j.sps??15;$("speed").value=j.tps??0;
+    if(j.cap && j.grid){
+      const lockTxt=j.locked?"locked in RAM":"pageable";
+      setText("popStatus","Active: "+Number(j.cap).toLocaleString()+" slots | grid "+j.grid.join("x")+" | "+j.workers+" workers | "+lockTxt);
+    }
   } else if(j.event==="stats"){
     latestMeta=j;paused=!!j.paused;$("pause").textContent=paused?"Run":"Pause";
     if(Number.isFinite(j.tick_end_unix_ms)){const tick=String(j.tick);ageByTick.set(tick,j.tick_end_unix_ms);trimMap(ageByTick);updateAge(tick);}
@@ -829,6 +833,65 @@ $("save").onclick=action(async()=>{
 });
 $("pause").onclick=action(()=>command(paused?"run":"pause"));$("step").onclick=action(()=>command("step 1"));
 $("applyRate").onclick=action(async()=>{if(!$("rate").reportValidity() || !$("speed").reportValidity())return;await command("sps "+$("rate").value);await command("tps "+$("speed").value);});
+const POP_MIN=1, POP_MAX=1000000;
+let popStep=1000;
+function autoCap(n){return n<=250000?Math.min(1004096,n*4+4096):Math.max(n+4096,1004096);}
+function autoGrid(n){let b=0;while(b<26 && (2*(2**b))<=n)b++;if(b<5)b=5;const gz=Math.floor(b/3),r=b-gz,gx=Math.floor((r+1)/2),gy=r-gx;return (1<<gx)+"x"+(1<<gy)+"x"+(1<<gz);}
+function clampPop(v){const x=Math.round(Number(v));return Number.isFinite(x)?Math.max(POP_MIN,Math.min(POP_MAX,x)):8000;}
+function refreshPopUI(){
+  const n=clampPop($("popTarget").value);
+  $("popTarget").value=String(n);
+  const rawCap=Math.max(0,Math.min(2000000,Math.round(Number($("popCap").value)||0)));
+  const cap=rawCap?Math.max(n,rawCap):autoCap(n);
+  const estMB=cap*0.00885;
+  const mem=estMB>=1024?(estMB/1024).toFixed(2)+" GB":estMB.toFixed(0)+" MB";
+  setText("popMeta",(rawCap?"Custom":"Auto")+" slots: "+cap.toLocaleString()+" (~"+mem+" RAM | grid "+autoGrid(n)+")");
+  setText("popDec","-"+popStep.toLocaleString());
+  setText("popInc","+"+popStep.toLocaleString());
+}
+function setPopStep(step){
+  popStep=step;$("popTarget").step=String(step);
+  for(const b of document.querySelectorAll("[data-pop-step]"))b.setAttribute("aria-pressed",String(Number(b.dataset.popStep)===step));
+  refreshPopUI();
+}
+function adjustPop(delta){$("popTarget").value=String(clampPop(Number($("popTarget").value||0)+delta));refreshPopUI();}
+for(const b of document.querySelectorAll("[data-pop-step]"))b.onclick=()=>setPopStep(Number(b.dataset.popStep));
+for(const b of document.querySelectorAll("[data-pop-delta]"))b.onclick=()=>adjustPop(Number(b.dataset.popDelta));
+for(const b of document.querySelectorAll("[data-pop-set]"))b.onclick=()=>{$("popTarget").value=String(clampPop(b.dataset.popSet));refreshPopUI();};
+$("popDec").onclick=()=>adjustPop(-popStep);
+$("popInc").onclick=()=>adjustPop(popStep);
+$("popTarget").oninput=refreshPopUI;
+$("popCap").oninput=refreshPopUI;
+async function applyPopulation(){
+  const n=clampPop($("popTarget").value);
+  const rawCap=Math.max(0,Math.min(2000000,Math.round(Number($("popCap").value)||0)));
+  const cap=rawCap?Math.max(n,rawCap):0;
+  const lab=$("popMode").value==="lab";
+  const kernels=$("popKernels").checked?1:0;
+  $("applyPop").disabled=true;
+  setText("popStatus","Launching bare-metal world ("+n.toLocaleString()+" founders)...");
+  issue("");
+  try{
+    await post("/api/world",{n,cap,lab,kernels});
+    location.reload();
+  }catch(e){
+    setText("popStatus",e.message);
+    $("applyPop").disabled=false;
+  }
+}
+$("applyPop").onclick=action(applyPopulation);
+$("popTarget").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();action(applyPopulation)();}});
+fetch("/api/state",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(info=>{
+  if(info && info.config){
+    const n=clampPop(info.config.n??8000);
+    $("popTarget").value=String(n);
+    const c=Number(info.config.cap??0);
+    $("popCap").value=String(!c || c===autoCap(n)?0:c);
+    $("popMode").value=info.config.lab?"lab":"wild";
+    if(info.config.kernels!==undefined)$("popKernels").checked=!!info.config.kernels;
+  }
+  refreshPopUI();
+}).catch(()=>refreshPopUI());
 $("detail").onchange=()=>{
   // Drop any old high-detail selection immediately upon returning to overview.
   if(renderer && !lost && state.near)renderer.uploadNear(state.near);

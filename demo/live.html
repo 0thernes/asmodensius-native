@@ -89,6 +89,14 @@ input[type=range] { width: 100%; accent-color: var(--accent); }
 .seg { display: inline-flex; border: 1px solid var(--axis); border-radius: 8px; overflow: hidden; }
 .seg button { border: 0; background: transparent; padding: 5px 12px; cursor: pointer; color: var(--ink-2); }
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.pop-steps { display: flex; width: 100%; margin: 4px 0; }
+.pop-steps button { flex: 1; padding: 4px 4px; font-size: 12px; }
+.pop-stepper { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 5px 0; }
+.pop-stepper button { font-weight: 600; }
+.pop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 4px 0; }
+.pop-grid button { padding: 3px 2px; font-size: 11.5px; font-variant-numeric: tabular-nums; }
+.pop-presets { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin: 5px 0 6px; }
+.pop-presets button { padding: 3px 1px; font-size: 11px; font-variant-numeric: tabular-nums; }
 .hint { color: var(--muted); font-size: 12px; margin: 4px 0 0; }
 details > summary { cursor: pointer; color: var(--ink-2); font-size: 12.5px; margin: 6px 0; }
 .lesions { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px; font-size: 12.5px; }
@@ -192,9 +200,43 @@ table.data th { color: var(--ink-2); font-weight: 600; }
       <button id="modeLab" type="button" aria-pressed="false" title="Seeded, repeatable test bench">Lab</button>
     </span></div>
     <div class="field" id="seedField" hidden><label for="seed">Seed (lab only)</label><input id="seed" type="number" min="0" value="42"></div>
-    <div class="field"><label for="n">Founders</label><input id="n" type="number" min="1" max="2000000" value="5000"></div>
+    <div class="field"><label for="n">Founders (1-1M)</label><input id="n" type="number" min="1" max="1000000" step="1000" value="5000"></div>
+    <div class="hint" style="margin-top:2px">Step increment</div>
+    <div class="seg pop-steps" role="group" aria-label="Population step increment">
+      <button type="button" data-pop-step="100" aria-pressed="false">100</button>
+      <button type="button" data-pop-step="1000" aria-pressed="true">1k</button>
+      <button type="button" data-pop-step="10000" aria-pressed="false">10k</button>
+      <button type="button" data-pop-step="100000" aria-pressed="false">100k</button>
+    </div>
+    <div class="pop-stepper">
+      <button class="btn small" type="button" id="popDec">&minus;1,000</button>
+      <button class="btn small" type="button" id="popInc">+1,000</button>
+    </div>
+    <div class="pop-grid" aria-label="Decrease founders">
+      <button class="btn small" type="button" data-pop-delta="-100000">&minus;100k</button>
+      <button class="btn small" type="button" data-pop-delta="-10000">&minus;10k</button>
+      <button class="btn small" type="button" data-pop-delta="-1000">&minus;1k</button>
+      <button class="btn small" type="button" data-pop-delta="-100">&minus;100</button>
+    </div>
+    <div class="pop-grid" aria-label="Increase founders">
+      <button class="btn small" type="button" data-pop-delta="100">+100</button>
+      <button class="btn small" type="button" data-pop-delta="1000">+1k</button>
+      <button class="btn small" type="button" data-pop-delta="10000">+10k</button>
+      <button class="btn small" type="button" data-pop-delta="100000">+100k</button>
+    </div>
+    <div class="pop-presets" aria-label="Founder presets">
+      <button class="btn small" type="button" data-pop-set="1">1</button>
+      <button class="btn small" type="button" data-pop-set="100">100</button>
+      <button class="btn small" type="button" data-pop-set="1000">1k</button>
+      <button class="btn small" type="button" data-pop-set="10000">10k</button>
+      <button class="btn small" type="button" data-pop-set="100000">100k</button>
+      <button class="btn small" type="button" data-pop-set="250000">250k</button>
+      <button class="btn small" type="button" data-pop-set="1000000">1M</button>
+    </div>
     <div class="field"><label for="species">Founder species (1-100)</label><input id="species" type="number" min="1" max="100" value="100"></div>
-    <div class="field"><label for="cap">Slots (memory; 0 = 4 &#xd7; founders + 4096)</label><input id="cap" type="number" min="0" value="0"></div>
+    <div class="field"><label for="cap">Slots (memory; 0 = auto, up to 1M)</label><input id="cap" type="number" min="0" max="2000000" step="10000" value="0"></div>
+    <div class="row"><label style="display:flex;gap:6px;align-items:center"><input id="kernels" type="checkbox" checked> Bare-metal AVX2/VNNI kernels</label></div>
+    <p class="hint" id="popMeta"></p>
     <details><summary>Lesions: switch a part of life off</summary>
       <div class="lesions" id="lesions"></div>
     </details>
@@ -220,7 +262,7 @@ table.data th { color: var(--ink-2); font-weight: 600; }
       <button class="btn small" type="button" data-step="100">Step 100</button>
     </div>
     <div class="field"><label for="every">Ticks per picture</label><input id="every" type="number" min="1" max="10000" value="2"></div>
-    <div class="field"><label for="fps">Pictures per second (max)</label><input id="fps" type="number" min="1" max="30" value="6"></div>
+    <div class="field"><label for="fps">Pictures per second (max)</label><input id="fps" type="number" min="1" max="60" value="6"></div>
     <div class="field"><label for="size">Picture size</label>
       <select id="size"><option>640x360</option><option>960x540</option><option>1280x720</option><option selected>1600x900</option></select></div>
     <div class="row"><button id="camDetail" class="btn small" type="button">Creature close-up</button><button id="camReset" class="btn small" type="button">Whole world</button><span class="hint">drag the picture to orbit &#xb7; wheel to zoom</span></div>
@@ -573,10 +615,48 @@ function changedParams() {
 }
 function sizeWH() { const [w, h] = $("#size").value.split("x").map(Number); return { width: w, height: h }; }
 
+let popStep = 1000;
+function autoCap(n) { return n <= 250000 ? Math.min(1004096, n * 4 + 4096) : Math.max(n + 4096, 1004096); }
+function autoGrid(n) {
+  let b = 0;
+  while (b < 26 && (2 * (2 ** b)) <= n) b++;
+  if (b < 5) b = 5;
+  const gz = Math.floor(b / 3), r = b - gz, gx = Math.floor((r + 1) / 2), gy = r - gx;
+  return (1 << gx) + "x" + (1 << gy) + "x" + (1 << gz);
+}
+function clampPop(v) { const x = Math.round(Number(v)); return Number.isFinite(x) ? Math.max(1, Math.min(1000000, x)) : 5000; }
+function refreshPopUI() {
+  const n = clampPop($("#n").value);
+  $("#n").value = String(n);
+  const rawCap = Math.max(0, Math.min(2000000, Math.round(Number($("#cap").value) || 0)));
+  const cap = rawCap ? Math.max(n, rawCap) : autoCap(n);
+  const estMB = cap * 0.00885;
+  const mem = estMB >= 1024 ? (estMB / 1024).toFixed(2) + " GB" : estMB.toFixed(0) + " MB";
+  $("#popMeta").textContent = (rawCap ? "Custom" : "Auto") + " slots: " + full(cap) + " (~" + mem + " locked RAM, grid " + autoGrid(n) + ")";
+  $("#popDec").textContent = "-" + full(popStep);
+  $("#popInc").textContent = "+" + full(popStep);
+}
+function setPopStep(step) {
+  popStep = step;
+  $("#n").step = String(step);
+  $$("[data-pop-step]").forEach((b) => b.setAttribute("aria-pressed", String(Number(b.dataset.popStep) === step)));
+  refreshPopUI();
+}
+function adjustPop(delta) { $("#n").value = String(clampPop(Number($("#n").value || 0) + delta)); refreshPopUI(); }
+$$("[data-pop-step]").forEach((b) => b.addEventListener("click", () => setPopStep(Number(b.dataset.popStep))));
+$$("[data-pop-delta]").forEach((b) => b.addEventListener("click", () => adjustPop(Number(b.dataset.popDelta))));
+$$("[data-pop-set]").forEach((b) => b.addEventListener("click", () => { $("#n").value = String(clampPop(b.dataset.popSet)); refreshPopUI(); }));
+$("#popDec").addEventListener("click", () => adjustPop(-popStep));
+$("#popInc").addEventListener("click", () => adjustPop(popStep));
+$("#n").addEventListener("input", refreshPopUI);
+$("#cap").addEventListener("input", refreshPopUI);
+refreshPopUI();
+
 async function startWorld(load) {
-  const body = Object.assign({ n: +$("#n").value, species: +$("#species").value, cap: +$("#cap").value, lab: S.lab,
+  const n = clampPop($("#n").value);
+  const body = Object.assign({ n, species: +$("#species").value, cap: +$("#cap").value, lab: S.lab,
     seed: +$("#seed").value, every: +$("#every").value, fps: +$("#fps").value, lesions: chosenLesions($("#lesions")),
-    params: changedParams(), threads: 0 }, sizeWH());
+    params: changedParams(), threads: 0, kernels: $("#kernels").checked }, sizeWH());
   if (load) body.load = load;
   $("#startHint").textContent = "starting\u2026";
   try {
@@ -596,7 +676,7 @@ $("#pauseBtn").addEventListener("click", () => {
 });
 $$("[data-step]").forEach((b) => b.addEventListener("click", () => cmd("step " + b.dataset.step)));
 $("#every").addEventListener("change", () => cmd("every " + Math.max(1, Math.min(10000, +$("#every").value || 1))));
-$("#fps").addEventListener("change", () => cmd("fps " + Math.max(1, Math.min(30, +$("#fps").value || 6))));
+$("#fps").addEventListener("change", () => cmd("fps " + Math.max(1, Math.min(60, +$("#fps").value || 6))));
 $("#size").addEventListener("change", () => cmd("size " + $("#size").value));
 $("#saveBtn").addEventListener("click", async () => {
   const name = $("#saveName").value.trim() || ("world-" + new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-"));
