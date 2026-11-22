@@ -1,0 +1,27 @@
+Upstream test oracle for tests/test_tk_hop.c
+============================================
+
+Source repository : spin_based_neural_network (tsotchke), local mirror
+Commit            : 9e8f2d0cd5ee6eab5e297ad626e1f60aed6b0fef (2026-05-01)
+Licence           : MIT, Copyright (c) 2024-2026 tsotchke (see LICENSE here)
+
+Files, copied byte for byte from the mirror's working tree (sha256):
+
+  hopfield.c                 <- src/thermodynamic/hopfield.c
+    e9475e42cb0c955d1dae2c30a1c930954648bb201d68cfb3c003f6589dcdf204
+  thermodynamic/hopfield.h   <- include/thermodynamic/hopfield.h
+    d8a9a4fec1b152f73e3232af6cdb52d2b75e3107f0894440576e602b76ec08f1
+  LICENSE                    <- LICENSE
+    9954a6f797d6e6c5754ad75304fcafea0bee67ffaaeab78351e2c11e9eb5398c
+
+The two source files are unmodified, so they keep the upstream UTF-8
+comments and CRLF line endings (the project's ASCII/LF rule applies to
+core/, which these files are not part of). They are hosted, floating-point
+code and are compiled only into the test executable, by
+`#include "upstream/spin_nn/hopfield.c"` in tests/test_tk_hop.c. Nothing in
+core/ contains upstream text.
+
+Used as oracle for: hopfield_store_patterns, hopfield_sync_update,
+hopfield_recall, hopfield_energy. Not used: hopfield_metropolis_sweep
+(sequential xorshift64 and run-time exp; the engine's heat bath is a
+different, integer sampler and is tested against its own specification).

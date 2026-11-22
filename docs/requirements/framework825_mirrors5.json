@@ -1,0 +1,45 @@
+{
+  "set_id": "framework825_mirrors5",
+  "title": "Cross-suite mirrors (ALife Framework v3.0)",
+  "source_files": [
+    "ALife-Framework-v3.0-Master-Spec.json",
+    "Asmodensius-evidence-crosswalk.xlsx"
+  ],
+  "items": [
+    {
+      "id": "MIR-01",
+      "text": "11-Pool Compensated FP64 First-Law Conservation (`|\u0394E|/(E_0 + E_solar_in_cum) < 1e-12`)",
+      "category": "Linked check IDs: CQM05 \u2194 HW18",
+      "criterion": "Verified once by shared enthalpy-ledger worker harness (`HW18`); credited to `CQM05` & `HW18`.",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/cross_suite_mirrors_5/0; Asmodensius-evidence-crosswalk.xlsx#Framework mirrors row 2"
+    },
+    {
+      "id": "MIR-02",
+      "text": "Calibrated Second-Order Metacognitive Reliability Monitor (`Brier \u2264 0.15`)",
+      "category": "Linked check IDs: CQM13 \u2194 HOT-2",
+      "criterion": "Single perceptual-uncertainty wagering & confidence-calibration assay satisfies `CQM13` & `HOT-2`.",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/cross_suite_mirrors_5/1; Asmodensius-evidence-crosswalk.xlsx#Framework mirrors row 3"
+    },
+    {
+      "id": "MIR-03",
+      "text": "Stimulus-Free Recurrent State Persistence Across Sensory Blank",
+      "category": "Linked check IDs: CQM19 \u2194 RPT-1",
+      "criterion": "Shared delayed-match blank-interval persistence vs feedforward-matched control satisfies `CQM19` & `RPT-1`.",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/cross_suite_mirrors_5/2; Asmodensius-evidence-crosswalk.xlsx#Framework mirrors row 4"
+    },
+    {
+      "id": "MIR-04",
+      "text": "Capacity-Limited Global Workspace Broadcast (`\u2265 4` Consumer Modules)",
+      "category": "Linked check IDs: CQM20 \u2194 GWT-3",
+      "criterion": "Single bottleneck broadcast fan-out & consumer ablation assay satisfies `CQM20` & `GWT-3`.",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/cross_suite_mirrors_5/3; Asmodensius-evidence-crosswalk.xlsx#Framework mirrors row 5"
+    },
+    {
+      "id": "MIR-05",
+      "text": "Non-Circular Forked-Snapshot Perturbational Complexity (`PCI*` Wake > Sleep)",
+      "category": "Linked check IDs: CQM21 \u2194 F2",
+      "criterion": "Shared forked-snapshot zap-and-zip Lempel-Ziv complexity harness satisfies `CQM21` & `F2`.",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/cross_suite_mirrors_5/4; Asmodensius-evidence-crosswalk.xlsx#Framework mirrors row 6"
+    }
+  ]
+}

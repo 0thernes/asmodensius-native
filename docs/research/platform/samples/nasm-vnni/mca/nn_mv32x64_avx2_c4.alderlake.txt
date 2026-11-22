@@ -1,0 +1,512 @@
+Iterations:        1000
+Instructions:      234000
+Total Cycles:      80039
+Total uOps:        301000
+
+Dispatch Width:    6
+uOps Per Cycle:    3.76
+IPC:               2.92
+Block RThroughput: 68.0
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 0      1     0.00                        subq	$24, %rsp
+ 2      12    0.50           *            vmovaps	%xmm6, (%rsp)
+ 1      8     0.33    *                   vmovdqu	(%r8), %ymm0
+ 1      8     0.33    *                   vmovdqu	32(%r8), %ymm1
+ 1      8     0.33    *                   vmovdqu	64(%r8), %ymm2
+ 1      8     0.33    *                   vmovdqu	96(%r8), %ymm3
+ 1      1     0.50                        vpcmpeqw	%ymm6, %ymm6, %ymm6
+ 1      1     0.50                        vpsrlw	$15, %ymm6, %ymm6
+ 1      8     0.33    *                   vpbroadcastd	(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	32(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	64(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	96(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	4(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	128(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	160(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	192(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	224(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	8(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	256(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	288(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	320(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	352(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	12(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	384(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	416(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	448(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	480(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	16(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	512(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	544(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	576(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	608(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	20(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	640(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	672(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	704(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	736(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	24(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	768(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	800(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	832(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	864(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	28(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	896(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	928(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	960(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	992(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	32(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	1024(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	1056(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	1088(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	1120(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	36(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	1152(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	1184(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	1216(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	1248(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	40(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	1280(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	1312(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	1344(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	1376(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	44(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	1408(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	1440(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	1472(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	1504(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	48(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	1536(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	1568(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	1600(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	1632(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	52(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	1664(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	1696(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	1728(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	1760(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	56(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	1792(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	1824(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	1856(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	1888(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	60(%rcx), %ymm5
+ 2      13    0.50    *                   vpmaddubsw	1920(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm0, %ymm0
+ 2      13    0.50    *                   vpmaddubsw	1952(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm1, %ymm1
+ 2      13    0.50    *                   vpmaddubsw	1984(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm2, %ymm2
+ 2      13    0.50    *                   vpmaddubsw	2016(%rdx), %ymm5, %ymm4
+ 1      5     0.50                        vpmaddwd	%ymm6, %ymm4, %ymm4
+ 1      1     0.33                        vpaddd	%ymm4, %ymm3, %ymm3
+ 1      3     1.00                        vmovd	%r9d, %xmm4
+ 2      4     1.00                        vpsrad	%xmm4, %ymm0, %ymm0
+ 2      4     1.00                        vpsrad	%xmm4, %ymm1, %ymm1
+ 2      4     1.00                        vpsrad	%xmm4, %ymm2, %ymm2
+ 2      4     1.00                        vpsrad	%xmm4, %ymm3, %ymm3
+ 1      3     1.00                        vpackssdw	%ymm1, %ymm0, %ymm0
+ 1      3     1.00                        vpackssdw	%ymm3, %ymm2, %ymm2
+ 1      8     0.33    *                   vmovdqa	(%rip), %ymm5
+ 1      1     0.50                        vpminsw	%ymm5, %ymm0, %ymm0
+ 1      1     0.50                        vpminsw	%ymm5, %ymm2, %ymm2
+ 1      3     1.00                        vpackuswb	%ymm2, %ymm0, %ymm0
+ 1      8     0.33    *                   vmovdqa	32(%rip), %ymm4
+ 1      3     1.00                        vpermd	%ymm0, %ymm4, %ymm0
+ 1      5     0.33    *                   movq	64(%rsp), %rax
+ 2      12    0.50           *            vmovdqu	%ymm0, (%rax)
+ 0      0     0.00                  U     vzeroupper
+ 1      7     0.33    *                   vmovaps	(%rsp), %xmm6
+ 0      1     0.00                        addq	$24, %rsp
+
+
+Resources:
+[0]   - ADLPPort00
+[1]   - ADLPPort01
+[2]   - ADLPPort02
+[3]   - ADLPPort03
+[4]   - ADLPPort04
+[5]   - ADLPPort05
+[6]   - ADLPPort06
+[7]   - ADLPPort07
+[8]   - ADLPPort08
+[9]   - ADLPPort09
+[10]  - ADLPPort10
+[11]  - ADLPPort11
+[12]  - ADLPPortInvalid
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   
+80.00  80.00  29.33  29.33  1.00   49.00   -     1.00   1.00   1.00   29.33   -      -     
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   Instructions:
+ -      -      -      -      -      -      -      -      -      -      -      -      -     subq	$24, %rsp
+ -      -      -      -      -      -      -      -     1.00   1.00    -      -      -     vmovaps	%xmm6, (%rsp)
+ -      -     0.34   0.33    -      -      -      -      -      -     0.33    -      -     vmovdqu	(%r8), %ymm0
+ -      -     0.33   0.34    -      -      -      -      -      -     0.33    -      -     vmovdqu	32(%r8), %ymm1
+ -      -     0.34   0.33    -      -      -      -      -      -     0.33    -      -     vmovdqu	64(%r8), %ymm2
+ -      -     0.33   0.33    -      -      -      -      -      -     0.34    -      -     vmovdqu	96(%r8), %ymm3
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpcmpeqw	%ymm6, %ymm6, %ymm6
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpsrlw	$15, %ymm6, %ymm6
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	(%rcx), %ymm5
+0.50   0.50   0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	32(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	64(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+0.50    -      -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	96(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	4(%rcx), %ymm5
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	128(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+0.50    -      -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	160(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	192(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+0.50    -      -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	224(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	8(%rcx), %ymm5
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	256(%rdx), %ymm5, %ymm4
+0.01   0.99    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+1.00    -     0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	288(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+0.50    -      -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+0.01   1.00   0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	320(%rdx), %ymm5, %ymm4
+0.01   0.99    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	352(%rdx), %ymm5, %ymm4
+1.00   0.01    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.99    -      -      -     0.01    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	12(%rcx), %ymm5
+0.01   1.00   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	384(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.01    -      -      -     0.99    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	416(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.99    -      -      -     0.01    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+0.50   0.50   0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	448(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+0.50    -      -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	480(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	16(%rcx), %ymm5
+1.00   0.01   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	512(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+1.00    -     0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	544(%rdx), %ymm5, %ymm4
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+0.01   0.99   0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	576(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	608(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	20(%rcx), %ymm5
+0.50   0.50   0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	640(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	672(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	704(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+ -     1.00   0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	736(%rdx), %ymm5, %ymm4
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	24(%rcx), %ymm5
+1.00    -     0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	768(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	800(%rdx), %ymm5, %ymm4
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+0.50   0.50   0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	832(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	864(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	28(%rcx), %ymm5
+1.00    -     0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	896(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+ -     1.00   0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	928(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	960(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	992(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	32(%rcx), %ymm5
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1024(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1056(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1088(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+0.50   0.50   0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1120(%rdx), %ymm5, %ymm4
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	36(%rcx), %ymm5
+1.00    -     0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1152(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	1184(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+0.50   0.50   0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1216(%rdx), %ymm5, %ymm4
+0.01   0.99    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1248(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.99    -      -      -     0.01    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpbroadcastd	40(%rcx), %ymm5
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1280(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	1312(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1344(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1376(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	44(%rcx), %ymm5
+0.50   0.50   0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1408(%rdx), %ymm5, %ymm4
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1440(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.99    -      -      -     0.01    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	1472(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1504(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	48(%rcx), %ymm5
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1536(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+1.00    -     0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1568(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+0.01   1.00   0.34   0.33    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	1600(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+1.00    -     0.33   0.34    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	1632(%rdx), %ymm5, %ymm4
+1.00   0.01    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpbroadcastd	52(%rcx), %ymm5
+0.50   0.50   0.34   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1664(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1696(%rdx), %ymm5, %ymm4
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1728(%rdx), %ymm5, %ymm4
+1.00   0.01    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     1.00    -      -      -     0.01    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+ -     1.00   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1760(%rdx), %ymm5, %ymm4
+0.01   1.00    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.01    -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	56(%rcx), %ymm5
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1792(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     1.00    -      -      -     0.01    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1824(%rdx), %ymm5, %ymm4
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1856(%rdx), %ymm5, %ymm4
+1.00   0.01    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     1.00    -      -      -     0.01    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+0.50   0.50   0.33   0.34    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1888(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpbroadcastd	60(%rcx), %ymm5
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	1920(%rdx), %ymm5, %ymm4
+0.01   1.00    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm0, %ymm0
+ -     1.00   0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1952(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm1, %ymm1
+1.00    -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vpmaddubsw	1984(%rdx), %ymm5, %ymm4
+1.00    -      -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -     0.50    -      -      -     0.50    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm2, %ymm2
+0.50   0.50   0.33   0.33    -      -      -      -      -      -     0.34    -      -     vpmaddubsw	2016(%rdx), %ymm5, %ymm4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -     vpmaddwd	%ymm6, %ymm4, %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpaddd	%ymm4, %ymm3, %ymm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vmovd	%r9d, %xmm4
+ -     1.00    -      -      -     1.00    -      -      -      -      -      -      -     vpsrad	%xmm4, %ymm0, %ymm0
+ -     1.00    -      -      -     1.00    -      -      -      -      -      -      -     vpsrad	%xmm4, %ymm1, %ymm1
+ -     1.00    -      -      -     1.00    -      -      -      -      -      -      -     vpsrad	%xmm4, %ymm2, %ymm2
+ -     1.00    -      -      -     1.00    -      -      -      -      -      -      -     vpsrad	%xmm4, %ymm3, %ymm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpackssdw	%ymm1, %ymm0, %ymm0
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpackssdw	%ymm3, %ymm2, %ymm2
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vmovdqa	(%rip), %ymm5
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpminsw	%ymm5, %ymm0, %ymm0
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     vpminsw	%ymm5, %ymm2, %ymm2
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpackuswb	%ymm2, %ymm0, %ymm0
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vmovdqa	32(%rip), %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpermd	%ymm0, %ymm4, %ymm0
+ -      -     0.34   0.33    -      -      -      -      -      -     0.33    -      -     movq	64(%rsp), %rax
+ -      -      -      -     1.00    -      -     1.00    -      -      -      -      -     vmovdqu	%ymm0, (%rax)
+ -      -      -      -      -      -      -      -      -      -      -      -      -     vzeroupper
+ -      -     0.33   0.33    -      -      -      -      -      -     0.33    -      -     vmovaps	(%rsp), %xmm6
+ -      -      -      -      -      -      -      -      -      -      -      -      -     addq	$24, %rsp

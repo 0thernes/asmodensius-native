@@ -1,0 +1,1241 @@
+
+test.exe:	file format coff-x86-64
+Unwind info:
+
+Function Table:
+  Start Address: 0x1000
+  End Address: 0x1017
+  Unwind Info Address: 0xf000
+    Version: 1
+    Flags: 0
+    Size of prolog: 4
+    Number of Codes: 2
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x1017
+  End Address: 0x1030
+  Unwind Info Address: 0xf008
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x1030
+  End Address: 0x105f
+  Unwind Info Address: 0xf014
+    Version: 1
+    Flags: 1 UNW_ExceptionHandler
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x105f
+  End Address: 0x108e
+  Unwind Info Address: 0xf038
+    Version: 1
+    Flags: 1 UNW_ExceptionHandler
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x108e
+  End Address: 0x13ec
+  Unwind Info Address: 0xf05c
+    Version: 1
+    Flags: 0
+    Size of prolog: 11
+    Number of Codes: 4
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x0b: UOP_AllocLarge 18
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x13ec
+  End Address: 0x14f0
+  Unwind Info Address: 0xf068
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x14f0
+  End Address: 0x162f
+  Unwind Info Address: 0xf074
+    Version: 1
+    Flags: 0
+    Size of prolog: 11
+    Number of Codes: 4
+    Frame register: RBP
+    Frame offset: 64
+    Unwind Codes:
+      0x0b: UOP_SetFPReg 
+      0x06: UOP_AllocSmall 72
+      0x02: UOP_PushNonVol RBX
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x162f
+  End Address: 0x164d
+  Unwind Info Address: 0xf080
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x1650
+  End Address: 0x1651
+  Unwind Info Address: 0xf08c
+    Version: 1
+    Flags: 0
+    Size of prolog: 0
+    Number of Codes: 0
+    No frame pointer used
+
+Function Table:
+  Start Address: 0x1660
+  End Address: 0x1663
+  Unwind Info Address: 0xf090
+    Version: 1
+    Flags: 0
+    Size of prolog: 0
+    Number of Codes: 0
+    No frame pointer used
+
+Function Table:
+  Start Address: 0x1670
+  End Address: 0x1717
+  Unwind Info Address: 0xf094
+    Version: 1
+    Flags: 0
+    Size of prolog: 11
+    Number of Codes: 4
+    Frame register: RBP
+    Frame offset: 48
+    Unwind Codes:
+      0x0b: UOP_SetFPReg 
+      0x06: UOP_AllocSmall 56
+      0x02: UOP_PushNonVol RBX
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x1720
+  End Address: 0x175e
+  Unwind Info Address: 0xf0a0
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x1780
+  End Address: 0x179c
+  Unwind Info Address: 0xf0ac
+    Version: 1
+    Flags: 0
+    Size of prolog: 0
+    Number of Codes: 0
+    No frame pointer used
+
+Function Table:
+  Start Address: 0x17a0
+  End Address: 0x1ae2
+  Unwind Info Address: 0xf0b0
+    Version: 1
+    Flags: 0
+    Size of prolog: 15
+    Number of Codes: 8
+    No frame pointer used
+    Unwind Codes:
+      0x0f: UOP_AllocLarge 25
+      0x08: UOP_PushNonVol RBX
+      0x07: UOP_PushNonVol RSI
+      0x06: UOP_PushNonVol RDI
+      0x05: UOP_PushNonVol RBP
+      0x04: UOP_PushNonVol R12
+      0x02: UOP_PushNonVol R13
+
+Function Table:
+  Start Address: 0x1af0
+  End Address: 0x1b96
+  Unwind Info Address: 0xf0c4
+    Version: 1
+    Flags: 0
+    Size of prolog: 6
+    Number of Codes: 3
+    No frame pointer used
+    Unwind Codes:
+      0x06: UOP_AllocSmall 104
+      0x02: UOP_PushNonVol RBX
+      0x01: UOP_PushNonVol RSI
+
+Function Table:
+  Start Address: 0x1ba0
+  End Address: 0x1dff
+  Unwind Info Address: 0xf0d0
+    Version: 1
+    Flags: 0
+    Size of prolog: 9
+    Number of Codes: 4
+    No frame pointer used
+    Unwind Codes:
+      0x09: UOP_AllocLarge 169
+      0x02: UOP_PushNonVol RBX
+      0x01: UOP_PushNonVol RSI
+
+Function Table:
+  Start Address: 0x1e00
+  End Address: 0x1e7a
+  Unwind Info Address: 0xf0dc
+    Version: 1
+    Flags: 0
+    Size of prolog: 9
+    Number of Codes: 3
+    No frame pointer used
+    Unwind Codes:
+      0x09: UOP_SaveXMM128 XMM6 [0x0020]
+      0x04: UOP_AllocSmall 56
+
+Function Table:
+  Start Address: 0x1e80
+  End Address: 0x1eb9
+  Unwind Info Address: 0xf0e8
+    Version: 1
+    Flags: 0
+    Size of prolog: 4
+    Number of Codes: 1
+    No frame pointer used
+    Unwind Codes:
+      0x04: UOP_AllocSmall 56
+
+Function Table:
+  Start Address: 0x1ec0
+  End Address: 0x1f35
+  Unwind Info Address: 0xf0f0
+    Version: 1
+    Flags: 0
+    Size of prolog: 1
+    Number of Codes: 1
+    No frame pointer used
+    Unwind Codes:
+      0x01: UOP_PushNonVol RBX
+
+Function Table:
+  Start Address: 0x1f40
+  End Address: 0x20d0
+  Unwind Info Address: 0xf0f8
+    Version: 1
+    Flags: 0
+    Size of prolog: 15
+    Number of Codes: 7
+    No frame pointer used
+    Unwind Codes:
+      0x0f: UOP_SaveXMM128 XMM7 [0x0010]
+      0x0a: UOP_SaveXMM128 XMM6 [0x0000]
+      0x06: UOP_AllocSmall 40
+      0x02: UOP_PushNonVol RBX
+      0x01: UOP_PushNonVol RSI
+
+Function Table:
+  Start Address: 0x20d0
+  End Address: 0x23ae
+  Unwind Info Address: 0xf10c
+    Version: 1
+    Flags: 0
+    Size of prolog: 30
+    Number of Codes: 14
+    No frame pointer used
+    Unwind Codes:
+      0x1e: UOP_SaveXMM128 XMM8 [0x0050]
+      0x18: UOP_SaveXMM128 XMM7 [0x0040]
+      0x13: UOP_SaveXMM128 XMM6 [0x0030]
+      0x0e: UOP_AllocSmall 96
+      0x0a: UOP_PushNonVol RBX
+      0x09: UOP_PushNonVol RSI
+      0x08: UOP_PushNonVol RDI
+      0x07: UOP_PushNonVol RBP
+      0x06: UOP_PushNonVol R12
+      0x04: UOP_PushNonVol R13
+      0x02: UOP_PushNonVol R14
+
+Function Table:
+  Start Address: 0x23b0
+  End Address: 0x31db
+  Unwind Info Address: 0xf12c
+    Version: 1
+    Flags: 0
+    Size of prolog: 71
+    Number of Codes: 22
+    No frame pointer used
+    Unwind Codes:
+      0x47: UOP_SaveXMM128 XMM11 [0x00e0]
+      0x3e: UOP_SaveXMM128 XMM10 [0x00d0]
+      0x35: UOP_SaveXMM128 XMM9 [0x00c0]
+      0x2c: UOP_SaveXMM128 XMM8 [0x00b0]
+      0x23: UOP_SaveXMM128 XMM7 [0x00a0]
+      0x1b: UOP_SaveXMM128 XMM6 [0x0090]
+      0x13: UOP_AllocLarge 31
+      0x0c: UOP_PushNonVol RBX
+      0x0b: UOP_PushNonVol RSI
+      0x0a: UOP_PushNonVol RDI
+      0x09: UOP_PushNonVol RBP
+      0x08: UOP_PushNonVol R12
+      0x06: UOP_PushNonVol R13
+      0x04: UOP_PushNonVol R14
+      0x02: UOP_PushNonVol R15
+
+Function Table:
+  Start Address: 0x3200
+  End Address: 0x32c6
+  Unwind Info Address: 0xf1a0
+    Version: 1
+    Flags: 0
+    Size of prolog: 1
+    Number of Codes: 1
+    No frame pointer used
+    Unwind Codes:
+      0x01: UOP_PushNonVol RBX
+
+Function Table:
+  Start Address: 0x32d0
+  End Address: 0x32e8
+  Unwind Info Address: 0xf1a8
+    Version: 1
+    Flags: 0
+    Size of prolog: 1
+    Number of Codes: 1
+    No frame pointer used
+    Unwind Codes:
+      0x01: UOP_PushNonVol RBX
+
+Function Table:
+  Start Address: 0x32f0
+  End Address: 0x35ec
+  Unwind Info Address: 0xf1b0
+    Version: 1
+    Flags: 0
+    Size of prolog: 4
+    Number of Codes: 1
+    No frame pointer used
+    Unwind Codes:
+      0x04: UOP_AllocSmall 8
+
+Function Table:
+  Start Address: 0x35f0
+  End Address: 0x392e
+  Unwind Info Address: 0xf1b8
+    Version: 1
+    Flags: 0
+    Size of prolog: 21
+    Number of Codes: 7
+    No frame pointer used
+    Unwind Codes:
+      0x15: UOP_SaveXMM128 XMM8 [0x0020]
+      0x0f: UOP_SaveXMM128 XMM7 [0x0010]
+      0x09: UOP_SaveXMM128 XMM6 [0x0000]
+      0x04: UOP_AllocSmall 56
+
+Function Table:
+  Start Address: 0x3930
+  End Address: 0x3cc9
+  Unwind Info Address: 0xf1cc
+    Version: 1
+    Flags: 0
+    Size of prolog: 45
+    Number of Codes: 15
+    No frame pointer used
+    Unwind Codes:
+      0x2d: UOP_SaveXMM128 XMM12 [0x0060]
+      0x27: UOP_SaveXMM128 XMM11 [0x0050]
+      0x21: UOP_SaveXMM128 XMM10 [0x0040]
+      0x1b: UOP_SaveXMM128 XMM9 [0x0030]
+      0x15: UOP_SaveXMM128 XMM8 [0x0020]
+      0x0f: UOP_SaveXMM128 XMM7 [0x0010]
+      0x09: UOP_SaveXMM128 XMM6 [0x0000]
+      0x04: UOP_AllocSmall 120
+
+Function Table:
+  Start Address: 0x3cd0
+  End Address: 0x400e
+  Unwind Info Address: 0xf1f0
+    Version: 1
+    Flags: 0
+    Size of prolog: 21
+    Number of Codes: 7
+    No frame pointer used
+    Unwind Codes:
+      0x15: UOP_SaveXMM128 XMM8 [0x0020]
+      0x0f: UOP_SaveXMM128 XMM7 [0x0010]
+      0x09: UOP_SaveXMM128 XMM6 [0x0000]
+      0x04: UOP_AllocSmall 56
+
+Function Table:
+  Start Address: 0x4010
+  End Address: 0x451f
+  Unwind Info Address: 0xf204
+    Version: 1
+    Flags: 0
+    Size of prolog: 9
+    Number of Codes: 3
+    No frame pointer used
+    Unwind Codes:
+      0x09: UOP_SaveXMM128 XMM6 [0x0000]
+      0x04: UOP_AllocSmall 24
+
+Function Table:
+  Start Address: 0x4520
+  End Address: 0x49a1
+  Unwind Info Address: 0xf210
+    Version: 1
+    Flags: 0
+    Size of prolog: 54
+    Number of Codes: 18
+    No frame pointer used
+    Unwind Codes:
+      0x36: UOP_SaveXMM128 XMM13 [0x0070]
+      0x30: UOP_SaveXMM128 XMM12 [0x0060]
+      0x2a: UOP_SaveXMM128 XMM11 [0x0050]
+      0x24: UOP_SaveXMM128 XMM10 [0x0040]
+      0x1e: UOP_SaveXMM128 XMM9 [0x0030]
+      0x18: UOP_SaveXMM128 XMM8 [0x0020]
+      0x12: UOP_SaveXMM128 XMM7 [0x0010]
+      0x0c: UOP_SaveXMM128 XMM6 [0x0000]
+      0x07: UOP_AllocLarge 17
+
+Function Table:
+  Start Address: 0x49f0
+  End Address: 0x4a4b
+  Unwind Info Address: 0xf238
+    Version: 1
+    Flags: 0
+    Size of prolog: 7
+    Number of Codes: 5
+    No frame pointer used
+    Unwind Codes:
+      0x07: UOP_PushNonVol R13
+      0x05: UOP_PushNonVol R12
+      0x03: UOP_PushNonVol RDI
+      0x02: UOP_PushNonVol RSI
+      0x01: UOP_PushNonVol RBX
+
+Function Table:
+  Start Address: 0x4a50
+  End Address: 0x4cbc
+  Unwind Info Address: 0xf248
+    Version: 1
+    Flags: 0
+    Size of prolog: 91
+    Number of Codes: 30
+    No frame pointer used
+    Unwind Codes:
+      0x5b: UOP_SaveXMM128 XMM15 [0x00b0]
+      0x52: UOP_SaveXMM128 XMM14 [0x00a0]
+      0x49: UOP_SaveXMM128 XMM13 [0x0090]
+      0x40: UOP_SaveXMM128 XMM12 [0x0080]
+      0x37: UOP_SaveXMM128 XMM11 [0x0070]
+      0x31: UOP_SaveXMM128 XMM10 [0x0060]
+      0x2b: UOP_SaveXMM128 XMM9 [0x0050]
+      0x25: UOP_SaveXMM128 XMM8 [0x0040]
+      0x1f: UOP_SaveXMM128 XMM7 [0x0030]
+      0x19: UOP_SaveXMM128 XMM6 [0x0020]
+      0x13: UOP_AllocLarge 25
+      0x0c: UOP_PushNonVol R15
+      0x0a: UOP_PushNonVol R14
+      0x08: UOP_PushNonVol R13
+      0x06: UOP_PushNonVol R12
+      0x04: UOP_PushNonVol RDI
+      0x03: UOP_PushNonVol RSI
+      0x02: UOP_PushNonVol RBP
+      0x01: UOP_PushNonVol RBX
+
+Function Table:
+  Start Address: 0x4cc0
+  End Address: 0x4e00
+  Unwind Info Address: 0xf288
+    Version: 1
+    Flags: 0
+    Size of prolog: 91
+    Number of Codes: 30
+    No frame pointer used
+    Unwind Codes:
+      0x5b: UOP_SaveXMM128 XMM15 [0x00b0]
+      0x52: UOP_SaveXMM128 XMM14 [0x00a0]
+      0x49: UOP_SaveXMM128 XMM13 [0x0090]
+      0x40: UOP_SaveXMM128 XMM12 [0x0080]
+      0x37: UOP_SaveXMM128 XMM11 [0x0070]
+      0x31: UOP_SaveXMM128 XMM10 [0x0060]
+      0x2b: UOP_SaveXMM128 XMM9 [0x0050]
+      0x25: UOP_SaveXMM128 XMM8 [0x0040]
+      0x1f: UOP_SaveXMM128 XMM7 [0x0030]
+      0x19: UOP_SaveXMM128 XMM6 [0x0020]
+      0x13: UOP_AllocLarge 25
+      0x0c: UOP_PushNonVol R15
+      0x0a: UOP_PushNonVol R14
+      0x08: UOP_PushNonVol R13
+      0x06: UOP_PushNonVol R12
+      0x04: UOP_PushNonVol RDI
+      0x03: UOP_PushNonVol RSI
+      0x02: UOP_PushNonVol RBP
+      0x01: UOP_PushNonVol RBX
+
+Function Table:
+  Start Address: 0x4e00
+  End Address: 0x4e43
+  Unwind Info Address: 0xf2c8
+    Version: 1
+    Flags: 0
+    Size of prolog: 13
+    Number of Codes: 6
+    No frame pointer used
+    Unwind Codes:
+      0x0d: UOP_SaveXMM128 XMM6 [0x0020]
+      0x07: UOP_AllocSmall 48
+      0x03: UOP_PushNonVol RDI
+      0x02: UOP_PushNonVol RSI
+      0x01: UOP_PushNonVol RBX
+
+Function Table:
+  Start Address: 0x4e50
+  End Address: 0x4e68
+  Unwind Info Address: 0xf2d8
+    Version: 1
+    Flags: 0
+    Size of prolog: 2
+    Number of Codes: 1
+    No frame pointer used
+    Unwind Codes:
+      0x02: UOP_PushNonVol R12
+
+Function Table:
+  Start Address: 0x4e70
+  End Address: 0x4ee8
+  Unwind Info Address: 0xf2e0
+    Version: 1
+    Flags: 0
+    Size of prolog: 26
+    Number of Codes: 9
+    No frame pointer used
+    Unwind Codes:
+      0x1a: UOP_SaveXMM128 XMM8 [0x0050]
+      0x14: UOP_SaveXMM128 XMM7 [0x0040]
+      0x0e: UOP_SaveXMM128 XMM6 [0x0030]
+      0x08: UOP_AllocSmall 104
+      0x04: UOP_PushNonVol R15
+      0x02: UOP_PushNonVol R14
+
+Function Table:
+  Start Address: 0x4ef0
+  End Address: 0x4fdd
+  Unwind Info Address: 0xf2f8
+    Version: 1
+    Flags: 0
+    Size of prolog: 79
+    Number of Codes: 22
+    No frame pointer used
+    Unwind Codes:
+      0x4f: UOP_SaveXMM128 XMM15 [0x00b0]
+      0x46: UOP_SaveXMM128 XMM14 [0x00a0]
+      0x3d: UOP_SaveXMM128 XMM13 [0x0090]
+      0x34: UOP_SaveXMM128 XMM12 [0x0080]
+      0x2b: UOP_SaveXMM128 XMM11 [0x0070]
+      0x25: UOP_SaveXMM128 XMM10 [0x0060]
+      0x1f: UOP_SaveXMM128 XMM9 [0x0050]
+      0x19: UOP_SaveXMM128 XMM8 [0x0040]
+      0x13: UOP_SaveXMM128 XMM7 [0x0030]
+      0x0d: UOP_SaveXMM128 XMM6 [0x0020]
+      0x07: UOP_AllocLarge 25
+
+Function Table:
+  Start Address: 0x5020
+  End Address: 0x505f
+  Unwind Info Address: 0xf328
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x505f
+  End Address: 0x50d7
+  Unwind Info Address: 0xf334
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x50d7
+  End Address: 0x50ff
+  Unwind Info Address: 0xf340
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x5100
+  End Address: 0x510b
+  Unwind Info Address: 0xf34c
+    Version: 1
+    Flags: 0
+    Size of prolog: 4
+    Number of Codes: 2
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x5110
+  End Address: 0x51ac
+  Unwind Info Address: 0xf354
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x51ac
+  End Address: 0x51c9
+  Unwind Info Address: 0xf360
+    Version: 1
+    Flags: 0
+    Size of prolog: 4
+    Number of Codes: 2
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x51c9
+  End Address: 0x5207
+  Unwind Info Address: 0xf368
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x5210
+  End Address: 0x533c
+  Unwind Info Address: 0xf374
+    Version: 1
+    Flags: 0
+    Size of prolog: 27
+    Number of Codes: 11
+    Frame register: RBP
+    Frame offset: 80
+    Unwind Codes:
+      0x1b: UOP_SaveXMM128 XMM8 [0x0070]
+      0x16: UOP_SaveXMM128 XMM7 [0x0060]
+      0x12: UOP_SaveXMM128 XMM6 [0x0050]
+      0x0e: UOP_SetFPReg 
+      0x09: UOP_AllocLarge 17
+      0x02: UOP_PushNonVol RBX
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x5340
+  End Address: 0x53a5
+  Unwind Info Address: 0xf390
+    Version: 1
+    Flags: 0
+    Size of prolog: 11
+    Number of Codes: 4
+    Frame register: RBP
+    Frame offset: 48
+    Unwind Codes:
+      0x0b: UOP_SetFPReg 
+      0x06: UOP_AllocSmall 56
+      0x02: UOP_PushNonVol RBX
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x53a5
+  End Address: 0x5683
+  Unwind Info Address: 0xf39c
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 96
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x5683
+  End Address: 0x575b
+  Unwind Info Address: 0xf3a8
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x575b
+  End Address: 0x57a2
+  Unwind Info Address: 0xf3b4
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x57a2
+  End Address: 0x5b20
+  Unwind Info Address: 0xf3c0
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 128
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x5b20
+  End Address: 0x5bc4
+  Unwind Info Address: 0xf3cc
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x5bd0
+  End Address: 0x5c3a
+  Unwind Info Address: 0xf3d8
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 80
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x5c3a
+  End Address: 0x5c64
+  Unwind Info Address: 0xf3e4
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x5c70
+  End Address: 0x5eca
+  Unwind Info Address: 0xf3f0
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x5eca
+  End Address: 0x612e
+  Unwind Info Address: 0xf3fc
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6130
+  End Address: 0x61d1
+  Unwind Info Address: 0xf408
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x61d1
+  End Address: 0x6292
+  Unwind Info Address: 0xf414
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6292
+  End Address: 0x6331
+  Unwind Info Address: 0xf420
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6331
+  End Address: 0x642d
+  Unwind Info Address: 0xf42c
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6430
+  End Address: 0x6439
+  Unwind Info Address: 0xf438
+    Version: 1
+    Flags: 0
+    Size of prolog: 4
+    Number of Codes: 2
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6440
+  End Address: 0x64bc
+  Unwind Info Address: 0xf440
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x64bc
+  End Address: 0x6555
+  Unwind Info Address: 0xf44c
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6555
+  End Address: 0x661b
+  Unwind Info Address: 0xf458
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 64
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x661b
+  End Address: 0x666b
+  Unwind Info Address: 0xf464
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x666b
+  End Address: 0x66bb
+  Unwind Info Address: 0xf470
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x66bb
+  End Address: 0x6767
+  Unwind Info Address: 0xf47c
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 64
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6767
+  End Address: 0x679b
+  Unwind Info Address: 0xf488
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x679b
+  End Address: 0x680c
+  Unwind Info Address: 0xf494
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 64
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x680c
+  End Address: 0x68ed
+  Unwind Info Address: 0xf4a0
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 80
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6930
+  End Address: 0x6971
+  Unwind Info Address: 0xf4c4
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 48
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6980
+  End Address: 0x69e8
+  Unwind Info Address: 0xf4d0
+    Version: 1
+    Flags: 0
+    Size of prolog: 12
+    Number of Codes: 5
+    Frame register: RBP
+    Frame offset: 64
+    Unwind Codes:
+      0x0c: UOP_SetFPReg 
+      0x07: UOP_AllocSmall 64
+      0x03: UOP_PushNonVol RBX
+      0x02: UOP_PushNonVol RSI
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x69f0
+  End Address: 0x6a4a
+  Unwind Info Address: 0xf4e0
+    Version: 1
+    Flags: 0
+    Size of prolog: 11
+    Number of Codes: 4
+    Frame register: RBP
+    Frame offset: 64
+    Unwind Codes:
+      0x0b: UOP_SetFPReg 
+      0x06: UOP_AllocSmall 72
+      0x02: UOP_PushNonVol RBX
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6a50
+  End Address: 0x6a5d
+  Unwind Info Address: 0xf4ec
+    Version: 1
+    Flags: 0
+    Size of prolog: 4
+    Number of Codes: 2
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6a60
+  End Address: 0x6a70
+  Unwind Info Address: 0xf4f4
+    Version: 1
+    Flags: 0
+    Size of prolog: 4
+    Number of Codes: 2
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6a70
+  End Address: 0x6aa8
+  Unwind Info Address: 0xf4fc
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6ab0
+  End Address: 0x6b29
+  Unwind Info Address: 0xf508
+    Version: 1
+    Flags: 0
+    Size of prolog: 8
+    Number of Codes: 3
+    Frame register: RBP
+    Frame offset: 0
+    Unwind Codes:
+      0x08: UOP_AllocSmall 32
+      0x04: UOP_SetFPReg 
+      0x01: UOP_PushNonVol RBP
+
+Function Table:
+  Start Address: 0x6d80
+  End Address: 0x86bf
+  Unwind Info Address: 0xf15c
+    Version: 1
+    Flags: 0
+    Size of prolog: 107
+    Number of Codes: 30
+    No frame pointer used
+    Unwind Codes:
+      0x6b: UOP_SaveXMM128 XMM15 [0x0190]
+      0x62: UOP_SaveXMM128 XMM14 [0x0180]
+      0x59: UOP_SaveXMM128 XMM13 [0x0170]
+      0x50: UOP_SaveXMM128 XMM12 [0x0160]
+      0x47: UOP_SaveXMM128 XMM11 [0x0150]
+      0x3e: UOP_SaveXMM128 XMM10 [0x0140]
+      0x35: UOP_SaveXMM128 XMM9 [0x0130]
+      0x2c: UOP_SaveXMM128 XMM8 [0x0120]
+      0x23: UOP_SaveXMM128 XMM7 [0x0110]
+      0x1b: UOP_SaveXMM128 XMM6 [0x0100]
+      0x13: UOP_AllocLarge 53
+      0x0c: UOP_PushNonVol RBX
+      0x0b: UOP_PushNonVol RSI
+      0x0a: UOP_PushNonVol RDI
+      0x09: UOP_PushNonVol RBP
+      0x08: UOP_PushNonVol R12
+      0x06: UOP_PushNonVol R13
+      0x04: UOP_PushNonVol R14
+      0x02: UOP_PushNonVol R15
+
+Function Table:
+  Start Address: 0x86c0
+  End Address: 0x9b59
+  Unwind Info Address: 0xf4ac
+    Version: 1
+    Flags: 0
+    Size of prolog: 16
+    Number of Codes: 9
+    No frame pointer used
+    Unwind Codes:
+      0x10: UOP_AllocSmall 24
+      0x0c: UOP_PushNonVol RBX
+      0x0b: UOP_PushNonVol RSI
+      0x0a: UOP_PushNonVol RDI
+      0x09: UOP_PushNonVol RBP
+      0x08: UOP_PushNonVol R12
+      0x06: UOP_PushNonVol R13
+      0x04: UOP_PushNonVol R14
+      0x02: UOP_PushNonVol R15
+
+Function Table:
+  Start Address: 0x9b60
+  End Address: 0x9b65
+  Unwind Info Address: 0xf514
+    Version: 1
+    Flags: 0
+    Size of prolog: 0
+    Number of Codes: 0
+    No frame pointer used
+

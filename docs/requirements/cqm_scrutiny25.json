@@ -1,0 +1,184 @@
+{
+  "set_id": "cqm_scrutiny25",
+  "title": "CQM 25-point critical scrutiny scorecard (2026-07-01 audit points; a scored audit, not a pass/fail law)",
+  "source_files": [
+    "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md"
+  ],
+  "items": [
+    {
+      "id": "SCRUTINY-01",
+      "text": "Determinism integrity",
+      "category": "A · Engineering & code health",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L41 (score 9.5, grade A on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-02",
+      "text": "Type safety & lint",
+      "category": "A · Engineering & code health",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L42 (score 9.5, grade A on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-03",
+      "text": "Test rigor & coverage",
+      "category": "A · Engineering & code health",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L43 (score 9.0, grade A on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-04",
+      "text": "Time complexity / scaling",
+      "category": "A · Engineering & code health",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L44 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-05",
+      "text": "GPU resource discipline",
+      "category": "A · Engineering & code health",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L45 (score 8.0, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-06",
+      "text": "Living-docs SSOT",
+      "category": "B · Architecture & organization",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L51 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-07",
+      "text": "Module contracts & boundaries",
+      "category": "B · Architecture & organization",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L52 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-08",
+      "text": "PM surface coverage",
+      "category": "B · Architecture & organization",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L53 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-09",
+      "text": "CI/CD & QA",
+      "category": "B · Architecture & organization",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L54 (score 8.0, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-10",
+      "text": "Corpus breadth",
+      "category": "C · Tsotchke integration depth",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L60 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-11",
+      "text": "Causal depth",
+      "category": "C · Tsotchke integration depth",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L61 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-12",
+      "text": "Quantum-substrate honesty",
+      "category": "C · Tsotchke integration depth",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L62 (score 9.0, grade A on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-13",
+      "text": "Butlin indicator scorecard",
+      "category": "D · Consciousness / cognition claims",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L68 (score 8.0, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-14",
+      "text": "Faculty wiring honesty",
+      "category": "D · Consciousness / cognition claims",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L69 (score 7.5, grade B+ on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-15",
+      "text": "Theories as mechanisms",
+      "category": "D · Consciousness / cognition claims",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L70 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-16",
+      "text": "Coupling / binding",
+      "category": "D · Consciousness / cognition claims",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L71 (score 6.0, grade C+ on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-17",
+      "text": "Multi-substrate breadth",
+      "category": "D · Consciousness / cognition claims",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L72 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-18",
+      "text": "Scale / size framing",
+      "category": "D · Consciousness / cognition claims",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L73 (score 7.5, grade B+ on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-19",
+      "text": "Sentience discipline",
+      "category": "D · Consciousness / cognition claims",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L74 (score 9.5, grade A on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-20",
+      "text": "Comparative breadth",
+      "category": "E · A-Life standing & scientific defensibility",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L80 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-21",
+      "text": "Novelty discipline",
+      "category": "E · A-Life standing & scientific defensibility",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L81 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-22",
+      "text": "Peer maturity / validation",
+      "category": "E · A-Life standing & scientific defensibility",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L82 (score 5.0, grade C+ on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-23",
+      "text": "Reproducibility",
+      "category": "E · A-Life standing & scientific defensibility",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L83 (score 9.5, grade A on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-24",
+      "text": "Comparative rigor vs \"100\"",
+      "category": "E · A-Life standing & scientific defensibility",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L84 (score 8.5, grade A− on 2026-07-01)"
+    },
+    {
+      "id": "SCRUTINY-25",
+      "text": "Benchmark honesty",
+      "category": "E · A-Life standing & scientific defensibility",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/reports/2026-07-01-25-POINT-SCRUTINY-SCORECARD.md:L85 (score 8.5, grade A− on 2026-07-01)"
+    }
+  ]
+}

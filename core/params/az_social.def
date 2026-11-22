@@ -1,0 +1,27 @@
+/* params/az_social.def - the world parameters of az_social.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not read from the creature (a trait, its
+ * brain's drives, its body, its memory of others) is declared here, with its
+ * default and the range it may be set to, and is read as
+ * w->param[AZ_WP_<name>]. Names start with the module's name in capitals.
+ */
+AZ_PARAM(SOCIAL_STRENGTH_MU,    64, 1,   1048576, "body matter (mu) per unit of the STRENGTH a creature shows; health scales it")
+AZ_PARAM(SOCIAL_STAKE_SHARE,   128, 0,       256, "most of its energy and of its free pool (of 256) a creature commits in a tick: a gift is a part of it, a stake is a part of it")
+AZ_PARAM(SOCIAL_EVADE,         128, 0,       256, "chance to notice an attacker or a thief in time, of 256, for SENSE_ACUITY 255 against a SAT of 192; it grows with both")
+AZ_PARAM(SOCIAL_FIGHT_EU,        8, 0,   1048576, "energy (eu), paid as heat, a fight costs each side per 64 units of its own stake level plus one")
+AZ_PARAM(SOCIAL_WOUND,        4096, 0,     65535, "health the loser of a fight loses when the winner's WEAPON equals its ARMOR")
+AZ_PARAM(SOCIAL_SPIKE_WOUND,  2048, 0,     65535, "health an attacker loses on SPIKES of 256")
+AZ_PARAM(SOCIAL_PUNISH_WOUND, 4096, 0,     65535, "health an attacker or a caught thief loses to a retaliating victim with PUNISH 256")
+AZ_PARAM(SOCIAL_PUNISH_EU,      32, 0,   1048576, "energy (eu), paid as heat, that punishing costs a victim with PUNISH 256")
+AZ_PARAM(SOCIAL_YIELD_SHARE,    64, 0,       256, "share (of 256) of its stake a creature loses when it submits instead of fighting")
+AZ_PARAM(SOCIAL_RANK_STEP,     256, 0,     32767, "rank a defeat costs; a victory wins this times (64 + DOMINANCE) / 128")
+AZ_PARAM(SOCIAL_ALARM,          64, 0,       255, "strength of the alarm mark the loser of a contest lays")
+AZ_PARAM(SOCIAL_GROOM_SHARE,    64, 0,       256, "share (of 256) of its toxin, and 1 unit more, that a groomed creature loses to its cell")
+AZ_PARAM(SOCIAL_GROOM_EU,        2, 0,   1048576, "energy (eu), paid as heat, that grooming costs the groomer")
+AZ_PARAM(SOCIAL_MEMORY_STEP,    48, 0,       127, "what one act adds to or takes from the memory of a tag (the memory runs from -127 to 127)")
+AZ_PARAM(SOCIAL_GRUDGE,         24, 0,       127, "remembered harm times RECIPROCITY / 256 at which help from that tag is refused")
+AZ_PARAM(SOCIAL_FORGIVE_RATE,    4, 0,       256, "remembered harm that fades per social pulse (one tick in four) per 256 of the FORGIVE trait")
+AZ_PARAM(SOCIAL_SIGNAL_EU,       8, 0,   1048576, "energy (eu), paid as heat per social pulse, of a full signal on one channel sent all round; an aimed one costs down to half")
+AZ_PARAM(SOCIAL_MARK,           64, 0,       255, "strength of the territory mark a colony member with TERRITORIAL 256 lays per social pulse")

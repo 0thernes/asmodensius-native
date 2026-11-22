@@ -1,0 +1,115 @@
+{
+  "set_id": "framework825_citations15",
+  "title": "Framework citations (ALife Framework v3.0)",
+  "source_files": [
+    "ALife-Framework-v3.0-Master-Spec.json",
+    "ALife-Framework-v3.0-Master-Workbook.xls"
+  ],
+  "items": [
+    {
+      "id": "CIT-01",
+      "text": "Butlin, Long, Elmoznino, Bengio, Birch, Constant, Deane, Fleming, Frith, Ji, Kanai, Klein, Lindsay, Michel, Mudrik, Peters, Schwitzgebel, Simon & VanRullen (2023)\nConsciousness in Artificial Intelligence: Insights from the Science of Consciousness (arXiv:2308.08708)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Defines the 14 computational indicator properties (`RPT-1..2, GWT-1..4, HOT-1..4, AST-1, PP-1, AE-1..2`) & neutral non-metaphysical framing.\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/0; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 51"
+    },
+    {
+      "id": "CIT-02",
+      "text": "Blum & Blum (2022)\nA Theory of Consciousness from a Theoretical Computer Science Perspective: Insights from the Conscious Turing Machine (PNAS 119(21): e2115934119)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Formalizes up-tree competitive chunk tournament and down-tree global broadcast (`F9`, `GWT-2..3`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/1; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 52"
+    },
+    {
+      "id": "CIT-03",
+      "text": "Casali, Gosseries, Rosanova, Boly, Sarasso et al. & Massimini (2013)\nA Theoretically Based Index of Consciousness Independent of Sensory Processing and Behavior (Sci. Transl. Med. 5(198): 198ra105)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Defines Perturbational Complexity Index (`PCI`); adapted here as forked-snapshot `PCI*` (`F2`, `M078`) avoiding `O(2^N)` IIT `\u03a6`.\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/2; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 53"
+    },
+    {
+      "id": "CIT-04",
+      "text": "G\u00e1nti (1971 / 2003 Oxford Univ. Press)\nThe Principles of Life (Chemoton Theory)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Defines stoichiometrically coupled autocatalytic metabolism `A`, membrane `T`, and template polymer `pV_n` (`SOFT21`, `M011`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/3; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 54"
+    },
+    {
+      "id": "CIT-05",
+      "text": "Briat, Gupta & Khammash (2016)\nAntithetic Integral Feedback Ensures Robust Perfect Adaptation in Noisy Biomolecular Networks (Cell Systems 2(1): 15\u201326)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Proves robust zero steady-state error for `z_1, z_2 \u2265 0` under zero dilution and dual/positive actuation (`F-031`, `M014`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/4; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 55"
+    },
+    {
+      "id": "CIT-06",
+      "text": "Macklin, M\u00fcller & Chentanez (2016)\nXPBD: Position-Based Simulation of Compliant Constrained Dynamics (MIG '16, ACM)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Compliance-scaled constraint dynamics `\u03b1\u0303 = \u03b1 / dt\u00b2` for unconditionally stable viscoelastic hydrostats (`SOFT02`, `M022`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/5; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 56"
+    },
+    {
+      "id": "CIT-07",
+      "text": "Hasani, Lechner, Amini, Rus & Grosu (2021 AAAI; 2022 Nature Mach. Intell.)\nLiquid Time-Constant Networks & Closed-Form Continuous-Time Neural Networks",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Defines `LTC` (`MF02`) and bounded closed-form neural rate approximation `CfC` (`MF03`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/6; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 57"
+    },
+    {
+      "id": "CIT-08",
+      "text": "Vanhalle & Gielen (2025)\nSpiking Liquid Time-Constant Neural Networks (IEEE ICECS, DOI: 10.1109/ICECS66544.2025.11270775)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Source of `sLTC` (`MF04`, `F-015`) reporting up to `9.2\u00d7` energy reduction vs continuous LTC on event-driven tasks.\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/7; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 58"
+    },
+    {
+      "id": "CIT-09",
+      "text": "Gidon, Zolnik, Fidzinski, Bolduan, Papoutsi, Poirazi, Holtkamp, Vida & Larkum (2020)\nDendritic Action Potentials and Computation in Human Layer 2/3 Cortical Neurons (Science 367(6473): 83\u201387)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Demonstrates single-neuron apical dendritic calcium (`dCaAP`) anti-coincidence / XOR computation (`F-007`, `MF16`, `M043`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/8; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 59"
+    },
+    {
+      "id": "CIT-10",
+      "text": "Bittner, Milstein, Grienberger, Romani & Magee (2017)\nBehavioral Time Scale Synaptic Plasticity Underlies CA1 Place Fields (Science 357(6355): 1033\u20131036)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Multi-second plateau-potential retroactive synaptic writing (`F-049`, `MF17`, `M047`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/9; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 60"
+    },
+    {
+      "id": "CIT-11",
+      "text": "Bellec, Scherr, Subramoney, Hajek, Salaj, Legenstein & Maass (2020)\nA Solution to the Learning Dilemma for Recurrent Networks of Spiking Neurons (Nature Commun. 11: 3625)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Online forward eligibility propagation (`e-prop`, `F-051`) in `O(E_syn)` memory.\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/10; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 61"
+    },
+    {
+      "id": "CIT-12",
+      "text": "Fusi, Drew & Abbott (2005) & Tononi & Cirelli (2006 / 2014)\nCascade Models of Synaptically Stored Memories (Neuron 45) & Synaptic Homeostasis Hypothesis (Neuron 81)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Multi-timescale metaplastic consolidation (`F-054`, `M052`) and NREM `SHY` downscaling (`F-047`, `M050`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/11; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 62"
+    },
+    {
+      "id": "CIT-13",
+      "text": "Blackiston, Silva Casey & Weiss (2008)\nRetention of Memory through Metamorphosis: Can a Moth Remember What It Learned As a Caterpillar? (PLOS ONE 3(3): e1736)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Empirical paradigm for conditioned odor/toxin aversion surviving holometabolous pupal remodeling (`SOFT35`, `N89`, `M084`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/12; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 63"
+    },
+    {
+      "id": "CIT-14",
+      "text": "Hochner (2012) & Aso et al. (2014)\nAn Embodied View of Octopus Neurobiology (Curr. Biol. 22) & Mushroom Body Output Architecture (eLife 3: e04577)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Grounds peripheral arm-cord neuron fraction (`~2/3` of total neurons, `F-084`) and fly Kenyon sparsity (`5\u201310%` bio -> `2%` SDR target, `F-083`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/13; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 64"
+    },
+    {
+      "id": "CIT-15",
+      "text": "Salmon, Moraes, Dror & Shaw (2011) & Ma et al. (2024)\nParallel Random Numbers: As Easy as 1, 2, 3 (`Philox4x32-10`, SC11) & The Era of 1-bit LLMs (`BitNet b1.58`, arXiv:2402.17764)",
+      "category": "Peer-Reviewed",
+      "criterion": "Framework scope: Grounds counter-based keyed PRNG (`HW16`, `M002`) and ternary `{-1,0,+1}` quantization (`PM03`).\nSource resolution label: Verified",
+      "source_ref": "ALife-Framework-v3.0-Master-Spec.json#/citations_15/14; ALife-Framework-v3.0-Master-Workbook.xls#Forensic_36_Gates_13 row 65"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "set_id": "antilarp13_v40impl",
+  "title": "13-gate rollup as implemented in the v40 lab (apex_ultimate_suite.ts, APEX_25); names and scope differ from the framework's GATE-01..13",
+  "source_files": [
+    "V:/creatures/001/organism/apex_ultimate_suite.ts",
+    "V:/creatures/001/results/sc-port/apex_ultimate_v50.json"
+  ],
+  "items": [
+    {
+      "id": "GATE_01_determinism_philox_replay",
+      "text": "GATE 01 determinism philox replay",
+      "category": "v40 lab implementation of GATE-01 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_01_determinism_philox_replay := APEX_15.ok && APEX_17.ok",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1084 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_02_originality_and_llm_free",
+      "text": "GATE 02 originality and llm free",
+      "category": "v40 lab implementation of GATE-02 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_02_originality_and_llm_free := orig.pass && orig.fails === 0 && APEX_02.ok",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1085 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_03_first_and_second_law_11pool",
+      "text": "GATE 03 first and second law 11pool",
+      "category": "v40 lab implementation of GATE-03 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_03_first_and_second_law_11pool := APEX_18.ok && WORST_LEDGER < 1e-11",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1086 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_04_five_antilarp_mutants_caught",
+      "text": "GATE 04 five antilarp mutants caught",
+      "category": "v40 lab implementation of GATE-04 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_04_five_antilarp_mutants_caught := APEX_23.ok",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1087 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_05_embodied_hydrostat_xpbd",
+      "text": "GATE 05 embodied hydrostat xpbd",
+      "category": "v40 lab implementation of GATE-05 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_05_embodied_hydrostat_xpbd := APEX_20.ok",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1088 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_06_chemoton_and_homeostasis",
+      "text": "GATE 06 chemoton and homeostasis",
+      "category": "v40 lab implementation of GATE-06 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_06_chemoton_and_homeostasis := APEX_19.ok",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1089 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_07_causal_ablation_and_lesions",
+      "text": "GATE 07 causal ablation and lesions",
+      "category": "v40 lab implementation of GATE-07 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_07_causal_ablation_and_lesions := APEX_07.ok && APEX_11.ok && APEX_12.ok",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1090 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_08_holm_bonferroni_fwer_stats",
+      "text": "GATE 08 holm bonferroni fwer stats",
+      "category": "v40 lab implementation of GATE-08 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_08_holm_bonferroni_fwer_stats := maxHolmP <= 0.05 && Object.keys(HOLM_ADJ).length >= 5",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1091 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_09_ring0_wse12_safety_rollback",
+      "text": "GATE 09 ring0 wse12 safety rollback",
+      "category": "v40 lab implementation of GATE-09 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_09_ring0_wse12_safety_rollback := APEX_06.ok",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1092 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_10_seed_firewall_integrity",
+      "text": "GATE 10 seed firewall integrity",
+      "category": "v40 lab implementation of GATE-10 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_10_seed_firewall_integrity := !badSeed",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1093 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_11_observer_independence_0bit",
+      "text": "GATE 11 observer independence 0bit",
+      "category": "v40 lab implementation of GATE-11 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_11_observer_independence_0bit := APEX_24.ok",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1094 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_12_hardware_tiers_and_multirate",
+      "text": "GATE 12 hardware tiers and multirate",
+      "category": "v40 lab implementation of GATE-12 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_12_hardware_tiers_and_multirate := APEX_16.ok && APEX_22.ok",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1095 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    },
+    {
+      "id": "GATE_13_default_parity_and_full_stack",
+      "text": "GATE 13 default parity and full stack",
+      "category": "v40 lab implementation of GATE-13 (differs from the framework wording; see antilarp13)",
+      "criterion": "GATE_13_default_parity_and_full_stack := parityHash === \"15f21609\" && prior24Ok",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L1096 (gates13 object in APEX_25, L1083-1097; pass rule gatesPassed === 13 at L1101)"
+    }
+  ]
+}

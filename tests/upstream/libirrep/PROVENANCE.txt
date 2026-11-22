@@ -1,0 +1,21 @@
+libirrep files vendored as a TEST ORACLE ONLY (never linked into the simulation).
+Upstream: libirrep by tsotchke, MIT License (see LICENSE in this folder).
+Upstream version file: 1.5.0; mirror T:\mirrors\libirrep at commit
+6c6acab7960bd747d32bc841c9d1f61a0051f1b7 (2026-05-19) per docs/research/tsotchke/libirrep.md.
+
+Since 2026-11-17 (milestone 2) every file here is a byte-identical copy of the
+mirror, copied with Copy-Item (they keep their UTF-8 text and CRLF line ends).
+The upstream lines `#include <irrep/X.h>` resolve through the include path
+CMakeLists.txt gives the test_tk_sh target (tests/upstream/libirrep/include).
+Before that date the include lines were rewritten to relative paths, because
+the build had no include path for this folder; that rewrite is gone.
+
+sha256 of each file (equal to the mirror's):
+f5088a0656920d4ef4d9cde3542db86a2bfaacb390cc72d219b269f1667c5e3d  LICENSE
+3e9e011522a55f8118eb98980d4e15e3433823ccdf0ca019fe29e6184c23bd3d  include/irrep/export.h
+41624f254dadbe8c9530dd5e37c3d4ee74828838ab843e15f0f5306c8cab64cd  include/irrep/types.h
+5d03d41c54151a05a6a2bf0e70b8ee547f842479c2545f5db69c1d582f4567d6  include/irrep/solid_harmonics.h
+fd6e7ed1541e4079c5552407b214bc6f23d756d4079e9e401bb2ec246be1aedf  include/irrep/spherical_harmonics.h
+15ff8ecd9d4673d28048e85182e121e16a44f83eeef15da4a5c346bac1fbd5ef  src/internal/dispatch.h
+85d6da99111aaea42b4703fb009a902f8fc7bb21647bb331951a68e2b220d8f0  src/solid_harmonics.c
+aca1df9f443f5bd834178f3df84383c7961c7779d4bf3adf318b6f89fbde5669  src/spherical_harmonics.c

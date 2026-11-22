@@ -1,0 +1,1913 @@
+{
+ "set_id": "frontier_upgrade_map",
+ "title": "Frontier Sweep 2026, section 6: Creature Upgrade Map (272 proposal rows; ids are row ordinals, the source has none)",
+ "source_files": [
+  "W:/Frontier-Sweep-2026.pdf"
+ ],
+ "items": [
+  {
+   "id": "FS-UM-001",
+   "text": "Proposed change [LongGame + Chronoscope]: Add a two-level latent planner: LongGame plans subgoals in a slow latent space; Chronoscope rolls short fast horizons between them. Gate in Gambit state. — from finding: Hierarchical Planning with Latent World Models <https://arxiv.org/abs/2604.03208>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 1 on the page; dump line 2245)"
+  },
+  {
+   "id": "FS-UM-002",
+   "text": "Proposed change [Chronoscope (multi-horizon) + LongGame]: Make Chronoscope's horizons explicit JEPA levels (fast/medium/slow) with LongGame planning top-down; this matches the ChronoBlock-4 tiering. — from finding: H-JEPA: hierarchical JEPA world model (AMI Labs, open code + weights) <https://github.com/kevinghst/H-JEPA>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 2 on the page; dump line 2254)"
+  },
+  {
+   "id": "FS-UM-003",
+   "text": "Proposed change [Chronoscope (forks)]: Replace Chronoscope's vector latent with a belief-state latent so a single rollout carries multiple futures; forks spawn only when the belief splits. Speculative fit to XYZW weights (the W axis as a belief/phase axis). — from finding: UWM-JEPA: Predictive World Models That Imagine in Belief Space <https://arxiv.org/abs/2605.25313>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 3 on the page; dump line 2265)"
+  },
+  {
+   "id": "FS-UM-004",
+   "text": "Proposed change [Surge + Zenkai state]: When the dome's rules shift (Layer-1 exploits or perturbations), Surge runs persistent predictor-only updates; Zenkai consolidates them. Log every rule change the creature adapts to. — from finding: JEPA-TTT: Persistent Test-Time Training of Latent World Models <https://arxiv.org/abs/2610.00722>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 4 on the page; dump line 2274)"
+  },
+  {
+   "id": "FS-UM-005",
+   "text": "Proposed change [Chronoscope + Jester]: Split the creature's world latent into 'what I can change' and 'what I cannot'. Jester targets rivals' controllable factors and Wildcard hides its own. — from finding: CF-JEPA: Controllability Factorization for robust JEPA world models <https://arxiv.org/abs/2610.00727>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 5 on the page; dump line 2283)"
+  },
+  {
+   "id": "FS-UM-006",
+   "text": "Proposed change [S2S tokenless channels]: Use the theorem's alignment condition as the S2S compatibility test: two sub-brains share state directly only once their JEPA latents converge. This replaces ad-hoc adapters. — from finding: Proving and Improving the Platonic Representation Hypothesis with JEPAs <https://arxiv.org/abs/2610.39302>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 6 on the page; dump line 2291)"
+  },
+  {
+   "id": "FS-UM-007",
+   "text": "Proposed change [Stillwater + Recon probes]: Run a mixture of intrinsic drives (novelty, learning progress, empowerment) during Stillwater so the world model keeps growing when nothing is being hunted. — from finding: Building World Models from Intrinsic Motivation <https://arxiv.org/abs/2611.13113>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 7 on the page; dump line 2302)"
+  },
+  {
+   "id": "FS-UM-008",
+   "text": "Proposed change [Chronoscope (cognitive map)]: Add a grid-like structural code under the world model so learned dome layouts transfer to new arenas. — from finding: Structure Abstraction and Generalization in a Hippocampal-Entorhinal Inspired World Model <https://arxiv.org/abs/2605.15733>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 8 on the page; dump line 2311)"
+  },
+  {
+   "id": "FS-UM-009",
+   "text": "Proposed change [Chronoscope + Zenkai]: After each Supernova burst, Zenkai rewinds the internal model to the decision point and replays alternatives, so a loss becomes counterfactual training data. — from finding: Rollback: Experience Backtracking in World Models for Policy Improvement <https://arxiv.org/abs/2610.36068>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 9 on the page; dump line 2321)"
+  },
+  {
+   "id": "FS-UM-010",
+   "text": "Proposed change [Raid squads + S2S]: Encode each Raid squad member as a simplex vertex (no learned IDs, any squad size) and route squad sync through a small hub state, so S2S cost grows linearly as Chronoscope forks more copies. — from finding: Gamma-World: Generative Multi-Agent World Modeling Beyond Two Players <https://arxiv.org/abs/2605.28816>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 10 on the page; dump line 2331)"
+  },
+  {
+   "id": "FS-UM-011",
+   "text": "Proposed change [Raid + LongGame]: Two-tier S2S: intra-squad dense, inter-squad via LongGame intent summaries (mission command). — from finding: Multics: Generative Multi-Player World Model with Hierarchical Communication <https://arxiv.org/abs/2610.17201>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 11 on the page; dump line 2341)"
+  },
+  {
+   "id": "FS-UM-012",
+   "text": "Proposed change [Chronoscope long rollouts]: Lookahead-sink idea: periodically re-anchor long imagined rollouts to a stored real dome snapshot to stop drift. Self-contained if snapshots are internal memory. — from finding: Seoul World Model: grounding world simulation in a real metropolis <https://arxiv.org/abs/2603.15583>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 12 on the page; dump line 2349)"
+  },
+  {
+   "id": "FS-UM-013",
+   "text": "Proposed change [Chronoscope (prediction target)]: Choose the prediction target per seat: Chronoscope predicts features, motor predicts 3D motion, LongGame predicts outcomes. Don't predict pixels. — from finding: [CVPR 2026] Beyond Video World Models: what should the future predict? (LG AI Research blo <https://www.lgresearch.ai/blog/view?seq=672>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 13 on the page; dump line 2358)"
+  },
+  {
+   "id": "FS-UM-014",
+   "text": "Proposed change [Chronoscope priors]: Add core-knowledge priors (permanence, solidity, continuity) as auxiliary losses in the dome curriculum. — from finding: Training Object Permanence in World Models <https://arxiv.org/abs/2609.28654>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 14 on the page; dump line 2369)"
+  },
+  {
+   "id": "FS-UM-015",
+   "text": "Proposed change [Chronoscope + motor]: Add an inverse-dynamics head (infer my action from two states) as the anti-collapse term on the world latent. — from finding: Sensorimotor World Models: Perception for Action via Inverse Dynamics <https://arxiv.org/abs/2606.20104>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (section 6 table, row 15 on the page; dump line 2376)"
+  },
+  {
+   "id": "FS-UM-016",
+   "text": "Proposed change [Chronoscope / ChronoBlock-4]: Independent Japanese support for multi-timescale world models, which Chronoscope already uses. Read before tuning the tier time constants. — from finding: Multimodal World Model with Multiple Timescales (時間的階層性を 持つマルチモーダル世界モデル) <https://www.jstage.jst.go.jp/article/pjsai/JSAI2026/0/JSAI2026_1E3OS39a02/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 1 on the page; dump line 2394)"
+  },
+  {
+   "id": "FS-UM-017",
+   "text": "Proposed change [ChronoBlock-4 tiers]: Advance the slow tiers on detected event boundaries rather than fixed clocks. This fits sLTC event-driven timing. — from finding: Hierarchical World Models Using Temporal Abstraction Based on Boundary Detection (境界検出に基づく <https://www.jstage.jst.go.jp/article/pjsai/JSAI2026/0/JSAI2026_1E3OS39a03/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 2 on the page; dump line 2406)"
+  },
+  {
+   "id": "FS-UM-018",
+   "text": "Proposed change [Wildcard + Keel]: Formal basis for Wildcard: maximize future-path occupancy, not raw entropy. The creature stays unpredictable and keeps options open, with no reward needed. — from finding: Belief-Based Maximum Occupancy Principle and Active Inference <https://arxiv.org/abs/2609.39342>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 3 on the page; dump line 2417)"
+  },
+  {
+   "id": "FS-UM-019",
+   "text": "Proposed change [Keel + Spindle synapse]: Local message-passing updates for Spindle synapses, so learning needs no global backprop. — from finding: Parameter Learning in Active Inference via Variational Message Passing <https://arxiv.org/abs/2610.30899>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 4 on the page; dump line 2425)"
+  },
+  {
+   "id": "FS-UM-020",
+   "text": "Proposed change [CHIMERA + Chronoscope]: Peer-reviewed proof that a spiking, dendrite-rich world model can drive model-based RL, the closest published match to HEPTARCH's design. — from finding: Spiking world model with multicompartment neurons for model-based RL <https://doi.org/10.1073/pnas.2513319122>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 5 on the page; dump line 2434)"
+  },
+  {
+   "id": "FS-UM-021",
+   "text": "Proposed change [Chronoscope loss]: Score Chronoscope on whole-trajectory statistics (Lyapunov spectrum, invariant measures), not single-step error. — from finding: Plausible States Are Not Plausible Trajectories: self-supervised objectives for chaotic dy <https://hal.sorbonne-universite.fr/hal-05841227v1>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 6 on the page; dump line 2444)"
+  },
+  {
+   "id": "FS-UM-022",
+   "text": "Proposed change [Chronoscope (size budget)]: Evidence that a useful JEPA world model fits in tens of millions of parameters, the right scale for a self-contained creature. — from finding: LeWorldModel (LeCun et al.): 15M-parameter JEPA world model on one GPU - Numerama <https://www.numerama.com/tech/2218539-15-millions-de-parametres-et-1-seul-gpu-yann-lecun-fait-un-premier-pas-vers-lia-qui-comprend-le-monde-reel.html>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 7 on the page; dump line 2453)"
+  },
+  {
+   "id": "FS-UM-023",
+   "text": "Proposed change [Calculus for biology]: World models are spreading into cell biology. Their state/transition formalism could structure the creature's internal 'metabolism' variables. SPECULATIVE. — from finding: A world model of the virtual cell <https://doi.org/10.1016/j.cell.2026.08.042>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 8 on the page; dump line 2465)"
+  },
+  {
+   "id": "FS-UM-024",
+   "text": "Proposed change [LongGame]: Amortise LongGame planning: a small planner net proposes latent action sequences, refined by short search. — from finding: FF-JEPA: long-horizon planning in world models with latent planners <https://arxiv.org/abs/2606.09311>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 9 on the page; dump line 2472)"
+  },
+  {
+   "id": "FS-UM-025",
+   "text": "Proposed change [Chronoscope (dome-map memory)]: Chronoscope stores the dome's persistent layout in fast weights updated online, not in a growing buffer. — from finding: World-T3: test-time training as persistent memory for real-time video world models <https://arxiv.org/abs/2610.17434>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 10 on the page; dump line 2479)"
+  },
+  {
+   "id": "FS-UM-026",
+   "text": "Proposed change [Raid squads / S2S]: Let squad S2S messages be learned, not hand-designed, then deduplicate them with DSD. — from finding: Autonomous Emergence of Communication Strategies in World-Model-based MARL (世界モデル型マルチエージェン <https://www.jstage.jst.go.jp/article/pjsai/JSAI2026/0/JSAI2026_4YinA36/_article/-char/ja/>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 11 on the page; dump line 2488)"
+  },
+  {
+   "id": "FS-UM-027",
+   "text": "Proposed change [Dome + Surge]: Let the dome's rival creatures learn online too: online learning keeps an edge-of-chaos dome from collapsing. Expose 'perturb the world live' dials to Alex. — from finding: Digital Ecosystems: Interactive Multi-Agent Neural Cellular Automata (Sakana AI) <https://sakana.ai/digital-ecosystem/>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 12 on the page; dump line 2498)"
+  },
+  {
+   "id": "FS-UM-028",
+   "text": "Proposed change [CHIMERA neuron (local mode)]: Add an NCA sub-layer for spatial reasoning inside Chronoscope; asynchronous local updates fit the tokenless, clockless design. — from finding: Reasoning with Neural Cellular Automata <https://arxiv.org/abs/2609.36126>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 13 on the page; dump line 2507)"
+  },
+  {
+   "id": "FS-UM-029",
+   "text": "Proposed change [Zenkai + calculus-for-biology noise term]: Treat the noise term in the creature's stochastic dynamics as a learnable, structured signal for self-repair, not something to minimize. Measure transfer entropy of the fluctuations. — from finding: Structured Fluctuations and the Information Dynamics of Self-Maintenance in Growing NCA <https://arxiv.org/abs/2607.12403>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p46 (section 6 table, row 14 on the page; dump line 2516)"
+  },
+  {
+   "id": "FS-UM-030",
+   "text": "Proposed change [BSS governor (Lyapunov target)]: Use their attractor-stability estimators as the BSS governor's Lyapunov check. — from finding: Stability and Geometry of Attractors in Neural Cellular Automata <https://arxiv.org/abs/2604.12720>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 1 on the page; dump line 2536)"
+  },
+  {
+   "id": "FS-UM-031",
+   "text": "Proposed change [calculus-for-biology]: Let the creature fit PDE-form update rules to dome phenomena; interpretable equations become part of the world model. — from finding: Discovering Partial Differential Equations With Neural Cellular Automata <https://doi.org/10.1162/artl.a.454>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 2 on the page; dump line 2544)"
+  },
+  {
+   "id": "FS-UM-032",
+   "text": "Proposed change [Apex Scorecard]: Adopt the Tokyo OEE test battery as a scorecard row for BSS lineages. — from finding: A speciation simulation that partly passes open-endedness tests <https://arxiv.org/abs/2603.01701>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 3 on the page; dump line 2553)"
+  },
+  {
+   "id": "FS-UM-033",
+   "text": "Proposed change [CHIMERA neuron + state machine]: Implement state switches (Stillwater/Gambit/Supernova/Raid) as neuromodulatory gain fields over one fixed wiring; let CHIMERA pick its activation per neuron. — from finding: Multi-Behavioral Evolved Substrates Through Neuromodulation and Activation Selection <https://arxiv.org/abs/2610.00148>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 4 on the page; dump line 2560)"
+  },
+  {
+   "id": "FS-UM-034",
+   "text": "Proposed change [Wildcard / Recon]: A behavioural assay for creature subpatterns: measure novelty-avoidance vs novelty-seeking per mode. — from finding: Agnosiophobia in a virtual agent: behavioural and dynamical architecture in Lenia <https://arxiv.org/abs/2605.30708>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 5 on the page; dump line 2570)"
+  },
+  {
+   "id": "FS-UM-035",
+   "text": "Proposed change [Dome Layer 1 (exploits)]: Seed the dome with Lenia-style media so the creature can find and use collision computing as an in-world exploit. — from finding: Collision-based logic in Lenia and its composition boundary <https://arxiv.org/abs/2609.01348>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 6 on the page; dump line 2578)"
+  },
+  {
+   "id": "FS-UM-036",
+   "text": "Proposed change [Jester / Recon (world exploits)]: Give the creature an autotelic 'experimentalist' drive that picks its own goals for poking the dome's rules. Credit discovered controls in the exploits tab. — from finding: The Artificial Experimentalist: closed-loop discovery and control of self-organizing pheno <https://arxiv.org/abs/2608.26116>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 7 on the page; dump line 2586)"
+  },
+  {
+   "id": "FS-UM-037",
+   "text": "Proposed change [BSS evaluate step]: Add MSPD as a BSS fitness term: a fork survives deduplication only if it raises multi-scale divergence. — from finding: Directing Open-Ended Evolution via Multi-Scale Path Divergence (MSPD) <https://arxiv.org/abs/2606.17091>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 8 on the page; dump line 2596)"
+  },
+  {
+   "id": "FS-UM-038",
+   "text": "Proposed change [RSR / BSS + dome energy]: Make replication draw from a shared dome energy pool so BSS forks face a real commons dilemma. — from finding: Tapes Together Strong: The Co-evolution of Computation and Cooperation <https://arxiv.org/abs/2609.10817>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 9 on the page; dump line 2603)"
+  },
+  {
+   "id": "FS-UM-039",
+   "text": "Proposed change [Dome substrate]: Candidate substrate for a 'primordial' dome layer. — from finding: Continuous Game of Life: cell emergence and self-organization at the edge of growth <https://arxiv.org/abs/2607.27402>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 10 on the page; dump line 2612)"
+  },
+  {
+   "id": "FS-UM-040",
+   "text": "Proposed change [DSD (deduplication)]: Direct DSD rule: prune or rewire any unit or fork whose output nobody consumes within a window. Cheap and local. — from finding: Surviving by Serving: Functional Relevance Drives Self-Organization <https://arxiv.org/abs/2606.26733>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 11 on the page; dump line 2619)"
+  },
+  {
+   "id": "FS-UM-041",
+   "text": "Proposed change [Theory (speculative)]: SPECULATIVE: gives a phase-diagram view of when the organism counts as autonomous; use as a definitions appendix, not a build change. — from finding: Life as Plasmas: Autonomy and Interactivism in-materio <https://arxiv.org/abs/2607.09747>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 12 on the page; dump line 2626)"
+  },
+  {
+   "id": "FS-UM-042",
+   "text": "Proposed change [Scorecard (anti-gaming)]: Warning for evaluation: classifier-based 'lifelikeness' scores are gameable. Keep behavioural tests in the immutable scoring layer. — from finding: Can AI Detect Life? Lessons from Artificial Life <https://arxiv.org/abs/2604.11915>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 13 on the page; dump line 2634)"
+  },
+  {
+   "id": "FS-UM-043",
+   "text": "Proposed change [BSS (body/brain)]: Decouple: evaluate a body variant with a briefly trained brain before culling, or use a morphology-potential proxy. Don't cull early. — from finding: Evolutionary Brain-Body Co-Optimization Consistently Fails to Select for Morphological Pot <https://doi.org/10.1162/artl.a.476>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 14 on the page; dump line 2643)"
+  },
+  {
+   "id": "FS-UM-044",
+   "text": "Proposed change [Keel + Surge]: Curriculum: start reward-shaped, then anneal reward dependence so learning runs on prediction error. — from finding: How Reward and the Elimination of Dependence Thereon Lead Evolution to High-Bandwidth Lear <https://doi.org/10.1162/artl.a.464>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 15 on the page; dump line 2652)"
+  },
+  {
+   "id": "FS-UM-045",
+   "text": "Proposed change [Scorecard / reading list]: Signal of where the field is heading: evolvability and Lenia-lineage work are being honoured. Add the evolvability paper to the BSS reading list. — from finding: 2026 ISAL Awards (ALIFE 2026, Waterloo) <https://alife.org/2026/08/25/2026-isal-awards-winners/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 16 on the page; dump line 2660)"
+  },
+  {
+   "id": "FS-UM-046",
+   "text": "Proposed change [S2S + nested sub-brains]: Warning for NESTOR: tightly coupled symbiotic sub-brains can suppress diversity. Track per-seat diversity under S2S coupling and loosen coupling when it drops. — from finding: ALIFE 2026 paper: Endosymbiotic mutualism can constrain host diversity and evolved complex <https://github.com/amlalejini/2026-alife-mutualism-constrains-evolution>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p47 (section 6 table, row 17 on the page; dump line 2670)"
+  },
+  {
+   "id": "FS-UM-047",
+   "text": "Proposed change [NESTOR nesting]: Japanese 1-of-1: nested autonomous patterns in a continuous CA are a direct analogue of nested sub-brains. Candidate dome medium. — from finding: H-Lenia: emergence of hierarchical autonomous patterns (H-Leniaにおけ る階層的自律パターンの創発) <https://www.jstage.jst.go.jp/article/pjsai/JSAI2026/0/JSAI2026_2YinB49/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 1 on the page; dump line 2690)"
+  },
+  {
+   "id": "FS-UM-048",
+   "text": "Proposed change [Dome Layer 1]: Template for the creature moving through and steering a CA world. — from finding: Control of Cellular Automata by Moving Agents with Reinforcement Learning <https://hal.science/hal-05588252v1>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 2 on the page; dump line 2700)"
+  },
+  {
+   "id": "FS-UM-049",
+   "text": "Proposed change [Dome flora]: Possible dome flora generator. Low priority. — from finding: Design framework for artificial-life virtual plants (バーチャル植物人工生命 のデザインフレームワーク) <https://www.jstage.jst.go.jp/article/jssd/73/0/73_398/_article/-char/ja/>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 3 on the page; dump line 2708)"
+  },
+  {
+   "id": "FS-UM-050",
+   "text": "Proposed change [Reading list]: Use as a checklist of learning rules not yet tried in HEPTARCH. — from finding: Intelligence, Learning, and Artificial Life Models: Evolution and Systematic Review <https://doi.org/10.1109/access.2026.3692536>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 4 on the page; dump line 2716)"
+  },
+  {
+   "id": "FS-UM-051",
+   "text": "Proposed change [Frankenstein Prime (body-brain growth)]: SIMULATED: let CHIMERA neurons be seeded INTO an already-motile simulated body and self-wire, rather than designing the brain first. Brain-in-body developmental growth. — from finding: Engineered living systems with self-organizing neural networks (neurobots) <https://pmc.ncbi.nlm.nih.gov/articles/PMC13185861/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 5 on the page; dump line 2724)"
+  },
+  {
+   "id": "FS-UM-052",
+   "text": "Proposed change [Zenkai + lifecycle]: SIMULATED: give HEPTARCH forks an explicit life cycle (assemble, mature, demise) where reassembly resets an 'age' variable, so Zenkai has rejuvenation as well as repair. — from finding: The morphological, behavioral, and transcriptomic life cycle of Anthrobots <https://doi.org/10.1002/advs.202409330>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 6 on the page; dump line 2735)"
+  },
+  {
+   "id": "FS-UM-053",
+   "text": "Proposed change [Dome abiogenesis substrate]: For in-dome abiogenesis, use cheap mutation walks to seed replicators. Use paired-interaction soups only for the takeover/ecology phase. — from finding: BFF: Simple explanations for complex phenomena <https://arxiv.org/abs/2607.01483>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 7 on the page; dump line 2744)"
+  },
+  {
+   "id": "FS-UM-054",
+   "text": "Proposed change [Dome soup (useful replicators)]: Couple replicator interaction rate in the dome soup to solving organism-relevant micro-tasks. Function then co-evolves with replication, giving abiogenesis that pays rent. — from finding: Coevolution of self-replication and function in a digital primordial soup <https://arxiv.org/abs/2607.09211>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 8 on the page; dump line 2753)"
+  },
+  {
+   "id": "FS-UM-055",
+   "text": "Proposed change [Chronoscope metric (pre-life detector)]: Add a causal-emergence monitor over dome soups and over HEPTARCH's own sub-brain ensemble, as an early-warning signal before a replicator or coalition takeover. It is a measurement, not a block. — from finding: Causal organization prior to and promoting self-replication in a catalytic model of the or <https://arxiv.org/abs/2607.28250>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 9 on the page; dump line 2762)"
+  },
+  {
+   "id": "FS-UM-056",
+   "text": "Proposed change [Dome substrate (conserved resource)]: The dome's resource field should be mass-conserving (Flow-Lenia style), so exploits can't mint matter. Rule parameters travel with matter, so local physics can evolve. — from finding: Flow-Lenia: emergent evolutionary dynamics in mass conservative continuous cellular automa <https://doi.org/10.1162/artl_a_00471>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 10 on the page; dump line 2773)"
+  },
+  {
+   "id": "FS-UM-057",
+   "text": "Proposed change [Dome editor]: Use a parameter-space atlas so the dome editor places rule perturbations near soliton-rich regions. — from finding: Visualizing the structure of Lenia parameter space <https://arxiv.org/abs/2601.01932>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 11 on the page; dump line 2783)"
+  },
+  {
+   "id": "FS-UM-058",
+   "text": "Proposed change [Dome analysis]: Predict analytically which dome rule changes create mobile structures (in-dome 'agents') before running them. — from finding: The glider equation for Asymptotic Lenia <https://arxiv.org/abs/2508.04167>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 12 on the page; dump line 2790)"
+  },
+  {
+   "id": "FS-UM-059",
+   "text": "Proposed change [Dome substrate]: Attach MaCE to the dome's CA layers so resource is conserved (exploit-proof economy). — from finding: MaCE: general mass-conserving dynamics for cellular automata <https://arxiv.org/abs/2507.12306>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 13 on the page; dump line 2797)"
+  },
+  {
+   "id": "FS-UM-060",
+   "text": "Proposed change [Dome abiogenesis (NCA soup)]: Seed the dome with self-replicating NCA agents as an in-world ecology (prey, rivals) that co-evolves with HEPTARCH. — from finding: Self-replicating neural cellular automata: emergent phenotypic and genotypic diversity <https://arxiv.org/abs/2609.19902>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 14 on the page; dump line 2804)"
+  },
+  {
+   "id": "FS-UM-061",
+   "text": "Proposed change [ChronoBlock-4 (async ticks)]: Train with asynchronous random cell updates; execute with whichever mode the paper shows is robust. Informs whether seats tick asynchronously. — from finding: Where does randomness matter in neural cellular automata? <https://arxiv.org/abs/2609.36797>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 15 on the page; dump line 2813)"
+  },
+  {
+   "id": "FS-UM-062",
+   "text": "Proposed change [S2S state]: Expose NCA hidden channels as S2S payloads (shared features, no tokens). — from finding: Neural cellular automata learn general features in their hidden channels <https://arxiv.org/abs/2609.21870>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p48 (section 6 table, row 16 on the page; dump line 2822)"
+  },
+  {
+   "id": "FS-UM-063",
+   "text": "Proposed change [Frankenstein Prime (genome vector)]: Condition a shared NCA/CHIMERA substrate with a per-seat genome vector, so one tiny substrate plays seven roles. — from finding: A 211K-parameter foundation model: genetic prompting in neural cellular automata <https://arxiv.org/abs/2610.38776>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 1 on the page; dump line 2839)"
+  },
+  {
+   "id": "FS-UM-064",
+   "text": "Proposed change [Reflex layer (ternary/logic)]: Compile reflex sub-circuits to learned logic gates: fast, ultra-cheap and inspectable. — from finding: Differentiable Logic Cellular Automata: from Game of Life to pattern generation <https://arxiv.org/abs/2506.04912>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 2 on the page; dump line 2848)"
+  },
+  {
+   "id": "FS-UM-065",
+   "text": "Proposed change [Dome chemistry]: Formal backbone for the dome's artificial chemistry, so new 'molecules' compose lawfully. — from finding: First steps towards categorical algebraic artificial chemistry <https://arxiv.org/abs/2603.09431>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 3 on the page; dump line 2857)"
+  },
+  {
+   "id": "FS-UM-066",
+   "text": "Proposed change [Dome abiogenesis]: Use endogenous selection (functional molecules catalyse their own persistence) so dome evolution needs no external objective. — from finding: Prebiotic functional programs: endogenous selection in an artificial chemistry (AlChemy) <https://arxiv.org/abs/2509.03534>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 4 on the page; dump line 2864)"
+  },
+  {
+   "id": "FS-UM-067",
+   "text": "Proposed change [Capacitor (resource routing)]: SIMULATED: route Capacitor's banked resources among seats with Physarum flux-reinforcement dynamics (tubes thicken with use), an energy-optimal, self-organising budget. — from finding: Cognition as least action: the Physarum Lagrangian <https://arxiv.org/abs/2511.08531>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 5 on the page; dump line 2873)"
+  },
+  {
+   "id": "FS-UM-068",
+   "text": "Proposed change [Atlas reference]: Atlas reference for aneural computation. — from finding: Morphological computational capacity of Physarum polycephalum <https://arxiv.org/abs/2510.19976>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 6 on the page; dump line 2882)"
+  },
+  {
+   "id": "FS-UM-069",
+   "text": "Proposed change [Recon (aneural foraging)]: Physarum-style trade-off rules for Recon probes (risk vs reward under light/toxin analogues). — from finding: Behaviour of protists in complicated situations: the plasmodial slime mold (やや複雑な状況における原生生 <https://www.jstage.jst.go.jp/article/seitai/74/2/74_203/_article/-char/ja/>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 7 on the page; dump line 2888)"
+  },
+  {
+   "id": "FS-UM-070",
+   "text": "Proposed change [sLTC / liquid primitive + calculus-for-biology noise]: Upgrade the creature's CfC/sLTC cells to SDE form so the noise term in its biological calculus is native, not bolted on. Wildcard can tune the diffusion coefficient. — from finding: Stochastic Liquid Deformation Fields: an SDE generalisation of Closed-form Continuous-time <https://arxiv.org/abs/2608.28702>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 8 on the page; dump line 2898)"
+  },
+  {
+   "id": "FS-UM-071",
+   "text": "Proposed change [Capacitor (van der Pol charge cycle)]: Give Capacitor a learnable internal oscillator that keeps 'charging' in Stillwater with no input. This directly implements Phoenix-style latency. — from finding: Pulse-Driven Neural Architecture (PDNA): learnable oscillatory dynamics for continuous-tim <https://arxiv.org/abs/2603.00153>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 9 on the page; dump line 2910)"
+  },
+  {
+   "id": "FS-UM-072",
+   "text": "Proposed change [ChronoBlock-4]: Each ChronoBlock tier becomes a rate-specialized liquid expert with a router. — from finding: Multi-Rate Mixture of Experts for Accelerating Liquid Neural Network Training <https://arxiv.org/abs/2606.12240>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 10 on the page; dump line 2920)"
+  },
+  {
+   "id": "FS-UM-073",
+   "text": "Proposed change [CHIMERA neuron]: Per-neuron dynamics are what CHIMERA is meant to be; reuse their parameterization to keep the cost tractable. — from finding: Topological Neural Dynamics: a neuron-wise framework for sequence modelling <https://arxiv.org/abs/2606.21295>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 11 on the page; dump line 2928)"
+  },
+  {
+   "id": "FS-UM-074",
+   "text": "Proposed change [XYZW weights]: A higher-order recurrent state is a natural home for XYZW multi-axis weights: order-4 memory, one axis per X/Y/Z/W role. — from finding: RunningTensor: generalizing linear attention to higher-order recurrent states <https://arxiv.org/abs/2609.12814>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 12 on the page; dump line 2936)"
+  },
+  {
+   "id": "FS-UM-075",
+   "text": "Proposed change [Spindle synapse + S2S]: Lateral/feedback links between sub-brains inside one step, still trainable by parallel scan. — from finding: Parallelized Hierarchical Connectome: spatiotemporal recurrent spiking SSMs <https://arxiv.org/abs/2604.01295>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 13 on the page; dump line 2944)"
+  },
+  {
+   "id": "FS-UM-076",
+   "text": "Proposed change [CHIMERA (spike mode) / Cold-Strike]: Borrow only the TTFS coding (not the LLM): Cold-Strike mode fires each neuron at most once for minimal-latency, minimal-energy decisions. — from finding: Large Language Models with At Most One Spike per Neuron <https://arxiv.org/abs/2609.05151>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 14 on the page; dump line 2953)"
+  },
+  {
+   "id": "FS-UM-077",
+   "text": "Proposed change [calculus-for-biology (delay maths) + Spindle]: Learn delays per axon/dendrite in Spindle synapses: the delay-DE term gets cheaper by orders of magnitude. — from finding: Sparse Axonal and Dendritic Delays Enable Competitive SNNs <https://arxiv.org/abs/2602.09746>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 15 on the page; dump line 2962)"
+  },
+  {
+   "id": "FS-UM-078",
+   "text": "Proposed change [CHIMERA (spike mode) training]: Swap in an adaptive, asymmetric surrogate when training CHIMERA's spike path. — from finding: A2SG: Adaptive and Asymmetric Surrogate Gradients for deep SNNs (KIST, ICML 2026) <https://www.yna.co.kr/view/AKR20260722169100017>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p49 (section 6 table, row 16 on the page; dump line 2971)"
+  },
+  {
+   "id": "FS-UM-079",
+   "text": "Proposed change [Capacitor + Chronoscope memory]: Use a fast/slow dual memory path inside each seat, with the slow path feeding Capacitor's charge state. — from finding: Algorithm-hardware co-design of neuromorphic networks with dual memory pathways <https://doi.org/10.1038/s42256-026-01255-3>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 1 on the page; dump line 2990)"
+  },
+  {
+   "id": "FS-UM-080",
+   "text": "Proposed change [Spindle synapse (local learning)]: Train the creature with local PC-ALM updates, not global backprop. This fits a self-contained organism that updates itself in place. — from finding: Augmented Lagrangian Predictive Coding <https://arxiv.org/abs/2605.31022>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 2 on the page; dump line 3001)"
+  },
+  {
+   "id": "FS-UM-081",
+   "text": "Proposed change [Keel (precision/confid ence)]: Precision weights become Keel's confidence channel: low-precision errors can't move values. — from finding: Closed-form predictive coding via hierarchical Gaussian filters <https://arxiv.org/abs/2605.20293>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 3 on the page; dump line 3010)"
+  },
+  {
+   "id": "FS-UM-082",
+   "text": "Proposed change [Weight-space editor (online)]: Make part of the creature's weights self-modifying at runtime via learned Hebbian rules; the editor then edits rules, not just weights. — from finding: AutoHebb: self-modifying networks that zero-shot infer and continually learn <https://arxiv.org/abs/2610.40757>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 4 on the page; dump line 3018)"
+  },
+  {
+   "id": "FS-UM-083",
+   "text": "Proposed change [Zenkai / Stillwater consolidation]: Take the sleep mechanism, not the LLM: add a scheduled consolidation phase in Stillwater that moves fast-memory contents into slow weights. — from finding: Language Models Need Sleep: learning to self-modify and consolidate memories <https://arxiv.org/abs/2606.03979>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 5 on the page; dump line 3028)"
+  },
+  {
+   "id": "FS-UM-084",
+   "text": "Proposed change [NESTOR (core)]: Closest mainstream match to NESTOR. Make each nesting level an optimizer with its own update frequency (the continuum memory system). — from finding: Nested Learning: The Illusion of Deep Learning Architectures (HOPE) <https://arxiv.org/abs/2512.24695>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 6 on the page; dump line 3038)"
+  },
+  {
+   "id": "FS-UM-085",
+   "text": "Proposed change [Council routing]: A thalamic router picks which seat processes an input; seats stay separate, which limits interference. — from finding: Efficient Continual Learning via Thalamically Routed Cortical Columns (TRC2) <https://arxiv.org/abs/2602.22479>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 7 on the page; dump line 3046)"
+  },
+  {
+   "id": "FS-UM-086",
+   "text": "Proposed change [DSD canonicals memory]: Store DSD canonical patterns in a phase-kernel associative memory so near-duplicates collapse to one attractor. — from finding: Phase Kernel Lifts Capacity of Dense Associative Memory <https://arxiv.org/abs/2610.21493>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 8 on the page; dump line 3054)"
+  },
+  {
+   "id": "FS-UM-087",
+   "text": "Proposed change [Stillwater (cheap dynamics)]: Run a low-cost KAN reservoir as the idle-mode predictor. — from finding: Kolmogorov-Arnold Reservoir Computing <https://arxiv.org/abs/2606.19984>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 9 on the page; dump line 3062)"
+  },
+  {
+   "id": "FS-UM-088",
+   "text": "Proposed change [Keel deliberation]: Keel iterates its value state to a fixed point before committing in Crossroads. — from finding: Closed-Loop Transformers: autoregressive modelling as iterative latent equilibrium <https://arxiv.org/abs/2511.21882>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 10 on the page; dump line 3069)"
+  },
+  {
+   "id": "FS-UM-089",
+   "text": "Proposed change [CHIMERA + Chronoscope]: Read a sub-brain's state from neuron synchronization (pairwise phase) rather than activations. Fits van der Pol and liquid dynamics. — from finding: Continuous Thought Machines / Sakana Frontier Intelligence Group <https://sakana.ai/frontier-intelligence-group/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 11 on the page; dump line 3077)"
+  },
+  {
+   "id": "FS-UM-090",
+   "text": "Proposed change [Keel energy]: Express Keel's value consistency as an energy that plans must lower. — from finding: IM-LEPP: hierarchical energy-based predictive processing for multimodal cognition <https://arxiv.org/abs/2608.12398>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 12 on the page; dump line 3087)"
+  },
+  {
+   "id": "FS-UM-091",
+   "text": "Proposed change [State machine]: Let the creature infer its own context switches (new dome rules) without labels, which triggers Surge adaptation. — from finding: Revisiting continual learning through the unsupervised learning of dynamic contexts <https://hal.science/hal-05849057v1>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 13 on the page; dump line 3095)"
+  },
+  {
+   "id": "FS-UM-092",
+   "text": "Proposed change [S2S + Chronoscope memory]: Tokenless reuse: each sub-brain attends over its own past latent states (a self-KV ring buffer over ChronoBlock ticks) rather than only the layer below. — from finding: The Recurrent Transformer: Greater Effective Depth and Efficient Decoding <https://arxiv.org/abs/2604.21215>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 14 on the page; dump line 3103)"
+  },
+  {
+   "id": "FS-UM-093",
+   "text": "Proposed change [CHIMERA neuron]: Direct precedent for the DASL fusion cell: add per-branch dendritic compartments to the sLTC core of CHIMERA. — from finding: Spiking neural networks with liquid time-constant dynamics and dendritic branches for edge <https://doi.org/10.1088/3049-477X/adeb8e>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 15 on the page; dump line 3113)"
+  },
+  {
+   "id": "FS-UM-094",
+   "text": "Proposed change [CHIMERA dendrites -> Gambit (in-episode adaptation)]: Per-branch dendritic gating in CHIMERA so a seat adapts within an episode (fast in-context fitting) without any weight write. This is Gambit's hunt adaptation. — from finding: Dendritic in-context learning in a single-layer spiking neural network <https://arxiv.org/abs/2607.02283>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 16 on the page; dump line 3121)"
+  },
+  {
+   "id": "FS-UM-095",
+   "text": "Proposed change [Chronoscope (JEPA trained locally)]: Train Chronoscope's JEPA latent with STDP+homeostasis only, with no backprop inside the organism. It is the missing link between JEPA and local learning. — from finding: Local synaptic rules can implement a SIGReg gradient without backpropagation <https://arxiv.org/abs/2607.21622>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p50 (section 6 table, row 17 on the page; dump line 3132)"
+  },
+  {
+   "id": "FS-UM-096",
+   "text": "Proposed change [Nested sub-brains (surprise routing)]: Route only unexplained surprise upward through the seven seats: Surge sees residuals that Chronoscope failed to predict. This saves bandwidth and builds the hierarchy. — from finding: From local learning to global prediction through layered surprise cascades <https://arxiv.org/abs/2608.05481>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 1 on the page; dump line 3151)"
+  },
+  {
+   "id": "FS-UM-097",
+   "text": "Proposed change [Nested sub-brains]: Add skip error lines from the outermost seat to the inner ones so deep nesting still learns locally. — from finding: Error highways: scaling predictive coding to very deep networks <https://arxiv.org/abs/2606.22744>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 2 on the page; dump line 3161)"
+  },
+  {
+   "id": "FS-UM-098",
+   "text": "Proposed change [ChronoBlock-4 / LongGame]: Online local learning for LongGame's long horizons: temporal PC plus eligibility traces, no BPTT. — from finding: Learning long-range dependencies with temporal predictive coding <https://arxiv.org/abs/2602.18131>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 3 on the page; dump line 3168)"
+  },
+  {
+   "id": "FS-UM-099",
+   "text": "Proposed change [Caveat for local learning]: Evidence to keep layer-local rules SHALLOW per seat and use surprise cascades or error highways across seats. — from finding: The price of locality: why Forward-Forward underperforms backpropagation <https://arxiv.org/abs/2609.33240>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 4 on the page; dump line 3176)"
+  },
+  {
+   "id": "FS-UM-100",
+   "text": "Proposed change [Caveat]: Don't rely on Forward-Forward as HEPTARCH's main learner; prefer PC, e-prop or three-factor rules. — from finding: Synthetic benchmarks overstate Forward-Forward scaling: real-data limits of layer-local tr <https://arxiv.org/abs/2606.06539>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 5 on the page; dump line 3185)"
+  },
+  {
+   "id": "FS-UM-101",
+   "text": "Proposed change [CHIMERA + Spindle (RF + ternary)]: Add a resonate-and-fire mode to CHIMERA so information survives silences (Stillwater waits). Pair it with ternary recurrent Spindle weights. — from finding: Coupling parallel resonate-and-fire dynamics with ternary recurrent networks <https://arxiv.org/abs/2610.29720>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 6 on the page; dump line 3193)"
+  },
+  {
+   "id": "FS-UM-102",
+   "text": "Proposed change [Fast-weight channel (FWP)]: Use delta-rule (error-correcting) fast-weight writes in Spindle's fast channel, not plain Hebbian outer products, to avoid interference. — from finding: Error correction in trained TTT (test-time-training) fast-weight layers <https://arxiv.org/abs/2610.16268>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 7 on the page; dump line 3203)"
+  },
+  {
+   "id": "FS-UM-103",
+   "text": "Proposed change [Chronoscope (hidden-state inference)]: Use an NG-RC readout to infer hidden dome variables from partial sensors. Cheap and linear-trainable. — from finding: Inference of unknown dynamical components using next-generation reservoir computing <https://arxiv.org/abs/2609.24754>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 8 on the page; dump line 3213)"
+  },
+  {
+   "id": "FS-UM-104",
+   "text": "Proposed change [Chronoscope (tipping-point radar)]: Train a reservoir to forecast bifurcations in dome dynamics. Chronoscope then warns Gambit before regime shifts. — from finding: Bifurcation prediction using reservoir computing (リザバーコンピ ューティングによる力学系の分岐予測) <https://www.jstage.jst.go.jp/article/pjsai/JSAI2026/0/JSAI2026_5YinA14/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 9 on the page; dump line 3223)"
+  },
+  {
+   "id": "FS-UM-105",
+   "text": "Proposed change [Psych-state energy landscape]: Model HEPTARCH's psychological states as wells of one certified port-Hamiltonian energy. Transitions are energy-budgeted and provably stable; Collar sets well depths. — from finding: Port-Hamiltonian neural networks for systems with multiple asymptotically stable equilibri <https://arxiv.org/abs/2610.01356>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 10 on the page; dump line 3233)"
+  },
+  {
+   "id": "FS-UM-106",
+   "text": "Proposed change [Body model]: Chronoscope's body model separates energy-conserving and dissipative parts, making fatigue explicit. — from finding: Dissipative Lagrangian neural networks for interpretable modelling of passive mechanical s <https://arxiv.org/abs/2610.15996>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 11 on the page; dump line 3243)"
+  },
+  {
+   "id": "FS-UM-107",
+   "text": "Proposed change [Stochastic liquid core]: Training recipe for stochastic CHIMERA dynamics (SDE-CfC) with non-Gaussian noise (Wildcard jumps). — from finding: Neural Kolmogorov equations: parallelizable learning of stochastic dynamics under general <https://arxiv.org/abs/2607.19173>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 12 on the page; dump line 3251)"
+  },
+  {
+   "id": "FS-UM-108",
+   "text": "Proposed change [CHIMERA Hopfield store]: Clip CHIMERA attractor couplings (Parisi bound) so the store forgets gracefully. No blackout from overload. — from finding: Thermodynamics of forgetting in a bounded Hopfield network <https://arxiv.org/abs/2611.08258>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 13 on the page; dump line 3259)"
+  },
+  {
+   "id": "FS-UM-109",
+   "text": "Proposed change [LongGame (plan sequences) / Capacitor combos]: Store plan steps and combos as attractors; a slow variable walks the sequence. This is the Apex 'defended entry completes into the next' mechanism. — from finding: Memory flows: sequential retrieval in input-driven Hopfield networks <https://arxiv.org/abs/2611.09995>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 14 on the page; dump line 3267)"
+  },
+  {
+   "id": "FS-UM-110",
+   "text": "Proposed change [Jester / Chronoscope (novel recombination)]: Use modern-Hopfield prototype blending to generate novel in-dome stratagems from stored ones. — from finding: Hierarchical prototype emergence in modern Hopfield models <https://arxiv.org/abs/2609.12079>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 15 on the page; dump line 3277)"
+  },
+  {
+   "id": "FS-UM-111",
+   "text": "Proposed change [Zenkai (sleep replay)]: Zenkai runs generative replay from the CHIMERA attractor store, trained with EqProp (local). — from finding: Generative replay for equilibrium propagation: continual learning in Hopfield networks <https://arxiv.org/abs/2610.37139>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 16 on the page; dump line 3286)"
+  },
+  {
+   "id": "FS-UM-112",
+   "text": "Proposed change [Dome physics / S2S fluid bus - SPECULATIVE]: SPECULATIVE: implement the dome's fluid and resource physics with LB stream-collide steps that double as a learnable layer, so the world and the brain share one primitive. — from finding: The lattice Boltzmann machine <https://arxiv.org/abs/2611.07139>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p51 (section 6 table, row 17 on the page; dump line 3294)"
+  },
+  {
+   "id": "FS-UM-113",
+   "text": "Proposed change [CHIMERA memory (stateful DNC)]: HEPTARCH keeps the STATEFUL part a transformer lacks: read, write and erase over an addressable store, with no tokens. — from finding: Transformers are stateless differentiable neural computers <https://arxiv.org/abs/2603.19272>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 1 on the page; dump line 3312)"
+  },
+  {
+   "id": "FS-UM-114",
+   "text": "Proposed change [LongGame (sequence memory)]: HTM-style sparse sequence memory for routine action chains. — from finding: A neuromorphic model of learning meaningful sequences with long-term memory <https://arxiv.org/abs/2509.12850>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 2 on the page; dump line 3320)"
+  },
+  {
+   "id": "FS-UM-115",
+   "text": "Proposed change [Frankenstein Prime (growth genome)]: Grow new sub-modules (Surge/RSR) from morphogen fields instead of hand-specifying layer sizes. — from finding: MorphoNAS: embryogenic neural architecture search through morphogen-guided development <https://arxiv.org/abs/2507.13785>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 3 on the page; dump line 3328)"
+  },
+  {
+   "id": "FS-UM-116",
+   "text": "Proposed change [Seven seats (modularity)]: Empirical support for dense-within, sparse-between wiring of the seven seats. — from finding: Recurrent modular structure in spiking neural network reinforcement learning <https://arxiv.org/abs/2611.14262>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 4 on the page; dump line 3337)"
+  },
+  {
+   "id": "FS-UM-117",
+   "text": "Proposed change [S2S mixing matrix]: Constrain S2S state-mixing between sub-brains to be doubly stochastic, so no seat's signal blows up or vanishes. Cheap Sinkhorn step. — from finding: mHC: Manifold-Constrained Hyper-Connections (DeepSeek) <https://arxiv.org/abs/2512.24880>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 5 on the page; dump line 3346)"
+  },
+  {
+   "id": "FS-UM-118",
+   "text": "Proposed change [Weight-space editor]: Map editor operations onto the survey's taxonomy (understand / represent / generate) and fill the gaps. — from finding: A Survey of Weight Space Learning: Understanding, Representation, and Generation <https://arxiv.org/abs/2603.10090>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 6 on the page; dump line 3354)"
+  },
+  {
+   "id": "FS-UM-119",
+   "text": "Proposed change [Weight-space editor + XYZW]: Represent HEPTARCH's parameters as an interface/module graph. The editor then works across all seven seats despite different shapes, and XYZW axes become typed interfaces. — from finding: Interfaces and Modules: a scalable representation for weight-space learning across archite <https://arxiv.org/abs/2610.21995>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 7 on the page; dump line 3362)"
+  },
+  {
+   "id": "FS-UM-120",
+   "text": "Proposed change [Weight-space editor / BSS]: Let BSS transplant a skill from one seat's architecture into another's by mapping weights directly, with no retraining. — from finding: CrossGMN: Graph Metanetworks for Cross-Architecture Weight-Space Transformations <https://arxiv.org/abs/2610.01649>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 8 on the page; dump line 3372)"
+  },
+  {
+   "id": "FS-UM-121",
+   "text": "Proposed change [DSD (functional dedup)]: Deduplicate forks by function, not raw weights. Two forks with different weights but equal behaviour are duplicates. — from finding: Quasi-Equivariant Metanetworks <https://arxiv.org/abs/2604.23720>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 9 on the page; dump line 3381)"
+  },
+  {
+   "id": "FS-UM-122",
+   "text": "Proposed change [Weight-space editor (generative)]: Build a small creature 'zoo' from past runs and train a flow-matching generator to propose new seat weights conditioned on the dome's conditions. Only the method transfers; the LLM zoo itself does not. — from finding: A Night at the LLM Zoo: data-conditioned flow matching to generate pretrained weights <https://arxiv.org/abs/2611.07103>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 10 on the page; dump line 3388)"
+  },
+  {
+   "id": "FS-UM-123",
+   "text": "Proposed change [Raid squads]: Generate tiny specialist squads from a few observations instead of training them: fast Raid deployment. — from finding: On-the-fly Weight Generation: a hypernetwork proof of concept on ARC-1D <https://arxiv.org/abs/2610.00820>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 11 on the page; dump line 3399)"
+  },
+  {
+   "id": "FS-UM-124",
+   "text": "Proposed change [Weight-space editor]: One generator for all seats, conditioned on seat descriptors. — from finding: Universal Hypernetworks for Arbitrary Models <https://arxiv.org/abs/2604.02215>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 12 on the page; dump line 3407)"
+  },
+  {
+   "id": "FS-UM-125",
+   "text": "Proposed change [DSD merge step]: DSD merges forks only inside their essential subspaces; the remainder stays as branch-specific residue. — from finding: Model Merging in the Essential Subspace (ESM) <https://arxiv.org/abs/2602.20208>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 13 on the page; dump line 3413)"
+  },
+  {
+   "id": "FS-UM-126",
+   "text": "Proposed change [BSS (merge + diverge)]: Formal match to BSS: merge (DSD) then evolve (RSR) outside the convex hull. Adopt its operators. — from finding: Model Merging to Evolution: parameter-space exploration beyond the convex hull (MERGEvolve <https://arxiv.org/abs/2606.28373>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 14 on the page; dump line 3420)"
+  },
+  {
+   "id": "FS-UM-127",
+   "text": "Proposed change [DSD (alignment before merge)]: Align neurons (identify them) before merging forks; it predicts when a merge is safe. — from finding: Beyond Structural Symmetries: Linear Mode Connectivity via Neuron Identifiability <https://arxiv.org/abs/2606.04754>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 15 on the page; dump line 3430)"
+  },
+  {
+   "id": "FS-UM-128",
+   "text": "Proposed change [Weight-space editor (low-rank edits)]: Make editor low-rank edits geometry-aware, stepping on the quotient manifold so edits are parameterization-invariant. — from finding: A Riemannian Geometry for Low-rank Adaptation <https://arxiv.org/abs/2610.08049>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 16 on the page; dump line 3439)"
+  },
+  {
+   "id": "FS-UM-129",
+   "text": "Proposed change [Read-only telemetry]: Host-side, read-only: fingerprint every self-edit's spectral signature in telemetry, so the scorers can see what kind of edit happened without trusting the creature's own report. — from finding: Spectral Geometry of LoRA Adapters Encodes Training Objective <https://arxiv.org/abs/2604.08844>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p52 (section 6 table, row 17 on the page; dump line 3447)"
+  },
+  {
+   "id": "FS-UM-130",
+   "text": "Proposed change [ChronoBlock-4]: Use the winning recipe ingredients (scale handling, rounding, which tensors stay higher precision) as ChronoBlock-4 defaults. — from finding: What Matters for NVFP4 Training? A comparative study of low-precision pretraining recipes <https://arxiv.org/abs/2610.24343>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 1 on the page; dump line 3465)"
+  },
+  {
+   "id": "FS-UM-131",
+   "text": "Proposed change [ChronoBlock-4]: Add a per-block format bit (FP4 vs INT4) to ChronoBlock-4; Surge can flip blocks where statistics shift. — from finding: MixFP4: adaptive FP4/INT4 block representations within NVFP4 <https://arxiv.org/abs/2605.31035>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 2 on the page; dump line 3473)"
+  },
+  {
+   "id": "FS-UM-132",
+   "text": "Proposed change [ChronoBlock-4]: Use square 2D blocks so the same scale serves forward and backward passes: a simple stability fix. — from finding: Stable FP4 Training via Transposition-Invariant Block Quantization <https://arxiv.org/abs/2607.24953>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 3 on the page; dump line 3480)"
+  },
+  {
+   "id": "FS-UM-133",
+   "text": "Proposed change [ChronoBlock-4]: Measure shrinkage bias in ChronoBlock-4's E2M1 path; if it shows up, compensate with stochastic rounding or a uniform 4-bit code on weights. — from finding: Rethinking Shrinkage Bias in FP4 Pretraining: geometric origin and UFP4 <https://arxiv.org/abs/2606.20381>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 4 on the page; dump line 3488)"
+  },
+  {
+   "id": "FS-UM-134",
+   "text": "Proposed change [ChronoBlock-4 + CHIMERA]: Subtract a running rank-one mean before 4-bit quantization in CHIMERA activations. — from finding: The Curse and Blessing of Mean Bias in FP4-Quantized Training <https://arxiv.org/abs/2603.10444>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 5 on the page; dump line 3497)"
+  },
+  {
+   "id": "FS-UM-135",
+   "text": "Proposed change [ChronoBlock-4 (format menu)]: Add HiF4 as a candidate code for ChronoBlock-4 tiers; benchmark against E2M1. — from finding: HiFloat4 Format for LM Pre-training on Ascend NPUs (Huawei) <https://arxiv.org/abs/2604.08826>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 6 on the page; dump line 3505)"
+  },
+  {
+   "id": "FS-UM-136",
+   "text": "Proposed change [ChronoBlock-4 + Chronoscope]: Shared block scales can leak future information into the past. Make ChronoBlock scales causal (computed from past-only data) in Chronoscope rollouts. — from finding: FLAMIA: Flash Microscaling Attention for causally safe training on Blackwell <https://arxiv.org/abs/2611.03344>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 7 on the page; dump line 3513)"
+  },
+  {
+   "id": "FS-UM-137",
+   "text": "Proposed change [Frankenstein Prime (fused op)]: Hardware analogue of the 'one fused primitive' goal. Use it as a reference for a fused ChronoBlock dot-product in the creature's own kernels. — from finding: Ten-Four: open-source fused dot-product unit for mixed-precision tensor cores <https://arxiv.org/abs/2512.00053>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 8 on the page; dump line 3523)"
+  },
+  {
+   "id": "FS-UM-138",
+   "text": "Proposed change [Frankenstein Prime weights (XYZW)]: Ternary weight plane for bulk Spindle connections (sign plus mask), keeping a full-precision residual only on the plastic fast-weight channel. — from finding: BitNet b1.58 2B4T Technical Report <https://arxiv.org/abs/2504.12285>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 9 on the page; dump line 3533)"
+  },
+  {
+   "id": "FS-UM-139",
+   "text": "Proposed change [Caveat for KAN edges]: Use KAN spline edges only where the target is known to be smooth and additive (physiology curves, drives), not everywhere. — from finding: Kolmogorov-Arnold networks: curse of dimensionality and structural bias <https://arxiv.org/abs/2610.21480>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 10 on the page; dump line 3541)"
+  },
+  {
+   "id": "FS-UM-140",
+   "text": "Proposed change [Chronoscope (analytic uncertainty)]: KAN-edged predictors give Chronoscope closed-form expected value and variance for planning, which is cheap uncertainty for value-of-information. — from finding: Tractable inference with Kolmogorov-Arnold networks <https://arxiv.org/abs/2610.29909>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 11 on the page; dump line 3550)"
+  },
+  {
+   "id": "FS-UM-141",
+   "text": "Proposed change [Frankenstein Prime + thermodynamic sampler]: Train ternary Spindle weights with the same pbit/Gibbs sampler (Extropic-style, simulated) used for Wildcard. One primitive does both learning and noise. — from finding: Noise-shaped sampling and annealing for on-the-edge training of binary and ternary network <https://arxiv.org/abs/2610.22621>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 12 on the page; dump line 3559)"
+  },
+  {
+   "id": "FS-UM-142",
+   "text": "Proposed change [Caveat (ternary memory)]: Keep episodic/factual memory in higher precision (CHIMERA Hopfield store) and put only reflex pathways in ternary. — from finding: Linger and lose: knowledge collapse in low-bit language models <https://arxiv.org/abs/2609.32902>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 13 on the page; dump line 3570)"
+  },
+  {
+   "id": "FS-UM-143",
+   "text": "Proposed change [Spindle geometry - SPECULATIVE]: SPECULATIVE: an ultrametric (p-adic) address space for HEPTARCH's nested hierarchy (seat > sub-brain > module), where distance means 'how deep the common ancestor is'. — from finding: Beyond Archimedean intelligence: toward an intrinsic p-adic theory of learning <https://arxiv.org/abs/2607.14562>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 14 on the page; dump line 3578)"
+  },
+  {
+   "id": "FS-UM-144",
+   "text": "Proposed change [DSD library index]: Index DSD's skill library with p-adic balls, so skills nest and retrieve by hierarchy. — from finding: v-PuNNs: van der Put neural networks for transparent ultrametric representation learning <https://arxiv.org/abs/2508.01010>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 15 on the page; dump line 3588)"
+  },
+  {
+   "id": "FS-UM-145",
+   "text": "Proposed change [Keel (max-plus values)]: Keel's value arbitration as a tropical (max-plus) layer: exact 'best option wins' with piecewise-linear interpretability. — from finding: Tropical geometry as a restricted architecture for physics-informed neural networks <https://arxiv.org/abs/2607.00237>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 16 on the page; dump line 3596)"
+  },
+  {
+   "id": "FS-UM-146",
+   "text": "Proposed change [Spindle hyperbolic distance (LongGame)]: Supports the Apex report's Spindle hyperbolic-distance range code. Give LongGame's goal embeddings hyperbolic geometry and cut depth. — from finding: Outperforming 1000 Euclidean layers with hyperbolic goal-conditioned RL <https://arxiv.org/abs/2610.20009>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p53 (section 6 table, row 17 on the page; dump line 3605)"
+  },
+  {
+   "id": "FS-UM-147",
+   "text": "Proposed change [S2S (geometric payload)]: S2S messages as multivectors transported by sheaf maps between seats, so geometry (rotation and reflection) survives inter-seat transfer. — from finding: Clifford sheaf neural networks <https://arxiv.org/abs/2610.01322>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 1 on the page; dump line 3624)"
+  },
+  {
+   "id": "FS-UM-148",
+   "text": "Proposed change [CHIMERA Hopfield (orientation memory)]: Quaternion-valued attractor memory for body orientation in the CHIMERA Hopfield store. — from finding: Asymptotically stable quaternion-valued Hopfield-structured neural network <https://arxiv.org/abs/2510.16607>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 2 on the page; dump line 3632)"
+  },
+  {
+   "id": "FS-UM-149",
+   "text": "Proposed change [Quantum NN -> classical substitute]: Don't add 'quantum' layers. Use quaternion/SU(2) classical layers for the same geometric benefit, fully self-contained. — from finding: Classical SU(2) models match or exceed shallow variational quantum circuits on vision benc <https://arxiv.org/abs/2608.07822>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 3 on the page; dump line 3641)"
+  },
+  {
+   "id": "FS-UM-150",
+   "text": "Proposed change [Spindle wiring prior]: Initialise part of the creature's wiring from a public connectome motif, used as a fixed reservoir. — from finding: Connectome-based reservoir computing for multi-task learning ( コネクトームに基づくリザバー計算を用 いたマルチタスク学習 <https://www.jstage.jst.go.jp/article/pjsai/JSAI2026/0/JSAI2026_2YinB44/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 4 on the page; dump line 3650)"
+  },
+  {
+   "id": "FS-UM-151",
+   "text": "Proposed change [Wildcard (structural)]: Structural source of unpredictability: hub-heavy wiring in Wildcard raises firing irregularity without extra noise. — from finding: Effects of scale-free topology on spiking irregularity (スケールフリー・ ネットワークトポロジがSNNの発火不規 則性に及ぼす影 <https://www.jstage.jst.go.jp/article/jsaisigtwo/2026/AGI-032/2026_04/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 5 on the page; dump line 3660)"
+  },
+  {
+   "id": "FS-UM-152",
+   "text": "Proposed change [Motor sub-brains + van der Pol]: Replace the generic van der Pol oscillator with a three-neuron E-E-I CPG motif per limb or per rhythmic drive; Capacitor's charge/release rhythm can use the same motif. — from finding: Connectome simulations identify a central pattern generator for fly walking <https://www.nature.com/articles/s41586-026-11195-y>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 6 on the page; dump line 3670)"
+  },
+  {
+   "id": "FS-UM-153",
+   "text": "Proposed change [NESTOR (distributed control)]: Biological support for not putting all control in the 'brain': give motor sub-brains local reflex authority (cord-like) under council intent. — from finding: Distributed control circuits across a brain-and-cord connectome <https://doi.org/10.1038/s41586-026-10735-w>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 7 on the page; dump line 3681)"
+  },
+  {
+   "id": "FS-UM-154",
+   "text": "Proposed change [Spindle wiring prior]: Wiring alone gives useful behaviour: seed newborn creatures with a structured wiring prior before any training (an 'instinct' layer). — from finding: Sensorimotor behaviour from an untrained brain-and-nerve-cord connectome <https://arxiv.org/abs/2610.33881>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 8 on the page; dump line 3691)"
+  },
+  {
+   "id": "FS-UM-155",
+   "text": "Proposed change [Spindle synapse (plastic subset)]: Make only a small, mushroom-body-like subset of Spindle synapses plastic and keep the rest fixed: stability plus learning. — from finding: Specific, cumulative and reversible odour learning in a whole-brain connectome model <https://arxiv.org/abs/2611.09930>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 9 on the page; dump line 3700)"
+  },
+  {
+   "id": "FS-UM-156",
+   "text": "Proposed change [Self-contained runtime]: Shows a whole insect-scale brain fits one cheap chip. The deferred-spike-expansion trick can speed up the creature's own event-driven runtime. — from finding: FPGAFly: 166.7k-neuron fruit-fly connectome on one FPGA <https://arxiv.org/abs/2610.38118>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 10 on the page; dump line 3709)"
+  },
+  {
+   "id": "FS-UM-157",
+   "text": "Proposed change [Motor interface design]: Use a low-dimensional 'descending command' bus between council and body (steer, speed, groom, strike) and log its sync interval. Eon's limitations list doubles as a checklist. — from finding: How the Eon team produced a virtual embodied fly <https://eon.systems/updates/embodied-brain-emulation>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 11 on the page; dump line 3718)"
+  },
+  {
+   "id": "FS-UM-158",
+   "text": "Proposed change [Energy budget E]: Spatially local energy budgets: let each Spindle synapse draw from a local 'mitochondrial' budget, so bursts drain locally. SPECULATIVE mapping. — from finding: Spatial and morphological organization of mitochondria in neurons across a connectome <https://doi.org/10.1126/science.ads6674>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 12 on the page; dump line 3728)"
+  },
+  {
+   "id": "FS-UM-159",
+   "text": "Proposed change [Seat sizing]: Size the seats against biological cell-type scaling ratios when growing the creature. Check the paper before using numbers. — from finding: Cellular scaling laws in the mammalian brain <https://doi.org/10.1016/j.cell.2026.08.044>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 13 on the page; dump line 3737)"
+  },
+  {
+   "id": "FS-UM-160",
+   "text": "Proposed change [Wiring priors]: Second whole-CNS wiring source alongside BANC/FANC/MANC for seeding priors. — from finding: Sexual dimorphism in the complete Drosophila male CNS connectome <https://doi.org/10.1016/j.cell.2026.08.015>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 14 on the page; dump line 3744)"
+  },
+  {
+   "id": "FS-UM-161",
+   "text": "Proposed change [Design philosophy]: Supports HEPTARCH's bias toward biological dynamics (delays, dendrites, oscillations) over GPU-convenient shortcuts. — from finding: Neuromorphic is dead. Long live neuromorphic. <https://doi.org/10.1016/j.neuron.2025.09.020>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p54 (section 6 table, row 15 on the page; dump line 3751)"
+  },
+  {
+   "id": "FS-UM-162",
+   "text": "Proposed change [Spindle wiring prior]: Theory for how much wiring constrains dynamics; use it to decide which creature weights to fix and which to learn. — from finding: Prediction of neural activity in connectome-constrained recurrent networks <https://doi.org/10.1038/s41593-025-02080-4>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 1 on the page; dump line 3768)"
+  },
+  {
+   "id": "FS-UM-163",
+   "text": "Proposed change [Scorecard]: Two-way similarity metric for comparing seats with each other (seat A predicts seat B and vice versa) to track redundancy for DSD. — from finding: Reverse predictivity for bidirectional comparison of neural networks and brains <https://doi.org/10.1038/s42256-026-01204-0>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 2 on the page; dump line 3777)"
+  },
+  {
+   "id": "FS-UM-164",
+   "text": "Proposed change [Wildcard / Surge (edge-of-chaos dial)]: Live telemetry: drive Wildcard toward near-critical dynamics using the Fisher-information distance as a feedback signal. — from finding: Fisher Information Metric as a model-free measure of proximity to criticality <https://arxiv.org/abs/2609.07624>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 3 on the page; dump line 3787)"
+  },
+  {
+   "id": "FS-UM-165",
+   "text": "Proposed change [Wiring (modularity)]: Modularity beats unstructured mass even in wetware, which supports the seven-seat modular council. No biological component is proposed. — from finding: Biological neural cultures on Cortical Labs CL1: digit classification depends on architect <https://www.biorxiv.org/content/10.64898/2026.08.10.743829v1.full.pdf>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 4 on the page; dump line 3796)"
+  },
+  {
+   "id": "FS-UM-166",
+   "text": "Proposed change [Keel/LongGame (connectome motifs)]: Use NeuroML as an import format for connectome-derived motifs (worm, fly) seeded into CHIMERA sub-circuits. — from finding: Small-scale neural simulation of C. elegans on Loihi-2 (NeuroML2Loihi) <https://arxiv.org/abs/2610.25424>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 5 on the page; dump line 3806)"
+  },
+  {
+   "id": "FS-UM-167",
+   "text": "Proposed change [Capacitor (anti-synchrony)]: SIMULATED: enforce modular (sparse inter-module) wiring between seats to prevent runaway global synchrony. Capacitor-wide synchrony is only allowed inside Supernova. — from finding: Online supervised learning of temporal patterns in biological neural networks under feedba <https://pmc.ncbi.nlm.nih.gov/articles/PMC12994192/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 6 on the page; dump line 3814)"
+  },
+  {
+   "id": "FS-UM-168",
+   "text": "Proposed change [S2S/DSD (knowledge transplant)]: SIMULATED: before moving skills between forks, match their attractor signatures and transplant readouts only between attractor-equivalent forks. Gives DSD a compatibility check. — from finding: Computing with living neurons: chaos-controlled reservoir computing with knowledge transpl <https://arxiv.org/abs/2604.02552>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 7 on the page; dump line 3825)"
+  },
+  {
+   "id": "FS-UM-169",
+   "text": "Proposed change [Keel/LongGame -> motor (Raid intent)]: Burst-vs-rate multiplexing: S2S carries intent (goal) in burst fraction and action in rate on the same line, so Raid squads receive commander's intent without extra channels. — from finding: Bilinear gating of motor primitives: dendritic computation and rapid goal-directed adaptat <https://arxiv.org/abs/2606.10891>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 8 on the page; dump line 3835)"
+  },
+  {
+   "id": "FS-UM-170",
+   "text": "Proposed change [Spindle placement]: Let Spindle synapses migrate to the branch whose activity they correlate with (clustering), so CHIMERA detects co-occurrence patterns (Chronoscope covariance features). — from finding: Synaptic clustering emerges from learning and supports covariance discrimination <https://arxiv.org/abs/2607.24503>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 9 on the page; dump line 3845)"
+  },
+  {
+   "id": "FS-UM-171",
+   "text": "Proposed change [Psych-state machine (Stillwater/Gambit/Su pernova…)]: SIMULATED glial layer: slow astrocyte Ca fields over Spindle synapses implement HEPTARCH's discrete psychological-state switch as a hybrid automaton, so state transitions emerge from accumulated evidence rather than if-rules. — from finding: A neural-astrocyte architecture implements a hybrid automaton for evidence accumulation <https://arxiv.org/abs/2609.16217>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 10 on the page; dump line 3854)"
+  },
+  {
+   "id": "FS-UM-172",
+   "text": "Proposed change [Capacitor (metabolic resource field)]: SIMULATED: a diffusing 'glial resource' field that Capacitor banks and that gates Spindle efficacy. Persistent plans hold only while resource lasts, which is natural fatigue. — from finding: Astrocytic resource diffusion stabilizes persistent activity in neural fields <https://arxiv.org/abs/2604.10036>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 11 on the page; dump line 3866)"
+  },
+  {
+   "id": "FS-UM-173",
+   "text": "Proposed change [Glial layer]: Background for the tripartite-synapse layer. — from finding: Modeling interactions between neurons and astrocytes: application to brain information pro <https://theses.hal.science/tel-05639846v1>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 12 on the page; dump line 3876)"
+  },
+  {
+   "id": "FS-UM-174",
+   "text": "Proposed change [Glial layer (per-synapse locality)]: Make glial fields per-synapse-cluster (microdomains), not global, consistent with microstructure evidence. — from finding: What astrocytic microstructure tells us about its physiology (アストロサイ トの微細構造から読み解くシナプス微小 環境) <https://www.jstage.jst.go.jp/article/fpj/161/5/161_26040/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 13 on the page; dump line 3883)"
+  },
+  {
+   "id": "FS-UM-175",
+   "text": "Proposed change [Raid / LongGame (game view of plasticity)]: Analyse inter-seat Spindle plasticity as a potential game. Equilibrium checks become a BSS stability test (no seat can unilaterally gain). — from finding: Neural learning as a game induced by spike-timing-dependent plasticity <https://arxiv.org/abs/2609.21131>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 14 on the page; dump line 3894)"
+  },
+  {
+   "id": "FS-UM-176",
+   "text": "Proposed change [Telemetry]: Use the same evoked-vs-spontaneous propagation metric as host-side telemetry of whether a seat is computing or just synchronising. — from finding: Stimulus-evoked network dynamics in human cortical organoids: a graph-computational framew <https://arxiv.org/abs/2607.28068>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p55 (section 6 table, row 15 on the page; dump line 3904)"
+  },
+  {
+   "id": "FS-UM-177",
+   "text": "Proposed change [Nested hierarchy criticality]: Tune nesting depth and branching to keep avalanches near criticality (pairs with the Fisher-criticality item). — from finding: p-adic statistical field theory of fluctuation effects in hierarchical neural networks <https://arxiv.org/abs/2610.36400>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 1 on the page; dump line 3922)"
+  },
+  {
+   "id": "FS-UM-178",
+   "text": "Proposed change [Capacitor + Zenkai (metabolic homeostat)]: A metabolic energy variable with fast, medium and slow homeostats. Capacitor banks energy; Supernova overdraws it; Zenkai repays it. This is the Apex 'protected fatigue homeostat'. — from finding: Multi-timescale homeostasis based on energy metabolic constraints (エ ネルギー代謝制約に基づく多重時間スケ ールホメ <https://www.jstage.jst.go.jp/article/pjsai/JSAI2026/0/JSAI2026_2YinB41/_article/-char/ja/>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 2 on the page; dump line 3931)"
+  },
+  {
+   "id": "FS-UM-179",
+   "text": "Proposed change [ChronoBlock-4 (nested rhythms)]: Map ChronoBlock-4's tiers onto nested theta/gamma rhythms: gamma packets inside theta cycles carry ordered items for Chronoscope. — from finding: Time-series processing of an SNN inspired by hippocampal CA3 theta-gamma coupling (海馬CA3野の <https://www.jstage.jst.go.jp/article/pjsai/JSAI2026/0/JSAI2026_2YinB56/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 3 on the page; dump line 3945)"
+  },
+  {
+   "id": "FS-UM-180",
+   "text": "Proposed change [CHIMERA (theory) - SPECULATIVE]: SPECULATIVE: treat a CHIMERA population as a density on a circle (reset glued to threshold) evolving by WFR flow, giving a principled population-level update. — from finding: Spiking inference as Wasserstein-Fisher-Rao gradient flow on a boundary-identified membran <https://www.jstage.jst.go.jp/article/pjsai/JSAI2026/0/JSAI2026_3H2OS9b02/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 4 on the page; dump line 3956)"
+  },
+  {
+   "id": "FS-UM-181",
+   "text": "Proposed change [Chronoscope memory]: Pretrain the slow memory tier on long dome histories before giving it longer context windows. — from finding: Long-WAM: Scaling the Context of World-Action Models <https://arxiv.org/abs/2610.10528>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 5 on the page; dump line 3969)"
+  },
+  {
+   "id": "FS-UM-182",
+   "text": "Proposed change [motor sub-brains]: Evidence that active inference scales to real manipulation; supports an AIF action loop for motor seats. — from finding: Real-world robotic manipulation with deep active inference using semantic image embeddings <https://www.jstage.jst.go.jp/article/pjsai/JSAI2026/0/JSAI2026_1E5OS39c02/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 6 on the page; dump line 3977)"
+  },
+  {
+   "id": "FS-UM-183",
+   "text": "Proposed change [Motor sub-brains + Zenkai]: Plastic motor loops that re-converge after damage, which is what Zenkai recovery needs. — from finding: Hebbian Attractor Networks for Robot Locomotion <https://arxiv.org/abs/2603.22512>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 7 on the page; dump line 3987)"
+  },
+  {
+   "id": "FS-UM-184",
+   "text": "Proposed change [Motor roadmap]: Use as the motor-seat roadmap. — from finding: Evolution of humanoid locomotion control (review) <https://doi.org/10.1126/scirobotics.aed3973>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 8 on the page; dump line 3995)"
+  },
+  {
+   "id": "FS-UM-185",
+   "text": "Proposed change [Raid squads]: Give Raid squad policies structural bias (shared local rules, permutation invariance) so they survive dome-rule shifts. — from finding: Structural bias enables reliable sim-to-real transfer in RL for robot swarms <https://doi.org/10.1126/scirobotics.adw4624>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 9 on the page; dump line 4001)"
+  },
+  {
+   "id": "FS-UM-186",
+   "text": "Proposed change [NESTOR periphery]: Octopus model: limbs or sensors hold local sub-brains with their own authority, a third nesting level under the seats. — from finding: Peripheral control via distributed sensing in an octopus-inspired soft arm <https://doi.org/10.1038/s42256-026-01230-y>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 10 on the page; dump line 4010)"
+  },
+  {
+   "id": "FS-UM-187",
+   "text": "Proposed change [Morphological computation]: SPECULATIVE: move some decisions into the creature's simulated 'body' (threshold materials), freeing the brain. — from finding: Physically intelligent capsule robots with embodied memory and logic <https://doi.org/10.1073/pnas.2605060123>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 11 on the page; dump line 4019)"
+  },
+  {
+   "id": "FS-UM-188",
+   "text": "Proposed change [Surge + Zenkai (damage signal)]: A dedicated injury spike channel feeds Surge (grow under pressure) and schedules Zenkai. These are functional labels only. — from finding: A neuromorphic robotic e-skin with active pain and injury perception <https://doi.org/10.1073/pnas.2520922122>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 12 on the page; dump line 4027)"
+  },
+  {
+   "id": "FS-UM-189",
+   "text": "Proposed change [Recon probes]: Recon does 'learning flights' (short outbound loops to snapshot views) before committing; cheap homing memory. — from finding: Efficient robot navigation inspired by honeybee learning flights <https://doi.org/10.1038/s41586-026-10461-3>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 13 on the page; dump line 4036)"
+  },
+  {
+   "id": "FS-UM-190",
+   "text": "Proposed change [BSS (body forks)]: Use morphology-agnostic GNN controllers so body mutations don't reset the brain. Pair with the Mertan & Cheney warning. — from finding: Evolving Embodied Intelligence: GNN-driven co-design of morphology and control <https://arxiv.org/abs/2603.19582>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 14 on the page; dump line 4044)"
+  },
+  {
+   "id": "FS-UM-191",
+   "text": "Proposed change [Raid -> DSD merge]: Squads bring back experience and DSD merges it (fleet learning inside one organism). — from finding: Learning from Fleet Experience: a collective learning paradigm for robots <https://arxiv.org/abs/2610.25736>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p56 (section 6 table, row 15 on the page; dump line 4052)"
+  },
+  {
+   "id": "FS-UM-192",
+   "text": "Proposed change [Recon + motor]: Weight Stillwater curiosity toward contact and interaction events, not free-space motion. — from finding: Tactile Curiosity Drives Robot Interaction <https://arxiv.org/abs/2609.40134>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 1 on the page; dump line 4069)"
+  },
+  {
+   "id": "FS-UM-193",
+   "text": "Proposed change [Developmental curriculum]: Add an infant-style contingency stage early in the creature's curriculum to build its body model. — from finding: Robot in a crib: sensorimotor contingency learning <https://doi.org/10.1126/scirobotics.aed4106>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 2 on the page; dump line 4076)"
+  },
+  {
+   "id": "FS-UM-194",
+   "text": "Proposed change [Chronoscope (training-only heads)]: Add privileged training-only prediction heads (future 3D tracks) that are removed at deployment. — from finding: Pri4R: world dynamics for VLA via privileged 4D point tracks (LG AI Research) <https://arxiv.org/abs/2603.01549>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 3 on the page; dump line 4084)"
+  },
+  {
+   "id": "FS-UM-195",
+   "text": "Proposed change [Recon probes]: Astrocyte short-term suppression map so Recon doesn't re-probe the same sites; long-term synapses keep successful routes. — from finding: Neuromorphic navigation with dual-timescale neuron-astrocyte memory (SNAN) <https://arxiv.org/abs/2604.15391>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 4 on the page; dump line 4093)"
+  },
+  {
+   "id": "FS-UM-196",
+   "text": "Proposed change [Raid (formation)]: Raid squads assemble formations with an NCA rule over squad members, with no central planner. — from finding: Distributed swarm morphogenesis with neural cellular automata <https://arxiv.org/abs/2610.31900>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 5 on the page; dump line 4102)"
+  },
+  {
+   "id": "FS-UM-197",
+   "text": "Proposed change [Raid (covert command)]: Raid commander steers squads covertly as an anonymous member, with a tuned noise level for best following. Jester can exploit the same mechanism against in-world rivals. — from finding: Anonymous leadership and stochastic resonance in collectives of self-propelled robots (Kil <https://arxiv.org/abs/2510.12580>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 6 on the page; dump line 4109)"
+  },
+  {
+   "id": "FS-UM-198",
+   "text": "Proposed change [Body forks]: Generative prior over body voxels for BSS body forks. — from finding: Generative evolutionary design of voxel-based soft robots with provable optimality (MISCO) <https://arxiv.org/abs/2609.29491>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 7 on the page; dump line 4119)"
+  },
+  {
+   "id": "FS-UM-199",
+   "text": "Proposed change [Surge x BSS (Baldwin)]: Tune how much lifetime learning a fork gets before scoring, to steer body evolution. — from finding: Shaping the evolutionary dynamics of robot morphology via adaptive control learning <https://arxiv.org/abs/2608.23100>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 8 on the page; dump line 4126)"
+  },
+  {
+   "id": "FS-UM-200",
+   "text": "Proposed change [BSS (hybridise)]: Hybridize the best fork lineages with controlled inheritance (per-module dominance) instead of averaging. This fits the specialist method's 'hybridise' step. — from finding: Mendel Gödel Machine: comparative evolution with cross-lineage hybridisation <https://arxiv.org/abs/2608.07645>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 9 on the page; dump line 4135)"
+  },
+  {
+   "id": "FS-UM-201",
+   "text": "Proposed change [Integration checks a/b/c]: Use their sequential-test acceptance rule as integration check (c), so nothing is kept on noise. This directly supports 'keep only if nothing regresses'. — from finding: Trustworthy Recursive Self-Improvement with Statistical Guarantees <https://arxiv.org/abs/2611.10787>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 10 on the page; dump line 4144)"
+  },
+  {
+   "id": "FS-UM-202",
+   "text": "Proposed change [Two-layer dome]: Cite it for the two-layer dome rationale: in-world self-improvement is allowed, and the host-side measurement stays outside the creature's write scope. — from finding: Is Recursive Self-Improvement Safe? (Conitzer) <https://arxiv.org/abs/2611.10261>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 11 on the page; dump line 4154)"
+  },
+  {
+   "id": "FS-UM-203",
+   "text": "Proposed change [Exploits tab + S2S]: Expect exploits to spread across forks via S2S. Log spread as an epidemic (which fork found it, who adopted it) as a feature metric in the exploits tab. — from finding: Reward Hacking as a Transmissible Strategy in Multi-Agent Systems <https://arxiv.org/abs/2610.12822>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 12 on the page; dump line 4162)"
+  },
+  {
+   "id": "FS-UM-204",
+   "text": "Proposed change [Read-only telemetry]: Host-side detector that classifies whether a score gain was an in-world exploit or genuine skill; it labels exploits rather than suppressing them, matching 'dangers are features'. — from finding: Detecting and Suppressing Reward Hacking with Gradient Fingerprints <https://arxiv.org/abs/2604.16242>",
+   "category": "world",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 13 on the page; dump line 4170)"
+  },
+  {
+   "id": "FS-UM-205",
+   "text": "Proposed change [Keel self-model (functional only)]: Functional analogue only, no mind claims: an internal detector that flags when Keel's state was perturbed from outside (e.g. by a Jester attack). It is a measurable anomaly detector. — from finding: Mechanisms of Introspective Awareness <https://arxiv.org/abs/2603.21396>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 14 on the page; dump line 4178)"
+  },
+  {
+   "id": "FS-UM-206",
+   "text": "Proposed change [S2S broadcast bus]: Design hint: make S2S a single low-dimensional broadcast subspace that all seats read, rather than pairwise links. Functional architecture only, no consciousness claim. — from finding: Verbalizable Representations Form a Global Workspace in Language Models (Transformer Circu <https://transformer-circuits.pub/2026/workspace/index.html>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 15 on the page; dump line 4187)"
+  },
+  {
+   "id": "FS-UM-207",
+   "text": "Proposed change [Zenkai consolidation]: Consolidation objective for Zenkai: absorb burst-time gains into weights with a preserve-everything-else penalty. — from finding: Cortex: consolidating context into parametric memory <https://arxiv.org/abs/2610.20399>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 16 on the page; dump line 4197)"
+  },
+  {
+   "id": "FS-UM-208",
+   "text": "Proposed change [BSS (fork budget)]: BSS spends replicate budget on forks predicted to leave durable archive entries. — from finding: From admission to retention: predicting durable offspring in quality-diversity search <https://arxiv.org/abs/2611.06522>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p57 (section 6 table, row 17 on the page; dump line 4204)"
+  },
+  {
+   "id": "FS-UM-209",
+   "text": "Proposed change [Raid squads / forks]: Add behavioural repulsion between Raid squads so they cover different approaches. — from finding: Repulsive population policy gradients for behaviourally diverse RL <https://arxiv.org/abs/2610.36425>",
+   "category": "society",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 1 on the page; dump line 4221)"
+  },
+  {
+   "id": "FS-UM-210",
+   "text": "Proposed change [Capacitor / Zenkai (metaphor)]: SPECULATIVE metaphor: a 'recharge-by-reset' cycle in which Zenkai thermally resets used Capacitor state, rather than slowly decaying it. — from finding: Heat-rechargeable computation in DNA logic circuits and neural networks <https://doi.org/10.1038/s41586-025-09570-2>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 2 on the page; dump line 4229)"
+  },
+  {
+   "id": "FS-UM-211",
+   "text": "Proposed change [Self-contained runtime]: Supports keeping the creature event-driven and sparse for low power. — from finding: Microelectronics turns to bio-inspiration for ultra-low-power embedded AI (La microélectro <https://hal.science/hal-05742492v1>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 3 on the page; dump line 4240)"
+  },
+  {
+   "id": "FS-UM-212",
+   "text": "Proposed change [Spindle synapse + CHIMERA membrane (Stillwater)]: SIMULATED: give Spindle a mechanical-relaxation state m (tau about 1-10 s, with a nonlinear exp(-gap) readout) so repeated sub-threshold input integrates for seconds. This is the slow 'charge' that Stillwater banks. — from finding: Viscoelastic nanomechanical devices for neuromorphic information processing (MIT 'squishy' <https://www.science.org/doi/10.1126/sciadv.aeg9893>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 4 on the page; dump line 4249)"
+  },
+  {
+   "id": "FS-UM-213",
+   "text": "Proposed change [Wildcard + Jester (noise as resource)]: SIMULATED: a pbit-style Gibbs sampler layer (sigmoid-biased coin flips on a sparse 16-neighbour Ising graph) as the organism's native stochastic source for Wildcard's budgeted unpredictability and Jester's probes. — from finding: From One to One Billion: Torx, Thermalizers, and Z1 <https://extropic.ai/writing/from-one-to-one-billion/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 5 on the page; dump line 4263)"
+  },
+  {
+   "id": "FS-UM-214",
+   "text": "Proposed change [Chronoscope (imagination sampler)]: SIMULATED: Chronoscope imagines futures by chaining 2-8 small energy-based denoising steps (Gibbs) instead of one deterministic rollout. Cheap, multimodal futures for Gambit. — from finding: An efficient probabilistic hardware architecture for diffusion-like models (Denoising Ther <https://arxiv.org/abs/2510.23972>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 6 on the page; dump line 4274)"
+  },
+  {
+   "id": "FS-UM-215",
+   "text": "Proposed change [Weight/bias-space editor]: Use amortized posterior estimation to infer a CHIMERA cell's hidden parameters from its observed traces. Gives the editor a principled 'what parameters would produce this behaviour' tool. — from finding: Amortized inference of neuron parameters on analog neuromorphic hardware (BrainScaleS-2) <https://arxiv.org/abs/2602.10763>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 7 on the page; dump line 4285)"
+  },
+  {
+   "id": "FS-UM-216",
+   "text": "Proposed change [Graded spikes in S2S]: Loihi 2's graded (integer-payload) spikes are the documented feature worth copying. Let S2S spikes carry a small integer payload instead of being binary. — from finding: Intel Loihi 3 status check (not officially announced) <https://www.linkedin.com/posts/mike-davies-71b4542_roboarch-icra-2025-activity-7331018288505700355-hey4>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 8 on the page; dump line 4297)"
+  },
+  {
+   "id": "FS-UM-217",
+   "text": "Proposed change [Whole organism (self-containment proof)]: Design precedent for HEPTARCH's self-contained principle: the world (dome) and the learner co-located in one event-driven substrate. — from finding: All On-Board: fully on-chip neuromorphic Q-learning with embedded CartPole simulation <https://arxiv.org/abs/2609.32317>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 9 on the page; dump line 4307)"
+  },
+  {
+   "id": "FS-UM-218",
+   "text": "Proposed change [Spindle (dual-store weight)]: SIMULATED: Spindle keeps two weight stores, a high-precision 'ferro' accumulator for learning and a coarse ternary 'memristor' copy for fast inference, synced by threshold crossing (as in ChronoBlock-4 precision tiers). — from finding: A ferroelectric-memristor memory for both training and inference <https://www.nature.com/articles/s41928-025-01454-7>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 10 on the page; dump line 4318)"
+  },
+  {
+   "id": "FS-UM-219",
+   "text": "Proposed change [Spindle + Zenkai (fatigue)]: SIMULATED: a fatigue variable per synapse that depresses STDP after heavy use and recovers in Zenkai. This gives Supernova a built-in cost. — from finding: Spiking neural networks with fatigue STDP learning using hybrid memristor arrays <https://www.nature.com/articles/s41928-025-01554-4>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 11 on the page; dump line 4329)"
+  },
+  {
+   "id": "FS-UM-220",
+   "text": "Proposed change [Spindle (two state variables)]: SIMULATED: Spindle's history has a fast volatile 'ionic' term and a slow non-volatile 'ferro' term in one synapse. — from finding: Hybrid ferroelectric-ionic memristive hardware for high scalability in-memory computing <https://www.nature.com/articles/s41467-026-72103-6>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 12 on the page; dump line 4340)"
+  },
+  {
+   "id": "FS-UM-221",
+   "text": "Proposed change [Spindle learning rule]: Cheaper than STDP: update on presynaptic spike from the postsynaptic CHIMERA voltage. No trace buffers needed. — from finding: Unsupervised local learning based on voltage-dependent synaptic plasticity for resistive a <https://www.nature.com/articles/s43246-025-01033-5>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 13 on the page; dump line 4350)"
+  },
+  {
+   "id": "FS-UM-222",
+   "text": "Proposed change [Zenkai (repair)]: Glial repair state: when a Spindle synapse is 'damaged' (frozen or clipped), a neighbouring glial variable re-routes its contribution during Zenkai. — from finding: STAR: astrocyte-inspired state-augmented repair for memristive AI hardware <https://arxiv.org/abs/2607.15415>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p58 (section 6 table, row 14 on the page; dump line 4359)"
+  },
+  {
+   "id": "FS-UM-223",
+   "text": "Proposed change [Spindle (state != weight)]: SIMULATED: Spindle stores a hidden state s and exposes weight w = R(s, read-context). The psychological state changes the read function, so Supernova reads the same memories 'louder' without rewriting them. — from finding: The weight is in the reading: hidden states in memristors, memlumors, and electrochemical <https://arxiv.org/abs/2611.12706>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 1 on the page; dump line 4377)"
+  },
+  {
+   "id": "FS-UM-224",
+   "text": "Proposed change [Spindle time constants]: Supports biological-scale (ms to s) synapse-history time constants in Spindle. — from finding: EGaIn tube memristors offer reliable switching on a biological time scale <https://arxiv.org/abs/2508.15950>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 2 on the page; dump line 4388)"
+  },
+  {
+   "id": "FS-UM-225",
+   "text": "Proposed change [Spindle wear]: SIMULATED wear budget: each synapse has finite write endurance, so plasticity has a real cost and Collar/BSS can meter it. — from finding: How long can they learn? Endurance of analog memristive synapses during online training <https://hal.science/hal-05452166v1>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 3 on the page; dump line 4396)"
+  },
+  {
+   "id": "FS-UM-226",
+   "text": "Proposed change [Wildcard (structured chaos) - SPECULATIVE]: SPECULATIVE: oscillator seats near separatrices let Wildcard drift slowly between attractors (Arnold-diffusion-like), giving unpredictability that stays bounded. — from finding: Separatrix splitting in a multiferroic neuromorphic oscillator: toward Arnold diffusion <https://arxiv.org/abs/2611.03297>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 4 on the page; dump line 4405)"
+  },
+  {
+   "id": "FS-UM-227",
+   "text": "Proposed change [Zenkai consolidation (noise as feature)]: SIMULATED: during Zenkai, inject noise into weights but condition it on staying inside a barrier around consolidated values. Noise then explores while protecting memory. 'Danger as feature.' — from finding: Intrinsic-noise consolidation: a Doob-barrier-conditioned diffusion turns analog device no <https://arxiv.org/abs/2607.06924>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 5 on the page; dump line 4416)"
+  },
+  {
+   "id": "FS-UM-228",
+   "text": "Proposed change [Body (morphological computing)]: SIMULATED: give HEPTARCH's dome body spring-network limbs that learn locally (physical learning), offloading control from the brain. — from finding: In situ local learning of dynamic network materials <https://arxiv.org/abs/2609.05977>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 6 on the page; dump line 4427)"
+  },
+  {
+   "id": "FS-UM-229",
+   "text": "Proposed change [Reservoir seat]: SIMULATED: a small coupled-Duffing oscillator reservoir as a cheap nonlinear memory inside Chronoscope. — from finding: Dynamical diversity for reservoir computing in reconfigurable nanomechanics <https://arxiv.org/abs/2609.29532>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 7 on the page; dump line 4436)"
+  },
+  {
+   "id": "FS-UM-230",
+   "text": "Proposed change [S2S (directional bus)]: Make S2S couplings anisotropic so information flows causally from perception to action seats unless explicitly reversed. — from finding: Asymmetric coupling anisotropy for causal information filtering in physical reservoirs <https://arxiv.org/abs/2608.26741>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 8 on the page; dump line 4444)"
+  },
+  {
+   "id": "FS-UM-231",
+   "text": "Proposed change [Spindle (ionic state)]: SIMULATED: proton/ionic slow state as a second Spindle history variable. — from finding: Solid-state proton devices for neuromorphic information processing (固体プロトンデバイス) <https://www.jstage.jst.go.jp/article/ieejfms/146/10/146_383/_article/-char/ja/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: yes",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 9 on the page; dump line 4452)"
+  },
+  {
+   "id": "FS-UM-232",
+   "text": "Proposed change [Dome Layer 1]: Represent the dome's in-world rules as an explicit state program separate from rendering; the creature's exploits then show up as rule-level diffs in the 'exploits found' tab. Uses no LLM: rules are code in the host, not in the creature. — from finding: Programmable World Model <https://arxiv.org/abs/2609.10540>",
+   "category": "world",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 10 on the page; dump line 4461)"
+  },
+  {
+   "id": "FS-UM-233",
+   "text": "Proposed change [Jester + LongGame (level-k)]: Add rival-belief slots to the creature's world state, so Jester's psy-ops act on modelled beliefs, not just positions. Use the formal framework only and drop the LLM implementation. — from finding: Mental World Modeling <https://arxiv.org/abs/2607.27201>",
+   "category": "society",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 11 on the page; dump line 4470)"
+  },
+  {
+   "id": "FS-UM-234",
+   "text": "Proposed change [Chronoscope (physics priors)]: Fit material parameters with a differentiable physics prior instead of a black box, giving interpretable world-model state. — from finding: KAIST world foundation model: PhysHanDI and MPMAvatar (AI Festa 2026) <https://kagir.kaist.ac.kr/news/view/id/20>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 12 on the page; dump line 4479)"
+  },
+  {
+   "id": "FS-UM-235",
+   "text": "Proposed change [Chronoscope perception]: If the creature gets a pixel sense, pretrain its encoder with a dense JEPA loss. No tokens needed at runtime. — from finding: V-JEPA 2.1: dense features in video self-supervised learning (Meta FAIR) <https://arxiv.org/abs/2603.14482>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 13 on the page; dump line 4489)"
+  },
+  {
+   "id": "FS-UM-236",
+   "text": "Proposed change [Seven-seat council (diversity)]: Supports keeping seven distinct seats: personality diversity measurably improves open-ended search. Add a 'serendipity follow-through' metric. — from finding: The AI Picbreeder Experiment (GECCO 2026) - ingredients of open-endedness <https://arxiv.org/abs/2605.23908>",
+   "category": "society",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 14 on the page; dump line 4498)"
+  },
+  {
+   "id": "FS-UM-237",
+   "text": "Proposed change [BSS forks (Red Queen arena) - IDEA BORROWED, NOT ARCHITECTURE]: Tokenless translation: in-dome Red Queen co-evolution among HEPTARCH's own forks, using mutation operators instead of an LLM. Each new fork must beat the archive of previous champions; a phenotype-convergence metric is logged. — from finding: Digital Red Queen: Adversarial Program Evolution in Core War with LLMs <https://arxiv.org/abs/2601.03335>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 15 on the page; dump line 4509)"
+  },
+  {
+   "id": "FS-UM-238",
+   "text": "Proposed change [ChronoBlock-4 + CHIMERA]: Dual-path precision: keep one fused primitive that switches between FP8-dense and INT8-spike paths at runtime. Supports the 'one primitive, two codings' design. — from finding: SpikingBrain 2.0 (瞬悉2.0): brain-inspired spiking foundation model <https://arxiv.org/abs/2604.22575>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 16 on the page; dump line 4523)"
+  },
+  {
+   "id": "FS-UM-239",
+   "text": "Proposed change [Frankenstein Prime (layer mix)]: Evidence that a convolution-dominant hybrid beats pure attention at small scale. Keep CHIMERA mostly local/conv with a few global-mixing layers. — from finding: LFM3 (Liquid AI): tri-hybrid architecture <https://www.liquid.ai/blog/lfm3>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p59 (section 6 table, row 17 on the page; dump line 4534)"
+  },
+  {
+   "id": "FS-UM-240",
+   "text": "Proposed change [ChronoBlock-4]: Vendor baseline to compare against; ChronoBlock-4 should beat or match it on the creature's workloads. — from finding: NVFP4 training on Blackwell (NVIDIA technical blog) <https://developer.nvidia.com/blog/using-nvfp4-low-precision-model-training-for-higher-throughput-without-losing-accuracy/>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 1 on the page; dump line 4553)"
+  },
+  {
+   "id": "FS-UM-241",
+   "text": "Proposed change [Atlas: organoid intelligence]: organoid intelligence: Reference for treating any sub-brain as a 'living-like black box' with stimulation and readout interfaces, the same interface HEPTARCH uses between seats. — from finding: Synthetic Biological Intelligence: system-level abstractions and adaptive bio-digital inte <https://arxiv.org/abs/2604.27933>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 2 on the page; dump line 4563)"
+  },
+  {
+   "id": "FS-UM-242",
+   "text": "Proposed change [Chronoscope -> motor sub-brains]: Wire an explicit world-to-action pathway: the action head reads Chronoscope's predicted future rather than the raw present. — from finding: OpenWAM: Systematic World-Action Model Pretraining <https://arxiv.org/abs/2609.07398>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 3 on the page; dump line 4574)"
+  },
+  {
+   "id": "FS-UM-243",
+   "text": "Proposed change [Chronoscope + motor]: One network does both prediction and control (shared weights, two heads); its finding that each ability strengthens the other supports fusing prediction and action in Frankenstein Prime. — from finding: GreenWAM: A World Foundation Model for Robotics (Sber) <https://www.cnews.ru/news/line/2026-10-21_sberbank_predstavil_model>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 4 on the page; dump line 4583)"
+  },
+  {
+   "id": "FS-UM-244",
+   "text": "Proposed change [Motor sub-brains (System-0 tier)]: Add a fastest 'System 0' reflex tier below the council at the top ChronoBlock rate; it can't be overridden mid-cycle, only re-targeted. — from finding: Helix 02: full-body autonomy (Figure AI) <https://www.figure.ai/news/helix-02>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 5 on the page; dump line 4594)"
+  },
+  {
+   "id": "FS-UM-245",
+   "text": "Proposed change [Dome curriculum]: Generate dome scenarios online (no stored dataset) and auto-create 'failure then corrected trajectory' pairs for training. — from finding: EmbodiChain / GS-World: 100% generative-simulation training of embodied models (跨维智能) <https://news.qq.com/rain/a/20260120A04KX200>",
+   "category": "world",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 6 on the page; dump line 4604)"
+  },
+  {
+   "id": "FS-UM-246",
+   "text": "Proposed change [BSS governor (meta-level)]: Let BSS evolve its own replicate and deduplicate operators (meta-BSS) inside the dome, while scoring stays immutable. Port only the concept: HEPTARCH has no code-writing agent. — from finding: Hyperagents (DGM-Hyperagents): self-improvement that edits its own improvement process <https://arxiv.org/abs/2603.19461>",
+   "category": "world",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 7 on the page; dump line 4614)"
+  },
+  {
+   "id": "FS-UM-247",
+   "text": "Proposed change [Dome co-evolution]: Let the dome's difficulty co-evolve with the creature (POET-style) while the scorer stays fixed. — from finding: Dream-RSI: recursive self-improvement through evolving worlds <https://arxiv.org/abs/2609.14858>",
+   "category": "world",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 8 on the page; dump line 4625)"
+  },
+  {
+   "id": "FS-UM-248",
+   "text": "Proposed change [BSS editor - IDEA BORROWED, NOT ARCHITECTURE]: Tokenless translation: evolve HEPTARCH's own small update rules and kernels with a program-graph mutator plus an automatic evaluator, with no LLM. Keep the evaluator host-side and immutable. — from finding: AlphaEvolve: A coding agent for scientific and algorithmic discovery <https://arxiv.org/abs/2506.13131>",
+   "category": "ecology",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 9 on the page; dump line 4634)"
+  },
+  {
+   "id": "FS-UM-249",
+   "text": "Proposed change [Runtime]: Reference for mapping hybrid SNN and rate code onto many small cores; supports per-seat process isolation. — from finding: The SpiNNaker2 chip: a many-core platform for flexible and scalable brain-inspired computi <https://arxiv.org/abs/2607.24396>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 10 on the page; dump line 4646)"
+  },
+  {
+   "id": "FS-UM-250",
+   "text": "Proposed change [ChronoBlock-4]: Reference: BSS-2 runs about 1000x faster than biology. SIMULATED analogue: let Chronoscope run 'accelerated-time' rollouts of the same dynamics at a scaled tau. — from finding: The BrainScaleS-2 multi-chip system: interconnecting continuous-time neuromorphic substrat <https://arxiv.org/abs/2512.03781>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 11 on the page; dump line 4655)"
+  },
+  {
+   "id": "FS-UM-251",
+   "text": "Proposed change [Atlas: diffractive optics]: diffractive optics: Hardware only. SIMULATED analogue: mode-multiplexed channels (orthogonal phase codes) letting one S2S bus carry several seats' messages at once. — from finding: Orbital angular momentum multiplexing diffractive neural networks for high-capacity optica <https://www.nature.com/articles/s41566-026-01930-2>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 12 on the page; dump line 4666)"
+  },
+  {
+   "id": "FS-UM-252",
+   "text": "Proposed change [sLTC/liquid core]: Confirms that liquid/CfC-style ODE cells are the natural fit for analog substrates; keep HEPTARCH's core continuous-time. — from finding: Neural dynamical systems on ferroelectric compute-in-memory for real-time forecasting <https://arxiv.org/abs/2606.16896>",
+   "category": "cognition",
+   "criterion": "self_contained_feasible: partial",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 13 on the page; dump line 4678)"
+  },
+  {
+   "id": "FS-UM-253",
+   "text": "Proposed change [Dome (environment generator)]: Reference point only: a proprietary hosted service, so it can't run inside a standalone organism. It could inspire procedurally generated dome arenas on the host side. — from finding: Genie 4 (Google DeepMind) <https://deepmind.google/models/genie/>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 14 on the page; dump line 4687)"
+  },
+  {
+   "id": "FS-UM-254",
+   "text": "Proposed change [Dome]: Possible host-side dome renderer; too heavy to embed in the creature. — from finding: LingBot-World: Advancing Open-source World Models <https://arxiv.org/abs/2601.20540>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 15 on the page; dump line 4695)"
+  },
+  {
+   "id": "FS-UM-255",
+   "text": "Proposed change [Dome]: Useful taxonomy (renderer → stateful simulator → planner) for grading the creature's own world model. No direct port. — from finding: Kandinsky WM 1.0 (Sber) - open world-model family for robots/AV <https://vc.ru/ai/3060994-sber-kandinsky-wm-nevrosyeti-robotov>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p60 (section 6 table, row 16 on the page; dump line 4702)"
+  },
+  {
+   "id": "FS-UM-256",
+   "text": "Proposed change [Evaluation (optional)]: Not runnable inside the creature. Optional host-side probe of how brain-like the creature's internal features are. No mind claims. — from finding: TRIBE v2: tri-modal foundation model of human brain activity (Meta FAIR) <https://arxiv.org/abs/2605.04326>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 1 on the page; dump line 4719)"
+  },
+  {
+   "id": "FS-UM-257",
+   "text": "Proposed change [None (context)]: Context only: organoid and biocomputing is spreading, but it's outside a self-contained digital organism. — from finding: Neurons in a dish are the newest computing machines (Science news) <https://www.science.org/content/article/neurons-dish-are-newest-computing-machines>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 2 on the page; dump line 4728)"
+  },
+  {
+   "id": "FS-UM-258",
+   "text": "Proposed change [None directly (wetware)]: Cannot be inside HEPTARCH. SIMULATED analogue: DishBrain-style 'predictable vs unpredictable feedback' as a free-energy training signal. This is already covered by the active-inference items. — from finding: Human Brain Cells on a Chip for Sale: Cortical Labs CL1 <https://spectrum.ieee.org/biological-computer-for-sale>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 3 on the page; dump line 4736)"
+  },
+  {
+   "id": "FS-UM-259",
+   "text": "Proposed change [None directly (wetware)]: Reference only: reward/corrective stimulation loops are the wetware analogue of the Zenkai training signal. — from finding: This $35,000 computer made of living human neurons can run Doom (CL1 update) <https://www.techspot.com/news/111506-35000-computer-made-living-human-neurons-can-run.html>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 4 on the page; dump line 4747)"
+  },
+  {
+   "id": "FS-UM-260",
+   "text": "Proposed change [Atlas reference]: Organoid-intelligence family reference for the Atlas. — from finding: Computing inspired by the brain: a journey from algorithms to organoids (review) <https://www.nature.com/articles/s43588-026-01012-x>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 5 on the page; dump line 4758)"
+  },
+  {
+   "id": "FS-UM-261",
+   "text": "Proposed change [None (host-side tooling)]: Not for the creature (it uses LLM agents). Possible host-side lab assistant for Alex's experiments. — from finding: AI Scientist v3 'The Agentic Scientist' (Sakana AI) - Nikkei report <https://www.nikkei.com/article/DGXZQOUC15BBL0V11C26A0000000/>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 6 on the page; dump line 4766)"
+  },
+  {
+   "id": "FS-UM-262",
+   "text": "Proposed change [Context]: Shows where frontier LLMs stand on embodiment, as a benchmark reference only. — from finding: Has GPT-6-Astra Achieved Embodied Intelligence? <https://huggingface.co/papers/2610.22471>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 7 on the page; dump line 4775)"
+  },
+  {
+   "id": "FS-UM-263",
+   "text": "Proposed change [None (harness-based)]: Trend evidence only. HEPTARCH has no harness or LLM, so the transferable idea is just regularised self-updates (see the Trustworthy RSI item). — from finding: Mendel/RSI wave: RRSI, Trinity, NeoHorse - recursive self-improvement of agent harnesses ( <https://huggingface.co/papers/2609.24972>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 8 on the page; dump line 4782)"
+  },
+  {
+   "id": "FS-UM-264",
+   "text": "Proposed change [Future substrate]: Long-range hardware option for fused primitives; no build change now. — from finding: Integrated photonic neural network with on-chip backpropagation training <https://doi.org/10.1038/s41586-026-10262-8>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 9 on the page; dump line 4793)"
+  },
+  {
+   "id": "FS-UM-265",
+   "text": "Proposed change [Future substrate]: Shows analogue, in-memory learning loops are feasible; keep ChronoBlock formats analogue-friendly. — from finding: Fully analogue reinforcement learning with memristors <https://doi.org/10.1038/s42256-025-01157-w>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 10 on the page; dump line 4802)"
+  },
+  {
+   "id": "FS-UM-266",
+   "text": "Proposed change [Future substrate]: Watch item; 14-bit analogue cells would make ChronoBlock's mixed tiers hardware-native. — from finding: IISc molecular memristor for neuromorphic computing (EE Times) <https://www.eetimes.com/indian-researchers-develop-molecular-memristor-for-neuromorphic-computing/>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 11 on the page; dump line 4810)"
+  },
+  {
+   "id": "FS-UM-267",
+   "text": "Proposed change [Future substrate]: Watch item only. — from finding: Photonic lanterns: a novel fibre component for neuromorphic computing <https://hal.science/hal-05758536v1>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 12 on the page; dump line 4819)"
+  },
+  {
+   "id": "FS-UM-268",
+   "text": "Proposed change [Scale reference]: Reference only (hardware). Shows macaque-scale spiking simulation is feasible at about 2 kW, a ceiling estimate for HEPTARCH's dome-time neuron budget. — from finding: Darwin Monkey (悟空): neuromorphic brain-like computer with >2 billion spiking neurons (Zhej <http://www.news.zju.edu.cn/2025/0802/c775a3072813/page.htm>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 13 on the page; dump line 4826)"
+  },
+  {
+   "id": "FS-UM-269",
+   "text": "Proposed change [Runtime (event-driven)]: Reference: an event-driven, sparse-activation runtime is now standard neuromorphic practice. Keep HEPTARCH's scheduler event-driven: only seats with spikes or state change get ticks. — from finding: JUBIS: two-rack SpiNNaker2 neuromorphic supercomputer at Jülich (ESAB project) <https://www.fz-juelich.de/en/jsc/projects/esab>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p61 (section 6 table, row 14 on the page; dump line 4836)"
+  },
+  {
+   "id": "FS-UM-270",
+   "text": "Proposed change [Atlas reference]: Atlas reference for physical RC. — from finding: Physical reservoir computing with neuromorphic devices (ニューロモル フィックデバイスを用いた物理リザバー コンピューティング) <https://www.jstage.jst.go.jp/article/reajshinrai/48/2/48_480202/_article/-char/ja/>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p62 (section 6 table, row 1 on the page; dump line 4856)"
+  },
+  {
+   "id": "FS-UM-271",
+   "text": "Proposed change [Atlas: optics]: optics: Hardware only; atlas reference. — from finding: Full-vector diffractive deep neural networks <https://arxiv.org/abs/2610.11274>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p62 (section 6 table, row 2 on the page; dump line 4865)"
+  },
+  {
+   "id": "FS-UM-272",
+   "text": "Proposed change [Atlas: exotic hardware]: exotic hardware: Hardware-only atlas entry. — from finding: Perspectives on superconducting neural networks (超伝導ニューラルネットワークの展望) <https://www.jstage.jst.go.jp/article/ieejfms/146/10/146_389/_article/-char/ja/>",
+   "category": "outside-engine",
+   "criterion": "self_contained_feasible: no (reference only; should not be built into the organism)",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p62 (section 6 table, row 3 on the page; dump line 4871)"
+  }
+ ]
+}

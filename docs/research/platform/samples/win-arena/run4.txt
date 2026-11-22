@@ -1,0 +1,196 @@
+== PART 1: page-locked arena ==
+  page size=4096 allocation granularity=65536
+  token: elevated=0 elevation_type=3 (1=default 2=full 3=limited)
+  token holds 5 privileges:
+    SeShutdownPrivilege                disabled
+    SeChangeNotifyPrivilege            enabled
+    SeUndockPrivilege                  disabled
+    SeIncreaseWorkingSetPrivilege      disabled
+    SeTimeZonePrivilege                disabled
+  working set at start: min=200 KB max=1380 KB flags=0xa
+  VirtualAlloc(256 MB, RESERVE|COMMIT) ok at 000001C513030000
+  control: VirtualLock BEFORE raising working set: FAILED 1453 Insufficient quota to complete the requested service.
+  enable SeIncreaseWorkingSetPrivilege: ok (code 0 )
+  SetProcessWorkingSetSizeEx(min=288 MB, max=768 MB, HARDWS_MIN_ENABLE|HARDWS_MAX_DISABLE) ok
+  working set after raise: min=294912 KB max=786432 KB flags=0x9 HARD_MIN
+  VirtualLock(256 MB) ok in 23.6 ms (noisy, parallel load)
+  page first  000001C513030000: valid=1 locked=1 largepage=0 node=0
+  page middle 000001C51B030000: valid=1 locked=1 largepage=0 node=0
+  page last   000001C52302F000: valid=1 locked=1 largepage=0 node=0
+  touched 65536 pages in 24.83 ms, page faults during touch=0 (checksum 8355840), working set now 268320 KB
+  total alloc+lock path 50.4 ms (noisy, parallel load)
+-- large pages --
+  GetLargePageMinimum() = 2097152 bytes
+  enable SeLockMemoryPrivilege: FAILED (code 1300 Not all privileges or groups referenced are assigned to the caller.)
+  VirtualAlloc(256 MB, MEM_LARGE_PAGES) FAILED: 1314 A required privilege is not held by the client.
+== PART 2: topology ==
+  cache records (GetLogicalProcessorInformationEx RelationCache):
+    L1D     48 KB  line=64 assoc= 12  shared by LP {0}
+    L1I     64 KB  line=64 assoc= 16  shared by LP {0}
+    L2U   3072 KB  line=64 assoc= 12  shared by LP {0}
+    L3U  36864 KB  line=64 assoc= 12  shared by LP {0-23}
+    L1D     48 KB  line=64 assoc= 12  shared by LP {1}
+    L1I     64 KB  line=64 assoc= 16  shared by LP {1}
+    L2U   3072 KB  line=64 assoc= 12  shared by LP {1}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {2}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {2}
+    L2U   4096 KB  line=64 assoc= 16  shared by LP {2-5}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {3}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {3}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {4}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {4}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {5}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {5}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {6}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {6}
+    L2U   4096 KB  line=64 assoc= 16  shared by LP {6-9}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {7}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {7}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {8}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {8}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {9}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {9}
+    L1D     48 KB  line=64 assoc= 12  shared by LP {10}
+    L1I     64 KB  line=64 assoc= 16  shared by LP {10}
+    L2U   3072 KB  line=64 assoc= 12  shared by LP {10}
+    L1D     48 KB  line=64 assoc= 12  shared by LP {11}
+    L1I     64 KB  line=64 assoc= 16  shared by LP {11}
+    L2U   3072 KB  line=64 assoc= 12  shared by LP {11}
+    L1D     48 KB  line=64 assoc= 12  shared by LP {12}
+    L1I     64 KB  line=64 assoc= 16  shared by LP {12}
+    L2U   3072 KB  line=64 assoc= 12  shared by LP {12}
+    L1D     48 KB  line=64 assoc= 12  shared by LP {13}
+    L1I     64 KB  line=64 assoc= 16  shared by LP {13}
+    L2U   3072 KB  line=64 assoc= 12  shared by LP {13}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {14}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {14}
+    L2U   4096 KB  line=64 assoc= 16  shared by LP {14-17}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {15}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {15}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {16}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {16}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {17}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {17}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {18}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {18}
+    L2U   4096 KB  line=64 assoc= 16  shared by LP {18-21}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {19}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {19}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {20}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {20}
+    L1D     32 KB  line=64 assoc=  8  shared by LP {21}
+    L1I     64 KB  line=64 assoc=  8  shared by LP {21}
+    L1D     48 KB  line=64 assoc= 12  shared by LP {22}
+    L1I     64 KB  line=64 assoc= 16  shared by LP {22}
+    L2U   3072 KB  line=64 assoc= 12  shared by LP {22}
+    L1D     48 KB  line=64 assoc= 12  shared by LP {23}
+    L1I     64 KB  line=64 assoc= 16  shared by LP {23}
+    L2U   3072 KB  line=64 assoc= 12  shared by LP {23}
+  records: cores=24 packages=1 numa nodes=1 caches=61 processor groups=1 logical processors=24
+  GetSystemCpuSetInformation:
+    cpuset_id grp lp core llc numa eff sched parked alloc alloc_me realtime
+          256   0  0    0   0    0   1     2      0     0        0        0
+          257   0  1    1   0    0   1     1      0     0        0        0
+          258   0  2    2   0    0   0     0      0     0        0        0
+          259   0  3    3   0    0   0     0      0     0        0        0
+          260   0  4    4   0    0   0     0      0     0        0        0
+          261   0  5    5   0    0   0     0      0     0        0        0
+          262   0  6    6   0    0   0     0      0     0        0        0
+          263   0  7    7   0    0   0     0      0     0        0        0
+          264   0  8    8   0    0   0     0      0     0        0        0
+          265   0  9    9   0    0   0     0      0     0        0        0
+          266   0 10   10   0    0   1     1      0     0        0        0
+          267   0 11   11   0    0   1     1      0     0        0        0
+          268   0 12   12   0    0   1     1      0     0        0        0
+          269   0 13   13   0    0   1     2      0     0        0        0
+          270   0 14   14   0    0   0     0      0     0        0        0
+          271   0 15   15   0    0   0     0      0     0        0        0
+          272   0 16   16   0    0   0     0      0     0        0        0
+          273   0 17   17   0    0   0     0      0     0        0        0
+          274   0 18   18   0    0   0     0      0     0        0        0
+          275   0 19   19   0    0   0     0      0     0        0        0
+          276   0 20   20   0    0   0     0      0     0        0        0
+          277   0 21   21   0    0   0     0      0     0        0        0
+          278   0 22   22   0    0   1     1      0     0        0        0
+          279   0 23   23   0    0   1     1      0     0        0        0
+  per logical processor:
+    lp core eff type cpuset  L1D_KB  L2_KB L2_shared_by      L3_KB L3_shared_by
+     0    0   1   P     256      48   3072 {0           }   36864 {0-23}
+     1    1   1   P     257      48   3072 {1           }   36864 {0-23}
+     2    2   0   E     258      32   4096 {2-5         }   36864 {0-23}
+     3    3   0   E     259      32   4096 {2-5         }   36864 {0-23}
+     4    4   0   E     260      32   4096 {2-5         }   36864 {0-23}
+     5    5   0   E     261      32   4096 {2-5         }   36864 {0-23}
+     6    6   0   E     262      32   4096 {6-9         }   36864 {0-23}
+     7    7   0   E     263      32   4096 {6-9         }   36864 {0-23}
+     8    8   0   E     264      32   4096 {6-9         }   36864 {0-23}
+     9    9   0   E     265      32   4096 {6-9         }   36864 {0-23}
+    10   10   1   P     266      48   3072 {10          }   36864 {0-23}
+    11   11   1   P     267      48   3072 {11          }   36864 {0-23}
+    12   12   1   P     268      48   3072 {12          }   36864 {0-23}
+    13   13   1   P     269      48   3072 {13          }   36864 {0-23}
+    14   14   0   E     270      32   4096 {14-17       }   36864 {0-23}
+    15   15   0   E     271      32   4096 {14-17       }   36864 {0-23}
+    16   16   0   E     272      32   4096 {14-17       }   36864 {0-23}
+    17   17   0   E     273      32   4096 {14-17       }   36864 {0-23}
+    18   18   0   E     274      32   4096 {18-21       }   36864 {0-23}
+    19   19   0   E     275      32   4096 {18-21       }   36864 {0-23}
+    20   20   0   E     276      32   4096 {18-21       }   36864 {0-23}
+    21   21   0   E     277      32   4096 {18-21       }   36864 {0-23}
+    22   22   1   P     278      48   3072 {22          }   36864 {0-23}
+    23   23   1   P     279      48   3072 {23          }   36864 {0-23}
+  P cores (EfficiencyClass 1): LP {0-1,10-13,22-23}  count=8
+  E cores (lower class):       LP {2-9,14-21}  count=16
+== PART 4: RDTSC vs QueryPerformanceCounter ==
+  QueryPerformanceFrequency = 10000000 Hz
+  CPUID 80000007h EDX bit 8 (invariant TSC) = 1
+  CPUID 15h: denominator=2 numerator=160 crystal_hz=38400000  => nominal TSC 3072000000.0 Hz
+  CPUID 16h: base=0 MHz max=0 MHz bus=0 MHz
+    window 0: 210.839 ms  tsc=3071994041.9 Hz  (qpc read bracket 52 / 58 ticks)
+    window 1: 203.553 ms  tsc=3071995383.0 Hz  (qpc read bracket 58 / 62 ticks)
+    window 2: 201.999 ms  tsc=3071994682.2 Hz  (qpc read bracket 62 / 66 ticks)
+    window 3: 202.632 ms  tsc=3071994929.7 Hz  (qpc read bracket 66 / 58 ticks)
+    window 4: 200.996 ms  tsc=3071994378.0 Hz  (qpc read bracket 58 / 64 ticks)
+    per-window mean 3071994683.0 Hz, min 3071994041.9, max 3071995383.0, spread 0.44 ppm
+    whole span (5 x 200 ms): 3071994678.9 Hz = 0.325521 ns per tick
+  cost per call (noisy, parallel load): QueryPerformanceCounter 15.1 ns, RDTSC 8.0 ns (sink 1)
+== PART 3: RDTSC spin-loop jitter, 3 s per trial (noisy, parallel load) ==
+  process priority class 0x20; chosen P core LP 23 (cpuset id 279), E core LP 21 (cpuset id 277)
+  [A unpinned, THREAD_PRIORITY_NORMAL]
+    pin: none (err 0)  priority set err 0, readback 0  ran on LP {0-2,4-23}  migrations=3356
+    iterations=364099710 in 3.000 s  mean gap=8.24 ns  min gap=2.60 ns (8 ticks)
+    gaps: [1,10)us=5796 [10,100)us=2704 [100us,1ms)=186 [1,10)ms=5 >=10ms=0  time in gaps>=1us: 149.694 ms (4.9898 %)
+    largest gaps (us @ s): 5969.3@2.63 3013.2@0.28 1716.4@1.58 1359.6@2.33 1127.2@1.64 959.8@1.94 896.6@1.23 814.2@1.65
+  [B unpinned, THREAD_PRIORITY_TIME_CRITICAL]
+    pin: none (err 0)  priority set err 0, readback 15  ran on LP {0-6,8-15,20,22-23}  migrations=252
+    iterations=397759576 in 3.000 s  mean gap=7.54 ns  min gap=0.65 ns (2 ticks)
+    gaps: [1,10)us=3542 [10,100)us=2222 [100us,1ms)=143 [1,10)ms=0 >=10ms=0  time in gaps>=1us: 138.368 ms (4.6123 %)
+    largest gaps (us @ s): 961.9@2.88 881.2@0.65 726.5@0.25 717.6@1.83 678.8@0.34 637.5@1.88 619.0@2.35 597.6@0.92
+  [C P core via SetThreadSelectedCpuSets, TIME_CRITICAL]
+    pin: SetThreadSelectedCpuSets (err 0)  priority set err 0, readback 15  ran on LP {23}  migrations=0
+    iterations=421228396 in 3.000 s  mean gap=7.12 ns  min gap=5.86 ns (18 ticks)
+    gaps: [1,10)us=2095 [10,100)us=18 [100us,1ms)=3 [1,10)ms=1 >=10ms=0  time in gaps>=1us: 9.288 ms (0.3096 %)
+    largest gaps (us @ s): 3393.3@2.99 139.7@0.14 138.2@0.02 100.2@0.00 88.4@1.78 71.2@2.29 27.8@0.33 20.5@0.33
+  [D P core via SetThreadAffinityMask, TIME_CRITICAL]
+    pin: SetThreadAffinityMask (err 0)  priority set err 0, readback 15  ran on LP {23}  migrations=0
+    iterations=412843527 in 3.000 s  mean gap=7.27 ns  min gap=5.86 ns (18 ticks)
+    gaps: [1,10)us=2118 [10,100)us=23 [100us,1ms)=10 [1,10)ms=0 >=10ms=0  time in gaps>=1us: 9.741 ms (0.3247 %)
+    largest gaps (us @ s): 879.4@2.64 809.6@2.68 511.3@2.75 490.7@2.77 375.3@2.74 256.9@1.44 181.3@1.99 177.6@1.34
+  [E E core via SetThreadSelectedCpuSets, TIME_CRITICAL]
+    pin: SetThreadSelectedCpuSets (err 0)  priority set err 0, readback 15  ran on LP {0-1,10-13,21-22}  migrations=88
+    iterations=432160210 in 3.000 s  mean gap=6.94 ns  min gap=0.65 ns (2 ticks)
+    gaps: [1,10)us=3059 [10,100)us=487 [100us,1ms)=131 [1,10)ms=0 >=10ms=0  time in gaps>=1us: 64.131 ms (2.1377 %)
+    largest gaps (us @ s): 846.9@2.40 701.6@1.66 675.3@0.11 629.8@1.44 624.0@1.85 616.0@2.68 602.4@1.34 597.3@0.72
+  [F E core via SetThreadSelectedCpuSets, THREAD_PRIORITY_NORMAL]
+    pin: SetThreadSelectedCpuSets (err 0)  priority set err 0, readback 0  ran on LP {0-1,10-13,21-23}  migrations=2953
+    iterations=404623060 in 3.000 s  mean gap=7.41 ns  min gap=0.65 ns (2 ticks)
+    gaps: [1,10)us=4046 [10,100)us=2207 [100us,1ms)=345 [1,10)ms=11 >=10ms=0  time in gaps>=1us: 205.073 ms (6.8358 %)
+    largest gaps (us @ s): 4746.8@0.66 3816.4@2.14 2645.5@1.56 1805.5@1.58 1574.3@1.56 1505.6@0.59 1469.3@1.60 1122.1@1.62
+  [G E core via SetThreadAffinityMask, TIME_CRITICAL]
+    pin: SetThreadAffinityMask (err 0)  priority set err 0, readback 15  ran on LP {21}  migrations=0
+    iterations=455866585 in 3.000 s  mean gap=6.58 ns  min gap=0.65 ns (2 ticks)
+    gaps: [1,10)us=2067 [10,100)us=91 [100us,1ms)=51 [1,10)ms=0 >=10ms=0  time in gaps>=1us: 19.008 ms (0.6336 %)
+    largest gaps (us @ s): 767.0@2.48 661.8@1.75 632.2@0.74 429.4@2.76 241.9@2.18 229.9@1.58 217.2@0.82 210.4@0.09
+  back-to-back RDTSC delta over 4,000,000 reads (hard affinity):
+    P core LP 23 (on LP 23): plain min=18 ticks (zero deltas=0), with LFENCE min=32 ticks (10.42 ns)
+    E core LP 21 (on LP 21): plain min=2 ticks (zero deltas=0), with LFENCE min=10 ticks (3.26 ns)

@@ -1,0 +1,2345 @@
+{
+ "set_id": "laws_and_errata",
+ "title": "Owner's laws, v2.0 errata (85 entries + 72 row corrections), v3.0 closure matrix, v40 standards/budgets/ADR: constraints the native engine must not violate",
+ "source_files": [
+  "N:/docs/agents/COMMON.md",
+  "W:/ALife-Framework-v2.0-Errata.md",
+  "W:/ALife-v3.0-Errata-Closure-Report.md",
+  "V:/AGENTS.md",
+  "V:/docs/BUDGETS.md",
+  "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md"
+ ],
+ "items": [
+  {
+   "id": "LAW-1",
+   "text": "Native only. No VM, JIT or interpreted language inside the simulation.",
+   "category": "owner-law/native",
+   "criterion": "DO: simulation code is C23 and NASM x86-64 (optionally CUDA/PTX) only. TEST: sim targets are built from .c/.asm sources only; import table of the sim binary contains only the allowed system DLLs; no interpreter or JIT runtime is linked or spawned.",
+   "source_ref": "N:/docs/agents/COMMON.md:L16"
+  },
+  {
+   "id": "LAW-2",
+   "text": "Cache-resident. Hot loops must not depend on DRAM latency and must never touch a pagefile; state lives in a pre-allocated, page-locked arena; inner loops work on L1-sized blocks of structure-of-arrays data.",
+   "category": "owner-law/cache",
+   "criterion": "DO: one pre-allocated, page-locked arena; SoA columns processed in L1-sized blocks; no allocation after init. TEST: page-fault delta == 0 and allocator-call count == 0 over a 10,000-tick run; block size constant derived from the probed L1d size; lock failure is an explicit error, not a silent fallback.",
+   "source_ref": "N:/docs/agents/COMMON.md:L19"
+  },
+  {
+   "id": "LAW-3",
+   "text": "No LLM anything. No tokenizer, prompts, APIs, MCP, pretrained weights or datasets; intelligence = genome + development + lifetime plasticity + evolution.",
+   "category": "owner-law/no-llm",
+   "criterion": "AVOID any tokenizer, pretrained weight file, dataset or network API. TEST: repository scan for weight/dataset files and for socket/HTTP imports in the sim binary returns nothing; all controller parameters are produced from genome + development at run time.",
+   "source_ref": "N:/docs/agents/COMMON.md:L22"
+  },
+  {
+   "id": "LAW-4",
+   "text": "Zero cosmetic theater. Every mechanism must have a measurable causal effect (a lesion changes outcomes); no hardcoded steering, no label shortcuts.",
+   "category": "owner-law/causality",
+   "criterion": "DO: every mechanism has a lesion switch (data mask, same code path) and a registered lesion test. TEST: for each mechanism, lesion versus size-matched sham on paired seeds changes its declared metric; a mechanism with no detectable effect is removed or marked failing.",
+   "source_ref": "N:/docs/agents/COMMON.md:L24"
+  },
+  {
+   "id": "LAW-5",
+   "text": "Exact conservation. Matter and energy are integers; totals balance exactly.",
+   "category": "owner-law/conservation",
+   "criterion": "DO: matter and energy are integer quanta moved only by debit/credit transfers. TEST: every tick, sum of all pools == initial total + cumulative external input, compared as integers (residual exactly 0); a single-quantum leak mutant is caught.",
+   "source_ref": "N:/docs/agents/COMMON.md:L26"
+  },
+  {
+   "id": "LAW-6",
+   "text": "Deterministic. Integer / fixed-point state, counter-based RNG (Philox4x32-10); same seed gives the same state hash for any thread count.",
+   "category": "owner-law/determinism",
+   "criterion": "DO: integer/fixed-point state, Philox4x32-10 keyed by identity and counter, order-independent parallel reductions, double-buffered state. TEST: same seed and config give the same state hash at 1, 2, 8 and all threads, on P-cores only and E-cores only, at every checkpoint tick; known-answer vectors for the generator.",
+   "source_ref": "N:/docs/agents/COMMON.md:L27"
+  },
+  {
+   "id": "LAW-7",
+   "text": "Indicator only. Cognition metrics are mechanistic indicators; never claim consciousness or sentience; never call a classical simulation 'quantum randomness' and never claim a quantum speed-up.",
+   "category": "owner-law/claims",
+   "criterion": "AVOID consciousness, sentience, quantum-randomness and quantum-speed-up claims. TEST: phrase lint over source, docs and report output; indicator reports carry the scope disclaimer.",
+   "source_ref": "N:/docs/agents/COMMON.md:L29"
+  },
+  {
+   "id": "LAW-8",
+   "text": "Honest evidence. Write 'ran' only for what you ran now, with the exact command and the tail of its output; 'unknown' is acceptable, invented is not; no novelty claims without a prior-art search.",
+   "category": "owner-law/evidence",
+   "criterion": "DO: every works/compiles/passes claim carries the exact command and output tail; unknowns are written as unknown. TEST: claims register rows without command + output are rejected; novelty claims require a recorded search.",
+   "source_ref": "N:/docs/agents/COMMON.md:L32"
+  },
+  {
+   "id": "A-01",
+   "text": "[Blocker] \"Zero observer effect\" contradicts level-of-detail switching and the thermal governor. Fix: add one rule and apply it everywhere. Choose one: - (a) level-of-detail and the governor change rendering and telemetry only, never simulation state; or - (b) simulation fidelity is assigned by in-simulation, seed-determined rules, never by camera, inspection or wall-clock time, and is identical [...]",
+   "category": "errata-A/contradiction; Blocker; determinism/observer; fix-first #1",
+   "criterion": "DO: simulation fidelity (LOD tier, substep count, culling, surrogate bodies, sleeping) may depend only on seed + in-simulation state; AVOID any dependence on camera, inspector, viewer attach, wall-clock, frame time, temperature or thread count (owner's v3.0 choice: governor changes rendering/telemetry only). TEST: seed S for T ticks run (a) headless 1 thread, (b) all threads, (c) viewer attached + camera sweep + creature inspected + governor forced through every band: state hash equal at every checkpoint; frame-time-under-burst is a separate gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L50-L65"
+  },
+  {
+   "id": "A-02",
+   "text": "[Minor] Host-timing senses: recording is specified, but the recorded stream is not a declared input. Fix: extend DIL-06 to host-timing and substrate counters. State that the recorded stream is a declared run input and that canonical Tier-1 runs use a fixed one. Add \"recorded\" to N90, and say whose hooks N30 means. Replace \"GC counters\" with a deterministic quantity such as arena water-mark.",
+   "category": "errata-A/contradiction; Minor; determinism/inputs",
+   "criterion": "AVOID host-derived values (timers, RDTSC, perf counters, thread ids, allocator addresses) in sim state unless supplied as a recorded, declared input stream whose hash is in the run manifest; canonical runs use a fixed stream. Diagnostic probes are read-only (no energy debit). Do not expose a sense that is constant by construction (use arena water-mark, not a GC counter). TEST: symbol/import scan of sim objects finds no time/perf APIs; replay of (seed, stream) gives the same hash; hash with probes on == probes off.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L66-L79"
+  },
+  {
+   "id": "A-03",
+   "text": "[Major] \"Exact First-Law thermodynamics\" is not defined for the soft body. Fix: 1. Define the gate as a ledger invariant and say so in P2. Write \"FP64, compensated\" in place of \"FP64 Exact\". If exactness is wanted, hold the ledger as 64-bit integer energy quanta. 2. Make the pool lists agree, and say whether Work is a pool. [...]",
+   "category": "errata-A/contradiction; Major; conservation/ledger; fix-first #4",
+   "criterion": "DO: conservation is a double-entry ledger in 64-bit integer quanta: every transfer debits one pool and credits another; pools include mechanical (kinetic/elastic) energy or declare it outside the ledger, plus heat and a separately reported numerical-dissipation account. Heat never flows back to a usable pool; a tick that creates energy fails. Tolerances (if any float mirror exists) are relative to cumulative flow, not E0. TEST: every tick sum(pools) == E0 + cumulative external input exactly (integer compare); dissipation and heat accounts monotone non-decreasing; random-transfer property test.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L80-L95"
+  },
+  {
+   "id": "A-04",
+   "text": "[Major] \"Every part must show a lesion effect\" against \"behaviour must survive lesions\". Fix: state Model 14's reading as the rule: the cosmetic-part test is an acute deficit on a task-specific metric, measured before compensation (or M009's perturbation sweep, in which \"every declared organ ... moves behavior\"), and robustness is recovery over a stated window. [...]",
+   "category": "errata-A/contradiction; Major; lesion/causality",
+   "criterion": "DO: cosmetic-part test = acute deficit on a task-specific metric measured before compensation; robustness = recovery over a stated window. Declared fixed modules (frozen autonomic weights, fixed random projections) are listed in a manifest and exempt from the no-fixed-helper audit. TEST: per mechanism, lesion at tick t changes the metric over [t, t+W] versus sham on paired seeds; audit fails on any undeclared constant-weight block.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L96-L105"
+  },
+  {
+   "id": "A-05",
+   "text": "[Major] Some early gates need parts that exist only in later stages. Fix: define each of the five mutants in one line. Say that Stage 1 runs the mutants against a stub organism (one pool, one sensor, one actuator) and that the mutants and the sweep are re-run at every stage exit. [...]",
+   "category": "errata-A/contradiction; Major; staging/mutants",
+   "criterion": "DO: define the five mutants (Leaky, Cosmetic, Oracle, Frozen, Shuffled) as build or data switches of the native kernel, one line each; Stage 1 runs them on a stub organism (one pool, one sensor, one actuator); mutants and the perturbation sweep re-run at every stage exit; every gate is tagged with the stage whose parts it needs. TEST: mutant target reports 5/5 caught per stage; a gate that references an absent subsystem is a configuration error, never a pass.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L106-L121"
+  },
+  {
+   "id": "A-06",
+   "text": "[Minor] Holm status is provisional for items promoted one at a time; \"fresh\" against \"locked\" seeds. Fix: state that early locking uses alpha/m, with m the number of tests in the family (the checklist size once C-06's primary contrast is adopted), and that anything else is provisional until the family is complete. State what happens to locked seeds after a failed test (burn the block, draw the next).",
+   "category": "errata-A/contradiction; Minor; statistics/holm",
+   "criterion": "DO: early lock only when p <= alpha/m (m = tests in the family, one primary contrast per item); otherwise status is provisional until the family is complete. A held-out seed block is burnt after any failed confirmatory test and the next block is drawn. TEST: harness unit tests on synthetic p-vectors; seed-ledger file marks blocks unused/used/burnt and the batch runner refuses a burnt block.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L122-L131"
+  },
+  {
+   "id": "A-07",
+   "text": "[Major] Three release definitions disagree, and some items assume body plans that cannot coexist. Fix: state that GATE-01 to GATE-12 are the release criterion, and that the 825 checks are a scored inventory with a declared applicable set per creature, \"not applicable\" allowed and recorded in worksheet 10.2. Reword Stage 8 and M100 to match.",
+   "category": "errata-A/contradiction; Major; release/scope; fix-first #10",
+   "criterion": "DO: release criterion is the fixed gate list; the big checklist is a scored inventory with a declared applicable set per creature/world profile, 'not applicable' allowed and recorded with a reason. Mutually exclusive body plans are separate lineages/profiles, not one genome. TEST: traceability-matrix validator rejects a row with neither a status nor an N/A reason.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L132-L141"
+  },
+  {
+   "id": "A-08",
+   "text": "[Minor] N24 \"déjà vu on replay\" conflicts with exact restore as written. Fix: specify a world-only restore (a repeated-day assay), or a recorded restore channel that is off when M006 is tested.",
+   "category": "errata-A/contradiction; Minor; determinism/restore",
+   "criterion": "DO: full snapshot restore is exact; a 'repeated day' assay uses a distinct world-only restore (creature memory kept) or a recorded restore-counter channel that is off during replay gates. TEST: save, run N, restore, run N gives an identical hash stream; world-only restore is a separate API with its own test.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L142-L151"
+  },
+  {
+   "id": "A-09",
+   "text": "[Major] The recommended tier cannot pass some gates, and tiers are not comparable. Fix: tag each gate with the tiers it applies to. Fix mesh resolution per experiment, not per machine.",
+   "category": "errata-A/contradiction; Major; determinism/config",
+   "criterion": "DO: body/mesh resolution and creature definition are fixed per experiment, never per machine or tier; tiers change population count and budget only; every gate is tagged with the population scales it applies to. TEST: the config hash is part of the state hash; the same config on P-cores only, E-cores only and all cores gives the same hash.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L152-L161"
+  },
+  {
+   "id": "A-10",
+   "text": "[Minor] Frame-rate requirement is stated in four places with two values. Fix: one frame budget per tier, referenced by HW13 and HW21.",
+   "category": "errata-A/contradiction; Minor; performance/budget",
+   "criterion": "DO: one frame/tick budget per tier, defined once (single header/config) and referenced by every perf gate. TEST: exactly one definition exists; perf gates read it.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L162-L171"
+  },
+  {
+   "id": "A-11",
+   "text": "[Minor] Two different \"Day-1\" sequences. Fix: keep one. The Blueprint's seven-slice minimal organism is the more buildable of the two and is already undated. See also J-01.",
+   "category": "errata-A/contradiction; Minor; doc-only/schedule",
+   "criterion": "N/A-ENGINE: keep one build order (the undated seven-slice minimal organism); the native roadmap uses one sequence.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L172-L181"
+  },
+  {
+   "id": "B-01",
+   "text": "[Major] Memory table: the \"100 creatures\" column is ten times too small in three rows. Fix: correct the three totals (50 GB, 15 GB, 4.8 GB) and the verdict column. The last figure and its verdict are provisional until B-04 is settled: at the 0.59 bytes of the printed layout it is 5.9 GB, and with the two mask bits 8.4 GB. See B-06 for the laptop claim.",
+   "category": "errata-B/arithmetic; Major; memory/budget; fix-first #2",
+   "criterion": "DO: every memory figure is computed by a tool from struct layouts x counts, never by hand. TEST: budget tool output (bytes per creature x N) equals the arena's actual allocation; doc tables are generated from it; mismatch fails the build.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L184-L193"
+  },
+  {
+   "id": "B-02",
+   "text": "[Minor] Bar label \"96 B/syn\" does not give 800 GB or 167x. Fix: label the bar 80 B/syn.",
+   "category": "errata-B/arithmetic; Minor; doc-only/label",
+   "criterion": "N/A-ENGINE: label slip; covered by B-01 (labels derive from the computed figure).",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L194-L203"
+  },
+  {
+   "id": "B-03",
+   "text": "[Minor] The dense-matrix row describes a different network from the other rows. Fix: state units and density once and compute all five rows for that one network.",
+   "category": "errata-B/arithmetic; Minor; memory/budget",
+   "criterion": "DO: any storage comparison states units, synapse count and density once and computes every row for that one network. TEST: comparison table generated by one function with (N, E, density) parameters.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L204-L213"
+  },
+  {
+   "id": "B-04",
+   "text": "[Major] \"0.48 bytes per synapse\" is never derived and leaves out state the spec requires. Fix: print one worked layout per storage class with every field counted (weight, scale, mask bits, delay, index or seed, eligibility), and derive the per-synapse figure from it. State which editing operators are unavailable on procedurally wired blocks.",
+   "category": "errata-B/arithmetic; Major; memory/layout",
+   "criterion": "DO: per-synapse and per-creature byte cost is derived from a printed layout counting every field (weight, scale, structural mask, lesion mask, delay, index or seed, eligibility, runtime state); list which edit operators are unavailable on procedurally wired (seed-generated) blocks. TEST: static_assert(sizeof/offsetof) equals the documented figure; budget tool sums every SoA column including masks and plasticity state.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L214-L223"
+  },
+  {
+   "id": "B-05",
+   "text": "[Major] \"167x\" is measured against a strawman. Fix: quote the ratio against sparse 32-bit storage (about 8-17x), or attach \"against one object per synapse\" every time 167x appears. Recompute after B-04.",
+   "category": "errata-B/arithmetic; Major; evidence/baseline",
+   "criterion": "AVOID strawman baselines: every compression or speed ratio names its baseline (e.g. plain 32-bit sparse). TEST: claims register requires a baseline field; benchmark emits both numbers.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L224-L233"
+  },
+  {
+   "id": "B-06",
+   "text": "[Major] \"100 creatures x 10^8 synapses ... runs on a laptop\" contradicts the laptop tier. Fix: retitle Model 8 as a storage comparison for one stated network and drop \"runs on a laptop\". Add an events-per-second column to the tier table.",
+   "category": "errata-B/arithmetic; Major; evidence/capacity; fix-first #3",
+   "criterion": "AVOID capacity claims ('N creatures x S synapses on this laptop') without a measured run; budget compute (events per second), not only memory. TEST: each capacity row links to a benchmark log with exact command and output tail, labelled 'noisy, parallel load' when applicable.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L234-L243"
+  },
+  {
+   "id": "B-07",
+   "text": "[Major] The workstation tier exceeds its own hardware: memory over most of the range, compute across all of it. Fix: cut the tier to what fits, or state that crowd and synapse maxima are alternatives and not simultaneous, and what fraction of the crowd runs a full brain. State the index width.",
+   "category": "errata-B/arithmetic; Major; memory/arena",
+   "criterion": "DO: population and per-creature complexity maxima are stated as a feasible pair (or explicit alternatives) with the index width stated, and must fit the page-locked arena. TEST: arena preflight computes required bytes for the config and refuses to start when it exceeds the locked arena; index type width asserted against max count.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L244-L253"
+  },
+  {
+   "id": "B-08",
+   "text": "[Major] \"91.4% FLOP savings\", \"8.6%\" and \"11.6x faster\" are not derived. Fix: delete the three figures, or replace them with \"measured: see M005\". M005's \"≥8x speed-up against single-rate, with stable energy\" is the right form because it is a measured gate. If a figure is kept, print the cost split it assumes.",
+   "category": "errata-B/arithmetic; Major; scheduler/evidence",
+   "criterion": "AVOID derived speed-up or FLOP-saving figures; the multi-rate gain is a measured gate against single-rate with conservation intact, with the per-clock cost split printed. TEST: benchmark single-rate vs multi-rate, report per-clock time, ledger residual 0 in both.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L254-L263"
+  },
+  {
+   "id": "B-09",
+   "text": "[Minor] The JavaScript example in BUG-04 does not crash at Q = 32. Fix: reword to \"silently wraps: Q = 32 allocates two elements\". Validate Q as an integer in range before allocating, and compute the size as `2  Q`. The cure (clamp to 10 qubits, 16 KB) is right.",
+   "category": "errata-B/arithmetic; Minor; robustness/validation",
+   "criterion": "DO: validate every size, count and shift parameter as an in-range integer before allocating; compute sizes in 64-bit with overflow checks (shift >= width is undefined in C, not a wrap). TEST: fuzz config with 0, max, max+1 and shift counts 31/32/63/64: engine returns an error code and never allocates a wrong size; UBSan build clean.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L264-L273"
+  },
+  {
+   "id": "B-10",
+   "text": "[Minor] Mock UI numbers contradict the spec. Fix: per-row corrections in the source table.",
+   "category": "errata-B/arithmetic; Minor; telemetry/units",
+   "criterion": "DO: every displayed or logged number carries unit and basis (relative/absolute, per tick/cumulative, per frame/per tick). TEST: telemetry schema validator requires unit + basis fields.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L274-L287"
+  },
+  {
+   "id": "B-11",
+   "text": "[Minor] The governor's bands leave a gap. Fix: make the bands contiguous, express the thresholds as fractions of the tier's frame budget (see A-10), and name the measured quantity.",
+   "category": "errata-B/arithmetic; Minor; performance/governor",
+   "criterion": "DO: load bands are contiguous, defined as fractions of the tier budget, and measure simulation step time (not the vsync frame interval); the governor never changes sim state (A-01). TEST: for every t >= 0 exactly one band matches; hysteresis unit test.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L288-L297"
+  },
+  {
+   "id": "B-12",
+   "text": "[Minor] Quantities that take different values in different places. Fix: for the first table, one value per quantity, defined once and referenced. For the second, cross-reference the two places or say which is the local limit. Say whether each tolerance is relative or absolute.",
+   "category": "errata-B/arithmetic; Minor; constants/single-source",
+   "criterion": "DO: each quantity (tolerances, test length, diff size, RNG key fields, tier count, clock dividers, capacity limits) is defined once and referenced, with relative/absolute stated. TEST: constants live in one header from which docs are generated; duplicate-definition lint.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L298-L326"
+  },
+  {
+   "id": "B-13",
+   "text": "[Minor] HW06's \"under 64 KB\" rollback deltas cannot be guaranteed. Fix: use periodic full keyframes plus an input and event log with replay, which the determinism rules already make possible; or scope the 64 KB bound to weight edits.",
+   "category": "errata-B/arithmetic; Minor; rollback/keyframes",
+   "criterion": "DO: rollback = periodic full keyframes + input/event log with deterministic replay; a small-delta bound applies only to rarely changing state (weights, masks). TEST: restore keyframe K and replay the log to tick t reproduces the hash at t; delta-size gate scoped to weight edits.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L327-L336"
+  },
+  {
+   "id": "B-14",
+   "text": "[Minor] Small label slips. Fix: per-row corrections in the source table.",
+   "category": "errata-B/arithmetic; Minor; naming/layout",
+   "criterion": "DO: a block called 'cache-line' is exactly 64 bytes and 64-aligned; a 'tick' always names its clock; bandwidth claims compare against the machine's measured memory bandwidth. TEST: static_assert size and alignment of hot structs; glossary lint for bare 'tick'.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L337-L352"
+  },
+  {
+   "id": "B-15",
+   "text": "[Minor] 16.16 fixed point cannot hold the quantities the spec gives it. Fix: use integer time units and a fixed-point format per quantity, and list them in worksheet 10.3. Say in D1 that the ledger is not Q16.16 (64-bit floats with compensated summation, or the integer quanta of A-03).",
+   "category": "errata-B/arithmetic; Minor; numerics/fixed-point",
+   "criterion": "AVOID one Q16.16 format for everything. DO: integer time units, one documented fixed-point format per quantity with a range/resolution table; dt^2 and slow-decay terms must be representable (use remainder accumulators where one tick changes < 1 LSB); the ledger is 64-bit integer quanta, never Q16.16. TEST: table-driven test per quantity (min step, max value, smallest per-tick delta representable); overflow/saturation counters == 0 in canonical runs.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L353-L362"
+  },
+  {
+   "id": "B-16",
+   "text": "[Note] What a 5 ms spike step implies. Fix: per-row corrections in the source table.",
+   "category": "errata-B/arithmetic; Note; numerics/convergence",
+   "criterion": "DO: any timing-dependent result (spike timing, phase coherence) carries a step-halving convergence check. TEST: run at dt and dt/2; gate metric agrees within the stated tolerance.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L363-L370"
+  },
+  {
+   "id": "B-17",
+   "text": "[Note] A real-time budget is never stated. Fix: per-row corrections in the source table.",
+   "category": "errata-B/arithmetic; Note; performance/real-time",
+   "criterion": "DO: state whether real time is required and give per-clock, per-tier budgets; the frame-to-tick ratio is handled by an integer accumulator so sim ticks never depend on frame pacing. TEST: N ticks give the same hash at any render frame pacing; per-clock budgets are measured and reported.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L371-L380"
+  },
+  {
+   "id": "C-01",
+   "text": "[Major] Holm-Bonferroni is called \"FDR\". Fix: choose one and use one vocabulary everywhere: \"family-wise error rate controlled at 0.05 within each checklist family (Holm-Bonferroni)\", with the early-locking rule of A-06. If false-discovery control is really wanted, replace Holm with Benjamini-Hochberg everywhere.",
+   "category": "errata-C/statistics; Major; statistics/vocabulary; fix-first #5",
+   "criterion": "AVOID calling Holm-Bonferroni 'FDR' or 'q-value'; it controls the family-wise error rate. TEST: phrase lint over harness output and docs; column is named p_holm.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L385-L392"
+  },
+  {
+   "id": "C-02",
+   "text": "[Major] No significance test is named, and no power calculation exists. Fix: name the test (for a paired design, an exact Wilcoxon signed-rank or paired permutation test on per-seed differences). Add the power calculation, or remove the ledger claim.",
+   "category": "errata-C/statistics; Major; statistics/test; fix-first #5",
+   "criterion": "DO: name and implement the test exactly: paired sign-flip (permutation) or exact Wilcoxon signed-rank on per-seed differences, integer arithmetic, no normal approximation; include a power calculation. TEST: harness reproduces known exact p-values (16 of 16 agreeing gives 2/2^16 two-sided) and matches an independent implementation.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L393-L400"
+  },
+  {
+   "id": "C-03",
+   "text": "[Major] Sixteen seeds give almost no power under the prescribed correction. Fix: set the number of seeds by a power calculation at the effect size you care about, and print it. Two half-measures do not repair the gate. Raising N to 24-32 only removes the smallest-attainable-p floor: at delta 0.33 it still gives under 20% power at the first step in a 500-item family. [...]",
+   "category": "errata-C/statistics; Major; statistics/power; fix-first #5",
+   "criterion": "DO: seed count N is set by a power calculation at the stated effect size and family size; under-powered = Inconclusive, not pass/fail. The engine must make >= 100 paired seeded headless runs cheap and scriptable. TEST: harness refuses a confirmatory run when the smallest attainable p exceeds alpha/m; power is printed.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L401-L408"
+  },
+  {
+   "id": "C-04",
+   "text": "[Minor] The effect size is an independent-groups statistic on a paired design. Fix: state the version (\"within-pair dominance, the proportion of seeds on which intact beats the control arm minus the proportion on which it loses\"), or drop \"paired\" from the effect-size clause.",
+   "category": "errata-C/statistics; Minor; statistics/effect-size",
+   "criterion": "DO: effect size = within-pair dominance (share of pairs where intact beats control minus share where it loses). TEST: unit test on fixed vectors.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L409-L416"
+  },
+  {
+   "id": "C-05",
+   "text": "[Minor] \"TOST\" is the wrong tool for a regression floor, and no margin is given. Fix: use a one-sided non-inferiority test against each locked floor, with the margin preregistered per metric, and add a margin field to worksheet 10.5.",
+   "category": "errata-C/statistics; Minor; statistics/non-inferiority",
+   "criterion": "DO: regression floors use a one-sided non-inferiority test with a preregistered margin per metric; AVOID TOST. TEST: harness config requires a margin field; a build that improves never fails the floor.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L417-L424"
+  },
+  {
+   "id": "C-06",
+   "text": "[Minor] The number of contrasts per item is undefined. Fix: define the primary contrast per item (for example intact against targeted lesion) and treat the others as descriptive.",
+   "category": "errata-C/statistics; Minor; statistics/contrasts",
+   "criterion": "DO: exactly one primary contrast per item enters the family m; other arms are descriptive. TEST: preregistration file lists one primary contrast per item id.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L425-L432"
+  },
+  {
+   "id": "C-07",
+   "text": "[Minor] Which items need four arms is not stated. Fix: mark each list, or each item, as four-arm, direct-measurement or lineage-comparison.",
+   "category": "errata-C/statistics; Minor; statistics/evidence-type",
+   "criterion": "DO: mark each gate four-arm, direct-measurement or lineage-comparison; conservation, determinism, allocation and performance gates are direct measurement. TEST: matrix column evidence_type is a non-empty enum.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L433-L440"
+  },
+  {
+   "id": "C-08",
+   "text": "[Minor] No sham lesion. Fix: add a size-matched sham lesion (the same number of units or synapses removed elsewhere) to the protocol.",
+   "category": "errata-C/statistics; Minor; lesion/sham",
+   "criterion": "DO: lesion protocol includes a size-matched sham (same number of units or synapses removed elsewhere), chosen deterministically from the keyed generator. TEST: sham set has equal count, is disjoint from the target, and is reproducible for the seed.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L441-L448"
+  },
+  {
+   "id": "C-09",
+   "text": "[Note] No run budget. Fix: per-row corrections in the source table.",
+   "category": "errata-C/statistics; Note; statistics/run-budget",
+   "criterion": "DO: state a run budget (items x arms x seeds, wall time) and share logged runs across items. TEST: plan file computes total runs; measured creature-ticks per second gives the estimate, recorded with the command.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L449-L456"
+  },
+  {
+   "id": "D-01",
+   "text": "[Major] The \"all 14 must pass\" roll-up is not supported by the report it cites. Fix: make F10 a scorecard: report which of the fourteen pass, each with its own lesion control. State that 14 of 14 is this project's engineering target and not evidence of consciousness. Head the column \"this framework's operationalisation\".",
+   "category": "errata-D/science-claims; Major; claims/indicators",
+   "criterion": "DO: indicator results are a per-indicator scorecard, each with its own lesion control; AVOID any 'all pass means conscious' roll-up or sentience claim. TEST: report generator emits per-indicator rows; phrase lint blocks 'conscious'/'sentient' claims outside the disclaimer.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L461-L470"
+  },
+  {
+   "id": "D-02",
+   "text": "[Minor] F2 is named for integrated-information theory but tests something else. Fix: rename F2 \"Perturbational complexity (theory-inspired; not a measure of integrated information)\". Keep M078's relative scoring, add a synchronised control arm, and apply the pulse to a forked snapshot. Do not borrow the human cutoff (0.31). Update CQM21 and ERR-06 to match. For M078 see also H-09.",
+   "category": "errata-D/science-claims; Minor; claims/perturbation",
+   "criterion": "DO: perturbational-complexity metrics are named theory-inspired (not integrated information), the pulse is applied to a forked snapshot, a synchronised control arm exists, and no human cutoff is borrowed. Engine needs a cheap fork of a creature/world. TEST: fork, perturb, measure leaves the parent's hash stream identical to an unperturbed run.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L471-L480"
+  },
+  {
+   "id": "D-03",
+   "text": "[Minor] Closed-form continuous-time networks: \"analytical solution\" and \"10-50x\". Fix: M03: \"closed-form approximation; removes the numerical solver. Measure the speed-up in this engine and report it.\" M02: write the formula with the sub-step factor, for example O(K·E) with K the number of solver sub-steps, the form row M21 prints (K is not defined there either: see K3). [...]",
+   "category": "errata-D/science-claims; Minor; evidence/speed",
+   "criterion": "AVOID borrowed speed-up figures; measure in this engine. Closed-form network families are models, not solvers for a given stiff equation. TEST: every speed claim cites a benchmark log.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L481-L490"
+  },
+  {
+   "id": "D-04",
+   "text": "[Minor] The spiking liquid time-constant citation is real but needs \"up to\" and a reference. Fix: \"up to 9.2x lower energy than LTC (Vanhalle and Gielen 2025)\", with the DOI.",
+   "category": "errata-D/science-claims; Minor; doc-only/citation",
+   "criterion": "N/A-ENGINE: citation wording ('up to 9.2x', with DOI) only if the paper is cited.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L491-L500"
+  },
+  {
+   "id": "D-05",
+   "text": "[Minor] Kenyon-cell sparseness is given as 2%. Fix: at first use, \"k-winners 2% code (Kenyon-inspired; measured sparseness is about 5-10%)\"; afterwards \"2% code\".",
+   "category": "errata-D/science-claims; Minor; naming/science",
+   "criterion": "N/A-ENGINE: if a k-winners code is implemented, call it '2% code (Kenyon-inspired)'; sparsity is a config value, not a biological claim.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L501-L510"
+  },
+  {
+   "id": "D-06",
+   "text": "[Minor] Octopus: about two-thirds of all neurons are in the arms, not \"two-thirds of motor neurons\". Fix: \"about three-fifths to two-thirds of the animal's roughly 500 million neurons lie in the arms\".",
+   "category": "errata-D/science-claims; Minor; doc-only/science",
+   "criterion": "N/A-ENGINE: octopus neuron-count wording.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L511-L518"
+  },
+  {
+   "id": "D-07",
+   "text": "[Minor] The antithetic integral motif does not \"guarantee\" zero error. Fix: \"gives zero steady-state error when the closed loop is stable, the set-point is reachable and the controller species are not diluted\". Add the actuation equation. In the implementation, debit the same removed amount from both species.",
+   "category": "errata-D/science-claims; Minor; control/antithetic",
+   "criterion": "AVOID claiming guaranteed zero error. DO: if an antithetic integral controller is implemented, annihilation debits the same integer amount from both species and the actuation term is present. TEST: ledger shows equal debits; a run with dilution > 0 shows the predicted residual error rather than zero.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L519-L528"
+  },
+  {
+   "id": "D-08",
+   "text": "[Minor] The chemoton's third subsystem is a template polymer, not a \"GRN template\". Fix: box label \"heritable template polymer\"; split M14.",
+   "category": "errata-D/science-claims; Minor; naming/science",
+   "criterion": "N/A-ENGINE: name the chemoton's third subsystem 'template polymer', not 'GRN template'; if implemented, three stoichiometrically coupled subsystems with division following membrane growth.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L529-L538"
+  },
+  {
+   "id": "D-09",
+   "text": "[Minor] Sleep downscaling is described as global. Fix: \"size-proportional downscaling of most synapses during sleep, sparing the largest\"; or state that global scaling is a deliberate simplification.",
+   "category": "errata-D/science-claims; Minor; naming/science",
+   "criterion": "N/A-ENGINE: if sleep downscaling is implemented, either size-proportional sparing the largest synapses or declared as a deliberate simplification.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L539-L548"
+  },
+  {
+   "id": "D-10",
+   "text": "[Major] The \"quantum\" items are classical, and none requires a distribution-matched classical control. Fix: retitle the assay section \"Quantum-inspired and geometric interior\" and add \"classically simulated\" to N01-N08 and N50. Require a distribution-matched classical sampler as the control for every such item. [...]",
+   "category": "errata-D/science-claims; Major; claims/quantum",
+   "criterion": "AVOID calling any classically simulated mechanism quantum; label it 'quantum-inspired, classically simulated'. DO: every such mechanism has a distribution-matched classical sampler control and a parameter/compute-matched baseline. TEST: phrase lint; the control arm exists in the experiment registry; no difference is reported except against the matched control.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L549-L560"
+  },
+  {
+   "id": "E-01",
+   "text": "[Major] \"Symplectic\" is misapplied. Fix: \"deterministic multi-rate scheduler\", \"fixed update order\", and in BUG-02 \"semi-implicit prediction step followed by constraint projection; numerically dissipative overall\". [...]",
+   "category": "errata-E/engineering-terms; Major; naming/integrator; fix-first #8",
+   "criterion": "AVOID the word 'symplectic' for the scheduler or the constraint solver. DO: document the multi-rate coupling rule: what is held constant across a slow step, what is accumulated, and the fixed update order inside a base tick. TEST: phrase lint (0 hits outside errata references); the update-order table is a compiled constant with a unit test; cross-clock fluxes use integer accumulators and conserve.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L563-L572"
+  },
+  {
+   "id": "E-02",
+   "text": "[Major] \"Unconditionally stable\" holds only in a narrow sense. Fix: D7 rule and HW11: \"integrate the linear decay and leak terms exactly with exponential updates; advance nonlinear terms with a step-size bound that is tested, not assumed\". M022: keep \"unconditionally stable\" only with its meaning attached (\"stability does not depend on step size; [...]",
+   "category": "errata-E/engineering-terms; Major; numerics/stability; fix-first #8",
+   "criterion": "DO: exact exponential update only for linear decay/leak with constant coefficients; nonlinear terms advance under a tested step bound; 'unconditionally stable' is used only with its meaning attached. TEST: results repeated at two iteration counts and two time steps agree within tolerance; a stiff-case regression test exists.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L573-L582"
+  },
+  {
+   "id": "E-03",
+   "text": "[Major] Most listed number formats do not exist in the stated runtime. Fix: add a note under table 7.1 listing what computes natively in each of the three, and a column \"native arithmetic here?\" marking the rest \"storage encoding, decoded to f32\". P14: \"optional; needs the device feature; fall back to f32\". P16: \"no memory saving; native back-ends only\".",
+   "category": "errata-E/engineering-terms; Major; numerics/formats",
+   "criterion": "DO: use only number formats the target computes natively (x86-64 integers, AVX2 integer lanes; no AVX-512 on this CPU); mark anything else 'storage encoding' with its decode cost; probe capabilities (CPUID, GPU) at start-up. TEST: start-up probe result is in the run manifest; missing required ISA gives a clear error; a format table states native-arithmetic yes/no.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L583-L592"
+  },
+  {
+   "id": "E-04",
+   "text": "[Minor] \"Exact FP64 energy closure\" in the GPU tier. Fix: \"an energy-closure check computed on the CPU in 64-bit from read-back GPU state, to a stated tolerance\". Give ε and the norm. Beyond the horizon where trajectories diverge, compare distributions of outcomes.",
+   "category": "errata-E/engineering-terms; Minor; gpu/determinism",
+   "criterion": "DO: on the GPU path conservation is checked on the CPU from read-back state; canonical GPU kernels use integer arithmetic so reduction order cannot change results. TEST: GPU and CPU state hashes are equal for integer kernels; any float GPU path is labelled non-canonical and compared by distribution with a stated tolerance.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L593-L602"
+  },
+  {
+   "id": "E-05",
+   "text": "[Major] Bit-identical results across operating systems: the conditions are unstated. Fix: add to the Tier-1 definition and HW15: only exactly rounded operations in the canonical path; the core ships its own versioned fixed-point exp, pow and log, with a golden-vector test on every platform in CI; single-threaded stepping; no relaxed SIMD; [...]",
+   "category": "errata-E/engineering-terms; Major; determinism/bit-identity",
+   "criterion": "DO: canonical path uses integer operations only (or exactly rounded + - * / sqrt with fixed FP environment); ship versioned fixed-point exp/log/pow with golden vectors; no libm transcendentals, no fast-math, no contraction differences, no host time/random; hashed state is integer; memory preallocated; ISA feature set pinned. TEST: golden vectors pass on every compiler (gcc, clang, MSVC); scalar C, AVX2 and NASM kernels are bit-identical on random inputs; symbol scan finds no exp/pow/log/sin calls in sim objects; hash equal across compilers and thread counts.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L603-L612"
+  },
+  {
+   "id": "E-06",
+   "text": "[Minor] Browsers do not \"silently fall back\" when shared memory is unavailable. Fix: \"without these headers shared memory is unavailable and posting a buffer throws; the application must test `crossOriginIsolated` at start-up and stop with a clear error\". Add that assertion to the Phase 1 smoke test.",
+   "category": "errata-E/engineering-terms; Minor; robustness/no-silent-fallback",
+   "criterion": "AVOID silent fallbacks. DO: when a required capability is missing (page locking, large pages, AVX2, GPU) the engine stops with a clear error or records an explicit mode switch in the run manifest. TEST: start without the privilege/feature yields an explicit status code and message.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L613-L622"
+  },
+  {
+   "id": "E-07",
+   "text": "[Minor] \"0% Copy\" and \"0% observer effect\" are true only in a narrow sense. Fix: \"zero-copy between simulation worker and UI thread; one copy per frame into GPU buffers for the focal slice; observer effect on simulation state: none; timing and thermal cost of the UI: measured in Tab 19\".",
+   "category": "errata-E/engineering-terms; Minor; claims/scope",
+   "criterion": "DO: scope claims: 'zero-copy' only for the actual shared boundary; observer effect on simulation state is none (hash equality) while observer cost (time, cache, heat) is measured and reported, never claimed zero. TEST: the viewer maps sim memory read-only; perf delta with viewer attached is reported.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L623-L632"
+  },
+  {
+   "id": "E-08",
+   "text": "[Minor] The random-generator specification is incomplete. Fix: \"key = hash(run seed, creature, organ); counter = (tick, unit or synapse index, draw purpose, draw index); no draw depends on how many came before it\". Use the SplitMix-style mixer only to hash the key. Add to M002's test: \"delete one unit inside organ A; [...]",
+   "category": "errata-E/engineering-terms; Minor; rng/keying",
+   "criterion": "DO: key = hash(run seed, creature id, organ/stream id); counter = (tick, unit or synapse index, draw purpose, draw index); no draw depends on how many came before; creature ids are stable identities, not array slots. TEST: known-answer vectors for the generator; deleting one unit in organ A leaves the draws of every other unit and creature bit-identical; draws identical at 1, 8 and all threads and after array compaction.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L633-L642"
+  },
+  {
+   "id": "E-09",
+   "text": "[Minor] Two gates name things that cannot be measured as written. Fix: specify the measurement for HW02 (zero collection events over N ticks under a tracing flag, or the core in WebAssembly linear memory). Keep HW24's non-finite check for the 64-bit ledger and Tier 2, and add overflow and saturation detection for the fixed-point core.",
+   "category": "errata-E/engineering-terms; Minor; memory/allocation",
+   "criterion": "DO: measure zero-allocation concretely: after init, 0 allocator calls and 0 page faults over N ticks; the fixed-point core cannot produce NaN, so detect overflow/saturation with sticky flags, and watch the arena high-water mark. TEST: allocation-hook counter == 0; page-fault delta == 0; saturation counter == 0 in canonical runs; an injected overflow trips the flag.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L643-L652"
+  },
+  {
+   "id": "E-10",
+   "text": "[Minor] Two hardware items are descriptions, not gates. Fix: give a number for each.",
+   "category": "errata-E/engineering-terms; Minor; performance/gates",
+   "criterion": "DO: every hardware/perf item is a gate with a number (active fraction per step, drift bound). TEST: matrix validator rejects a perf row without a numeric threshold.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L653-L662"
+  },
+  {
+   "id": "F-01",
+   "text": "[Minor] Six cross-references point at the wrong target. Fix: per-row corrections in the source table.",
+   "category": "errata-F/cross-references; Minor; traceability/references; fix-first #9",
+   "criterion": "N/A-ENGINE: document cross-references; for the native matrix: every referenced id must resolve (script check).",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L665-L681"
+  },
+  {
+   "id": "F-02",
+   "text": "[Minor] Identifier collisions. Fix: give each list a distinct prefix. Keep \"WSE-12\" for the benchmark list only and write \"10 typed operators\" for the operator table.",
+   "category": "errata-F/cross-references; Minor; traceability/ids",
+   "criterion": "DO: disjoint global id prefixes; AVOID reusing 'Tier', 'Ring', 'Stage' for different things. TEST: id-uniqueness check across all requirement sets.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L682-L698"
+  },
+  {
+   "id": "F-03",
+   "text": "[Minor] \"820 unique gates\" and \"9 orthogonal checklists\" overlook at least 40 duplicates. Fix: either deduplicate, or drop \"orthogonal\" and \"unique\", state that the lists are views of one mechanism set, and mark each repeat \"count once\", as four of the five declared overlaps already are (the F10 roll-up is declared but not marked).",
+   "category": "errata-F/cross-references; Minor; traceability/duplicates",
+   "criterion": "DO: mark duplicates 'count once' instead of claiming unique/orthogonal totals. TEST: matrix has a duplicate_of column; counts are reported raw and deduplicated.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L699-L717"
+  },
+  {
+   "id": "F-04",
+   "text": "[Minor] Loose ends in tables. Fix: per-row corrections in the source table.",
+   "category": "errata-F/cross-references; Minor; doc-only/tables",
+   "criterion": "N/A-ENGINE: table legends and captions.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L718-L733"
+  },
+  {
+   "id": "G-01",
+   "text": "[Major] The 1,000 printed cells are 100 cells printed ten times. Fix: print one 10 x 10 table plus the six exceptions, and give geometry a rating of its own only where it changes the answer. If the ten slices are kept as blank tick-sheets, remove the badges from them.",
+   "category": "errata-G/cube; Major; config/single-source; fix-first #7",
+   "criterion": "AVOID replicated content that inflates counts. DO: valid (model x precision x topology) combinations come from one rule function in code, and only dimensions that change the answer are listed. TEST: compatibility table is generated from that function.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L736-L745"
+  },
+  {
+   "id": "G-02",
+   "text": "[Major] The stability matrix disagrees with the cells it is meant to govern. Fix: generate matrix and slices from one table. Legend: \"needs mitigation (closed-form step, stochastic rounding or group scale)\".",
+   "category": "errata-G/cube; Major; config/single-source; fix-first #7",
+   "criterion": "DO: one compatibility rule set governs all tables; stiffness is treated as a solver-stability property, not a word-length property. TEST: generated tables agree by construction; unit test of the rule function.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L746-L764"
+  },
+  {
+   "id": "G-03",
+   "text": "[Minor] The companion spreadsheet is a different cube. Fix: generate both from one source table.",
+   "category": "errata-G/cube; Minor; config/single-source",
+   "criterion": "DO: generate every companion artefact (CSV, docs) from the same source table. TEST: regeneration produces no diff.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L765-L774"
+  },
+  {
+   "id": "G-04",
+   "text": "[Minor] The five starter combinations are called \"Pareto-Optimal\" before any has been tested. Fix: \"five recommended starter combinations (hypotheses)\"; one name per index.",
+   "category": "errata-G/cube; Minor; claims/optimality",
+   "criterion": "AVOID 'optimal' or 'Pareto' before measurement; call starter combinations hypotheses; one name per index. TEST: phrase lint on unmeasured optimality claims.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L775-L786"
+  },
+  {
+   "id": "H-01",
+   "text": "[Major] 78 of the 100 milestone pass targets are labels. Fix: for every milestone, write the target as metric, unit, direction and number, and name the task (environment, stimulus schedule, duration, starting state).",
+   "category": "errata-H/checklists-not-tests; Major; test-design/gates; fix-first #6",
+   "criterion": "DO: every gate states metric, unit, direction, number, and task (environment, stimulus schedule, duration, starting state). TEST: gate-spec schema requires these fields; the runner refuses label-only gates.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L791-L808"
+  },
+  {
+   "id": "H-02",
+   "text": "[Major] The 500 life-list checkboxes are attribute names. Fix: rewrite each attribute as a claim with a metric, or relabel the list as a coverage map and count it separately from gates.",
+   "category": "errata-H/checklists-not-tests; Major; test-design/coverage; fix-first #6",
+   "criterion": "DO: attribute lists are coverage maps counted separately from gates; a tick requires a claim with a metric. TEST: matrix distinguishes coverage rows from gate rows.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L809-L818"
+  },
+  {
+   "id": "H-03",
+   "text": "[Major] Across the lists, almost no item states a quantity and a threshold. Fix: as H-01.",
+   "category": "errata-H/checklists-not-tests; Major; test-design/gates",
+   "criterion": "DO: as H-01: quantity + threshold for every item called a gate. TEST: same schema check.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L819-L828"
+  },
+  {
+   "id": "H-04",
+   "text": "[Minor] Several milestone tests have their outcome decided in advance. Fix: keep them as wiring checks, labelled as such, and add a capability test with a comparative control. The strongest controls already in the table are comparative: M024 (stiffened clone), M052 (single-timescale learner), M057 (non-competitive learner), M062 (unbounded curiosity).",
+   "category": "errata-H/checklists-not-tests; Minor; test-design/wiring-vs-capability",
+   "criterion": "DO: tests whose outcome is fixed by construction are labelled wiring checks; each capability claim adds a test with a comparative control (stiffened clone, single-timescale learner, non-competitive learner). TEST: gate type is one of {wiring, capability}; capability gates require a comparative control arm.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L829-L846"
+  },
+  {
+   "id": "H-05",
+   "text": "[Minor] One checkbox covers several mechanisms while the target tests one. Fix: one claim per row.",
+   "category": "errata-H/checklists-not-tests; Minor; test-design/gates",
+   "criterion": "DO: one claim per gate row. TEST: schema allows one metric per row.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L847-L856"
+  },
+  {
+   "id": "H-06",
+   "text": "[Minor] M012's control predicts an outcome that need not happen. Fix: contrast peak flux against V_max, or downstream pool overshoot against a stated bound.",
+   "category": "errata-H/checklists-not-tests; Minor; test-design/controls",
+   "criterion": "DO: controls predict outcomes that can occur: compare peak flux with V_max or pool overshoot with a stated bound, not 'blows up'. TEST: control arm has a numeric expected bound.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L857-L866"
+  },
+  {
+   "id": "H-07",
+   "text": "[Minor] The 50% spike-saving target loses its normalisation on the way into the tables. Fix: carry \"per metre, at equal failure rate\" into SOFT08 and M024; better, measure energy per distance in the ledger. Label the 50% as a target. For the stage at which this gate can be run, see A-05.",
+   "category": "errata-H/checklists-not-tests; Minor; test-design/normalisation",
+   "criterion": "DO: efficiency metrics are normalised (per metre, at equal failure rate), preferably energy per distance from the ledger; targets are labelled targets. TEST: metric = ledger quanta / distance; failure rates reported for both arms.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L867-L876"
+  },
+  {
+   "id": "H-08",
+   "text": "[Minor] M004's leak mutant is far above the tolerance. Fix: add a second mutant a small multiple (for example ten times) above whatever tolerance A-03 settles on, expressed in the same units as the gate.",
+   "category": "errata-H/checklists-not-tests; Minor; conservation/mutants",
+   "criterion": "DO: two leak mutants: one gross and one just above the gate tolerance, in the gate's units. With an exact integer ledger the sensitive mutant leaks one quantum once in a long run. TEST: mutant build with a single 1-quantum leak at a seeded tick is detected at that tick.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L877-L886"
+  },
+  {
+   "id": "H-09",
+   "text": "[Minor] M078's wake-above-sleep ordering can be designed in. Fix: fix the sleep implementation, the pulse protocol and a margin before measuring, and measure on a forked snapshot (D-02).",
+   "category": "errata-H/checklists-not-tests; Minor; test-design/preregistration",
+   "criterion": "DO: fix implementation, protocol and margin before measuring; measure on a forked snapshot. TEST: preregistration hash predates the result file.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L887-L896"
+  },
+  {
+   "id": "H-10",
+   "text": "[Minor] M061 names the attentional-blink signature the wrong way round. Fix: \"attentional blink at roughly 200-500 ms after a reported first target (lags 2-5 at ten items a second), with recovery at longer lags and lag-1 sparing\". The same study supplies a control: the deficit vanishes when the first target need not be identified.",
+   "category": "errata-H/checklists-not-tests; Minor; doc-only/science",
+   "criterion": "N/A-ENGINE: attentional-blink wording (deficit at lags 2-5, lag-1 sparing) applies only if that assay is built.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L897-L906"
+  },
+  {
+   "id": "H-11",
+   "text": "[Minor] M097's control shows the medicine works, not that the creature medicates selectively. Fix: compare medicine intake when infected against when healthy.",
+   "category": "errata-H/checklists-not-tests; Minor; test-design/controls",
+   "criterion": "N/A-ENGINE: assay-control design (compare intake when infected against healthy) applies only if self-medication is built.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L907-L914"
+  },
+  {
+   "id": "H-12",
+   "text": "[Minor] Some names dress up standard algorithms. Fix: plain names; define M076's invariant or drop it.",
+   "category": "errata-H/checklists-not-tests; Minor; naming/algorithms",
+   "criterion": "AVOID dressed-up names for standard algorithms (risk-weighted shortest path is named that); drop invariants with no testable definition. TEST: glossary review; each named kernel cites its standard algorithm.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L915-L924"
+  },
+  {
+   "id": "H-13",
+   "text": "[Minor] M100's one-command gate presupposes criteria that do not exist. Fix: scope the scoreboard part of M100 to the gates that have criteria, and grow it as criteria are written.",
+   "category": "errata-H/checklists-not-tests; Minor; verification/one-command",
+   "criterion": "DO: the one-command gate verifies only gates that have machine-checkable criteria and reports the count without criteria separately. TEST: verify command lists gates with and without criteria.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L925-L934"
+  },
+  {
+   "id": "H-14",
+   "text": "[Major] M084 can pass by design, and is weaker than the experiment it mirrors. Fix: add to M084: show the larval aversion is associative before pupation (paired arm against stimulus-only, toxin-only and naive arms); test adults of every arm and pass only if the paired arm alone avoids, with group sizes and effect size stated; rule out non-neural carry-over; [...]",
+   "category": "errata-H/checklists-not-tests; Major; test-design/by-construction",
+   "criterion": "AVOID retention evidence obtained by copying state unchanged through a remap; include arms that must fail. TEST: assay registry requires a must-fail arm; code audit of the remap path.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L935-L946"
+  },
+  {
+   "id": "I-01",
+   "text": "[Minor] Two registry entries are closed defects of the previous edition, and are misfiled. Fix: move BUG-01 and PRB-03 to a changelog and replace them with engineering entries. Keep ISS-04 and extend its check as F-01 describes.",
+   "category": "errata-I/document-hygiene; Minor; doc-only/registry",
+   "criterion": "N/A-ENGINE: changelog items are not engineering registry entries.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L949-L958"
+  },
+  {
+   "id": "I-02",
+   "text": "[Minor] The audit ledger's completeness claims read as a correctness guarantee the documents do not meet. Fix: say what each claim covers (\"no item of the previous edition was dropped\"), and remove the absolute wording.",
+   "category": "errata-I/document-hygiene; Minor; claims/completeness",
+   "criterion": "DO: completeness claims state their scope; AVOID absolute 'error-free' wording. TEST: reports say 'N of M checks ran' with commands and output tails.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L959-L968"
+  },
+  {
+   "id": "I-03",
+   "text": "[Minor] More than half of the Blueprint is reprinted Framework material, including its errors. Fix: have the Blueprint reference the Framework for shared material. ISS-04 already says both PDFs are driven from one shared schema; if so, say it on the Blueprint's first page and correct shared errors at the source.",
+   "category": "errata-I/document-hygiene; Minor; doc-only/reprint",
+   "criterion": "N/A-ENGINE: single-source the documents; correct shared errors at the source.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L969-L978"
+  },
+  {
+   "id": "I-04",
+   "text": "[Minor] Illustrative numbers are printed as if measured. Fix: mark each \"illustrative\" or \"target\", or cite a measurement.",
+   "category": "errata-I/document-hygiene; Minor; evidence/status",
+   "criterion": "DO: every number is marked measured, target or illustrative; measured numbers cite command and log. TEST: claims-register status field is one of those three values.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L979-L995"
+  },
+  {
+   "id": "I-05",
+   "text": "[Note] Say where the experience comes from. Fix: per-row corrections in the source table.",
+   "category": "errata-I/document-hygiene; Note; evidence/provenance",
+   "criterion": "N/A-ENGINE: state the provenance of prior-version experience in docs.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L996-L1005"
+  },
+  {
+   "id": "J-01",
+   "text": "[Major] The dated schedule is not credible beyond Step 2. Fix: remove the dates, or relabel the six steps as an order of work, as the Blueprint already does. If a first target is wanted, about fifteen milestones make a defensible one: M001-M006, M011, M012, M014, M015, M021, M022, one gait from M025, M034, and the four-arm statistics.",
+   "category": "errata-J/schedule; Major; roadmap/schedule; fix-first #10",
+   "criterion": "AVOID dated schedules; use an ordered dependency sequence. A defensible first target is about fifteen milestones (M001-M006, M011, M012, M014, M015, M021, M022, one gait from M025, M034, four-arm statistics). TEST: roadmap has prerequisites, no dates.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1008-L1019"
+  },
+  {
+   "id": "K1-01",
+   "text": "Row F-005 (p.9): printed Capacity \"4-7\" items -> correction: Other pages say four slots (p.3, p.31; M051), which is compatible only if \"4-7\" is read as a range (B-12). The source models give 7 ± 2 items, or four to eight fast cycles per slow cycle. State the design value: \"up to 4 (design value)\", or change the others",
+   "category": "errata-K/row-correction; constants/single-source; basis [source]",
+   "criterion": "DO: state one design value for working-memory capacity ('up to 4') in a single constant. TEST: one definition, referenced everywhere.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1030"
+  },
+  {
+   "id": "K1-02",
+   "text": "Row F-013 (p.9): printed \"Single-spike event rate\" encodes basal input -> correction: In the source model the event rate counts isolated spikes plus bursts, each burst once; burst fraction is bursts divided by events. Using singlets alone lets apical input leak into the basal channel",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1031"
+  },
+  {
+   "id": "K1-03",
+   "text": "Row F-027 (p.10): printed Named \"apical-minus-basal\"; described as apical subtracted from basal -> correction: Opposite signs. Pick one",
+   "category": "errata-K/row-correction; numerics/sign-convention; basis [text]",
+   "criterion": "DO: pick one sign convention (apical minus basal) and keep name and formula consistent. TEST: unit test on a signed example.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1032"
+  },
+  {
+   "id": "K1-04",
+   "text": "Row F-028 (p.10): printed Time-to-collision = glc / (-dGlc/dt) -> correction: That is the time until glucose reaches zero, not the hypoglycaemic threshold, and it is undefined when glucose is flat or rising. Use (glc - threshold) / max(-dGlc/dt, ε), only while falling",
+   "category": "errata-K/row-correction; numerics/guarded-division; basis [text]",
+   "criterion": "DO: time-to-threshold = (level - threshold) / max(-dLevel/dt, eps), evaluated only while falling; AVOID divide-by-zero or negative results in fixed point. TEST: flat and rising inputs return the 'no collision' sentinel; falling input matches a hand value.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1033"
+  },
+  {
+   "id": "K1-05",
+   "text": "Row F-032 (p.10): printed \"slow systemic GLP-1/leptin meal termination\" -> correction: Leptin is a long-acting adiposity signal that scales the gain of gut satiation signals; it does not end meals, and GLP-1 is itself a short-acting gut peptide. L002 (p.14) also lists leptin and insulin as \"hunger hormones\"",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1034"
+  },
+  {
+   "id": "K1-06",
+   "text": "Row F-034 (p.10): printed Within-life hypertrophy labelled \"(Baldwin)\" -> correction: The Baldwin effect is evolutionary, across generations. Drop the label; other pages use the term correctly",
+   "category": "errata-K/row-correction; science-wording; basis [source], secondary",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1035"
+  },
+  {
+   "id": "K1-07",
+   "text": "Row F-039 (p.11): printed Potentiation \"requires\" a glial calcium wave -> correction: Contested: one study found that clamping astrocyte calcium blocks potentiation, another found no effect. Write it as a design rule",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1036"
+  },
+  {
+   "id": "K1-08",
+   "text": "Row F-046, F-099 (p.11, 13): printed Complement-tagged pruning \"during slow-wave sleep\"; pruning \"exclusively in NREM\" (also the caption on p.37) -> correction: The evidence is a time-of-day comparison (more microglial engulfment at the start of the rest phase than at the start of the active phase), with no link to slow-wave sleep, and REM sleep prunes newly formed spines. Write \"scheduled in sleep (design choice)\"",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1037"
+  },
+  {
+   "id": "K1-09",
+   "text": "Row F-048 (p.11): printed Δw = η(A·pre + B·post + C·pre·post + D)·mod -> correction: The published rule assigns A to the pre·post product, B to pre, C to post and D to the bias, and has no modulatory factor. Use the published lettering and mark ·mod as this project's extension",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1038"
+  },
+  {
+   "id": "K1-10",
+   "text": "Row F-062 (p.12): printed Transfer \"with zero free energy\" -> correction: Means \"nothing created\". Free energy is a defined thermodynamic quantity that an egg has plenty of. Reword, and book conversion losses as heat",
+   "category": "errata-K/row-correction; conservation/reproduction; basis [text]",
+   "criterion": "DO: parent-to-egg transfer is a ledger transfer ('nothing created'); conversion losses are booked as heat. TEST: totals are exactly equal before and after a reproduction event.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1039"
+  },
+  {
+   "id": "K1-11",
+   "text": "Row F-067 (p.12): printed Famine \"methylates\" offspring switches for 1-2 generations -> correction: The best-known human result is lower methylation at one locus, measured in people who were themselves conceived during the famine. Call it an intergenerational model assumption with locus-specific direction",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1040"
+  },
+  {
+   "id": "K1-12",
+   "text": "Row F-069 (p.12): printed Noise scales \"automatically shrink\" as uncertainty resolves -> correction: In the source paper the learned noise scales rose in some layers and games; nothing guarantees shrinking",
+   "category": "errata-K/row-correction; claims/guarantee; basis [source]",
+   "criterion": "AVOID 'automatically shrinks' guarantees for learned noise scales; report the measured trajectory. TEST: claim appears only with a measurement.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1041"
+  },
+  {
+   "id": "K1-13",
+   "text": "Row F-070 (p.12): printed A Lévy exponent near 2 \"maximizes sparse patch discovery\" -> correction: Optimal in the 1999 model only for sparse targets that can be revisited; a 2020 analysis disputes the result in two and three dimensions. Treat the exponent as evolvable and compare with ballistic and Brownian controls",
+   "category": "errata-K/row-correction; evolution/controls; basis [source]",
+   "criterion": "DO: treat the Levy exponent as an evolvable genome parameter and compare with ballistic and Brownian controls; AVOID hard-coding it as optimal. TEST: exponent is a genome field; the three-arm comparison exists.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1042"
+  },
+  {
+   "id": "K1-14",
+   "text": "Row F-073 (p.12): printed \"low-dimensional trajectory wanders across ruinous attractor milestones\" -> correction: The term is \"attractor ruins\", and chaotic itinerancy is high-dimensional dynamics visiting low-dimensional quasi-attractors",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1043"
+  },
+  {
+   "id": "K1-15",
+   "text": "Row F-076 (p.13): printed \"12-module\" loop -> correction: The row names seven components; \"12-module\" appears nowhere else in either document",
+   "category": "errata-K/row-correction; constants/single-source; basis [text]",
+   "criterion": "N/A-ENGINE: count consistency in a mechanism name (seven components, not '12-module').",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1044"
+  },
+  {
+   "id": "K1-16",
+   "text": "Row F-090 (p.13): printed Sensory identities in \"LEC/CA3\" -> correction: In the source model the lateral entorhinal code is sensory, and the hippocampus holds the conjunction of structure and sensory input",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1045"
+  },
+  {
+   "id": "K1-17",
+   "text": "Row F-097 (p.13): printed \"Tag-and-capture\" described as CREB-driven recruitment of neurons -> correction: Two mechanisms: synaptic tagging and capture is synapse-level; CREB-biased allocation is neuron-level. Split the row or rename it",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1046"
+  },
+  {
+   "id": "K1-18",
+   "text": "Row F-002; F-007 with M16; F-019, F-020 with M05 (p.9; 9, 33; 9, 32): printed Cost badges -> correction: The same mechanism carries different badges in the mechanism list and the model table, and F-002's badge disagrees with the legend. A FORCE readout uses recursive least squares, which is quadratic in reservoir size",
+   "category": "errata-K/row-correction; performance/cost-tags; basis [text]",
+   "criterion": "DO: a mechanism's cost tag matches its measured scaling; a recursive-least-squares (FORCE) readout is quadratic in reservoir size and stays out of the per-tick hot path or is explicitly bounded. TEST: scaling benchmark at two sizes confirms the tag.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1047"
+  },
+  {
+   "id": "K1-19",
+   "text": "Row F-006 (p.9): printed A divisive conductance gives XOR -> suggestion: The classic result for shunting inhibition is AND-NOT; XOR needs two such branches with crossed wiring",
+   "category": "errata-K/row-correction; science-wording; basis [judgement]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1053"
+  },
+  {
+   "id": "K1-20",
+   "text": "Row F-065 (p.12): printed Morphogen fields lay out ocular columns -> suggestion: Column models use the same mathematics driven by neural activity, not diffusing morphogens",
+   "category": "errata-K/row-correction; science-wording; basis [judgement]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1054"
+  },
+  {
+   "id": "K1-21",
+   "text": "Row F-068 (p.12): printed \"Seeded/recorded QRNG\" -> suggestion: A seeded stream is pseudo-random by definition; only a recorded hardware stream is quantum entropy",
+   "category": "errata-K/row-correction; claims/quantum; basis [judgement]",
+   "criterion": "AVOID calling a seeded stream quantum: a seeded stream is pseudo-random by definition. TEST: phrase lint ('quantum random', 'QRNG') on code and docs.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1055"
+  },
+  {
+   "id": "K1-22",
+   "text": "Row F-077 (p.13): printed Reconstruction residual \"directly\" as second-order uncertainty -> suggestion: A residual is a first-order novelty signal; second-order uncertainty is an estimate of its reliability",
+   "category": "errata-K/row-correction; science-wording; basis [judgement]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1056"
+  },
+  {
+   "id": "K1-23",
+   "text": "Row F-082 (p.13): printed \"Bicameral\" -> suggestion: The term belongs to a different hypothesis; \"dual-hemisphere routine/novelty\" fits the description",
+   "category": "errata-K/row-correction; science-wording; basis [judgement]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1057"
+  },
+  {
+   "id": "K1-24",
+   "text": "Row F-095 (p.13): printed \"crisp global gamma rhythm\" -> suggestion: Gamma is a local network rhythm; electrical coupling tightens local synchrony",
+   "category": "errata-K/row-correction; science-wording; basis [judgement]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1058"
+  },
+  {
+   "id": "K2-01",
+   "text": "Row N23, N27, N90 (p.19, 19, 21): printed Detect \"unbooked enthalpy/physics glitches\" -> correction: Under P2 a conformant build has no unbooked enthalpy, so nothing exists to detect, and injecting some fails P2. Route experimenter rule changes through a named, booked ledger pool. N90 is an aggregate of N23 and N27",
+   "category": "errata-K/row-correction; conservation/interventions; basis [text]",
+   "criterion": "DO: experimenter rule changes and injections go through a named, booked exogenous ledger pool and the input log; a conformant build has no unbooked energy to detect. TEST: after any intervention the total including the exogenous pool still balances exactly.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1070"
+  },
+  {
+   "id": "K2-02",
+   "text": "Row N29 (p.19): printed \"Respawn self-knowledge\": mature body, blank memory -> correction: Presupposes a respawn, which P5 (real mortality), P8 (bodies grow) and P2 (booked mass) rule out; the word appears nowhere else. Recast as an experimenter lesion that wipes episodic memory, with a sham control",
+   "category": "errata-K/row-correction; mortality/no-respawn; basis [text]",
+   "criterion": "AVOID any respawn path: death is final and mass returns to the world pools. A memory-wipe assay is an experimenter lesion with a sham control. TEST: API audit finds no respawn; a dead creature's matter is fully accounted for in the ledger.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1071"
+  },
+  {
+   "id": "K2-03",
+   "text": "Row N26 (p.19): printed Learns contingencies with \"experimenter-panel interventions\" -> correction: Logged human interventions replay for the same seed only; on a new seed they are no longer contingent on the display, so the contingency cannot be re-tested. Use a scripted, seed-keyed responder and a yoked non-contingent arm",
+   "category": "errata-K/row-correction; determinism/inputs; basis [text]",
+   "criterion": "DO: interventions used in contingency tests come from a scripted, seed-keyed responder with a yoked non-contingent arm, not live human input. TEST: responder output is a pure function of (seed, tick, observed state).",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1072"
+  },
+  {
+   "id": "K2-04",
+   "text": "Row N42 (with N51, N52); N38 (p.20; 19): printed Sleeping kin \"exchange compressed replay ripples\"; reads a peer's \"state-vector\" -> correction: No medium, bandwidth or cost is named, so these are free information channels (P7, P2). Define one transfer channel with an emitter, a physical medium and a per-bit cost",
+   "category": "errata-K/row-correction; information/no-free-channels; basis [text]",
+   "criterion": "AVOID free information channels: any creature-to-creature transfer has an emitter, a physical medium (world field) and a per-bit energy cost; creature code never reads another creature's internal state. TEST: creature kernels read only their own state rows and sensed field samples; every emission debits the ledger.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1073"
+  },
+  {
+   "id": "K2-05",
+   "text": "Row N34 (p.19): printed Perceives \"time-dilation zones\" -> correction: A dedicated sense would be a world-label read (P7). The observable is regrowth rate, which any patch learner detects",
+   "category": "errata-K/row-correction; information/no-label-reads; basis [judgement]",
+   "criterion": "AVOID senses that read world labels or zone flags; creatures observe only physical consequences. TEST: sensor inputs are field samples; no world-metadata pointer reaches creature kernels.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1074"
+  },
+  {
+   "id": "K2-06",
+   "text": "Row N41 (p.20): printed Waking-validated motor motifs bias \"subsequent gametes\" -> correction: Transfer of validated motor motifs into gametes has no known biological mechanism. Declare it non-biological and give it a bandwidth and a cost. The title says \"dream-seeded\" but the text mentions neither sleep nor dreams",
+   "category": "errata-K/row-correction; inheritance/channels; basis [judgement]",
+   "criterion": "DO: any non-genetic inheritance channel is declared non-biological and given a bandwidth and an energy cost. TEST: channel has capacity and cost constants; ledger debit on use.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1075"
+  },
+  {
+   "id": "K2-07",
+   "text": "Row N49 against SOFT29 (p.20, 24): printed Consolidation ticks \"during cryptobiosis\" -> correction: SOFT29 defines cryptobiosis as arrested metabolism, and P2 makes every plasticity event pay ATP. Restrict to arousal bouts in torpor",
+   "category": "errata-K/row-correction; conservation/plasticity-cost; basis [source]",
+   "criterion": "DO: every plasticity event pays energy; no plasticity while metabolism is arrested (only in arousal bouts). TEST: plasticity event count == 0 while the metabolic state is arrested; plasticity debit > 0 otherwise.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1076"
+  },
+  {
+   "id": "K2-08",
+   "text": "Row SOFT22 against SOFT23 (p.24): printed \"All\" fluxes obey the saturating single-substrate law -> correction: The next row describes allosteric inhibition, which does not follow that law. Write \"every flux is saturable; allosteric steps use a Hill-type form with effector terms\"",
+   "category": "errata-K/row-correction; chemistry/kinetics; basis [source]",
+   "criterion": "DO: every flux is saturable; allosteric steps use a Hill-type form with effector terms rather than the single-substrate law. TEST: flux never exceeds V_max for any input; effector changes the rate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1077"
+  },
+  {
+   "id": "K2-09",
+   "text": "Row CQM02 (p.8): printed Lineage \"continues discovering\" novel niches -> correction: No finite run can show it. Bound it: novelty measures still non-zero in the last quarter of a T-generation run, and above a neutral shadow run",
+   "category": "errata-K/row-correction; evolution/open-endedness; basis [source]",
+   "criterion": "DO: bound open-endedness claims: novelty measures still non-zero in the last quarter of a T-generation run and above a neutral shadow run. Engine needs a neutral-shadow mode (selection decoupled). TEST: shadow run exists for the same seed; comparison reported.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1083"
+  },
+  {
+   "id": "K2-10",
+   "text": "Row CQM15, N56 (p.8, 20): printed Maintains a \"Markov blanket\" -> correction: A statistical property of a chosen model; every node has one. Keep the physical boundary test",
+   "category": "errata-K/row-correction; claims/boundary; basis [source]",
+   "criterion": "N/A-ENGINE: keep the physical boundary test; do not claim a 'Markov blanket' as a result.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1084"
+  },
+  {
+   "id": "K2-11",
+   "text": "Row CQM24 (p.8): printed \"perturbing any declared causal part changes trajectory\" -> correction: Trivially true if the part is inside the hashed state. Require a change in the hash excluding that part, and in a downstream behavioural statistic",
+   "category": "errata-K/row-correction; lesion/causality; basis [text]",
+   "criterion": "DO: a causal-part test requires a change in the state hash that excludes the perturbed part and in a downstream behavioural statistic. Engine needs per-subsystem (per-column) sub-hashes. TEST: sub-hash API; perturbation changes the hash of other subsystems.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1085"
+  },
+  {
+   "id": "K2-12",
+   "text": "Row N05, N87 (p.18, 21): printed Tell \"quantum/unpredictable noise\" sites from structured ones -> correction: A recorded quantum stream (F-068) and a keyed counter-based generator are statistically indistinguishable to any learner, so \"quantum against generator\" has no observable. Keep the testable contrast, unpredictable against structured, and merge with N87",
+   "category": "errata-K/row-correction; claims/quantum; basis [judgement]",
+   "criterion": "AVOID 'quantum versus generator' tests: they have no observable. Keep 'unpredictable versus structured'. TEST: assay registry has no quantum-detection item.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1086"
+  },
+  {
+   "id": "K2-13",
+   "text": "Row N22 (p.19): printed Infers the \"time-scale\" dial -> correction: A dial that rescales everything, the creature's clocks included, has no observable inside the simulation. Test the ratio of world rates to the creature's own clock. The gravity, viscosity and temperature dials in the same row are observable",
+   "category": "errata-K/row-correction; test-design/observables; basis [judgement]",
+   "criterion": "DO: a global time-scale dial has no in-sim observable; test the ratio of world rates to the creature's own clock. TEST: assay varies world rate relative to creature clock.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1087"
+  },
+  {
+   "id": "K2-14",
+   "text": "Row N78 (p.21): printed Three guilds persist \"without extinction or infinite population blowup\" -> correction: Blow-up cannot happen under the ledger; \"without extinction\" has no horizon; \"criticality\" is misused. State generations, seeds and a recovery test",
+   "category": "errata-K/row-correction; population/bounds; basis [judgement]",
+   "criterion": "DO: population cannot blow up under a closed ledger; persistence claims state generations, seeds and a recovery test. Arena-full behaviour is deterministic (birth refused and logged), never a crash. TEST: fill the arena: run continues, refusal count logged, hash reproducible.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1088"
+  },
+  {
+   "id": "K2-15",
+   "text": "Row N88 (p.21): printed \"Quantifies causal gain\" -> correction: A measurement with no direction or threshold",
+   "category": "errata-K/row-correction; test-design/gates; basis [text]",
+   "criterion": "DO: a measurement used as a gate has a direction and a threshold. TEST: gate-spec schema.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1089"
+  },
+  {
+   "id": "K2-16",
+   "text": "Row F9 (p.7): printed \"binary ignition\" -> correction: The source model has a probabilistic competition up a binary tree, then a broadcast. \"Ignition\" is another theory's term",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1095"
+  },
+  {
+   "id": "K2-17",
+   "text": "Row CQM14 (p.8): printed Senders \"decode receivers' responses\" -> correction: Roles reversed: receivers decode",
+   "category": "errata-K/row-correction; science-wording; basis [text]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1096"
+  },
+  {
+   "id": "K2-18",
+   "text": "Row N16, N53 (p.18, 20): printed \"cosine/hash drift\"; \"hash kin markers\" -> correction: Name the measure. A cryptographic hash only says equal or not equal; graded drift needs cosine or a similarity-preserving hash. A hash marker supports exact-match kin tests only",
+   "category": "errata-K/row-correction; determinism/hash-semantics; basis [source]",
+   "criterion": "DO: the state hash answers equal/not-equal only; graded drift or kinship needs a named distance (cosine or a similarity-preserving hash). TEST: divergence reports use a distance metric, not hash differences.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1097"
+  },
+  {
+   "id": "K2-19",
+   "text": "Row N36 (p.19): printed Shifts its \"SCN clock ahead of food windows\" -> correction: Food anticipation survives loss of that clock; the standard explanation is a separate food-entrainable oscillator, whose location is still unknown",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1098"
+  },
+  {
+   "id": "K2-20",
+   "text": "Row N48 (p.20): printed Offspring inherit a weak, reversible bias against the parent's toxin -> correction: Has a biological precedent (inheritance of learned pathogen avoidance in nematodes, lasting about four generations). Keep it; state the channel, its bandwidth, its cost and its decay in generations",
+   "category": "errata-K/row-correction; inheritance/channels; basis [source]",
+   "criterion": "DO: an inherited learned bias states its channel, bandwidth, cost and decay in generations. TEST: bias decays to baseline within the stated generations.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1099"
+  },
+  {
+   "id": "K2-21",
+   "text": "Row N59 (p.20): printed Proportional cost means bluffers \"cannot fake\" -> correction: A weak animal can still pay a proportional cost. Honesty comes from condition-dependent trade-offs and must be measured, not assumed",
+   "category": "errata-K/row-correction; claims/guarantee; basis [source]",
+   "criterion": "AVOID assuming signal honesty from proportional cost; measure it. TEST: honesty metric with a bluffer arm.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1100"
+  },
+  {
+   "id": "K2-22",
+   "text": "Row N62 (p.20): printed Cavity volume sets \"call pitch\", an honest size cue -> correction: Honest only if cavity volume is developmentally tied to body size. Say \"resonant frequency\" rather than \"pitch\": in mammals fundamental frequency is a weak size cue and resonance spacing a better one, while in frogs call frequency does track size",
+   "category": "errata-K/row-correction; development/coupling; basis [source]",
+   "criterion": "DO: an 'honest size cue' requires the cue (resonator volume) to be developmentally tied to body size. TEST: correlation of cue with size arises from the growth rule, not a label.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1101"
+  },
+  {
+   "id": "K2-23",
+   "text": "Row N77 (p.21): printed Learns hazard intervals of \"stochastic storms/droughts\" -> correction: The storm process is not stated. If the hazard is constant, shelter timing cannot beat chance, though rate learning (reserves scaled to storm frequency) can still be tested. State the process; for the timing claim use a non-constant hazard with a constant-hazard yoked control",
+   "category": "errata-K/row-correction; world/stochastic-processes; basis [judgement]",
+   "criterion": "DO: every stochastic world process states its hazard function and is driven by the world stream of the keyed generator; timing-learning claims use a non-constant hazard with a constant-hazard yoked control. TEST: process parameters are in the config hash; yoked control arm exists.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1102"
+  },
+  {
+   "id": "K2-24",
+   "text": "Row SOFT15 (p.23): printed Slime \"reduces following-peer drag\" -> correction: The measured saving is in mucus production: followers secrete far less",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1103"
+  },
+  {
+   "id": "K2-25",
+   "text": "Row SOFT20 (p.23): printed Lateral line senses \"substrate Rayleigh vibrations\" -> correction: A lateral line senses near-field water flow; substrate-borne vibration is a separate channel (in fish, detected by the inner ear)",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1104"
+  },
+  {
+   "id": "K2-26",
+   "text": "Row SOFT25 (p.24): printed H+/lactate fatigues muscle -> correction: Acidosis has little direct effect at physiological temperature; inorganic phosphate appears to be the more important cause of fatigue in high-intensity exercise",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1105"
+  },
+  {
+   "id": "K2-27",
+   "text": "Row SOFT26 (p.24): printed \"Arrhenius Q10\" scaling -> correction: Two different laws: under Arrhenius the ten-degree ratio is not constant (2.12 at 278 K, 1.85 at 308 K for 50 kJ/mol). Keep Q10, as in the flux equation on p.38, and delete \"Arrhenius\" from the title; or change both places together",
+   "category": "errata-K/row-correction; chemistry/temperature-law; basis [computed]",
+   "criterion": "DO: use one temperature law in one place (Q10, constant ratio per ten degrees); AVOID calling it Arrhenius. TEST: rate(T+10)/rate(T) equals Q10 at two temperatures.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1106"
+  },
+  {
+   "id": "K2-28",
+   "text": "Row SOFT32 (p.24): printed Adhesion matrix drives germ-layer sorting -> correction: Measurements point to cortical tension as well as adhesion",
+   "category": "errata-K/row-correction; science-wording; basis [source], abstract only",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1107"
+  },
+  {
+   "id": "K2-29",
+   "text": "Row SOFT39 (p.24): printed Title \"zooid fusion\" -> correction: The text describes budding, which is how siphonophore colonies form; fusion is a different process (two colonies merging, as in some colonial ascidians)",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1108"
+  },
+  {
+   "id": "K2-30",
+   "text": "Row Category 9; M083 (p.3; B25): printed Metabolism scales as mass^0.75 through one creature's growth -> correction: The 0.75 exponent is an across-species convention and is not universal within species; exponents shift during growth. Declare the exponent per life stage. M083's control assumes an exponent of 1 must starve large adults, which real animals contradict",
+   "category": "errata-K/row-correction; metabolism/allometry; basis [source]",
+   "criterion": "AVOID hard-coding metabolism as mass^0.75 and then testing it against itself; declare the exponent per life stage and measure the emergent slope. TEST: fitted slope and R^2 over a stated mass range come from simulation output, with a comparative control.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1109"
+  },
+  {
+   "id": "K3-01",
+   "text": "Row Operator \"SetWeight / ScaleBlock\"; WSE10; ERR-02; M070 (p.37; 22; 28; B23): printed Clamp spectral radius to at most 0.99 as a constant-time check under 0.1 ms -> correction: Three faults. A spectral radius cannot be computed in constant time: one sparse matrix-vector product over the 4.8M synapses of the mock takes several milliseconds in compiled code. [...]",
+   "category": "errata-K/row-correction; stability/weight-guard; basis [computed]",
+   "criterion": "AVOID a constant-time 'spectral radius' clamp: it cannot be computed in constant time, a per-block clamp does not bound the whole matrix, and radius < 1 does not bound transients. DO: keep an incrementally updated norm bound on the touched rows online; put any true spectral estimate offline. TEST: the guard rejects [[0.5,2],[2,0.5]] and [[0.9,10],[0,0.9]]; guard cost per edit is measured.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1115"
+  },
+  {
+   "id": "K3-02",
+   "text": "Row G06 (p.33): printed Spectral radius at most 1 to \"guarantee non-exploding\" dynamics -> correction: It does not. The matrix [[1,1],[0,1]] has radius 1 and grows without bound, and for driven nonlinear reservoirs a radius below one is neither sufficient nor necessary for the echo-state property. Constrain the spectral norm",
+   "category": "errata-K/row-correction; stability/weight-guard; basis [source], [computed]",
+   "criterion": "DO: constrain an induced norm, not the spectral radius ([[1,1],[0,1]] has radius 1 and grows without bound). TEST: counterexample is rejected.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1116"
+  },
+  {
+   "id": "K3-03",
+   "text": "Row Operator \"Constrain\" (p.37): printed Orthogonal projection as \"Tier-0 exact\" -> correction: The sign clamp and the zero-sum projection are cheap and exact. The nearest orthogonal matrix needs a cubic-cost factorisation (hundreds of milliseconds for one 1000 x 1000 block) and is orthogonal only to rounding",
+   "category": "errata-K/row-correction; performance/hot-path; basis [computed]",
+   "criterion": "AVOID cubic-cost operations (nearest orthogonal matrix) in the tick path or labelled 'exact'; only sign clamp and zero-sum projection are cheap and exact. TEST: per-edit cost benchmark; operator list marks offline-only operators.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1117"
+  },
+  {
+   "id": "K3-04",
+   "text": "Row M06 (p.32): printed \"Exact long-horizon temporal memory\" in O(1) state -> correction: The memory is an optimal polynomial compression of history: approximate, with resolution set by state size",
+   "category": "errata-K/row-correction; claims/guarantee; basis [source]",
+   "criterion": "N/A-ENGINE: fixed-size memory of history is approximate; never label it exact.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1118"
+  },
+  {
+   "id": "K3-05",
+   "text": "Row M18 (p.33): printed \"strict O(1) memory\"; tag O(D) -> correction: One of the two cell types has a D x D matrix memory. A fixed-size state is constant in sequence length but lossy",
+   "category": "errata-K/row-correction; memory/layout; basis [source]",
+   "criterion": "DO: count matrix-valued state (D x D) in the memory budget; fixed-size state is lossy. TEST: budget tool includes it.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1119"
+  },
+  {
+   "id": "K3-06",
+   "text": "Row M16 (p.33): printed Dendritic XOR as basal drive \"gated by apical context plateaus\" -> correction: Two mechanisms: the XOR result comes from a dendritic spike whose amplitude peaks at threshold (shown in a model fitted to human layer 2/3 recordings); a plateau gating basal drive is a separate coincidence mechanism",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1120"
+  },
+  {
+   "id": "K3-07",
+   "text": "Row M17 (p.33): printed Behavioural time-scale plasticity filed under a pre x post eligibility rule -> correction: Its instructive signal is a dendritic plateau, with no requirement for coincident postsynaptic spiking. Row F-049 (p.11) describes it correctly",
+   "category": "errata-K/row-correction; science-wording; basis [source]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1121"
+  },
+  {
+   "id": "K3-08",
+   "text": "Row G09 (p.33): printed \"Scale-Free Rich-Club Hubs\" -> correction: Different properties: a heavy-tailed degree distribution does not imply a rich club. A random power-law graph and the Internet map show none; the Barabási-Albert model shows one only at the highest degrees. Name the property you need, and add the matching fragility to hub removal",
+   "category": "errata-K/row-correction; topology/properties; basis [source]",
+   "criterion": "DO: name the graph property actually needed (heavy-tailed degree versus rich club) and test fragility to hub removal. TEST: hub-lesion assay exists if hubs are used.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1122"
+  },
+  {
+   "id": "K3-09",
+   "text": "Row G08 (p.33): printed O(log N) broadcast \"at minimal wire cost\" -> correction: The log-N hop count holds above a crossover size. Wire cost is not minimal: random shortcuts are on average the longest wires",
+   "category": "errata-K/row-correction; topology/locality; basis [source], [computed]",
+   "criterion": "DO: treat long-range shortcuts as a wiring (and cache-locality) cost, not 'minimal wire'; log-N hop counts hold only above a crossover size. TEST: measured hop count and miss cost at the built size.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1123"
+  },
+  {
+   "id": "K3-10",
+   "text": "Row G13 (p.33): printed \"zero relearning\" under rotation -> correction: Exact only for rotations in the implemented group, and only if the task is itself symmetric; gravity, light and walls break it",
+   "category": "errata-K/row-correction; claims/guarantee; basis [source], [judgement]",
+   "criterion": "N/A-ENGINE: equivariance gives 'zero relearning' only for the implemented group and a symmetric task.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1124"
+  },
+  {
+   "id": "K3-11",
+   "text": "Row G04 (p.33): printed Trees embedded with \"near-zero distortion\" -> correction: Holds for trees, at a cost in numeric precision that grows with depth, which conflicts with the low-bit formats of table 7.1",
+   "category": "errata-K/row-correction; numerics/precision; basis [source]",
+   "criterion": "AVOID combining hyperbolic embeddings with low-bit formats without range analysis: precision need grows with depth. TEST: range/resolution table covers the deepest level used.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1125"
+  },
+  {
+   "id": "K3-12",
+   "text": "Row P06 (p.32): printed 4-bit levels \"optimal\" -> correction: The optimality claim is disputed, and the per-block scale is not counted, unlike the block-scaled rows",
+   "category": "errata-K/row-correction; memory/layout; basis [source]",
+   "criterion": "DO: count the per-block scale in storage cost; AVOID 'optimal' quantisation claims. TEST: budget tool counts scale bytes.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1126"
+  },
+  {
+   "id": "K3-13",
+   "text": "Row P24, M24 (p.32, 33): printed \"zero energy when silent\"; \"16-32x\" saving; \"Photonic\" -> correction: True of neuromorphic hardware. Here it holds on the CPU only with lazy leak, and GPU passes are dense. Spike coding is not weight storage, so the saving has no derivation",
+   "category": "errata-K/row-correction; performance/event-driven; basis [judgement]",
+   "criterion": "DO: 'no work when silent' holds on the CPU only with lazy leak (catch-up decay from elapsed integer ticks at the next event); dense GPU passes pay for every unit. TEST: lazy-leak and eager-leak runs give a bit-identical state hash; measured cost scales with active fraction.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1127"
+  },
+  {
+   "id": "K3-14",
+   "text": "Row Model 14, Level 0 (p.34; B12): printed Soft body in \"FP16/32\" -> correction: Half precision resolves 0.001 at magnitude 1 and 0.06 at 100: too coarse for a volume constraint near zero. Use 32-bit positions",
+   "category": "errata-K/row-correction; numerics/precision; basis [computed], [judgement]",
+   "criterion": "AVOID half-precision body positions; use >= 32-bit positions so a volume constraint near zero resolves. TEST: range/resolution table; volume-constraint error stays within its stated bound.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1128"
+  },
+  {
+   "id": "K3-15",
+   "text": "Row Section 7.2 (p.32-33): printed Complexity tags -> correction: The symbols k, K, N, E, D, M, G, S, B, L, C, W have no legend. k is explained only in row M13 and means something else in M01, M04 and M17; G means grid size in M10 and genome size in M12; O(2·D) is O(D)",
+   "category": "errata-K/row-correction; performance/cost-tags; basis [text]",
+   "criterion": "DO: complexity symbols have one legend (units, population, synapses, iterations, pairs). TEST: each cost tag uses only legend symbols.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1129"
+  },
+  {
+   "id": "K3-16",
+   "text": "Row Tab table (p.31): printed Column \"Bandwidth Mode\" -> correction: No cell states a bandwidth. Split it into transport, refresh rate and bytes per refresh, with a total",
+   "category": "errata-K/row-correction; telemetry/bandwidth; basis [text]",
+   "criterion": "DO: each telemetry channel states transport, refresh rate and bytes per refresh, with a total. TEST: measured bytes per refresh <= the stated budget.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1130"
+  },
+  {
+   "id": "K3-17",
+   "text": "Row Fused primitive 3 (p.37): printed \"Bipolar XOR\" binding -> correction: XOR binds 0/1 vectors; for ±1 vectors the operation is element-wise multiplication",
+   "category": "errata-K/row-correction; numerics/binding; basis [computed]",
+   "criterion": "DO: bind 0/1 hypervectors with XOR and +/-1 vectors with element-wise multiplication; name the operation correctly. TEST: bind(bind(a,b),b) == a.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1131"
+  },
+  {
+   "id": "K3-18",
+   "text": "Row G03 (p.33): printed Points, planes, rotors and torques \"without gimbal lock\" -> correction: Only rotors bear on gimbal lock; points and planes need the projective or conformal algebra",
+   "category": "errata-K/row-correction; science-wording; basis [judgement]",
+   "criterion": "N/A-ENGINE: science/wording correction; if this mechanism is built natively, identifiers, comments and reports follow the correction. No numeric gate.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1132"
+  },
+  {
+   "id": "CAW-01",
+   "text": "All list counts and sums: 14 + 10 + 25 + 100 + 500 + 100 + 12 + 40 + 24 = 825; 1,000 distinct cube cell identifiers (the identifiers only; for their content see G-01); 100 milestones; 36 registry entries; 19 tabs; 14 models; 75 catalogue rows (one of them the reserved row G17: F-04).",
+   "category": "errata-correct-as-written; counts/keep",
+   "criterion": "N/A-ENGINE: keep the source counts when tracing: 14+10+25+100+500+100+12+40+24 = 825 checks, 100 milestones, 36 registry entries, 19 tabs, 14 models, 75 catalogue rows.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1138"
+  },
+  {
+   "id": "CAW-02",
+   "text": "The fourteen indicator IDs, their order and count.",
+   "category": "errata-correct-as-written; counts/keep",
+   "criterion": "N/A-ENGINE: keep the fourteen indicator ids, order and count.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1139"
+  },
+  {
+   "id": "CAW-03",
+   "text": "The spiking liquid time-constant paper cited in row M04 exists. Do not delete the citation; apply the wording change in D-04.",
+   "category": "errata-correct-as-written; doc-only/citation",
+   "criterion": "N/A-ENGINE: citation exists; keep it.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1140"
+  },
+  {
+   "id": "CAW-04",
+   "text": "The spreadsheet row ceiling of 1,048,576 (ISS-03). It is per worksheet.",
+   "category": "errata-correct-as-written; doc-only/export",
+   "criterion": "N/A-ENGINE: spreadsheet row ceiling is per worksheet; export tooling only.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1141"
+  },
+  {
+   "id": "CAW-05",
+   "text": "The block-scaled format rows: 32 elements with a shared 8-bit scale, 4.25 and 8.25 bits per element, 7.5x and 3.9x. Also the bit layouts of the 8-bit float formats, NF4's name, and ternary at 1.58 bits and 20x.",
+   "category": "errata-correct-as-written; memory/layout",
+   "criterion": "KEEP: block-scaled formats are right: 32 elements sharing an 8-bit scale give 4.25 and 8.25 bits per element; ternary is 1.58 bits. TEST: if used, static_assert block size (e.g. 32 x 4 bits + 8 bits = 17 bytes).",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1142"
+  },
+  {
+   "id": "CAW-06",
+   "text": "The equations on Framework p.38: the compliance formula α/dt², the two antithetic equations (apart from the missing actuation term, D-07), the saturating flux with a Q10 factor.",
+   "category": "errata-correct-as-written; numerics/equations",
+   "criterion": "KEEP: compliance term alpha/dt^2 and the saturating flux with a Q10 factor are correct as formulas; in fixed point they must be formed without underflow (see B-15). TEST: unit tests against hand values.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1143"
+  },
+  {
+   "id": "CAW-07",
+   "text": "The chemoton triad line on Framework p.38 (autocatalytic intermediate A, membrane T, template pV) and its symbols. The box label above it is not right: see D-08.",
+   "category": "errata-correct-as-written; chemistry/chemoton",
+   "criterion": "KEEP: chemoton triad = autocatalytic intermediate A, membrane T, template pV. TEST: if built, three coupled subsystems present.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1144"
+  },
+  {
+   "id": "CAW-08",
+   "text": "The arithmetic of 24 GB/s for 10^8 synapses x 4 bytes x 60 Hz (for the inference drawn from it, see B-14); 16 KB for ten qubits; the five clock dividers; 0.88 - 0.46 = 0.42 (the scores themselves are illustrative: I-04).",
+   "category": "errata-correct-as-written; scheduler/dividers",
+   "criterion": "KEEP: the five clock dividers are a valid design; 16 KB for a ten-qubit classical register is right. TEST: divider table is a compiled constant.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1145"
+  },
+  {
+   "id": "CAW-09",
+   "text": "The FP32 example in BUG-03: adding 1e-6 to 1e5 really does vanish, and compensated 64-bit summation really is needed for a 1e-12 relative gate.",
+   "category": "errata-correct-as-written; conservation/accumulation",
+   "criterion": "KEEP: small-addend absorption in 32-bit floats is real; a tight relative gate needs compensated 64-bit sums, or integer quanta. TEST: no 32-bit float accumulator holds a conserved quantity.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1146"
+  },
+  {
+   "id": "CAW-10",
+   "text": "The two cross-origin headers in ISS-01.",
+   "category": "errata-correct-as-written; doc-only/web",
+   "criterion": "N/A-ENGINE: browser headers; not applicable to a native engine.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1147"
+  },
+  {
+   "id": "CAW-11",
+   "text": "\"Symmetric e-prop\" (F-051) is the published name of a variant. The tree structure of F9, the allosteric inhibitors in SOFT23 and the precursor dependence in SOFT27 are right. Rows M07, M09 and M10 are right (their complexity symbols still need the legend asked for in K3).",
+   "category": "errata-correct-as-written; doc-only/science",
+   "criterion": "N/A-ENGINE: listed names and rows are right; do not change.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1148"
+  },
+  {
+   "id": "CAW-12",
+   "text": "Row M08: world models roll out in a compact latent space, not in pixels. A draft of this list objected to that row and was wrong.",
+   "category": "errata-correct-as-written; doc-only/science",
+   "criterion": "N/A-ENGINE: world models roll out in a compact latent space; row is right.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1149"
+  },
+  {
+   "id": "CAW-13",
+   "text": "The descriptions of F-007 (dendritic XOR) and F-049 (behavioural time-scale plasticity) in the mechanism list.",
+   "category": "errata-correct-as-written; doc-only/science",
+   "criterion": "N/A-ENGINE: mechanism descriptions are right.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1150"
+  },
+  {
+   "id": "CAW-14",
+   "text": "1-4% of units spiking per step (HW09), taken at the 5 ms spike clock of HW10, is 2-8 spikes per second, a reasonable cortical rate. The figure is plausible; E-10 still applies.",
+   "category": "errata-correct-as-written; performance/activity",
+   "criterion": "KEEP: 1-4% of units active per step (2-8 spikes per second at a 5 ms clock) is a plausible design assumption; it still needs a numeric gate (E-10). TEST: measured active fraction per step is reported and gated.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1151"
+  },
+  {
+   "id": "CAW-15",
+   "text": "N21, N25 and L041 already carry a recording qualifier (\"recordable\", \"recorded\", \"Recorded / replayable\"), and DIL-06 already mandates locked sensor logs: do not add one. The other fixes in A-02 still apply.",
+   "category": "errata-correct-as-written; determinism/inputs",
+   "criterion": "KEEP: live-sensor and host-timing senses already require recording; locked sensor logs are mandatory for test gates. TEST: gate runs load a locked log whose hash is in the manifest.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1152"
+  },
+  {
+   "id": "CAW-16",
+   "text": "The designs behind ERR-05 (keyed counter-based generator), BUG-06 (structural mask ANDed with lesion mask), CNF-06 (single-writer, double-buffered state), DIL-02 (two-tier determinism), DIL-06 (record and replay for live sensors) and ISS-02's separation of simulated from wall-clock time.",
+   "category": "errata-correct-as-written; design/keep",
+   "criterion": "KEEP six designs: keyed counter-based generator; structural mask ANDed with lesion mask; single-writer, double-buffered state; two-tier determinism; record-and-replay for live sensors; simulated time separate from wall-clock time. TEST: effective_mask == structural & lesion; each state column has one writer per phase and readers see the previous buffer; hash independent of wall-clock pacing.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1153"
+  },
+  {
+   "id": "CAW-17",
+   "text": "The scope statement on Framework p.1 that passing indicators is not a claim of sentience.",
+   "category": "errata-correct-as-written; claims/indicators",
+   "criterion": "KEEP: passing indicators is not a claim of sentience. TEST: disclaimer present in every indicator report.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1154"
+  },
+  {
+   "id": "NC-01",
+   "text": "The neighbouring codebase. This list tests the two PDFs and does not test them against any implementation. The only material outside them that was consulted is the companion cube spreadsheet (G-03) and a search of the sibling notes and PDFs for measurements (B-08).",
+   "category": "errata-not-checked; scope/errata",
+   "criterion": "IMPLICATION: the errata tested documents, not code; closing an erratum in a document certifies nothing about an implementation. TEST: each native claim has its own run evidence.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1158"
+  },
+  {
+   "id": "NC-02",
+   "text": "The previous edition, so \"preserved verbatim\" and \"zero dropped items\" were not tested.",
+   "category": "errata-not-checked; scope/errata",
+   "criterion": "N/A-ENGINE: previous edition was not tested.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1159"
+  },
+  {
+   "id": "NC-03",
+   "text": "61 of the 100 mechanism rows, and most assay and soft-body rows, were judged from reviewers' knowledge and not looked up.",
+   "category": "errata-not-checked; scope/errata",
+   "criterion": "N/A-ENGINE: 61 of 100 mechanism rows and most assay rows were judged from knowledge, not looked up; treat science rows as unverified until sourced.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1160"
+  },
+  {
+   "id": "NC-04",
+   "text": "Whether the fifteen-milestone target in J-01 is novel.",
+   "category": "errata-not-checked; scope/errata",
+   "criterion": "N/A-ENGINE: novelty of the fifteen-milestone target was not checked.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1161"
+  },
+  {
+   "id": "NC-05",
+   "text": "Laptop and GPU throughput were estimated from published simulator figures, not benchmarked. Timings quoted in K3 are orders of magnitude from two machines.",
+   "category": "errata-not-checked; scope/errata",
+   "criterion": "IMPLICATION: laptop and GPU throughput in the errata are estimates from published figures; native capacity numbers must be benchmarked on this machine. TEST: capacity rows link to a benchmark log.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1162"
+  },
+  {
+   "id": "NC-06",
+   "text": "Only eleven pages were inspected as rendered images; the rest were reviewed as extracted text, so purely visual defects may remain.",
+   "category": "errata-not-checked; scope/errata",
+   "criterion": "N/A-ENGINE: visual defects in the PDFs may remain.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1163"
+  },
+  {
+   "id": "NC-07",
+   "text": "Many of the papers in the Sources list were read as abstracts, not full texts, and two only as bibliographic records (they are marked \"record only\" in the list).",
+   "category": "errata-not-checked; scope/errata",
+   "criterion": "N/A-ENGINE: many sources were read as abstracts only.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1164"
+  },
+  {
+   "id": "NC-08",
+   "text": "The corrections made after step 6 above (about two dozen small edits and the added source lines) were checked by script and by the lead reviewer only.",
+   "category": "errata-not-checked; scope/errata",
+   "criterion": "N/A-ENGINE: late corrections were checked by script and lead reviewer only.",
+   "source_ref": "W:/ALife-Framework-v2.0-Errata.md:L1165"
+  },
+  {
+   "id": "ALF-001",
+   "text": "Correct the memory chart's arithmetic and units (Closed in v3.0). v3.0 closure evidence: Sec 6.2 `MEMORY_COMPRESSION_ROWS` + Model 12 SVG (`100×10^8 = 10^10` syn exact decimal bytes)",
+   "category": "closure-v3.0; P1; Definite error; other ids: B-01, K1; memory/budget",
+   "criterion": "DO: memory totals are exact products (count x bytes) computed by tool. TEST: budget tool equals arena allocation (see B-01).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L19"
+  },
+  {
+   "id": "ALF-002",
+   "text": "Define a fair dense-versus-sparse memory comparison (Closed in v3.0). v3.0 closure evidence: Sec 6.2 `MEMORY_BENCHMARK_GRAPH` (`N=50,000, E=10^8, ρ=4%`, dense `4N² = 10.0 GB` / `1.00 TB` + Tier-L `8.59 GB`)",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: B-02, K1; evidence/baseline",
+   "criterion": "DO: storage benchmarks state one graph (N, E, density) and compare against a stated dense and sparse baseline. TEST: benchmark emits baseline rows for the same graph.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L20"
+  },
+  {
+   "id": "ALF-003",
+   "text": "Reconcile packed int4/ternary estimates with the actual block layout (Closed in v3.0). v3.0 closure evidence: Sec 6.1 `MEM-6` (`28B/32 = 0.875 B/syn` int4) & `MEM-7` (`19B/32 = 0.59375 B/syn` ternary `3^5=243`) + Model 12 strip",
+   "category": "closure-v3.0; P1; Contradiction; other ids: B-03, B-04, B-14; memory/layout",
+   "criterion": "DO: packed block figures come from the actual layout (v3.0: 28 bytes per 32 int4 synapses = 0.875 B/syn; 19 bytes per 32 ternary = 0.59375 B/syn, 5 trits per byte since 3^5 = 243). TEST: static_assert(sizeof(block)) for each packed class used.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L21"
+  },
+  {
+   "id": "ALF-004",
+   "text": "Budget learning and runtime state separately from compressed weights (Closed in v3.0). v3.0 closure evidence: Sec 6.2 Separate Plasticity/Runtime Inventory (`+0.40 B/syn` sparse eligibility cap + `CSR` rewire overlay + SoA state)",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: B-04, B-05; memory/layout",
+   "criterion": "DO: budget plasticity and runtime state (eligibility, rewire overlay, per-unit state) separately from compressed weights. TEST: budget tool has separate weight / plasticity / runtime lines that sum to the arena size.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L22"
+  },
+  {
+   "id": "ALF-005",
+   "text": "Specify index widths for large connectomes (Closed in v3.0). v3.0 closure evidence: Sec 6.2 & `HW03`: tiled `uint16` (`≤65,536`/tile + explicit `row_tile_ptr`) vs `uint32` (`9.25 B/syn`) for `>65K` units",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: B-04, K1; memory/index-width",
+   "criterion": "DO: state index widths: tiled 16-bit indices (<= 65,536 per tile with an explicit tile pointer) versus 32-bit for larger sets. TEST: index type asserted against tile size; out-of-range count is a config error.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L23"
+  },
+  {
+   "id": "ALF-006",
+   "text": "Correct TF32's storage claim (Closed in v3.0). v3.0 closure evidence: Sec 4.3 `PM16` (`TF32: 32b storage / 19b TensorCore math`, `1.0×` storage — no RAM save)",
+   "category": "closure-v3.0; P1; Definite error; other ids: E-02, K3; doc-only/gpu-format",
+   "criterion": "N/A-ENGINE: TF32 gives no storage saving; relevant only if GPU tensor formats are used.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L24"
+  },
+  {
+   "id": "ALF-007",
+   "text": "Split incompatible precision formats and distinguish weight/state precision (Closed in v3.0). v3.0 closure evidence: Sec 4.3 `PM10` (`int8`, `8b`, `4×`), `PM17` (`FP32/Q16.16`, `32b`, `1×`), `PM21` (`[Modifier]`), Cube `Y5` vs `Y8` split",
+   "category": "closure-v3.0; P2; Contradiction; other ids: E-01, G-05, K3; numerics/formats",
+   "criterion": "DO: distinguish weight precision from state precision and list each format's true width (8-bit gives 4x, 32-bit gives 1x). TEST: format table with bits per element checked by static_assert.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L25"
+  },
+  {
+   "id": "ALF-008",
+   "text": "Replace unconditional range and energy guarantees in the precision table (Closed in v3.0). v3.0 closure evidence: Sec 4.3 `PM15` (`BF16` finite/NaN guard required) & `PM24` (`0` propagation work when silent; basal leak ticks)",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: K3; performance/event-driven",
+   "criterion": "DO: silent units cost no propagation work, but basal leak is still accounted. TEST: lazy and eager leak give the same hash (see K3-13); no float format without a finite-value guard feeds canonical state.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L26"
+  },
+  {
+   "id": "ALF-009",
+   "text": "Add backend capability checks for nonstandard and optional numeric formats (Closed in v3.0). v3.0 closure evidence: Sec 4.3 Backend Column (`WGSL f32 + probed f16`; `FP64` on CPU/WASM) + `HW17` startup capability probe",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: E-03, K1; numerics/capability-probe",
+   "criterion": "DO: probe backend capabilities at start-up and record them. TEST: CPUID/GPU probe result in the run manifest; unsupported required feature stops with a clear error.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L27"
+  },
+  {
+   "id": "ALF-010",
+   "text": "Downgrade the cube's categorical stability badges to conditional hypotheses (Closed in v3.0). v3.0 closure evidence: Sec 1 `P2`, `D1`, `PM17/18`: numeric role contract separating weights, state, accumulators & `FP64` ledger (never `Q16.16`)",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: E-01, A-03; numerics/roles",
+   "criterion": "DO: a numeric role contract separates weights, state, accumulators and the ledger; the ledger is never Q16.16. TEST: each SoA column declares its role and format; ledger columns are 64-bit integers.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L28"
+  },
+  {
+   "id": "ALF-011",
+   "text": "Remove the scheduler's unproved fixed speedup and FLOP-saving numbers (Closed in v3.0). v3.0 closure evidence: Model 13 & `HW10`: renamed `5-Gear Deterministic Multirate Scheduler` (`R = Sum(c_i/d_i)/Sum(c_i)` + `M005` `≥5×` gate)",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: B-08, K1; scheduler/multirate",
+   "criterion": "DO: name it a deterministic multirate scheduler; its cost ratio is R = sum(c_i/d_i)/sum(c_i) from measured per-clock costs; the speed-up is a measured gate (v3.0: >= 5x). TEST: benchmark prints c_i, d_i, R and the measured ratio.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L29"
+  },
+  {
+   "id": "ALF-012",
+   "text": "Do not equate integer-divided scheduling with a symplectic integrator (Closed in v3.0). v3.0 closure evidence: Sec 6.3 Multirate Coupling Contract (ZOH slow->fast hold, conservative flux accumulators, `2×` step-halving `<1%` check)",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: B-08; scheduler/coupling",
+   "criterion": "DO: multirate coupling contract: zero-order hold slow-to-fast, conservative flux accumulators fast-to-slow, and a 2x step-halving check (v3.0: < 1% change). TEST: cross-clock transfers conserve exactly; step-halving test passes.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L30"
+  },
+  {
+   "id": "ALF-013",
+   "text": "Qualify CfC and exponential-update stability claims (Closed in v3.0). v3.0 closure evidence: `D7`, `MF03`, `HW11`: `CfC` scoped to bounded neural rate approx; stiff wet chemistry uses backward-Euler/TR-BDF2",
+   "category": "closure-v3.0; P1; Definite error; other ids: B-09, K1; numerics/stiffness",
+   "criterion": "DO: closed-form updates are used only for bounded neural-rate approximations; stiff chemistry uses an implicit or otherwise bounded step. TEST: stiff test reaction stays bounded and conserves at the production step size.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L31"
+  },
+  {
+   "id": "ALF-014",
+   "text": "Specify canonical arithmetic and serialization beyond choosing Q16.16/FP64 (Closed in v3.0). v3.0 closure evidence: Sec 4.4 `MF02` (`O(K_iter·E_syn)`), `MF11` (`O(K_iter·E_syn)`), `MF22` (`O(2·D_pol²)`)",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: K3; performance/cost-tags",
+   "criterion": "DO: cost statements include the iteration factor (K_iter x E_syn). TEST: cost tags use legend symbols only.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L32"
+  },
+  {
+   "id": "ALF-015",
+   "text": "Define GPU equivalence in units and over meaningful horizons (Closed in v3.0). v3.0 closure evidence: Sec 4.4 `MF04` & `CIT-08`: cited Vanhalle & Gielen (2025, IEEE ICECS, DOI: 10.1109/ICECS66544.2025.11270775), qualified `up to 9.2×`",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: I-05, K3; doc-only/citation",
+   "criterion": "N/A-ENGINE: citation with DOI and 'up to' qualifier.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L33"
+  },
+  {
+   "id": "ALF-016",
+   "text": "Complete the random-addressing contract (Closed in v3.0). v3.0 closure evidence: Sec 1 `P4`, `BUG-01`, `HW15`: Tier-1 ships versioned `exp_det`/`log_det` + `.alifebin`; Tier-2 checks observable distributions",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: A-02, E-08, I-02; determinism/math",
+   "criterion": "DO: the canonical tier ships versioned deterministic exp/log and a binary snapshot format; a second tier may only check observable distributions. TEST: golden vectors for exp_det/log_det; snapshot round-trip hash-equal.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L34"
+  },
+  {
+   "id": "ALF-017",
+   "text": "Resolve observer-independent state versus viewport/load-dependent simulation (Closed in v3.0). v3.0 closure evidence: Sec 1 `P9`, `HW12`, `HW20`, Model 14: Tier-1 Governor/UI changes render & lossy UI decimation ONLY (`UI hash == headless hash`)",
+   "category": "closure-v3.0; P1; Contradiction; other ids: A-01, E-07; determinism/observer",
+   "criterion": "DO: governor and UI change rendering and lossy telemetry decimation only. TEST: UI-attached hash == headless hash (see A-01).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L35"
+  },
+  {
+   "id": "ALF-018",
+   "text": "Separate zero state influence from zero cost and define telemetry consistency (Closed in v3.0). v3.0 closure evidence: `P4`, `ERR-05`, `HW16`, `M002`: `Philox4x32-10` counter tuple isolating `WORLD_EXOG` from `ENTITY_INT` (`0` bit diff on 1-unit delete)",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: E-05; rng/streams",
+   "criterion": "DO: the Philox4x32-10 counter tuple isolates the world-exogenous stream from entity-internal streams. TEST: deleting one unit gives a 0-bit difference in every other entity's draws and in the world stream.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L36"
+  },
+  {
+   "id": "ALF-019",
+   "text": "Scope zero-copy transport to the actual shared-memory boundary (Closed in v3.0). v3.0 closure evidence: Model 7 & `HW14`: zero-copy scoped strictly to Sim<->UI `SharedArrayBuffer`; WebGPU `writeBuffer` & Parquet perform bounded copies",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: A-01, B-11; claims/scope",
+   "criterion": "DO: scope 'zero-copy' to the real shared-memory boundary; copies to GPU buffers and exports are bounded and counted. TEST: copy count per frame is reported.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L37"
+  },
+  {
+   "id": "ALF-020",
+   "text": "Correct the claim of automatic SharedArrayBuffer fallback (Closed in v3.0). v3.0 closure evidence: `ISS-01` & `HW14`: app-owned `self.crossOriginIsolated === true` check + bounded 3-retry `SeqLock` + double-buffer fallback",
+   "category": "closure-v3.0; P2; Definite error; other ids: E-06, K1; telemetry/consistency",
+   "criterion": "DO: readers use an explicit capability check plus a bounded-retry seqlock (v3.0: 3 retries) with a double-buffer fallback; never an implicit fallback. TEST: torn-read test under a writer; retry bound enforced; fallback is logged.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L38"
+  },
+  {
+   "id": "ALF-021",
+   "text": "Measure allocations separately from net heap growth and GC pauses (Closed in v3.0). v3.0 closure evidence: `HW02`, `M001`, `GATE-02`: unified `10,000`-tick `0` heap alloc, `0` `BigInt` box, `0` WASM `memory.grow`, `0` lossless-ring drop",
+   "category": "closure-v3.0; P1; Definite error; other ids: E-09, H-09; memory/allocation",
+   "criterion": "DO: over 10,000 ticks: 0 heap allocations, 0 arena growth, 0 drops on lossless rings. TEST: allocation hook == 0; arena size constant; lossless-ring drop counter == 0.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L39"
+  },
+  {
+   "id": "ALF-022",
+   "text": "Replace worst-case O(N) collision guarantees with a bounded-candidate contract (Closed in v3.0). v3.0 closure evidence: `HW07`, `M091`, Model 11: broad-phase spatial hash complexity written `O(N_pop + C_pairs)` under bounded local crowding",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: K1; performance/broad-phase",
+   "criterion": "DO: broad phase is a spatial hash with cost O(population + candidate pairs) under a stated local-crowding bound; AVOID claiming worst-case O(N). TEST: candidate pairs per creature stay under the bound at target density; cell overflow is handled deterministically and counted.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L40"
+  },
+  {
+   "id": "ALF-023",
+   "text": "Define cost variables and stop labeling whole operations O(1) (Closed in v3.0). v3.0 closure evidence: Sec 1 `COMPLEXITY_LEGEND`: disambiguated `N_units`, `N_pop`, `E_syn`, `k`, `C_pairs`, `V_mesh`, `M_pat`, `M_mod`, `G_sp`, `G_plan`, `Q`",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: K3; performance/cost-tags",
+   "criterion": "DO: define cost variables once (units, population, synapses, fan-in, pairs, mesh vertices). TEST: legend exists; tags use it.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L41"
+  },
+  {
+   "id": "ALF-024",
+   "text": "Correct the JavaScript qubit-allocation example (Closed in v3.0). v3.0 closure evidence: `BUG-04`, `HW08`, `M007`: integer `0 ≤ Q ≤ 10` check + `2*(2Q)` preventing JS `1 << 32 === 1` wraparound; `F-072` `Q≤8` sub-cap",
+   "category": "closure-v3.0; P1; Definite error; other ids: B-13, E-10; robustness/validation",
+   "criterion": "DO: integer range check on any register-size parameter (v3.0: 0 <= Q <= 10, sub-cap 8) before allocating 2 x 2^Q entries. TEST: out-of-range Q is rejected; no shift wraparound (see B-09).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L42"
+  },
+  {
+   "id": "ALF-025",
+   "text": "Bound the entire quantum subsystem and define the MPS approximation (Closed in v3.0). v3.0 closure evidence: `HW16` & `M002`: 32-bit `Math.imul` `Philox4x32-10` implementation avoiding JS `BigInt` heap boxing",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: E-09; rng/implementation",
+   "criterion": "DO: Philox4x32-10 is implemented with 32x32->64 multiplies (hi/lo words) and no heap use; scalar, AVX2 and assembly versions agree. TEST: known-answer vectors; cross-implementation bit equality on random keys and counters.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L43"
+  },
+  {
+   "id": "ALF-026",
+   "text": "Replace the general O(1) spectral edit check with an explicit bounded guard (Closed in v3.0). v3.0 closure evidence: `M006` & `HW15`: canonical little-endian `.alifebin` snapshot format (JSON reserved strictly for human metadata manifests)",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: E-08; determinism/snapshot",
+   "criterion": "DO: one canonical little-endian binary snapshot format, versioned; text formats are for human metadata only and never hashed as state. TEST: snapshot bytes identical across compilers; round-trip restores an identical hash.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L44"
+  },
+  {
+   "id": "ALF-027",
+   "text": "Do not treat spectral radius as a universal nonlinear stability guarantee (Closed in v3.0). v3.0 closure evidence: Model 14 & `HW21`: contiguous Governor bands (`<0.70B, 0.70–0.90B, 0.90–1.00B, >1.00B` of `T_frame(Tier)`) + 30-frame hysteresis",
+   "category": "closure-v3.0; P1; Definite error; other ids: B-10; performance/governor",
+   "criterion": "DO: governor bands are contiguous fractions of the tier frame budget B (< 0.70B, 0.70-0.90B, 0.90-1.00B, > 1.00B) with 30-frame hysteresis, render-side only. TEST: band function is total; hysteresis test; sim hash unaffected.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L45"
+  },
+  {
+   "id": "ALF-028",
+   "text": "Replace unconditional tiny-diff bounds with size-dependent limits (Closed in v3.0). v3.0 closure evidence: Model 7 Mock UI: fixed `Seed: 442 (Practice 100–999)`, `|ΔE|/(E0+Ein): 1.4e-15`, `Band 0 [OK] (8.4ms · 60 FPS vsync)`",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: B-11; telemetry/units",
+   "criterion": "DO: drift is displayed as the labelled relative quantity |dE|/(E0 + E_in); with an integer ledger the displayed residual is exactly 0. TEST: telemetry field carries its definition.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L46"
+  },
+  {
+   "id": "ALF-029",
+   "text": "Define the thermal/frame governor as a measurable control policy (Closed in v3.0). v3.0 closure evidence: Model 7 Tab 19: `Packed Synapses: 4.8M` (`28B/19B` blocks) + explicit `Gear 0/1/2 amortized ms/frame`",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: B-11; telemetry/units",
+   "criterion": "DO: per-gear (per-clock) timings are labelled amortised ms per frame. TEST: telemetry schema unit fields.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L47"
+  },
+  {
+   "id": "ALF-030",
+   "text": "Label hardware tiers and roofline numbers as targets until measured (Closed in v3.0). v3.0 closure evidence: Sec 6.2 `HARDWARE_TIERS`: realistic `Tier W` (`8–32×100M` focal or `500×2M` crowd) + `Synaptic Events/s` column; dropped laptop `10^10` claim",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: B-06, B-07, B-17; evidence/capacity",
+   "criterion": "DO: hardware-tier numbers are targets until measured and include events per second. TEST: tier table rows carry status measured/target and a benchmark reference.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L48"
+  },
+  {
+   "id": "ALF-031",
+   "text": "Make out-of-memory recovery a bounded preflight/restart contract (Closed in v3.0). v3.0 closure evidence: Sec 4.1 `MASTER_TABS_19`: concrete `Transport · Refresh Hz · KB/frame` budget on every single tab (`Tab 01–19`)",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: B-11; telemetry/bandwidth",
+   "criterion": "DO: every telemetry channel has a transport, refresh rate and bytes-per-frame budget. TEST: measured bytes per frame <= budget (see K3-16).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L49"
+  },
+  {
+   "id": "ALF-032",
+   "text": "Specify bounded telemetry/export backpressure and crash consistency (Closed in v3.0). v3.0 closure evidence: `ISS-05`, `Tab 18`, `HW22`: decoupled overwrite-safe lossy UI telemetry rings (`gap_count`) from backpressure-safe lossless Export rings",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: K1; telemetry/rings",
+   "criterion": "DO: lossy overwrite-safe UI rings (with a gap counter) are separate from lossless export rings with backpressure; neither can stall or alter the simulation's state. TEST: slow reader produces gap_count > 0 on the UI ring and 0 drops on the export ring; sim hash unchanged.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L50"
+  },
+  {
+   "id": "ALF-033",
+   "text": "Validate aliasing and event ordering across coarse clocks (Closed in v3.0). v3.0 closure evidence: `ISS-03` & `HW22`: `.xls`/`.xlsx` auto-sharded `≤500K` rows/sheet while streaming raw tensors to `Parquet`/`HDF5`",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: K1; doc-only/export",
+   "criterion": "N/A-ENGINE: spreadsheet sharding is export tooling; the engine streams binary data.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L51"
+  },
+  {
+   "id": "ALF-034",
+   "text": "Correct Holm/FDR terminology throughout both PDFs (Closed in v3.0). v3.0 closure evidence: `THERMODYNAMIC_CONTRACT`: unified 11 conserved pools (`E_patch..E_heat_phys + E_diss_num`) across `P2`, `M004`, `Tab 07` & Sankey",
+   "category": "closure-v3.0; P1; Definite error; other ids: A-03, B-15; conservation/pools",
+   "criterion": "DO: one pool list (v3.0: 11 conserved pools including physical heat and numerical dissipation) used everywhere. TEST: pool enum defined once; ledger sums over exactly that enum.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L52"
+  },
+  {
+   "id": "ALF-035",
+   "text": "Replace a universal seed count with an assay-specific power or precision plan (Closed in v3.0). v3.0 closure evidence: Unified relative drift tolerance `|ΔE|/(E_0 + E_in,cum) < 1e-12` across `P2`, `CQM05`, `BUG-03`, `M004`, `M090`, `M091`, `GATE-03`",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: A-03, B-12; conservation/tolerance",
+   "criterion": "DO: one drift definition everywhere: |dE|/(E0 + cumulative input) < 1e-12 for float mirrors; the native integer ledger must give exactly 0. TEST: integer residual == 0 each tick.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L53"
+  },
+  {
+   "id": "ALF-036",
+   "text": "Specify a paired effect estimator instead of treating Cliff's delta as the paired analysis (Closed in v3.0). v3.0 closure evidence: `BUG-03` & `P2`: renamed `FP32 Small-Addend Absorption`; replaced old inaccurate FP64 label with `'Compensated FP64 (< 1e-12)'`",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: B-12; conservation/accumulation",
+   "criterion": "AVOID 32-bit float accumulators for conserved quantities (small-addend absorption). TEST: conserved columns are integer typed.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L54"
+  },
+  {
+   "id": "ALF-037",
+   "text": "Declare multiplicity across contrasts, suites and repeated promotions (Closed in v3.0). v3.0 closure evidence: `THERMODYNAMIC_CONTRACT` & `P2`: explicit Second-Law one-way sink rule (`dE_heat_phys/dt ≥ 0`, `0` heat-to-ATP backflow)",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: E-04; conservation/second-law",
+   "criterion": "DO: one-way sink: physical heat never decreases through transfers to usable pools; 0 heat-to-ATP backflow. TEST: transfer API rejects heat as a source for usable pools; heat pool monotone except declared radiation to the environment.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L55"
+  },
+  {
+   "id": "ALF-038",
+   "text": "Separate non-regression from two-sided equivalence and define margins (Closed in v3.0). v3.0 closure evidence: `SOFT06`, `BUG-02`, `M022`: XPBD numerical damping booked to `E_diss_num ≥ 0` (`ΔE_diss_num < -1e-15` faults against free energy)",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: A-03, B-15; conservation/dissipation",
+   "criterion": "DO: constraint-solver damping is booked to a numerical-dissipation account that never decreases. TEST: per-tick delta of that account >= 0; a negative delta faults.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L56"
+  },
+  {
+   "id": "ALF-039",
+   "text": "Restore the distinction among HOT-1, HOT-2 and HOT-3 (Closed in v3.0). v3.0 closure evidence: `D4`, `SOFT21`, `M011`, Model 10: Gánti Chemoton explicitly couples `A`, membrane `T`, and template polymer `pV_n` (`n ≥ N*`)",
+   "category": "closure-v3.0; P1; Definite error; other ids: D-08; chemistry/chemoton",
+   "criterion": "DO: if a chemoton is built it couples metabolic cycle A, membrane T and template polymer pV_n with a length threshold. TEST: division requires all three subsystems' conditions.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L57"
+  },
+  {
+   "id": "ALF-040",
+   "text": "Restore omitted GWT-4 and HOT-4 requirements (Closed in v3.0). v3.0 closure evidence: `SOFT22` & `M012`: Michaelis-Menten saturation + allosteric `[ATP]` inhibition integrated via bounded implicit substep",
+   "category": "closure-v3.0; P1; Definite error; other ids: K2; chemistry/kinetics",
+   "criterion": "DO: saturating kinetics with allosteric inhibition are advanced by a bounded implicit substep. TEST: flux <= V_max; no negative concentrations at the production step.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L58"
+  },
+  {
+   "id": "ALF-041",
+   "text": "Label project-specific indicator assays as operationalizations, not verbatim definitions (Closed in v3.0). v3.0 closure evidence: `M004` & `GATE-04`: added subtle `-2e-11` near-threshold enthalpy leak mutant alongside gross `-1e-5` leak test",
+   "category": "closure-v3.0; P2; Recommendation; other ids: H-08; conservation/mutants",
+   "criterion": "DO: two leak mutants: gross and near-threshold (v3.0: -1e-5 and -2e-11 relative). Native equivalent: gross leak and a single-quantum leak. TEST: both are caught.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L59"
+  },
+  {
+   "id": "ALF-042",
+   "text": "Clarify the relationship between the PCI-inspired gate and IIT (Closed in v3.0). v3.0 closure evidence: `M083` & `L032-A4`: Kleiber allometry specified as statistical power-law `Slope ∈ [0.70, 0.80], R² ≥ 0.95` over `≥8×` mass",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: K2; metabolism/allometry",
+   "criterion": "DO: allometry is a statistical gate on measured output (v3.0: slope in [0.70, 0.80], R^2 >= 0.95 over >= 8x mass), not a coded-in exponent. TEST: regression on simulated creatures.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L60"
+  },
+  {
+   "id": "ALF-043",
+   "text": "Specify a reproducible PCI-inspired estimator and defeat noise/rate confounds (Closed in v3.0). v3.0 closure evidence: `SOFT24/25` & `M016`: osmotic Donnan balance & Cori cycle bounded within viable physiological `[Osm, pH]` envelopes",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: K2; chemistry/envelopes",
+   "criterion": "DO: osmotic and acid-base state stay within stated viable envelopes. TEST: bounds asserted per tick; violation is a logged event or death, not silent clamping.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L61"
+  },
+  {
+   "id": "ALF-044",
+   "text": "Clarify heterogeneous framework categories and dependent rollups (Closed in v3.0). v3.0 closure evidence: `SOFT26` & `M029`: Arrhenius `Q10` paired with high-temperature denaturation drop above `T_max`",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: K2; chemistry/temperature-law",
+   "criterion": "DO: Q10 scaling is paired with a high-temperature denaturation drop above T_max. TEST: rate curve rises with Q10 then falls above T_max.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L62"
+  },
+  {
+   "id": "ALF-045",
+   "text": "Specify the paradigm behind the lag-1 attentional-blink target (Closed in v3.0). v3.0 closure evidence: `SOFT29`, `N49`, `M086`: cryptobiotic vitrification `<2%` basal burn + `≥90%` rehydration revival gate",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: K2; metabolism/torpor",
+   "criterion": "DO: dormancy gate (v3.0: < 2% basal burn and >= 90% revival on rehydration). TEST: measured burn fraction and revival rate.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L63"
+  },
+  {
+   "id": "ALF-046",
+   "text": "Declare the scope of Michaelis–Menten kinetics as a chosen approximation (Closed in v3.0). v3.0 closure evidence: `F-031`, `M014`, `CIT-05`: antithetic motif specifies `z_1, z_2 ≥ 0`, positive-orthant dual actuation & zero-dilution `γ=0` condition",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: D-07; control/antithetic",
+   "criterion": "DO: antithetic motif keeps both species >= 0 and its zero-error claim is conditional on zero dilution. TEST: integer species never negative; equal debits (see D-07).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L64"
+  },
+  {
+   "id": "ALF-047",
+   "text": "Qualify antithetic perfect-adaptation guarantees (Closed in v3.0). v3.0 closure evidence: `SOFT01` & `M021`: hydrostatic volume constraint written quantitatively as `|ΔV|/V_0 < 0.01` (`1%`)",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: K2; body/volume",
+   "criterion": "DO: hydrostatic volume constraint is quantitative (v3.0: |dV|/V0 < 0.01). TEST: per-tick volume error bound.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L65"
+  },
+  {
+   "id": "ALF-048",
+   "text": "Separate energy-ledger accuracy from physically consistent XPBD coupling (Closed in v3.0). v3.0 closure evidence: Sec 5 & `SOFT06`: coupled XPBD elastic potential `E_elastic`, active muscle `ATP -> Work + E_heat_phys`, and `E_diss_num ≥ 0`",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: A-03, B-15; conservation/mechanics",
+   "criterion": "DO: mechanical coupling is in the ledger: elastic potential, muscle ATP -> work + heat, and numerical dissipation >= 0. TEST: ledger balances exactly across a muscle contraction cycle.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L66"
+  },
+  {
+   "id": "ALF-049",
+   "text": "Distinguish Q10 scaling from an Arrhenius rate law (Closed in v3.0). v3.0 closure evidence: `M024` (Stage-3 0-brain passive terrain stability) cleanly separated from `M044/SOFT08` (Stage-4 `≥50%` spike/m offload at equal speed/fail)",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: H-04; staging/gates",
+   "criterion": "DO: gates are placed at the stage where their parts exist (passive-body terrain stability before any brain; spike-per-metre offload only once a spiking controller exists, at equal speed and failure rate). TEST: gate prerequisites resolve in the stage DAG.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L67"
+  },
+  {
+   "id": "ALF-050",
+   "text": "Separate lactate, proton balance and fatigue instead of one causal bucket (Closed in v3.0). v3.0 closure evidence: Sec 7.1 `BUTLIN_14`: aligned `GWT-4` (top-down context modulation) and `HOT-1..4` (reality monitoring, meta-belief, confidence agency, quality space)",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: D-01, D-02; doc-only/indicators",
+   "criterion": "N/A-ENGINE: indicator definitions aligned to the source report.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L68"
+  },
+  {
+   "id": "ALF-051",
+   "text": "Correct the Baldwin-effect label on within-life organ remodeling (Closed in v3.0). v3.0 closure evidence: `GWT-2` & `M061`: attentional blink specified at lags 2–5 (`100–500 ms`) with lag-1 sparing (`|Lag1-Lag8| ≤ 10%`)",
+   "category": "closure-v3.0; P2; Definite error; other ids: D-03; doc-only/science",
+   "criterion": "N/A-ENGINE: attentional-blink protocol values apply only if that assay is built.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L69"
+  },
+  {
+   "id": "ALF-052",
+   "text": "Make the 3/4 allometric exponent an explicit model hypothesis (Closed in v3.0). v3.0 closure evidence: `F2` & `M078`: renamed `Integrated Information Motivation / Forked-Snapshot PCI*` (no exact `O(2^N)` IIT `Φ` claim)",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: D-04; claims/perturbation",
+   "criterion": "AVOID claiming an exact integrated-information quantity; name it a forked-snapshot perturbational index. TEST: phrase lint.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L70"
+  },
+  {
+   "id": "ALF-053",
+   "text": "Mark biological mechanism hypotheses and species-specific abstractions as such (Closed in v3.0). v3.0 closure evidence: `M078`: defines deterministic forked-snapshot perturbation protocol for `PCI*` without corrupting live trajectory state",
+   "category": "closure-v3.0; P2; Recommendation; other ids: D-04; determinism/fork",
+   "criterion": "DO: a deterministic forked-snapshot perturbation protocol that cannot corrupt the live trajectory. TEST: parent hash stream unchanged after fork + perturb (see D-02).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L71"
+  },
+  {
+   "id": "ALF-054",
+   "text": "Define the state manifold and parameter map before claiming a quantum natural gradient (Closed in v3.0). v3.0 closure evidence: `F10`: reframed as `Butlin-14 Indicator Profile Scorecard` reporting per-theory family vectors + optional `14/14` badge",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: D-05; claims/indicators",
+   "criterion": "DO: indicator profile is a per-family scorecard. TEST: report format (see D-01).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L72"
+  },
+  {
+   "id": "ALF-055",
+   "text": "Give topological moods and geometric surprise actual mathematical contracts (Closed in v3.0). v3.0 closure evidence: `CQM02`: operationalized open-endedness via held-out niche competence & interaction growth exceeding neutral-drift controls",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: K2; evolution/open-endedness",
+   "criterion": "DO: open-endedness is operationalised against neutral-drift controls. TEST: neutral shadow run comparison (see K2-09).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L73"
+  },
+  {
+   "id": "ALF-056",
+   "text": "Replace claims to recognize pure or quantum randomness with bounded predictability tests (Closed in v3.0). v3.0 closure evidence: `F-084`: corrected to `~2/3 of total octopus neurons` in brachial arm cords (Hochner 2012); `F-083` `2%` SDR vs `5–10%` fly Kenyon",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: D-06; doc-only/science",
+   "criterion": "N/A-ENGINE: biological counts wording.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L74"
+  },
+  {
+   "id": "ALF-057",
+   "text": "Do not infer signal honesty solely from paying ATP (Closed in v3.0). v3.0 closure evidence: `GW06`, `WSE10`, `WSE-OP01`: Tier-0 stability guard uses contractive induced norm `‖W‖_2 ≤ 0.99` (bounding both transient & `ρ(W)`)",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: K3; stability/weight-guard",
+   "criterion": "DO: the online stability guard is a contractive induced-norm bound (v3.0: ||W||_2 <= 0.99), which bounds transients as well as the spectral radius. TEST: counterexamples of K3-01 are rejected; bound maintained incrementally.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L75"
+  },
+  {
+   "id": "ALF-058",
+   "text": "Test the claimed Markov-blanket partition instead of equating it with a membrane or swarm boundary (Closed in v3.0). v3.0 closure evidence: `WSE09` & `N15`: declared 3 explicit rollback domains (`D_creature`, `D_coupled_patch`, `D_full_sim`)",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: K2; rollback/domains",
+   "criterion": "DO: declare explicit rollback domains (creature, coupled patch, full simulation). TEST: rollback of one domain leaves the hash of state outside it unchanged, or the wider domain is required.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L76"
+  },
+  {
+   "id": "ALF-059",
+   "text": "Separate invented alien-biology features from empirical claims and give each a transfer protocol (Closed in v3.0). v3.0 closure evidence: `F-068/072/092`, `L040`, `N01..08`, `N50`: mandatory parameter- & FLOP-matched classical stochastic/oscillator baselines",
+   "category": "closure-v3.0; P2; Recommendation; other ids: D-10; claims/quantum",
+   "criterion": "DO: every quantum-inspired or oscillator mechanism has a parameter- and compute-matched classical baseline. TEST: baseline arm in the registry (see D-10).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L77"
+  },
+  {
+   "id": "ALF-060",
+   "text": "Remove guaranteed noise shrinkage from the NoisyNet row (Closed in v3.0). v3.0 closure evidence: `WSE06` (`CSR` delta overlay for procedural blocks) & reconciled `<16 KB` single `WSE` diff (`WSE08`) vs `<64 KB` creature checkpoint (`HW06`)",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: B-04, K2; rollback/deltas",
+   "criterion": "DO: edits to procedurally generated blocks are stored as a sparse delta overlay; size bounds are stated per object (v3.0: < 16 KB single edit, < 64 KB creature checkpoint) and scoped (see B-13). TEST: measured delta sizes; overlay + procedural base reproduces the edited block.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L78"
+  },
+  {
+   "id": "ALF-061",
+   "text": "Scope the claimed optimality of Lévy foraging (Closed in v3.0). v3.0 closure evidence: Sec 4.7 `evaluateCubeCell(x,y,z)`: genuine 3D compatibility rules incorporating `Z4` hyperbolic, `Z5` bump, `Z6` steerable, `Z7` SDR, `Z9` S2S",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: G-01; config/single-source",
+   "criterion": "DO: compatibility of configurations comes from one rule function. TEST: see G-01.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L79"
+  },
+  {
+   "id": "ALF-062",
+   "text": "Define the target distribution and numerical conditions for Langevin sampling (Closed in v3.0). v3.0 closure evidence: Model 9 Panel B, `Z0–Z9` tables, and `ALife-Hybrid-Cube-10x10x10.csv/.xlsx` all generated from `evaluateCubeCell` (100% synced)",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: G-02, G-03; config/single-source",
+   "criterion": "N/A-ENGINE: all cube artefacts generated from the same function.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L80"
+  },
+  {
+   "id": "ALF-063",
+   "text": "Distinguish neural branching criticality from ecological coexistence and qualify optimality (Closed in v3.0). v3.0 closure evidence: Grayscale-safe printable text badges `[OK]`, `[OVER]`, `[ADAPT]`, `[EXCL]` across all Cube slices, Model 9, and spreadsheets",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: G-04; doc-only/format",
+   "criterion": "N/A-ENGINE: non-colour status badges.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L81"
+  },
+  {
+   "id": "ALF-064",
+   "text": "Do not equate reconstruction error or precision with calibrated metacognition (Closed in v3.0). v3.0 closure evidence: Sec 4.7: renamed `'Five Proposed Reference Starter Configurations'` (replacing unsupported optimality claim)",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: G-06; claims/optimality",
+   "criterion": "N/A-ENGINE: starter configurations are 'proposed', not optimal (see G-04).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L82"
+  },
+  {
+   "id": "ALF-065",
+   "text": "Resolve forward dependencies in the strict bottom-up gate order (Closed in v3.0). v3.0 closure evidence: PDF-1 & PDF-2: visual SVG Models `1..14` placed/indexed in strict ascending numerical order + exact `Z0–Z9` page/pair labels",
+   "category": "closure-v3.0; P1; Contradiction; other ids: F-04; doc-only/format",
+   "criterion": "N/A-ENGINE: figure ordering.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L83"
+  },
+  {
+   "id": "ALF-066",
+   "text": "Unify stage, phase, layer and milestone mappings (Closed in v3.0). v3.0 closure evidence: `buildAll825ExecutableChecks()`: assigned canonical machine IDs `LIFE-L001-A1 .. LIFE-L100-A5` to all 500 `LIFE-100` checkboxes",
+   "category": "closure-v3.0; P2; Contradiction; other ids: H-06; traceability/ids",
+   "criterion": "DO: every checkbox has a canonical machine id. TEST: matrix ids unique and stable.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L84"
+  },
+  {
+   "id": "ALF-067",
+   "text": "Treat the Day-1/Week-4 schedule as an unvalidated illustration (Closed in v3.0). v3.0 closure evidence: Every single one of the `825` items carries structured `primary_contrast`, `control_arms`, `min_paired_seeds`, and `stat_gate`",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: H-05, K2; test-design/gates",
+   "criterion": "DO: every check carries primary_contrast, control_arms, min_paired_seeds and stat_gate fields. TEST: schema validation of the gate registry.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L85"
+  },
+  {
+   "id": "ALF-068",
+   "text": "Replace '820 unique mechanisms' with an auditable overlap graph (Closed in v3.0). v3.0 closure evidence: `P6`, `PRB-05`, `M008`: added mandatory `Size-Matched Sham Lesion` arm (`shamLesion()`) alongside `Targeted Lesion`",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: C-08; lesion/sham",
+   "criterion": "DO: mandatory size-matched sham lesion arm beside the targeted lesion. TEST: see C-08.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L86"
+  },
+  {
+   "id": "ALF-069",
+   "text": "Give every catalog attribute an executable acceptance contract (Closed in v3.0). v3.0 closure evidence: `P6` & `CQM25`: added `Competent Simple Baseline` requirement so complex/exotic substrates cannot pass against strawman nulls",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: K2; test-design/baselines",
+   "criterion": "DO: a competent simple baseline is required so complex mechanisms cannot pass against strawman nulls. TEST: each capability gate names its simple baseline arm.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L87"
+  },
+  {
+   "id": "ALF-070",
+   "text": "Separate universal invariants from optional organism profiles (Closed in v3.0). v3.0 closure evidence: `L041–43`, `L061`, `L099`, `N21–30`: strict in-world physical field attenuation, `.sensorlog` replay & zero host-escape rules",
+   "category": "closure-v3.0; P1; Contradiction; other ids: K2; information/in-world-senses",
+   "criterion": "DO: senses read in-world physical fields with attenuation; recorded sensor logs replay exactly; zero host escape. TEST: creature kernels have no access to host APIs or world metadata; sensor-log replay gives the same hash.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L88"
+  },
+  {
+   "id": "ALF-071",
+   "text": "Make the final sign-off prove its declared scope (Closed in v3.0). v3.0 closure evidence: `STATISTICAL_POWER_PROTOCOL`: exact paired Wilcoxon/sign-flip + Holm-Bonferroni FWER (`p_Holm ≤ 0.05`)",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: C-01, C-05; statistics/test",
+   "criterion": "DO: exact paired Wilcoxon/sign-flip test with Holm-Bonferroni family-wise control (p_Holm <= 0.05). TEST: see C-01, C-02.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L89"
+  },
+  {
+   "id": "ALF-072",
+   "text": "Reconcile no-cosmetic-parts testing with redundancy (Closed in v3.0). v3.0 closure evidence: `STATISTICAL_POWER_PROTOCOL`: power-sized `N_pairs` (`≥24` small suites, `48–64` medium, `96–120` subtle; underpowered = `Inconclusive ◌`)",
+   "category": "closure-v3.0; P1; Contradiction; other ids: C-02, C-04; statistics/power",
+   "criterion": "DO: power-sized paired-seed counts (v3.0: >= 24 small suites, 48-64 medium, 96-120 subtle); under-powered results are Inconclusive. TEST: harness status enum includes Inconclusive.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L90"
+  },
+  {
+   "id": "ALF-073",
+   "text": "Add active simple baselines and intervention-matched controls (Closed in v3.0). v3.0 closure evidence: `STATISTICAL_POWER_PROTOCOL`: within-pair dominance `δ_pair` + 1 primary contrast per item entering family `m`",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: C-03, C-06; statistics/effect-size",
+   "criterion": "DO: within-pair dominance and one primary contrast per item. TEST: see C-04, C-06.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L91"
+  },
+  {
+   "id": "ALF-074",
+   "text": "Identify morphological benefit with a matched body comparison (Closed in v3.0). v3.0 closure evidence: `STATISTICAL_POWER_PROTOCOL`: Burn-on-Fail test-seed retirement + one-sided non-inferiority `LCB_95% > -Δ_NI` on regression floors",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: C-07, C-09; statistics/seeds",
+   "criterion": "DO: burn-on-fail retirement of test seeds and one-sided non-inferiority (95% lower bound > -margin) on regression floors. TEST: see A-06, C-05.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L92"
+  },
+  {
+   "id": "ALF-075",
+   "text": "Define what remembers the future after a replay (Closed in v3.0). v3.0 closure evidence: `MILESTONES_100`: `100 / 100` milestones carry explicit numerical/comparator `passTarget` values (zero vague qualitative strings)",
+   "category": "closure-v3.0; P1; Contradiction; other ids: H-01, H-02; test-design/gates",
+   "criterion": "DO: every milestone has a numeric or comparator pass target. TEST: no qualitative pass strings in the gate registry.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L93"
+  },
+  {
+   "id": "ALF-076",
+   "text": "Separate parameter rollback from world-state rewind (Closed in v3.0). v3.0 closure evidence: `MILESTONES_100`: explicit `prereqs` DAG verified acyclic & monotone across `M001–M100` and `Stage 0–8`",
+   "category": "closure-v3.0; P1; Contradiction; other ids: H-04; staging/dag",
+   "criterion": "DO: milestone prerequisites form an acyclic, stage-monotone DAG. TEST: DAG check in the verify command.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L94"
+  },
+  {
+   "id": "ALF-077",
+   "text": "Specify ring protection as authority over all edit paths (Closed in v3.0). v3.0 closure evidence: `M084`, `SOFT35`, `N89`, `CIT-13`: grounded holometabolous memory retention in Blackiston et al. (2008) (`≥70%` adult odor avoidance)",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: H-07; test-design/by-construction",
+   "criterion": "N/A-ENGINE: metamorphosis retention target (>= 70% adult avoidance) applies only if that assay is built; never by copying weights (see H-14).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L95"
+  },
+  {
+   "id": "ALF-078",
+   "text": "Define reversible edit records and concurrent-update semantics (Closed in v3.0). v3.0 closure evidence: `F-046/047`, `M050`, `M082`: NREM pruning & `SHY` downscaling scaled proportionally to post-natal synapse count",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: D-09; doc-only/science",
+   "criterion": "N/A-ENGINE: pruning/downscaling scaled to synapse count; applies only if sleep pruning is built.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L96"
+  },
+  {
+   "id": "ALF-079",
+   "text": "Add an explicit learned forward-model acceptance milestone (Closed in v3.0). v3.0 closure evidence: `N41`, `N51`, `N52`: distinguished non-Lamarckian maternal priming (`N41`) from optional horizontal-plasmid niche trade (`N51/52`)",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: K2; inheritance/channels",
+   "criterion": "DO: distinguish non-Lamarckian maternal priming from optional horizontal transfer; each channel is declared with cost (see K2-06). TEST: channel registry.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L97"
+  },
+  {
+   "id": "ALF-080",
+   "text": "Replace static-scanner proof claims with layered isolation tests (Closed in v3.0). v3.0 closure evidence: Sec 8.1: removed unrealistic week/day promises; defined undated dependency stages + 15-milestone First Target (`M001–M015`)",
+   "category": "closure-v3.0; P1; Unsupported claim; other ids: J-01; roadmap/schedule",
+   "criterion": "DO: undated dependency stages with a 15-milestone first target. TEST: roadmap has no dates (see J-01).",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L98"
+  },
+  {
+   "id": "ALF-081",
+   "text": "Define originality scope and provenance without claiming automatic proof (Closed in v3.0). v3.0 closure evidence: `RELEASE_GATES_13`: synced all 13 release gates (`GATE-01..13`) across both PDFs, JSON, MD, XML, YAML, CSV & XLS",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: H-14; release/scope",
+   "criterion": "DO: one synced list of release gates (v3.0: GATE-01..13) across all artefacts. TEST: gate list generated from one source.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L99"
+  },
+  {
+   "id": "ALF-082",
+   "text": "Separate protected final evaluation from reusable regression seeds (Closed in v3.0). v3.0 closure evidence: `SPEC_META` & Sec 7 callout: reports `825` raw checks, `5` exact direct mirrors (`820`), and `~775` distinct conceptual mechanisms",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: F-03; traceability/duplicates",
+   "criterion": "DO: report raw, mirrored and distinct counts separately. TEST: see F-03.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L100"
+  },
+  {
+   "id": "ALF-083",
+   "text": "Make pass status conditional on revision and retain failures (Closed in v3.0). v3.0 closure evidence: Repaired all 6 broken internal ID cross-references (`DIL-02/ERR-01`, `HW14`, `HW21`, `SOFT17/21`, `WSE-OP`, `PM/MF/GW`)",
+   "category": "closure-v3.0; P1; Underspecified contract; other ids: F-01; traceability/references",
+   "criterion": "N/A-ENGINE: cross-references repaired; native matrix checks references by script.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L101"
+  },
+  {
+   "id": "ALF-084",
+   "text": "Use gate-specific evidence instead of four-arm behavioral tests for every requirement (Closed in v3.0). v3.0 closure evidence: Disjoint global ID namespaces: `P1..10`, `PM01..25`, `MF01..25`, `GW01..25`, `WSE-OP01..10`, `WSE01..12`, `F-001..100`, `LIFE-Lxxx-Ax`",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: F-02; traceability/ids",
+   "criterion": "DO: disjoint global id namespaces. TEST: see F-02.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L102"
+  },
+  {
+   "id": "ALF-085",
+   "text": "Repair stale layer and guard cross-references (Closed in v3.0). v3.0 closure evidence: Moved v1 doc-editing items (`v2 BUG-01`, `v2 PRB-03`) to `CHANGELOG_V1_TO_V3`; replaced with `Transcendental Drift` & `Forward Model`",
+   "category": "closure-v3.0; P2; Definite error; other ids: I-01, I-02; doc-only/registry",
+   "criterion": "N/A-ENGINE: changelog separation.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L103"
+  },
+  {
+   "id": "ALF-086",
+   "text": "Distinguish valid Git worktrees from broken copied pointers (Closed in v3.0). v3.0 closure evidence: Added `CITATION_REGISTER` (`CIT-01..15`) documenting primary scientific literature & DOIs",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: I-05; evidence/citations",
+   "criterion": "N/A-ENGINE: citation register; native claims that cite literature keep a register.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L104"
+  },
+  {
+   "id": "ALF-087",
+   "text": "Operationalize open-endedness as bounded evidence (Closed in v3.0). v3.0 closure evidence: `D5`, `HARDWARE_TIERS`, `P9`: fixed soft-body mesh resolution per experiment in Tier-1 canonical runs",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: A-09; determinism/config",
+   "criterion": "DO: fixed body mesh resolution per experiment in canonical runs. TEST: see A-09.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L105"
+  },
+  {
+   "id": "ALF-088",
+   "text": "Distinguish within-life learning, inheritance and population selection (Closed in v3.0). v3.0 closure evidence: `BUG-06` & `WSE-OP02`: orthogonal `structuralMask` and `lesionMask` (`effectiveMask = structuralMask & lesionMask`)",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: K1; lesion/masks",
+   "criterion": "DO: orthogonal structural and lesion masks; effective mask = structural & lesion. TEST: lesion never alters the structural mask; clearing the lesion restores exact prior connectivity.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L106"
+  },
+  {
+   "id": "ALF-089",
+   "text": "Separate editorial audit history from verified implementation results (Closed in v3.0). v3.0 closure evidence: Worksheet W1–W6 updated to match v3.0 `Philox4x32-10`, `N ≥ 24..120`, `δ_pair`, `p_Holm`, `LCB_95%`, and fixed Tier-1 mesh",
+   "category": "closure-v3.0; P2; Unsupported claim; other ids: K1; doc-only/worksheets",
+   "criterion": "N/A-ENGINE: worksheets updated.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L107"
+  },
+  {
+   "id": "ALF-090",
+   "text": "Add a traceable source and assumption register for scientific and performance claims (Closed in v3.0). v3.0 closure evidence: Regenerated `ALife-Hybrid-Cube-10x10x10.csv` & `.xlsx` from the exact same `evaluateCubeCell(x,y,z)` function as PDF-1",
+   "category": "closure-v3.0; P2; Underspecified contract; other ids: G-03; config/single-source",
+   "criterion": "N/A-ENGINE: cube CSV regenerated from the same function.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L108"
+  },
+  {
+   "id": "ALF-091",
+   "text": "Correct the claimed cube pagination to match the rendered PDF (Closed in v3.0). v3.0 closure evidence: Emitted all 9 requested formats (`2 PDFs, JSON, MD, XML, TXT, YAML, HTML, CSV, XLS/XLSX`) from one v3.0 master build",
+   "category": "closure-v3.0; P3; Definite error; other ids: ISS-04; doc-only/format",
+   "criterion": "N/A-ENGINE: multi-format emission.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L109"
+  },
+  {
+   "id": "ALF-092",
+   "text": "Give cube compatibility statuses a non-color encoding (Closed in v3.0). v3.0 closure evidence: Automated `v3_deep_audit.mjs` + visual PDF inspection confirming 0 arithmetic, ID, DAG, statistical, or parity defects",
+   "category": "closure-v3.0; P3; Recommendation; other ids: All; verification/audit",
+   "criterion": "IMPLICATION: a document audit passing does not verify an engine; native needs its own automated audit of arithmetic, ids, DAG, statistics and parity. TEST: verify command includes those checks.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L110"
+  },
+  {
+   "id": "MD-A01",
+   "text": "Strict Tier-1 Render-Only Governor & Fixed-Mesh Rule (Closed in v3.0). v3.0 closure evidence: P9, D5, HW12, HW20, Model 14",
+   "category": "closure-v3.0; P1; Architectural invariant; other ids: A-01, A-09, E-07; determinism/observer",
+   "criterion": "DO: canonical-tier governor is render-only and mesh resolution is fixed. TEST: see A-01, A-09.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L111"
+  },
+  {
+   "id": "MD-C01",
+   "text": "Replace 'Holm-Bonferroni FDR / q-value' with Exact Wilcoxon + Holm FWER + Power Plan (Closed in v3.0). v3.0 closure evidence: STATISTICAL_POWER_PROTOCOL, P6, Tab 13, GATE-08",
+   "category": "closure-v3.0; P1; Statistical rigor; other ids: C-01..C-09; statistics/test",
+   "criterion": "DO: exact Wilcoxon/sign-flip + Holm family-wise control + power plan. TEST: see C-01..C-09.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L112"
+  },
+  {
+   "id": "MD-F01",
+   "text": "Disjoint Global ID Prefixes & Verified Internal References (Closed in v3.0). v3.0 closure evidence: v3_deep_audit.mjs Global ID Uniqueness Check",
+   "category": "closure-v3.0; P2; Cross-reference & ID hygiene; other ids: F-01, F-02; traceability/ids",
+   "criterion": "DO: disjoint global id prefixes and verified internal references. TEST: id-uniqueness and reference-resolution checks.",
+   "source_ref": "W:/ALife-v3.0-Errata-Closure-Report.md:L113"
+  },
+  {
+   "id": "AG-1.1",
+   "text": "Install locked dependencies: `npm ci`",
+   "category": "v40-tooling/commands",
+   "criterion": "N/A-ENGINE: TypeScript-lab tooling. Native analogue: builds use only pinned, already-installed toolchains; no downloads.",
+   "source_ref": "V:/AGENTS.md:L7"
+  },
+  {
+   "id": "AG-1.2",
+   "text": "Zero-warning static lint & hygiene: `npm run lint`",
+   "category": "v40-tooling/commands",
+   "criterion": "Native analogue: zero-warning build. TEST: gcc -std=c2x -Wall -Wextra -Werror (and clang) produce no diagnostics on sim sources.",
+   "source_ref": "V:/AGENTS.md:L8"
+  },
+  {
+   "id": "AG-1.3",
+   "text": "Strict TypeScript typecheck (`strict: true`): `npm run typecheck`",
+   "category": "v40-tooling/commands",
+   "criterion": "N/A-ENGINE: TypeScript-only; covered natively by the zero-warning build (AG-1.2).",
+   "source_ref": "V:/AGENTS.md:L9"
+  },
+  {
+   "id": "AG-1.4",
+   "text": "Production bundle check: `npm run build`",
+   "category": "v40-tooling/commands",
+   "criterion": "N/A-ENGINE: bundle check; native analogue is a clean release build from scratch.",
+   "source_ref": "V:/AGENTS.md:L10"
+  },
+  {
+   "id": "AG-1.5",
+   "text": "Grade-A security, contract, numerical & V8 coverage (`>= 90%`) suite: `npm test`",
+   "category": "v40-tooling/commands",
+   "criterion": "Native analogue: one test command with line coverage >= 90% on core C modules (see BUD-2.4). TEST: coverage report from the test build.",
+   "source_ref": "V:/AGENTS.md:L11"
+  },
+  {
+   "id": "AG-1.6",
+   "text": "Live Headless Chrome CDP Core Web Vitals, 4-breakpoint reflow & keyboard A11y audit: `npm run test:browser`",
+   "category": "v40-tooling/commands",
+   "criterion": "N/A-ENGINE: browser audit; no engine equivalent.",
+   "source_ref": "V:/AGENTS.md:L12"
+  },
+  {
+   "id": "AG-1.7",
+   "text": "Independent Python 3.12 80-digit `Decimal` & exact `Fraction` scientific audit: `npm run audit:python`",
+   "category": "v40-tooling/commands",
+   "criterion": "Native analogue: an independent, zero-shared-code auditor (development tooling only) recomputes fixed-point tables and exact rational p-values. TEST: auditor output equals engine tables bit-for-bit.",
+   "source_ref": "V:/AGENTS.md:L13"
+  },
+  {
+   "id": "AG-1.8",
+   "text": "Full 9-gate verification pipeline: `node pipeline/run_all.mjs`",
+   "category": "v40-tooling/commands",
+   "criterion": "Native analogue: one command runs every verification gate end to end and fails on the first broken gate. TEST: verify command exit code and per-gate report.",
+   "source_ref": "V:/AGENTS.md:L14"
+  },
+  {
+   "id": "AG-1.9",
+   "text": "Repository & link compliance: `npm run secret-scan && npm run check:links && npm run repo-check`",
+   "category": "v40-tooling/commands",
+   "criterion": "Native analogue: secret/local-path scan and link check of the repository. TEST: scan reports 0 findings.",
+   "source_ref": "V:/AGENTS.md:L15"
+  },
+  {
+   "id": "AG-2.1",
+   "text": "Zero Cosmetic Theater (C-NC): every anatomical part, neural region, metabolic reaction, and physical constraint must exert a measurable causal effect verified by lesion, sham-cost, shuffled-stream, and random-policy ablations; never add hardcoded coordinate steering, label-checking shortcuts, or memoized ODE bypasses.",
+   "category": "v40-standard/causality",
+   "criterion": "DO: four ablation arms (lesion, sham-cost, shuffled-stream, random-policy) exist as data switches. AVOID world-coordinate constants in controllers, reads of entity labels by creature code, and memoised dynamics results. TEST: each arm differs from intact on the declared metric on paired seeds; static scan shows creature kernels take only sensor columns as input and no lookup of cached dynamics keyed by state.",
+   "source_ref": "V:/AGENTS.md:L19"
+  },
+  {
+   "id": "AG-2.2",
+   "text": "Thermodynamic Conservation: every energetic process must conserve First-Law enthalpy (<= 1e-12 relative error) and satisfy non-negative Second-Law entropy production.",
+   "category": "v40-standard/conservation",
+   "criterion": "Native is stricter: integer ledger residual exactly 0 (LAW-5); entropy production / heat account never negative. TEST: residual == 0 every tick; count of negative-entropy-production steps == 0.",
+   "source_ref": "V:/AGENTS.md:L20"
+  },
+  {
+   "id": "AG-2.3",
+   "text": "Seed Firewall: preregistered held-out seeds (5001..5024 and 5101..5124 in PREREG-V50-HELDOUT.json) and legacy held-out seeds (>= 1224) must never be used for hyperparameter tuning.",
+   "category": "v40-standard/seeds",
+   "criterion": "DO: a seed ledger separates development seeds from preregistered held-out blocks; tuning commands refuse held-out seeds; the preregistration file is hash-verified. Which held-out blocks the native engine uses is an owner decision (not stated in the sources). TEST: batch runner rejects a held-out seed without the confirmatory flag and prereg hash.",
+   "source_ref": "V:/AGENTS.md:L21"
+  },
+  {
+   "id": "AG-2.4",
+   "text": "Epistemic Scope (indicatorOnly): frame all cognitive, workspace, and metacognitive metrics strictly as mechanistic computational indicators, never as claims of phenomenal consciousness or sentience.",
+   "category": "v40-standard/claims",
+   "criterion": "Same as LAW-7. TEST: phrase lint; disclaimer in indicator reports.",
+   "source_ref": "V:/AGENTS.md:L22"
+  },
+  {
+   "id": "AG-3.1",
+   "text": "Never push to remote, move or create git release tags, publish GitHub releases, or modify GitHub repository settings without explicit owner approval.",
+   "category": "v40-forbidden/process",
+   "criterion": "N/A-ENGINE: process rule for agents: no push, tag, release or repository-setting change without owner approval.",
+   "source_ref": "V:/AGENTS.md:L26"
+  },
+  {
+   "id": "AG-3.2",
+   "text": "Never commit `.env` files, credentials, tokens, personal data, or local workstation paths.",
+   "category": "v40-forbidden/process",
+   "criterion": "DO: committed sources and results contain no credentials, personal data or local workstation paths. TEST: secret/path scan of the tree returns 0 findings; run manifests store relative paths.",
+   "source_ref": "V:/AGENTS.md:L27"
+  },
+  {
+   "id": "AG-3.3",
+   "text": "Never use `Math.random()` in simulation or server code (Philox4x32_10 / mulberry32 for seeded simulation; node:crypto randomBytes for security tokens).",
+   "category": "v40-forbidden/rng",
+   "criterion": "AVOID rand(), srand(), rand_s, RDRAND/RDSEED, time-seeded or OS entropy in simulation code; only Philox4x32-10. TEST: symbol/import and opcode scan of sim objects finds none of them.",
+   "source_ref": "V:/AGENTS.md:L28"
+  },
+  {
+   "id": "AG-3.4",
+   "text": "Never pass `--na-ok` to `inspect.mjs grade` or mark owner-attested / live-account / human-drill inspection rows `PASS` without explicit owner sign-off.",
+   "category": "v40-forbidden/process",
+   "criterion": "DO: traceability rows that need owner attestation cannot be set to PASS by tooling. TEST: matrix status enum includes OWNER-PENDING; validator rejects automated PASS on such rows.",
+   "source_ref": "V:/AGENTS.md:L29"
+  },
+  {
+   "id": "BUD-1.1",
+   "text": "Organism First-Law relative enthalpy error: target <= 1e-14, hard ceiling <= 1e-12, measured <= 3.09e-15 (v5.0.0).",
+   "category": "v40-budget/thermo",
+   "criterion": "Native is stricter: per-creature integer ledger residual exactly 0. TEST: per-creature sum check each tick.",
+   "source_ref": "V:/docs/BUDGETS.md:L11"
+  },
+  {
+   "id": "BUD-1.2",
+   "text": "Biosphere (Dome) world First-Law error: target <= 5e-14, hard ceiling <= 1e-11, measured 9.33e-15.",
+   "category": "v40-budget/thermo",
+   "criterion": "Native: world-level integer total (all creatures + environment + in/out flux) residual exactly 0. TEST: world sum check each tick, any thread count.",
+   "source_ref": "V:/docs/BUDGETS.md:L12"
+  },
+  {
+   "id": "BUD-1.3",
+   "text": "Closed-vessel Chemoton moiety drift |M(t) - M(0)|: target <= 1e-12, hard ceiling <= 1e-10, measured 4.45e-13.",
+   "category": "v40-budget/thermo",
+   "criterion": "Native: with integer stoichiometry the moiety total is constant exactly in a closed vessel. TEST: moiety(t) == moiety(0) as integers for every tick.",
+   "source_ref": "V:/docs/BUDGETS.md:L13"
+  },
+  {
+   "id": "BUD-1.4",
+   "text": "Prigogine-Schnakenberg entropy rate: target >= 0, hard floor >= -1e-15, measured >= +1.60e-27 (0 violations).",
+   "category": "v40-budget/thermo",
+   "criterion": "Native: each reaction step's net flux has the sign of its driving ratio, so entropy production is non-negative by construction. TEST: violation counter == 0.",
+   "source_ref": "V:/docs/BUDGETS.md:L14"
+  },
+  {
+   "id": "BUD-1.5",
+   "text": "WASM 1.0 vs TypeScript kernel parity (philox, dot_f64, chemoton): target 0 ULP, ceiling 0 ULP, measured 0 diffs / 512 vectors.",
+   "category": "v40-budget/parity",
+   "criterion": "Native: every kernel has >= 2 independent implementations (C reference, NASM/AVX2, optional CUDA) with 0-bit difference on >= 512 vectors; Philox4x32-10 output equals the v40 lab's for the same key and counter. TEST: differential test suite; cross-check vectors exported from the v40 lab.",
+   "source_ref": "V:/docs/BUDGETS.md:L15"
+  },
+  {
+   "id": "BUD-1.6",
+   "text": "Python 80-digit Decimal vs TypeScript Float64 mathematical constants: target <= 1e-13, ceiling <= 1e-11, measured <= 3.34e-14.",
+   "category": "v40-budget/parity",
+   "criterion": "Native: fixed-point constant tables equal the correctly rounded high-precision values exactly. TEST: independent auditor regenerates tables; byte comparison.",
+   "source_ref": "V:/docs/BUDGETS.md:L16"
+  },
+  {
+   "id": "BUD-1.7",
+   "text": "Morris-Lecar RK4 action-potential parity (Python Float64 vs TypeScript): target <= 1e-12 mV, ceiling <= 1e-9 mV, measured 0.00e+00 mV (I105_spk = 8, twin-pulse refractory 1 vs 2 spikes).",
+   "category": "v40-budget/parity",
+   "criterion": "Native: if a conductance neuron is ported to fixed point, spike counts on the reference protocol match the reference (8 spikes; refractory 1 vs 2) and voltage error is within a stated bound. TEST: reference-trace regression test.",
+   "source_ref": "V:/docs/BUDGETS.md:L17"
+  },
+  {
+   "id": "BUD-2.1",
+   "text": "Held-out seed firewall (PREREG-V50-HELDOUT.json): seed >= 5000, zero dev overlap (< 5000), measured 5001..5024, 5101..5124.",
+   "category": "v40-budget/statistics",
+   "criterion": "DO: zero overlap between development and held-out seeds. TEST: seed ledger audit: intersection of dev-run seeds and held-out blocks is empty (see AG-2.3).",
+   "source_ref": "V:/docs/BUDGETS.md:L23"
+  },
+  {
+   "id": "BUD-2.2",
+   "text": "5-Arm Berger IUT + Holm-Bonferroni family-wise error rate: target <= 0.02, ceiling <= 0.05, measured max p_Holm = 1.06e-2 (177227/16777216).",
+   "category": "v40-budget/statistics",
+   "criterion": "DO: p-values are exact rationals over 2^N sign flips (N = 24 gives denominator 16,777,216); intact must beat every control (max over arms), Holm over the family. TEST: harness outputs numerator/denominator; max p_Holm <= 0.05.",
+   "source_ref": "V:/docs/BUDGETS.md:L24"
+  },
+  {
+   "id": "BUD-2.3",
+   "text": "Mutant falsification catch rate: target 5/5 (100%), hard floor 5/5, measured 5/5.",
+   "category": "v40-budget/statistics",
+   "criterion": "DO: all five mutants are caught. TEST: mutant suite reports 5/5 (see A-05).",
+   "source_ref": "V:/docs/BUDGETS.md:L25"
+  },
+  {
+   "id": "BUD-2.4",
+   "text": "Native V8 production line coverage (7 core modules): target >= 92%, hard floor >= 90.0%, measured 93.1% (3590/3856 lines).",
+   "category": "v40-budget/coverage",
+   "criterion": "Native analogue: line coverage >= 90% on core C modules; assembly kernels are covered by differential tests against the C reference. TEST: coverage report; differential test list covers every assembly kernel.",
+   "source_ref": "V:/docs/BUDGETS.md:L26"
+  },
+  {
+   "id": "BUD-3.1",
+   "text": "Hand-assembled WASM 1.0 module: target <= 1.0 KB, ceiling <= 4.0 KB, measured 518 B.",
+   "category": "v40-budget/size",
+   "criterion": "N/A-ENGINE: WASM module size. Optional native analogue: report hot-kernel code bytes.",
+   "source_ref": "V:/docs/BUDGETS.md:L32"
+  },
+  {
+   "id": "BUD-3.2",
+   "text": "Binary .alifebin snapshot & sparse XOR delta: target <= 8 KB, ceiling < 64 KB, measured 2,060 B full (32 entities) / 22-36 B XOR delta.",
+   "category": "v40-budget/snapshot",
+   "criterion": "DO: state the snapshot bytes per entity and the keyframe/delta sizes for the native format (v40: about 64 B per entity). TEST: measured snapshot size == header + entities x documented bytes; restore is hash-exact.",
+   "source_ref": "V:/docs/BUDGETS.md:L33"
+  },
+  {
+   "id": "BUD-3.3",
+   "text": "Browser ESM organism bundle: target <= 500 KB, ceiling <= 750 KB, measured 449.7 KB.",
+   "category": "v40-budget/web",
+   "criterion": "N/A-ENGINE: browser bundle.",
+   "source_ref": "V:/docs/BUDGETS.md:L34"
+  },
+  {
+   "id": "BUD-3.4",
+   "text": "Browser ESM lab bundle: target <= 600 KB, ceiling <= 900 KB, measured 562.3 KB.",
+   "category": "v40-budget/web",
+   "criterion": "N/A-ENGINE: browser bundle.",
+   "source_ref": "V:/docs/BUDGETS.md:L35"
+  },
+  {
+   "id": "BUD-3.5",
+   "text": "Viewer client script + stylesheet: target <= 25 KB, ceiling <= 64 KB, measured ~18.4 KB.",
+   "category": "v40-budget/web",
+   "criterion": "N/A-ENGINE: viewer assets.",
+   "source_ref": "V:/docs/BUDGETS.md:L36"
+  },
+  {
+   "id": "BUD-3.6",
+   "text": "HTTP POST JSON payload size (MAX_BODY_BYTES): target <= 4 KB, ceiling 65,536 B (HTTP 413).",
+   "category": "v40-budget/web",
+   "criterion": "N/A-ENGINE: HTTP server. If the engine ever accepts external commands, input size is bounded and validated before use.",
+   "source_ref": "V:/docs/BUDGETS.md:L37"
+  },
+  {
+   "id": "BUD-3.7",
+   "text": "/healthz & /state loopback response latency (p95, local): target <= 5 ms, ceiling <= 50 ms, measured < 2 ms.",
+   "category": "v40-budget/web",
+   "criterion": "N/A-ENGINE: HTTP latency.",
+   "source_ref": "V:/docs/BUDGETS.md:L38"
+  },
+  {
+   "id": "BUD-3.8",
+   "text": "Mobile Core Web Vitals (LCP / INP / CLS): targets <= 1.5 s / <= 100 ms / <= 0.05; ceilings <= 2.5 s / <= 200 ms / <= 0.10.",
+   "category": "v40-budget/web",
+   "criterion": "N/A-ENGINE: web vitals.",
+   "source_ref": "V:/docs/BUDGETS.md:L39"
+  },
+  {
+   "id": "BUD-3.9",
+   "text": "Full 9-Gate verification pipeline wall-clock runtime: target <= 90 s, ceiling <= 300 s, measured ~55 s.",
+   "category": "v40-budget/pipeline",
+   "criterion": "Native analogue: the quick verification command has a stated wall-clock budget (v40: <= 90 s target, <= 300 s ceiling). TEST: verify command reports elapsed time, labelled noisy under parallel load.",
+   "source_ref": "V:/docs/BUDGETS.md:L40"
+  },
+  {
+   "id": "ADR-0001-C1",
+   "text": "Context 1, cosmetic lesion shortcuts: passing ablation tests via `if (!lesioned)` conditional branches rather than continuous mechanics or mass-action kinetics.",
+   "category": "v40-adr/causality",
+   "criterion": "AVOID lesion flags tested in behaviour code. DO: a lesion is data (mask or parameter) flowing through the same kernel. TEST: source scan finds no lesion-conditional branch in kernels; intact and lesioned runs execute the same binary code path.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L11"
+  },
+  {
+   "id": "ADR-0001-C2",
+   "text": "Context 2, silent First/Second-Law drift: ad-hoc scalar state updates that violate moiety conservation or allow negative entropy production.",
+   "category": "v40-adr/conservation",
+   "criterion": "AVOID direct writes to conserved columns; all changes go through the transfer API. TEST: only the ledger module writes pool columns (source scan / const-correct interfaces); residual == 0.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L12"
+  },
+  {
+   "id": "ADR-0001-C3",
+   "text": "Context 3, asymptotic normal-approximation inflation on small N: p-values from Gaussian approximations without multiplicity correction, or tuning hyperparameters on evaluation seeds.",
+   "category": "v40-adr/statistics",
+   "criterion": "AVOID normal approximations, uncorrected multiple tests and tuning on evaluation seeds. TEST: harness uses exact enumeration; Holm applied; seed-ledger audit.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L13"
+  },
+  {
+   "id": "ADR-0001-C4",
+   "text": "Context 4, type-safety vs numerical hot-loop performance: strict checks without per-element bounds overhead in inner loops.",
+   "category": "v40-adr/hot-loop",
+   "criterion": "Native analogue: bounds are validated once outside the inner loop; inner loops have loop-invariant bounds and no per-element checks. TEST: external lengths validated at the boundary; sanitizer build passes the test suite.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L14"
+  },
+  {
+   "id": "ADR-0001-D1",
+   "text": "Decision 1, stoichiometric reversible chemoton: 6 species (X_ext, M, T, V, W, B), 5 reversible reactions, integer stoichiometry S in Z^(6x5) of rank 5, strictly positive moiety vector l = [2,1,2,1,1,1] with l^T S = 0; entropy production >= 0; budding coupled to chemoton division completions.",
+   "category": "v40-adr/chemistry",
+   "criterion": "DO: if ported, S is a constant integer table; reproduction is triggered only by completed chemoton divisions. TEST: l^T S == 0 checked at compile or unit-test time; closed-vessel moiety constant exactly; births == consumed division completions.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L18"
+  },
+  {
+   "id": "ADR-0001-D2",
+   "text": "Decision 2, branchless XPBD: replace conditional pass/fail branches with continuous wall distance-and-normal projection plus area conservation; stiff (alpha = 1e-5) jams at aperture 0.55 while softened (alpha = 0.42) traverses under identical impulse.",
+   "category": "v40-adr/body",
+   "criterion": "DO: constraint projection is branch-free arithmetic; different outcomes come from parameters, not flags. TEST: native reproduction of the nozzle test: stiff body jams, compliant body passes, same impulse, same code path.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L19"
+  },
+  {
+   "id": "ADR-0001-D3",
+   "text": "Decision 3, exact 2^N sign-randomisation + 5-arm Berger IUT + Holm-Bonferroni: frozen held-out seeds 5001..5024 and 5101..5124 (SHA-256 verified prereg); Intact must defeat Passive-Body, Shuffled-Stream, Targeted-Lesion and Size-Matched-Sham; p_IUT = max_c p_c; exact O(N 2^N) dynamic programme; Holm over M = 5 hypotheses, max p_Holm <= 0.05.",
+   "category": "v40-adr/statistics",
+   "criterion": "DO: the native harness implements the same protocol: hash-verified preregistration, five arms, exact sign-flip p by integer dynamic programming, intersection-union maximum, Holm. TEST: harness matches an independent exact implementation on fixed vectors and, if the v40 per-seed differences are available, reproduces the v40 value 177227/16777216.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L20"
+  },
+  {
+   "id": "ADR-0001-D4",
+   "text": "Decision 4, multi-stack falsification: an independent hand-assembled module at 0-ULP parity (philox4x32_10, dot_f64, chemoton_net_flux) and a zero-shared-code auditor (9/9 passed) using 80-digit decimals and exact fractions.",
+   "category": "v40-adr/parity",
+   "criterion": "DO: each kernel is implemented at least twice with no shared code and compared bit-for-bit; an independent auditor (tooling only) checks tables and statistics. TEST: differential suite and auditor both pass in the verify command.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L21"
+  },
+  {
+   "id": "ADR-0001-D5",
+   "text": "Decision 5, strict mode with unchecked indexed access in hot loops (loop-invariant bounds); external inputs validate length before indexing.",
+   "category": "v40-adr/hot-loop",
+   "criterion": "N/A-ENGINE: TypeScript compiler flags. Native analogue as ADR-0001-C4.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L22"
+  },
+  {
+   "id": "ADR-0001-Q1",
+   "text": "Consequence 1: every pipeline run executes all 9 verification gates end-to-end in under 60 seconds on standard workstation hardware.",
+   "category": "v40-adr/pipeline",
+   "criterion": "Native analogue: fast end-to-end verification command (see BUD-3.9). TEST: elapsed time reported.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L26"
+  },
+  {
+   "id": "ADR-0001-Q2",
+   "text": "Consequence 2: any accidental First/Second-Law leak, disconnected stub organ (C-NC), broken mutant check, or statistical control regression fails CI immediately with exact numerical diagnostics.",
+   "category": "v40-adr/pipeline",
+   "criterion": "DO: conservation leak, cosmetic part, uncaught mutant or statistics regression each fail the verify command with the exact numbers. TEST: seeded fault of each kind makes verify exit non-zero and print the offending value.",
+   "source_ref": "V:/docs/decisions/0001-thermodynamic-and-causal-architecture.md:L27"
+  }
+ ]
+}

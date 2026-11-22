@@ -1,0 +1,1136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asmodensius Live</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --surface-2: #f1f0ec;
+  --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,0.10);
+  --accent: #2a78d6; --accent-ink: #ffffff;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --s5: #e87ba4; --s6: #008300; --s7: #6250d6; --s8: #e34948;
+  --good: #0ca30c; --warning: #fab219; --serious: #ec835a; --critical: #d03b3b;
+  --good-text: #006300; --bad-text: #b02a2a;
+  --viewer: #141722;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --surface-2: #242422;
+    --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+    --accent: #3987e5; --accent-ink: #ffffff;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+    --good-text: #0ca30c; --bad-text: #e66767;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --surface-2: #242422;
+  --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+  --accent: #3987e5; --accent-ink: #ffffff;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+  --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  --good-text: #0ca30c; --bad-text: #e66767;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body {
+  background: var(--page); color: var(--ink);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+button, input, select { font: inherit; color: inherit; }
+header {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 12px 16px; border-bottom: 1px solid var(--ring); background: var(--surface);
+  position: sticky; top: 0; z-index: 5;
+}
+header h1 { font-size: 16px; margin: 0; font-weight: 650; }
+header .sub { color: var(--ink-2); font-size: 13px; }
+header .spacer { flex: 1; }
+.pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px;
+  background: var(--surface-2); color: var(--ink-2); font-size: 12.5px; white-space: nowrap; }
+.pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+.pill.on .dot { background: var(--good); }
+.pill.paused .dot { background: var(--warning); }
+.pill.err .dot { background: var(--critical); }
+nav.tabs { display: flex; gap: 4px; padding: 8px 16px 0; flex-wrap: wrap; }
+nav.tabs button { border: 0; background: transparent; padding: 8px 12px; border-radius: 8px 8px 0 0;
+  color: var(--ink-2); cursor: pointer; border-bottom: 2px solid transparent; }
+nav.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+main { padding: 12px 16px 32px; }
+.tab { display: none; }
+.tab.show { display: block; }
+.layout { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 980px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--ring); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+.card h2 { font-size: 13px; margin: 0 0 10px; font-weight: 650; color: var(--ink); letter-spacing: .01em; }
+.card h3 { font-size: 13px; margin: 0 0 6px; font-weight: 600; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 6px 0; }
+.row label { color: var(--ink-2); font-size: 12.5px; }
+.field { display: grid; grid-template-columns: 1fr 110px; gap: 8px; align-items: center; margin: 6px 0; }
+.field label { color: var(--ink-2); font-size: 12.5px; }
+input[type=number], input[type=text], select {
+  width: 100%; padding: 5px 8px; border: 1px solid var(--axis); border-radius: 8px; background: var(--page);
+}
+input[type=range] { width: 100%; accent-color: var(--accent); }
+.btn { border: 1px solid var(--axis); background: var(--surface-2); padding: 6px 12px; border-radius: 8px; cursor: pointer; }
+.btn:hover { border-color: var(--muted); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn.small { padding: 3px 9px; font-size: 12.5px; }
+.seg { display: inline-flex; border: 1px solid var(--axis); border-radius: 8px; overflow: hidden; }
+.seg button { border: 0; background: transparent; padding: 5px 12px; cursor: pointer; color: var(--ink-2); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.hint { color: var(--muted); font-size: 12px; margin: 4px 0 0; }
+details > summary { cursor: pointer; color: var(--ink-2); font-size: 12.5px; margin: 6px 0; }
+.lesions { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px; font-size: 12.5px; }
+.lesions label { display: flex; gap: 6px; align-items: flex-start; color: var(--ink-2); }
+.params { max-height: 260px; overflow: auto; font-size: 12px; }
+.params table { width: 100%; border-collapse: collapse; }
+.params td { padding: 2px 4px; border-bottom: 1px solid var(--grid); vertical-align: middle; }
+.params input { padding: 2px 4px; font-size: 12px; }
+.viewer { position: relative; background: var(--viewer); border-radius: 12px; overflow: hidden; border: 1px solid var(--ring); }
+.viewer img { display: block; width: 100%; height: auto; cursor: grab; user-select: none; -webkit-user-drag: none; }
+.viewer img.drag { cursor: grabbing; }
+.viewer .empty { color: #c3c2b7; padding: 80px 20px; text-align: center; }
+.viewer .tip { position: absolute; right: 10px; bottom: 8px; color: #c3c2b7; font-size: 12px; background: rgba(0,0,0,.45);
+  padding: 2px 8px; border-radius: 6px; pointer-events: none; }
+.controls-bar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 10px 0; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 8px; font-size: 12.5px;
+  background: var(--surface); border: 1px solid var(--ring); color: var(--ink-2); }
+.badge .ic { width: 16px; height: 16px; border-radius: 50%; display: inline-grid; place-items: center; font-size: 11px;
+  color: #fff; font-weight: 700; }
+.badge.good .ic { background: var(--good); }
+.badge.bad .ic { background: var(--critical); }
+.badge.info .ic { background: var(--accent); }
+.badge.wait .ic { background: var(--muted); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 10px; margin: 10px 0 14px; }
+.tile { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 10px 12px; }
+.tile .label { color: var(--ink-2); font-size: 12px; }
+.tile .value { font-size: 20px; font-weight: 600; margin-top: 2px; }
+.tile .note { color: var(--muted); font-size: 11.5px; }
+.charts { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 14px; }
+.chart { background: var(--surface); border: 1px solid var(--ring); border-radius: 12px; padding: 12px 12px 8px; position: relative; }
+.chart h3 { margin: 0; font-size: 13px; font-weight: 600; }
+.chart .sub { color: var(--muted); font-size: 12px; margin: 1px 0 6px; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--ink-2); margin-bottom: 6px; }
+.legend .key { display: inline-flex; align-items: center; gap: 6px; }
+.legend .sw { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+.legend .v { color: var(--ink); font-variant-numeric: tabular-nums; }
+.chart canvas { display: block; width: 100%; height: 170px; }
+.tooltip { position: absolute; pointer-events: none; background: var(--surface); border: 1px solid var(--ring);
+  border-radius: 8px; padding: 6px 9px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.18); display: none; z-index: 3;
+  white-space: nowrap; }
+.tooltip .t { color: var(--ink-2); margin-bottom: 3px; }
+.tooltip .r { display: flex; gap: 8px; align-items: center; justify-content: space-between; }
+.tooltip .r span:first-child { display: inline-flex; gap: 6px; align-items: center; color: var(--ink-2); }
+.tooltip .r b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.bars { font-size: 12px; }
+.bars .b { display: grid; grid-template-columns: 70px 1fr 64px; gap: 8px; align-items: center; margin: 4px 0; }
+.bars .name { color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bars .track { height: 12px; }
+.bars .fill { height: 12px; background: var(--s1); border-radius: 0 4px 4px 0; min-width: 2px; }
+.bars .val { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+table.data { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+table.data th, table.data td { text-align: right; padding: 3px 6px; border-bottom: 1px solid var(--grid); }
+table.data th:first-child, table.data td:first-child { text-align: left; }
+table.data th { color: var(--ink-2); font-weight: 600; }
+.log { font: 12px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace; background: var(--surface-2); border-radius: 8px;
+  padding: 8px; max-height: 260px; overflow: auto; white-space: pre-wrap; word-break: break-word; color: var(--ink-2); }
+.jobs .job { border: 1px solid var(--ring); border-radius: 10px; padding: 10px 12px; margin: 10px 0; background: var(--surface); }
+.verdict { font-weight: 650; }
+.verdict.pass { color: var(--good-text); }
+.verdict.fail, .verdict.error { color: var(--bad-text); }
+.verdict.running { color: var(--ink-2); }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 2px 12px; font-size: 12.5px; margin: 6px 0; }
+.kv div:nth-child(odd) { color: var(--ink-2); }
+.mono { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; }
+.prose { max-width: 820px; }
+.prose p, .prose li { color: var(--ink-2); }
+.prose h2 { font-size: 15px; margin: 18px 0 6px; }
+.err { color: var(--bad-text); }
+.spin { display: inline-block; width: 10px; height: 10px; border: 2px solid var(--muted); border-top-color: transparent;
+  border-radius: 50%; animation: spin 0.9s linear infinite; vertical-align: -1px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+@media (max-width: 600px) { .charts { grid-template-columns: minmax(0, 1fr); } .field { grid-template-columns: 1fr 96px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Asmodensius-Native</h1>
+  <span class="sub">live world &#xb7; this computer only</span>
+  <span class="spacer"></span>
+  <span id="statusPill" class="pill" role="status" aria-live="polite"><span class="dot"></span><span id="statusText">connecting&#x2026;</span></span>
+  <span id="modePill" class="pill" hidden></span>
+  <button id="themeBtn" class="btn small" type="button" title="Switch light and dark">Theme</button>
+</header>
+<nav class="tabs" role="tablist">
+  <button role="tab" aria-selected="true" data-tab="live">Live world</button>
+  <button role="tab" aria-selected="false" data-tab="checks">Proof checks</button>
+  <button role="tab" aria-selected="false" data-tab="suite">Test suite</button>
+  <button role="tab" aria-selected="false" data-tab="about">About</button>
+</nav>
+<main>
+<!-- ============================ LIVE ============================ -->
+<section id="tab-live" class="tab show" role="tabpanel">
+ <div class="layout">
+  <div>
+   <div class="card">
+    <h2>New world</h2>
+    <div class="row"><span class="seg" role="group" aria-label="World mode">
+      <button id="modeWild" type="button" aria-pressed="true" title="Fresh entropy from the operating system every tick: no seed, never the same twice">Wild</button>
+      <button id="modeLab" type="button" aria-pressed="false" title="Seeded, repeatable test bench">Lab</button>
+    </span></div>
+    <div class="field" id="seedField" hidden><label for="seed">Seed (lab only)</label><input id="seed" type="number" min="0" value="42"></div>
+    <div class="field"><label for="n">Founders</label><input id="n" type="number" min="1" max="2000000" value="5000"></div>
+    <div class="field"><label for="species">Founder species (1-100)</label><input id="species" type="number" min="1" max="100" value="100"></div>
+    <div class="field"><label for="cap">Slots (memory; 0 = 4 &#xd7; founders + 4096)</label><input id="cap" type="number" min="0" value="0"></div>
+    <details><summary>Lesions: switch a part of life off</summary>
+      <div class="lesions" id="lesions"></div>
+    </details>
+    <details><summary>World parameters (core/az_params.def)</summary>
+      <div class="params" id="params"></div>
+      <p class="hint">Only values you change are sent. Everything else that shapes a creature is in its genome, brain and body.</p>
+    </details>
+    <details><summary>Saved worlds</summary>
+      <div id="worlds" class="hint">none yet</div>
+    </details>
+    <div class="row" style="margin-top:10px">
+      <button id="startBtn" class="btn primary" type="button">Start new world</button>
+      <button id="stopBtn" class="btn" type="button">Stop</button>
+    </div>
+    <p class="hint" id="startHint"></p>
+   </div>
+   <div class="card">
+    <h2>Run</h2>
+    <div class="row">
+      <button id="pauseBtn" class="btn" type="button">Pause</button>
+      <button class="btn small" type="button" data-step="1">Step 1</button>
+      <button class="btn small" type="button" data-step="10">Step 10</button>
+      <button class="btn small" type="button" data-step="100">Step 100</button>
+    </div>
+    <div class="field"><label for="every">Ticks per picture</label><input id="every" type="number" min="1" max="10000" value="2"></div>
+    <div class="field"><label for="fps">Pictures per second (max)</label><input id="fps" type="number" min="1" max="30" value="6"></div>
+    <div class="field"><label for="size">Picture size</label>
+      <select id="size"><option>640x360</option><option>960x540</option><option>1280x720</option><option selected>1600x900</option></select></div>
+    <div class="row"><button id="camDetail" class="btn small" type="button">Creature close-up</button><button id="camReset" class="btn small" type="button">Whole world</button><span class="hint">drag the picture to orbit &#xb7; wheel to zoom</span></div>
+    <div class="row"><input id="saveName" type="text" placeholder="name for this world" style="flex:1;min-width:120px">
+      <button id="saveBtn" class="btn small" type="button">Save world</button></div>
+    <p class="hint" id="runHint"></p>
+   </div>
+  </div>
+  <div>
+   <div class="viewer" id="viewer">
+     <img id="world" alt="The living world, rendered by the engine's own view" hidden>
+     <div class="empty" id="viewerEmpty">Press <b>Start new world</b>. The engine renders each picture itself (az_view); this page only shows it.</div>
+     <span class="tip" id="viewTip" hidden>drag to orbit &#xb7; wheel to zoom</span>
+   </div>
+   <div class="badges" id="badges"></div>
+   <div class="tiles" id="tiles"></div>
+   <div class="charts" id="charts"></div>
+   <div class="charts" style="margin-top:14px">
+     <div class="chart"><h3>Largest lineages now</h3><div class="sub">living members per clade (the picture's legend)</div><div class="bars" id="topBars"></div></div>
+     <div class="chart"><h3>Nothing fixed: how unlike each other the living are</h3><div class="sub">per creature, now: lowest, mean, highest</div><table class="data" id="spread"></table></div>
+     <div class="chart"><h3>Where a tick's time goes</h3><div class="sub">ms per tick in each stage, over the last picture</div><div class="bars" id="stageBars"></div></div>
+     <div class="chart"><h3>Events</h3><div class="sub">from the engine (az_live)</div><div class="log" id="events" style="max-height:180px"></div></div>
+   </div>
+   <details id="censusPanel" hidden style="margin-top:12px">
+    <summary>Population census</summary>
+    <p id="censusCounts"></p>
+    <p id="censusOverflow" hidden></p>
+    <div style="overflow:auto"><table class="data" id="censusTable"></table></div>
+    <details id="censusTraits">
+      <summary>Trait means and variances</summary>
+      <p id="traitCoverage"></p>
+      <div style="overflow:auto"><table class="data" id="traitTable" hidden>
+        <thead><tr><th scope="col">Native trait</th><th scope="col">Mean</th><th scope="col">Population variance</th></tr></thead>
+        <tbody id="traitRows"></tbody>
+      </table></div>
+    </details>
+    <p id="censusClasses"></p>
+    <table class="data" id="censusDiet" hidden>
+      <caption></caption><thead><tr><th scope="col">Leading diet</th><th scope="col">Living creatures</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div id="censusFeeding" hidden>
+     <p id="intakeCoverage"></p>
+     <div style="overflow:auto"><table class="data">
+      <caption>Settled intake for creatures alive in this frame</caption>
+      <thead><tr><th scope="col">Resource</th><th scope="col">Recipients</th><th scope="col">Funded occasions</th><th scope="col">Amount</th></tr></thead>
+      <tbody id="intakeChannels"></tbody>
+     </table></div>
+    </div>
+    <p id="censusTeaching" hidden></p>
+    <p id="censusRefusals" hidden></p>
+    <p id="censusPartners" hidden></p>
+    <table class="data" id="censusMateOutcomes" hidden>
+      <caption></caption><thead><tr><th scope="col">Lifetime mating history</th><th scope="col">Living creatures</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p id="censusPartialMates" hidden></p>
+    <p id="censusPredation" hidden></p>
+    <p id="censusWaste" hidden></p>
+    <p id="censusCommons" hidden></p>
+    <p id="censusBuilding" hidden></p>
+   </details>
+   <details style="margin-top:12px"><summary>Data table (the last 30 pictures)</summary><div style="overflow:auto"><table class="data" id="dataTable"></table></div></details>
+  </div>
+ </div>
+</section>
+<!-- ============================ CHECKS ============================ -->
+<section id="tab-checks" class="tab" role="tabpanel">
+ <div class="layout">
+  <div>
+   <div class="card">
+    <h2>World for the checks</h2>
+    <div class="field"><label for="cn">Founders</label><input id="cn" type="number" min="1" value="3000"></div>
+    <div class="field"><label for="ct">Ticks</label><input id="ct" type="number" min="1" value="120"></div>
+    <div class="field"><label for="cs">Seed (lab checks)</label><input id="cs" type="number" min="0" value="42"></div>
+    <p class="hint">Each check runs the engine's own az_run and reads its report.</p>
+   </div>
+   <div class="card">
+    <h2>Checks</h2>
+    <div class="row"><button class="btn" type="button" data-check="repeat">Lab repeatability</button></div>
+    <p class="hint">The same seed gives the same world: three runs, one on a single thread, must end on the same state hash.</p>
+    <div class="row"><button class="btn" type="button" data-check="wild">Wild: never twice</button></div>
+    <p class="hint">Two wild runs with the same options must end on different hashes, and both must keep matter and energy exact.</p>
+    <div class="row"><select id="lesionPick" style="flex:1"></select><button class="btn" type="button" data-check="lesion">Lesion A/B</button></div>
+    <p class="hint">The same lab world with and without one part of life.</p>
+    <div class="row"><select id="refPick" style="flex:1"></select><button class="btn" type="button" data-check="reference">Reference</button></div>
+    <p class="hint">A recorded reference world from tests/golden_hashes.txt, run again.</p>
+   </div>
+  </div>
+  <div class="jobs" id="checkJobs"><p class="hint">No checks run yet.</p></div>
+ </div>
+</section>
+<!-- ============================ SUITE ============================ -->
+<section id="tab-suite" class="tab" role="tabpanel">
+ <div class="card">
+  <h2>Full test suite</h2>
+  <p class="hint">Runs ctest in the build folder: every test program and every gate (lint, object checks, the trap build, the command-line checks). It takes several minutes and uses most of the processor.</p>
+  <div class="row"><button class="btn primary" type="button" data-check="ctest">Run the full suite</button><span id="suiteBuild" class="hint"></span></div>
+ </div>
+ <div class="jobs" id="suiteJobs"></div>
+</section>
+<!-- ============================ ABOUT ============================ -->
+<section id="tab-about" class="tab" role="tabpanel">
+ <div class="prose card">
+  <h2>What you are looking at</h2>
+  <p>One world of the Asmodensius-Native engine (C23 with assembly kernels, Windows), running in the program <span class="mono">az_live</span>. Every picture is made by the engine's own software renderer (<span class="mono">view/az_view.c</span>) between ticks. This page only shows the pictures and the numbers the engine prints. It never changes the world. Each picture line carries the state hash taken before and after drawing, and the two are compared.</p>
+  <h2>Wild and lab</h2>
+  <p><b>Wild</b> is the default: the world is made of fresh entropy from the operating system and draws 16 more bytes every tick. It has no seed, and no two runs are the same. <b>Lab</b> is the seeded test bench: the same seed gives the same world, for tests and lesion contrasts. In both modes the total of matter and the total of energy are compared with their starting values after every tick.</p>
+  <h2>What is real and what is not yet</h2>
+  <ul id="aboutStatus"><li>Loading&#x2026;</li></ul>
+  <h2>Run it without this page</h2>
+  <p class="mono" id="aboutCmd"></p>
+  <h2>Files</h2>
+  <ul>
+    <li><span class="mono">demo/live_server.py</span>: this page's server (Python standard library, 127.0.0.1 only)</li>
+    <li><span class="mono">demo/live.html</span>: this page</li>
+    <li><span class="mono">tools/az_live.c</span>: the live engine program</li>
+    <li><span class="mono">build/demo/</span>: pictures, saved worlds and logs (ignored by git)</li>
+  </ul>
+ </div>
+</section>
+</main>
+<div class="tooltip" id="tooltip" role="tooltip"></div>
+<script>
+"use strict";
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const fmt = (v) => v == null || Number.isNaN(v) ? "\u2013" : Math.abs(v) >= 1e6 ? (v / 1e6).toFixed(2) + "M" :
+  Math.abs(v) >= 1e4 ? (v / 1e3).toFixed(1) + "K" : Number.isInteger(v) ? v.toLocaleString("en-US") : v.toFixed(v < 10 ? 2 : 1);
+const full = (v) => v == null ? "\u2013" : Number(v).toLocaleString("en-US", { maximumFractionDigits: 2 });
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
+const S = { info: null, runId: null, since: 0, esince: 0, recs: [], last: null, start: null, running: false,
+            options: null, lab: false, shownUrl: null, loadingUrl: null, pendingUrl: null,
+            cam: { yaw: 0.6, pitch: 0.5, dist: 0 }, paused: false, events: [], tab: "live" };
+
+async function api(path, body) {
+  const opt = body === undefined ? {} : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) };
+  const r = await fetch(path, opt);
+  let j = {};
+  try { j = await r.json(); } catch (e) { /* not json */ }
+  if (!r.ok) throw new Error(j.error || r.statusText);
+  return j;
+}
+
+/* ---------------- theme ---------------- */
+(function () {
+  let t = null;
+  try { t = localStorage.getItem("az-theme"); } catch (e) { /* storage blocked */ }
+  if (t) document.documentElement.dataset.theme = t;
+  $("#themeBtn").addEventListener("click", () => {
+    const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark"
+      : matchMedia("(prefers-color-scheme: dark)").matches;
+    const next = dark ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("az-theme", next); } catch (e) { /* ignore */ }
+    charts.forEach((c) => c.draw());
+  });
+})();
+
+/* ---------------- tabs ---------------- */
+$$("nav.tabs button").forEach((b) => b.addEventListener("click", () => {
+  $$("nav.tabs button").forEach((x) => x.setAttribute("aria-selected", x === b ? "true" : "false"));
+  $$(".tab").forEach((t) => t.classList.toggle("show", t.id === "tab-" + b.dataset.tab));
+  S.tab = b.dataset.tab;
+  if (S.tab === "live") charts.forEach((c) => c.draw());
+  pollJobs();
+}));
+
+/* ---------------- line chart (canvas, one y axis, hover crosshair + tooltip) ---------------- */
+class LineChart {
+  constructor(parent, opt) {
+    this.opt = opt;
+    const el = document.createElement("div");
+    el.className = "chart";
+    el.innerHTML = `<h3>${esc(opt.title)}</h3><div class="sub">${esc(opt.sub || "")}</div><div class="legend"></div><canvas aria-label="${esc(opt.title)}" role="img"></canvas>`;
+    parent.appendChild(el);
+    this.el = el;
+    this.canvas = $("canvas", el);
+    this.legend = $(".legend", el);
+    this.points = [];
+    this.hover = null;
+    this.canvas.addEventListener("mousemove", (e) => this.onMove(e));
+    this.canvas.addEventListener("mouseleave", () => { this.hover = null; hideTip(); this.draw(); });
+    new ResizeObserver(() => this.draw()).observe(this.canvas);
+  }
+  setPoints(points) { this.points = points; this.drawLegend(); this.draw(); }
+  drawLegend() {
+    const last = this.points[this.points.length - 1];
+    if (this.opt.series.length < 2) { this.legend.innerHTML = last ? `<span class="key">now <span class="v">${full(last.ys[0])}</span></span>` : ""; return; }
+    this.legend.innerHTML = this.opt.series.map((s, i) =>
+      `<span class="key"><span class="sw" style="background:var(--s${i + 1})"></span>${esc(s.label)} <span class="v">${last ? fmt(last.ys[i]) : "\u2013"}</span></span>`).join("");
+  }
+  geom() {
+    const r = this.canvas.getBoundingClientRect();
+    return { w: Math.max(50, r.width), h: Math.max(60, r.height), l: 46, r: 10, t: 8, b: 20 };
+  }
+  scales(g) {
+    const pts = this.points;
+    let x0 = pts.length ? pts[0].x : 0, x1 = pts.length ? pts[pts.length - 1].x : 1;
+    if (x1 <= x0) x1 = x0 + 1;
+    let ymax = 0;
+    for (const p of pts) for (const y of p.ys) if (y != null && y > ymax) ymax = y;
+    const step = niceStep(ymax / 4 || 1);
+    const ytop = Math.max(step, Math.ceil(ymax / step) * step);
+    const sx = (x) => g.l + (x - x0) / (x1 - x0) * (g.w - g.l - g.r);
+    const sy = (y) => g.t + (1 - y / ytop) * (g.h - g.t - g.b);
+    return { x0, x1, ytop, step, sx, sy };
+  }
+  draw() {
+    const c = this.canvas, g = this.geom(), dpr = window.devicePixelRatio || 1;
+    if (c.width !== Math.round(g.w * dpr) || c.height !== Math.round(g.h * dpr)) { c.width = Math.round(g.w * dpr); c.height = Math.round(g.h * dpr); }
+    const ctx = c.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, g.w, g.h);
+    const sc = this.scales(g);
+    ctx.font = "11px system-ui, -apple-system, 'Segoe UI', sans-serif";
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = css("--grid");
+    ctx.fillStyle = css("--muted");
+    ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    for (let v = 0; v <= sc.ytop + 1e-9; v += sc.step) {
+      const y = Math.round(sc.sy(v)) + 0.5;
+      ctx.beginPath(); ctx.moveTo(g.l, y); ctx.lineTo(g.w - g.r, y); ctx.stroke();
+      ctx.fillText(axisFmt(v, sc.step, sc.ytop), g.l - 6, y);
+    }
+    ctx.strokeStyle = css("--axis");
+    ctx.beginPath(); ctx.moveTo(g.l, Math.round(sc.sy(0)) + 0.5); ctx.lineTo(g.w - g.r, Math.round(sc.sy(0)) + 0.5); ctx.stroke();
+    ctx.textAlign = "left"; ctx.textBaseline = "top";
+    if (this.points.length) {
+      ctx.fillText("tick " + full(sc.x0), g.l, g.h - g.b + 5);
+      ctx.textAlign = "right";
+      ctx.fillText("tick " + full(sc.x1), g.w - g.r, g.h - g.b + 5);
+    }
+    const pts = thin(this.points, Math.floor(g.w - g.l - g.r));
+    ctx.lineWidth = 2; ctx.lineJoin = "round"; ctx.lineCap = "round";
+    this.opt.series.forEach((s, i) => {
+      ctx.strokeStyle = css("--s" + (i + 1));
+      ctx.beginPath();
+      let on = false;
+      for (const p of pts) {
+        const y = p.ys[i];
+        if (y == null) { on = false; continue; }
+        const X = sc.sx(p.x), Y = sc.sy(y);
+        if (on) ctx.lineTo(X, Y); else { ctx.moveTo(X, Y); on = true; }
+      }
+      ctx.stroke();
+    });
+    if (this.hover != null && this.points[this.hover]) {
+      const p = this.points[this.hover], X = sc.sx(p.x);
+      ctx.strokeStyle = css("--axis"); ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(Math.round(X) + 0.5, g.t); ctx.lineTo(Math.round(X) + 0.5, g.h - g.b); ctx.stroke();
+      this.opt.series.forEach((s, i) => {
+        if (p.ys[i] == null) return;
+        const Y = sc.sy(p.ys[i]);
+        ctx.fillStyle = css("--surface"); ctx.beginPath(); ctx.arc(X, Y, 6, 0, 7); ctx.fill();
+        ctx.fillStyle = css("--s" + (i + 1)); ctx.beginPath(); ctx.arc(X, Y, 4, 0, 7); ctx.fill();
+      });
+    }
+  }
+  onMove(e) {
+    if (!this.points.length) return;
+    const r = this.canvas.getBoundingClientRect(), g = this.geom(), sc = this.scales(g);
+    const x = sc.x0 + (e.clientX - r.left - g.l) / (g.w - g.l - g.r) * (sc.x1 - sc.x0);
+    let lo = 0, hi = this.points.length - 1;
+    while (lo < hi) { const m = (lo + hi) >> 1; if (this.points[m].x < x) lo = m + 1; else hi = m; }
+    if (lo > 0 && Math.abs(this.points[lo - 1].x - x) < Math.abs(this.points[lo].x - x)) lo--;
+    this.hover = lo;
+    this.draw();
+    const p = this.points[lo];
+    const rows = this.opt.series.map((s, i) =>
+      `<div class="r"><span>${this.opt.series.length > 1 ? `<span class="sw" style="display:inline-block;width:10px;height:3px;border-radius:2px;background:var(--s${i + 1})"></span>` : ""}${esc(s.label)}</span><b>${full(p.ys[i])}</b></div>`).join("");
+    showTip(e.clientX, e.clientY, `<div class="t">tick ${full(p.x)}</div>${rows}`);
+  }
+}
+function niceStep(raw) {
+  const p = Math.pow(10, Math.floor(Math.log10(raw)));
+  const f = raw / p;
+  return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p;
+}
+/* one style per axis: in full below 10,000, compact (0 / 5K / 10K) on an axis that reaches it */
+function axisFmt(v, step, top) {
+  if (top >= 10000) return v === 0 ? "0" : (v / 1000).toLocaleString("en-US", { maximumFractionDigits: step < 1000 ? 1 : 0 }) + "K";
+  return v.toLocaleString("en-US", { maximumFractionDigits: step < 1 ? 2 : 0 });
+}
+function thin(points, maxN) {
+  if (points.length <= maxN || maxN < 2) return points;
+  const out = [], k = points.length / maxN;
+  for (let i = 0; i < maxN; i++) out.push(points[Math.min(points.length - 1, Math.floor(i * k))]);
+  out.push(points[points.length - 1]);
+  return out;
+}
+const tipEl = $("#tooltip");
+function showTip(x, y, html) {
+  tipEl.innerHTML = html;
+  tipEl.style.display = "block";
+  const w = tipEl.offsetWidth, h = tipEl.offsetHeight;
+  let left = x + 14, top = y + 12;
+  if (left + w > innerWidth - 8) left = x - w - 14;
+  if (top + h > innerHeight - 8) top = y - h - 12;
+  tipEl.style.left = (left + scrollX) + "px";
+  tipEl.style.top = (top + scrollY) + "px";
+}
+function hideTip() { tipEl.style.display = "none"; }
+
+/* the charts: each one measure, one axis; series take slots 1, 2, ... in order */
+const PAIRS = ["share", "groom", "teach", "recruit", "attack", "steal", "trade", "mate"];
+const chartDefs = [
+  { title: "Population", sub: "creatures alive, and how many of them are eggs",
+    series: [{ label: "Alive", get: (r) => r.live }, { label: "Eggs", get: (r) => r.eggs }] },
+  { title: "Births and deaths per tick", sub: "averaged over the ticks between two pictures",
+    series: [{ label: "Births", get: (r, p) => rate(r, p, "births") }, { label: "Deaths", get: (r, p) => rate(r, p, "deaths") }] },
+  { title: "Lineages alive", sub: "clades with at least one living member", series: [{ label: "Lineages", get: (r) => r.clades }] },
+  { title: "Pair interactions per tick", sub: "resolved encounters, by what the initiator meant",
+    series: PAIRS.map((k) => ({ label: k, get: (r, p) => p && r.pairs && p.pairs ? perTick(r.pairs[k] - p.pairs[k], r, p) : null })) },
+  { title: "Speed", sub: "milliseconds: one tick, and drawing one picture",
+    series: [{ label: "ms per tick", get: (r) => r.ticks ? r.ms_tick : null }, { label: "ms per picture", get: (r) => r.ms_render }] },
+];
+function rate(r, p, k) { return p ? perTick(r[k] - p[k], r, p) : null; }
+function perTick(d, r, p) { const dt = r.tick - p.tick; return dt > 0 ? d / dt : null; }
+const charts = chartDefs.map((d) => new LineChart($("#charts"), d));
+function updateCharts() {
+  const recs = S.recs;
+  charts.forEach((c) => {
+    const pts = [];
+    for (let i = 0; i < recs.length; i++) {
+      const r = recs[i], p = i ? recs[i - 1] : null;
+      if (p && r.tick === p.tick && c.opt.title !== "Population" && c.opt.title !== "Lineages alive") continue;
+      pts.push({ x: r.tick, ys: c.opt.series.map((s) => { const v = s.get(r, p); return v == null || !isFinite(v) ? null : v; }) });
+    }
+    c.setPoints(pts);
+  });
+}
+
+/* ---------------- controls ---------------- */
+function setMode(lab) {
+  S.lab = lab;
+  $("#modeWild").setAttribute("aria-pressed", lab ? "false" : "true");
+  $("#modeLab").setAttribute("aria-pressed", lab ? "true" : "false");
+  $("#seedField").hidden = !lab;
+}
+$("#modeWild").addEventListener("click", () => setMode(false));
+$("#modeLab").addEventListener("click", () => setMode(true));
+
+function chosenLesions(root) { return $$("input[type=checkbox]", root).filter((x) => x.checked).map((x) => Number(x.value)); }
+function changedParams() {
+  return $$("#params input").filter((x) => x.value !== "" && Number(x.value) !== Number(x.dataset.def))
+    .map((x) => x.dataset.name + "=" + Number(x.value));
+}
+function sizeWH() { const [w, h] = $("#size").value.split("x").map(Number); return { width: w, height: h }; }
+
+async function startWorld(load) {
+  const body = Object.assign({ n: +$("#n").value, species: +$("#species").value, cap: +$("#cap").value, lab: S.lab,
+    seed: +$("#seed").value, every: +$("#every").value, fps: +$("#fps").value, lesions: chosenLesions($("#lesions")),
+    params: changedParams(), threads: 0 }, sizeWH());
+  if (load) body.load = load;
+  $("#startHint").textContent = "starting\u2026";
+  try {
+    const started = await api("/api/start", body);
+    S.closeOnRun = started.run_id;
+    S.cam = { yaw: 0.6, pitch: 0.5, dist: 0 };
+    S.paused = false; $("#pauseBtn").textContent = "Pause";
+    $("#startHint").textContent = "";
+  } catch (e) { $("#startHint").innerHTML = `<span class="err">${esc(e.message)}</span>`; }
+}
+$("#startBtn").addEventListener("click", () => startWorld(null));
+$("#stopBtn").addEventListener("click", () => api("/api/stop", {}).catch(() => {}));
+const cmd = (c) => api("/api/cmd", { cmd: c }).catch((e) => { $("#runHint").innerHTML = `<span class="err">${esc(e.message)}</span>`; });
+$("#pauseBtn").addEventListener("click", () => {
+  S.paused = !S.paused; cmd(S.paused ? "pause" : "run");
+  $("#pauseBtn").textContent = S.paused ? "Resume" : "Pause";
+});
+$$("[data-step]").forEach((b) => b.addEventListener("click", () => cmd("step " + b.dataset.step)));
+$("#every").addEventListener("change", () => cmd("every " + Math.max(1, Math.min(10000, +$("#every").value || 1))));
+$("#fps").addEventListener("change", () => cmd("fps " + Math.max(1, Math.min(30, +$("#fps").value || 6))));
+$("#size").addEventListener("change", () => cmd("size " + $("#size").value));
+$("#saveBtn").addEventListener("click", async () => {
+  const name = $("#saveName").value.trim() || ("world-" + new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-"));
+  try { await api("/api/save", { name }); $("#runHint").textContent = "saving " + name + "\u2026"; setTimeout(loadWorlds, 1500); }
+  catch (e) { $("#runHint").innerHTML = `<span class="err">${esc(e.message)}</span>`; }
+});
+
+/* camera: drag to orbit, wheel to zoom (dist 0 = fit the world) */
+let camTimer = null;
+function sendCamera() {
+  if (camTimer) return;
+  camTimer = setTimeout(() => {
+    camTimer = null;
+    const c = S.cam;
+    cmd(`camera ${c.yaw.toFixed(4)} ${c.pitch.toFixed(4)} ${c.dist.toFixed(1)}`);
+  }, 70);
+}
+function closeUp() {
+  const grid = S.start && S.start.grid;
+  S.cam.dist = grid ? Math.max(1, Math.min(...grid) * 0.8) : 12;
+  sendCamera();
+}
+(function () {
+  const img = $("#world");
+  let drag = null;
+  img.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, y: e.clientY, yaw: S.cam.yaw, pitch: S.cam.pitch }; img.setPointerCapture(e.pointerId); img.classList.add("drag"); });
+  img.addEventListener("pointermove", (e) => {
+    if (!drag) return;
+    S.cam.yaw = drag.yaw - (e.clientX - drag.x) * 0.008;
+    S.cam.pitch = Math.max(-1.5, Math.min(1.5, drag.pitch + (e.clientY - drag.y) * 0.006));
+    sendCamera();
+  });
+  const end = () => { drag = null; img.classList.remove("drag"); };
+  img.addEventListener("pointerup", end);
+  img.addEventListener("pointercancel", end);
+  img.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    if (!S.cam.dist) {
+      const g = (S.start && S.start.grid) || [64, 64, 32];
+      S.cam.dist = 1.6 * Math.hypot(g[0], g[1], g[2]);
+    }
+    S.cam.dist = Math.max(1, Math.min(1e6, S.cam.dist * (e.deltaY > 0 ? 1.12 : 1 / 1.12)));
+    sendCamera();
+  }, { passive: false });
+  $("#camDetail").addEventListener("click", closeUp);
+  $("#camReset").addEventListener("click", () => { S.cam = { yaw: 0.6, pitch: 0.5, dist: 0 }; sendCamera(); });
+})();
+
+/* ---------------- live state ---------------- */
+function showFrame(url) {
+  if (url === S.shownUrl || url === S.loadingUrl) return;
+  if (S.loadingUrl) { S.pendingUrl = url; return; }
+  S.loadingUrl = url;
+  const im = new Image();
+  im.onload = () => {
+    const img = $("#world");
+    img.src = url; img.hidden = false; $("#viewerEmpty").hidden = true; $("#viewTip").hidden = false;
+    S.shownUrl = url; S.loadingUrl = null;
+    if (S.pendingUrl) { const p = S.pendingUrl; S.pendingUrl = null; showFrame(p); }
+  };
+  im.onerror = () => { S.loadingUrl = null; if (S.pendingUrl) { const p = S.pendingUrl; S.pendingUrl = null; showFrame(p); } };
+  im.src = url;
+}
+
+function badge(kind, text, title) {
+  const ic = { good: "\u2713", bad: "!", info: "i", wait: "\u2026" }[kind];
+  return `<span class="badge ${kind}" title="${esc(title || "")}"><span class="ic" aria-hidden="true">${ic}</span>${esc(text)}</span>`;
+}
+
+// Native trait slots, in the order defined by core/az_abi.h.
+const traitNames = [
+  "SIZE", "DENSITY", "DRAG", "THRUST", "ARMOR", "WEAPON", "SENSE_RANGE", "SENSE_ACUITY",
+  "METAB", "EFFIC", "TOPT", "TTOL", "TOXRES", "PRESS_TOL", "RAD_TOL", "LIFESPAN",
+  "DIET_LIGHT", "DIET_X", "DIET_Y", "DIET_W", "OXI_USE", "PREDATION", "STORE_CAP", "TOX_SECRETE",
+  "WASTE_RATE", "BUILD", "GROWTH", "DORMANCY", "MATING_MODE", "REPRO_THRESH", "CLUTCH", "PROVISION",
+  "EGG_TIME", "MATURITY", "DISPERSAL", "CARE", "SEX_BIAS", "MUT_RATE", "RECOMB", "SELFING",
+  "AGGR", "SOCIAL", "ALTRUISM", "KIN_BIAS", "RECIPROCITY", "FORGIVE", "PUNISH", "STEAL",
+  "TRUST", "DOMINANCE", "SUBMISSION", "TERRITORIAL", "COLONIALITY", "CONFORMITY", "BOLDNESS", "MOODINESS",
+  "PREF_SIGNAL", "PREF_SIZE", "PREF_SIMILAR", "PREF_RANK", "CHOOSY", "ORNAMENT", "SIG_A_GAIN", "SIG_B_GAIN",
+  "SIG_HONESTY", "BOND", "FIDELITY", "GUARD", "VAL_0", "VAL_1", "VAL_2", "VAL_3",
+  "HOARD", "TRADE_DRIVE", "CARRY_CAP", "STORE_SHARE", "LEARN_RATE", "EXPLORE", "MEMORY", "PLASTICITY",
+  "CTX_GAIN", "Q_DEPTH", "Q_COUPLE", "HOPFIELD", "ATTENTION", "AROUSAL_GAIN", "AROUSAL_DECAY", "IMITATE",
+  "HUE", "SAT", "PATTERN", "GLOW", "SHAPE_M", "SHAPE_N", "SPIKES", "SHEEN",
+  "SEGMENT", "ALLOMETRY", "DEV_PLAST", "GENE_DUP", "GENE_DEL", "GENE_NEW", "NEURO_MUT", "NEURO_GROW",
+  "NEURO_PRUNE", "TAXIS", "CURVE", "IMPROV", "STAKE", "SIG_AIM", "CASTE", "COMMONS"
+];
+
+let latestTraitCensus = null;
+let listedTraits = "";
+function renderTraits(census) {
+  latestTraitCensus = census;
+  const section = $("#censusTraits");
+  if (!section.open) return;
+  const rows = $("#traitRows");
+  const table = $("#traitTable");
+  const count = census && census.live;
+  const means = census && Array.isArray(census.trait_mean) ? census.trait_mean : [];
+  const variances = census && Array.isArray(census.trait_var) ? census.trait_var : [];
+  const valid = v => Number.isSafeInteger(v) && v >= 0;
+  const available = valid(count) && count > 0 && (means.some(valid) || variances.some(valid));
+  const population = valid(count) ? full(count) + (count === 1 ? " living creature" : " living creatures") : "";
+  $("#traitCoverage").textContent = count === 0 ? "No living creatures in this census." :
+    available ? "Population denominator: " + population + ". Native means and variances are rounded down to whole numbers." :
+    (population ? "Population denominator: " + population + ". " : "") + "Trait measurements unavailable.";
+  table.hidden = !available;
+  const format = v => valid(v) ? full(v) : "Unavailable";
+  const html = available ? traitNames.map((name, i) =>
+    "<tr><th scope='row'>AZ_T_" + name + "</th><td>" + format(means[i]) +
+    "</td><td>" + format(variances[i]) + "</td></tr>").join("") : "";
+  if (listedTraits !== html) {
+    rows.innerHTML = html;
+    listedTraits = html;
+  }
+}
+$("#censusTraits").addEventListener("toggle", () => renderTraits(latestTraitCensus));
+
+function censusCount(value) {
+  return Number.isSafeInteger(value) && value >= 0 ? full(value) : "Unavailable";
+}
+
+function renderCensusCounts(selector, caption, labels, values) {
+  const table = $(selector);
+  table.hidden = !values;
+  if (!values) return;
+  table.caption.textContent = caption;
+  table.tBodies[0].innerHTML = labels.map((label, i) =>
+    "<tr><th scope='row'>" + label + "</th><td>" + censusCount(values[i]) + "</td></tr>").join("");
+}
+
+function renderCensus(census) {
+  renderTraits(census);
+  const panel = $("#censusPanel");
+  panel.hidden = !census;
+  if (!census) return;
+  const wideCount = v => typeof v === "string" && /^\d{1,39}$/.test(v)
+    ? BigInt(v).toLocaleString("en-US") : "\u2013";
+  const intake = census.intake;
+  const feeding = $("#censusFeeding");
+  feeding.hidden = !intake;
+  const measured = intake && intake.available;
+  feeding.querySelector("table").hidden = !measured;
+  const population = censusCount(census.live);
+  const dietCaption = population === "Unavailable" ? "Leading diet among living creatures (population unavailable)" :
+    "Leading diet among " + population + (census.live === 1 ? " living creature" : " living creatures");
+  const dietCounts = measured && Array.isArray(census.diet) ?
+    [census.diet[0], census.diet[1], census.diet[2], census.diet[3], census.diet_unknown] : null;
+  const wasteDiet = census.waste_conversion && census.waste_conversion.available ? "Environmental waste converted to biomass" : "Decomposition";
+  renderCensusCounts("#censusDiet", dietCaption,
+    ["Light", "Nutrient X", "Organic matter Y", wasteDiet, "Unknown diet"], dietCounts);
+  const channels = $("#intakeChannels");
+  channels.replaceChildren();
+  if (measured) {
+    $("#intakeCoverage").textContent = "Complete intake histories: " +
+      full(intake.complete_positive) + " with a funded input, " + full(intake.complete_zero) +
+      " with none. Partial histories: " + full(intake.partial_positive) +
+      " with a funded input, " + full(intake.partial_zero) + " with none observed." +
+      (dietCounts ? "" : " Leading diet counts are unavailable for this frame.");
+    const names = [["light_eu", "Light", "energy units"],
+      ["nut_x_mu", "Nutrient X", "matter units"], ["org_y_mu", "Organic matter Y", "matter units"],
+      ["wst_fixed_mu", "Waste fixed into the body", "matter units"],
+      ["wst_carried_mu", "Waste carried", "matter units"]];
+    for (const [key, label, unit] of names) {
+      const totals = intake.channels && intake.channels[key];
+      if (!totals) continue;
+      const row = channels.insertRow();
+      const heading = document.createElement("th");
+      heading.scope = "row";
+      heading.textContent = label;
+      row.appendChild(heading);
+      for (const value of [full(totals.uids), wideCount(totals.occasions),
+                           wideCount(totals.amount) + " " + unit]) row.insertCell().textContent = value;
+    }
+  } else if (intake) {
+    $("#intakeCoverage").textContent = "Intake observations unavailable for this run.";
+  }
+  const conversion = census.waste_conversion, wasteText = $("#censusWaste");
+  wasteText.hidden = !conversion;
+  if (conversion) {
+    wasteText.textContent = conversion.available
+      ? full(conversion.converting_live) + " living creatures converted waste into " +
+        wideCount(conversion.biomass_formed_mu) + " matter units of biomass. Between " +
+        wideCount(conversion.external_converted_mu_lower) + " and " +
+        wideCount(conversion.external_converted_mu_upper) + " units came from the environment. " +
+        full(conversion.diet_winner_ambiguous_live) + " have an uncertain leading diet because the source of some waste is unknown. " +
+        full(conversion.partial_live) + " have partial histories."
+      : "Waste conversion observations are unavailable for this run.";
+  }
+
+  const teaching = census.teaching, teachingText = $("#censusTeaching");
+  teachingText.hidden = !teaching;
+  if (teaching && teaching.living_observed_actors == null) {
+    teachingText.textContent = "Teaching observations unavailable for this run.";
+  } else if (teaching) {
+    teachingText.textContent = (teaching.window_complete ? "" : "At least ") + wideCount(teaching.resolved_events) + " resolved teaching interactions. " +
+      full(teaching.living_observed_actors) + " observed teachers are alive. " +
+      full(teaching.lifetime_covered_live) + " living creatures have complete teaching histories and " +
+      full(teaching.partial_live) + " have partial histories." +
+      (teaching.window_complete ? "" : " Some interaction records were unavailable.");
+  }
+
+  $("#censusCounts").textContent = [
+    full(census.live) + " living", full(census.species) + " founder species",
+    full(census.looks) + " appearance classes", full(census.colonies) + " active colonies",
+    full(census.diet_unknown) + " with unknown diet"
+  ].join(" \u00b7 ");
+
+  const overflow = $("#censusOverflow");
+  overflow.hidden = census.species_beyond == null && census.looks_beyond == null;
+  if (!overflow.hidden) {
+    const species = censusCount(census.species_beyond), looks = censusCount(census.looks_beyond);
+    const speciesText = species === "Unavailable" ? "The count of founder species outside the 128 summary slots is unavailable." :
+      species + (census.species_beyond === 1 ? " founder species falls" : " founder species fall") + " outside the 128 summary slots.";
+    const looksText = looks === "Unavailable" ? "The count of appearance classes outside the 64 summary slots is unavailable." :
+      looks + (census.looks_beyond === 1 ? " appearance class falls" : " appearance classes fall") + " outside the 64 summary slots.";
+    overflow.textContent = speciesText + " " + looksText;
+  }
+
+  const partners = census.partners, partnerText = $("#censusPartners");
+  partnerText.hidden = !partners;
+  if (partners) {
+    partnerText.textContent = partners.available && partners.window_complete ?
+      full(partners.repeated_exclusive_reciprocal) + " had repeated mating with one reciprocally bonded partner. " +
+      full(partners.simultaneous_incoming_bonds) + " have simultaneous bonds from multiple living mates. " +
+      full(partners.lifetime_covered_live) + " have complete mating histories and " + full(partners.partial_live) + " have partial histories." :
+      partners.available && partners.window_complete === false ? "Mating observations were interrupted. Complete lifetime outcomes are unavailable." :
+      "Complete partner observations are unavailable for this run.";
+  }
+  const complete = partners && partners.available && partners.window_complete;
+  const covered = partners && censusCount(partners.lifetime_covered_live);
+  const mateCaption = covered === "Unavailable" ? "Resolved matings among living creatures with complete histories (count unavailable)" :
+    "Resolved matings among " + covered + (partners && partners.lifetime_covered_live === 1 ? " living creature" : " living creatures") +
+    " with complete histories";
+  renderCensusCounts("#censusMateOutcomes", mateCaption,
+    ["No resolved mating", "One resolved mating", "Repeated mating with one partner", "Mating with multiple distinct partners"],
+    complete ? [partners.zero, partners.one_mating, partners.repeated_single_partner, partners.multiple_distinct_partners] : null);
+  const partialText = $("#censusPartialMates");
+  partialText.hidden = !(partners && partners.available);
+  if (!partialText.hidden) {
+    const mated = censusCount(partners.partial_observed_mating_live), partial = censusCount(partners.partial_live);
+    const observation = mated === "Unavailable" || partial === "Unavailable" ?
+      "The number observed mating among living creatures with partial histories is unavailable." :
+      partners.partial_live === 0 && partners.partial_observed_mating_live === 0 ? "No living creatures have partial mating histories." :
+      mated + " of " + partial + " living creatures with partial histories were observed mating during the recorded interval.";
+    partialText.textContent = observation + " Affirmative abstention is unmeasured.";
+  }
+
+  const predation = census.predation, predationText = $("#censusPredation");
+  predationText.hidden = !predation;
+  if (predation) {
+    predationText.textContent = predation.available
+      ? "Living attackers acquired " + wideCount(predation.assimilated_mu) + " matter units from opponents in " +
+        wideCount(predation.occasions) + " successful feeding events during the observed interval. " +
+        full(predation.complete_positive) + " have full histories with feeding and " +
+        full(predation.partial_positive) + " have partial histories with feeding."
+      : "Opponent feeding observations are unavailable for this run.";
+  }
+  const commons = census.commons, commonsText = $("#censusCommons");
+  commonsText.hidden = !commons;
+  if (commons) {
+    commonsText.textContent = commons.available
+      ? "Living members received colony funds on " + wideCount(commons.receipt_pulses) +
+        " occasions and contributed on " + wideCount(commons.contribution_pulses) +
+        ". On " + wideCount(commons.matched_withholdings) +
+        " later opportunities, a recipient could have contributed to the same colony and contributed nothing. " +
+        full(commons.qualifying_live) + " living members meet the lifetime criterion."
+      : "Colony transfer observations are unavailable for this run.";
+  }
+  const building = census.builder, buildingText = $("#censusBuilding");
+  buildingText.hidden = !building;
+  if (building) {
+    buildingText.textContent = building.available && building.window_complete
+      ? "Builders increased nest marks on " + wideCount(building.credited_occasions) +
+        " occasions. Removing their individual contributions would have removed " +
+        wideCount(building.marginal_mark_units) + " mark units across those events. " +
+        full(building.living_observed_builders) + " observed builders are alive."
+      : "A complete count of nest-mark contributions is unavailable for this run.";
+  }
+
+  const refusal = census.hermit, refusalText = $("#censusRefusals");
+  refusalText.hidden = !refusal;
+  if (refusal) {
+    if (refusal.available && refusal.window_complete) {
+      refusalText.textContent = wideCount(refusal.eligible_refusals) +
+        " eligible recruitment refusals observed. " + full(refusal.living_observed_refusers) +
+        " recipients are alive. " + full(refusal.lifetime_covered_live) +
+        " living creatures have complete histories and " + full(refusal.partial_live) + " have partial histories.";
+    } else {
+      refusalText.textContent = "A complete recruitment refusal count is unavailable for this run.";
+    }
+  }
+
+  const dimensions = [
+    ["genome_length", "Genes (both sets)"], ["hidden_neurons", "Hidden neurons"],
+    ["tiles", "Brain tiles"], ["body_parts", "Body parts"], ["body_matter", "Body matter"],
+    ["memory_words", "Memory words"], ["colony_size", "Members per active colony"],
+    ["lineage_depth", "Lineage depth"]
+  ];
+  const headings = ["Min", "5%", "25%", "Median", "75%", "95%", "Max"];
+  const rows = dimensions.map(([key, name]) => {
+    const hasSample = key === "colony_size" ? census.colonies > 0 : census.live > 0;
+    const values = census.quantiles && census.quantiles[key];
+    const cells = headings.map((_, index) => {
+      const value = values && values[index];
+      const valid = typeof value === "string" && /^\d{1,20}$/.test(value);
+      return "<td>" + (hasSample && valid ? BigInt(value).toLocaleString("en-US") : "\u2013") + "</td>";
+    });
+    return "<tr><th scope='row'>" + name + "</th>" + cells.join("") + "</tr>";
+  });
+  $("#censusTable").innerHTML = "<thead><tr><th>Measure</th>" +
+    headings.map(h => "<th scope='col'>" + h + "</th>").join("") + "</tr></thead><tbody>" +
+    rows.join("") + "</tbody>";
+
+  const labels = ["Unclassified", "Producer", "Chemotroph", "Grazer", "Decomposer",
+    "Predator", "Thief", "Altruist", "Freeloader", "Trader", "Warrior", "Dominant",
+    "Subordinate", "Hermit", "Nomad", "Signaller", "Monogamist", "Polygamist", "Brooder",
+    "Celibate", "Teacher", "Builder", "Switcher"];
+  const classes = labels.flatMap((label, index) =>
+    census.archetype && census.archetype[index] > 0 ? [label + " " + full(census.archetype[index])] : []);
+  $("#censusClasses").textContent = classes.length ? "Observed classifications: " + classes.join(", ") : "";
+}
+
+function renderLive() {
+  const L = S.last, st = S.start;
+  renderCensus(L && L.census);
+  // status pill
+  const pill = $("#statusPill");
+  const paused = S.paused || !!(L && L.paused);   /* the page's own Pause shows at once; the engine confirms with its next frame */
+  pill.className = "pill" + (S.running ? (paused ? " paused" : " on") : (S.exitCode ? " err" : ""));
+  $("#statusText").textContent = S.running ? (paused ? "paused" : "running") : (S.runId ? "stopped" + (S.exitCode != null ? " (exit " + S.exitCode + ")" : "") : "no world");
+  const mp = $("#modePill");
+  if (st) {
+    mp.hidden = false;
+    mp.textContent = st.mode === "wild" ? "WILD \u00b7 origin " + st.origin : "LAB \u00b7 seed " + st.seed;
+    mp.title = st.mode === "wild" ? "Fresh entropy from the operating system every tick: no seed, never the same twice" : "Seeded, repeatable test bench";
+  } else mp.hidden = true;
+  // badges
+  const b = [];
+  if (L) {
+    b.push(L.unbalanced === 0 ? badge("good", "Matter and energy exact on every tick", "az_total_matter and az_total_energy equal their starting totals after each tick")
+      : badge("bad", `Books broke on ${L.unbalanced} ticks`, "matter or energy differed from the start"));
+    b.push(L.hash === L.hash_after_view ? badge("good", "Viewing does not change the world", "state hash before drawing " + L.hash + " = after " + L.hash_after_view)
+      : badge("bad", "Drawing changed the state", L.hash + " \u2260 " + L.hash_after_view));
+    if (st && st.mode === "wild") b.push(L.entropy_missed === 0 ? badge("good", "Fresh OS entropy every tick", "16 bytes from the operating system at the start of every tick")
+      : badge("bad", `${L.entropy_missed} ticks had no fresh entropy`, ""));
+    else if (st) b.push(badge("info", "Lab: repeatable from seed " + st.seed, "The same seed gives the same world"));
+    if (st) b.push(badge("info", st.locked ? `Arena ${fmt(st.arena_mb)} MB locked in RAM` : "Arena not locked", "no pagefile, no virtual memory"));
+    if (L.cap_denied > 0) b.push(badge("info", `${fmt(L.cap_denied)} births found no free slot`, "the slot table is memory, set at run time; raise Slots for more room"));
+  } else if (S.running) b.push(badge("wait", "making the world\u2026"));
+  $("#badges").innerHTML = b.join("");
+  // tiles
+  const tps = L && L.ticks && L.ms_tick ? 1000 / L.ms_tick : null;
+  const tiles = L ? [
+    ["Tick", full(L.tick), S.lab ? "" : ""], ["Alive", fmt(L.live), ""], ["Eggs", fmt(L.eggs), ""],
+    ["Founder species", L.census ? fmt(L.census.species) : "\u2013", "represented among living creatures"],
+    ["Appearance classes", L.census ? fmt(L.census.looks) : "\u2013", "occupied census categories"],
+    ["Lineages", fmt(L.clades), "clades alive"], ["Colonies", fmt(L.colonies), "superorganisms"],
+    ["Births", fmt(L.births), "since the start"], ["Deaths", fmt(L.deaths), "since the start"],
+    ["Generation", fmt(L.max_gen), "deepest alive"], ["Mean energy", fmt(L.mean_energy), "eu per creature"],
+    ["Tick speed", tps ? fmt(tps) + "/s" : "\u2013", st ? "engine only, " + st.workers + " workers" : ""],
+  ] : [];
+  $("#tiles").innerHTML = tiles.map(([l, v, n]) => `<div class="tile"><div class="label">${esc(l)}</div><div class="value">${v}</div><div class="note">${esc(n)}</div></div>`).join("");
+  if (!L) return;
+  // top lineages
+  const top = L.top || [], tmax = Math.max(1, ...top.map((t) => t[1]));
+  $("#topBars").innerHTML = top.length ? top.map(([c, n]) => `<div class="b"><span class="name">C${c}</span><span class="track"><span class="fill" style="display:block;width:${(n / tmax * 100).toFixed(1)}%"></span></span><span class="val">${full(n)}</span></div>`).join("") : '<p class="hint">none drawn</p>';
+  // spread
+  const B = L.body || {};
+  const rowsB = [["Genes (both sets)", B.genes], ["Neurons", B.neurons], ["Body parts", B.parts], ["Store units (64 bytes)", B.units]];
+  $("#spread").innerHTML = "<tr><th>per creature</th><th>lowest</th><th>mean</th><th>highest</th></tr>" +
+    rowsB.map(([n, v]) => `<tr><td>${esc(n)}</td><td>${v ? full(v[0]) : "\u2013"}</td><td>${v ? full(v[2]) : "\u2013"}</td><td>${v ? full(v[1]) : "\u2013"}</td></tr>`).join("") +
+    `<tr><td>Most brain tiles</td><td></td><td></td><td>${full(B.tiles_max)}</td></tr>`;
+  // stages
+  const stg = Object.entries(L.stages || {}), smax = Math.max(1e-9, ...stg.map((s) => s[1]));
+  $("#stageBars").innerHTML = stg.map(([k, v]) => `<div class="b"><span class="name">${esc(k)}</span><span class="track"><span class="fill" style="display:block;width:${(v / smax * 100).toFixed(1)}%"></span></span><span class="val">${v.toFixed(3)}</span></div>`).join("");
+  // data table
+  const recent = S.recs.slice(-30).reverse();
+  $("#dataTable").innerHTML = "<tr><th>tick</th><th>alive</th><th>eggs</th><th>lineages</th><th>colonies</th><th>births</th><th>deaths</th><th>generation</th><th>ms/tick</th><th>exact</th></tr>" +
+    recent.map((r) => `<tr><td>${full(r.tick)}</td><td>${full(r.live)}</td><td>${full(r.eggs)}</td><td>${full(r.clades)}</td><td>${full(r.colonies)}</td><td>${full(r.births)}</td><td>${full(r.deaths)}</td><td>${full(r.max_gen)}</td><td>${r.ticks ? r.ms_tick.toFixed(2) : "\u2013"}</td><td>${r.unbalanced === 0 ? "yes" : "NO"}</td></tr>`).join("");
+}
+
+function renderEvents() {
+  $("#events").innerHTML = S.events.slice(-60).reverse().map((e) => {
+    let t = e.event;
+    if (e.event === "start") t = `start: ${e.mode} world, ${full(e.n)} founders, ${e.species} species, grid ${e.grid.join("\u00d7")}, ${e.workers} workers, arena ${fmt(e.arena_mb)} MB` + (e.loaded ? " (loaded from a snapshot)" : "");
+    else if (e.event === "saved") t = `saved at tick ${full(e.tick)}: ${fmt(e.bytes / 1048576)} MB, hash ${e.hash}`;
+    else if (e.event === "error") t = `error (${e.what}): ${e.detail}`;
+    else if (e.event === "exited") t = `the engine stopped (exit ${e.code})`;
+    else if (e.event === "end") t = `end at tick ${full(e.tick)}: ${e.frames} pictures, books broken on ${e.unbalanced} ticks, hash ${e.hash}`;
+    return `${esc(e.at || "")}  ${esc(t)}`;
+  }).join("\n") + (S.stderr && S.stderr.length ? "\n\u2014 engine messages \u2014\n" + esc(S.stderr.join("\n")) : "");
+}
+
+async function poll() {
+  try {
+    const s = await api(`/api/state?since=${S.since}&esince=${S.esince}`);
+    if (s.run_id !== S.runId) {
+      S.runId = s.run_id; S.recs = []; S.events = []; S.shownUrl = null; S.last = null; S.start = null;
+      updateCharts();
+    }
+    S.running = s.running; S.start = s.start; S.options = s.options; S.exitCode = s.exit_code; S.stderr = s.stderr;
+    if (s.options) S.lab = !!s.options.lab && !s.options.load ? true : (s.start ? s.start.mode === "lab" : false);
+    if (s.frames.length) {
+      S.recs.push(...s.frames);
+      if (S.recs.length > 5000) S.recs.splice(0, S.recs.length - 5000);
+      S.since = s.frames[s.frames.length - 1].idx;
+      updateCharts();
+    }
+    if (s.events.length) {
+      S.events.push(...s.events);
+      S.esince = s.events[s.events.length - 1].seq;
+      if (s.events.some((e) => e.event === "saved")) { loadWorlds(); $("#runHint").textContent = "saved"; }
+    }
+    if (s.last) {
+      const fresh = !S.last;
+      if (fresh && Array.isArray(s.last.camera)) {
+        const [yaw, pitch, dist] = s.last.camera;
+        S.cam = { yaw, pitch, dist };
+      }
+      if (fresh) {
+        S.paused = !!s.last.paused;
+        $("#pauseBtn").textContent = S.paused ? "Resume" : "Pause";
+        $("#size").value = s.last.size.join("x");
+        $("#every").value = s.last.every;
+        $("#fps").value = s.last.fps;
+      }
+      if (S.closeOnRun === s.run_id && s.start) {
+        S.closeOnRun = null;
+        closeUp();
+      }
+      S.last = s.last;
+      if (s.last.file && S.runId) showFrame(`/frame/${S.runId}/${s.last.file}`);
+    }
+    renderLive();
+    renderEvents();
+  } catch (e) {
+    $("#statusText").textContent = "server not reachable";
+    $("#statusPill").className = "pill err";
+  }
+  setTimeout(poll, 250);
+}
+
+/* ---------------- info, lesions, params, worlds ---------------- */
+async function loadInfo() {
+  const info = await api("/api/info");
+  S.info = info;
+  $("#lesions").innerHTML = info.lesions.map((l) => `<label title="${esc(l.what)}"><input type="checkbox" value="${l.bit}">${esc(l.name.toLowerCase())}</label>`).join("");
+  $("#lesionPick").innerHTML = info.lesions.map((l) => `<option value="${l.bit}" title="${esc(l.what)}">${esc(l.name.toLowerCase())}: ${esc(l.what)}</option>`).join("");
+  let group = "";
+  $("#params").innerHTML = "<table>" + info.params.map((p) => {
+    const head = p.group !== group ? `<tr><td colspan="2" style="color:var(--ink);font-weight:600;padding-top:6px">${esc(p.group)}</td></tr>` : "";
+    group = p.group;
+    return head + `<tr title="${esc(p.what)}"><td>${esc(p.name.toLowerCase())}<div class="hint" style="margin:0">${esc(p.what)} (${full(p.lo)}..${full(p.hi)})</div></td><td style="width:96px"><input type="number" data-name="${esc(p.name)}" data-def="${p.default}" min="${p.lo}" max="${p.hi}" value="${p.default}"></td></tr>`;
+  }).join("") + "</table>";
+  $("#refPick").innerHTML = info.references.length ? info.references.map((r) => `<option value="${esc(r.args.join(" "))}">${esc(r.args.join(" "))} = ${esc(r.hash)}</option>`).join("")
+    : "<option value=''>no lab reference recorded</option>";
+  $("#suiteBuild").textContent = info.build ? "build folder: " + info.build : "no build folder found";
+  const ex = info.exes || {};
+  $("#aboutCmd").textContent = info.build ? `"${info.build}\\az_live.exe" --dir <folder> --n 5000 --max-ticks 200   (wild; add --lab --seed 42 for the test bench)` : "build az_live first (demo/README.md)";
+  $("#aboutStatus").innerHTML = [
+    "The selected native executable supplies each frame, its world measurements and the before-and-after state hashes.",
+    "Programs found: " + Object.entries(ex).map(([k, v]) => k + (v ? " (" + v + ")" : " (missing)")).join(", "),
+  ].map((s) => `<li>${esc(s)}</li>`).join("");
+  if (!info.build) { $("#startHint").innerHTML = '<span class="err">No build folder with az_live.exe was found.</span>'; $("#startBtn").disabled = true; }
+}
+async function loadWorlds() {
+  try {
+    const { worlds } = await api("/api/worlds");
+    $("#worlds").innerHTML = worlds.length ? worlds.map((w) =>
+      `<div class="row" style="justify-content:space-between"><span><b>${esc(w.name)}</b> <span class="hint">${esc(w.mode || "")} \u00b7 tick ${full(w.tick)} \u00b7 ${fmt((w.bytes || 0) / 1048576)} MB \u00b7 ${esc(w.when)}</span></span>
+       <span><button class="btn small" type="button" data-load="${esc(w.name)}">Load</button> <button class="btn small" type="button" data-del="${esc(w.name)}" title="Delete this saved world">Delete</button></span></div>`).join("")
+      : "none yet";
+    $$("[data-load]").forEach((b) => b.addEventListener("click", () => startWorld(b.dataset.load)));
+    $$("[data-del]").forEach((b) => b.addEventListener("click", async () => {
+      if (!confirm("Delete the saved world " + b.dataset.del + "? It cannot be brought back.")) return;
+      await api("/api/delete-world", { name: b.dataset.del }).catch(() => {});
+      loadWorlds();
+    }));
+  } catch (e) { /* ignore */ }
+}
+
+/* ---------------- checks and the suite ---------------- */
+$$("[data-check]").forEach((b) => b.addEventListener("click", async () => {
+  const kind = b.dataset.check;
+  const body = { kind, n: +$("#cn").value, ticks: +$("#ct").value, seed: +$("#cs").value, species: 100, cap: 0 };
+  if (kind === "lesion") body.lesions = [+$("#lesionPick").value];
+  if (kind === "reference") body.ref = $("#refPick").value;
+  try { await api("/api/check", body); pollJobs(); }
+  catch (e) { alert(e.message); }
+}));
+function jobCard(j) {
+  const v = j.state === "running" ? `<span class="verdict running"><span class="spin"></span> running</span>`
+    : `<span class="verdict ${j.verdict}">${j.verdict === "pass" ? "\u2713 PASS" : j.verdict === "fail" ? "\u2717 FAIL" : "! ERROR"}</span>`;
+  const R = j.result || {};
+  let body = "";
+  if (j.kind === "repeat" || j.kind === "wild") {
+    body = `<div class="kv">${(R.hashes || []).map((h, i) => `<div>${esc((R.labels || [])[i] || "run " + (i + 1))}</div><div class="mono">${esc(h || "\u2013")}${R.origins && R.origins[i] ? " \u00b7 origin " + esc(R.origins[i]) : ""}</div>`).join("")}
+      <div>${j.kind === "repeat" ? "all equal" : "different"}</div><div>${j.kind === "repeat" ? (R.same ? "yes" : "no") : (R.differ ? "yes" : "no")}</div>
+      <div>matter and energy exact</div><div>${R.exact ? "yes, in every run" : "NO"}</div></div>`;
+  } else if (j.kind === "lesion" && R.intact) {
+    const keys = [["live", "alive at the end"], ["births", "births"], ["deaths", "deaths"], ["clades", "lineages"], ["colonies", "colonies"], ["pairs_total", "pair interactions"], ["ms_tick", "ms per tick"], ["hash", "final hash"]];
+    const name = (S.info && S.info.lesions.find((l) => R.lesion === (1 << l.bit))) || null;
+    body = `<p class="hint">lesion: ${esc(name ? name.name.toLowerCase() + " (" + name.what + ")" : "0x" + R.lesion.toString(16))}</p><table class="data"><tr><th></th><th>intact</th><th>lesioned</th></tr>` +
+      keys.map(([k, n]) => `<tr><td>${esc(n)}</td><td>${k === "hash" ? `<span class="mono">${esc(R.intact[k] || "\u2013")}</span>` : full(R.intact[k])}</td><td>${k === "hash" ? `<span class="mono">${esc(R.lesioned[k] || "\u2013")}</span>` : full(R.lesioned[k])}</td></tr>`).join("") +
+      `</table><p class="hint">One seed, one run each: a contrast to look at, not a statistical test (the preregistered lesion suite uses many seeds and Holm correction).</p>`;
+  } else if (j.kind === "reference" && R.expected) {
+    body = `<div class="kv"><div>command</div><div class="mono">az_run ${esc((R.args || []).join(" "))}</div><div>recorded</div><div class="mono">${esc(R.expected)} (${esc(R.date || "")})</div><div>this build</div><div class="mono">${esc(R.got || "\u2013")}</div></div>`;
+  } else if (j.kind === "ctest") {
+    const p = (R.passed || []).length, f = (R.failed || []).length;
+    const live = j.lines.filter((l) => /Test\s+#\d+:/.test(l)).length;
+    body = `<div class="kv"><div>tests finished</div><div>${j.state === "running" ? live : p + f}</div><div>passed</div><div>${j.state === "running" ? "\u2026" : p}</div><div>failed</div><div>${j.state === "running" ? "\u2026" : (f ? esc(R.failed.join(", ")) : "none")}</div></div>`;
+  }
+  if (R.error) body += `<p class="err">${esc(R.error)}</p>`;
+  return `<div class="job"><div class="row" style="justify-content:space-between"><b>${esc(j.title)}</b>${v}</div>
+    <div class="hint">started ${esc(j.started)}${j.ended ? " \u00b7 ended " + esc(j.ended) : ""}</div>${body}
+    <details${j.kind === "ctest" && j.state === "running" ? " open" : ""}><summary>engine output</summary><div class="log">${esc(j.lines.slice(-200).join("\n"))}</div></details></div>`;
+}
+let jobsTimer = null;
+async function pollJobs() {
+  clearTimeout(jobsTimer);
+  try {
+    const { jobs } = await api("/api/jobs");
+    const list = jobs.slice().reverse();
+    const checks = list.filter((j) => j.kind !== "ctest"), suite = list.filter((j) => j.kind === "ctest");
+    $("#checkJobs").innerHTML = checks.length ? checks.map(jobCard).join("") : '<p class="hint">No checks run yet.</p>';
+    $("#suiteJobs").innerHTML = suite.map(jobCard).join("");
+    const busy = jobs.some((j) => j.state === "running");
+    jobsTimer = setTimeout(pollJobs, busy ? 1000 : 4000);
+  } catch (e) { jobsTimer = setTimeout(pollJobs, 4000); }
+}
+
+loadInfo().catch((e) => { $("#startHint").innerHTML = `<span class="err">${esc(e.message)}</span>`; });
+loadWorlds();
+poll();
+pollJobs();
+</script>
+</body>
+</html>

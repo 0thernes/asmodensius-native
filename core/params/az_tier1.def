@@ -1,0 +1,18 @@
+/* params/az_tier1.def - the world parameters of az_tier1.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not a law of the physics from az_abi.h
+ * and not read from the creature (a trait, its brain, its body, its memory)
+ * is declared here, with its default and the range it may be set to, and is
+ * read as w->param[AZ_WP_<name>]. Names start with the module's name in
+ * capitals so that they cannot collide.
+ */
+AZ_PARAM(TIER1_BASE_SHIFT,     3,  0,      15, "the reward a creature expects follows what it gets by 1 / 2^this per visit")
+AZ_PARAM(TIER1_SURPRISE_EU,   64,  1, 1048576, "energy (eu) of surprise in one visit that counts as full")
+AZ_PARAM(TIER1_LEARN_SHIFT,   16,  0,      31, "the plasticity step is surprise * eligibility * LEARN_RATE / 2^this")
+AZ_PARAM(TIER1_CTX_LEAK,      16,  1,     256, "the context loses 1 / this of itself per visit")
+AZ_PARAM(TIER1_HOP_TEMP,      64,  0,    4095, "recall temperature of a creature with HOPFIELD 127 (32 = the coupling scale); none at HOPFIELD 255")
+AZ_PARAM(TIER1_WORD_EU,        4,  0, 1048576, "energy (eu) a creature pays as heat to write one word of long-term memory; metab reads it for the upkeep")
+AZ_PARAM(TIER1_FAMILIAR,      52, 33,      64, "spins of 64 in which a long-term word must agree with the present to be recognised")
+AZ_PARAM(TIER1_METRIC_FLOOR, 1024, 1,   65536, "floor of the metric of a lane (Q16.16): bounds how much a flat direction is amplified")

@@ -1,0 +1,21 @@
+nn_mv32x64_vnni_c4x4     arrowlake  insns/call 102  uops/call  168.0  cycles/call  41.10  uops/cycle  4.09  IPC  2.48  BlockRThroughput  35.0
+nn_mv32x64_vnni_c4x4     gracemont  insns/call 102  uops/call  168.0  cycles/call  41.10  uops/cycle  4.09  IPC  2.48  BlockRThroughput  35.0
+nn_mv32x64_vnni_c4x4     znver4     insns/call 102  uops/call  103.0  cycles/call  46.03  uops/cycle  2.24  IPC  2.22  BlockRThroughput  44.5
+nn_mv32x64_vnni_c4x8     arrowlake  insns/call 116  uops/call  185.0  cycles/call  36.41  uops/cycle  5.08  IPC  3.19  BlockRThroughput  35.0
+nn_mv32x64_vnni_c4x8     gracemont  insns/call 116  uops/call  185.0  cycles/call  36.41  uops/cycle  5.08  IPC  3.19  BlockRThroughput  35.0
+nn_mv32x64_vnni_c4x8     znver4     insns/call 116  uops/call  117.0  cycles/call  48.02  uops/cycle  2.44  IPC  2.42  BlockRThroughput  47.5
+nn_mv32x64_vnni_c4x12    arrowlake  insns/call 132  uops/call  205.0  cycles/call  38.06  uops/cycle  5.39  IPC  3.47  BlockRThroughput  35.0
+nn_mv32x64_vnni_c4x12    gracemont  insns/call 132  uops/call  205.0  cycles/call  38.06  uops/cycle  5.39  IPC  3.47  BlockRThroughput  35.0
+nn_mv32x64_vnni_c4x12    znver4     insns/call 132  uops/call  133.0  cycles/call  53.52  uops/cycle  2.49  IPC  2.47  BlockRThroughput  51.5
+nn_mv32x64_int8_c4x8     arrowlake  insns/call 116  uops/call  185.0  cycles/call  39.07  uops/cycle  4.73  IPC  2.97  BlockRThroughput  35.0
+nn_mv32x64_int8_c4x8     gracemont  insns/call 116  uops/call  185.0  cycles/call  39.07  uops/cycle  4.73  IPC  2.97  BlockRThroughput  35.0
+nn_mv32x64_int8_c4x8     znver4     insns/call 116  uops/call  117.0  cycles/call  53.02  uops/cycle  2.21  IPC  2.19  BlockRThroughput  47.5
+nn_mv32x64_avx2_c4       arrowlake  insns/call 234  uops/call  301.0  cycles/call  80.04  uops/cycle  3.76  IPC  2.92  BlockRThroughput  68.0
+nn_mv32x64_avx2_c4       gracemont  insns/call 234  uops/call  301.0  cycles/call  80.04  uops/cycle  3.76  IPC  2.92  BlockRThroughput  68.0
+nn_mv32x64_avx2_c4       znver4     insns/call 234  uops/call  235.0  cycles/call  69.02  uops/cycle  3.40  IPC  3.39  BlockRThroughput  64.0
+nn_mv32x64_vnni_rm       arrowlake  insns/call 184  uops/call  308.0  cycles/call  75.13  uops/cycle  4.10  IPC  2.45  BlockRThroughput  51.3
+nn_mv32x64_vnni_rm       gracemont  insns/call 184  uops/call  308.0  cycles/call  75.13  uops/cycle  4.10  IPC  2.45  BlockRThroughput  51.3
+nn_mv32x64_vnni_rm       znver4     insns/call 184  uops/call  233.0  cycles/call  80.05  uops/cycle  2.91  IPC  2.30  BlockRThroughput  80.0
+morton3_pdep_batch loop  arrowlake  uops/encode 12.0  cycles/encode  3.02  BlockRThroughput  3.0
+morton3_pdep_batch loop  gracemont  uops/encode 12.0  cycles/encode  3.02  BlockRThroughput  3.0
+morton3_pdep_batch loop  znver4     uops/encode 12.0  cycles/encode  3.01  BlockRThroughput  3.0

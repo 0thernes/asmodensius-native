@@ -1,0 +1,102 @@
+{
+  "set_id": "antilarp13",
+  "title": "13 release gates GATE-01..GATE-13 (ALife Build Framework v3.0 / Clean-Slate Blueprint; GATE-04 is the 5 Anti-LARP mutants)",
+  "source_files": [
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv",
+    "W:/ALife-Build-Framework-Template.md",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md"
+  ],
+  "items": [
+    {
+      "id": "GATE-01",
+      "text": "Standalone Git & Burn-on-Fail Seed Firewall",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "Healthy `.git` object store (`HEAD` SHA), disjoint Practice/Tuning/Test seeds, 0 test-seed literals in creature code. Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L927; W:/ALife-Build-Framework-Template.md:L1465; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L187"
+    },
+    {
+      "id": "GATE-02",
+      "text": "10,000-Tick Zero-Alloc SoA & Tier RAM Fit",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "`0` heap allocs, `0` `BigInt` boxes, `0` WASM `memory.grow`, and `0` lossless-ring drops across `10,000` ticks within Tier RAM. Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L928; W:/ALife-Build-Framework-Template.md:L1466; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L188"
+    },
+    {
+      "id": "GATE-03",
+      "text": "11-Pool FP64 First-Law & Second-Law Closure",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "`|ΔE| / (E_0 + E_in,cum) < 1e-12`, `ΔE_diss_num ≥ -1e-15`, and `0` heat-to-ATP backflow across organism + dome. Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L929; W:/ALife-Build-Framework-Template.md:L1467; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L189"
+    },
+    {
+      "id": "GATE-04",
+      "text": "5 Anti-LARP Mutants (`Leaky-2e-11..Shuffled`)",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "`Leaky (-2e-11), Cosmetic, Oracle, Frozen, Shuffled` negative mutants `100%` automatically caught & rejected. Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L930; W:/ALife-Build-Framework-Template.md:L1468; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L190"
+    },
+    {
+      "id": "GATE-05",
+      "text": "Wet Chemoton, Antithetic & 3-Phase Fasting",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "Gánti `A/T/pV_n` closure, positive-orthant antithetic `|e_ss| < 1%`, and `≥1.6×` ketone protein-sparing survival. Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L931; W:/ALife-Build-Framework-Template.md:L1469; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L191"
+    },
+    {
+      "id": "GATE-06",
+      "text": "XPBD Soft Hydrostat & Passive Compliance",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "`|ΔV|/V_0 < 1%`, `0` impact `NaN`s, `≥90%` narrow-crevice pass, and `≥1.8×` 0-brain uneven-ramp distance (`M024`). Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L932; W:/ALife-Build-Framework-Template.md:L1470; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L192"
+    },
+    {
+      "id": "GATE-07",
+      "text": "Packed Multi-Precision Brain & 50% Offload",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "Peripheral `int4` ganglia survive brain cut; `S2S` bridges verified; `≥50%` neural spikes/m offload at equal speed (`M044`). Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L933; W:/ALife-Build-Framework-Template.md:L1471; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L193"
+    },
+    {
+      "id": "GATE-08",
+      "text": "Controlled Multi-Arm & Holm-Bonferroni FWER",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "Power-sized `N ≥ 24..120`, Sham-Lesion + Competent Baseline, exact Wilcoxon `p_Holm ≤ 0.05` (FWER), `δ_pair ≥ 0.33`, `LCB_95% > -Δ_NI`. Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L934; W:/ALife-Build-Framework-Template.md:L1472; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L194"
+    },
+    {
+      "id": "GATE-09",
+      "text": "Ring-0 Immutable Tokenless WSE-12 Rollback",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "`‖W‖_2 ≤ 0.99` Tier-0 guard, `<16 KB` edit diff, domain-scoped `0-bit` rollback hash, and hardware-read-only `Ring-0`. Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L935; W:/ALife-Build-Framework-Template.md:L1473; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L195"
+    },
+    {
+      "id": "GATE-10",
+      "text": "Ontogeny, Blackiston Metamorphosis & Heredity",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "Yolk-conserved cleavage (`<1e-12`), Kleiber `M^0.75`, and `≥70%` adult toxin-odor retention after `≥80%` muscle remap (`M084`). Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L936; W:/ALife-Build-Framework-Template.md:L1474; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L196"
+    },
+    {
+      "id": "GATE-11",
+      "text": "10,000-Tick Observer Independence & Governor",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "Tier-1 `UI-open + exporting == headless` SHA-256 hash (`0` bit diff) + contiguous Governor holding `T_frame(Tier)`. Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L937; W:/ALife-Build-Framework-Template.md:L1475; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L197"
+    },
+    {
+      "id": "GATE-12",
+      "text": "100% Clean-Room Non-Copy Originality",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "Zero copied external 3D meshes, body silhouettes, sprites, connectome dumps, or source files. Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L938; W:/ALife-Build-Framework-Template.md:L1476; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L198"
+    },
+    {
+      "id": "GATE-13",
+      "text": "Provenance, Citation & Errata Audit Closure",
+      "category": "RELEASE_GATE / RELEASE_PROMOTION / All Layers",
+      "criterion": "All primary citations (`CIT-01..15`), backend capability manifests, and `ALF-001..092` + `Parts A–K` closure checks green. Pass_Gate: 100% Green; control: Full CI Gate Suite; Min_Paired_Seeds: 24; FWER_Family_M: 13; prereqs: M001..M100",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L939; W:/ALife-Build-Framework-Template.md:L1477; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L199"
+    }
+  ]
+}

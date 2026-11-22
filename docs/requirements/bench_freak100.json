@@ -1,0 +1,1209 @@
+{
+ "set_id": "bench_freak100",
+ "title": "FREAK-100: 100 fringe brain/body design ideas (idea bank, not a test list; 0 passing)",
+ "source_files": [
+  "W:/Creature1-Benchmarks.pdf"
+ ],
+ "items": [
+  {
+   "id": "FREAK-001",
+   "text": "Sparse expansion layer (granule-like): random fan-out from the relay plus a k-WTA threshold, so XOR becomes linearly separable",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 1,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "RPT2R tried: RPT2R v05/v06"
+   }
+  },
+  {
+   "id": "FREAK-002",
+   "text": "Vector-symbolic binding (MAP): elementwise product of bipolar codes for each module, injected into cortex",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 2,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "RPT2R tried: V6 binding hub"
+   }
+  },
+  {
+   "id": "FREAK-003",
+   "text": "Holographic reduced representations: circular-convolution binding",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 3,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "RPT2R tried: RPT2R v02"
+   }
+  },
+  {
+   "id": "FREAK-004",
+   "text": "Gamma-phase binding: cues that fire in the same gamma cycle bind, read out as phase-locked rate",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 4,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "RPT2R tried: RPT2R v07"
+   }
+  },
+  {
+   "id": "FREAK-005",
+   "text": "Theta-gamma nested code: items held in gamma subcycles inside theta",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 5,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R, AINF"
+   }
+  },
+  {
+   "id": "FREAK-006",
+   "text": "Shunting-inhibition XOR: divisive inhibition that is non-monotonic in its input",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 6,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-007",
+   "text": "Single-neuron XOR via dendritic calcium action potentials (dCaAP), which peak at threshold and fall beyond it",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 7,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-008",
+   "text": "Gain-field multiplicative units: one input scales another's tuning",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 8,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-009",
+   "text": "Sigma-pi dendritic clusters: products of synapse clusters",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 9,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "RPT2R tried: RPT2R v03"
+   }
+  },
+  {
+   "id": "FREAK-010",
+   "text": "Randomly connected mixed-selectivity cells",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 10,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-011",
+   "text": "Tensor-product binding",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 11,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "RPT2R tried: RPT2R v01"
+   }
+  },
+  {
+   "id": "FREAK-012",
+   "text": "Conjunctive hippocampal (CA3) codes for cue pairs",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 12,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R, CQM12"
+   }
+  },
+  {
+   "id": "FREAK-013",
+   "text": "Burst multiplexing: the event rate codes the basal input and the burst fraction codes the apical input",
+   "category": "FREAK-100 / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 13,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R, HOT3RM"
+   }
+  },
+  {
+   "id": "FREAK-014",
+   "text": "Spiking neural networks with time-to-first-spike codes",
+   "category": "FREAK-100 / B. Temporal and analog coding beyond 7 rate levels",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 14,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-015",
+   "text": "sLTC neurons, Alex's term, read in the repo as Spiking Liquid Time-Constant neurons, where tau depends on conductance",
+   "category": "FREAK-100 / B. Temporal and analog coding beyond 7 rate levels",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 15,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R, HOT3RM"
+   }
+  },
+  {
+   "id": "FREAK-016",
+   "text": "More sub-steps per tick, giving finer rate levels (SUB 6 to 24)",
+   "category": "FREAK-100 / B. Temporal and analog coding beyond 7 rate levels",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 16,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-017",
+   "text": "Population rate with dithering noise: stochastic resonance breaks the quantisation",
+   "category": "FREAK-100 / B. Temporal and analog coding beyond 7 rate levels",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 17,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-018",
+   "text": "Readout from membrane voltage (subthreshold analog) rather than spikes",
+   "category": "FREAK-100 / B. Temporal and analog coding beyond 7 rate levels",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 18,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-019",
+   "text": "Liquid state machine as a reservoir with a plastic readout",
+   "category": "FREAK-100 / B. Temporal and analog coding beyond 7 rate levels",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.7 (section 4)",
+   "extra": {
+    "number": 19,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-020",
+   "text": "Echo-state reservoir with a FORCE-trained readout",
+   "category": "FREAK-100 / B. Temporal and analog coding beyond 7 rate levels",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 20,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R, UAL"
+   }
+  },
+  {
+   "id": "FREAK-021",
+   "text": "Polychronous groups: time-locked spike patterns",
+   "category": "FREAK-100 / B. Temporal and analog coding beyond 7 rate levels",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 21,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-022",
+   "text": "Resonate-and-fire neurons that are frequency selective",
+   "category": "FREAK-100 / B. Temporal and analog coding beyond 7 rate levels",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 22,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-023",
+   "text": "Predictive-coding hierarchy with precision-weighted errors",
+   "category": "FREAK-100 / C. Predictive coding, precision, active inference",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 23,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "HOT3RM, AINF"
+   }
+  },
+  {
+   "id": "FREAK-024",
+   "text": "Precision as metacognitive confidence, read for opt-out",
+   "category": "FREAK-100 / C. Predictive coding, precision, active inference",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 24,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "HOT3RM tried: HOT-3 self-training"
+   }
+  },
+  {
+   "id": "FREAK-025",
+   "text": "Interoceptive active inference: hunger as predicted interoceptive error",
+   "category": "FREAK-100 / C. Predictive coding, precision, active inference",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 25,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "CQM10 tried: CQM10 v03"
+   }
+  },
+  {
+   "id": "FREAK-026",
+   "text": "Expected free-energy site choice",
+   "category": "FREAK-100 / C. Predictive coding, precision, active inference",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 26,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "AINF (per the B23 map, raw reward is blind to it) tried: AINF v04"
+   }
+  },
+  {
+   "id": "FREAK-027",
+   "text": "Dendritic prediction errors: apical minus basal",
+   "category": "FREAK-100 / C. Predictive coding, precision, active inference",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 27,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-028",
+   "text": "Time-to-collision of a glucose forecast (anticipatory drive)",
+   "category": "FREAK-100 / C. Predictive coding, precision, active inference",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 28,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "CQM10 tried: CQM10 v06"
+   }
+  },
+  {
+   "id": "FREAK-029",
+   "text": "Learned precision on the drive channel: confidence in the interoceptive forecast gates feeding",
+   "category": "FREAK-100 / C. Predictive coding, precision, active inference",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 29,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM10"
+   }
+  },
+  {
+   "id": "FREAK-030",
+   "text": "Integral feedback on glucose error, so there is zero steady-state error",
+   "category": "FREAK-100 / D. Homeostatic control (body)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 30,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "CQM10 tried: CQM10 v05"
+   }
+  },
+  {
+   "id": "FREAK-031",
+   "text": "Antithetic integral motif: two molecules annihilate each other",
+   "category": "FREAK-100 / D. Homeostatic control (body)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 31,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM10"
+   }
+  },
+  {
+   "id": "FREAK-032",
+   "text": "Satiation cascade: gut stretch, then CCK, then GLP-1 over three timescales",
+   "category": "FREAK-100 / D. Homeostatic control (body)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 32,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "CQM10 tried: CQM10 v02"
+   }
+  },
+  {
+   "id": "FREAK-033",
+   "text": "Rheostasis: the set-point itself drifts with season or circadian phase",
+   "category": "FREAK-100 / D. Homeostatic control (body)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 33,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM10, CQM04"
+   }
+  },
+  {
+   "id": "FREAK-034",
+   "text": "Body-plan plasticity: organ allocation follows the load placed on it (Baldwin effect)",
+   "category": "FREAK-100 / D. Homeostatic control (body)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 34,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM04"
+   }
+  },
+  {
+   "id": "FREAK-035",
+   "text": "Hormesis gene expression: stress-driven slow gene-expression state",
+   "category": "FREAK-100 / D. Homeostatic control (body)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 35,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM04"
+   }
+  },
+  {
+   "id": "FREAK-036",
+   "text": "Allostatic load accumulator",
+   "category": "FREAK-100 / D. Homeostatic control (body)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 36,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM04, CQM10"
+   }
+  },
+  {
+   "id": "FREAK-037",
+   "text": "Brown-fat thermogenic buffer: burns excess glucose to clip highs",
+   "category": "FREAK-100 / D. Homeostatic control (body)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 37,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM10"
+   }
+  },
+  {
+   "id": "FREAK-038",
+   "text": "Glycogen buffer with astrocyte-lactate shuttle",
+   "category": "FREAK-100 / D. Homeostatic control (body)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 38,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM10"
+   }
+  },
+  {
+   "id": "FREAK-039",
+   "text": "Astrocyte slow calcium gate on plasticity",
+   "category": "FREAK-100 / E. Glia, slow gating, neuromodulation",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 39,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL, HOT3RM"
+   }
+  },
+  {
+   "id": "FREAK-040",
+   "text": "Astrocyte network as a working-memory integrator",
+   "category": "FREAK-100 / E. Glia, slow gating, neuromodulation",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 40,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "HOT3RM"
+   }
+  },
+  {
+   "id": "FREAK-041",
+   "text": "Neuromodulator-gated mixture of brains: DA, NE and ACh select expert subnetworks",
+   "category": "FREAK-100 / E. Glia, slow gating, neuromodulation",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 41,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL, AINF"
+   }
+  },
+  {
+   "id": "FREAK-042",
+   "text": "LC adaptive gain, switching between exploit and explore modes",
+   "category": "FREAK-100 / E. Glia, slow gating, neuromodulation",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 42,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "AINF"
+   }
+  },
+  {
+   "id": "FREAK-043",
+   "text": "ACh/NE expected vs unexpected uncertainty",
+   "category": "FREAK-100 / E. Glia, slow gating, neuromodulation",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 43,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": ""
+   }
+  },
+  {
+   "id": "FREAK-044",
+   "text": "Serotonin patience / discount control",
+   "category": "FREAK-100 / E. Glia, slow gating, neuromodulation",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 44,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM10"
+   }
+  },
+  {
+   "id": "FREAK-045",
+   "text": "Neuropeptide broadcast as a volume-transmitted slow \"mood bus\"",
+   "category": "FREAK-100 / E. Glia, slow gating, neuromodulation",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.8 (section 4)",
+   "extra": {
+    "number": 45,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM10"
+   }
+  },
+  {
+   "id": "FREAK-046",
+   "text": "Microglial synaptic pruning during sleep",
+   "category": "FREAK-100 / E. Glia, slow gating, neuromodulation",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 46,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL-at-scale"
+   }
+  },
+  {
+   "id": "FREAK-047",
+   "text": "Synaptic homeostasis hypothesis: downscaling during sleep",
+   "category": "FREAK-100 / E. Glia, slow gating, neuromodulation",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 47,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL-at-scale"
+   }
+  },
+  {
+   "id": "FREAK-048",
+   "text": "Eshkol-differentiable meta-learning of the plasticity-rule coefficients",
+   "category": "FREAK-100 / F. Plasticity rules and meta-learning",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 48,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R, UAL"
+   }
+  },
+  {
+   "id": "FREAK-049",
+   "text": "Behavioural time-scale plasticity (BTSP): one-shot plateau-driven learning",
+   "category": "FREAK-100 / F. Plasticity rules and meta-learning",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 49,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R, CQM12"
+   }
+  },
+  {
+   "id": "FREAK-050",
+   "text": "Three-factor eligibility traces",
+   "category": "FREAK-100 / F. Plasticity rules and meta-learning",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 50,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL"
+   }
+  },
+  {
+   "id": "FREAK-051",
+   "text": "e-prop for spiking recurrent nets",
+   "category": "FREAK-100 / F. Plasticity rules and meta-learning",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 51,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-052",
+   "text": "Bienenstock-Cooper-Munro sliding threshold",
+   "category": "FREAK-100 / F. Plasticity rules and meta-learning",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 52,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "RPT2R tried: RPT2R v09"
+   }
+  },
+  {
+   "id": "FREAK-053",
+   "text": "Fan-in normalised UAL value learning",
+   "category": "FREAK-100 / F. Plasticity rules and meta-learning",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 53,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL-at-scale"
+   }
+  },
+  {
+   "id": "FREAK-054",
+   "text": "Learned synaptic consolidation (cascade model)",
+   "category": "FREAK-100 / F. Plasticity rules and meta-learning",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 54,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL"
+   }
+  },
+  {
+   "id": "FREAK-055",
+   "text": "Node-perturbation / weight-perturbation learning that uses noise",
+   "category": "FREAK-100 / F. Plasticity rules and meta-learning",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 55,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-056",
+   "text": "Feedback alignment",
+   "category": "FREAK-100 / F. Plasticity rules and meta-learning",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 56,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-057",
+   "text": "Hebbian-plus-anti-Hebbian decorrelation (whitening)",
+   "category": "FREAK-100 / F. Plasticity rules and meta-learning",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 57,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-058",
+   "text": "Compositional pattern-producing genome: a body or brain grown from a compact function",
+   "category": "FREAK-100 / G. Developmental and evolutionary (indirect encodings)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 58,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "C03R, CQM04"
+   }
+  },
+  {
+   "id": "FREAK-059",
+   "text": "Gene-regulatory-network developmental genome",
+   "category": "FREAK-100 / G. Developmental and evolutionary (indirect encodings)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 59,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM04"
+   }
+  },
+  {
+   "id": "FREAK-060",
+   "text": "Evolvable learning rates (meta-genes)",
+   "category": "FREAK-100 / G. Developmental and evolutionary (indirect encodings)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 60,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "C03R"
+   }
+  },
+  {
+   "id": "FREAK-061",
+   "text": "Density-dependent fecundity: birth count tied to the food pool through a heritable energy threshold",
+   "category": "FREAK-100 / G. Developmental and evolutionary (indirect encodings)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 61,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "C03R"
+   }
+  },
+  {
+   "id": "FREAK-062",
+   "text": "Maternal provisioning: offspring energy taken from the parent's reserves",
+   "category": "FREAK-100 / G. Developmental and evolutionary (indirect encodings)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 62,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "C03R"
+   }
+  },
+  {
+   "id": "FREAK-063",
+   "text": "Neural Darwinism: selection among neuronal groups",
+   "category": "FREAK-100 / G. Developmental and evolutionary (indirect encodings)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 63,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL"
+   }
+  },
+  {
+   "id": "FREAK-064",
+   "text": "Genomic bottleneck: wiring compressed through a small genome",
+   "category": "FREAK-100 / G. Developmental and evolutionary (indirect encodings)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 64,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM04"
+   }
+  },
+  {
+   "id": "FREAK-065",
+   "text": "Morphogen gradient field (Turing) to lay out cortical maps",
+   "category": "FREAK-100 / G. Developmental and evolutionary (indirect encodings)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 65,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM04"
+   }
+  },
+  {
+   "id": "FREAK-066",
+   "text": "Bioelectric pattern memory",
+   "category": "FREAK-100 / G. Developmental and evolutionary (indirect encodings)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 66,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM04"
+   }
+  },
+  {
+   "id": "FREAK-067",
+   "text": "Epigenetic memory of parental starvation (Dutch hunger winter analogue)",
+   "category": "FREAK-100 / G. Developmental and evolutionary (indirect encodings)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 67,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM04, C03R"
+   }
+  },
+  {
+   "id": "FREAK-068",
+   "text": "QRNG-sampled exploration noise (true entropy into the softmax temperature)",
+   "category": "FREAK-100 / H. Stochastic and quantum-flavoured exploration",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 68,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "AINF (expected null)"
+   }
+  },
+  {
+   "id": "FREAK-069",
+   "text": "Noisy-net exploration with learned noise scale",
+   "category": "FREAK-100 / H. Stochastic and quantum-flavoured exploration",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 69,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "AINF"
+   }
+  },
+  {
+   "id": "FREAK-070",
+   "text": "Lévy-flight foraging",
+   "category": "FREAK-100 / H. Stochastic and quantum-flavoured exploration",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 70,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "AINF"
+   }
+  },
+  {
+   "id": "FREAK-071",
+   "text": "Sampling-based probabilistic inference (neural sampling)",
+   "category": "FREAK-100 / H. Stochastic and quantum-flavoured exploration",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 71,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "HOT3RM tried: HOT-3 v07/v08"
+   }
+  },
+  {
+   "id": "FREAK-072",
+   "text": "Moonlab quantum-circuit \"superposition\" over options, collapsed by drive",
+   "category": "FREAK-100 / H. Stochastic and quantum-flavoured exploration",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 72,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "AINF"
+   }
+  },
+  {
+   "id": "FREAK-073",
+   "text": "Chaotic itinerancy as an exploration generator",
+   "category": "FREAK-100 / H. Stochastic and quantum-flavoured exploration",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.9 (section 4)",
+   "extra": {
+    "number": 73,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "AINF"
+   }
+  },
+  {
+   "id": "FREAK-074",
+   "text": "Spin-glass instinct floor (Hopfield/Ising settling)",
+   "category": "FREAK-100 / H. Stochastic and quantum-flavoured exploration",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 74,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "HOT3RM"
+   }
+  },
+  {
+   "id": "FREAK-075",
+   "text": "Stochastic-resonance boosting of weak cues",
+   "category": "FREAK-100 / H. Stochastic and quantum-flavoured exploration",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 75,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-076",
+   "text": "Alex's SUPER CREATURE 1.0 Biomimetic Multibrains: a polymorphic composite of about 12 specialised sub-networks in a 5-stage pipeline (perceive, imagine, reason, feel, act), with a Thaler-style creativity machine (noise-perturbed imagitron plus perceptor critic), a 5x5 tree of thought and a dream consolidator",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 76,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "AINF, HOT3RM"
+   }
+  },
+  {
+   "id": "FREAK-077",
+   "text": "Creativity-machine critic as a metacognitive confidence signal (perceptor novelty as uncertainty)",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 77,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "HOT3RM"
+   }
+  },
+  {
+   "id": "FREAK-078",
+   "text": "Cerebellar forward-model sidecar: a granule expansion plus Purkinje delta rule for interoception",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 78,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM10, RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-079",
+   "text": "Basal-ganglia action gating as a mixture-of-cortex selector",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 79,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "AINF"
+   }
+  },
+  {
+   "id": "FREAK-080",
+   "text": "Thousand Brains cortical-column voting",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 80,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "HOT3RM"
+   }
+  },
+  {
+   "id": "FREAK-081",
+   "text": "Global workspace plus a slow parallel \"unconscious\" reservoir",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 81,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "HOT3RM"
+   }
+  },
+  {
+   "id": "FREAK-082",
+   "text": "Two-brain consensus (left/right hemispheres with different priors, a corpus-callosum arbiter)",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 82,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "HOT3RM"
+   }
+  },
+  {
+   "id": "FREAK-083",
+   "text": "Insect mushroom-body (Kenyon cell) valence module grafted onto the vertebrate cortex",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 83,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R, UAL"
+   }
+  },
+  {
+   "id": "FREAK-084",
+   "text": "Octopus-style distributed arm ganglia as local body controllers",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 84,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM04"
+   }
+  },
+  {
+   "id": "FREAK-085",
+   "text": "Hyperdimensional associative hippocampus",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 85,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R, CQM12"
+   }
+  },
+  {
+   "id": "FREAK-086",
+   "text": "Hypernetwork: a slow brain writes the fast brain's weights",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 86,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL"
+   }
+  },
+  {
+   "id": "FREAK-087",
+   "text": "Fast weights (Hebbian short-term matrix) for binding",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 87,
+    "status_pdf": "Built-not-tested",
+    "aimed_at_tried_as": "RPT2R tried: HOT-3 v06"
+   }
+  },
+  {
+   "id": "FREAK-088",
+   "text": "Attention as multiplicative binding (query-key product) inside a spiking module",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 88,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-089",
+   "text": "Modern Hopfield / dense associative memory (polynomial energy gives products)",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 89,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-090",
+   "text": "Tolman-Eichenbaum machine-style structural binding",
+   "category": "FREAK-100 / I. Whole-brain and multibrain hybrids (\"Frankenstein\")",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 90,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-091",
+   "text": "Ephaptic coupling: field effects synchronise neighbours without synapses",
+   "category": "FREAK-100 / J. Fringe and exotic (low confidence; listed for completeness)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 91,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-092",
+   "text": "Microtubule/Orch-OR \"quantum\" computation",
+   "category": "FREAK-100 / J. Fringe and exotic (low confidence; listed for completeness)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 92,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "none credible"
+   }
+  },
+  {
+   "id": "FREAK-093",
+   "text": "Dendritic spine-neck electrical compartments as bits",
+   "category": "FREAK-100 / J. Fringe and exotic (low confidence; listed for completeness)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 93,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-094",
+   "text": "Myelin plasticity tuning conduction delays for synchrony",
+   "category": "FREAK-100 / J. Fringe and exotic (low confidence; listed for completeness)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 94,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-095",
+   "text": "Gap-junction interneuron nets for fast synchrony",
+   "category": "FREAK-100 / J. Fringe and exotic (low confidence; listed for completeness)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 95,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "RPT2R"
+   }
+  },
+  {
+   "id": "FREAK-096",
+   "text": "Critical-branching self-organised criticality as a gain setpoint",
+   "category": "FREAK-100 / J. Fringe and exotic (low confidence; listed for completeness)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 96,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL-at-scale"
+   }
+  },
+  {
+   "id": "FREAK-097",
+   "text": "Dendritic-spine \"memory engram\" tagging (synaptic tag and capture)",
+   "category": "FREAK-100 / J. Fringe and exotic (low confidence; listed for completeness)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 97,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL"
+   }
+  },
+  {
+   "id": "FREAK-098",
+   "text": "Gut-microbiome mood/appetite bus",
+   "category": "FREAK-100 / J. Fringe and exotic (low confidence; listed for completeness)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 98,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM10"
+   }
+  },
+  {
+   "id": "FREAK-099",
+   "text": "Circadian clock gating of plasticity (learn only in the active phase)",
+   "category": "FREAK-100 / J. Fringe and exotic (low confidence; listed for completeness)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.10 (section 4)",
+   "extra": {
+    "number": 99,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "UAL"
+   }
+  },
+  {
+   "id": "FREAK-100",
+   "text": "Free-energy-minimising morphology (body shape as inference)",
+   "category": "FREAK-100 / J. Fringe and exotic (low confidence; listed for completeness)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.11 (section 4)",
+   "extra": {
+    "number": 100,
+    "status_pdf": "Not yet",
+    "aimed_at_tried_as": "CQM04"
+   }
+  }
+ ]
+}

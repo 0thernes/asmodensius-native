@@ -1,0 +1,186 @@
+{
+  "set_id": "cqm25",
+  "title": "CQM-25 capability law v1.0.0 (adopted 2026-10-22, ADR 0018): 25 stable capability axes",
+  "source_files": [
+    "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json",
+    "W:/Cosmogonic Quantum Mechalogodrom/docs/adr/0018-cqm-25-capability-law-2026-10-22.md",
+    "W:/Cosmogonic Quantum Mechalogodrom/AGENTS.md"
+  ],
+  "items": [
+    {
+      "id": "reproduction_heredity",
+      "text": "01. Reproduction and heredity — Production of descendants with causally inherited, variable organization.",
+      "category": "Life, evolution and embodiment (life)",
+      "criterion": "Measures: viable offspring per parent; parent-offspring trait transmission; heritable variation under matched conditions | Acceptance protocol: Track pedigrees across generations; intervene on inherited state, randomize parent-offspring assignments as a control, and distinguish autonomous reproduction from evaluator cloning. | Falsifier: Offspring are injected by the harness, inherited variables do not affect descendants, or transmission vanishes after environment matching.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L201 (axes[0], axis 01 of 25); framework counterpart CQM01 'Heredity' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L26 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "evolutionary_innovation",
+      "text": "02. Evolutionary innovation and open-endedness — Selection produces retained adaptive novelty across generations; open-endedness remains a finite-horizon research claim.",
+      "category": "Life, evolution and embodiment (life)",
+      "criterion": "Measures: fitness gain over drift control; functional novelty and retention; MODES trajectories with horizon | Acceptance protocol: Run mutation/selection, neutral-drift and frozen-heredity populations under matched budgets; assess new functions on held-out challenges and plot novelty saturation over increasing horizons. | Falsifier: Novelty is only random visual variation, improvement equals drift, or a fixed catalogue is repeatedly rediscovered.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L242 (axes[1], axis 02 of 25); framework counterpart CQM02 'Open-endedness' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L27 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "environmental_coupling",
+      "text": "03. Environmental and ecological coupling — Bidirectional functional dependence between an entity and its surroundings; multi-species ecology is an optional extension.",
+      "category": "Life, evolution and embodiment (life)",
+      "criterion": "Measures: effect of world perturbation on behavior; effect of entity intervention on world state; niche or interaction persistence when applicable | Acceptance protocol: Perturb resource locations, environmental rules and entity actions independently; compare a live world with a recorded or shuffled environment. A single entity in a responsive environment is eligible. | Falsifier: The environment is decorative, entity actions cannot change relevant state, or coupling disappears when shared scripted timing is removed.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L282 (axes[2], axis 03 of 25); framework counterpart CQM03 'Ecological coupling' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L28 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "morphology_development",
+      "text": "04. Morphology and development — Structured embodiment develops or changes through local rules and interactions, with measurable functional consequences.",
+      "category": "Life, evolution and embodiment (life)",
+      "criterion": "Measures: developmental reproducibility; structural organization; body perturbation effect on function | Acceptance protocol: Grow from altered seeds and boundary conditions, quantify topology and task performance, and compare live development with a fixed or replayed shape. | Falsifier: Apparent growth is a fixed animation or morphology changes have no tested functional consequence.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L321 (axes[3], axis 04 of 25); framework counterpart CQM04 'Adaptive morphology' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L29 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "embodied_dynamics",
+      "text": "05. Embodied dynamics and internal consistency — Action, body and environment follow declared, consistent update laws. Earth-like physical realism is not required.",
+      "category": "Life, evolution and embodiment (engineering)",
+      "criterion": "Measures: timestep or resolution convergence; declared invariant violations; action-body-environment causal response | Acceptance protocol: State the simulated laws, units and tolerances; vary timestep/resolution and perturb actuators, body parameters and boundary conditions. Test only invariants actually claimed by the model. | Falsifier: Behavior depends on rendering framerate, undeclared teleports or impossible state transitions; claimed invariants fail outside tolerance.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L362 (axes[4], axis 05 of 25); framework counterpart CQM05 'Embodied thermodynamic consistency' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L30 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "perception",
+      "text": "06. Perception and perceptual integration — Task-relevant state is inferred from available sensory input across noise, ambiguity and transformations.",
+      "category": "Adaptive and general cognition (cognition)",
+      "criterion": "Measures: held-out discrimination accuracy; noise/occlusion robustness; cross-channel integration benefit | Acceptance protocol: Use unseen stimuli, cue-conflict and sensory-ablation tests; prevent access to ground-truth world labels; compare single-channel, shuffled-input and intact conditions. | Falsifier: Success depends on privileged hidden-state access, fixed labels or nuisance cues rather than the claimed perceptual information.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L404 (axes[5], axis 06 of 25); framework counterpart CQM06 'Perceptual integration' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L31 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "learning",
+      "text": "07. Learning and plasticity — Experience causes durable, useful changes in behavior or internal mappings.",
+      "category": "Adaptive and general cognition (cognition)",
+      "criterion": "Measures: learning curve and sample efficiency; retained improvement; contingency-reversal adaptation | Acceptance protocol: Train on controlled experience and test held-out trials with plasticity enabled versus frozen; reverse contingencies and use yoked-exposure controls. | Falsifier: Performance changes are scripted or transient state drift, or remain unchanged when all learning updates are disabled.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L444 (axes[6], axis 07 of 25); framework counterpart CQM07 'Within-lifetime learning' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L32 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "memory",
+      "text": "08. Memory and continual retention — Information from earlier experience affects later behavior despite delay, interference and new learning.",
+      "category": "Adaptive and general cognition (cognition)",
+      "criterion": "Measures: delay-dependent recall; interference resistance; forward/backward transfer and forgetting | Acceptance protocol: Use delayed nonmatching or sequence tasks, remove external traces, interleave new tasks, and selectively erase or scramble the proposed memory store. | Falsifier: Later performance can be explained by current inputs, leaked labels or environmental traces; memory ablation has no predicted effect.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L485 (axes[7], axis 08 of 25); framework counterpart CQM08 'Continual retention' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L33 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "predictive_causal_models",
+      "text": "09. Predictive and causal world models — Internal models predict outcomes and discriminate the consequences of interventions, rather than only correlations.",
+      "category": "Adaptive and general cognition (cognition)",
+      "criterion": "Measures: held-out prediction error; intervention prediction accuracy; counterfactual control benefit | Acceptance protocol: Change action-outcome rules and hidden causes; test intervention forecasts on unseen combinations; ablate the model while matching compute and immediate observations. | Falsifier: Only observational correlations are reproduced, intervention forecasts fail, or the claimed model never influences decisions.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L525 (axes[8], axis 09 of 25); framework counterpart CQM09 'Causal interoceptive model' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L34 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "autonomous_goals",
+      "text": "10. Autonomous goal regulation — Persistent internal priorities select and revise actions without a human choosing each step.",
+      "category": "Adaptive and general cognition (cognition)",
+      "criterion": "Measures: goal persistence under distraction; context-sensitive goal switching; intervention rate per successful episode | Acceptance protocol: Run extended unattended episodes, vary internal needs and external opportunities, and intervene on goal states; compare fixed-priority and open-loop policies. | Falsifier: A script or external operator selects each goal, or declared priorities have no causal effect on action.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L566 (axes[9], axis 10 of 25); framework counterpart CQM10 'Autonomous goal regulation' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L35 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "reasoning_planning",
+      "text": "11. Reasoning and planning — Multi-step decisions use relations or prospective consequences to achieve new goals.",
+      "category": "Adaptive and general cognition (cognition)",
+      "criterion": "Measures: novel-task success; planning-horizon scaling; replanning benefit under changed constraints | Acceptance protocol: Use held-out detours, relational puzzles and changed action costs; compare reactive and planning-disabled controls with matched action/compute budgets. | Falsifier: A memorized action sequence or local reflex matches performance, or plans fail after a relevant causal change.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L603 (axes[10], axis 11 of 25); framework counterpart CQM11 'Multi-step planning' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L36 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "transfer_generalization",
+      "text": "12. Transfer and compositional generalization — Previously acquired capacities support unfamiliar tasks, combinations and environments under an explicit adaptation budget.",
+      "category": "Adaptive and general cognition (cognition)",
+      "criterion": "Measures: zero/few-shot transfer; held-out combination accuracy; performance breadth and depth by task family | Acceptance protocol: Hold out task families and combinations before development; log training exposure, adaptation compute and assistance; report disaggregated performance against matched baselines. | Falsifier: Evaluation overlaps training, extensive hidden retraining is required, or success is confined to familiar surface variants.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L644 (axes[11], axis 12 of 25); framework counterpart CQM12 'Compositional transfer' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L37 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "metacognition_self_model",
+      "text": "13. Metacognition and self-modeling — The system monitors uncertainty or its own limitations and uses that information to regulate cognition and action.",
+      "category": "Adaptive and general cognition (cognition)",
+      "criterion": "Measures: confidence calibration; meta-d-prime/d-prime when assumptions hold; adaptive opt-out or information seeking; self-perturbation prediction | Acceptance protocol: Match first-order difficulty, test confidence versus correctness, perturb sensors/actuators and test self-predictions; ablate the monitor and evaluate control consequences. | Falsifier: Confidence is a decorative label, tracks only task difficulty, or monitoring ablation leaves supposedly dependent control unchanged.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L685 (axes[12], axis 13 of 25); framework counterpart CQM13 'Metacognition' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L38 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "social_communication",
+      "text": "14. Social cognition and communication — Behavior uses information about other agents; signals causally coordinate or inform interaction.",
+      "category": "Adaptive and general cognition (cognition)",
+      "criterion": "Measures: novel-partner adaptation; coordination benefit; message-intervention effect; partner-state prediction | Acceptance protocol: Test unfamiliar partners and opposing incentives; scramble communication or exchange partner identities; control for environmental cues and fixed coordination scripts. | Falsifier: Signals are epiphenomenal, partners share privileged hidden state, or coordination cannot generalize beyond a fixed pairing.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L726 (axes[13], axis 14 of 25); framework counterpart CQM14 'Costly signalling game' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L39 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "individuality",
+      "text": "15. Individuality and maintained boundary — A temporally identifiable organized unit maintains a functional distinction from its environment; boundaries may be distributed.",
+      "category": "Individual organization and viability (life)",
+      "criterion": "Measures: identity persistence through component turnover; boundary-selective exchange; functional cohesion under partition | Acceptance protocol: Declare candidate boundaries; exchange or remove components and compare within-unit versus cross-boundary interventions; track identity independently of rendered appearance. | Falsifier: Identity is only a label or mesh ID, proposed boundaries predict no functional organization, or all coherence comes from an external coordinator.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L768 (axes[14], axis 15 of 25); framework counterpart CQM15 'Autopoietic boundary' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L40 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "resource_maintenance",
+      "text": "16. Resource-dependent self-maintenance — Acquired resources support ongoing maintenance of the entity's operational organization.",
+      "category": "Individual organization and viability (life)",
+      "criterion": "Measures: resource-budget accounting; viability versus deprivation; maintenance flux and replenishment recovery | Acceptance protocol: Couple declared resources to real model costs; apply deprivation and replenishment, disable maintenance actions, and compare to a resource-independent control. | Falsifier: Resource numbers are cosmetic, survival is invariant to resource access, or the evaluator silently restores state.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L809 (axes[15], axis 16 of 25); framework counterpart CQM16 'Proactive self-maintenance' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L41 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "homeostasis",
+      "text": "17. Homeostatic regulation — Feedback keeps important internal variables within declared viable ranges despite disturbance.",
+      "category": "Individual organization and viability (life)",
+      "criterion": "Measures: time in viable range; disturbance-recovery time; regulation cost and overshoot | Acceptance protocol: Predefine viable ranges, apply sustained and transient disturbances, compare active regulation with clamped or disabled feedback, and test novel disturbance magnitudes. | Falsifier: The system is stable only because the world never perturbs it, variables are directly reset, or feedback removal has no effect.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L850 (axes[16], axis 17 of 25); framework counterpart CQM17 'Closed-loop homeostasis' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L42 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "repair_resilience",
+      "text": "18. Repair and functional resilience — Function is restored or preserved after damage through regeneration, reconfiguration or adaptation.",
+      "category": "Individual organization and viability (life)",
+      "criterion": "Measures: function recovered relative to predamage baseline; recovery time and resource cost; performance under unseen lesions | Acceptance protocol: Apply untrained lesions, remove damaged components, separate structural regrowth from compensatory control, and compare enabled versus disabled repair with matched resources. | Falsifier: Recovery is automatic scene reset, reserved replacement injection, or occurs only for memorized damage cases.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L885 (axes[17], axis 18 of 25); framework counterpart CQM18 'Structural resilience' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L43 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "recurrent_processing",
+      "text": "19. Recurrent processing — Feedback interactions perform temporally extended processing with a demonstrated functional contribution.",
+      "category": "Consciousness and sentience research (theory-linked)",
+      "criterion": "Measures: recurrent influence over time; task-specific recurrence-ablation effect; stability under input removal | Acceptance protocol: Identify feedback pathways; interrupt recurrence at controlled times while preserving feed-forward computation where possible; compare intact, sham and compute-matched conditions. | Falsifier: A loop exists only in the scheduler, recurrent states carry no task-relevant content, or cutting them has no predicted selective effect.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L925 (axes[18], axis 19 of 25); framework counterpart CQM19 'Recurrent persistence' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L44 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "global_availability",
+      "text": "20. Global availability and broadcast — Selected information becomes usable by multiple otherwise specialized processes through a constrained shared route.",
+      "category": "Consciousness and sentience research (theory-linked)",
+      "criterion": "Measures: cross-module access; broadcast bottleneck behavior; downstream dependence on selected content | Acceptance protocol: Introduce novel content into one specialist, test flexible use by independent consumers, lesion the shared route and retain local processing; distinguish broadcasting from a globally readable log. | Falsifier: All modules simply read privileged world state, no selective bottleneck exists, or shared content has no causal effect on consumers.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L961 (axes[19], axis 20 of 25); framework counterpart CQM20 'Workspace broadcast' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L45 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "causal_integration",
+      "text": "21. Causal integration and differentiation — Perturbations reveal both interaction between parts and distinguishable system responses beyond shared input or noise.",
+      "category": "Consciousness and sentience research (theory-linked)",
+      "criterion": "Measures: perturbation spread and duration; response differentiation; partition and shuffled-surrogate effects | Acceptance protocol: Record standardized internal perturbations, partition candidate mechanisms, and compare coupled, disconnected, replayed and noise-matched surrogates. Publish the exact estimator and state-space scale. | Falsifier: The metric is explained by noise or common input, rises equally in disconnected surrogates, or changes mainly with sampling/estimator choices.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L998 (axes[20], axis 21 of 25); framework counterpart CQM21 'Non-circular integration' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L46 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "valence_tradeoffs",
+      "text": "22. Valence-related control and motivational trade-offs — Persistent positive/negative functional states modulate learning and flexible trade-offs; this is evidence about control, not felt experience.",
+      "category": "Consciousness and sentience research (theory-linked)",
+      "criterion": "Measures: context-sensitive approach/avoidance; devaluation and reversal response; cross-context state persistence; state-ablation effect | Acceptance protocol: Vary competing benefits and costs, learned cues and internal state; test persistence and generalization; disable the proposed valence pathway and compare fixed-reflex/reward-only controls. | Falsifier: Only a signed reward variable or emotional animation is present, responses are fixed reflexes, or state manipulation has no specific behavioral consequence.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1039 (axes[21], axis 22 of 25); framework counterpart CQM22 'Common-currency valence' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L47 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "substrate_pluralism",
+      "text": "23. Substrate pluralism and model coverage — The platform supports meaningfully distinct dynamics or implementation substrates under explicit interfaces and evaluation conditions.",
+      "category": "Engineering and observation context (engineering)",
+      "criterion": "Measures: independent substrate families supported; cross-substrate protocol coverage; semantic fidelity of adapters | Acceptance protocol: Inventory implemented substrates, run equivalent declared probes on each, document where equivalence fails, and separate distinct dynamics from reskins or parameter presets. | Falsifier: Different substrates are only renamed copies, adapters leak answers, or comparison assumes unverified equivalence.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1081 (axes[22], axis 23 of 25); framework counterpart CQM23 'Substrate pluralism' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L48 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "instrumentation_reproducibility",
+      "text": "24. Instrumentation and reproducibility — Experiments expose traceable state, interventions, configurations and replayable or statistically reproducible outcomes.",
+      "category": "Engineering and observation context (engineering)",
+      "criterion": "Measures: trace completeness; seed/replay agreement; independent rerun agreement; provenance and intervention coverage | Acceptance protocol: Archive commit, config, seed/entropy tape, task distribution, budgets and raw traces; replay locally and rerun independently; record numerical tolerances and missing data. | Falsifier: Claims cannot be traced to raw runs, unlogged randomness changes conclusions, or the displayed score cannot be recomputed.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1124 (axes[23], axis 24 of 25); framework counterpart CQM24 'Deterministic reproducibility' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L49 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "visual_embodied_scale",
+      "text": "25. Visual and embodied scale — Observable detail, responsiveness and inspectability across body and population scales; one complex being is a valid primary target.",
+      "category": "Engineering and observation context (engineering)",
+      "criterion": "Measures: per-entity functional degrees of freedom; inspectable component depth; entity count separately; latency and frame rate at stated hardware | Acceptance protocol: Report single-entity complexity and population capacity as separate measures; inspect sensors, actions and internal state while varying visual load; compare displayed state to simulation traces. | Falsifier: More particles or organisms are presented as more intelligence, render detail lacks causal counterparts, or the viewer cannot inspect the claimed entity mechanisms.",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1166 (axes[24], axis 25 of 25); framework counterpart CQM25 'Competence-validated scale' at W:/ALife-Framework-v3.0-Master-Checklists.csv:L50 (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    }
+  ]
+}

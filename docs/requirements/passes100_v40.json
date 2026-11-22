@@ -1,0 +1,709 @@
+{
+ "set_id": "passes100_v40",
+ "title": "Creature 001 100-pass benchmark / weakness-fix ledger (v40 lab, Pass 001..100): target item, weakness fixed, and the lesion/control verification used",
+ "source_files": [
+  "V:/creatures/001/PASS-100-LEDGER.md"
+ ],
+ "items": [
+  {
+   "id": "PASS-001",
+   "text": "`LIFE-100 #4` Osmoregulation & ADH: Urea existed without water/electrolyte volume or kidney ATP transport",
+   "category": "W1",
+   "criterion": "`lsOff(\"kidney\")` abolishes hyperosmolar ADH water retention & thirst drive",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:26 (implementation: `organism/life_systems.ts:176`)"
+  },
+  {
+   "id": "PASS-002",
+   "text": "`LIFE-100 #2, #3, #27` 5-Taste & Digestion: Gut took raw scalar kJ with zero taste receptor pre-screening or bile/protease split",
+   "category": "W1",
+   "criterion": "Umami/sweet vs bitter taste profile + vagal stretch + enzymatic breakdown",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:27 (implementation: `organism/life_systems.ts:201`)"
+  },
+  {
+   "id": "PASS-003",
+   "text": "`LIFE-100 #12` Emesis & Detox: Ingested gut toxin could not be expelled before systemic absorption",
+   "category": "W1",
+   "criterion": "Area postrema emesis expels gut bolus + toxic load to `excreted` conserving kJ",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:28 (implementation: `organism/life_systems.ts:227`)"
+  },
+  {
+   "id": "PASS-004",
+   "text": "`LIFE-100 #8, #36` Antithetic $\\text{Ca}^{2+}$: Single-integrator homeostasis drifted under step disturbances",
+   "category": "W1",
+   "criterion": "Briat–Gupta–Khammash `(z1, z2)` antithetic integral clamp holds `bloodCa`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:29 (implementation: `organism/life_systems.ts:242`)"
+  },
+  {
+   "id": "PASS-005",
+   "text": "`LIFE-100 #6` Intrinsic SA Heart Brain: Heart rate was a passive formula of autonomic tone with no intrinsic pacemaker",
+   "category": "W1",
+   "criterion": "Sinoatrial funny-current (`I_f`) oscillator + baroreflex MAP + `vagotomy` release",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:30 (implementation: `organism/life_systems.ts:255`)"
+  },
+  {
+   "id": "PASS-006",
+   "text": "`LIFE-100 #6, #5` Arterial Tree & Shunt: Single scalar perfusion could not redistribute blood between brain, gut, and skin",
+   "category": "W1",
+   "criterion": "3-bed vascular conductance shunts to skin in heat and brain/muscle under threat",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:31 (implementation: `organism/life_systems.ts:276`)"
+  },
+  {
+   "id": "PASS-007",
+   "text": "`LIFE-100 #7, F02` Pasteur Switch & Cori: Hypoxia lacked glycolytic ATP surge, lactate pH drop, and Cori-cycle clearance",
+   "category": "W1",
+   "criterion": "Hypoxia activates anaerobic glycolysis + lactate accumulation; normoxia clears it",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:32 (implementation: `organism/life_systems.ts:297`)"
+  },
+  {
+   "id": "PASS-008",
+   "text": "`LIFE-100 #11` Hemostasis & Pain Splint: Bleeding wounds had no platelet/fibrin seal and locomotion tore open fresh clots",
+   "category": "W1",
+   "criterion": "Clot cascade + nociceptive motor splint reduces secondary mechanical bleed loss",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:33 (implementation: `organism/life_systems.ts:321`)"
+  },
+  {
+   "id": "PASS-009",
+   "text": "`LIFE-100 #13, F47` Innate/Adaptive MHC: Immunity had no clonal T/B memory — second infection was as slow as primary",
+   "category": "W1",
+   "criterion": "Antigenic secondary challenge clears `>2x` faster than naive primary exposure",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:34 (implementation: `organism/life_systems.ts:346`)"
+  },
+  {
+   "id": "PASS-010",
+   "text": "`LIFE-100 #14` Anabolic Regeneration: Tissue repair occurred without draining amino-acid/muscle substrate",
+   "category": "W1",
+   "criterion": "Anabolic tissue regrowth explicitly transfers kJ from `muscle`/`blood.aa` to `tissue`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:35 (implementation: `organism/life_systems.ts:378`)"
+  },
+  {
+   "id": "PASS-011",
+   "text": "`LIFE-100 #15` Sequestration & Depuration: Persistent heavy-metal bioaccumulation had no metallothionein fat-binding model",
+   "category": "W2",
+   "criterion": "Fat-bound sequestration buffers acute serum toxicity + slow ATP-paid depuration",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:36 (implementation: `organism/life_systems.ts:397`)"
+  },
+  {
+   "id": "PASS-012",
+   "text": "`LIFE-100 #15, #16, N35` DNA Repair/p53: Somatic mutations accumulated unchecked without p53 apoptosis or radiation shelter drive",
+   "category": "W2",
+   "criterion": "Nucleotide excision repair + p53 apoptotic culling suppresses `neoplasmLoad`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:37 (implementation: `organism/life_systems.ts:416`)"
+  },
+  {
+   "id": "PASS-013",
+   "text": "`CQM10, FREAK #32` Satiation Cascade: **Fixed `CQM10` over-eating bug** (`300 -> 1300 kJ` bloat) & `DELARP C1` drive saturation",
+   "category": "W2",
+   "criterion": "Gastric stretch (`fast`) + `CCK/GLP-1` (`med`) + leptin (`slow`) halts gluttony",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:38 (implementation: `organism/life_systems.ts:442`)"
+  },
+  {
+   "id": "PASS-014",
+   "text": "`C16R, CQM16` Predictive Allostasis: **Fixed `C16R` reactive-only lag** where defensive action waited until stores were already low",
+   "category": "W2",
+   "criterion": "Learned cue-triggered cephalic prep (`insulin`/`vasomotor`) fires *before* deficit",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:39 (implementation: `organism/life_systems.ts:472`)"
+  },
+  {
+   "id": "PASS-015",
+   "text": "`N20, LIFE-100 #9` Organ ATP Voting: Fixed static organ metabolic budgets under famine/exercise/infection",
+   "category": "W2",
+   "criterion": "Brain, gut, immune, muscle & kidney bid urgency; hypothalamus arbitrates shares",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:40 (implementation: `organism/life_systems.ts:498`)"
+  },
+  {
+   "id": "PASS-016",
+   "text": "`LIFE-100 #17` 2-Process Sleep & Chronotype: Fixed rigid circadian sleep threshold insensitive to heritable chronotype",
+   "category": "W2",
+   "criterion": "Borbély `Process S × Process C` + heritable `chronotypePhase` (`lark` vs `owl`)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:41 (implementation: `organism/life_systems.ts:525`)"
+  },
+  {
+   "id": "PASS-017",
+   "text": "`LIFE-100 #18, F08` NREM Triad Coupling: Spindle/slow-wave/ripple replay lacked explicit phase-locked coupling gate",
+   "category": "W2",
+   "criterion": "N3 slow-oscillation up-state + thalamic spindle + `CA1` sharp-wave ripple gain",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:42 (implementation: `organism/life_systems.ts:542`)"
+  },
+  {
+   "id": "PASS-018",
+   "text": "`LIFE-100 #19` Ultradian REM & Atonia: REM lacked ultradian alternation and brainstem glycinergic muscle atonia",
+   "category": "W2",
+   "criterion": "NREM/REM ultradian cycle + pontine `remAtonia` clamps `MOT` dream enactment",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:43 (implementation: `organism/life_systems.ts:557`)"
+  },
+  {
+   "id": "PASS-019",
+   "text": "`LIFE-100 #20` Unihemispheric Sleep: Sleeping under high predation (`cortisol`) left organism 100% blind (`DELARP` conflict)",
+   "category": "W2",
+   "criterion": "High threat induces `unihemisphericMode`: half-cortex rests while open eye watches",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:44 (implementation: `organism/life_systems.ts:575`)"
+  },
+  {
+   "id": "PASS-020",
+   "text": "`LIFE-100 #20` Sleep Debt & Microsleeps: Prolonged forced wakefulness had no lapses, slow-wave rebound, or lethal collapse",
+   "category": "W2",
+   "criterion": "Debt drives involuntary `microsleepActive` lapses and post-deprivation N3 rebound",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:45 (implementation: `organism/life_systems.ts:593`)"
+  },
+  {
+   "id": "PASS-021",
+   "text": "`F06, RPT-2` Dendritic XOR (`Gidon 2020`): Point neurons could not solve single-unit nonlinear XOR coincidence (`RPT-2` weak spot)",
+   "category": "W3",
+   "criterion": "Human L2/3 dCaAP window fires maximally at single-input XOR, suppressed on dual input",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:46 (implementation: `organism/cognition_passes.ts:201`)"
+  },
+  {
+   "id": "PASS-022",
+   "text": "`FREAK #51, PP-1` Burst Credit Multiplex: Bottom-up rate and top-down error collided on the same scalar firing rate",
+   "category": "W3",
+   "criterion": "Naud & Sprekeler `2018` event rate vs apical-gated burst fraction credit assignment",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:47 (implementation: `organism/cognition_passes.ts:218`)"
+  },
+  {
+   "id": "PASS-023",
+   "text": "`GWT-3, LIFE #53` `7±2` Theta–Gamma WM: Working memory lacked bounded multi-item phase-precession slots",
+   "category": "W3",
+   "criterion": "Lisman–Idiart `7` gamma subcycles nested in 1 theta cycle with oldest-item displacement",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:48 (implementation: `organism/cognition_passes.ts:238`)"
+  },
+  {
+   "id": "PASS-024",
+   "text": "`LIFE-100 #45` `BCM` Metaplasticity: Unbounded Hebbian potentiation caused runaway saturation without sliding $\\theta_M$",
+   "category": "W3",
+   "criterion": "Bienenstock–Cooper–Munro `r^2` sliding modification threshold stabilizes weights",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:49 (implementation: `organism/cognition_passes.ts:264`)"
+  },
+  {
+   "id": "PASS-025",
+   "text": "`LIFE-100 #47` Földiák Lateral Decorrelation: Redundant correlated sensory channels wasted cortical representation capacity",
+   "category": "W3",
+   "criterion": "Anti-Hebbian inhibitory lateral weights `W_inh` reduce pairwise channel correlation",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:50 (implementation: `organism/cognition_passes.ts:281`)"
+  },
+  {
+   "id": "PASS-026",
+   "text": "`CQM08, F36` Synaptic Tagging & Cascade: **Fixed `CQM08` catastrophic forgetting** when Task B overwrote Task A weights",
+   "category": "W3",
+   "criterion": "Frey–Morris `synTag × PRP` + Fusi cascade metaplasticity preserves Task A under Task B",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:51 (implementation: `organism/cognition_passes.ts:303`)"
+  },
+  {
+   "id": "PASS-027",
+   "text": "`LIFE-100 #54` Modern Hopfield Recall: Partial/noisy cues could not complete stored episodic patterns in 1 step",
+   "category": "W3",
+   "criterion": "Ramsauer `2021` `softmax(beta * X^T q)` exponential-capacity pattern completion",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:52 (implementation: `organism/cognition_passes.ts:337`)"
+  },
+  {
+   "id": "PASS-028",
+   "text": "`LIFE-100 #48` Split-Brain Callosotomy: Cortical sheet lacked left/right callosal tract and lateralized lesion dissociation",
+   "category": "W3",
+   "criterion": "Intact corpus callosum transfers lateralized cue; `callosotomy` isolates hemispheres",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:53 (implementation: `organism/cognition_passes.ts:361`)"
+  },
+  {
+   "id": "PASS-029",
+   "text": "`LIFE-100 #48, #50` Hemispheric Consensus: Left exploit vs right novelty/vigilance had no conflict-arbitration mechanism",
+   "category": "W3",
+   "criterion": "Specialist hemispheric voting shifts `callosalExploreScale` under threat/novelty",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:54 (implementation: `organism/cognition_passes.ts:382`)"
+  },
+  {
+   "id": "PASS-030",
+   "text": "`N18, N3` Plasticity ATP Auction & Pruning: All regions burned learning budget equally regardless of surprise (`N18` dilemma)",
+   "category": "W3",
+   "criterion": "Regions bid `prediction_error` for finite plasticity ATP; weak tags pruned in N3",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:55 (implementation: `organism/cognition_passes.ts:401`)"
+  },
+  {
+   "id": "PASS-031",
+   "text": "`GWT-1..4` Attentional Blink & Masking: Global workspace lacked lag-1 T2 refractory blink and sub-threshold priming trace",
+   "category": "W4",
+   "criterion": "Post-ignition refractory blink suppresses lag-1 T2 while preserving unconscious trace",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:56 (implementation: `organism/cognition_passes.ts:428`)"
+  },
+  {
+   "id": "PASS-032",
+   "text": "`AST-1, Q-SELFATTN` Learned Endogenous AST: Attention Schema had fixed weights instead of learning to predict own focus shifts",
+   "category": "W4",
+   "criterion": "Graziano internal schema learns `W_ast` online, reducing `astPredErr` over exposure",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:57 (implementation: `organism/cognition_passes.ts:455`)"
+  },
+  {
+   "id": "PASS-033",
+   "text": "`Q-SOCIAL-ATTN, F14` Peer Gaze Projection: Creature could not infer which Dome patch a neighbor was attending to",
+   "category": "W4",
+   "criterion": "Projects peer `(dx, dy, heading)` ray onto 16-sector site ring (`observePeerGaze`)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:58 (implementation: `organism/cognition_passes.ts:478`)"
+  },
+  {
+   "id": "PASS-034",
+   "text": "`HOT-3, F42` Opt-Out & `5-HT` Patience: Low confidence forced bad guesses; low `5-HT` failed to steepen delay discounting",
+   "category": "W4",
+   "criterion": "`conf < 0.28` triggers epistemic scan opt-out; `5-HT` scales hyperbolic `gamma5HT`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:59 (implementation: `organism/cognition_passes.ts:495`)"
+  },
+  {
+   "id": "PASS-035",
+   "text": "`CQM21, PCI` Non-Circular `PCI` (`LZ76`): **Fixed `DELARP §4` circular `iit4` proxy** (which inflated on lesion!)",
+   "category": "W4",
+   "criterion": "Perturbational spatiotemporal `LZ76` complexity: `wake > N3 sleep` & `wake > lesioned`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:60 (implementation: `organism/cognition_passes.ts:512`)"
+  },
+  {
+   "id": "PASS-036",
+   "text": "`CQM18, AE-1, F41` Zero-Oracle Agency: **Fixed `DELARP C4` oracle leak**: self-recognition uses strictly efference contingency",
+   "category": "W4",
+   "criterion": "Haggard intentional binding + Gallup mirror self-contingency (`self > stranger video`)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:61 (implementation: `organism/cognition_passes.ts:555`)"
+  },
+  {
+   "id": "PASS-037",
+   "text": "`F81, UAL` Kamin Blocking & Bouton Renewal: Naive associative updates suffered redundant cue learning and erased fear permanently",
+   "category": "W4",
+   "criterion": "Rescorla–Wagner `CS_A` blocks `CS_B`; context-indexed extinction (`C_1`) renews in `C_2`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:62 (implementation: `organism/cognition_passes.ts:580`)"
+  },
+  {
+   "id": "PASS-038",
+   "text": "`LIFE #56, UAL` Operant FR/VI & Reversal: Creature could not adapt press tempo between Fixed-Ratio and Variable-Interval rules",
+   "category": "W4",
+   "criterion": "`FR` drives high press rate vs `VI` steady pacing; habit/model-based arbitration",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:63 (implementation: `organism/cognition_passes.ts:615`)"
+  },
+  {
+   "id": "PASS-039",
+   "text": "`LIFE #57, #58, #60` Transitive & Causal `do()`: Could not infer `A > C` from `A > B, B > C` or distinguish `do(X)` from `P(Y | X)`",
+   "category": "W4",
+   "criterion": "Ordered rank embedding solves `B > D` unseen; interventional vs observational table",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:64 (implementation: `organism/cognition_passes.ts:638`)"
+  },
+  {
+   "id": "PASS-040",
+   "text": "`F60, LIFE #61` Self-Generated Goal Stack: Goals could get stuck in unreachable loops with no frustration abandonment",
+   "category": "W4",
+   "criterion": "Autonomous selection, subgoal progress tracking, and frustration-triggered abandonment",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:65 (implementation: `organism/cognition_passes.ts:675`)"
+  },
+  {
+   "id": "PASS-041",
+   "text": "`N03, N04` Topological Chern Mood & QGT NatGrad: Continuous mood flipped under small noise; Euclidean gradient ignored qubit curvature",
+   "category": "W5",
+   "criterion": "Integer winding `topologicalMood` resists noise flips; Fubini–Study `G^-1` preconditioning",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:66 (implementation: `organism/cognition_passes.ts:703`)"
+  },
+  {
+   "id": "PASS-042",
+   "text": "`N06, N07, N98` Chosen Basis & Order Interference: Qubit readout used fixed basis and classical order-invariant option evaluation",
+   "category": "W5",
+   "criterion": "Uncertainty chooses $\\theta_{\\text{basis}}$; non-commuting projections yield `A->B != B->A`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:67 (implementation: `organism/cognition_passes.ts:729`)"
+  },
+  {
+   "id": "PASS-043",
+   "text": "`N05` Statistical Chance Literacy: Creature formed superstitious weights on pure 50/50 coin-flip sites",
+   "category": "W5",
+   "criterion": "Lag-1 autocorrelation + entropy test damps superstitious learning (`chanceSuppress`)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:68 (implementation: `organism/cognition_passes.ts:756`)"
+  },
+  {
+   "id": "PASS-044",
+   "text": "`N10, F84` Riemannian Geodesic Detour: Straight-line latent transitions walked directly across high-danger states",
+   "category": "W5",
+   "criterion": "Danger-curved metric $g_{ij} = \\delta_{ij}(1 + \\lambda \\text{risk}_j)$ plans safe detours",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:69 (implementation: `organism/cognition_passes.ts:779`)"
+  },
+  {
+   "id": "PASS-045",
+   "text": "`N14, N16` Sleep Micro-Lesion & Identity Audit: Synaptic pruning could accidentally cut high-payoff couplings; drift went unnoticed",
+   "category": "W5",
+   "criterion": "NREM virtual lesion probes protect critical `featC`; cosine `identityDrift` boosts caution",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:70 (implementation: `organism/cognition_passes.ts:813`)"
+  },
+  {
+   "id": "PASS-046",
+   "text": "`N19, N95` Reconsolidation Erasure & State Recall: Persistent false-alarm fears wasted energy; episodic recall ignored hormone state",
+   "category": "W5",
+   "criterion": "Repeated zero-harm prediction errors erase stale `wAv`; `N95` hormone-congruent recall",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:71 (implementation: `organism/cognition_passes.ts:840`)"
+  },
+  {
+   "id": "PASS-047",
+   "text": "`N23, N24, N25, N27` Anomaly, Déjà Vu & Jitter: Closed-physics violations, exact trajectory replays, and tick jitter were invisible",
+   "category": "W5",
+   "criterion": "`energy() - eaten - E0` monitor (`N23`), FNV-1a replay recognition (`N24`), wall probe (`N27`)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:72 (implementation: `organism/cognition_passes.ts:868`)"
+  },
+  {
+   "id": "PASS-048",
+   "text": "`N29, N87, N90` Respawn Blankness & Known-Unknowns: Fresh respawns with adult reserves acted like experienced elders instead of seeking tutors",
+   "category": "W5",
+   "criterion": "High-fat + empty-episodic signature triggers `elderSeekDrive`; `N87` unknown-feature count",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:73 (implementation: `organism/cognition_passes.ts:904`)"
+  },
+  {
+   "id": "PASS-049",
+   "text": "`N31, N36, N37` 3D Neural Field & Gravity Map: Lacked spatial `locoCostRatio` memory for heavy-gravity patches and circadian shade shift",
+   "category": "W5",
+   "criterion": "3D regional activity dipole (`N31`), `SCN` phase self-entrainment (`N36`), `gravityAvoid` (`N37`)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:74 (implementation: `organism/cognition_passes.ts:927`)"
+  },
+  {
+   "id": "PASS-050",
+   "text": "`N39, N40, N26, N30, F78` Illusion & Numerosity: Lateral Mach-band contrast illusions never adapted; lacked Weber-law set-size channels",
+   "category": "W5",
+   "criterion": "Persistent surround exposure unlearns contrast bias (`N39`) + `1..8` Weber numerosity (`F78`)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:75 (implementation: `organism/cognition_passes.ts:952`)"
+  },
+  {
+   "id": "PASS-051",
+   "text": "`CQM04, MORPH-1R, N68` Opposite-Optima Body: **Fixed `DELARP C2` single-optimum conflict**: thick coat wins Arctic, sleek coat wins Tropics",
+   "category": "W6",
+   "criterion": "`coatInsulation` saves heat in cold but overheats/slows in heat; `N68` gravity `stanceWidth`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:76 (implementation: `organism/embodied_ontogeny.ts:135`)"
+  },
+  {
+   "id": "PASS-052",
+   "text": "`LIFE #22, #23, F54` Limb CPG, APA & Gait: Limbs lacked anticipatory postural adjustment (`APA`) and land-vs-water gait switching",
+   "category": "W6",
+   "criterion": "4-oscillator phase-coupled CPG switches `trot` (`0`) vs `swim` (`1`) + pre-reach `APA`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:77 (implementation: `organism/embodied_ontogeny.ts:164`)"
+  },
+  {
+   "id": "PASS-053",
+   "text": "`N65, F26, N66, N69` Levin Bioelectric Pattern: Injury deformed morphology with no endogenous bioelectric target-pattern recovery",
+   "category": "W6",
+   "criterion": "Gap-junction `Vm` restores `V_target` (`Levin 2014`); `bioelectricLesion` blocks recovery",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:78 (implementation: `organism/embodied_ontogeny.ts:193`)"
+  },
+  {
+   "id": "PASS-054",
+   "text": "`F74, F75, F76` Grid/Place Cells & Permanence: Navigation lacked 2D path integration, context place remapping, and occluded target memory",
+   "category": "W6",
+   "criterion": "3-scale 60° hexagonal grid modules + context remapping + `F76` occluded-goal decay buffer",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:79 (implementation: `organism/embodied_ontogeny.ts:223`)"
+  },
+  {
+   "id": "PASS-055",
+   "text": "`F39, N70` Active Saccades & Motion Parallax: Vision passively read uniform slots without foveal saccades or self-motion depth cues",
+   "category": "W6",
+   "criterion": "Uncertainty-steered `foveaSector` (`2.2x` gain) + optic-flow / speed `depthEst` (`N70`)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:80 (implementation: `organism/embodied_ontogeny.ts:258`)"
+  },
+  {
+   "id": "PASS-056",
+   "text": "`F53, LIFE #28, N62` Plume Chemotaxis & Cochlea: Lacked stereo/klinotaxis odor-plume casting and body-mass-coupled acoustic pitch honesty",
+   "category": "W6",
+   "criterion": "Bilateral nostril `C_L - C_R` + casting, 32-band cochlea, ITD azimuth & `f0 ~ M^-0.33`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:81 (implementation: `organism/embodied_ontogeny.ts:279`)"
+  },
+  {
+   "id": "PASS-057",
+   "text": "`LIFE #29, N32, N38` Nocturnal EOD & Fidelity: Darkness blinded visual foraging with no active electrolocation or contact state fidelity | `organism/embodied_ontogeny.ts:306` | ATP-paid nocturnal weakly-electric `eodPower` + `N32` peer E-field + `N38` ` | <psi_1",
+   "category": "W6",
+   "criterion": "^2`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:82 (implementation: psi_2>)"
+  },
+  {
+   "id": "PASS-058",
+   "text": "`LIFE #30, #96` Noisy Dome Field + Shuffle: \"Remote field\" sense required strict physical simulation, ATP price, and shuffle null",
+   "category": "W6",
+   "criterion": "Pays ATP for 2-bit noisy Dome quadrant gradient; `fieldShuffleControl` drops to chance",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:83 (implementation: `organism/embodied_ontogeny.ts:328`)"
+  },
+  {
+   "id": "PASS-059",
+   "text": "`N63, N58, LIFE #24` Chromatophore Crypsis: High-visibility social display conflicted with predator stealth under high `cortisol`",
+   "category": "W6",
+   "criterion": "Fear drives substrate `camouflageMatch`; calm social contact switches to `dialectVec` display",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:84 (implementation: `organism/embodied_ontogeny.ts:352`)"
+  },
+  {
+   "id": "PASS-060",
+   "text": "`LIFE #64, #65, #69, F88` Rich Affect & Play: Play occurred indiscriminately or not at all; barren patches trapped local random walks",
+   "category": "W6",
+   "criterion": "Disgust/anger/grief/care + surplus-only `playActive` (`fat>280`, safe) + Lévy `mu=1.6` jump",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:85 (implementation: `organism/embodied_ontogeny.ts:371`)"
+  },
+  {
+   "id": "PASS-061",
+   "text": "`N42, N46` Contact Shared REM Dreaming: Sleeping pairs could not co-replay trajectories or coin shared dream motifs",
+   "category": "W7",
+   "criterion": "Simultaneous REM in physical contact blends `featC` into shared `dreamMotif`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:86 (implementation: `organism/embodied_ontogeny.ts:403`)"
+  },
+  {
+   "id": "PASS-062",
+   "text": "`N47, F87, N48` Stress-Gated Evolvability: Fixed germline mutation rate under-explored in crisis and over-mutated in calm niches",
+   "category": "W7",
+   "criterion": "`germlineMutRate` scales with `cortisol × volU`; `N48` parental `wAv` dream priors",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:87 (implementation: `organism/embodied_ontogeny.ts:421`)"
+  },
+  {
+   "id": "PASS-063",
+   "text": "`F97, N49` Cryptobiotic Dormancy & Revival: Lethal cold/famine killed creatures that lacked reversible metabolic suspension",
+   "category": "W7",
+   "criterion": "Extreme cold/famine drops `metabolicScale -> 0.08`, runs `N49` slow dream, revives warm",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:88 (implementation: `organism/embodied_ontogeny.ts:436`)"
+  },
+  {
+   "id": "PASS-064",
+   "text": "`F24, F35` 4-TF GRN & Turing Morphogens: Adult body traits mapped 1-to-1 from scalar genes without developmental GRN or striping",
+   "category": "W7",
+   "criterion": "4-transcription-factor regulatory network + 8-cell activator–inhibitor Turing stripe ring",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:89 (implementation: `organism/embodied_ontogeny.ts:96`)"
+  },
+  {
+   "id": "PASS-065",
+   "text": "`LIFE #72–#74, F92, N89` Ontogeny & Kleiber: Newborns started as miniature static adults without critical periods or `M^0.75` scaling",
+   "category": "W7",
+   "criterion": "`juvenile -> adolescent -> adult -> elder` + `2.1x` critical-period plasticity + `M^0.75` + `N89`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:90 (implementation: `organism/embodied_ontogeny.ts:456`)"
+  },
+  {
+   "id": "PASS-066",
+   "text": "`LIFE #76, #77, F19` Sex, Ornament & Kin Avoid: Reproduction was asexual cloning only, lacking sexual crossover and inbreeding avoidance",
+   "category": "W7",
+   "criterion": "Sexual recombination + condition-dependent `ornamentQuality` + `kinSim > 0.72` rejection",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:91 (implementation: `organism/embodied_ontogeny.ts:482`)"
+  },
+  {
+   "id": "PASS-067",
+   "text": "`N53, LIFE #78` Kin Nursing & Weaning Conflict: Maternal care lacked odor-signature kin discrimination and Trivers weaning transition",
+   "category": "W7",
+   "criterion": "`lineageSig` kin nursing transfers exact kJ (`mom -> child`) until juvenile `age > 600` weaning",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:92 (implementation: `organism/embodied_ontogeny.ts:505`)"
+  },
+  {
+   "id": "PASS-068",
+   "text": "`LIFE #78, N55` Elder Waking & Sleep Teaching: Juveniles had to rediscover dangerous sites by fatal trial-and-error",
+   "category": "W7",
+   "criterion": "ATP-paid elder waking demonstration (`wSite/wAv`) + `N55` auditory teaching into NREM",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:93 (implementation: `organism/embodied_ontogeny.ts:524`)"
+  },
+  {
+   "id": "PASS-069",
+   "text": "`LIFE #80, F86` Baldwin Effect & Speciation: Lifetime somatic acclimation never guided germline evolution; diverged dialects interbred",
+   "category": "W7",
+   "criterion": "Lifetime `coatExposureAccum` biases offspring `morphGene`; `dialectDist > 0.65` blocks mating",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:94 (implementation: `organism/embodied_ontogeny.ts:548`)"
+  },
+  {
+   "id": "PASS-070",
+   "text": "`CQM03, ECO-1R` Ecological Fecundity Gate: **Fixed `DELARP C3` decoupled birth rate**: reproduction ignored food bloom vs drought/crowd",
+   "category": "W7",
+   "criterion": "`fecundityGate` couples fat surplus, `localFoodAvail`, and crowding inhibition",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:95 (implementation: `organism/embodied_ontogeny.ts:575`)"
+  },
+  {
+   "id": "PASS-071",
+   "text": "`F13, F58, LIFE #85` Observational Culture: Naive peers next to successful foragers learned nothing from watching them",
+   "category": "W8",
+   "criterion": "Observers copy demonstrator `wSite` weights and converge `dialectVec`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:96 (implementation: `lab/src/biosphere/ecology_passes.ts:103`)"
+  },
+  {
+   "id": "PASS-072",
+   "text": "`LIFE #67, #82, #83, F59` Altruism & Inequity: Lacked costly predator alarm calls, consolation touch, kJ sharing, and unfairness protest",
+   "category": "W8",
+   "criterion": "ATP-paid alarm alerts peers, consolation cuts `cortisol`, kJ food sharing, `F59` inequity `anger`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:97 (implementation: `lab/src/biosphere/ecology_passes.ts:127`)"
+  },
+  {
+   "id": "PASS-073",
+   "text": "`N33, N54` Peer Adenosine & Sentinel Sleep: Whole-group simultaneous sleep left social clusters undefended",
+   "category": "W8",
+   "criterion": "`N33` adenosine chemosense + `N54` rotating awake sentinel lowers sleepers' `cortisol`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:98 (implementation: `lab/src/biosphere/ecology_passes.ts:169`)"
+  },
+  {
+   "id": "PASS-074",
+   "text": "`N51, N60` First-Law Skill Market & Credit: Learned skills died with specialists unless genetically inherited; favours went untracked",
+   "category": "W8",
+   "criterion": "Buyer pays real fat kJ to seller (`transferSkillForEnergy`) + `N60` `creditLedger`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:99 (implementation: `lab/src/biosphere/ecology_passes.ts:194`)"
+  },
+  {
+   "id": "PASS-075",
+   "text": "`N52, N64` MHC-Checked Horizontal Grafting: Horizontal state transfer risked overwriting incompatible circuits without immune rejection",
+   "category": "W8",
+   "criterion": "Compatible `lineageSig` transfers `featC` motif; incompatible donor triggers immune rejection",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:100 (implementation: `lab/src/biosphere/ecology_passes.ts:224`)"
+  },
+  {
+   "id": "PASS-076",
+   "text": "`F16, F57, LIFE #87` Stepping-Stone Tool Use: Environment had no movable physical objects required to unlock recessed food caches",
+   "category": "W8",
+   "criterion": "Creature pushes `DomeStone` (paying ATP -> heat) onto `DomeCache`, unlocking kJ harvest",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:101 (implementation: `lab/src/biosphere/ecology_passes.ts:245`)"
+  },
+  {
+   "id": "PASS-077",
+   "text": "`LIFE #86, N76` Food Caching, Spoilage & Stamp: Surplus forage could not be cached externally with realistic spoilage and pilfering risk",
+   "category": "W8",
+   "criterion": "First-Law kJ deposit (`spoilage -> heat`), territorial pilfer defense & `N76` Berry stamp",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:102 (implementation: `lab/src/biosphere/ecology_passes.ts:276`)"
+  },
+  {
+   "id": "PASS-078",
+   "text": "`F33, F55, N56, N57` Swarm Flocking & Castes: Multi-creature populations lacked Boids/Vicsek alignment, perimeter defense, and castes",
+   "category": "W8",
+   "criterion": "Separation/alignment/cohesion, `N56` threat ring, `N57` gravity consensus, `F33` castes",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:103 (implementation: `lab/src/biosphere/ecology_passes.ts:313`)"
+  },
+  {
+   "id": "PASS-079",
+   "text": "`F66` `Physarum` Slime Transport Network: Repeated foraging traffic did not carve low-drag trails or prune unused paths",
+   "category": "W8",
+   "criterion": "Tero `2010` nonlinear flux reinforcement `I^1.6 / (1 + I^1.6) - decay * D` cuts loco cost",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:104 (implementation: `lab/src/biosphere/ecology_passes.ts:352`)"
+  },
+  {
+   "id": "PASS-080",
+   "text": "`F63` Ashby `1952` Ultrastable Homeostat: Continuous gradient descent failed under sign-inverted sensorimotor catastrophes",
+   "category": "W8",
+   "criterion": "Essential-variable breach triggers discrete PRNG relay jumps until homeostasis stabilizes",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:105 (implementation: `lab/src/biosphere/ecology_passes.ts:375`)"
+  },
+  {
+   "id": "PASS-081",
+   "text": "`F22, F89, LIFE #88` Red-Queen Predator Arms: Static scalar `danger` could not co-evolve against prey speed/crypsis",
+   "category": "W9",
+   "criterion": "Coevolving `PredatorAgent` (`speed`, `acuity`) with closed `biomassKJ + predatorHeatKJ`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:106 (implementation: `lab/src/biosphere/ecology_passes.ts:397`)"
+  },
+  {
+   "id": "PASS-082",
+   "text": "`N74, F90` Parasite Manipulation & Self-Med: Sick hosts had no behavioral hijacking conflict or bitter-herb antiparasitic pharmacognosy",
+   "category": "W9",
+   "criterion": "Parasite inflates `boldness` (`Toxoplasma`-like); bitter medicinal patch clears load",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:107 (implementation: `lab/src/biosphere/ecology_passes.ts:435`)"
+  },
+  {
+   "id": "PASS-083",
+   "text": "`F64, N71` Daisyworld Albedo Homeostasis: Ambient solar drift had no biotic dark/light ground-cover feedback (`Watson & Lovelock`)",
+   "category": "W9",
+   "criterion": "Creatures regulate dark vs reflective `patchAlbedo`, stabilizing Dome temperature toward `22°C`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:108 (implementation: `lab/src/biosphere/ecology_passes.ts:465`)"
+  },
+  {
+   "id": "PASS-084",
+   "text": "`F61` Conservative Turing Mineral Substrate: Patch regrowth lacked spatial reaction–diffusion self-organized nutrient spots",
+   "category": "W9",
+   "criterion": "Zero-sum conservative Gray–Scott activator–inhibitor ring shapes spatial fertility",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:109 (implementation: `lab/src/biosphere/ecology_passes.ts:491`)"
+  },
+  {
+   "id": "PASS-085",
+   "text": "`N78, F91` 3-Guild Trophic Coexistence: Homogeneous populations competed on a single resource channel only",
+   "category": "W9",
+   "criterion": "Producer/harvester, detritivore (`soil`), and scavenger guilds coexist in closed kJ loop",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:110 (implementation: `lab/src/biosphere/ecology_passes.ts:518`)"
+  },
+  {
+   "id": "PASS-086",
+   "text": "`N75, N34, N77` Time-Warp & Storm Sheltering: Periodic lethal storms hit creatures by surprise; lacked spatial `timeWarp` niches",
+   "category": "W9",
+   "criterion": "Learns `stormPeriodEst` across cycles and pre-emptively moves into central shelter",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:111 (implementation: `lab/src/biosphere/ecology_passes.ts:542`)"
+  },
+  {
+   "id": "PASS-087",
+   "text": "`CQM19` Hell-Ladder Rungs `0..6` Resilience: Hell-Ladder stress needed verified autonomous multi-organ survival without NaNs or leaks",
+   "category": "W9",
+   "criterion": "Rung-3 multi-stressor Dome run maintains living homeostasis and `<1e-11` First-Law error",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:112 (implementation: `lab/src/biosphere/god.ts:62`)"
+  },
+  {
+   "id": "PASS-088",
+   "text": "`N79` Multi-Dome `Archipelago` Migration: Single-dome isolation prevented allopatric divergence and cross-dome dispersal",
+   "category": "W9",
+   "criterion": "`Archipelago.migrate()` moves agent across Domes adjusting `d1.born`/`d2.born` (`0.0` kJ leak)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:113 (implementation: `lab/src/biosphere/ecology_passes.ts:575`)"
+  },
+  {
+   "id": "PASS-089",
+   "text": "`F50, F93, F94` Assembly, Blanket & Waves: Lacked Cronins Assembly Index, Friston Markov blanket test, and traveling-wave metrics",
+   "category": "W9",
+   "criterion": "`assemblyIndex` (`repeat < random`), `markovBlanketTest`, and `corticalTravelingWave`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:114 (implementation: `lab/src/instruments/alife_metrics.ts:12`)"
+  },
+  {
+   "id": "PASS-090",
+   "text": "`CQM02, Q-NOVEL` `MAP-Elites` Illumination: Single-objective selection collapsed phenotypic diversity into one archetype",
+   "category": "W9",
+   "criterion": "Mouret & Clune `2015` 2D `(morph, boldness)` archive illuminates distinct niches",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:115 (implementation: `lab/src/instruments/alife_metrics.ts:95`)"
+  },
+  {
+   "id": "PASS-091",
+   "text": "`DELARP §7.3` Unified CI & `originality` Fix: **Fixed `.github/workflows/harness.yml` v1-only bug** & `originality(\".\")` inside `lab/` self-match",
+   "category": "W10",
+   "criterion": "Unified 5-stage pipeline + `originality(root)` & `originality(lab)` both `0 fail`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:116 (implementation: `pipeline/run_all.mjs:1`, `lab/conformance/originality.ts:13`)"
+  },
+  {
+   "id": "PASS-092",
+   "text": "`DELARP §10.4` `C-NC` No Cosmetic Parts: **Built missing `C-NC` conformance gate** so dead/ornamental regions cannot sneak in",
+   "category": "W10",
+   "criterion": "`001` & `template` pass `17/17` required checks; `CosmeticRegion` mutant is rejected!",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:117 (implementation: `lab/conformance/suite.ts:74`, `lab/conformance/run.ts:16`)"
+  },
+  {
+   "id": "PASS-093",
+   "text": "`DELARP P5` `Dome.snapshotFull()` Roundtrip: **Fixed `Dome.snapshotFull()` `Float32Array` (`neoMarks`) & missing `attachNeo` restore bug**",
+   "category": "W10",
+   "criterion": "JSON serialize -> `Dome.fromSnapshot()` preserves `Float32Array` and bit-exact org hash",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:118 (implementation: `lab/src/biosphere/dome.ts:87`)"
+  },
+  {
+   "id": "PASS-094",
+   "text": "Long-Horizon `2,000`-Tick Stability Audit: Unbounded history arrays or numerical drift can explode over multi-day runs",
+   "category": "W10",
+   "criterion": "`2,000` full-stack ticks: 100% finite `view()`, bounded ring buffers, `<1e-11` ledger",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:119 (implementation: `creatures/001/organism/passes_100_suite.ts:1076`)"
+  },
+  {
+   "id": "PASS-095",
+   "text": "Simultaneous Multi-Lesion + Hell-Stress Audit: Combined lesions (`PAG + GW + vagotomy + hypoxia + heat + tox + 2.5g`) risked pool underflow",
+   "category": "W10",
+   "criterion": "All metabolic pools remain non-negative and First-Law energy balance holds `<1e-11`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:120 (implementation: `creatures/001/organism/passes_100_suite.ts:1085`)"
+  },
+  {
+   "id": "PASS-096",
+   "text": "All 34 `DELARP-PLAN` v4.0 Qualities Wired: Verified full integration of all 9 v4.0+ subsystem buses & `>7,500` active parameters",
+   "category": "W10",
+   "criterion": "`v40State()` exposes `bus, self, curv, neo, fa, ni, ls, cp, eo` + non-circular `pci`",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:121 (implementation: `creatures/001/organism/organism.ts:1049`)"
+  },
+  {
+   "id": "PASS-097",
+   "text": "Creature `#1` Visual Renderer Contract: Enforced user constraint: zero changes to Creature `#1`'s physical/visual body design",
+   "category": "W10",
+   "criterion": "`app.tsx` & `page.tsx` untouched; all 24 `o.view()` UI keys finite and browser-bundled",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:122 (implementation: `creatures/001/src/app.tsx:1`)"
+  },
+  {
+   "id": "PASS-098",
+   "text": "Backward Bit-Identical Parity & Seed Firewall: New modules must never alter default `Organism` trajectories or touch official seeds `>=1224`",
+   "category": "W10",
+   "criterion": "`OFF = 8358e0be` (BIT-IDENTICAL), `ORG_V5=11 = 1b9782a` (BIT-IDENTICAL), firewall clean",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:123 (implementation: `creatures/001/organism/passes_100_suite.ts:1115`)"
+  },
+  {
+   "id": "PASS-099",
+   "text": "`PASS-100-LEDGER.md` & `ORIGINS.md` Audit: Every scientific concept and pass must be documented and cited to published literature",
+   "category": "W10",
+   "criterion": "Complete 100-pass ledger + peer-reviewed neuroscience, physiology & A-Life citations",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:124 (implementation: `creatures/001/PASS-100-LEDGER.md`, `ORIGINS.md`)"
+  },
+  {
+   "id": "PASS-100",
+   "text": "Master 100-Pass & First-Law Completion Gate: Final end-to-end assertion over all 99 prior passes + global worst ledger error `<1e-11`",
+   "category": "W10",
+   "criterion": "**`100 / 100 PASSED`** with exact First-Law conservation across organism & biosphere",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:125 (implementation: `creatures/001/organism/passes_100_suite.ts:1136`)"
+  }
+ ]
+}

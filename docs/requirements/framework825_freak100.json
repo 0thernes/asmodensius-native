@@ -1,0 +1,711 @@
+{
+  "set_id": "framework825_freak100",
+  "title": "FREAK-100 Mechanisms (ALife Framework v3.0)",
+  "source_files": [
+    "ALife-Framework-v3.0-Master-Checklists.csv",
+    "ALife-Framework-v3.0-Master-Spec.json",
+    "Asmodensius-evidence-crosswalk.xlsx"
+  ],
+  "items": [
+    {
+      "id": "F-001",
+      "text": "Sparse expansion layer (granule-like)\nRandom fan-out `D -> 10D` plus `2%` k-WTA threshold rendering nonlinear XOR linearly separable.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 51; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/49; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 51"
+    },
+    {
+      "id": "F-002",
+      "text": "Vector-symbolic binding (MAP)\nElementwise product of bipolar `(+1/-1)` module hypervectors injected into associative cortex.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(D_lat)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 52; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/50; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 52"
+    },
+    {
+      "id": "F-003",
+      "text": "Holographic reduced representations\nCircular-convolution role-filler binding (`FFT` or permutation) into fixed-width `D_lat` vectors.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(D log D)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 53; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/51; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 53"
+    },
+    {
+      "id": "F-004",
+      "text": "Gamma-phase coincidence binding\nFeatures spiking within one `5\u201315 ms` PV+ gamma window trigger coincidence-detecting readout cells.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 54; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/52; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 54"
+    },
+    {
+      "id": "F-005",
+      "text": "Theta-gamma phase multiplexing\n4\u20137 ordered working-memory items maintained in distinct gamma subcycles nested inside one theta wave.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(D_lat)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 55; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/53; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 55"
+    },
+    {
+      "id": "F-006",
+      "text": "Shunting-inhibition XOR\nDivisive dendritic conductance `I_exc / (g_leak + g_shunt)` peaks on single inputs and attenuates on joint drive.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 56; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/54; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 56"
+    },
+    {
+      "id": "F-007",
+      "text": "Single-neuron dCaAP XOR\nHuman L2/3-inspired apical calcium potential peaking near threshold and attenuating on stronger dual input (Gidon et al. 2020).",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 57; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/55; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 57"
+    },
+    {
+      "id": "F-008",
+      "text": "Gain-field coordinate transform\nPosture/gaze signal multiplicatively modulates sensory tuning curves to map retinotopic to body-centric space.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 58; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/56; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 58"
+    },
+    {
+      "id": "F-009",
+      "text": "Sigma-pi dendritic branch clusters\nLocal synaptic products along individual dendritic branches summed at soma for conjunctive cue detection.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(B\u00b7N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 59; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/57; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 59"
+    },
+    {
+      "id": "F-010",
+      "text": "Mixed-selectivity random reservoir\nFixed contractive nonlinear projections (`\u2016W\u2016_2 \u2264 0.99`) yielding high linear-readout shatter dimensionality.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 60; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/58; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 60"
+    },
+    {
+      "id": "F-011",
+      "text": "Low-rank tensor-product binding\nRank-`r` outer-product factorization `Sum_{i=1..r} (u_i \u2297 v_i)` avoiding full `O(D_lat\u00b2)` Kronecker blowup.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(r\u00b7D)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 61; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/59; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 61"
+    },
+    {
+      "id": "F-012",
+      "text": "Conjunctive CA3 place-cue cells\nSparse recurrent autoassociative units firing selectively only when spatial bump and sensory cue co-occur.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 62; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/60; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 62"
+    },
+    {
+      "id": "F-013",
+      "text": "L5 burst-event multiplexing\nSomatic event rate transmits basal feedforward input while high-frequency burst fraction encodes apical feedback.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / A. Binding and conjunction (multiplicative or nonlinear mixing)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 63; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/61; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 63"
+    },
+    {
+      "id": "F-014",
+      "text": "Time-to-first-spike (TTFS) coding\nStronger inputs cross threshold earlier in phase, encoding continuous rank-order intensity in 1 spike/unit.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / B. Temporal and analog coding beyond coarse rate levels",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 64; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/62; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 64"
+    },
+    {
+      "id": "F-015",
+      "text": "Spiking LTC (sLTC) adaptive units\nInput-modulated liquid conductance warps membrane `\u03c4(x)` inside event-driven spiking units (Vanhalle & Gielen 2025).",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / B. Temporal and analog coding beyond coarse rate levels",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 65; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/63; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 65"
+    },
+    {
+      "id": "F-016",
+      "text": "Bounded local multirate substepping\nFast contact/membrane stiffness transients refine locally (`K_iter \u2264 8`) under conservative flux handoff.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / B. Temporal and analog coding beyond coarse rate levels",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(K\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 66; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/64; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 66"
+    },
+    {
+      "id": "F-017",
+      "text": "Population dither quantization smoothing\nKeyed independent subthreshold noise linearizes population transfer across coarse `int4`/`b1.58` thresholds.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / B. Temporal and analog coding beyond coarse rate levels",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 67; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/65; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 67"
+    },
+    {
+      "id": "F-018",
+      "text": "Hybrid graded + spike transmission\nLocal gap/graded synapses transmit continuous somatic `V_m` alongside discrete long-range axonal spikes.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / B. Temporal and analog coding beyond coarse rate levels",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 68; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/66; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 68"
+    },
+    {
+      "id": "F-019",
+      "text": "Liquid state machine (LSM) spiking pool\nContractive excitable spiking reservoir mapping temporal input streams into linearly separable states.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / B. Temporal and analog coding beyond coarse rate levels",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 69; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/67; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 69"
+    },
+    {
+      "id": "F-020",
+      "text": "FORCE-stabilized echo-state readout\nLow-rank recursive least-squares readout feedback tames chaotic-edge continuous reservoir trajectories.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / B. Temporal and analog coding beyond coarse rate levels",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(E+D\u00b2)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 70; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/68; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 70"
+    },
+    {
+      "id": "F-021",
+      "text": "Polychronous axonal-delay groups\nTime-locked spike cascades emerging from heterogeneous integer 3D conduction delays + STDP.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / B. Temporal and analog coding beyond coarse rate levels",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 71; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/69; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 71"
+    },
+    {
+      "id": "F-022",
+      "text": "Resonate-and-fire damped oscillators\n2D coupled subthreshold variables resonating selectively to matched environmental vibration/call frequencies.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / B. Temporal and analog coding beyond coarse rate levels",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 72; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/70; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 72"
+    },
+    {
+      "id": "F-023",
+      "text": "Precision-weighted predictive hierarchy\nTop-down generative predictions cancel expected sensory input; learned inverse-variance weights residuals.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / C. Predictive coding, precision & active inference",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(L\u00b7D\u00b2)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 73; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/71; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 73"
+    },
+    {
+      "id": "F-024",
+      "text": "Precision-driven metacognitive opt-out\nSensory/world-model precision feeds `HOT-2` confidence to trigger active scanning or high-risk trap opt-out.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / C. Predictive coding, precision & active inference",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(D_lat)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 74; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/72; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 74"
+    },
+    {
+      "id": "F-025",
+      "text": "Interoceptive active inference\nVisceral hunger, osmoregulation, and thermal drives arise from precision-weighted errors against homeostatic priors.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / C. Predictive coding, precision & active inference",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 75; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/73; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 75"
+    },
+    {
+      "id": "F-026",
+      "text": "Urgency-gated expected free energy\nScores rollout policies by homeostatic utility plus survival-margin-gated epistemic information gain.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / C. Predictive coding, precision & active inference",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(G_plan)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 76; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/74; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 76"
+    },
+    {
+      "id": "F-027",
+      "text": "Apical-minus-basal local error\nApical predictive expectation subtracted locally from basal sensory drive to guide non-BPTT weight updates.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / C. Predictive coding, precision & active inference",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 77; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/75; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 77"
+    },
+    {
+      "id": "F-028",
+      "text": "Glucose time-to-collision (TTC) drive\nForecasts time-to-hypoglycemia `(Glc - Glc_crit) / max(\u03b5, -dGlc/dt)` to forage prior to energy crisis.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / C. Predictive coding, precision & active inference",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 78; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/76; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 78"
+    },
+    {
+      "id": "F-029",
+      "text": "Adaptive interoceptive precision gate\nCalibrated visceral forecast accuracy scales how strongly anticipated deficits override immediate sensory lures.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / C. Predictive coding, precision & active inference",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 79; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/77; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 79"
+    },
+    {
+      "id": "F-030",
+      "text": "Integral-feedback glycemic clamp\nTime-integrated blood-glucose error drives insulin/glucagon balance to eliminate steady-state offset.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / D. Homeostatic & visceral control (wet body)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 80; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/78; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 80"
+    },
+    {
+      "id": "F-031",
+      "text": "Antithetic biomolecular integral motif\nNon-negative species `z_1, z_2 \u2265 0` (`\u017c_1 = \u03bc - \u03b7 z_1 z_2`, `\u017c_2 = \u03b8 x - \u03b7 z_1 z_2`) with zero dilution & dual-rail actuation achieving exact adaptation (Briat et al. 2016).",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / D. Homeostatic & visceral control (wet body)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 81; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/79; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 81"
+    },
+    {
+      "id": "F-032",
+      "text": "Three-timescale satiation cascade\nFast mechanosensitive gut stretch -> medium CCK -> slow systemic leptin/GLP-1 meal termination.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / D. Homeostatic & visceral control (wet body)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 82; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/80; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 82"
+    },
+    {
+      "id": "F-033",
+      "text": "Circadian & seasonal rheostasis\nSmoothly shifts lipid/thermal set-points across photoperiod cycles to pre-accumulate winter reserves.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / D. Homeostatic & visceral control (wet body)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 83; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/81; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 83"
+    },
+    {
+      "id": "F-034",
+      "text": "Workload organ hypertrophy/atrophy\nSustained mechanical or metabolic demand scales muscle/gill capacity within life at booked amino/ATP cost.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / D. Homeostatic & visceral control (wet body)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 84; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/82; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 84"
+    },
+    {
+      "id": "F-035",
+      "text": "Sub-lethal hormetic conditioning\nMild toxin or thermal challenge upregulates CYP/chaperone capacity, reducing damage on subsequent acute shock.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / D. Homeostatic & visceral control (wet body)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 85; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/83; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 85"
+    },
+    {
+      "id": "F-036",
+      "text": "Allostatic wear-and-tear integrator\nChronic stress-axis activation accumulates physiological strain that elevates repair cost and senescence rate.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / D. Homeostatic & visceral control (wet body)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 86; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/84; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 86"
+    },
+    {
+      "id": "F-037",
+      "text": "Uncoupled thermogenic heat valve\nRegulated proton-leak thermogenesis converts lipid stores directly into `E_heat_phys` in cold microclimates.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / D. Homeostatic & visceral control (wet body)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 87; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/85; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 87"
+    },
+    {
+      "id": "F-038",
+      "text": "Astrocyte glycogen-lactate buffer\nGlial glycogen reserve fuels intense local cortical spike bursts and recharges during quiet wake/NREM.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / D. Homeostatic & visceral control (wet body)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 88; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/86; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 88"
+    },
+    {
+      "id": "F-039",
+      "text": "Tripartite astrocyte Ca2+ LTP gate\nLong-term synaptic potentiation requires coincidence of synaptic eligibility with slow glial `Ca\u00b2\u207a` elevation.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / E. Glia, slow gating & volume neuromodulation",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 89; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/87; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 89"
+    },
+    {
+      "id": "F-040",
+      "text": "Gap-junction glial working memory\nDiffusively coupled astrocyte calcium syncytium bridges multi-second silent trace-conditioning intervals.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / E. Glia, slow gating & volume neuromodulation",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(Cells)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 90; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/88; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 90"
+    },
+    {
+      "id": "F-041",
+      "text": "Neuromodulator-gated specialist router\nTonic `DA, NE, 5-HT, ACh` concentrations re-weight Mixture-of-Specialists routing gains without weight churn.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / E. Glia, slow gating & volume neuromodulation",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(M_mod)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 91; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/89; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 91"
+    },
+    {
+      "id": "F-042",
+      "text": "Locus-coeruleus (NE) gain reset\nPhasic `NE` sharpens exploit gain; sustained high tonic `NE` flattens policy temperature to escape depleted patches.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / E. Glia, slow gating & volume neuromodulation",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 92; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/90; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 92"
+    },
+    {
+      "id": "F-043",
+      "text": "ACh expected vs NE unexpected uncertainty\n`ACh` tracks known observation noise within a regime; `NE` spikes on abrupt latent world-rule switches.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / E. Glia, slow gating & volume neuromodulation",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 93; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/91; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 93"
+    },
+    {
+      "id": "F-044",
+      "text": "Serotonergic temporal horizon scaling\nPrecursor-backed tonic `5-HT` increases effective discount factor `\u03b3` so replete organisms wait for delayed rewards.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / E. Glia, slow gating & volume neuromodulation",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 94; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/92; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 94"
+    },
+    {
+      "id": "F-045",
+      "text": "Diffusive neuropeptide mood field\nSlow extracellular peptide half-lives (`minutes`) bias defensive vs affiliative circuit tone with zero point wires.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / E. Glia, slow gating & volume neuromodulation",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 95; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/93; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 95"
+    },
+    {
+      "id": "F-046",
+      "text": "Size-scaled microglial NREM pruning\nComplement-tagged low-utility synapses are pruned in NREM **proportionally to current post-natal synapse count**.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / E. Glia, slow gating & volume neuromodulation",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 96; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/94; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 96"
+    },
+    {
+      "id": "F-047",
+      "text": "Size-scaled NREM SHY renormalization\nMultiplicative slow-wave weight downscaling preserves relative learned ranks while preventing daytime saturation.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / E. Glia, slow gating & volume neuromodulation",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(E_syn)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 97; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/95; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 97"
+    },
+    {
+      "id": "F-048",
+      "text": "Evolvable ABCD local Hebbian rule\nHeritable regional coefficients `\u0394w = \u03b7(A\u00b7pre + B\u00b7post + C\u00b7pre\u00b7post + D)\u00b7mod` bounded by `\u2016W\u2016_2 \u2264 0.99`.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / F. Plasticity rules & meta-learning",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 98; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/96; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 98"
+    },
+    {
+      "id": "F-049",
+      "text": "Behavioral time-scale plasticity (BTSP)\nApical dendritic plateau potential retroactively writes one-shot episodic associations across `1\u20135 s` traces (Bittner et al. 2017).",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / F. Plasticity rules & meta-learning",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 99; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/97; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 99"
+    },
+    {
+      "id": "F-050",
+      "text": "Bounded sparse 3-factor eligibility\n Circular-buffered active `pre \u00d7 post` tags (`\u2264 5%` synapses) converted to `\u0394w` on delayed neuromodulator arrival.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / F. Plasticity rules & meta-learning",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 100; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/98; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 100"
+    },
+    {
+      "id": "F-051",
+      "text": "Symmetric e-prop spiking gradients\nForward-propagated local eligibility vectors approximate recurrent SNN credit assignment in `O(E_syn)` memory (Bellec et al. 2020).",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / F. Plasticity rules & meta-learning",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(E_syn)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 101; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/99; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 101"
+    },
+    {
+      "id": "F-052",
+      "text": "Sliding-threshold BCM homeostasis\nPostsynaptic firing-rate EMA shifts LTP/LTD crossover threshold to stabilize feature selectivity.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / F. Plasticity rules & meta-learning",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 102; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/100; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 102"
+    },
+    {
+      "id": "F-053",
+      "text": "Fan-in normalized UAL updates\nNormalizes associative weight increments by active cue L1 norm so compound cues do not overshoot singletons.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / F. Plasticity rules & meta-learning",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 103; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/101; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 103"
+    },
+    {
+      "id": "F-054",
+      "text": "Fusi multi-state cascade synapses\nDiscrete metaplastic biochemical depth states yield power-law memory retention against catastrophic forgetting.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / F. Plasticity rules & meta-learning",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 104; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/102; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 104"
+    },
+    {
+      "id": "F-055",
+      "text": "Keyed node-perturbation credit\nCorrelates keyed exploratory somatic conductances with global reward-prediction error for gradient-free motor tuning.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / F. Plasticity rules & meta-learning",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 105; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/103; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 105"
+    },
+    {
+      "id": "F-056",
+      "text": "Broadcast feedback alignment\nFixed contractive random top-down error projections drive multi-layer credit without symmetric weight transpose.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / F. Plasticity rules & meta-learning",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(E_syn)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 106; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/104; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 106"
+    },
+    {
+      "id": "F-057",
+      "text": "F\u00f6ldi\u00e1k Hebbian/anti-Hebbian whitening\nFeedforward excitation + plastic lateral inhibition decorrelates redundant multimodal sensory channels.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / F. Plasticity rules & meta-learning",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(S\u00b2)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 107; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/105; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 107"
+    },
+    {
+      "id": "F-058",
+      "text": "Coordinate CPPN bauplan generator\nCompact coordinate network evaluated at Gear-4 developmental milestones to paint symmetric body/brain priors.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / G. Developmental & evolutionary indirect encodings",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(G\u00b7E_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 108; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/106; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 108"
+    },
+    {
+      "id": "F-059",
+      "text": "Gene-regulatory-network (GRN) cleavage\nSmall TF interaction matrix (`16\u201364` genes) governs mitotic differentiation, chamber count, and receptor density.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / G. Developmental & evolutionary indirect encodings",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(Cells)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 109; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/107; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 109"
+    },
+    {
+      "id": "F-060",
+      "text": "Co-evolved regional plasticity rates\nGenomic neuromodulator gains and regional learning-rate schedules co-adapt alongside soft morphology.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / G. Developmental & evolutionary indirect encodings",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 110; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/108; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 110"
+    },
+    {
+      "id": "F-061",
+      "text": "Store- & crowding-gated fecundity\nAutonomous budding/oviposition requires surplus maternal lipid stores and non-saturated local carrying capacity.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / G. Developmental & evolutionary indirect encodings",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 111; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/109; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 111"
+    },
+    {
+      "id": "F-062",
+      "text": "Compensated First-Law maternal provisioning\nExact `FP64` enthalpy transfer from parent `E_stores` into egg yolk `E_stores` + transfer heat (`|\u0394E| < 1e-12`).",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / G. Developmental & evolutionary indirect encodings",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 112; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/110; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 112"
+    },
+    {
+      "id": "F-063",
+      "text": "Degenerate repertoire group selection\nStructurally distinct micro-circuits compete for trophic maintenance while serving overlapping survival functions.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / G. Developmental & evolutionary indirect encodings",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(M_mod)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 113; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/111; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 113"
+    },
+    {
+      "id": "F-064",
+      "text": "Genomic bottleneck innate motifs\nCompressing connectome rules (`< 1 KB` genome -> `> 500K` synapses) forces reusable innate sensorimotor priors.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / G. Developmental & evolutionary indirect encodings",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(G_gen)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 114; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/112; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 114"
+    },
+    {
+      "id": "F-065",
+      "text": "Turing reaction-diffusion patterning\nCoupled activator-inhibitor PDEs self-organize somatotopic columns and cryptic skin pigmentation.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / G. Developmental & evolutionary indirect encodings",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(V_mesh)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 115; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/113; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 115"
+    },
+    {
+      "id": "F-066",
+      "text": "Gap-junction bioelectric shape memory\nTissue-wide `V_mem` depolarization gradient stores anterior-posterior anatomical target polarity across injury.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / G. Developmental & evolutionary indirect encodings",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(Cells)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 116; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/114; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 116"
+    },
+    {
+      "id": "F-067",
+      "text": "Decay-bounded famine epigenetics\nMaternal starvation sets reversible chromatin-like metabolic thrift marks decaying within `1\u20132` replete generations.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / G. Developmental & evolutionary indirect encodings",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 117; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/115; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 117"
+    },
+    {
+      "id": "F-068",
+      "text": "Recorded QRNG / Philox entropy stream\nImmutable recorded hardware QRNG `.sensorlog` (or `Philox4x32-10`) drives exploration; benchmarked vs matched PRNG.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / H. Stochastic & quantum-inspired exploration (with mandatory classical controls)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 118; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/116; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 118"
+    },
+    {
+      "id": "F-069",
+      "text": "State-dependent parametric weight noise\nLearnable exploration variance shrinks automatically as local prediction residuals converge.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / H. Stochastic & quantum-inspired exploration (with mandatory classical controls)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 119; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/117; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 119"
+    },
+    {
+      "id": "F-070",
+      "text": "Heavy-tailed L\u00e9vy-walk search\nTruncated power-law run lengths (`\u03bc \u2248 2.0`) accelerate sparse resource patch discovery when local odor vanishes.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / H. Stochastic & quantum-inspired exploration (with mandatory classical controls)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 120; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/118; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 120"
+    },
+    {
+      "id": "F-071",
+      "text": "Langevin membrane posterior sampling\nKeyed stochastic drift-diffusion dynamics sample multi-modal latent world interpretations under ambiguity.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / H. Stochastic & quantum-inspired exploration (with mandatory classical controls)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 121; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/119; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 121"
+    },
+    {
+      "id": "F-072",
+      "text": "Capped superposition option register\nCoherent sub-register (`0 \u2264 Q \u2264 8` inside global `Q \u2264 10` cap) interferes action amplitudes; **must beat equal-param classical `SO(2)^Q` control**.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / H. Stochastic & quantum-inspired exploration (with mandatory classical controls)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Q\u22648]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 122; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/120; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 122"
+    },
+    {
+      "id": "F-073",
+      "text": "Chaotic itinerancy attractor hopping\nWeakly unstable deterministic low-dimensional trajectories visit candidate behavioral modes without external noise.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / H. Stochastic & quantum-inspired exploration (with mandatory classical controls)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(D_lat)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 123; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/121; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 123"
+    },
+    {
+      "id": "F-074",
+      "text": "Ising/Hopfield instinct relaxation\nBounded `4-step` spin-glass settling snaps ambiguous predator cues onto low-latency defensive reflexes.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / H. Stochastic & quantum-inspired exploration (with mandatory classical controls)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(K\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 124; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/122; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 124"
+    },
+    {
+      "id": "F-075",
+      "text": "Subthreshold stochastic resonance\nCalibrated background membrane noise lifts weak subthreshold plume/vibration cues into detectable spike timing.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / H. Stochastic & quantum-inspired exploration (with mandatory classical controls)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 125; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/123; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 125"
+    },
+    {
+      "id": "F-076",
+      "text": "12-Organ closed-loop sensorimotor brain\nCausally wired sensory bus, Hopfield CA3, world model, critic, workspace, affect, brainstem Ring-0, and CPG ganglia.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(Sum)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 126; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/124; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 126"
+    },
+    {
+      "id": "F-077",
+      "text": "Predictor-residual metacognitive critic\nWorld-model prediction residual variance feeds `HOT-2` uncertainty directly without oracle labels.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(D_lat)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 127; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/125; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 127"
+    },
+    {
+      "id": "F-078",
+      "text": "Cerebellar forward-cancellation sidecar\nGranule sparse expansion + Purkinje error-driven LTD cancels sensory delay and self-reafference.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 128; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/126; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 128"
+    },
+    {
+      "id": "F-079",
+      "text": "Striatal D1/D2/STN action race gate\nDirect (`Go`), indirect (`NoGo`), and hyperdirect (`STN` global pause) channels arbitrate specialist motor bids.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(M_mod)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 129; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/127; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 129"
+    },
+    {
+      "id": "F-080",
+      "text": "Parallel column reference-frame voting\nCortical-like sensorimotor columns track object-centric pose hypotheses and reach lateral consensus.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(C\u00b7D)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 130; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/128; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 130"
+    },
+    {
+      "id": "F-081",
+      "text": "Fast Workspace + slow reservoir shadow\nLow-capacity `20 Hz` global broadcast paired with a high-dimensional slow unconscious echo reservoir.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(E+M)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 131; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/129; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 131"
+    },
+    {
+      "id": "F-082",
+      "text": "Dual-hemisphere callosal consensus\nExploit-specialized and novelty-monitoring sub-spheres coordinate across bandwidth-capped callosal fibers.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(D_lat)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 132; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/130; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 132"
+    },
+    {
+      "id": "F-083",
+      "text": "Mushroom-body Kenyon valence sidecar\nClean-slate `2%` sparse SDR expansion (**engineering choice inspired by `5\u201310%` fly Kenyon odor sparsity**, Aso et al. 2014) + DA compartment tagging.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 133; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/131; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 133"
+    },
+    {
+      "id": "F-084",
+      "text": "Octopus-inspired brachial arm autonomy\n**`~2/3` of total neurons** reside in distributed soft-limb cords (Hochner 2012), solving local wrapping & compliance without central lag.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(V+N)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 134; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/132; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 134"
+    },
+    {
+      "id": "F-085",
+      "text": "Algebraic VSA episodic hippocampus\nBinds `(Place \u2297 Cue \u2297 Outcome)` into one queryable hyperdimensional vector supporting cue/place unbinding.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(D_lat)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 135; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/133; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 135"
+    },
+    {
+      "id": "F-086",
+      "text": "Visceral-to-cortical gain hypernetwork\nSlow endocrine/visceral vector generates low-rank multiplicative gain masks for fast sensorimotor spheres.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(r\u00b7N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 136; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/134; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 136"
+    },
+    {
+      "id": "F-087",
+      "text": "Decaying outer-product fast weights\nShort-lived Hebbian scratchpad matrix `A(t)` binds temporary relational variables within multi-step episodes.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(D_lat\u00b2)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 137; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/135; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 137"
+    },
+    {
+      "id": "F-088",
+      "text": "Phase-coincidence spike routing\nQuery-key spike phase alignment gates value packet transfer across hub bottlenecks without dense softmax.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 138; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/136; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 138"
+    },
+    {
+      "id": "F-089",
+      "text": "Modern continuous Hopfield settling\nLog-sum-exp energy landscape retrieves sharp full-episode latents from `\u2265 50%` masked cues in `\u2264 3` steps.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(M\u00b7D)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 139; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/137; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 139"
+    },
+    {
+      "id": "F-090",
+      "text": "Tolman-Eichenbaum factorized map\nFactorizes abstract transition topology (toroidal grid) from sensory landmark identities (`CA3` bind).",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / I. Whole-brain & multibrain 'Frankenstein' hybrids",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(M\u00b7D)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 140; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/138; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 140"
+    },
+    {
+      "id": "F-091",
+      "text": "Ephaptic local extracellular coupling\nLocal mean-field voltage gradient weakly phase-couples adjacent packed units without point synapses.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / J. Biophysical & integrative mechanisms (strictly in-world & lesion-tested)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 141; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/139; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 141"
+    },
+    {
+      "id": "F-092",
+      "text": "Capped dipole beat-frequency clock\nInternal phase-oscillator bank (`Q \u2264 6`); **must beat parameter-matched classical Kuramoto oscillator bank**.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / J. Biophysical & integrative mechanisms (strictly in-world & lesion-tested)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Q\u22646]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 142; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/140; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 142"
+    },
+    {
+      "id": "F-093",
+      "text": "Spine-neck electrical compartmentalization\nActivity-dependent per-synapse conductance scalar gates local dendritic plateau cooperativity.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / J. Biophysical & integrative mechanisms (strictly in-world & lesion-tested)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 143; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/141; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 143"
+    },
+    {
+      "id": "F-094",
+      "text": "Adaptive axonal conduction-delay tuning\nMyelin-like velocity adjustment aligns arrival latencies of convergent sensory pathways onto coincidence cells.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / J. Biophysical & integrative mechanisms (strictly in-world & lesion-tested)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 144; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/142; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 144"
+    },
+    {
+      "id": "F-095",
+      "text": "PV+ gap-junction inhibitory syncytium\nResistive coupling across fast-spiking interneurons stabilizes crisp `40 Hz` gamma windows.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / J. Biophysical & integrative mechanisms (strictly in-world & lesion-tested)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 145; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/143; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 145"
+    },
+    {
+      "id": "F-096",
+      "text": "Homeostatic branching-ratio criticality\nGain homeostasis tunes avalanche branching ratio near `\u03c3 \u2248 0.98\u20131.00` to maximize dynamic range without seizure.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / J. Biophysical & integrative mechanisms (strictly in-world & lesion-tested)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 146; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/144; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 146"
+    },
+    {
+      "id": "F-097",
+      "text": "Synaptic tag-and-capture consolidation\nIntrinsic excitability bias + protein-synthesis resource pool converts transient tags into durable engrams.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / J. Biophysical & integrative mechanisms (strictly in-world & lesion-tested)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 147; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/145; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 147"
+    },
+    {
+      "id": "F-098",
+      "text": "Microbiome-vagal precursor coupling\nSymbiotic gut fermentation products modulate host tryptophan/5-HT availability and nutrient-specific appetite.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / J. Biophysical & integrative mechanisms (strictly in-world & lesion-tested)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 148; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/146; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 148"
+    },
+    {
+      "id": "F-099",
+      "text": "Circadian-gated anabolic/catabolic plasticity\nWaking phase favors tag formation & LTP; NREM slow-wave window unlocks complement pruning & `SHY`.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / J. Biophysical & integrative mechanisms (strictly in-world & lesion-tested)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 149; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/147; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 149"
+    },
+    {
+      "id": "F-100",
+      "text": "Morphology-as-inference soft remodeling\nSlow viscoelastic rest-length and stiffness adaptation reduces chronic sensorimotor prediction error at ATP cost.",
+      "category": "L4_FREAK100 / FREAK-100 Mechanisms / J. Biophysical & integrative mechanisms (strictly in-world & lesion-tested)",
+      "criterion": "Primary contrast and controls: Intact vs Mechanism-Ablated / Classical-Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [O(V_mesh)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 150; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/148; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 150"
+    }
+  ]
+}

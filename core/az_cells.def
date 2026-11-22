@@ -1,0 +1,55 @@
+/* az_cells.def - the per-cell memory ABI of the world fields, as an X-macro.
+ *
+ * AZ_CELL(name, type, per, tier)   the world has a pointer `type *c_<name>`
+ *   tier : FIELD - persistent world state (hashed, saved)
+ *          EPH   - demand and grant scratch and the derived pressure cache
+ *                  are excluded from snapshots and hashes. Other EPH columns
+ *                  may hold posts made after the
+ *                  tick's last field commit; the next tick applies it, and
+ *                  until then the audits count it, the snapshot saves it and
+ *                  az_state_hash hashes it when it is not all zero (v01).
+ *
+ * Rule: during the entity phases the FIELD columns are READ-ONLY. Entities
+ * change the world only through az_cell_post, az_cell_post_heat,
+ * az_cell_demand and az_cell_mark (atomic integer adds into `need` and
+ * `acc`); az_field_grant and az_field_commit turn them into grants and
+ * applied changes. Integer adds commute, so the result does not depend on
+ * thread interleaving. Field dynamics (chemistry, weather) post their fluxes
+ * the same way and may write the derived columns of their own cell.
+ *
+ * ABI 4 (finding v63: six of these columns had no writer in the stub world;
+ * all are kept, each with one writer, named at its line as [owner]):
+ *   - `sp`, `heat` and `mark_id` change only through az_field_commit. `mark`
+ *     grows through it and is decayed in place by az_chem_cell (its own
+ *     stepped cell, in a pass where no commit runs).
+ *   - A derived column is recomputed by its owner whenever the cell is
+ *     stepped (every field_stride ticks), so a reader sees a value up to
+ *     field_stride - 1 ticks old. az_worldgen fills all of them at tick 0
+ *     through az_chem_derive and az_weather_derive.
+ *   - A stepped cell may read the derived columns of its six face
+ *     neighbours: the stride guarantees none of them is stepped in the same
+ *     pass.
+ */
+AZ_CELL(sp,      u32, 8, FIELD)  /* [commit of posts] amount of each species AZ_SP_* (matter units) */
+AZ_CELL(heat,    u32, 1, FIELD)  /* [commit of posts] thermal energy (energy units) */
+AZ_CELL(temp,    i16, 1, FIELD)  /* [weather] derived: az_temp_of(heat, all matter in the cell), 0..32767 */
+AZ_CELL(phase,   u16, 1, FIELD)  /* [chem] derived: 2 bits per species, AZ_PH_* (AZ_PHASE_OF) */
+AZ_CELL(wind,    i8,  3, FIELD)  /* [weather] velocity of the medium, 1/256 cell per tick; 0 inside rock */
+AZ_CELL(light,   u8,  1, FIELD)  /* [weather] light intensity reaching this cell, 0..255 (AZ_LIGHT_EU each) */
+AZ_CELL(charge,  u8,  1, FIELD)  /* [weather] ionisation 0..255: radiation dose and storm charge; */
+                                 /* at 192 and above chem treats the gas of the cell as plasma   */
+AZ_CELL(solid,   u8,  1, FIELD)  /* [worldgen] bedrock fraction 0..255; 255 = impassable: physics */
+                                 /* reflects a body that would enter, nothing flows in or out     */
+AZ_CELL(med,     u8,  2, FIELD)  /* [chem] derived: [0] density, [1] viscosity of the medium, 0..255; */
+                                 /* a body with phen DENS above med[0] sinks, below it rises      */
+AZ_CELL(mark,    u8,  4, FIELD)  /* [commit of az_cell_mark; chem decays] stigmergy channels AZ_MK_* */
+AZ_CELL(mark_id, u32, 1, FIELD)  /* [commit of az_cell_mark] colony id that owns the strongest mark 0 */
+
+AZ_CELL(grav,    i8,  4, FIELD)  /* [worldgen] gravity vector here, velocity units per tick (x, y, z, 0): a field, */
+                                /* so "down" can bend from place to place; w->gravity is its world mean         */
+AZ_CELL(lvec,    i8,  4, FIELD)  /* [weather] where the light comes from here, unit vector * 127 (x, y, z, 0)     */
+AZ_CELL(need,    AzCellNeed, 1, EPH)  /* eight u64 demand sums (one cache line)   */
+AZ_CELL(acc,     AzCellAcc,  1, EPH)  /* pending changes (one cache line)           */
+AZ_CELL(pressure, u32, 1, EPH) /* [field] published local hydrostatic reading after the field barrier */
+AZ_CELL(species_carry, u32, AZ_NSPECIES, EPH) /* [field] high limbs of pending matter, in units of 2^32 */
+AZ_CELL(grant, u16, AZ_NDIET, EPH) /* [field] granted fractions, valid for channels requested this tick */

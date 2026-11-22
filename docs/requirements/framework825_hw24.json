@@ -1,0 +1,179 @@
+{
+  "set_id": "framework825_hw24",
+  "title": "HW-24 Compute & Arena Guards (ALife Framework v3.0)",
+  "source_files": [
+    "ALife-Framework-v3.0-Master-Checklists.csv",
+    "ALife-Framework-v3.0-Master-Spec.json",
+    "Asmodensius-evidence-crosswalk.xlsx"
+  ],
+  "items": [
+    {
+      "id": "HW01",
+      "text": "Flat Structure-of-Arrays (SoA) arenas\nAll neuron, synapse, soft-vertex, and chemical states reside in pre-allocated contiguous `TypedArray` arenas (`0` per-synapse heap objects).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / A. Memory arenas, explicit byte accounting & zero-allocation loop (HW01\u2013HW06)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 803; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/801; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 803"
+    },
+    {
+      "id": "HW02",
+      "text": "10,000-tick zero-allocation & fixed WASM\nProfiler verifies **`0` heap allocations, `0` `BigInt` boxes, `0` WASM `memory.grow` calls, and `0` lossless-ring drops** across `10,000` post-warmup ticks.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / A. Memory arenas, explicit byte accounting & zero-allocation loop (HW01\u2013HW06)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 804; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/802; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 804"
+    },
+    {
+      "id": "HW03",
+      "text": "Tiled sparse CSR (`5.25 B/syn` FP16)\nUses tiled `uint16` CSR (`\u2264 65,536` units/tile + base table, `5.25 B/syn`) or `uint32` CSR (`9.25 B/syn`); never dense `4N\u00b2` at sparse `\u03c1 \u2264 10%`.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / A. Memory arenas, explicit byte accounting & zero-allocation loop (HW01\u2013HW06)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 805; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/803; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 805"
+    },
+    {
+      "id": "HW04",
+      "text": "32-synapse packed `int4`/`b1.58` + inventory\nPacks 32 synapses into `28 B` (`int4 = 0.875 B/syn`) or `19 B` (`b1.58 = 0.594 B/syn`); budgets `+0.40 B/syn` sparse plasticity ring & `CSR` overlay separately.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / A. Memory arenas, explicit byte accounting & zero-allocation loop (HW01\u2013HW06)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 806; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/804; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 806"
+    },
+    {
+      "id": "HW05",
+      "text": "Fixed-capacity circular buffers\nEvery spike queue, episodic trace, and telemetry channel uses power-of-two ring buffers with explicit overflow policy (`0` unbounded `.push()`).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / A. Memory arenas, explicit byte accounting & zero-allocation loop (HW01\u2013HW06)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 807; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/805; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 807"
+    },
+    {
+      "id": "HW06",
+      "text": "Bounded `< 64 KB` creature XOR checkpoints\nFull-organism incremental rollback checkpoints compress via sparse XOR delta to `< 64 KB` (while single `WSE` edits stay `< 16 KB`, `WSE08`).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / A. Memory arenas, explicit byte accounting & zero-allocation loop (HW01\u2013HW06)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 808; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/806; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 808"
+    },
+    {
+      "id": "HW07",
+      "text": "`O(N_pop + C_pairs)` broad-phase physics\nUniform spatial hash / BVH bounds broad-phase world collisions and field queries to `O(N_pop + C_pairs)` (`0` unconditional `O(N_pop\u00b2)` loops).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / B. Algorithmic complexity, stiff chemistry & multirate clocks (HW07\u2013HW12)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 809; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/807; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 809"
+    },
+    {
+      "id": "HW08",
+      "text": "Integer-guarded `0 \u2264 Q \u2264 10` quantum cap\nValidates `Number.isInteger(Q) && Q >= 0 && Q <= 10` before allocating `2 * (2 ** Q)` `Float64` entries (`\u2264 16 KiB`), preventing `1 << 32 === 1` wraparound.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / B. Algorithmic complexity, stiff chemistry & multirate clocks (HW07\u2013HW12)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 810; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/808; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 810"
+    },
+    {
+      "id": "HW09",
+      "text": "Event-driven sparse spike rows (`k \u2248 1\u20134%`)\nGear-1 spike propagation iterates outgoing CSR/packed blocks exclusively for units crossing threshold (`2\u20138 Hz` biological sparse regime).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / B. Algorithmic complexity, stiff chemistry & multirate clocks (HW07\u2013HW12)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 811; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/809; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 811"
+    },
+    {
+      "id": "HW10",
+      "text": "5-Gear Deterministic Multirate Scheduler\nRuns integer-divided gears (`0.5ms, 5ms, 50ms, 1s, 60s`) with explicit ZOH/flux handoff, achieving `\u2265 5\u00d7` measured speedup & `< 1%` step-halving drift.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / B. Algorithmic complexity, stiff chemistry & multirate clocks (HW07\u2013HW12)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 812; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/810; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 812"
+    },
+    {
+      "id": "HW11",
+      "text": "Exponential-Euler & implicit stiff solvers\nIntegrates linear membrane decay via exact exponential-Euler and stiff nonlinear wet chemistry via bounded backward-Euler/TR-BDF2 (`0` explicit-Euler blowups).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / B. Algorithmic complexity, stiff chemistry & multirate clocks (HW07\u2013HW12)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 813; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/811; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 813"
+    },
+    {
+      "id": "HW12",
+      "text": "Tier-2-only multi-fidelity crowd surrogates\nOptional distant-crowd reduced surrogates execute **exclusively in Tier-2 Adaptive Bulk Mode** under deterministic in-world salience schedules (never Tier-1).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / B. Algorithmic complexity, stiff chemistry & multirate clocks (HW07\u2013HW12)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 814; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/812; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 814"
+    },
+    {
+      "id": "HW13",
+      "text": "Off-main-thread simulation & export workers\nPhysics, neural batches, and file encoders run in dedicated Workers/threads so UI interaction never stalls `tick()`.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / C. Worker isolation, backend probes & two-tier determinism (HW13\u2013HW18)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 815; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/813; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 815"
+    },
+    {
+      "id": "HW14",
+      "text": "Verified `crossOriginIsolated` + 3-retry SeqLock\nAsserts `self.crossOriginIsolated` at startup; Sim->UI `SharedArrayBuffer` uses odd/even `SeqLock` (max `3` reader retries + double-buffer fallback).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / C. Worker isolation, backend probes & two-tier determinism (HW13\u2013HW18)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 816; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/814; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 816"
+    },
+    {
+      "id": "HW15",
+      "text": "Two-Tier determinism + core `exp_det`\nTier-1 CPU/WASM uses core-shipped `exp_det`/`log_det` + `.alifebin` for cross-OS SHA-256 parity; Tier-2 GPU checks preregistered observable distributions.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / C. Worker isolation, backend probes & two-tier determinism (HW13\u2013HW18)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 817; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/815; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 817"
+    },
+    {
+      "id": "HW16",
+      "text": "`Philox4x32-10` domain-isolated PRNG\n32-bit `Math.imul` `Philox4x32-10` keyed by `(ver, seed, domain, entity, organ, tick, purpose, idx)` isolating `WORLD_EXOG` from `ENTITY_INT`.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / C. Worker isolation, backend probes & two-tier determinism (HW13\u2013HW18)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 818; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/816; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 818"
+    },
+    {
+      "id": "HW17",
+      "text": "Capability-probed WebGPU / SIMD kernels\nProbes `shader-f16` / SIMD support at boot, selects verified native or unpacked-`f32` software kernels, and logs active backend mode in manifest.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / C. Worker isolation, backend probes & two-tier determinism (HW13\u2013HW18)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 819; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/817; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 819"
+    },
+    {
+      "id": "HW18",
+      "text": "11-Pool compensated `FP64` ledger worker\nAccumulates all enthalpy/mass pools + `E_diss_num \u2265 0` in CPU/WASM `FP64` Kahan-Neumaier state (never truncated to `WGSL f32` or `Q16.16`).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / C. Worker isolation, backend probes & two-tier determinism (HW13\u2013HW18)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nSource mirror: MIR-01",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 820; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/818; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 820"
+    },
+    {
+      "id": "HW19",
+      "text": "Bounded `\u2264 32 KB/fr` sketch + pull telemetry\nStreams global `O(1)` sketches every frame and pulls subgraph/raster slices strictly for the active inspector target (`ERR-01` cure).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / D. Observer independence, contiguous governor & sharded storage (HW19\u2013HW24)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 821; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/819; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 821"
+    },
+    {
+      "id": "HW20",
+      "text": "10,000-tick zero-observer-effect hash gate\nCI verifies `10,000` Tier-1 ticks with all 19 UI tabs open + active export + Governor Band-3 forcing match headless SHA-256 bit-for-bit.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / D. Observer independence, contiguous governor & sharded storage (HW19\u2013HW24)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 822; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/820; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 822"
+    },
+    {
+      "id": "HW21",
+      "text": "Contiguous hysteresis Frame-Time Governor\nEMA `ms/frame` bands (`<0.70B`, `0.70\u20130.90B`, `0.90\u20131.00B`, `>1.00B` of `T_frame(Tier)`) shed render/UI rate only in Tier-1 (`30`-frame hysteresis dwell).",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / D. Observer independence, contiguous governor & sharded storage (HW19\u2013HW24)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 823; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/821; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 823"
+    },
+    {
+      "id": "HW22",
+      "text": "Decoupled lossless export + `<500K` XLS shard\nStreams raw tensors losslessly to `Parquet`/`HDF5`/`CSV` and shards `.xls`/`.xlsx` workbooks well below Excel's `1,048,576`-row hard limit.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / D. Observer independence, contiguous governor & sharded storage (HW19\u2013HW24)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 824; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/822; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 824"
+    },
+    {
+      "id": "HW23",
+      "text": "Automated Tier-E/L/D/W/C budget smoke gate\nCI measures peak resident RAM/VRAM, synaptic events/s, and p99 step latency against declared Hardware Reference Tier ceilings.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / D. Observer independence, contiguous governor & sharded storage (HW19\u2013HW24)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 825; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/823; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 825"
+    },
+    {
+      "id": "HW24",
+      "text": "Non-finite & `85%`-arena watchdog breaker\nTraps any `NaN/Inf`, `\u0394E_diss_num < -1e-15`, or `> 85%` arena water-mark, writes crash `.alifebin` + manifest, and aborts promotion cleanly.",
+      "category": "L9_HW24 / HW-24 Compute & Arena Guards / D. Observer independence, contiguous governor & sharded storage (HW19\u2013HW24)",
+      "criterion": "Primary contrast and controls: Deterministic CI Profiler & Hash Gate [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=24) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 24\nCost tag: [O(1)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 826; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/824; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 826"
+    }
+  ]
+}

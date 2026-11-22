@@ -1,0 +1,26 @@
+/* params/az_colony.def - the world parameters of az_colony.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not a law of the physics from az_abi.h
+ * and not read from the creature (a trait, its brain, its body, its memory)
+ * is declared here, with its default and the range it may be set to, and is
+ * read as w->param[AZ_WP_<name>]. Names start with the module's name in
+ * capitals so that they cannot collide.
+ */
+AZ_PARAM(COLONY_FOUND,          2, 0,     256, "chance (of 65,536, times its COLONIALITY trait) that a solitary adult founds a colony at a colony pass: at 2, a creature with COLONIALITY 255 founds one in 510 of 65,536 passes")
+AZ_PARAM(COLONY_ENDOW,        256, 0, 1048576, "energy (eu) a founder gives to the pool of the colony it founds; it must hold twice that to found one")
+AZ_PARAM(COLONY_LEAVE,         32, 0,     256, "chance (of 65,536, times (255 - COLONIALITY) x (255 - the colony's mood) / 256) that an adult member leaves at a colony pass")
+AZ_PARAM(COLONY_NEED_START,    64, 0,     255, "the call for every role (need[], 0..255) in a colony that has just been founded")
+AZ_PARAM(COLONY_NEED_GAIN,     64, 0,     256, "share (of 256) of a role's demand (0..255, from the colony's own state) added to its call at every pass: the growth of the stimulus in the response-threshold model")
+AZ_PARAM(COLONY_NEED_WORK,    128, 0,    1024, "what a role's call falls by at a pass when every member holds that role; it falls in proportion to the share of members that do")
+AZ_PARAM(COLONY_THETA_MIN,     16, 1,     255, "response threshold of a member for the role its CASTE trait points at (in units of the call, 0..255)")
+AZ_PARAM(COLONY_THETA_SPAN,   224, 0,    1024, "what is added to that threshold for the role farthest from its CASTE on the ring of roles; in between in proportion")
+AZ_PARAM(COLONY_QUIT,          51, 0,     256, "chance (of 256) that a member gives up its role at a pass (one in five, as in Bonabeau, Theraulaz and Deneubourg 1996)")
+AZ_PARAM(COLONY_EASE_EU,      512, 1, 1048576, "provisions per member (eu: the energy pool plus the stores at their chemical energy) at which a colony calls for no more foragers")
+AZ_PARAM(COLONY_BREEDER_SPAN,  16, 1,   65536, "adults per breeder a colony is content with (it always calls for one)")
+AZ_PARAM(COLONY_SPREAD,         4, 1,    1024, "mean distance of the members from the colony's centre (cells, summed over the three axes) at which it calls for no more scouts")
+AZ_PARAM(COLONY_ALARM_RATE,   128, 0,     256, "the colony's alarm moves this share (of 256) of the way to what its members stand in (alarm marks, wounds) at every pass")
+AZ_PARAM(COLONY_MOOD_RATE,     96, 0,     256, "the colony's mood moves this share (of 256) of the way to its present condition (growth or loss of members, less half its alarm) at every pass")
+AZ_PARAM(COLONY_CULTURE_RATE,  64, 0,     256, "the colony's culture moves this share (of 256) of the way to the mean context of its members at every pass")
+AZ_PARAM(COLONY_TRADITION,     32, 0,     256, "and this share (of 256) of the way to the nearest culture it remembers from a time its mood rose")

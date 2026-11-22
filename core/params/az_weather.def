@@ -1,0 +1,47 @@
+/* params/az_weather.def - the world parameters of az_weather.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not a law of the physics from az_abi.h
+ * and not read from the creature (a trait, its brain, its body, its memory)
+ * is declared here, with its default and the range it may be set to, and is
+ * read as w->param[AZ_WP_<name>]. Names start with the module's name in
+ * capitals so that they cannot collide.
+ */
+AZ_PARAM(WEATHER_SUN0_LIGHT,   200, 0, 255, "light sun 0 gives the top layer at its noon under a clear sky")
+AZ_PARAM(WEATHER_SUN1_LIGHT,   120, 0, 255, "light sun 1 gives the top layer at its noon under a clear sky")
+AZ_PARAM(WEATHER_SUN0_START,  8192, 0, 65535, "position of sun 0 in its day at tick 0, of 65536; 0 is dawn, 16384 noon")
+AZ_PARAM(WEATHER_SUN1_START,     0, 0, 65535, "position of sun 1 in its day at tick 0, of 65536")
+AZ_PARAM(WEATHER_DIM_SOLV,     128, 0, 1048576, "light lost on the way through a cell per unit of solvent in it: halvings of the light, of 16777216 (65536 units at 256 halve it)")
+AZ_PARAM(WEATHER_DIM_ORG,     1536, 0, 1048576, "the same per unit of organic matter or waste: what lives and dies darkens what is under it")
+AZ_PARAM(WEATHER_DIM_OTHER,    128, 0, 1048576, "the same per unit of every other species")
+AZ_PARAM(WEATHER_SUN_HEAT,      36, 0, 4096, "heat (eu) a cell gains per step from one unit of light it absorbs")
+AZ_PARAM(WEATHER_SPACE_TEMP,  7680, 0, 32767, "temperature a cell with no light and no life settles at: what the sky radiates back")
+AZ_PARAM(WEATHER_COOL,        8192, 0, 65536, "share (of 65536) of its heat above the sky's temperature a cell radiates away per step; below it, the share of the lack it takes in")
+AZ_PARAM(WEATHER_CONDUCT,       32, 0, 42, "heat a cell pushes to a colder face neighbour per step: this share (of 256) of the temperature difference; six neighbours, so 42 at most")
+AZ_PARAM(WEATHER_WIND,          16, 0, 4096, "wind along an axis per unit of temperature difference across the cell, of 256; the medium flows from the warm side to the cold")
+AZ_PARAM(WEATHER_CHARGE_DECAY,  32, 1, 256, "share (of 256) of its charge a cell loses per step")
+AZ_PARAM(WEATHER_CHARGE_TOX,    16, 0, 65536, "charge a cell gains per step per unit of radiotoxin in it, of 256")
+AZ_PARAM(WEATHER_CHARGE_SUN,     8, 0, 256, "charge a top-layer cell gains per step per unit of light from the sky, of 256")
+AZ_PARAM(WEATHER_CHARGE_STORM, 128, 0, 1024, "charge a cell under the centre of a storm of full strength gains per step, of 256 per unit of strength")
+AZ_PARAM(WEATHER_LIGHTNING_AT, 192, 1, 255, "charge at which lightning strikes in a cell under a storm")
+AZ_PARAM(WEATHER_LIGHTNING_FIX, 16, 0, 256, "share (of 256) of the gas weather may use in a cell that one strike fixes as mineral")
+AZ_PARAM(WEATHER_LIGHTNING_DROP, 96, 0, 255, "charge a strike takes from the cell")
+AZ_PARAM(WEATHER_SIGMA,       2560, 0, 8192, "the convection model (Lorenz 1963): its Prandtl number, of 256")
+AZ_PARAM(WEATHER_RHO,         7168, 0, 16384, "the convection model: its Rayleigh number at half light, of 256")
+AZ_PARAM(WEATHER_BETA,         683, 0, 4096, "the convection model: its geometry factor, of 256")
+AZ_PARAM(WEATHER_RHO_SUN,     2048, 0, 16384, "how far full light raises and night lowers the Rayleigh number, of 256: the suns drive the convection, and the nights calm it")
+AZ_PARAM(WEATHER_PACE,         512, 0, 2048, "time step of the convection model per tick, of 65536")
+AZ_PARAM(WEATHER_CLOUD_GAIN,     6, 0, 64, "cloud cover (of 255, 128 at rest) per unit of the convection model's first variable")
+AZ_PARAM(WEATHER_CLOUD_DIM,    128, 0, 256, "share (of 256) of the suns' light a full cloud cover keeps from the top layer")
+AZ_PARAM(WEATHER_STORM_RATE,   256, 0, 262144, "chance per tick that a storm starts in a calm sky, of 16777216 per unit of the convection model's third variable (the strength of the overturning)")
+AZ_PARAM(WEATHER_STORM_RISE,     2, 1, 255, "strength a growing storm gains per tick")
+AZ_PARAM(WEATHER_STORM_FADE,     1, 1, 255, "strength a storm past its peak loses per tick")
+AZ_PARAM(WEATHER_STORM_RADIUS,   6, 1, 1024, "reach of a storm from its centre, cells")
+AZ_PARAM(WEATHER_STORM_DEPTH,    4, 1, 1024, "layers from the top a storm reaches")
+AZ_PARAM(WEATHER_STORM_WIND,    16, 0, 1024, "swirl of the wind round the centre of a storm, of 256 per cell of distance at full strength")
+AZ_PARAM(WEATHER_STORM_DRIFT,   16, 0, 1024, "how fast the convection carries a storm: 1/256 cells per tick per 16 units of its first two variables")
+AZ_PARAM(WEATHER_VENT_RATE,      4, 0, 65536, "mineral (mu) a vent brings up from the reservoir per tick")
+AZ_PARAM(WEATHER_VENT_PULSE,   512, 0, 1048576, "mineral (mu) of one eruption of a vent")
+AZ_PARAM(WEATHER_VENT_PULSE_P,  64, 0, 65536, "chance per tick that a vent erupts, of 65536")
+AZ_PARAM(WEATHER_VENT_HEAT,     16, 0, 4096, "heat (eu) that comes up with each unit of mineral from a vent: twice what a unit of the world holds at its worldgen temperature")

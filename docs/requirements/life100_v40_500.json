@@ -1,0 +1,3509 @@
+{
+ "set_id": "life100_v40_500",
+ "title": "LIFE-100 original (v40 lab, Creature 001): 100 areas x 5 attributes = 500, with the lab's own status label per row (ids assigned by the extractor: area number and row order)",
+ "source_files": [
+  "V:/creatures/001/LIFE-100.md"
+ ],
+ "items": [
+  {
+   "id": "V40-LIFE-L001-A1",
+   "text": "Nutrient pools (gut, blood, liver, fat, muscle)",
+   "category": "I. Body economy :: 1. Metabolism :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:45 (evidence/plan: `organism/organism.ts:290`)"
+  },
+  {
+   "id": "V40-LIFE-L001-A2",
+   "text": "Closed energy ledger (conservation)",
+   "category": "I. Body economy :: 1. Metabolism :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:46 (evidence/plan: `organism/organism.ts:419` `energy()` sums all pools)"
+  },
+  {
+   "id": "V40-LIFE-L001-A3",
+   "text": "Liver glycogen, lipo-, keto-, gluconeogenesis",
+   "category": "I. Body economy :: 1. Metabolism :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:47 (evidence/plan: `organism/organism.ts:601` to :608)"
+  },
+  {
+   "id": "V40-LIFE-L001-A4",
+   "text": "ATP as currency gating neurons",
+   "category": "I. Body economy :: 1. Metabolism :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:48 (evidence/plan: `organism/organism.ts:483` K-ATP on VTA)"
+  },
+  {
+   "id": "V40-LIFE-L001-A5",
+   "text": "Heritable traits paid in the same currency",
+   "category": "I. Body economy :: 1. Metabolism :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:49 (evidence/plan: DELARP §3 principle 5)"
+  },
+  {
+   "id": "V40-LIFE-L002-A1",
+   "text": "Hunger hormones (ghrelin, leptin, insulin)",
+   "category": "I. Body economy :: 2. Feeding / appetite :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:56 (evidence/plan: `organism/organism.ts:292`)"
+  },
+  {
+   "id": "V40-LIFE-L002-A2",
+   "text": "AgRP-like drive inhibited by insulin",
+   "category": "I. Body economy :: 2. Feeding / appetite :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:57 (evidence/plan: `organism/organism.ts:556`)"
+  },
+  {
+   "id": "V40-LIFE-L002-A3",
+   "text": "Foraging act that yields food",
+   "category": "I. Body economy :: 2. Feeding / appetite :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:58 (evidence/plan: `organism/organism.ts:558`)"
+  },
+  {
+   "id": "V40-LIFE-L002-A4",
+   "text": "Satiation cascade over 3 timescales",
+   "category": "I. Body economy :: 2. Feeding / appetite :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:59 (evidence/plan: FREAK-100 #32)"
+  },
+  {
+   "id": "V40-LIFE-L002-A5",
+   "text": "Food choice by taste/quality",
+   "category": "I. Body economy :: 2. Feeding / appetite :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:60"
+  },
+  {
+   "id": "V40-LIFE-L003-A1",
+   "text": "Gut contents and absorption",
+   "category": "I. Body economy :: 3. Digestion :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:67 (evidence/plan: `organism/coupling.ts:8` edge Gut→Blood, implemented in organism.ts)"
+  },
+  {
+   "id": "V40-LIFE-L003-A2",
+   "text": "Enteric nervous system activity",
+   "category": "I. Body economy :: 3. Digestion :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:68 (evidence/plan: `organism/organism.ts:470`)"
+  },
+  {
+   "id": "V40-LIFE-L003-A3",
+   "text": "Vagal afferents to brainstem",
+   "category": "I. Body economy :: 3. Digestion :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:69 (evidence/plan: `organism/organism.ts:470`)"
+  },
+  {
+   "id": "V40-LIFE-L003-A4",
+   "text": "Microbiome",
+   "category": "I. Body economy :: 3. Digestion :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:70 (evidence/plan: FREAK-100 #98)"
+  },
+  {
+   "id": "V40-LIFE-L003-A5",
+   "text": "Food toxins/indigestion",
+   "category": "I. Body economy :: 3. Digestion :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:71"
+  },
+  {
+   "id": "V40-LIFE-L004-A1",
+   "text": "Urea from protein catabolism",
+   "category": "I. Body economy :: 4. Excretion / waste :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:78 (evidence/plan: `organism/organism.ts:290` `blood.urea`)"
+  },
+  {
+   "id": "V40-LIFE-L004-A2",
+   "text": "Excreted mass leaves the ledger",
+   "category": "I. Body economy :: 4. Excretion / waste :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:79 (evidence/plan: `organism/organism.ts:290` `excreted`)"
+  },
+  {
+   "id": "V40-LIFE-L004-A3",
+   "text": "Waste deposited into the dome (fouling)",
+   "category": "I. Body economy :: 4. Excretion / waste :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:80"
+  },
+  {
+   "id": "V40-LIFE-L004-A4",
+   "text": "Water/salt balance (kidney)",
+   "category": "I. Body economy :: 4. Excretion / waste :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:81"
+  },
+  {
+   "id": "V40-LIFE-L004-A5",
+   "text": "Scent from waste as a signal",
+   "category": "I. Body economy :: 4. Excretion / waste :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:82"
+  },
+  {
+   "id": "V40-LIFE-L005-A1",
+   "text": "Heat produced as a ledger pool",
+   "category": "I. Body economy :: 5. Thermoregulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:89 (evidence/plan: `organism/organism.ts:290` `heat`)"
+  },
+  {
+   "id": "V40-LIFE-L005-A2",
+   "text": "Adaptive thermogenesis on store deficit",
+   "category": "I. Body economy :: 5. Thermoregulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:90 (evidence/plan: `organism/organism.ts:613`)"
+  },
+  {
+   "id": "V40-LIFE-L005-A3",
+   "text": "Ambient temperature sensed",
+   "category": "I. Body economy :: 5. Thermoregulation :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:91"
+  },
+  {
+   "id": "V40-LIFE-L005-A4",
+   "text": "Brown-fat buffer",
+   "category": "I. Body economy :: 5. Thermoregulation :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:92 (evidence/plan: FREAK-100 #37)"
+  },
+  {
+   "id": "V40-LIFE-L005-A5",
+   "text": "Behavioural thermoregulation (seek shade/warmth)",
+   "category": "I. Body economy :: 5. Thermoregulation :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:93"
+  },
+  {
+   "id": "V40-LIFE-L006-A1",
+   "text": "Heart rate set by autonomic tone",
+   "category": "I. Body economy :: 6. Circulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:100 (evidence/plan: `organism/coupling.ts:5` Autonomic→Heart edge)"
+  },
+  {
+   "id": "V40-LIFE-L006-A2",
+   "text": "Perfusion limits brain glucose",
+   "category": "I. Body economy :: 6. Circulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:101 (evidence/plan: `organism/coupling.ts:9` Heart→Blood)"
+  },
+  {
+   "id": "V40-LIFE-L006-A3",
+   "text": "Blood composition (glc, FFA, aa, ketones)",
+   "category": "I. Body economy :: 6. Circulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:102 (evidence/plan: `organism/organism.ts:290`)"
+  },
+  {
+   "id": "V40-LIFE-L006-A4",
+   "text": "Vessels/topology of a body plan",
+   "category": "I. Body economy :: 6. Circulation :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:103"
+  },
+  {
+   "id": "V40-LIFE-L006-A5",
+   "text": "Heart as its own pacemaker brain",
+   "category": "I. Body economy :: 6. Circulation :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:104"
+  },
+  {
+   "id": "V40-LIFE-L007-A1",
+   "text": "Oxygen as a resource",
+   "category": "I. Body economy :: 7. Respiration / gas exchange :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:111"
+  },
+  {
+   "id": "V40-LIFE-L007-A2",
+   "text": "Breathing rhythm generator",
+   "category": "I. Body economy :: 7. Respiration / gas exchange :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:112"
+  },
+  {
+   "id": "V40-LIFE-L007-A3",
+   "text": "Hypoxia sense",
+   "category": "I. Body economy :: 7. Respiration / gas exchange :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:113"
+  },
+  {
+   "id": "V40-LIFE-L007-A4",
+   "text": "Anaerobic vs aerobic switch",
+   "category": "I. Body economy :: 7. Respiration / gas exchange :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:114"
+  },
+  {
+   "id": "V40-LIFE-L007-A5",
+   "text": "Dome atmosphere field",
+   "category": "I. Body economy :: 7. Respiration / gas exchange :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:115"
+  },
+  {
+   "id": "V40-LIFE-L008-A1",
+   "text": "Glucose set-point control",
+   "category": "I. Body economy :: 8. Homeostasis :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:122 (evidence/plan: `organism/organism.ts:556` feeding/insulin control)"
+  },
+  {
+   "id": "V40-LIFE-L008-A2",
+   "text": "Interoceptive 30-min glucose forecast",
+   "category": "I. Body economy :: 8. Homeostasis :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:123 (evidence/plan: `organism/organism.ts:176`)"
+  },
+  {
+   "id": "V40-LIFE-L008-A3",
+   "text": "Integral feedback zero-error",
+   "category": "I. Body economy :: 8. Homeostasis :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:124 (evidence/plan: `aic` integral per REARCHITECT §3A; forecast tie inert (B29))"
+  },
+  {
+   "id": "V40-LIFE-L008-A4",
+   "text": "Rheostasis (moving set-points)",
+   "category": "I. Body economy :: 8. Homeostasis :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:125 (evidence/plan: FREAK-100 #33)"
+  },
+  {
+   "id": "V40-LIFE-L008-A5",
+   "text": "Antithetic motif",
+   "category": "I. Body economy :: 8. Homeostasis :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:126 (evidence/plan: FREAK-100 #31)"
+  },
+  {
+   "id": "V40-LIFE-L009-A1",
+   "text": "HPA stress integrator with lock-in",
+   "category": "I. Body economy :: 9. Allostasis / stress load :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:133 (evidence/plan: `organism/affect.ts:40` to :42)"
+  },
+  {
+   "id": "V40-LIFE-L009-A2",
+   "text": "Cortisol feedback into body",
+   "category": "I. Body economy :: 9. Allostasis / stress load :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:134 (evidence/plan: `organism/affect.ts:42`)"
+  },
+  {
+   "id": "V40-LIFE-L009-A3",
+   "text": "Allostatic load accumulator long-term",
+   "category": "I. Body economy :: 9. Allostasis / stress load :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:135 (evidence/plan: `stress` EMA only, no lifetime load)"
+  },
+  {
+   "id": "V40-LIFE-L009-A4",
+   "text": "Predictive (pre-deficit) action",
+   "category": "I. Body economy :: 9. Allostasis / stress load :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:136 (evidence/plan: REARCHITECT Stage 1)"
+  },
+  {
+   "id": "V40-LIFE-L009-A5",
+   "text": "Recovery/hysteresis",
+   "category": "I. Body economy :: 9. Allostasis / stress load :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:137 (evidence/plan: `organism/affect.ts:41`)"
+  },
+  {
+   "id": "V40-LIFE-L010-A1",
+   "text": "Tissue pool and integrity",
+   "category": "II. Integrity, health, death :: 10. Injury / damage :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:147 (evidence/plan: `organism/organism.ts:417`)"
+  },
+  {
+   "id": "V40-LIFE-L010-A2",
+   "text": "Damage feeds pain/insula",
+   "category": "II. Integrity, health, death :: 10. Injury / damage :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:148 (evidence/plan: `organism/coupling.ts:17`)"
+  },
+  {
+   "id": "V40-LIFE-L010-A3",
+   "text": "Danger in the world causes damage",
+   "category": "II. Integrity, health, death :: 10. Injury / damage :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:149 (evidence/plan: `organism/organism.ts:271` `danger` opt)"
+  },
+  {
+   "id": "V40-LIFE-L010-A4",
+   "text": "Localised injury per body part",
+   "category": "II. Integrity, health, death :: 10. Injury / damage :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:150"
+  },
+  {
+   "id": "V40-LIFE-L010-A5",
+   "text": "Limb loss",
+   "category": "II. Integrity, health, death :: 10. Injury / damage :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:151"
+  },
+  {
+   "id": "V40-LIFE-L011-A1",
+   "text": "Repair from amino acids costing ATP",
+   "category": "II. Integrity, health, death :: 11. Repair / healing :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:158 (evidence/plan: `organism/organism.ts:588`)"
+  },
+  {
+   "id": "V40-LIFE-L011-A2",
+   "text": "Lesion to repair",
+   "category": "II. Integrity, health, death :: 11. Repair / healing :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:159 (evidence/plan: `organism/organism.ts:588` `repairLesion`)"
+  },
+  {
+   "id": "V40-LIFE-L011-A3",
+   "text": "Scarring / lasting change",
+   "category": "II. Integrity, health, death :: 11. Repair / healing :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:160"
+  },
+  {
+   "id": "V40-LIFE-L011-A4",
+   "text": "Regeneration of lost parts",
+   "category": "II. Integrity, health, death :: 11. Repair / healing :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:161"
+  },
+  {
+   "id": "V40-LIFE-L011-A5",
+   "text": "Repair prioritisation by brain",
+   "category": "II. Integrity, health, death :: 11. Repair / healing :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:162"
+  },
+  {
+   "id": "V40-LIFE-L012-A1",
+   "text": "Inflammation level",
+   "category": "II. Integrity, health, death :: 12. Immunity :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:169 (evidence/plan: `organism/affect.ts:46`)"
+  },
+  {
+   "id": "V40-LIFE-L012-A2",
+   "text": "Chance infections",
+   "category": "II. Integrity, health, death :: 12. Immunity :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:170 (evidence/plan: `organism/affect.ts:46`)"
+  },
+  {
+   "id": "V40-LIFE-L012-A3",
+   "text": "Sickness behaviour (lethargy, anhedonia)",
+   "category": "II. Integrity, health, death :: 12. Immunity :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:171 (evidence/plan: `organism/affect.ts:48`)"
+  },
+  {
+   "id": "V40-LIFE-L012-A4",
+   "text": "Pathogens as dome entities",
+   "category": "II. Integrity, health, death :: 12. Immunity :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:172"
+  },
+  {
+   "id": "V40-LIFE-L012-A5",
+   "text": "Adaptive immune memory",
+   "category": "II. Integrity, health, death :: 12. Immunity :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:173"
+  },
+  {
+   "id": "V40-LIFE-L013-A1",
+   "text": "Pain from damage",
+   "category": "II. Integrity, health, death :: 13. Pain / nociception :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:180 (evidence/plan: `organism/affect.ts:55` `outcome(pain)`)"
+  },
+  {
+   "id": "V40-LIFE-L013-A2",
+   "text": "Aversive value learned from damage",
+   "category": "II. Integrity, health, death :: 13. Pain / nociception :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:181 (evidence/plan: `organism/organism.ts:491` pain→INS)"
+  },
+  {
+   "id": "V40-LIFE-L013-A3",
+   "text": "Pain modulates emotion (fear)",
+   "category": "II. Integrity, health, death :: 13. Pain / nociception :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:182 (evidence/plan: `organism/affect.ts:29`)"
+  },
+  {
+   "id": "V40-LIFE-L013-A4",
+   "text": "Nerve types (A-delta/C split)",
+   "category": "II. Integrity, health, death :: 13. Pain / nociception :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:183"
+  },
+  {
+   "id": "V40-LIFE-L013-A5",
+   "text": "Descending pain control",
+   "category": "II. Integrity, health, death :: 13. Pain / nociception :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:184"
+  },
+  {
+   "id": "V40-LIFE-L014-A1",
+   "text": "Depressive mood lock-in",
+   "category": "II. Integrity, health, death :: 14. Disease / dysregulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:191 (evidence/plan: `organism/affect.ts:33` rumination)"
+  },
+  {
+   "id": "V40-LIFE-L014-A2",
+   "text": "Incentive sensitisation/addiction",
+   "category": "II. Integrity, health, death :: 14. Disease / dysregulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:192 (evidence/plan: `organism/affect.ts:58`)"
+  },
+  {
+   "id": "V40-LIFE-L014-A3",
+   "text": "Neuromodulator drift",
+   "category": "II. Integrity, health, death :: 14. Disease / dysregulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:193 (evidence/plan: `organism/affect.ts:50`)"
+  },
+  {
+   "id": "V40-LIFE-L014-A4",
+   "text": "Withdrawal",
+   "category": "II. Integrity, health, death :: 14. Disease / dysregulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:194 (evidence/plan: `organism/affect.ts:52`)"
+  },
+  {
+   "id": "V40-LIFE-L014-A5",
+   "text": "Chronic organ disease",
+   "category": "II. Integrity, health, death :: 14. Disease / dysregulation :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:195"
+  },
+  {
+   "id": "V40-LIFE-L015-A1",
+   "text": "Age as a state variable",
+   "category": "II. Integrity, health, death :: 15. Ageing / senescence :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:202"
+  },
+  {
+   "id": "V40-LIFE-L015-A2",
+   "text": "Damage accumulation with age",
+   "category": "II. Integrity, health, death :: 15. Ageing / senescence :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:203"
+  },
+  {
+   "id": "V40-LIFE-L015-A3",
+   "text": "Declining repair",
+   "category": "II. Integrity, health, death :: 15. Ageing / senescence :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:204"
+  },
+  {
+   "id": "V40-LIFE-L015-A4",
+   "text": "Heritable lifespan trade-off",
+   "category": "II. Integrity, health, death :: 15. Ageing / senescence :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:205"
+  },
+  {
+   "id": "V40-LIFE-L015-A5",
+   "text": "Telomere-like clock",
+   "category": "II. Integrity, health, death :: 15. Ageing / senescence :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:206"
+  },
+  {
+   "id": "V40-LIFE-L016-A1",
+   "text": "Hypoglycaemic death",
+   "category": "II. Integrity, health, death :: 16. Death :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:213 (evidence/plan: `organism/organism.ts:622`)"
+  },
+  {
+   "id": "V40-LIFE-L016-A2",
+   "text": "Muscle-wasting death",
+   "category": "II. Integrity, health, death :: 16. Death :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:214 (evidence/plan: `organism/organism.ts:622` M39 mDeath)"
+  },
+  {
+   "id": "V40-LIFE-L016-A3",
+   "text": "Cause of death recorded",
+   "category": "II. Integrity, health, death :: 16. Death :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:215 (evidence/plan: `organism/organism.ts:371`)"
+  },
+  {
+   "id": "V40-LIFE-L016-A4",
+   "text": "Death signalled to the dome (corpse)",
+   "category": "II. Integrity, health, death :: 16. Death :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:216 (evidence/plan: dome respawns; no corpse entity)"
+  },
+  {
+   "id": "V40-LIFE-L016-A5",
+   "text": "Death by predation/injury",
+   "category": "II. Integrity, health, death :: 16. Death :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:217"
+  },
+  {
+   "id": "V40-LIFE-L017-A1",
+   "text": "Corpse persists and rots",
+   "category": "II. Integrity, health, death :: 17. Decay / decomposition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:224"
+  },
+  {
+   "id": "V40-LIFE-L017-A2",
+   "text": "Nutrients returned to dome",
+   "category": "II. Integrity, health, death :: 17. Decay / decomposition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:225"
+  },
+  {
+   "id": "V40-LIFE-L017-A3",
+   "text": "Scavenging",
+   "category": "II. Integrity, health, death :: 17. Decay / decomposition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:226"
+  },
+  {
+   "id": "V40-LIFE-L017-A4",
+   "text": "Smell of death",
+   "category": "II. Integrity, health, death :: 17. Decay / decomposition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:227"
+  },
+  {
+   "id": "V40-LIFE-L017-A5",
+   "text": "Ledger hand-off body→dome",
+   "category": "II. Integrity, health, death :: 17. Decay / decomposition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:228"
+  },
+  {
+   "id": "V40-LIFE-L018-A1",
+   "text": "Toxin chemosense",
+   "category": "II. Integrity, health, death :: 18. Toxicity :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:235 (evidence/plan: DELARP §26 chemosense)"
+  },
+  {
+   "id": "V40-LIFE-L018-A2",
+   "text": "World toxicity dial",
+   "category": "II. Integrity, health, death :: 18. Toxicity :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:236 (evidence/plan: DELARP §26 world-dial sense)"
+  },
+  {
+   "id": "V40-LIFE-L018-A3",
+   "text": "Detox cost",
+   "category": "II. Integrity, health, death :: 18. Toxicity :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:237"
+  },
+  {
+   "id": "V40-LIFE-L018-A4",
+   "text": "Hormesis",
+   "category": "II. Integrity, health, death :: 18. Toxicity :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:238 (evidence/plan: FREAK-100 #35)"
+  },
+  {
+   "id": "V40-LIFE-L018-A5",
+   "text": "Learned taste aversion",
+   "category": "II. Integrity, health, death :: 18. Toxicity :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:239"
+  },
+  {
+   "id": "V40-LIFE-L019-A1",
+   "text": "Runtime health monitor",
+   "category": "II. Integrity, health, death :: 19. Viability monitoring :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:246 (evidence/plan: `organism/organism.ts:66` `Health`)"
+  },
+  {
+   "id": "V40-LIFE-L019-A2",
+   "text": "Body state readable by SELF",
+   "category": "II. Integrity, health, death :: 19. Viability monitoring :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:247 (evidence/plan: `organism/v40mods.ts:32`)"
+  },
+  {
+   "id": "V40-LIFE-L019-A3",
+   "text": "Foresight of energy drop",
+   "category": "II. Integrity, health, death :: 19. Viability monitoring :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:248 (evidence/plan: `organism/v40mods.ts:40`)"
+  },
+  {
+   "id": "V40-LIFE-L019-A4",
+   "text": "Self-preservation priority",
+   "category": "II. Integrity, health, death :: 19. Viability monitoring :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:249 (evidence/plan: caution scales curiosity only)"
+  },
+  {
+   "id": "V40-LIFE-L019-A5",
+   "text": "Viability guard in tests",
+   "category": "II. Integrity, health, death :: 19. Viability monitoring :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:250 (evidence/plan: DELARP Part XV next)"
+  },
+  {
+   "id": "V40-LIFE-L020-A1",
+   "text": "SCN light entrainment",
+   "category": "III. Sleep and rhythms :: 20. Circadian clock :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:260 (evidence/plan: `organism/organism.ts:447`)"
+  },
+  {
+   "id": "V40-LIFE-L020-A2",
+   "text": "SCN lesion",
+   "category": "III. Sleep and rhythms :: 20. Circadian clock :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:261 (evidence/plan: `organism/organism.ts:447`)"
+  },
+  {
+   "id": "V40-LIFE-L020-A3",
+   "text": "Cortisol/melatonin rhythm",
+   "category": "III. Sleep and rhythms :: 20. Circadian clock :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:262 (evidence/plan: `organism/coupling.ts:10`)"
+  },
+  {
+   "id": "V40-LIFE-L020-A4",
+   "text": "Learn rhythm from host load",
+   "category": "III. Sleep and rhythms :: 20. Circadian clock :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:263 (evidence/plan: DELARP §30)"
+  },
+  {
+   "id": "V40-LIFE-L020-A5",
+   "text": "Seasonal rhythm",
+   "category": "III. Sleep and rhythms :: 20. Circadian clock :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:264"
+  },
+  {
+   "id": "V40-LIFE-L021-A1",
+   "text": "Process S (adenosine) and C",
+   "category": "III. Sleep and rhythms :: 21. Sleep :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:271 (evidence/plan: `organism/organism.ts:455`)"
+  },
+  {
+   "id": "V40-LIFE-L021-A2",
+   "text": "NE opposes sleep onset",
+   "category": "III. Sleep and rhythms :: 21. Sleep :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:272 (evidence/plan: `organism/organism.ts:455`)"
+  },
+  {
+   "id": "V40-LIFE-L021-A3",
+   "text": "Sleep stages gate senses",
+   "category": "III. Sleep and rhythms :: 21. Sleep :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:273 (evidence/plan: `organism/organism.ts:491`)"
+  },
+  {
+   "id": "V40-LIFE-L021-A4",
+   "text": "Sleep debt",
+   "category": "III. Sleep and rhythms :: 21. Sleep :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:274 (evidence/plan: `organism/affect.ts:44`)"
+  },
+  {
+   "id": "V40-LIFE-L021-A5",
+   "text": "Flip-flop switch (Eshkol)",
+   "category": "III. Sleep and rhythms :: 21. Sleep :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:275 (evidence/plan: `organism/backends.ts:13`)"
+  },
+  {
+   "id": "V40-LIFE-L022-A1",
+   "text": "NREM consolidation replay",
+   "category": "III. Sleep and rhythms :: 22. Dreaming :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:282 (evidence/plan: `organism/organism.ts:568`)"
+  },
+  {
+   "id": "V40-LIFE-L022-A2",
+   "text": "REM dreamt beliefs write uncertainty",
+   "category": "III. Sleep and rhythms :: 22. Dreaming :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:283 (evidence/plan: `organism/organism.ts:632`)"
+  },
+  {
+   "id": "V40-LIFE-L022-A3",
+   "text": "Awake ripples",
+   "category": "III. Sleep and rhythms :: 22. Dreaming :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:284 (evidence/plan: `organism/organism.ts:180`)"
+  },
+  {
+   "id": "V40-LIFE-L022-A4",
+   "text": "Nightmares from fear",
+   "category": "III. Sleep and rhythms :: 22. Dreaming :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:285"
+  },
+  {
+   "id": "V40-LIFE-L022-A5",
+   "text": "Dream content observable",
+   "category": "III. Sleep and rhythms :: 22. Dreaming :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:286 (evidence/plan: replay counts only)"
+  },
+  {
+   "id": "V40-LIFE-L023-A1",
+   "text": "Sleep pruning of weak synapses",
+   "category": "III. Sleep and rhythms :: 23. Synaptic downscaling :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:293 (evidence/plan: `organism/organism.ts:642`)"
+  },
+  {
+   "id": "V40-LIFE-L023-A2",
+   "text": "Hebbian re-sprouting",
+   "category": "III. Sleep and rhythms :: 23. Synaptic downscaling :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:294 (evidence/plan: `organism/organism.ts:642`)"
+  },
+  {
+   "id": "V40-LIFE-L023-A3",
+   "text": "Global SHY downscaling",
+   "category": "III. Sleep and rhythms :: 23. Synaptic downscaling :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:295 (evidence/plan: FREAK-100 #47)"
+  },
+  {
+   "id": "V40-LIFE-L023-A4",
+   "text": "Microglial pruning",
+   "category": "III. Sleep and rhythms :: 23. Synaptic downscaling :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:296 (evidence/plan: FREAK-100 #46)"
+  },
+  {
+   "id": "V40-LIFE-L023-A5",
+   "text": "Glymphatic clearance",
+   "category": "III. Sleep and rhythms :: 23. Synaptic downscaling :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:297"
+  },
+  {
+   "id": "V40-LIFE-L024-A1",
+   "text": "Time sense on bus",
+   "category": "III. Sleep and rhythms :: 24. Ultradian / interval timing :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:304 (evidence/plan: DELARP §26 time sense)"
+  },
+  {
+   "id": "V40-LIFE-L024-A2",
+   "text": "Interval timers",
+   "category": "III. Sleep and rhythms :: 24. Ultradian / interval timing :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:305"
+  },
+  {
+   "id": "V40-LIFE-L024-A3",
+   "text": "LTC time constants",
+   "category": "III. Sleep and rhythms :: 24. Ultradian / interval timing :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:306 (evidence/plan: `organism/organism.ts:211` opt-in)"
+  },
+  {
+   "id": "V40-LIFE-L024-A4",
+   "text": "Substrate timing jitter sense",
+   "category": "III. Sleep and rhythms :: 24. Ultradian / interval timing :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:307 (evidence/plan: `organism/v40mods.ts:19`)"
+  },
+  {
+   "id": "V40-LIFE-L024-A5",
+   "text": "Anticipation of feeding times",
+   "category": "III. Sleep and rhythms :: 24. Ultradian / interval timing :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:308 (evidence/plan: glucose forecast only)"
+  },
+  {
+   "id": "V40-LIFE-L025-A1",
+   "text": "Arm with efference copy",
+   "category": "IV. Body plan, motion, morphology :: 25. Body schema :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:318 (evidence/plan: `organism/organism.ts:110`)"
+  },
+  {
+   "id": "V40-LIFE-L025-A2",
+   "text": "Learned forward model (NLMS)",
+   "category": "IV. Body plan, motion, morphology :: 25. Body schema :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:319 (evidence/plan: `organism/organism.ts:170`)"
+  },
+  {
+   "id": "V40-LIFE-L025-A3",
+   "text": "Body-change retargeting (CQM04)",
+   "category": "IV. Body plan, motion, morphology :: 25. Body schema :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:320 (evidence/plan: REARCHITECT Stage 2)"
+  },
+  {
+   "id": "V40-LIFE-L025-A4",
+   "text": "Full 3D body",
+   "category": "IV. Body plan, motion, morphology :: 25. Body schema :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:321"
+  },
+  {
+   "id": "V40-LIFE-L025-A5",
+   "text": "Body schema latent",
+   "category": "IV. Body plan, motion, morphology :: 25. Body schema :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:322 (evidence/plan: REARCHITECT §3A)"
+  },
+  {
+   "id": "V40-LIFE-L026-A1",
+   "text": "Movement between sites",
+   "category": "IV. Body plan, motion, morphology :: 26. Locomotion :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:329 (evidence/plan: site choice; no kinematics)"
+  },
+  {
+   "id": "V40-LIFE-L026-A2",
+   "text": "Central pattern generators",
+   "category": "IV. Body plan, motion, morphology :: 26. Locomotion :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:330"
+  },
+  {
+   "id": "V40-LIFE-L026-A3",
+   "text": "Gait",
+   "category": "IV. Body plan, motion, morphology :: 26. Locomotion :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:331"
+  },
+  {
+   "id": "V40-LIFE-L026-A4",
+   "text": "Motor energy cost",
+   "category": "IV. Body plan, motion, morphology :: 26. Locomotion :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:332 (evidence/plan: `organism/coupling.ts:12`)"
+  },
+  {
+   "id": "V40-LIFE-L026-A5",
+   "text": "Terrain/gravity effects",
+   "category": "IV. Body plan, motion, morphology :: 26. Locomotion :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:333 (evidence/plan: DELARP §26 world-dial)"
+  },
+  {
+   "id": "V40-LIFE-L027-A1",
+   "text": "Per-leg ganglion",
+   "category": "IV. Body plan, motion, morphology :: 27. Legs with their own brains :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:340 (evidence/plan: FREAK-100 #84)"
+  },
+  {
+   "id": "V40-LIFE-L027-A2",
+   "text": "Local reflex arcs",
+   "category": "IV. Body plan, motion, morphology :: 27. Legs with their own brains :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:341"
+  },
+  {
+   "id": "V40-LIFE-L027-A3",
+   "text": "Leg-central negotiation",
+   "category": "IV. Body plan, motion, morphology :: 27. Legs with their own brains :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:342"
+  },
+  {
+   "id": "V40-LIFE-L027-A4",
+   "text": "Leg learning",
+   "category": "IV. Body plan, motion, morphology :: 27. Legs with their own brains :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:343"
+  },
+  {
+   "id": "V40-LIFE-L027-A5",
+   "text": "Leg-level senses",
+   "category": "IV. Body plan, motion, morphology :: 27. Legs with their own brains :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:344"
+  },
+  {
+   "id": "V40-LIFE-L028-A1",
+   "text": "Arm actuator",
+   "category": "IV. Body plan, motion, morphology :: 28. Arms / manipulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:351 (evidence/plan: `organism/organism.ts:110`)"
+  },
+  {
+   "id": "V40-LIFE-L028-A2",
+   "text": "External pushes learned",
+   "category": "IV. Body plan, motion, morphology :: 28. Arms / manipulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:352 (evidence/plan: `organism/organism.ts:110`)"
+  },
+  {
+   "id": "V40-LIFE-L028-A3",
+   "text": "Grasp/carry objects",
+   "category": "IV. Body plan, motion, morphology :: 28. Arms / manipulation :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:353"
+  },
+  {
+   "id": "V40-LIFE-L028-A4",
+   "text": "Tool use",
+   "category": "IV. Body plan, motion, morphology :: 28. Arms / manipulation :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:354"
+  },
+  {
+   "id": "V40-LIFE-L028-A5",
+   "text": "Alien arm morphology",
+   "category": "IV. Body plan, motion, morphology :: 28. Arms / manipulation :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:355"
+  },
+  {
+   "id": "V40-LIFE-L029-A1",
+   "text": "Vision from own render (retina)",
+   "category": "IV. Body plan, motion, morphology :: 29. Eyes / vision :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:362 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L029-A2",
+   "text": "Visual sense lines (classic 16)",
+   "category": "IV. Body plan, motion, morphology :: 29. Eyes / vision :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:363 (evidence/plan: sense lines abstract; `organism.ts:368`)"
+  },
+  {
+   "id": "V40-LIFE-L029-A3",
+   "text": "Alien eye structure (compound/log-polar)",
+   "category": "IV. Body plan, motion, morphology :: 29. Eyes / vision :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:364 (evidence/plan: DELARP §26 fovea)"
+  },
+  {
+   "id": "V40-LIFE-L029-A4",
+   "text": "Eye movements",
+   "category": "IV. Body plan, motion, morphology :: 29. Eyes / vision :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:365"
+  },
+  {
+   "id": "V40-LIFE-L029-A5",
+   "text": "Light sense (dome light cycle)",
+   "category": "IV. Body plan, motion, morphology :: 29. Eyes / vision :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:366 (evidence/plan: `lab/src/biosphere/dome.ts:16`)"
+  },
+  {
+   "id": "V40-LIFE-L030-A1",
+   "text": "Body shape variable",
+   "category": "IV. Body plan, motion, morphology :: 30. Morphing / shape change :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:373"
+  },
+  {
+   "id": "V40-LIFE-L030-A2",
+   "text": "Expand/contract",
+   "category": "IV. Body plan, motion, morphology :: 30. Morphing / shape change :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:374"
+  },
+  {
+   "id": "V40-LIFE-L030-A3",
+   "text": "Extend/shorten limbs",
+   "category": "IV. Body plan, motion, morphology :: 30. Morphing / shape change :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:375"
+  },
+  {
+   "id": "V40-LIFE-L030-A4",
+   "text": "Morphology as inference",
+   "category": "IV. Body plan, motion, morphology :: 30. Morphing / shape change :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:376 (evidence/plan: FREAK-100 #100)"
+  },
+  {
+   "id": "V40-LIFE-L030-A5",
+   "text": "Cost of morphing",
+   "category": "IV. Body plan, motion, morphology :: 30. Morphing / shape change :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:377"
+  },
+  {
+   "id": "V40-LIFE-L031-A1",
+   "text": "Skin pattern state",
+   "category": "IV. Body plan, motion, morphology :: 31. Mimicry / camouflage :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:384"
+  },
+  {
+   "id": "V40-LIFE-L031-A2",
+   "text": "Copy another creature",
+   "category": "IV. Body plan, motion, morphology :: 31. Mimicry / camouflage :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:385"
+  },
+  {
+   "id": "V40-LIFE-L031-A3",
+   "text": "Background matching",
+   "category": "IV. Body plan, motion, morphology :: 31. Mimicry / camouflage :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:386"
+  },
+  {
+   "id": "V40-LIFE-L031-A4",
+   "text": "Deceptive signals",
+   "category": "IV. Body plan, motion, morphology :: 31. Mimicry / camouflage :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:387"
+  },
+  {
+   "id": "V40-LIFE-L031-A5",
+   "text": "Learned mimicry value",
+   "category": "IV. Body plan, motion, morphology :: 31. Mimicry / camouflage :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:388"
+  },
+  {
+   "id": "V40-LIFE-L032-A1",
+   "text": "Brain wiring grown from genome",
+   "category": "IV. Body plan, motion, morphology :: 32. Growth :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:395 (evidence/plan: `organism/develop.ts:23`)"
+  },
+  {
+   "id": "V40-LIFE-L032-A2",
+   "text": "Body mass growth",
+   "category": "IV. Body plan, motion, morphology :: 32. Growth :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:396"
+  },
+  {
+   "id": "V40-LIFE-L032-A3",
+   "text": "Growth stages",
+   "category": "IV. Body plan, motion, morphology :: 32. Growth :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:397"
+  },
+  {
+   "id": "V40-LIFE-L032-A4",
+   "text": "Allometric scaling",
+   "category": "IV. Body plan, motion, morphology :: 32. Growth :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:398"
+  },
+  {
+   "id": "V40-LIFE-L032-A5",
+   "text": "Nutrient-limited growth",
+   "category": "IV. Body plan, motion, morphology :: 32. Growth :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:399"
+  },
+  {
+   "id": "V40-LIFE-L033-A1",
+   "text": "Touch on shell/arm",
+   "category": "IV. Body plan, motion, morphology :: 33. Skin / surface :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:406 (evidence/plan: DELARP §26 touch)"
+  },
+  {
+   "id": "V40-LIFE-L033-A2",
+   "text": "Social touch contact",
+   "category": "IV. Body plan, motion, morphology :: 33. Skin / surface :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:407 (evidence/plan: `lab/src/biosphere/dome.ts:36` `meet` in dome loop)"
+  },
+  {
+   "id": "V40-LIFE-L033-A3",
+   "text": "Colour/chromatophores",
+   "category": "IV. Body plan, motion, morphology :: 33. Skin / surface :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:408"
+  },
+  {
+   "id": "V40-LIFE-L033-A4",
+   "text": "Barrier vs infection",
+   "category": "IV. Body plan, motion, morphology :: 33. Skin / surface :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:409"
+  },
+  {
+   "id": "V40-LIFE-L033-A5",
+   "text": "Surface temperature",
+   "category": "IV. Body plan, motion, morphology :: 33. Skin / surface :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:410"
+  },
+  {
+   "id": "V40-LIFE-L034-A1",
+   "text": "Many channels on one bus",
+   "category": "V. Senses :: 34. Sensory bus :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:420 (evidence/plan: `organism/v40mods.ts:13`)"
+  },
+  {
+   "id": "V40-LIFE-L034-A2",
+   "text": "Sparse random expansion",
+   "category": "V. Senses :: 34. Sensory bus :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:421 (evidence/plan: `organism/v40mods.ts:22`)"
+  },
+  {
+   "id": "V40-LIFE-L034-A3",
+   "text": "Predictive encoder surprise",
+   "category": "V. Senses :: 34. Sensory bus :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:422 (evidence/plan: `organism/v40mods.ts:23`)"
+  },
+  {
+   "id": "V40-LIFE-L034-A4",
+   "text": "Learned fusion gains",
+   "category": "V. Senses :: 34. Sensory bus :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:423 (evidence/plan: `organism/v40mods.ts:25`)"
+  },
+  {
+   "id": "V40-LIFE-L034-A5",
+   "text": "Evolvable sensorium",
+   "category": "V. Senses :: 34. Sensory bus :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:424 (evidence/plan: DELARP §27.5)"
+  },
+  {
+   "id": "V40-LIFE-L035-A1",
+   "text": "Intero channel on bus",
+   "category": "V. Senses :: 35. Interoception :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:431 (evidence/plan: `organism/v40mods.ts:17`)"
+  },
+  {
+   "id": "V40-LIFE-L035-A2",
+   "text": "Insula path",
+   "category": "V. Senses :: 35. Interoception :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:432 (evidence/plan: `organism/organism.ts:477`)"
+  },
+  {
+   "id": "V40-LIFE-L035-A3",
+   "text": "Visceral afferent lesion",
+   "category": "V. Senses :: 35. Interoception :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:433 (evidence/plan: `organism/organism.ts:269`)"
+  },
+  {
+   "id": "V40-LIFE-L035-A4",
+   "text": "Felt curvature into insula",
+   "category": "V. Senses :: 35. Interoception :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:434 (evidence/plan: `organism/organism.ts:477`)"
+  },
+  {
+   "id": "V40-LIFE-L035-A5",
+   "text": "Interoceptive precision",
+   "category": "V. Senses :: 35. Interoception :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:435 (evidence/plan: FREAK-100 #29)"
+  },
+  {
+   "id": "V40-LIFE-L036-A1",
+   "text": "Food odour gradients",
+   "category": "V. Senses :: 36. Chemosense / smell :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:442 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L036-A2",
+   "text": "Pheromone field",
+   "category": "V. Senses :: 36. Chemosense / smell :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:443 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L036-A3",
+   "text": "Scent marks read by others",
+   "category": "V. Senses :: 36. Chemosense / smell :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:444 (evidence/plan: `lab/src/biosphere/dome.ts:37` `readMarks`)"
+  },
+  {
+   "id": "V40-LIFE-L036-A4",
+   "text": "Olfactory receptor diversity",
+   "category": "V. Senses :: 36. Chemosense / smell :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:445"
+  },
+  {
+   "id": "V40-LIFE-L036-A5",
+   "text": "Taste",
+   "category": "V. Senses :: 36. Chemosense / smell :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:446"
+  },
+  {
+   "id": "V40-LIFE-L037-A1",
+   "text": "Dome audio field",
+   "category": "V. Senses :: 37. Hearing :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:453 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L037-A2",
+   "text": "32-band cochlea",
+   "category": "V. Senses :: 37. Hearing :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:454 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L037-A3",
+   "text": "Calls of others",
+   "category": "V. Senses :: 37. Hearing :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:455 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L037-A4",
+   "text": "Sonification exists (viewer)",
+   "category": "V. Senses :: 37. Hearing :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:456 (evidence/plan: `src/app.tsx:154` audio is output, not a sense)"
+  },
+  {
+   "id": "V40-LIFE-L037-A5",
+   "text": "Sound localisation",
+   "category": "V. Senses :: 37. Hearing :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:457"
+  },
+  {
+   "id": "V40-LIFE-L038-A1",
+   "text": "Contact touch with others",
+   "category": "V. Senses :: 38. Touch / proprioception :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:464 (evidence/plan: `lab/src/biosphere/dome.ts:36`)"
+  },
+  {
+   "id": "V40-LIFE-L038-A2",
+   "text": "Joint angles",
+   "category": "V. Senses :: 38. Touch / proprioception :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:465 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L038-A3",
+   "text": "Arm proprio via efference",
+   "category": "V. Senses :: 38. Touch / proprioception :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:466 (evidence/plan: `organism/organism.ts:170`)"
+  },
+  {
+   "id": "V40-LIFE-L038-A4",
+   "text": "Pressure map",
+   "category": "V. Senses :: 38. Touch / proprioception :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:467"
+  },
+  {
+   "id": "V40-LIFE-L038-A5",
+   "text": "Vibration",
+   "category": "V. Senses :: 38. Touch / proprioception :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:468"
+  },
+  {
+   "id": "V40-LIFE-L039-A1",
+   "text": "Magnetic-like heading field",
+   "category": "V. Senses :: 39. EM / magnetic sense :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:475 (evidence/plan: `organism/v40mods.ts:8` alien ch)"
+  },
+  {
+   "id": "V40-LIFE-L039-A2",
+   "text": "Electric-like danger field",
+   "category": "V. Senses :: 39. EM / magnetic sense :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:476 (evidence/plan: `organism/v40mods.ts:8`)"
+  },
+  {
+   "id": "V40-LIFE-L039-A3",
+   "text": "Others' spike E-fields",
+   "category": "V. Senses :: 39. EM / magnetic sense :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:477 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L039-A4",
+   "text": "Electrolocation active sense",
+   "category": "V. Senses :: 39. EM / magnetic sense :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:478"
+  },
+  {
+   "id": "V40-LIFE-L039-A5",
+   "text": "Learned use of field",
+   "category": "V. Senses :: 39. EM / magnetic sense :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:479 (evidence/plan: `organism/v40mods.ts:25` via fusion gain)"
+  },
+  {
+   "id": "V40-LIFE-L040-A1",
+   "text": "Q3 click sense",
+   "category": "V. Senses :: 40. Quantum sense :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:486 (evidence/plan: `organism/v40mods.ts:9`)"
+  },
+  {
+   "id": "V40-LIFE-L040-A2",
+   "text": "QGT/Berry readout",
+   "category": "V. Senses :: 40. Quantum sense :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:487 (evidence/plan: `organism/organism.ts:56`)"
+  },
+  {
+   "id": "V40-LIFE-L040-A3",
+   "text": "Neuromod → qubit angles",
+   "category": "V. Senses :: 40. Quantum sense :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:488 (evidence/plan: `organism/organism.ts:595`)"
+  },
+  {
+   "id": "V40-LIFE-L040-A4",
+   "text": "Moonlab backend",
+   "category": "V. Senses :: 40. Quantum sense :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:489 (evidence/plan: `organism/backends.ts:7`)"
+  },
+  {
+   "id": "V40-LIFE-L040-A5",
+   "text": "Behavioural advantage shown",
+   "category": "V. Senses :: 40. Quantum sense :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:490 (evidence/plan: FREAK-100 #68 expected null)"
+  },
+  {
+   "id": "V40-LIFE-L041-A1",
+   "text": "SubstrateTap synthetic/replay",
+   "category": "V. Senses :: 41. Substrate senses :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:497 (evidence/plan: `organism/substrate.ts:8`)"
+  },
+  {
+   "id": "V40-LIFE-L041-A2",
+   "text": "Live mode sandboxed",
+   "category": "V. Senses :: 41. Substrate senses :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:498 (evidence/plan: downgraded to synthetic `organism/v40mods.ts:16`)"
+  },
+  {
+   "id": "V40-LIFE-L041-A3",
+   "text": "GC/CPU/memory counters",
+   "category": "V. Senses :: 41. Substrate senses :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:499 (evidence/plan: synthetic stats)"
+  },
+  {
+   "id": "V40-LIFE-L041-A4",
+   "text": "Dome-internal counters",
+   "category": "V. Senses :: 41. Substrate senses :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:500 (evidence/plan: DELARP §30)"
+  },
+  {
+   "id": "V40-LIFE-L041-A5",
+   "text": "Shuffle control",
+   "category": "V. Senses :: 41. Substrate senses :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:501 (evidence/plan: `organism/v40mods.ts:21` busShuffle)"
+  },
+  {
+   "id": "V40-LIFE-L042-A1",
+   "text": "Read another place's state at distance",
+   "category": "V. Senses :: 42. Remote viewing (sim) :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:508"
+  },
+  {
+   "id": "V40-LIFE-L042-A2",
+   "text": "Noisy, costly channel",
+   "category": "V. Senses :: 42. Remote viewing (sim) :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:509"
+  },
+  {
+   "id": "V40-LIFE-L042-A3",
+   "text": "Accuracy learned and validated",
+   "category": "V. Senses :: 42. Remote viewing (sim) :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:510"
+  },
+  {
+   "id": "V40-LIFE-L042-A4",
+   "text": "Bandwidth limits",
+   "category": "V. Senses :: 42. Remote viewing (sim) :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:511"
+  },
+  {
+   "id": "V40-LIFE-L042-A5",
+   "text": "Shuffle control vs chance",
+   "category": "V. Senses :: 42. Remote viewing (sim) :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:512"
+  },
+  {
+   "id": "V40-LIFE-L043-A1",
+   "text": "Broadcast field between creatures",
+   "category": "V. Senses :: 43. Wireless / 'psychic' link :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:519 (evidence/plan: scent marks only `lab/src/biosphere/dome.ts:19`)"
+  },
+  {
+   "id": "V40-LIFE-L043-A2",
+   "text": "Emotion contagion over field",
+   "category": "V. Senses :: 43. Wireless / 'psychic' link :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:520"
+  },
+  {
+   "id": "V40-LIFE-L043-A3",
+   "text": "Shared-signal sync",
+   "category": "V. Senses :: 43. Wireless / 'psychic' link :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:521 (evidence/plan: DELARP §30 synchronise)"
+  },
+  {
+   "id": "V40-LIFE-L043-A4",
+   "text": "Encoding learned, not hand-set",
+   "category": "V. Senses :: 43. Wireless / 'psychic' link :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:522"
+  },
+  {
+   "id": "V40-LIFE-L043-A5",
+   "text": "Energy cost",
+   "category": "V. Senses :: 43. Wireless / 'psychic' link :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:523"
+  },
+  {
+   "id": "V40-LIFE-L044-A1",
+   "text": "E/I spiking sheet",
+   "category": "VI. Nervous system :: 44. Spiking cortex :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:533 (evidence/plan: `organism/organism.ts:28`)"
+  },
+  {
+   "id": "V40-LIFE-L044-A2",
+   "text": "STDP",
+   "category": "VI. Nervous system :: 44. Spiking cortex :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:534 (evidence/plan: `organism/organism.ts:274`)"
+  },
+  {
+   "id": "V40-LIFE-L044-A3",
+   "text": "NMDA persistence",
+   "category": "VI. Nervous system :: 44. Spiking cortex :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:535 (evidence/plan: `organism/organism.ts:274`)"
+  },
+  {
+   "id": "V40-LIFE-L044-A4",
+   "text": "Topographic TC fan",
+   "category": "VI. Nervous system :: 44. Spiking cortex :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:536 (evidence/plan: `organism/organism.ts:274`)"
+  },
+  {
+   "id": "V40-LIFE-L044-A5",
+   "text": "Scale to 1e5 units",
+   "category": "VI. Nervous system :: 44. Spiking cortex :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:537 (evidence/plan: REARCHITECT Stage 2)"
+  },
+  {
+   "id": "V40-LIFE-L045-A1",
+   "text": "Sleep-stage gating",
+   "category": "VI. Nervous system :: 45. Thalamus / gating :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:544 (evidence/plan: `organism/organism.ts:491`)"
+  },
+  {
+   "id": "V40-LIFE-L045-A2",
+   "text": "Attention gain",
+   "category": "VI. Nervous system :: 45. Thalamus / gating :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:545 (evidence/plan: `organism/organism.ts:145`)"
+  },
+  {
+   "id": "V40-LIFE-L045-A3",
+   "text": "CT feedback lesion",
+   "category": "VI. Nervous system :: 45. Thalamus / gating :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:546 (evidence/plan: `organism/organism.ts:269`)"
+  },
+  {
+   "id": "V40-LIFE-L045-A4",
+   "text": "Top-down prediction",
+   "category": "VI. Nervous system :: 45. Thalamus / gating :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:547 (evidence/plan: `organism/organism.ts:491`)"
+  },
+  {
+   "id": "V40-LIFE-L045-A5",
+   "text": "Precision gate",
+   "category": "VI. Nervous system :: 45. Thalamus / gating :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:548 (evidence/plan: REARCHITECT §3A)"
+  },
+  {
+   "id": "V40-LIFE-L046-A1",
+   "text": "Spiking striatal race",
+   "category": "VI. Nervous system :: 46. Basal ganglia / action selection :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:555 (evidence/plan: `organism/organism.ts:553`)"
+  },
+  {
+   "id": "V40-LIFE-L046-A2",
+   "text": "Three-factor value learning",
+   "category": "VI. Nervous system :: 46. Basal ganglia / action selection :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:556 (evidence/plan: `organism/organism.ts:286`)"
+  },
+  {
+   "id": "V40-LIFE-L046-A3",
+   "text": "RPE lesion",
+   "category": "VI. Nervous system :: 46. Basal ganglia / action selection :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:557 (evidence/plan: `organism/organism.ts:566`)"
+  },
+  {
+   "id": "V40-LIFE-L046-A4",
+   "text": "Free won't veto",
+   "category": "VI. Nervous system :: 46. Basal ganglia / action selection :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:558 (evidence/plan: `organism/organism.ts:270`)"
+  },
+  {
+   "id": "V40-LIFE-L046-A5",
+   "text": "Sub-brain auction",
+   "category": "VI. Nervous system :: 46. Basal ganglia / action selection :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:559 (evidence/plan: REARCHITECT §3B)"
+  },
+  {
+   "id": "V40-LIFE-L047-A1",
+   "text": "Site cells",
+   "category": "VI. Nervous system :: 47. Hippocampus / memory :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:566 (evidence/plan: `organism/organism.ts:286`)"
+  },
+  {
+   "id": "V40-LIFE-L047-A2",
+   "text": "Episode replay",
+   "category": "VI. Nervous system :: 47. Hippocampus / memory :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:567 (evidence/plan: `organism/organism.ts:180`)"
+  },
+  {
+   "id": "V40-LIFE-L047-A3",
+   "text": "Place/grid maps",
+   "category": "VI. Nervous system :: 47. Hippocampus / memory :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:568"
+  },
+  {
+   "id": "V40-LIFE-L047-A4",
+   "text": "Sequence buffer",
+   "category": "VI. Nervous system :: 47. Hippocampus / memory :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:569 (evidence/plan: REARCHITECT §3A)"
+  },
+  {
+   "id": "V40-LIFE-L047-A5",
+   "text": "BTSP one-shot",
+   "category": "VI. Nervous system :: 47. Hippocampus / memory :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:570 (evidence/plan: FREAK-100 #49)"
+  },
+  {
+   "id": "V40-LIFE-L048-A1",
+   "text": "DA/5HT/NE/ACh release",
+   "category": "VI. Nervous system :: 48. Neuromodulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:577 (evidence/plan: `organism/coupling.ts:4`)"
+  },
+  {
+   "id": "V40-LIFE-L048-A2",
+   "text": "NE lowers ignition",
+   "category": "VI. Nervous system :: 48. Neuromodulation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:578 (evidence/plan: `organism/organism.ts:133`)"
+  },
+  {
+   "id": "V40-LIFE-L048-A3",
+   "text": "ACh/NE uncertainty",
+   "category": "VI. Nervous system :: 48. Neuromodulation :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:579 (evidence/plan: FREAK #43 'already present'; partial)"
+  },
+  {
+   "id": "V40-LIFE-L048-A4",
+   "text": "Neuropeptide mood bus",
+   "category": "VI. Nervous system :: 48. Neuromodulation :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:580 (evidence/plan: FREAK-100 #45)"
+  },
+  {
+   "id": "V40-LIFE-L048-A5",
+   "text": "Oxytocin-like social peptide",
+   "category": "VI. Nervous system :: 48. Neuromodulation :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:581"
+  },
+  {
+   "id": "V40-LIFE-L049-A1",
+   "text": "Excitatory/inhibitory classes",
+   "category": "VI. Nervous system :: 49. Nerve types :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:588 (evidence/plan: `organism/organism.ts:28`)"
+  },
+  {
+   "id": "V40-LIFE-L049-A2",
+   "text": "ENS neurons",
+   "category": "VI. Nervous system :: 49. Nerve types :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:589 (evidence/plan: `organism/organism.ts:28`)"
+  },
+  {
+   "id": "V40-LIFE-L049-A3",
+   "text": "Autonomic symp/para",
+   "category": "VI. Nervous system :: 49. Nerve types :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:590 (evidence/plan: `organism/coupling.ts:5`)"
+  },
+  {
+   "id": "V40-LIFE-L049-A4",
+   "text": "Sensory fibre types",
+   "category": "VI. Nervous system :: 49. Nerve types :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:591"
+  },
+  {
+   "id": "V40-LIFE-L049-A5",
+   "text": "Gap junctions",
+   "category": "VI. Nervous system :: 49. Nerve types :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:592 (evidence/plan: FREAK-100 #95)"
+  },
+  {
+   "id": "V40-LIFE-L050-A1",
+   "text": "Astrocyte gate",
+   "category": "VI. Nervous system :: 50. Glia :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:599 (evidence/plan: FREAK-100 #39)"
+  },
+  {
+   "id": "V40-LIFE-L050-A2",
+   "text": "Astrocyte WM",
+   "category": "VI. Nervous system :: 50. Glia :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:600 (evidence/plan: FREAK-100 #40)"
+  },
+  {
+   "id": "V40-LIFE-L050-A3",
+   "text": "Lactate shuttle",
+   "category": "VI. Nervous system :: 50. Glia :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:601 (evidence/plan: FREAK-100 #38)"
+  },
+  {
+   "id": "V40-LIFE-L050-A4",
+   "text": "Microglia",
+   "category": "VI. Nervous system :: 50. Glia :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:602 (evidence/plan: FREAK-100 #46)"
+  },
+  {
+   "id": "V40-LIFE-L050-A5",
+   "text": "Myelin plasticity",
+   "category": "VI. Nervous system :: 50. Glia :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:603 (evidence/plan: FREAK-100 #94)"
+  },
+  {
+   "id": "V40-LIFE-L051-A1",
+   "text": "DA-gated STDP",
+   "category": "VI. Nervous system :: 51. Plasticity / learning :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:610 (evidence/plan: `organism/coupling.ts:6`)"
+  },
+  {
+   "id": "V40-LIFE-L051-A2",
+   "text": "Volatility-scaled learning",
+   "category": "VI. Nervous system :: 51. Plasticity / learning :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:611 (evidence/plan: `organism/organism.ts:566`)"
+  },
+  {
+   "id": "V40-LIFE-L051-A3",
+   "text": "Eligibility traces at scale",
+   "category": "VI. Nervous system :: 51. Plasticity / learning :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:612 (evidence/plan: FREAK-100 #50)"
+  },
+  {
+   "id": "V40-LIFE-L051-A4",
+   "text": "Meta-learned rules (Eshkol)",
+   "category": "VI. Nervous system :: 51. Plasticity / learning :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:613 (evidence/plan: FREAK-100 #48)"
+  },
+  {
+   "id": "V40-LIFE-L051-A5",
+   "text": "Consolidation cascade",
+   "category": "VI. Nervous system :: 51. Plasticity / learning :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:614 (evidence/plan: FREAK-100 #54)"
+  },
+  {
+   "id": "V40-LIFE-L052-A1",
+   "text": "Current scale ~thousands synapses",
+   "category": "VI. Nervous system :: 52. Brain scale (100M) :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:621 (evidence/plan: 3470 synapses, DELARP Part XIV)"
+  },
+  {
+   "id": "V40-LIFE-L052-A2",
+   "text": "GPU 100M net",
+   "category": "VI. Nervous system :: 52. Brain scale (100M) :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:622 (evidence/plan: browser only, PE→LC `organism/coupling.ts:12`)"
+  },
+  {
+   "id": "V40-LIFE-L052-A3",
+   "text": "Sparse expansion to 100M params",
+   "category": "VI. Nervous system :: 52. Brain scale (100M) :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:623 (evidence/plan: DELARP §27.1)"
+  },
+  {
+   "id": "V40-LIFE-L052-A4",
+   "text": "Brains-of-brains wrapper",
+   "category": "VI. Nervous system :: 52. Brain scale (100M) :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:624 (evidence/plan: REARCHITECT Stage 3)"
+  },
+  {
+   "id": "V40-LIFE-L052-A5",
+   "text": "Connectome growth to 1e8",
+   "category": "VI. Nervous system :: 52. Brain scale (100M) :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:625"
+  },
+  {
+   "id": "V40-LIFE-L053-A1",
+   "text": "ENS as second brain",
+   "category": "VI. Nervous system :: 53. Distributed brains :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:632 (evidence/plan: `organism/organism.ts:470`)"
+  },
+  {
+   "id": "V40-LIFE-L053-A2",
+   "text": "Leg ganglia",
+   "category": "VI. Nervous system :: 53. Distributed brains :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:633 (evidence/plan: FREAK-100 #84)"
+  },
+  {
+   "id": "V40-LIFE-L053-A3",
+   "text": "Two-hemisphere consensus",
+   "category": "VI. Nervous system :: 53. Distributed brains :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:634 (evidence/plan: FREAK-100 #82)"
+  },
+  {
+   "id": "V40-LIFE-L053-A4",
+   "text": "Column voting",
+   "category": "VI. Nervous system :: 53. Distributed brains :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:635 (evidence/plan: FREAK-100 #80)"
+  },
+  {
+   "id": "V40-LIFE-L053-A5",
+   "text": "Organ brains (heart, gut)",
+   "category": "VI. Nervous system :: 53. Distributed brains :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:636 (evidence/plan: ENS only)"
+  },
+  {
+   "id": "V40-LIFE-L054-A1",
+   "text": "Next-sense predictor",
+   "category": "VII. Mind and cognition :: 54. Prediction / world model :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:646 (evidence/plan: `organism/coupling.ts:16`)"
+  },
+  {
+   "id": "V40-LIFE-L054-A2",
+   "text": "Bus predictive encoder",
+   "category": "VII. Mind and cognition :: 54. Prediction / world model :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:647 (evidence/plan: `organism/v40mods.ts:23`)"
+  },
+  {
+   "id": "V40-LIFE-L054-A3",
+   "text": "Single generative model M",
+   "category": "VII. Mind and cognition :: 54. Prediction / world model :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:648 (evidence/plan: REARCHITECT §3A)"
+  },
+  {
+   "id": "V40-LIFE-L054-A4",
+   "text": "Hierarchical PC",
+   "category": "VII. Mind and cognition :: 54. Prediction / world model :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:649 (evidence/plan: FREAK-100 #23)"
+  },
+  {
+   "id": "V40-LIFE-L054-A5",
+   "text": "VSA latents",
+   "category": "VII. Mind and cognition :: 54. Prediction / world model :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:650 (evidence/plan: FREAK-100 #2)"
+  },
+  {
+   "id": "V40-LIFE-L055-A1",
+   "text": "Ignition threshold",
+   "category": "VII. Mind and cognition :: 55. Global workspace :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:657 (evidence/plan: `organism/organism.ts:133`)"
+  },
+  {
+   "id": "V40-LIFE-L055-A2",
+   "text": "Broadcast to HIP",
+   "category": "VII. Mind and cognition :: 55. Global workspace :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:658 (evidence/plan: `organism/organism.ts:491`)"
+  },
+  {
+   "id": "V40-LIFE-L055-A3",
+   "text": "Ignition cost",
+   "category": "VII. Mind and cognition :: 55. Global workspace :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:659 (evidence/plan: `organism/coupling.ts:14`)"
+  },
+  {
+   "id": "V40-LIFE-L055-A4",
+   "text": "Unconscious reservoir",
+   "category": "VII. Mind and cognition :: 55. Global workspace :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:660 (evidence/plan: FREAK-100 #81)"
+  },
+  {
+   "id": "V40-LIFE-L055-A5",
+   "text": "Recurrent workspace",
+   "category": "VII. Mind and cognition :: 55. Global workspace :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:661 (evidence/plan: DELARP §3.3)"
+  },
+  {
+   "id": "V40-LIFE-L056-A1",
+   "text": "State-dependent attention",
+   "category": "VII. Mind and cognition :: 56. Attention :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:668 (evidence/plan: `organism/organism.ts:145`)"
+  },
+  {
+   "id": "V40-LIFE-L056-A2",
+   "text": "Attention as precision",
+   "category": "VII. Mind and cognition :: 56. Attention :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:669 (evidence/plan: DELARP §27.4)"
+  },
+  {
+   "id": "V40-LIFE-L056-A3",
+   "text": "Attention schema learned",
+   "category": "VII. Mind and cognition :: 56. Attention :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:670 (evidence/plan: DELARP §3.3)"
+  },
+  {
+   "id": "V40-LIFE-L056-A4",
+   "text": "Onset salience",
+   "category": "VII. Mind and cognition :: 56. Attention :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:671 (evidence/plan: `organism/organism.ts:125`)"
+  },
+  {
+   "id": "V40-LIFE-L056-A5",
+   "text": "Covert vs overt",
+   "category": "VII. Mind and cognition :: 56. Attention :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:672"
+  },
+  {
+   "id": "V40-LIFE-L057-A1",
+   "text": "HOT monitor",
+   "category": "VII. Mind and cognition :: 57. Metacognition :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:679 (evidence/plan: `organism/organism.ts:151`)"
+  },
+  {
+   "id": "V40-LIFE-L057-A2",
+   "text": "Confidence from curvature",
+   "category": "VII. Mind and cognition :: 57. Metacognition :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:680 (evidence/plan: `organism/v40mods.ts:53`)"
+  },
+  {
+   "id": "V40-LIFE-L057-A3",
+   "text": "Opt-out behaviour",
+   "category": "VII. Mind and cognition :: 57. Metacognition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:681"
+  },
+  {
+   "id": "V40-LIFE-L057-A4",
+   "text": "Precision as confidence",
+   "category": "VII. Mind and cognition :: 57. Metacognition :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:682 (evidence/plan: FREAK-100 #24)"
+  },
+  {
+   "id": "V40-LIFE-L057-A5",
+   "text": "Calibrated bids",
+   "category": "VII. Mind and cognition :: 57. Metacognition :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:683 (evidence/plan: REARCHITECT §3B)"
+  },
+  {
+   "id": "V40-LIFE-L058-A1",
+   "text": "Value + uncertainty bonus",
+   "category": "VII. Mind and cognition :: 58. Decision making :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:690 (evidence/plan: `organism/organism.ts:666`)"
+  },
+  {
+   "id": "V40-LIFE-L058-A2",
+   "text": "Posterior sampling",
+   "category": "VII. Mind and cognition :: 58. Decision making :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:691 (evidence/plan: `organism/organism.ts:263`)"
+  },
+  {
+   "id": "V40-LIFE-L058-A3",
+   "text": "Quantum noise source",
+   "category": "VII. Mind and cognition :: 58. Decision making :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:692 (evidence/plan: `organism/organism.ts:595`)"
+  },
+  {
+   "id": "V40-LIFE-L058-A4",
+   "text": "EFE planning",
+   "category": "VII. Mind and cognition :: 58. Decision making :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:693 (evidence/plan: REARCHITECT Stage 1)"
+  },
+  {
+   "id": "V40-LIFE-L058-A5",
+   "text": "Risk sensitivity",
+   "category": "VII. Mind and cognition :: 58. Decision making :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:694 (evidence/plan: `organism/affect.ts:64`)"
+  },
+  {
+   "id": "V40-LIFE-L059-A1",
+   "text": "Uncertainty drive",
+   "category": "VII. Mind and cognition :: 59. Curiosity / exploration :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:701 (evidence/plan: `organism/organism.ts:666`)"
+  },
+  {
+   "id": "V40-LIFE-L059-A2",
+   "text": "Mood/boldness gate",
+   "category": "VII. Mind and cognition :: 59. Curiosity / exploration :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:702 (evidence/plan: `organism/affect.ts:70`)"
+  },
+  {
+   "id": "V40-LIFE-L059-A3",
+   "text": "Lévy flights",
+   "category": "VII. Mind and cognition :: 59. Curiosity / exploration :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:703 (evidence/plan: FREAK-100 #70)"
+  },
+  {
+   "id": "V40-LIFE-L059-A4",
+   "text": "Chaotic itinerancy",
+   "category": "VII. Mind and cognition :: 59. Curiosity / exploration :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:704 (evidence/plan: FREAK-100 #73)"
+  },
+  {
+   "id": "V40-LIFE-L059-A5",
+   "text": "Info gain (AINF-H)",
+   "category": "VII. Mind and cognition :: 59. Curiosity / exploration :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:705 (evidence/plan: REARCHITECT §2.3)"
+  },
+  {
+   "id": "V40-LIFE-L060-A1",
+   "text": "SELF recurrent state",
+   "category": "VII. Mind and cognition :: 60. Self-model :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:712 (evidence/plan: `organism/v40mods.ts:32`)"
+  },
+  {
+   "id": "V40-LIFE-L060-A2",
+   "text": "Predicts body",
+   "category": "VII. Mind and cognition :: 60. Self-model :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:713 (evidence/plan: `organism/v40mods.ts:38`)"
+  },
+  {
+   "id": "V40-LIFE-L060-A3",
+   "text": "Caution from foresight",
+   "category": "VII. Mind and cognition :: 60. Self-model :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:714 (evidence/plan: `organism/v40mods.ts:40`)"
+  },
+  {
+   "id": "V40-LIFE-L060-A4",
+   "text": "Self/other distinction",
+   "category": "VII. Mind and cognition :: 60. Self-model :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:715"
+  },
+  {
+   "id": "V40-LIFE-L060-A5",
+   "text": "Persistent narrative self",
+   "category": "VII. Mind and cognition :: 60. Self-model :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:716"
+  },
+  {
+   "id": "V40-LIFE-L061-A1",
+   "text": "SIM artefact belief",
+   "category": "VII. Mind and cognition :: 61. Simulation insight / Neo :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:723 (evidence/plan: `organism/v40mods.ts:39`)"
+  },
+  {
+   "id": "V40-LIFE-L061-A2",
+   "text": "Down-weights learning",
+   "category": "VII. Mind and cognition :: 61. Simulation insight / Neo :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:724 (evidence/plan: `organism/v40mods.ts:41`)"
+  },
+  {
+   "id": "V40-LIFE-L061-A3",
+   "text": "Legal hooks (shade, mark)",
+   "category": "VII. Mind and cognition :: 61. Simulation insight / Neo :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:725 (evidence/plan: `organism/v40mods.ts:61`)"
+  },
+  {
+   "id": "V40-LIFE-L061-A4",
+   "text": "Dome sandbox",
+   "category": "VII. Mind and cognition :: 61. Simulation insight / Neo :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:726 (evidence/plan: `lab/src/biosphere/dome.ts:20`)"
+  },
+  {
+   "id": "V40-LIFE-L061-A5",
+   "text": "Hidden-cause typing (6 causes)",
+   "category": "VII. Mind and cognition :: 61. Simulation insight / Neo :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:727 (evidence/plan: DELARP §38.2)"
+  },
+  {
+   "id": "V40-LIFE-L062-A1",
+   "text": "Curvature κ",
+   "category": "VII. Mind and cognition :: 62. Thought geometry :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:734 (evidence/plan: `organism/v40mods.ts:49`)"
+  },
+  {
+   "id": "V40-LIFE-L062-A2",
+   "text": "Felt κ",
+   "category": "VII. Mind and cognition :: 62. Thought geometry :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:735 (evidence/plan: `organism/v40mods.ts:54`)"
+  },
+  {
+   "id": "V40-LIFE-L062-A3",
+   "text": "Learned manifold metric",
+   "category": "VII. Mind and cognition :: 62. Thought geometry :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:736 (evidence/plan: DELARP §35.1)"
+  },
+  {
+   "id": "V40-LIFE-L062-A4",
+   "text": "Geodesic deviation",
+   "category": "VII. Mind and cognition :: 62. Thought geometry :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:737 (evidence/plan: DELARP §35.3)"
+  },
+  {
+   "id": "V40-LIFE-L062-A5",
+   "text": "QGT cross-link",
+   "category": "VII. Mind and cognition :: 62. Thought geometry :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:738 (evidence/plan: DELARP §35.4)"
+  },
+  {
+   "id": "V40-LIFE-L063-A1",
+   "text": "REM recombination",
+   "category": "VII. Mind and cognition :: 63. Imagination / creativity :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:745 (evidence/plan: `organism/organism.ts:632`)"
+  },
+  {
+   "id": "V40-LIFE-L063-A2",
+   "text": "Creativity machine",
+   "category": "VII. Mind and cognition :: 63. Imagination / creativity :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:746 (evidence/plan: FREAK-100 #76)"
+  },
+  {
+   "id": "V40-LIFE-L063-A3",
+   "text": "Planning by simulation",
+   "category": "VII. Mind and cognition :: 63. Imagination / creativity :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:747"
+  },
+  {
+   "id": "V40-LIFE-L063-A4",
+   "text": "Novel behaviour generation",
+   "category": "VII. Mind and cognition :: 63. Imagination / creativity :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:748"
+  },
+  {
+   "id": "V40-LIFE-L063-A5",
+   "text": "Play",
+   "category": "VII. Mind and cognition :: 63. Imagination / creativity :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:749"
+  },
+  {
+   "id": "V40-LIFE-L064-A1",
+   "text": "Site value learning",
+   "category": "VII. Mind and cognition :: 64. Associative learning :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:756 (evidence/plan: `organism/organism.ts:566`)"
+  },
+  {
+   "id": "V40-LIFE-L064-A2",
+   "text": "Feature model (colour/shape)",
+   "category": "VII. Mind and cognition :: 64. Associative learning :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:757 (evidence/plan: `organism/organism.ts:286`)"
+  },
+  {
+   "id": "V40-LIFE-L064-A3",
+   "text": "Trace conditioning",
+   "category": "VII. Mind and cognition :: 64. Associative learning :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:758 (evidence/plan: REARCHITECT §1 UAL)"
+  },
+  {
+   "id": "V40-LIFE-L064-A4",
+   "text": "Second-order conditioning",
+   "category": "VII. Mind and cognition :: 64. Associative learning :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:759 (evidence/plan: REARCHITECT §1)"
+  },
+  {
+   "id": "V40-LIFE-L064-A5",
+   "text": "Compositional binding",
+   "category": "VII. Mind and cognition :: 64. Associative learning :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:760 (evidence/plan: FREAK-100 #1-2)"
+  },
+  {
+   "id": "V40-LIFE-L065-A1",
+   "text": "NMDA persistence",
+   "category": "VII. Mind and cognition :: 65. Working memory :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:767 (evidence/plan: `organism/organism.ts:274`)"
+  },
+  {
+   "id": "V40-LIFE-L065-A2",
+   "text": "Slow current lesion",
+   "category": "VII. Mind and cognition :: 65. Working memory :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:768 (evidence/plan: `organism/organism.ts:269`)"
+  },
+  {
+   "id": "V40-LIFE-L065-A3",
+   "text": "Theta-gamma code",
+   "category": "VII. Mind and cognition :: 65. Working memory :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:769 (evidence/plan: FREAK-100 #5)"
+  },
+  {
+   "id": "V40-LIFE-L065-A4",
+   "text": "Capacity limit measured",
+   "category": "VII. Mind and cognition :: 65. Working memory :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:770"
+  },
+  {
+   "id": "V40-LIFE-L065-A5",
+   "text": "Astrocyte integrator",
+   "category": "VII. Mind and cognition :: 65. Working memory :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:771 (evidence/plan: FREAK-100 #40)"
+  },
+  {
+   "id": "V40-LIFE-L066-A1",
+   "text": "Action→outcome model",
+   "category": "VII. Mind and cognition :: 66. Agency :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:778 (evidence/plan: `organism/organism.ts:170` arm forward model)"
+  },
+  {
+   "id": "V40-LIFE-L066-A2",
+   "text": "AE1 paired test",
+   "category": "VII. Mind and cognition :: 66. Agency :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:779 (evidence/plan: REARCHITECT §2.3)"
+  },
+  {
+   "id": "V40-LIFE-L066-A3",
+   "text": "Free won't",
+   "category": "VII. Mind and cognition :: 66. Agency :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:780 (evidence/plan: `organism/organism.ts:270`)"
+  },
+  {
+   "id": "V40-LIFE-L066-A4",
+   "text": "Sense of agency readout",
+   "category": "VII. Mind and cognition :: 66. Agency :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:781"
+  },
+  {
+   "id": "V40-LIFE-L066-A5",
+   "text": "Intentional binding",
+   "category": "VII. Mind and cognition :: 66. Agency :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:782"
+  },
+  {
+   "id": "V40-LIFE-L067-A1",
+   "text": "Scent marks",
+   "category": "VII. Mind and cognition :: 67. Language-free communication :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:789 (evidence/plan: `lab/src/biosphere/dome.ts:19`)"
+  },
+  {
+   "id": "V40-LIFE-L067-A2",
+   "text": "Calls/sound",
+   "category": "VII. Mind and cognition :: 67. Language-free communication :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:790 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L067-A3",
+   "text": "Signal meaning learned",
+   "category": "VII. Mind and cognition :: 67. Language-free communication :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:791"
+  },
+  {
+   "id": "V40-LIFE-L067-A4",
+   "text": "Honest vs deceptive signals",
+   "category": "VII. Mind and cognition :: 67. Language-free communication :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:792"
+  },
+  {
+   "id": "V40-LIFE-L067-A5",
+   "text": "Dialect drift",
+   "category": "VII. Mind and cognition :: 67. Language-free communication :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:793"
+  },
+  {
+   "id": "V40-LIFE-L068-A1",
+   "text": "Site map (16 sites)",
+   "category": "VII. Mind and cognition :: 68. Spatial cognition :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:800 (evidence/plan: `organism/organism.ts:368`)"
+  },
+  {
+   "id": "V40-LIFE-L068-A2",
+   "text": "Path integration",
+   "category": "VII. Mind and cognition :: 68. Spatial cognition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:801"
+  },
+  {
+   "id": "V40-LIFE-L068-A3",
+   "text": "Cognitive map",
+   "category": "VII. Mind and cognition :: 68. Spatial cognition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:802"
+  },
+  {
+   "id": "V40-LIFE-L068-A4",
+   "text": "TEM-like structure",
+   "category": "VII. Mind and cognition :: 68. Spatial cognition :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:803 (evidence/plan: FREAK-100 #90)"
+  },
+  {
+   "id": "V40-LIFE-L068-A5",
+   "text": "Landmarks",
+   "category": "VII. Mind and cognition :: 68. Spatial cognition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:804"
+  },
+  {
+   "id": "V40-LIFE-L069-A1",
+   "text": "Fear",
+   "category": "VIII. Affect :: 69. Emotions :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:814 (evidence/plan: `organism/affect.ts:29`)"
+  },
+  {
+   "id": "V40-LIFE-L069-A2",
+   "text": "Delight",
+   "category": "VIII. Affect :: 69. Emotions :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:815 (evidence/plan: `organism/affect.ts:56`)"
+  },
+  {
+   "id": "V40-LIFE-L069-A3",
+   "text": "Frustration",
+   "category": "VIII. Affect :: 69. Emotions :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:816 (evidence/plan: `organism/affect.ts:56`)"
+  },
+  {
+   "id": "V40-LIFE-L069-A4",
+   "text": "Calm",
+   "category": "VIII. Affect :: 69. Emotions :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:817 (evidence/plan: `organism/affect.ts:30`)"
+  },
+  {
+   "id": "V40-LIFE-L069-A5",
+   "text": "Disgust, anger, grief, play, care",
+   "category": "VIII. Affect :: 69. Emotions :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:818"
+  },
+  {
+   "id": "V40-LIFE-L070-A1",
+   "text": "Valence/arousal fast",
+   "category": "VIII. Affect :: 70. Mood :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:825 (evidence/plan: `organism/affect.ts:34`)"
+  },
+  {
+   "id": "V40-LIFE-L070-A2",
+   "text": "Slow baselines",
+   "category": "VIII. Affect :: 70. Mood :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:826 (evidence/plan: `organism/affect.ts:35`)"
+  },
+  {
+   "id": "V40-LIFE-L070-A3",
+   "text": "Mood swings",
+   "category": "VIII. Affect :: 70. Mood :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:827 (evidence/plan: `organism/affect.ts:36`)"
+  },
+  {
+   "id": "V40-LIFE-L070-A4",
+   "text": "Mood scales curiosity",
+   "category": "VIII. Affect :: 70. Mood :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:828 (evidence/plan: `organism/affect.ts:70`)"
+  },
+  {
+   "id": "V40-LIFE-L070-A5",
+   "text": "Mood from microbiome",
+   "category": "VIII. Affect :: 70. Mood :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:829 (evidence/plan: FREAK-100 #98)"
+  },
+  {
+   "id": "V40-LIFE-L071-A1",
+   "text": "Felt curvature",
+   "category": "VIII. Affect :: 71. Feelings (felt body) :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:836 (evidence/plan: `organism/v40mods.ts:54`)"
+  },
+  {
+   "id": "V40-LIFE-L071-A2",
+   "text": "Felt valence of contact",
+   "category": "VIII. Affect :: 71. Feelings (felt body) :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:837 (evidence/plan: `organism/affect.ts:68`)"
+  },
+  {
+   "id": "V40-LIFE-L071-A3",
+   "text": "Interoceptive feeling map",
+   "category": "VIII. Affect :: 71. Feelings (felt body) :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:838 (evidence/plan: insula inputs only)"
+  },
+  {
+   "id": "V40-LIFE-L071-A4",
+   "text": "Feeling reports/readouts",
+   "category": "VIII. Affect :: 71. Feelings (felt body) :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:839 (evidence/plan: `organism/affect.ts:76` `state()`)"
+  },
+  {
+   "id": "V40-LIFE-L071-A5",
+   "text": "Hunger felt as error",
+   "category": "VIII. Affect :: 71. Feelings (felt body) :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:840 (evidence/plan: FREAK-100 #25)"
+  },
+  {
+   "id": "V40-LIFE-L072-A1",
+   "text": "Wanting",
+   "category": "VIII. Affect :: 72. Motivation / wanting :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:847 (evidence/plan: `organism/affect.ts:59`)"
+  },
+  {
+   "id": "V40-LIFE-L072-A2",
+   "text": "Liking tolerance",
+   "category": "VIII. Affect :: 72. Motivation / wanting :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:848 (evidence/plan: `organism/affect.ts:59`)"
+  },
+  {
+   "id": "V40-LIFE-L072-A3",
+   "text": "Orexin/arousal",
+   "category": "VIII. Affect :: 72. Motivation / wanting :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:849 (evidence/plan: `organism/organism.ts:219` orxK)"
+  },
+  {
+   "id": "V40-LIFE-L072-A4",
+   "text": "Goal hierarchy",
+   "category": "VIII. Affect :: 72. Motivation / wanting :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:850"
+  },
+  {
+   "id": "V40-LIFE-L072-A5",
+   "text": "Craving",
+   "category": "VIII. Affect :: 72. Motivation / wanting :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:851 (evidence/plan: `organism/affect.ts:52`)"
+  },
+  {
+   "id": "V40-LIFE-L073-A1",
+   "text": "Bold/curious/reactive/vuln",
+   "category": "VIII. Affect :: 73. Personality :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:858 (evidence/plan: `organism/affect.ts:23`)"
+  },
+  {
+   "id": "V40-LIFE-L073-A2",
+   "text": "Lifetime drift",
+   "category": "VIII. Affect :: 73. Personality :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:859 (evidence/plan: `organism/affect.ts:37`)"
+  },
+  {
+   "id": "V40-LIFE-L073-A3",
+   "text": "Heritable",
+   "category": "VIII. Affect :: 73. Personality :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:860 (evidence/plan: `organism/affect.ts:22`)"
+  },
+  {
+   "id": "V40-LIFE-L073-A4",
+   "text": "Birth temperament (quantum)",
+   "category": "VIII. Affect :: 73. Personality :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:861 (evidence/plan: `organism/organism.ts:636`)"
+  },
+  {
+   "id": "V40-LIFE-L073-A5",
+   "text": "Bet-hedging",
+   "category": "VIII. Affect :: 73. Personality :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:862 (evidence/plan: `organism/affect.ts:21`)"
+  },
+  {
+   "id": "V40-LIFE-L074-A1",
+   "text": "Cortisol",
+   "category": "VIII. Affect :: 74. Stress response :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:869 (evidence/plan: `organism/affect.ts:40`)"
+  },
+  {
+   "id": "V40-LIFE-L074-A2",
+   "text": "Sympathetic arousal",
+   "category": "VIII. Affect :: 74. Stress response :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:870 (evidence/plan: `organism/coupling.ts:7`)"
+  },
+  {
+   "id": "V40-LIFE-L074-A3",
+   "text": "Freeze",
+   "category": "VIII. Affect :: 74. Stress response :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:871 (evidence/plan: `organism/affect.ts:72`)"
+  },
+  {
+   "id": "V40-LIFE-L074-A4",
+   "text": "Fight/flight action",
+   "category": "VIII. Affect :: 74. Stress response :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:872"
+  },
+  {
+   "id": "V40-LIFE-L074-A5",
+   "text": "Coping strategies",
+   "category": "VIII. Affect :: 74. Stress response :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:873"
+  },
+  {
+   "id": "V40-LIFE-L075-A1",
+   "text": "Per-option attitude",
+   "category": "VIII. Affect :: 75. Attitudes :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:880 (evidence/plan: `organism/affect.ts:57`)"
+  },
+  {
+   "id": "V40-LIFE-L075-A2",
+   "text": "DA-gated learning",
+   "category": "VIII. Affect :: 75. Attitudes :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:881 (evidence/plan: `organism/affect.ts:57`)"
+  },
+  {
+   "id": "V40-LIFE-L075-A3",
+   "text": "Toward others",
+   "category": "VIII. Affect :: 75. Attitudes :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:882 (evidence/plan: `organism/affect.ts:62`)"
+  },
+  {
+   "id": "V40-LIFE-L075-A4",
+   "text": "Approach/avoid stance",
+   "category": "VIII. Affect :: 75. Attitudes :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:883 (evidence/plan: `organism/affect.ts:66`)"
+  },
+  {
+   "id": "V40-LIFE-L075-A5",
+   "text": "Attitude revision by evidence",
+   "category": "VIII. Affect :: 75. Attitudes :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:884 (evidence/plan: EMA only)"
+  },
+  {
+   "id": "V40-LIFE-L076-A1",
+   "text": "RPE",
+   "category": "VIII. Affect :: 76. Reward system :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:891 (evidence/plan: `organism/organism.ts:566`)"
+  },
+  {
+   "id": "V40-LIFE-L076-A2",
+   "text": "DA burst from behaviour",
+   "category": "VIII. Affect :: 76. Reward system :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:892 (evidence/plan: `organism/coupling.ts:12`)"
+  },
+  {
+   "id": "V40-LIFE-L076-A3",
+   "text": "Tonic DA temperature",
+   "category": "VIII. Affect :: 76. Reward system :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:893 (evidence/plan: `organism/organism.ts:147`)"
+  },
+  {
+   "id": "V40-LIFE-L076-A4",
+   "text": "Reward from social",
+   "category": "VIII. Affect :: 76. Reward system :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:894"
+  },
+  {
+   "id": "V40-LIFE-L076-A5",
+   "text": "Reward from novelty itself",
+   "category": "VIII. Affect :: 76. Reward system :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:895 (evidence/plan: via uncertainty bonus)"
+  },
+  {
+   "id": "V40-LIFE-L077-A1",
+   "text": "Births in dome",
+   "category": "IX. Life cycle and heredity :: 77. Reproduction :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:905 (evidence/plan: `lab/src/biosphere/dome.ts:33`)"
+  },
+  {
+   "id": "V40-LIFE-L077-A2",
+   "text": "Energy-gated birth decision by organism",
+   "category": "IX. Life cycle and heredity :: 77. Reproduction :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:906 (evidence/plan: REARCHITECT §2.2 C03R-organism)"
+  },
+  {
+   "id": "V40-LIFE-L077-A3",
+   "text": "Maternal provisioning",
+   "category": "IX. Life cycle and heredity :: 77. Reproduction :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:907 (evidence/plan: FREAK-100 #62)"
+  },
+  {
+   "id": "V40-LIFE-L077-A4",
+   "text": "Density-dependent fecundity",
+   "category": "IX. Life cycle and heredity :: 77. Reproduction :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:908 (evidence/plan: FREAK-100 #61)"
+  },
+  {
+   "id": "V40-LIFE-L077-A5",
+   "text": "Sexual recombination",
+   "category": "IX. Life cycle and heredity :: 77. Reproduction :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:909"
+  },
+  {
+   "id": "V40-LIFE-L078-A1",
+   "text": "Developmental genome",
+   "category": "IX. Life cycle and heredity :: 78. Heredity / genome :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:916 (evidence/plan: `organism/develop.ts:17`)"
+  },
+  {
+   "id": "V40-LIFE-L078-A2",
+   "text": "Personality genes",
+   "category": "IX. Life cycle and heredity :: 78. Heredity / genome :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:917 (evidence/plan: `organism/affect.ts:20`)"
+  },
+  {
+   "id": "V40-LIFE-L078-A3",
+   "text": "Behaviour genes",
+   "category": "IX. Life cycle and heredity :: 78. Heredity / genome :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:918 (evidence/plan: `organism/organism.ts:271`)"
+  },
+  {
+   "id": "V40-LIFE-L078-A4",
+   "text": "Genome bottleneck",
+   "category": "IX. Life cycle and heredity :: 78. Heredity / genome :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:919 (evidence/plan: FREAK-100 #64)"
+  },
+  {
+   "id": "V40-LIFE-L078-A5",
+   "text": "GRN",
+   "category": "IX. Life cycle and heredity :: 78. Heredity / genome :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:920 (evidence/plan: FREAK-100 #59)"
+  },
+  {
+   "id": "V40-LIFE-L079-A1",
+   "text": "Genome mutation",
+   "category": "IX. Life cycle and heredity :: 79. Mutation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:927 (evidence/plan: `organism/develop.ts:19`)"
+  },
+  {
+   "id": "V40-LIFE-L079-A2",
+   "text": "Personality mutation",
+   "category": "IX. Life cycle and heredity :: 79. Mutation :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:928 (evidence/plan: `organism/affect.ts:22`)"
+  },
+  {
+   "id": "V40-LIFE-L079-A3",
+   "text": "Mutation rate evolvable",
+   "category": "IX. Life cycle and heredity :: 79. Mutation :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:929 (evidence/plan: hedge widens scatter)"
+  },
+  {
+   "id": "V40-LIFE-L079-A4",
+   "text": "Structural mutation (add sense/organ)",
+   "category": "IX. Life cycle and heredity :: 79. Mutation :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:930 (evidence/plan: DELARP §27.5)"
+  },
+  {
+   "id": "V40-LIFE-L079-A5",
+   "text": "Quantum-sourced mutation",
+   "category": "IX. Life cycle and heredity :: 79. Mutation :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:931"
+  },
+  {
+   "id": "V40-LIFE-L080-A1",
+   "text": "Neural wiring growth",
+   "category": "IX. Life cycle and heredity :: 80. Development / ontogeny :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:938 (evidence/plan: `organism/develop.ts:23`)"
+  },
+  {
+   "id": "V40-LIFE-L080-A2",
+   "text": "Over-produce then prune",
+   "category": "IX. Life cycle and heredity :: 80. Development / ontogeny :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:939 (evidence/plan: `organism/organism.ts:642`)"
+  },
+  {
+   "id": "V40-LIFE-L080-A3",
+   "text": "Developmental waves",
+   "category": "IX. Life cycle and heredity :: 80. Development / ontogeny :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:940 (evidence/plan: `organism/organism.ts:274`)"
+  },
+  {
+   "id": "V40-LIFE-L080-A4",
+   "text": "Body development",
+   "category": "IX. Life cycle and heredity :: 80. Development / ontogeny :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:941"
+  },
+  {
+   "id": "V40-LIFE-L080-A5",
+   "text": "Critical periods",
+   "category": "IX. Life cycle and heredity :: 80. Development / ontogeny :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:942"
+  },
+  {
+   "id": "V40-LIFE-L081-A1",
+   "text": "Survival-only selection",
+   "category": "IX. Life cycle and heredity :: 81. Evolution / selection :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:949 (evidence/plan: `lab/src/biosphere/dome.ts:33` respawn from living kin)"
+  },
+  {
+   "id": "V40-LIFE-L081-A2",
+   "text": "Lineage tracking",
+   "category": "IX. Life cycle and heredity :: 81. Evolution / selection :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:950 (evidence/plan: births counter)"
+  },
+  {
+   "id": "V40-LIFE-L081-A3",
+   "text": "Baldwin effect",
+   "category": "IX. Life cycle and heredity :: 81. Evolution / selection :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:951 (evidence/plan: FREAK-100 #60)"
+  },
+  {
+   "id": "V40-LIFE-L081-A4",
+   "text": "Speciation",
+   "category": "IX. Life cycle and heredity :: 81. Evolution / selection :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:952"
+  },
+  {
+   "id": "V40-LIFE-L081-A5",
+   "text": "Neutral-drift baseline",
+   "category": "IX. Life cycle and heredity :: 81. Evolution / selection :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:953 (evidence/plan: DELARP §19.4)"
+  },
+  {
+   "id": "V40-LIFE-L082-A1",
+   "text": "Parental starvation memory",
+   "category": "IX. Life cycle and heredity :: 82. Epigenetics :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:960 (evidence/plan: FREAK-100 #67)"
+  },
+  {
+   "id": "V40-LIFE-L082-A2",
+   "text": "Methylation-like switches",
+   "category": "IX. Life cycle and heredity :: 82. Epigenetics :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:961"
+  },
+  {
+   "id": "V40-LIFE-L082-A3",
+   "text": "Stress-driven expression",
+   "category": "IX. Life cycle and heredity :: 82. Epigenetics :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:962 (evidence/plan: FREAK-100 #35)"
+  },
+  {
+   "id": "V40-LIFE-L082-A4",
+   "text": "Transgenerational effects",
+   "category": "IX. Life cycle and heredity :: 82. Epigenetics :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:963"
+  },
+  {
+   "id": "V40-LIFE-L082-A5",
+   "text": "Reversibility",
+   "category": "IX. Life cycle and heredity :: 82. Epigenetics :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:964"
+  },
+  {
+   "id": "V40-LIFE-L083-A1",
+   "text": "Feeding young",
+   "category": "IX. Life cycle and heredity :: 83. Parenting / nurture :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:971"
+  },
+  {
+   "id": "V40-LIFE-L083-A2",
+   "text": "Protecting young",
+   "category": "IX. Life cycle and heredity :: 83. Parenting / nurture :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:972"
+  },
+  {
+   "id": "V40-LIFE-L083-A3",
+   "text": "Teaching",
+   "category": "IX. Life cycle and heredity :: 83. Parenting / nurture :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:973"
+  },
+  {
+   "id": "V40-LIFE-L083-A4",
+   "text": "Parent-offspring conflict",
+   "category": "IX. Life cycle and heredity :: 83. Parenting / nurture :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:974"
+  },
+  {
+   "id": "V40-LIFE-L083-A5",
+   "text": "Recognition of own young",
+   "category": "IX. Life cycle and heredity :: 83. Parenting / nurture :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:975"
+  },
+  {
+   "id": "V40-LIFE-L084-A1",
+   "text": "Juvenile stage",
+   "category": "IX. Life cycle and heredity :: 84. Raising young / juvenile :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:982"
+  },
+  {
+   "id": "V40-LIFE-L084-A2",
+   "text": "Dependency period",
+   "category": "IX. Life cycle and heredity :: 84. Raising young / juvenile :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:983"
+  },
+  {
+   "id": "V40-LIFE-L084-A3",
+   "text": "Play learning",
+   "category": "IX. Life cycle and heredity :: 84. Raising young / juvenile :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:984"
+  },
+  {
+   "id": "V40-LIFE-L084-A4",
+   "text": "Weaning",
+   "category": "IX. Life cycle and heredity :: 84. Raising young / juvenile :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:985"
+  },
+  {
+   "id": "V40-LIFE-L084-A5",
+   "text": "Juvenile mortality",
+   "category": "IX. Life cycle and heredity :: 84. Raising young / juvenile :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:986"
+  },
+  {
+   "id": "V40-LIFE-L085-A1",
+   "text": "Forage from sites",
+   "category": "IX. Life cycle and heredity :: 85. Harvesting / resource use :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:993 (evidence/plan: `organism/organism.ts:558`)"
+  },
+  {
+   "id": "V40-LIFE-L085-A2",
+   "text": "Shared ecological pool",
+   "category": "IX. Life cycle and heredity :: 85. Harvesting / resource use :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:994 (evidence/plan: `organism/organism.ts:271`)"
+  },
+  {
+   "id": "V40-LIFE-L085-A3",
+   "text": "Site depletion",
+   "category": "IX. Life cycle and heredity :: 85. Harvesting / resource use :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:995 (evidence/plan: `organism/organism.ts:368` `depl`)"
+  },
+  {
+   "id": "V40-LIFE-L085-A4",
+   "text": "Storing/caching food",
+   "category": "IX. Life cycle and heredity :: 85. Harvesting / resource use :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:996"
+  },
+  {
+   "id": "V40-LIFE-L085-A5",
+   "text": "Cultivation",
+   "category": "IX. Life cycle and heredity :: 85. Harvesting / resource use :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:997"
+  },
+  {
+   "id": "V40-LIFE-L086-A1",
+   "text": "Contact and meet",
+   "category": "X. Social and ecological life :: 86. Social life :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1007 (evidence/plan: `lab/src/adapters/c001.ts:66`)"
+  },
+  {
+   "id": "V40-LIFE-L086-A2",
+   "text": "Neighbour approach/avoid",
+   "category": "X. Social and ecological life :: 86. Social life :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1008 (evidence/plan: DELARP Part XII; dome-side)"
+  },
+  {
+   "id": "V40-LIFE-L086-A3",
+   "text": "Kin recognition",
+   "category": "X. Social and ecological life :: 86. Social life :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1009 (evidence/plan: dome picks kin parent)"
+  },
+  {
+   "id": "V40-LIFE-L086-A4",
+   "text": "Cooperation",
+   "category": "X. Social and ecological life :: 86. Social life :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1010"
+  },
+  {
+   "id": "V40-LIFE-L086-A5",
+   "text": "Hierarchy/dominance",
+   "category": "X. Social and ecological life :: 86. Social life :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1011"
+  },
+  {
+   "id": "V40-LIFE-L087-A1",
+   "text": "Marks",
+   "category": "X. Social and ecological life :: 87. Communication :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1018 (evidence/plan: `lab/src/biosphere/dome.ts:19`)"
+  },
+  {
+   "id": "V40-LIFE-L087-A2",
+   "text": "Calls",
+   "category": "X. Social and ecological life :: 87. Communication :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1019 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L087-A3",
+   "text": "Emotional display",
+   "category": "X. Social and ecological life :: 87. Communication :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1020"
+  },
+  {
+   "id": "V40-LIFE-L087-A4",
+   "text": "Alarm signals",
+   "category": "X. Social and ecological life :: 87. Communication :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1021"
+  },
+  {
+   "id": "V40-LIFE-L087-A5",
+   "text": "Mimetic signals",
+   "category": "X. Social and ecological life :: 87. Communication :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1022"
+  },
+  {
+   "id": "V40-LIFE-L088-A1",
+   "text": "Shared food pool",
+   "category": "X. Social and ecological life :: 88. Competition :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1029 (evidence/plan: `organism/organism.ts:558`)"
+  },
+  {
+   "id": "V40-LIFE-L088-A2",
+   "text": "Fights / damage",
+   "category": "X. Social and ecological life :: 88. Competition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1030"
+  },
+  {
+   "id": "V40-LIFE-L088-A3",
+   "text": "Territory",
+   "category": "X. Social and ecological life :: 88. Competition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1031"
+  },
+  {
+   "id": "V40-LIFE-L088-A4",
+   "text": "Resource defence",
+   "category": "X. Social and ecological life :: 88. Competition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1032"
+  },
+  {
+   "id": "V40-LIFE-L088-A5",
+   "text": "Interference",
+   "category": "X. Social and ecological life :: 88. Competition :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1033"
+  },
+  {
+   "id": "V40-LIFE-L089-A1",
+   "text": "Danger field",
+   "category": "X. Social and ecological life :: 89. Predation / prey :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1040 (evidence/plan: `organism/v40mods.ts:8`)"
+  },
+  {
+   "id": "V40-LIFE-L089-A2",
+   "text": "Predators in dome",
+   "category": "X. Social and ecological life :: 89. Predation / prey :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1041"
+  },
+  {
+   "id": "V40-LIFE-L089-A3",
+   "text": "Escape behaviour",
+   "category": "X. Social and ecological life :: 89. Predation / prey :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1042 (evidence/plan: DELARP Part XIV 'grown approach/escape circuit')"
+  },
+  {
+   "id": "V40-LIFE-L089-A4",
+   "text": "Hunting",
+   "category": "X. Social and ecological life :: 89. Predation / prey :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1043"
+  },
+  {
+   "id": "V40-LIFE-L089-A5",
+   "text": "Arms race",
+   "category": "X. Social and ecological life :: 89. Predation / prey :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1044"
+  },
+  {
+   "id": "V40-LIFE-L090-A1",
+   "text": "Neutral dome",
+   "category": "X. Social and ecological life :: 90. Ecology / niche :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1051 (evidence/plan: `lab/src/biosphere/dome.ts:26`)"
+  },
+  {
+   "id": "V40-LIFE-L090-A2",
+   "text": "Light cycle",
+   "category": "X. Social and ecological life :: 90. Ecology / niche :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1052 (evidence/plan: `lab/src/biosphere/dome.ts:16`)"
+  },
+  {
+   "id": "V40-LIFE-L090-A3",
+   "text": "World dials",
+   "category": "X. Social and ecological life :: 90. Ecology / niche :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1053 (evidence/plan: DELARP §26)"
+  },
+  {
+   "id": "V40-LIFE-L090-A4",
+   "text": "Niche construction (marks)",
+   "category": "X. Social and ecological life :: 90. Ecology / niche :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1054 (evidence/plan: marks only)"
+  },
+  {
+   "id": "V40-LIFE-L090-A5",
+   "text": "Population dynamics",
+   "category": "X. Social and ecological life :: 90. Ecology / niche :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1055 (evidence/plan: DELARP Part XII runs)"
+  },
+  {
+   "id": "V40-LIFE-L091-A1",
+   "text": "Observational learning",
+   "category": "X. Social and ecological life :: 91. Culture / social learning :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1062"
+  },
+  {
+   "id": "V40-LIFE-L091-A2",
+   "text": "Copying others' choices",
+   "category": "X. Social and ecological life :: 91. Culture / social learning :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1063 (evidence/plan: marks bias value `lab/src/biosphere/dome.ts:37`)"
+  },
+  {
+   "id": "V40-LIFE-L091-A3",
+   "text": "Traditions",
+   "category": "X. Social and ecological life :: 91. Culture / social learning :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1064"
+  },
+  {
+   "id": "V40-LIFE-L091-A4",
+   "text": "Innovation spread",
+   "category": "X. Social and ecological life :: 91. Culture / social learning :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1065"
+  },
+  {
+   "id": "V40-LIFE-L091-A5",
+   "text": "Teaching",
+   "category": "X. Social and ecological life :: 91. Culture / social learning :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1066"
+  },
+  {
+   "id": "V40-LIFE-L092-A1",
+   "text": "Feel others' state",
+   "category": "X. Social and ecological life :: 92. Empathy / contagion :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1073"
+  },
+  {
+   "id": "V40-LIFE-L092-A2",
+   "text": "Emotional contagion",
+   "category": "X. Social and ecological life :: 92. Empathy / contagion :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1074"
+  },
+  {
+   "id": "V40-LIFE-L092-A3",
+   "text": "Helping",
+   "category": "X. Social and ecological life :: 92. Empathy / contagion :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1075"
+  },
+  {
+   "id": "V40-LIFE-L092-A4",
+   "text": "Consolation",
+   "category": "X. Social and ecological life :: 92. Empathy / contagion :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1076"
+  },
+  {
+   "id": "V40-LIFE-L092-A5",
+   "text": "Shared affect fields",
+   "category": "X. Social and ecological life :: 92. Empathy / contagion :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1077"
+  },
+  {
+   "id": "V40-LIFE-L093-A1",
+   "text": "Sexes",
+   "category": "X. Social and ecological life :: 93. Mating / sexual selection :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1084"
+  },
+  {
+   "id": "V40-LIFE-L093-A2",
+   "text": "Courtship",
+   "category": "X. Social and ecological life :: 93. Mating / sexual selection :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1085"
+  },
+  {
+   "id": "V40-LIFE-L093-A3",
+   "text": "Mate choice",
+   "category": "X. Social and ecological life :: 93. Mating / sexual selection :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1086"
+  },
+  {
+   "id": "V40-LIFE-L093-A4",
+   "text": "Display traits",
+   "category": "X. Social and ecological life :: 93. Mating / sexual selection :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1087"
+  },
+  {
+   "id": "V40-LIFE-L093-A5",
+   "text": "Recombination",
+   "category": "X. Social and ecological life :: 93. Mating / sexual selection :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1088"
+  },
+  {
+   "id": "V40-LIFE-L094-A1",
+   "text": "Collective motion",
+   "category": "X. Social and ecological life :: 94. Group / swarm :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1095"
+  },
+  {
+   "id": "V40-LIFE-L094-A2",
+   "text": "Group decisions",
+   "category": "X. Social and ecological life :: 94. Group / swarm :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1096"
+  },
+  {
+   "id": "V40-LIFE-L094-A3",
+   "text": "Synchrony via substrate",
+   "category": "X. Social and ecological life :: 94. Group / swarm :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1097 (evidence/plan: DELARP §30)"
+  },
+  {
+   "id": "V40-LIFE-L094-A4",
+   "text": "Division of labour",
+   "category": "X. Social and ecological life :: 94. Group / swarm :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1098"
+  },
+  {
+   "id": "V40-LIFE-L094-A5",
+   "text": "Superorganism",
+   "category": "X. Social and ecological life :: 94. Group / swarm :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1099"
+  },
+  {
+   "id": "V40-LIFE-L095-A1",
+   "text": "Coupling graph of parts",
+   "category": "XI. Alien and integrative :: 95. Causal interconnection :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1109 (evidence/plan: `organism/coupling.ts:3`)"
+  },
+  {
+   "id": "V40-LIFE-L095-A2",
+   "text": "Every v4.0 module lesionable",
+   "category": "XI. Alien and integrative :: 95. Causal interconnection :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1110 (evidence/plan: `organism/organism.ts:270`)"
+  },
+  {
+   "id": "V40-LIFE-L095-A3",
+   "text": "C-NC conformance check",
+   "category": "XI. Alien and integrative :: 95. Causal interconnection :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1111 (evidence/plan: DELARP §10.4)"
+  },
+  {
+   "id": "V40-LIFE-L095-A4",
+   "text": "Lesion → metric change measured",
+   "category": "XI. Alien and integrative :: 95. Causal interconnection :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1112 (evidence/plan: n=1 smoke, DELARP Part XV)"
+  },
+  {
+   "id": "V40-LIFE-L095-A5",
+   "text": "No fixed-weight helpers audit",
+   "category": "XI. Alien and integrative :: 95. Causal interconnection :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1113 (evidence/plan: REARCHITECT §2.3)"
+  },
+  {
+   "id": "V40-LIFE-L096-A1",
+   "text": "QRNG/quantum entropy",
+   "category": "XI. Alien and integrative :: 96. Chance / chaos :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1120 (evidence/plan: `organism/organism.ts:263`)"
+  },
+  {
+   "id": "V40-LIFE-L096-A2",
+   "text": "Seeded reproducibility",
+   "category": "XI. Alien and integrative :: 96. Chance / chaos :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1121 (evidence/plan: `organism/organism.ts:12`)"
+  },
+  {
+   "id": "V40-LIFE-L096-A3",
+   "text": "Snapshot/restore",
+   "category": "XI. Alien and integrative :: 96. Chance / chaos :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1122 (evidence/plan: `organism/organism.ts:431`)"
+  },
+  {
+   "id": "V40-LIFE-L096-A4",
+   "text": "Criticality homeostasis",
+   "category": "XI. Alien and integrative :: 96. Chance / chaos :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1123 (evidence/plan: FREAK-100 #96)"
+  },
+  {
+   "id": "V40-LIFE-L096-A5",
+   "text": "Drift baselines",
+   "category": "XI. Alien and integrative :: 96. Chance / chaos :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1124 (evidence/plan: DELARP §19.4)"
+  },
+  {
+   "id": "V40-LIFE-L097-A1",
+   "text": "Alien senses",
+   "category": "XI. Alien and integrative :: 97. Alien biology :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1131 (evidence/plan: `organism/v40mods.ts:8`)"
+  },
+  {
+   "id": "V40-LIFE-L097-A2",
+   "text": "Quantum layer organ",
+   "category": "XI. Alien and integrative :: 97. Alien biology :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1132 (evidence/plan: `organism/organism.ts:361`)"
+  },
+  {
+   "id": "V40-LIFE-L097-A3",
+   "text": "Alien eyes/arms/body plan",
+   "category": "XI. Alien and integrative :: 97. Alien biology :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1133"
+  },
+  {
+   "id": "V40-LIFE-L097-A4",
+   "text": "Novel organ evolution",
+   "category": "XI. Alien and integrative :: 97. Alien biology :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1134"
+  },
+  {
+   "id": "V40-LIFE-L097-A5",
+   "text": "Non-carbon metabolism analogue",
+   "category": "XI. Alien and integrative :: 97. Alien biology :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1135"
+  },
+  {
+   "id": "V40-LIFE-L098-A1",
+   "text": "Volume state",
+   "category": "XI. Alien and integrative :: 98. Expansion / contraction :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1142"
+  },
+  {
+   "id": "V40-LIFE-L098-A2",
+   "text": "Inflate to deter",
+   "category": "XI. Alien and integrative :: 98. Expansion / contraction :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1143"
+  },
+  {
+   "id": "V40-LIFE-L098-A3",
+   "text": "Squeeze through gaps",
+   "category": "XI. Alien and integrative :: 98. Expansion / contraction :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1144"
+  },
+  {
+   "id": "V40-LIFE-L098-A4",
+   "text": "Energy/pressure cost",
+   "category": "XI. Alien and integrative :: 98. Expansion / contraction :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1145"
+  },
+  {
+   "id": "V40-LIFE-L098-A5",
+   "text": "Sensed size",
+   "category": "XI. Alien and integrative :: 98. Expansion / contraction :: v40 status MISSING",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1146"
+  },
+  {
+   "id": "V40-LIFE-L099-A1",
+   "text": "Anomaly detection",
+   "category": "XI. Alien and integrative :: 99. Rule bending (Neo) :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1153 (evidence/plan: `organism/v40mods.ts:39`)"
+  },
+  {
+   "id": "V40-LIFE-L099-A2",
+   "text": "Hook value learning",
+   "category": "XI. Alien and integrative :: 99. Rule bending (Neo) :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1154 (evidence/plan: `organism/v40mods.ts:65`)"
+  },
+  {
+   "id": "V40-LIFE-L099-A3",
+   "text": "Rate-limited sandbox",
+   "category": "XI. Alien and integrative :: 99. Rule bending (Neo) :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1155 (evidence/plan: `lab/src/biosphere/dome.ts:20`)"
+  },
+  {
+   "id": "V40-LIFE-L099-A4",
+   "text": "Audit log",
+   "category": "XI. Alien and integrative :: 99. Rule bending (Neo) :: v40 status PARTIAL",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1156 (evidence/plan: grant/deny counts only)"
+  },
+  {
+   "id": "V40-LIFE-L099-A5",
+   "text": "Predict interventions",
+   "category": "XI. Alien and integrative :: 99. Rule bending (Neo) :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1157 (evidence/plan: DELARP §38.2)"
+  },
+  {
+   "id": "V40-LIFE-L100-A1",
+   "text": "Frozen preregs",
+   "category": "XI. Alien and integrative :: 100. Lab method / reproducibility :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1164 (evidence/plan: `preregistrations/` (frozen prereg files))"
+  },
+  {
+   "id": "V40-LIFE-L100-A2",
+   "text": "Bit-exact replay",
+   "category": "XI. Alien and integrative :: 100. Lab method / reproducibility :: v40 status BUILT",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1165 (evidence/plan: `organism/organism.ts:431`)"
+  },
+  {
+   "id": "V40-LIFE-L100-A3",
+   "text": "Dev/test seed split",
+   "category": "XI. Alien and integrative :: 100. Lab method / reproducibility :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1166 (evidence/plan: DELARP §5)"
+  },
+  {
+   "id": "V40-LIFE-L100-A4",
+   "text": "CI pipeline",
+   "category": "XI. Alien and integrative :: 100. Lab method / reproducibility :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1167 (evidence/plan: DELARP §10.1-2)"
+  },
+  {
+   "id": "V40-LIFE-L100-A5",
+   "text": "Paired 64-seed pools",
+   "category": "XI. Alien and integrative :: 100. Lab method / reproducibility :: v40 status PLANNED",
+   "criterion": "",
+   "source_ref": "V:/creatures/001/LIFE-100.md:1168 (evidence/plan: REARCHITECT Stage 0)"
+  }
+ ]
+}

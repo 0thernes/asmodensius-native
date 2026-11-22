@@ -1,0 +1,1827 @@
+{
+ "set_id": "benchmarks100",
+ "title": "Creature #1 Benchmarks, scored test lists: Butlin 14 (14), 10 frameworks (10), CQM 25 (25), R variants (14), 12 A-Life capabilities (12), DELARP 34 qualities (34)",
+ "source_files": [
+  "W:/Creature1-Benchmarks.pdf",
+  "V:/creatures/001/preregistrations/OFFICIAL-R21.md",
+  "V:/creatures/001/results/official-r21/SCORECARD.md",
+  "V:/benchmark/capability_matrix.tsv"
+ ],
+ "items": [
+  {
+   "id": "RPT-1",
+   "text": "Recurrent processing: Signals loop back inside the brain so information is kept after the input stops.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: recurrent CTX lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "Signals loop back inside the brain so information is kept after the input stops.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: recurrent CTX lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "recurrent CTX lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 1.04 t 5.10",
+    "combo_a_result": "Passing",
+    "combo_a_note": ""
+   }
+  },
+  {
+   "id": "RPT-2",
+   "text": "Organized, integrated perception: Combines separate features (two cues) into one joined-up picture.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: cross-module CTX lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "Combines separate features (two cues) into one joined-up picture.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: cross-module CTX lesioned",
+    "status_pdf": "Partial",
+    "honesty_note": "Original fails. Re-worked RPT2RL5 passes; RPT2R passed in the Combo A round. Neither counts.",
+    "control": "cross-module CTX lesioned",
+    "r21_armA_status": "PARTIAL",
+    "r21_armA_d_t": "d -0.28 t -1.36"
+   }
+  },
+  {
+   "id": "GWT-1",
+   "text": "Specialist modules: Several specialised brain parts work side by side.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: topography scrambled",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "Several specialised brain parts work side by side.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: topography scrambled",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "topography scrambled",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 2.89 t 14.17"
+   }
+  },
+  {
+   "id": "GWT-2",
+   "text": "Limited-capacity workspace: A small \"stage\" that only a few things can occupy at once.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: workspace lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "A small \"stage\" that only a few things can occupy at once.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: workspace lesioned",
+    "status_pdf": "Not yet",
+    "honesty_note": "Test is too easy (scores at the top of the scale); needs harder distractors. Held in Combo A.",
+    "control": "workspace lesioned",
+    "r21_armA_status": "FAIL",
+    "r21_armA_d_t": "d 8.43 t 41.28",
+    "combo_a_result": "Passing",
+    "combo_a_note": "Had to hold; it did."
+   }
+  },
+  {
+   "id": "GWT-3",
+   "text": "Global broadcast: What reaches the workspace is shared with every other part.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: broadcast lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "What reaches the workspace is shared with every other part.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: broadcast lesioned",
+    "status_pdf": "Partial",
+    "honesty_note": "Original uses overly clean stimuli. Noisy-input version GWT-3R passes (not counted).",
+    "control": "broadcast lesioned",
+    "r21_armA_status": "PARTIAL",
+    "r21_armA_d_t": "d 19.44 t 95.25"
+   }
+  },
+  {
+   "id": "GWT-4",
+   "text": "State-dependent attention: The creature’s own state steers what gets into the workspace.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: attention not workspace-driven",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "The creature’s own state steers what gets into the workspace.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: attention not workspace-driven",
+    "status_pdf": "Not yet",
+    "honesty_note": "",
+    "control": "attention not workspace-driven",
+    "r21_armA_status": "FAIL",
+    "r21_armA_d_t": "d 14.51 t 71.10"
+   }
+  },
+  {
+   "id": "HOT-1",
+   "text": "Top-down / generative perception: The brain makes its own predictions of what it should be sensing.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: top-down lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "The brain makes its own predictions of what it should be sensing.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: top-down lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "top-down lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 2.08 t 10.18"
+   }
+  },
+  {
+   "id": "HOT-2",
+   "text": "Metacognitive monitoring: Knows how confident it is; tells reliable from unreliable perceptions.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: confidence shuffled",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "Knows how confident it is; tells reliable from unreliable perceptions.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: confidence shuffled",
+    "status_pdf": "Passing",
+    "honesty_note": "Same test is also counted as CQM13.",
+    "control": "confidence shuffled",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 2.06 t 10.09"
+   }
+  },
+  {
+   "id": "HOT-3",
+   "text": "Acting on confidence: Uses that confidence to act, such as opting out when unsure.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: no opt-out; random opt-out at same rate",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "Uses that confidence to act, such as opting out when unsure.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: no opt-out; random opt-out at same rate",
+    "status_pdf": "Partial",
+    "honesty_note": "HOT3RM passed in the Combo A round (not counted).",
+    "control": "no opt-out; random opt-out at same rate",
+    "r21_armA_status": "PARTIAL",
+    "r21_armA_d_t": "d 0.01 t 0.07; d 0.02 t 0.11"
+   }
+  },
+  {
+   "id": "HOT-4",
+   "text": "Quality space: Similar things are coded as similar, giving a smooth \"space\" of experiences.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: sensory lines permuted",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "Similar things are coded as similar, giving a smooth \"space\" of experiences.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: sensory lines permuted",
+    "status_pdf": "Passing",
+    "honesty_note": "Audit: result looks suspiciously large.",
+    "control": "sensory lines permuted",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 6.31 t 30.89"
+   }
+  },
+  {
+   "id": "AST-1",
+   "text": "Attention schema: Keeps a model of its own attention and uses it to steer attention.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: schema lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "Keeps a model of its own attention and uses it to steer attention.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: schema lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "Treat with care: an older form was a test-harness toy.",
+    "control": "schema lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 1.18 t 5.77"
+   }
+  },
+  {
+   "id": "PP-1",
+   "text": "Predictive processing: Sensory parts predict their input and learn from the errors.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: predictor lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "Sensory parts predict their input and learn from the errors.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: predictor lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "predictor lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 1.12 t 5.49"
+   }
+  },
+  {
+   "id": "AE-1",
+   "text": "Agency: Learns from rewards and flexibly picks actions to reach goals.",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: RPE learning lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "Learns from rewards and flexibly picks actions to reach goals.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: RPE learning lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "Now doubtful: the same version scored too low on a larger later sample.",
+    "control": "RPE learning lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 0.98 t 4.80",
+    "combo_a_result": "Not yet",
+    "combo_a_note": "Failed on the larger sample. This also casts doubt on the R21 AE-1 pass."
+   }
+  },
+  {
+   "id": "AE-2",
+   "text": "Embodiment: Models how its own movements change what it senses (a body model).",
+   "category": "Butlin 14 (consciousness indicator properties; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: forward model lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.3 (section 1); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L28",
+   "extra": {
+    "measured": "Models how its own movements change what it senses (a body model).",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: forward model lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "forward model lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 2.48 t 12.14",
+    "combo_a_result": "Passing",
+    "combo_a_note": ""
+   }
+  },
+  {
+   "id": "thaler9",
+   "text": "Thaler \"Creativity Machine\": Noise-driven idea generation (dreams) checked by an internal critic.",
+   "category": "10 frameworks (theory tests; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: dreams shuffled",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.4 (section 2); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L29",
+   "extra": {
+    "measured": "Noise-driven idea generation (dreams) checked by an internal critic.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: dreams shuffled",
+    "status_pdf": "Passing",
+    "honesty_note": "Weak: project-specific mechanic with a forced shape.",
+    "control": "dreams shuffled",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 1.29 t 6.31"
+   }
+  },
+  {
+   "id": "iit4",
+   "text": "Integrated Information Theory (IIT 4.0): Brain parts are tightly integrated, measured by a \"phi\"-style score.",
+   "category": "10 frameworks (theory tests; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: recurrent+cross CTX lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.4 (section 2); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L29",
+   "extra": {
+    "measured": "Brain parts are tightly integrated, measured by a \"phi\"-style score.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: recurrent+cross CTX lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "Circular: the score measures the very wiring the build adds. Also counted as CQM21.",
+    "control": "recurrent+cross CTX lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 2.46 t 12.03"
+   }
+  },
+  {
+   "id": "activeInference",
+   "text": "Active inference (Friston): Explores to reduce its own uncertainty (curiosity), not just for food.",
+   "category": "10 frameworks (theory tests; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: epistemic term lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.4 (section 2); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L29",
+   "extra": {
+    "measured": "Explores to reduce its own uncertainty (curiosity), not just for food.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: epistemic term lesioned",
+    "status_pdf": "Not yet",
+    "honesty_note": "Test is under-powered; needs a redesign.",
+    "control": "epistemic term lesioned",
+    "r21_armA_status": "FAIL",
+    "r21_armA_d_t": "d 0.00 t 0.01",
+    "combo_a_result": "Not yet",
+    "combo_a_note": "Not claimed; test under-powered."
+   }
+  },
+  {
+   "id": "attentionSchema",
+   "text": "Attention Schema Theory (Graziano): Predicts where attention will go, better than a simple baseline.",
+   "category": "10 frameworks (theory tests; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: last-observation predictor",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.4 (section 2); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L29",
+   "extra": {
+    "measured": "Predicts where attention will go, better than a simple baseline.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: last-observation predictor",
+    "status_pdf": "Passing",
+    "honesty_note": "The comparison baseline is probably too easy.",
+    "control": "last-observation predictor",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 7.85 t 38.46"
+   }
+  },
+  {
+   "id": "fieldIntegration",
+   "text": "Field / synchrony integration: Brain areas lock in step and integrate through a shared field.",
+   "category": "10 frameworks (theory tests; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: field coupling lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.4 (section 2); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L29",
+   "extra": {
+    "measured": "Brain areas lock in step and integrate through a shared field.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: field coupling lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "Solid in arm A only.",
+    "control": "field coupling lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 1.20 t 5.87"
+   }
+  },
+  {
+   "id": "ual",
+   "text": "Unlimited Associative Learning (Ginsburg & Jablonka): Learns links between events separated in time.",
+   "category": "10 frameworks (theory tests; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: eligibility traces lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.4 (section 2); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L29",
+   "extra": {
+    "measured": "Learns links between events separated in time.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: eligibility traces lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "Solid.",
+    "control": "eligibility traces lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 1.06 t 5.19",
+    "combo_a_result": "Passing",
+    "combo_a_note": ""
+   }
+  },
+  {
+   "id": "sensorimotor",
+   "text": "Sensorimotor theory (O’Regan & Noë): Predicts the sensory effects of its own actions.",
+   "category": "10 frameworks (theory tests; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: efference copy lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.4 (section 2); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L29",
+   "extra": {
+    "measured": "Predicts the sensory effects of its own actions.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: efference copy lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "Solid.",
+    "control": "efference copy lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 3.31 t 16.19"
+   }
+  },
+  {
+   "id": "projective",
+   "text": "Projective Consciousness Model (Rudrauf): Tells its own actions from outside events (self vs. other).",
+   "category": "10 frameworks (theory tests; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: efference copy lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.4 (section 2); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L29",
+   "extra": {
+    "measured": "Tells its own actions from outside events (self vs. other).",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: efference copy lesioned",
+    "status_pdf": "Partial",
+    "honesty_note": "Overly clean stimuli. Re-worked PROJR passes (not counted).",
+    "control": "efference copy lesioned",
+    "r21_armA_status": "PARTIAL",
+    "r21_armA_d_t": "d 9.62 t 47.15"
+   }
+  },
+  {
+   "id": "ctm",
+   "text": "Conscious Turing Machine (Blum & Blum): Chunks compete; the winner is broadcast to all processors.",
+   "category": "10 frameworks (theory tests; indicator only)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: broadcast lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.4 (section 2); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L29",
+   "extra": {
+    "measured": "Chunks compete; the winner is broadcast to all processors.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: broadcast lesioned",
+    "status_pdf": "Partial",
+    "honesty_note": "Overlaps with GWT-3. Re-worked ctm-R passes (not counted).",
+    "control": "broadcast lesioned",
+    "r21_armA_status": "PARTIAL",
+    "r21_armA_d_t": "d 17.04 t 83.47"
+   }
+  },
+  {
+   "id": "butlin14",
+   "text": "Butlin 14 roll-up: Passes only when all 14 Butlin properties pass.",
+   "category": "10 frameworks (theory tests; indicator only)",
+   "criterion": "rollup: passes only if Butlin 14/14 (OFFICIAL-R21.md:L29)",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.4 (section 2); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L29",
+   "extra": {
+    "measured": "Passes only when all 14 Butlin properties pass.",
+    "unit": "count of Butlin items passing",
+    "target": "14 / 14",
+    "status_pdf": "Not yet",
+    "honesty_note": "Currently 9/14.",
+    "control": "passes only if 14/14",
+    "r21_armA_status": "FAIL",
+    "r21_armA_d_t": ""
+   }
+  },
+  {
+   "id": "CQM01",
+   "text": "Heredity: Offspring resemble their parents.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: offspring genomes random",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Offspring resemble their parents.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: offspring genomes random",
+    "status_pdf": "Partial",
+    "honesty_note": "Re-worked CQM01R passes (not counted).",
+    "control": "offspring genomes random",
+    "r21_armA_status": "PARTIAL",
+    "r21_armA_d_t": "d 0.44 t 2.17"
+   }
+  },
+  {
+   "id": "CQM02",
+   "text": "Open-endedness: Keeps producing new behaviour through mutation.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: no mutation",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Keeps producing new behaviour through mutation.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: no mutation",
+    "status_pdf": "Passing",
+    "honesty_note": "Result suspiciously large (overly clean stimuli).",
+    "control": "no mutation",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 14.47 t 70.89"
+   }
+  },
+  {
+   "id": "CQM03",
+   "text": "Ecological coupling (births): Births depend on the creature and its world.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: births fixed schedule",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Births depend on the creature and its world.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: births fixed schedule",
+    "status_pdf": "Passing",
+    "honesty_note": "WEAK: the comparison is zero by construction (births run on a fixed schedule in the test harness). Re-worked CQM03R fails.",
+    "control": "births fixed schedule",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 6.23 t 30.54"
+   }
+  },
+  {
+   "id": "CQM04",
+   "text": "Morphology: Body traits adapt to what helps survival.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: random survival",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Body traits adapt to what helps survival.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: random survival",
+    "status_pdf": "Not yet",
+    "honesty_note": "Ill-posed: selection happens in the harness, and reach costs energy.",
+    "control": "random survival",
+    "r21_armA_status": "FAIL",
+    "r21_armA_d_t": "d 0.04 t 0.20"
+   }
+  },
+  {
+   "id": "CQM05",
+   "text": "Embodied consistency (energy ledger): Energy in and out always balances.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: leaky ledger",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Energy in and out always balances.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: leaky ledger",
+    "status_pdf": "Passing",
+    "honesty_note": "WEAK: tested against a strawman (a deliberately leaky ledger).",
+    "control": "leaky ledger",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 39.05 t 191.32"
+   }
+  },
+  {
+   "id": "CQM06",
+   "text": "Perceptual integration: Combines senses into one picture.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: integration lesion",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Combines senses into one picture.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: integration lesion",
+    "status_pdf": "Not yet",
+    "honesty_note": "",
+    "control": "integration lesion",
+    "r21_armA_status": "FAIL",
+    "r21_armA_d_t": "d 0.30 t 1.48"
+   }
+  },
+  {
+   "id": "CQM07",
+   "text": "Learning: Learns from experience (plasticity matters).",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: plasticity frozen",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Learns from experience (plasticity matters).",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: plasticity frozen",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "plasticity frozen",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 5.81 t 28.48"
+   }
+  },
+  {
+   "id": "CQM08",
+   "text": "Continual retention: Keeps old skills while learning new ones (sleep replay).",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: replay lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Keeps old skills while learning new ones (sleep replay).",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: replay lesioned",
+    "status_pdf": "Partial",
+    "honesty_note": "Re-worked CQM08R passes (not counted).",
+    "control": "replay lesioned",
+    "r21_armA_status": "PARTIAL",
+    "r21_armA_d_t": "d 0.59 t 2.91"
+   }
+  },
+  {
+   "id": "CQM09",
+   "text": "Causal interoceptive model: Understands causes inside its own body and forecasts them.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: persistence forecast",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Understands causes inside its own body and forecasts them.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: persistence forecast",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "persistence forecast",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 6.09 t 29.81"
+   }
+  },
+  {
+   "id": "CQM10",
+   "text": "Goal regulation: Keeps blood sugar and energy in a healthy range by choice.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: fixed foraging drive",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Keeps blood sugar and energy in a healthy range by choice.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: fixed foraging drive",
+    "status_pdf": "Not yet",
+    "honesty_note": "The creature over-eats. A fix is in progress on practice runs.",
+    "control": "fixed foraging drive",
+    "r21_armA_status": "FAIL",
+    "r21_armA_d_t": "d -0.82 t -4.02",
+    "combo_a_result": "Not yet",
+    "combo_a_note": "Not claimed; creature over-eats."
+   }
+  },
+  {
+   "id": "CQM11",
+   "text": "Planning: Plans ahead instead of only reacting.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: model-free only",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Plans ahead instead of only reacting.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: model-free only",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "model-free only",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 7.04 t 34.48"
+   }
+  },
+  {
+   "id": "CQM12",
+   "text": "Compositional transfer: Recombines what it learned to handle new situations.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: dreams shuffled",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Recombines what it learned to handle new situations.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: dreams shuffled",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "dreams shuffled",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 1.03 t 5.07"
+   }
+  },
+  {
+   "id": "CQM13",
+   "text": "Metacognition: Same test as HOT-2.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: = HOT-2",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Same test as HOT-2.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: = HOT-2",
+    "status_pdf": "Passing",
+    "honesty_note": "Duplicate of HOT-2.",
+    "control": "= HOT-2",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 2.06 t 10.09"
+   }
+  },
+  {
+   "id": "CQM14",
+   "text": "Signalling game: Creatures send and understand signals.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: signal line cut",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Creatures send and understand signals.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: signal line cut",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "signal line cut",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 4.73 t 23.18"
+   }
+  },
+  {
+   "id": "CQM15",
+   "text": "Boundary: Maintains and repairs the line between self and world.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: repair lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Maintains and repairs the line between self and world.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: repair lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "repair lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 1.68 t 8.22"
+   }
+  },
+  {
+   "id": "CQM16",
+   "text": "Self-maintenance: Keeps its body going (allostatic control).",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: allostatic PID lesion",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Keeps its body going (allostatic control).",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: allostatic PID lesion",
+    "status_pdf": "Passing",
+    "honesty_note": "The anticipation version C16R fails.",
+    "control": "allostatic PID lesion",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 7.25 t 35.52"
+   }
+  },
+  {
+   "id": "CQM17",
+   "text": "Homeostasis: Holds inner variables steady.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: PID lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Holds inner variables steady.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: PID lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "PID lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 1.49 t 7.30"
+   }
+  },
+  {
+   "id": "CQM18",
+   "text": "Resilience: Recovers from damage.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: plasticity frozen after lesion",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Recovers from damage.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: plasticity frozen after lesion",
+    "status_pdf": "Not yet",
+    "honesty_note": "Test sits at the top of its scale.",
+    "control": "plasticity frozen after lesion",
+    "r21_armA_status": "FAIL",
+    "r21_armA_d_t": "d 0.00 t 0.00"
+   }
+  },
+  {
+   "id": "CQM19",
+   "text": "Recurrence: Same test as RPT-1.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: = RPT-1",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Same test as RPT-1.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: = RPT-1",
+    "status_pdf": "Passing",
+    "honesty_note": "Duplicate of RPT-1.",
+    "control": "= RPT-1",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 1.04 t 5.10"
+   }
+  },
+  {
+   "id": "CQM20",
+   "text": "Broadcast: Same test as GWT-3.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: = GWT-3",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.5 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Same test as GWT-3.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: = GWT-3",
+    "status_pdf": "Partial",
+    "honesty_note": "Duplicate of GWT-3.",
+    "control": "= GWT-3",
+    "r21_armA_status": "PARTIAL",
+    "r21_armA_d_t": "d 19.44 t 95.25"
+   }
+  },
+  {
+   "id": "CQM21",
+   "text": "Integration: Same test as iit4.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: = iit4",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.6 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Same test as iit4.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: = iit4",
+    "status_pdf": "Passing",
+    "honesty_note": "Duplicate of iit4, and circular (see frameworks).",
+    "control": "= iit4",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 2.46 t 12.03"
+   }
+  },
+  {
+   "id": "CQM22",
+   "text": "Valence trade-off: Weighs good against bad and avoids harm.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: aversive learning lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.6 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Weighs good against bad and avoids harm.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: aversive learning lesioned",
+    "status_pdf": "Passing",
+    "honesty_note": "",
+    "control": "aversive learning lesioned",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": "d 2.50 t 12.25"
+   }
+  },
+  {
+   "id": "CQM23",
+   "text": "Substrate pluralism: Runs the same mind on more than one kind of computer substrate.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "per OFFICIAL-R21.md:L30: substrate pluralism (not applicable, JS only: FAIL)",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.6 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Runs the same mind on more than one kind of computer substrate.",
+    "unit": "pass/fail (substrate pluralism)",
+    "target": "substrate pluralism (not applicable, JS only: FAIL)",
+    "status_pdf": "Not yet",
+    "honesty_note": "Only JavaScript so far.",
+    "control": "substrate pluralism (not applicable, JS only: FAIL)",
+    "r21_armA_status": "FAIL",
+    "r21_armA_d_t": ""
+   }
+  },
+  {
+   "id": "CQM24",
+   "text": "Reproducibility: Same seed gives the same result.",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "per OFFICIAL-R21.md:L30: reproducibility (state hash, tolerance)",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.6 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Same seed gives the same result.",
+    "unit": "state hash equality within tolerance",
+    "target": "reproducibility (state hash, tolerance)",
+    "status_pdf": "Passing",
+    "honesty_note": "WEAK: only a determinism / state-hash check.",
+    "control": "reproducibility (state hash, tolerance)",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": ""
+   }
+  },
+  {
+   "id": "CQM25",
+   "text": "Scale: Brain size (parameter count).",
+   "category": "CQM 25 (organism-level tests)",
+   "criterion": "per OFFICIAL-R21.md:L30: scale (measured parameters)",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.6 (section 3); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L30",
+   "extra": {
+    "measured": "Brain size (parameter count).",
+    "unit": "measured parameter count",
+    "target": "scale (measured parameters)",
+    "status_pdf": "Passing",
+    "honesty_note": "WEAK: hardcoded to pass; it just counts parameters. The large GPU network only runs in the browser, so no test sees it.",
+    "control": "scale (measured parameters)",
+    "r21_armA_status": "PASS",
+    "r21_armA_d_t": ""
+   }
+  },
+  {
+   "id": "RPT2R",
+   "text": "Re-worked version of RPT-2: Feature binding with the stimulus held longer.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: cross-module lesion; arm D also shuffled pairing (`M50J={\"vshuf\":1}`)",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Feature binding with the stimulus held longer.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: cross-module lesion; arm D also shuffled pairing (`M50J={\"vshuf\":1}`)",
+    "status_pdf": "Not yet",
+    "note": "Passed in the Combo A round (Nov 1–2).",
+    "replaces": "RPT-2",
+    "prereg_variant_text": "RPT2R (stimulus held 3 ticks); RPT2RL5",
+    "control": "cross-module lesion; arm D also shuffled pairing (`M50J={\"vshuf\":1}`)",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "FAIL",
+    "r21_armA_detail": "vs cross-module CTX synapses lesioned: d -0.11 t -0.53",
+    "combo_a_result": "Passing",
+    "combo_a_note": "Was not passing before."
+   }
+  },
+  {
+   "id": "RPT2RL5",
+   "text": "Re-worked version of RPT-2: Feature binding, alternate version.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: cross-module lesion; arm D also shuffled pairing (`M50J={\"vshuf\":1}`)",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Feature binding, alternate version.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: cross-module lesion; arm D also shuffled pairing (`M50J={\"vshuf\":1}`)",
+    "status_pdf": "Passing",
+    "note": "Also passed in Combo A.",
+    "replaces": "RPT-2",
+    "prereg_variant_text": "RPT2R (stimulus held 3 ticks); RPT2RL5",
+    "control": "cross-module lesion; arm D also shuffled pairing (`M50J={\"vshuf\":1}`)",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "PASS",
+    "r21_armA_detail": "vs cross-module CTX synapses lesioned: d 1.14 t 5.6",
+    "combo_a_result": "Passing",
+    "combo_a_note": ""
+   }
+  },
+  {
+   "id": "HOT3RM",
+   "text": "Re-worked version of HOT-3: Opt-out driven by confidence margin.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: confidence shuffled",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Opt-out driven by confidence margin.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: confidence shuffled",
+    "status_pdf": "Partial",
+    "note": "Passed in Combo A.",
+    "replaces": "HOT-3",
+    "prereg_variant_text": "HOT3RM (MarginConf opt-out); HOT3RM-P (paired by seed, dz >= 0.8 and paired t >= 2.75)",
+    "control": "confidence shuffled",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "PARTIAL",
+    "r21_armA_detail": "vs random opt-out (matched rate): d 0.84 t 4.09; vs confidence shuffled: d 0.74 t 3.6",
+    "combo_a_result": "Passing",
+    "combo_a_note": ""
+   }
+  },
+  {
+   "id": "HOT3RM-P",
+   "text": "Re-worked version of HOT-3: Same, compared seed by seed.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: confidence shuffled; HOT3RM-P: paired by seed, dz >= 0.8 and paired t >= 2.75",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Same, compared seed by seed.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "paired by seed: dz >= 0.8 and paired t >= 2.75 vs confidence shuffled",
+    "status_pdf": "Passing",
+    "note": "",
+    "replaces": "HOT-3",
+    "prereg_variant_text": "HOT3RM (MarginConf opt-out); HOT3RM-P (paired by seed, dz >= 0.8 and paired t >= 2.75)",
+    "control": "confidence shuffled",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "PASS",
+    "r21_armA_detail": "vs confidence shuffled (paired): dz 1.15 t 7.97"
+   }
+  },
+  {
+   "id": "GWT-3R",
+   "text": "Re-worked version of GWT-3: Broadcast with noisy, degraded input.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: broadcast lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Broadcast with noisy, degraded input.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: broadcast lesioned",
+    "status_pdf": "Passing",
+    "note": "",
+    "replaces": "GWT-3",
+    "prereg_variant_text": "GWT3R (degraded stimuli)",
+    "control": "broadcast lesioned",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "PASS",
+    "r21_armA_detail": "d 10.03 t 49.15"
+   }
+  },
+  {
+   "id": "AE1R",
+   "text": "Re-worked version of AE-1: Agency scored over the adaptation window.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: RPE learning lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Agency scored over the adaptation window.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: RPE learning lesioned",
+    "status_pdf": "Not yet",
+    "note": "",
+    "replaces": "AE-1",
+    "prereg_variant_text": "AE1R (adaptation-window scoring)",
+    "control": "RPE learning lesioned",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "FAIL",
+    "r21_armA_detail": "vs RPE learning lesioned: d 0.31 t 1.52"
+   }
+  },
+  {
+   "id": "PROJR",
+   "text": "Re-worked version of projective: Self vs. other with the self-signal cut.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: efference copy lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Self vs. other with the self-signal cut.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: efference copy lesioned",
+    "status_pdf": "Passing",
+    "note": "",
+    "replaces": "projective",
+    "prereg_variant_text": "PROJR",
+    "control": "efference copy lesioned",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "PASS",
+    "r21_armA_detail": "vs efference copy lesioned: d 4.89 t 23.93"
+   }
+  },
+  {
+   "id": "ctm-R",
+   "text": "Re-worked version of ctm: CTM broadcast with degraded input.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: broadcast lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "CTM broadcast with degraded input.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: broadcast lesioned",
+    "status_pdf": "Passing",
+    "note": "",
+    "replaces": "ctm",
+    "prereg_variant_text": "CTMR",
+    "control": "broadcast lesioned",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "PASS",
+    "r21_armA_detail": "d 12.80 t 62.73"
+   }
+  },
+  {
+   "id": "C16R",
+   "text": "Re-worked version of CQM16: Anticipation (acting before a need arises).",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: allostatic lesion",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Anticipation (acting before a need arises).",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: allostatic lesion",
+    "status_pdf": "Not yet",
+    "note": "Also failed in Combo A.",
+    "replaces": "CQM16",
+    "prereg_variant_text": "C16R",
+    "control": "allostatic lesion",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "FAIL",
+    "r21_armA_detail": "vs anticipation lesioned (reactive only): d 0.74 t 3.6",
+    "combo_a_result": "Not yet",
+    "combo_a_note": "Not claimed."
+   }
+  },
+  {
+   "id": "CQM18R",
+   "text": "Re-worked version of CQM18: Resilience after damage.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: plasticity frozen after lesion; afferent-remap lesion",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Resilience after damage.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: plasticity frozen after lesion; afferent-remap lesion",
+    "status_pdf": "Not yet",
+    "note": "Still at the top of its scale.",
+    "replaces": "CQM18",
+    "prereg_variant_text": "CQM18R",
+    "control": "plasticity frozen after lesion; afferent-remap lesion",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "FAIL(ceiling)",
+    "r21_armA_detail": "vs plasticity frozen after lesion: d 7.15 t 35.02"
+   }
+  },
+  {
+   "id": "CQM08R",
+   "text": "Re-worked version of CQM08: Retention with sleep replay.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: replay lesioned",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Retention with sleep replay.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: replay lesioned",
+    "status_pdf": "Passing",
+    "note": "",
+    "replaces": "CQM08",
+    "prereg_variant_text": "C08R",
+    "control": "replay lesioned",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "PASS",
+    "r21_armA_detail": "d 7.98 t 39.07"
+   }
+  },
+  {
+   "id": "CQM03R",
+   "text": "Re-worked version of CQM03: Births with random numbers as the comparison.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: births random in number",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Births with random numbers as the comparison.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: births random in number",
+    "status_pdf": "Not yet",
+    "note": "",
+    "replaces": "CQM03",
+    "prereg_variant_text": "C03R",
+    "control": "births random in number",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "FAIL",
+    "r21_armA_detail": "d -2.31 t -11.32"
+   }
+  },
+  {
+   "id": "CQM01R",
+   "text": "Re-worked version of CQM01: Heredity, re-worked.",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: offspring genomes random",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Heredity, re-worked.",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: offspring genomes random",
+    "status_pdf": "Passing",
+    "note": "",
+    "replaces": "CQM01",
+    "prereg_variant_text": "C01R",
+    "control": "offspring genomes random",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "PASS",
+    "r21_armA_detail": "d 1.09 t 5.34"
+   }
+  },
+  {
+   "id": "K1R",
+   "text": "Re-worked version of K1: Re-worked K1 (reported outside the three lists).",
+   "category": "R variants (re-worked tests; reference only, never counted)",
+   "criterion": "PASS: Cohen d >= 0.8 AND Welch t >= 2.75 against every listed control, plus the non-ceiling rule (bounded metric with full-arm mean > 0.95*max fails); 48 test seeds 1064-1111 (OFFICIAL-R21.md section 3); control: as K1",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 7); V:/creatures/001/preregistrations/OFFICIAL-R21.md:L33-47",
+   "extra": {
+    "measured": "Re-worked K1 (reported outside the three lists).",
+    "unit": "effect size (Cohen's d) and Welch t, intact creature vs lesioned/shuffled control, n = 48 seeds",
+    "target": "d >= 0.8 and t >= 2.75 vs control: as K1",
+    "status_pdf": "Not yet",
+    "note": "",
+    "replaces": "K1",
+    "prereg_variant_text": "K1R",
+    "control": "as K1",
+    "counted_in_official_totals": false,
+    "r21_armA_status": "FAIL",
+    "r21_armA_detail": "scorecard lists two keys: K1aR FAIL d 0.13 t 0.66; K1cR FAIL d 0.24 t 1.18"
+   }
+  },
+  {
+   "id": "CAP-E",
+   "text": "Evolution: Evolves over generations.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 8); V:/benchmark/capability_matrix.tsv row E",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "55 / 150",
+    "status_pdf": "Covered (old rounds)",
+    "note": "",
+    "creature_status_tsv": "covered",
+    "evidence_tsv": "CQM-01, CQM-02"
+   }
+  },
+  {
+   "id": "CAP-R",
+   "text": "Self-reproduction: Makes copies of itself.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 8); V:/benchmark/capability_matrix.tsv row R",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "39 / 150",
+    "status_pdf": "Covered (old rounds)",
+    "note": "Old pass was close to \"pass by construction\".",
+    "creature_status_tsv": "covered",
+    "evidence_tsv": "CAP-R (v2.7; near pass-by-construction)"
+   }
+  },
+  {
+   "id": "CAP-B",
+   "text": "Embodied physics: Has a body in simulated physics.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 8); V:/benchmark/capability_matrix.tsv row B",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "50 / 150",
+    "status_pdf": "Covered (old rounds)",
+    "note": "",
+    "creature_status_tsv": "covered",
+    "evidence_tsv": "CAP-B (v2.7)"
+   }
+  },
+  {
+   "id": "CAP-N",
+   "text": "Neural control: Brain-like neural control.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.31 (section 8); V:/benchmark/capability_matrix.tsv row N",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "65 / 150",
+    "status_pdf": "Covered (old rounds)",
+    "note": "",
+    "creature_status_tsv": "covered",
+    "evidence_tsv": "RPT-1/2, GWT-1..4"
+   }
+  },
+  {
+   "id": "CAP-L",
+   "text": "Learning/plasticity: Learns during its life.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.32 (section 8); V:/benchmark/capability_matrix.tsv row L",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "46 / 150",
+    "status_pdf": "Covered (old rounds)",
+    "note": "",
+    "creature_status_tsv": "covered",
+    "evidence_tsv": "iit4, V2-10, RM-29, RM-36"
+   }
+  },
+  {
+   "id": "CAP-M",
+   "text": "Metabolism/energy: Has a metabolism / energy budget.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.32 (section 8); V:/benchmark/capability_matrix.tsv row M",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "31 / 150",
+    "status_pdf": "Covered (old rounds)",
+    "note": "",
+    "creature_status_tsv": "covered",
+    "evidence_tsv": "V2-AI, RM-9, RM-97"
+   }
+  },
+  {
+   "id": "CAP-S",
+   "text": "Social/multi-agent: Lives with other agents.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.32 (section 8); V:/benchmark/capability_matrix.tsv row S",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "33 / 150",
+    "status_pdf": "Covered (old rounds)",
+    "note": "",
+    "creature_status_tsv": "covered",
+    "evidence_tsv": "CAP-S (v2.7)"
+   }
+  },
+  {
+   "id": "CAP-C",
+   "text": "Connectome/bio-grounded: Wiring grounded in a real nervous system.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.32 (section 8); V:/benchmark/capability_matrix.tsv row C",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "28 / 150",
+    "status_pdf": "Failed",
+    "note": "Copied-connectome test failed and was dropped.",
+    "creature_status_tsv": "FAIL",
+    "evidence_tsv": "CAP-C: connectome separates touch location but with reversed direction under the Dale/GABA sign rule"
+   }
+  },
+  {
+   "id": "CAP-I",
+   "text": "Indicator tests: Runs consciousness indicator tests.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.32 (section 8); V:/benchmark/capability_matrix.tsv row I",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "5 / 150",
+    "status_pdf": "Covered (old rounds)",
+    "note": "",
+    "creature_status_tsv": "covered",
+    "evidence_tsv": "Butlin/CQM harness items"
+   }
+  },
+  {
+   "id": "CAP-D",
+   "text": "Deterministic/reproducible: Gives identical results when re-run.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.32 (section 8); V:/benchmark/capability_matrix.tsv row D",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "50 / 150",
+    "status_pdf": "Covered (old rounds)",
+    "note": "",
+    "creature_status_tsv": "covered",
+    "evidence_tsv": "v2.1-24"
+   }
+  },
+  {
+   "id": "CAP-W",
+   "text": "Runs in browser: Runs in a web browser.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.32 (section 8); V:/benchmark/capability_matrix.tsv row W",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "13 / 150",
+    "status_pdf": "Not test-proven",
+    "note": "Only a headless smoke run so far.",
+    "creature_status_tsv": "not test-proven",
+    "evidence_tsv": "v2.3 live suite still running (headless smoke run only)"
+   }
+  },
+  {
+   "id": "CAP-O",
+   "text": "Open source: Code is public.",
+   "category": "150 A-Life comparison (12 capabilities)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.32 (section 8); V:/benchmark/capability_matrix.tsv row O",
+   "extra": {
+    "measured": "whether Creature #1 demonstrates the capability",
+    "unit": "covered / not covered (and count of the 150 surveyed projects that have it)",
+    "target": "covered",
+    "projects_with_it": "84 / 150",
+    "status_pdf": "Not covered",
+    "note": "Repo is not public yet, so this cannot be tested.",
+    "creature_status_tsv": "uncovered",
+    "evidence_tsv": "repo must not be published; not testable"
+   }
+  },
+  {
+   "id": "Q-PRED",
+   "text": "Q-PRED (quality under principle P1 Predictive allostasis)",
+   "category": "DELARP-PLAN 34 qualities / P1 Predictive allostasis",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P1 Predictive allostasis"
+   }
+  },
+  {
+   "id": "Q-TOPDOWN",
+   "text": "Q-TOPDOWN (quality under principle P1 Predictive allostasis)",
+   "category": "DELARP-PLAN 34 qualities / P1 Predictive allostasis",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P1 Predictive allostasis"
+   }
+  },
+  {
+   "id": "Q-INTERO",
+   "text": "Q-INTERO (quality under principle P1 Predictive allostasis)",
+   "category": "DELARP-PLAN 34 qualities / P1 Predictive allostasis",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P1 Predictive allostasis"
+   }
+  },
+  {
+   "id": "Q-HOMEO",
+   "text": "Q-HOMEO (quality under principle P1 Predictive allostasis)",
+   "category": "DELARP-PLAN 34 qualities / P1 Predictive allostasis",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P1 Predictive allostasis"
+   }
+  },
+  {
+   "id": "Q-ENERGY",
+   "text": "Q-ENERGY (quality under principle P1 Predictive allostasis)",
+   "category": "DELARP-PLAN 34 qualities / P1 Predictive allostasis",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P1 Predictive allostasis"
+   }
+  },
+  {
+   "id": "Q-CURIO",
+   "text": "Q-CURIO (quality under principle P2 Value and uncertainty)",
+   "category": "DELARP-PLAN 34 qualities / P2 Value and uncertainty",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P2 Value and uncertainty"
+   }
+  },
+  {
+   "id": "Q-AGENCY",
+   "text": "Q-AGENCY (quality under principle P2 Value and uncertainty)",
+   "category": "DELARP-PLAN 34 qualities / P2 Value and uncertainty",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P2 Value and uncertainty"
+   }
+  },
+  {
+   "id": "Q-VALENCE",
+   "text": "Q-VALENCE (quality under principle P2 Value and uncertainty)",
+   "category": "DELARP-PLAN 34 qualities / P2 Value and uncertainty",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P2 Value and uncertainty"
+   }
+  },
+  {
+   "id": "Q-GOAL",
+   "text": "Q-GOAL (quality under principle P2 Value and uncertainty)",
+   "category": "DELARP-PLAN 34 qualities / P2 Value and uncertainty",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P2 Value and uncertainty"
+   }
+  },
+  {
+   "id": "Q-ASSOC",
+   "text": "Q-ASSOC (quality under principle P2 Value and uncertainty)",
+   "category": "DELARP-PLAN 34 qualities / P2 Value and uncertainty",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P2 Value and uncertainty"
+   }
+  },
+  {
+   "id": "Q-LEARN",
+   "text": "Q-LEARN (quality under principle P2 Value and uncertainty)",
+   "category": "DELARP-PLAN 34 qualities / P2 Value and uncertainty",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P2 Value and uncertainty"
+   }
+  },
+  {
+   "id": "Q-RECUR",
+   "text": "Q-RECUR (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-BIND",
+   "text": "Q-BIND (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-MOD",
+   "text": "Q-MOD (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-CAP",
+   "text": "Q-CAP (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-ATTN",
+   "text": "Q-ATTN (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-BCAST",
+   "text": "Q-BCAST (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-META",
+   "text": "Q-META (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-META-ACT",
+   "text": "Q-META-ACT (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-SIM",
+   "text": "Q-SIM (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-SELFATTN",
+   "text": "Q-SELFATTN (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-SELF",
+   "text": "Q-SELF (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-SOCIAL-ATTN",
+   "text": "Q-SOCIAL-ATTN (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-INTEG",
+   "text": "Q-INTEG (quality under principle P3 Workspace)",
+   "category": "DELARP-PLAN 34 qualities / P3 Workspace",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P3 Workspace"
+   }
+  },
+  {
+   "id": "Q-GEN",
+   "text": "Q-GEN (quality under principle P4 Sleep / generative)",
+   "category": "DELARP-PLAN 34 qualities / P4 Sleep / generative",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P4 Sleep / generative"
+   }
+  },
+  {
+   "id": "Q-RETAIN",
+   "text": "Q-RETAIN (quality under principle P4 Sleep / generative)",
+   "category": "DELARP-PLAN 34 qualities / P4 Sleep / generative",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P4 Sleep / generative"
+   }
+  },
+  {
+   "id": "Q-PLAN",
+   "text": "Q-PLAN (quality under principle P4 Sleep / generative)",
+   "category": "DELARP-PLAN 34 qualities / P4 Sleep / generative",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P4 Sleep / generative"
+   }
+  },
+  {
+   "id": "Q-BODY",
+   "text": "Q-BODY (quality under principle P5 Embodied lineage)",
+   "category": "DELARP-PLAN 34 qualities / P5 Embodied lineage",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P5 Embodied lineage"
+   }
+  },
+  {
+   "id": "Q-LINEAGE",
+   "text": "Q-LINEAGE (quality under principle P5 Embodied lineage)",
+   "category": "DELARP-PLAN 34 qualities / P5 Embodied lineage",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P5 Embodied lineage"
+   }
+  },
+  {
+   "id": "Q-ECO",
+   "text": "Q-ECO (quality under principle P5 Embodied lineage)",
+   "category": "DELARP-PLAN 34 qualities / P5 Embodied lineage",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P5 Embodied lineage"
+   }
+  },
+  {
+   "id": "Q-ADAPT-BODY",
+   "text": "Q-ADAPT-BODY (quality under principle P5 Embodied lineage)",
+   "category": "DELARP-PLAN 34 qualities / P5 Embodied lineage",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P5 Embodied lineage"
+   }
+  },
+  {
+   "id": "Q-NOVEL",
+   "text": "Q-NOVEL (quality under principle P5 Embodied lineage)",
+   "category": "DELARP-PLAN 34 qualities / P5 Embodied lineage",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P5 Embodied lineage"
+   }
+  },
+  {
+   "id": "Q-COMM",
+   "text": "Q-COMM (quality under principle P5 Embodied lineage)",
+   "category": "DELARP-PLAN 34 qualities / P5 Embodied lineage",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P5 Embodied lineage"
+   }
+  },
+  {
+   "id": "Q-ROBUST",
+   "text": "Q-ROBUST (quality under principle P5 Embodied lineage)",
+   "category": "DELARP-PLAN 34 qualities / P5 Embodied lineage",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.36 (section 9, quality table); V:/creatures/001/DELARP-PLAN.md:L204",
+   "extra": {
+    "measured": "graded evidence for the named quality",
+    "unit": "not given in this document",
+    "target": "",
+    "status_pdf": "not yet scored",
+    "principle": "P5 Embodied lineage"
+   }
+  }
+ ]
+}

@@ -1,0 +1,187 @@
+/* az_owners.def - who reads which trait and who honours which lesion (ABI 4).
+ *
+ * AZ_TRAIT(NAME, owner, via)
+ *   NAME  : the trait AZ_T_<NAME>
+ *   owner : the module core/az_<owner>.c that reads it and makes it matter.
+ *           Its test shows an outcome changing with the trait, and
+ *           tests/test_traits.c checks the same for all 112 at once.
+ *   via   : how the value reaches the owner:
+ *           MIND_CACHE: development writes the named MIND field and its owner consumes that field.
+ *           ROW          the owner reads trait[AZ_T_<NAME>] itself, on a path
+ *                        rule D8 allows (pair score or resolve, birth, death,
+ *                        Tier 1, a serial pass, or behind az_phase_due)
+ *           AZ_P_<X>     az_develop copies it into that HOT phen scalar; the
+ *                        owner reads phen[AZ_P_<X>] every tick
+ *           TAG          az_develop builds the recognition tag from it; the
+ *                        owner reads tags (az_tag_dist, the public record)
+ *
+ * AZ_LESION_OWNER(NAME, owner)
+ *   the file core/az_<owner>.c honours AZ_LESION_<NAME> (a bit shared by two
+ *   mechanisms has two lines). "tick" = core/az_tick.c masks or skips.
+ *
+ * Any module may read any trait; the owner is the one answerable for it.
+ * tools/lint_core.py reads this file: under --strict every owner file that
+ * exists must contain the name (or the carrier named in `via`).
+ * Only the project lead edits this file.
+ */
+
+/* ---- morphology and physiology ---------------------------------------- */
+AZ_TRAIT(SIZE,          life,    ROW)         /* adult body: the pool a ripe adult must hold, and what a child is given */
+AZ_TRAIT(DENSITY,       physics, AZ_P_DENS)   /* buoyancy against the medium                   */
+AZ_TRAIT(DRAG,          physics, AZ_P_DRAG)   /* drag of the medium on the body                */
+AZ_TRAIT(THRUST,        physics, AZ_P_THRUST) /* thrust gain and its energy cost               */
+AZ_TRAIT(ARMOR,         social,  ROW)         /* contests: what a blow costs the one hit       */
+AZ_TRAIT(WEAPON,        social,  ROW)         /* contests: fighting strength                   */
+AZ_TRAIT(SENSE_RANGE,   scan,    AZ_P_SENSE)  /* how far neighbours are perceived              */
+AZ_TRAIT(SENSE_ACUITY,  social,  ROW)         /* being attacked or robbed: chance to notice in time */
+AZ_TRAIT(METAB,         metab,   AZ_P_METAB)  /* basal rate: cost of living and speed of uptake */
+AZ_TRAIT(EFFIC,         metab,   ROW)         /* energy won per unit respired                  */
+AZ_TRAIT(TOPT,          metab,   AZ_P_TOPT)   /* thermal optimum                               */
+AZ_TRAIT(TTOL,          metab,   AZ_P_TTOL)   /* thermal tolerance                             */
+AZ_TRAIT(TOXRES,        metab,   AZ_P_TOXRES) /* damage per unit of toxin carried              */
+AZ_TRAIT(PRESS_TOL,     metab,   ROW)         /* damage from pressure away from the native depth */
+AZ_TRAIT(RAD_TOL,       metab,   ROW)         /* damage from cell charge (radiation)           */
+AZ_TRAIT(LIFESPAN,      life,    ROW)         /* onset of senescence and the hazard after it   */
+
+/* ---- diet and metabolism ---------------------------------------------- */
+AZ_TRAIT(DIET_LIGHT,    metab,   AZ_P_DIET_L) /* uptake affinity: light                        */
+AZ_TRAIT(DIET_X,        metab,   AZ_P_DIET_X) /* uptake affinity: reduced mineral              */
+AZ_TRAIT(DIET_Y,        metab,   AZ_P_DIET_Y) /* uptake affinity: organic matter               */
+AZ_TRAIT(DIET_W,        metab,   AZ_P_DIET_W) /* uptake affinity: waste                        */
+AZ_TRAIT(OXI_USE,       metab,   ROW)         /* aerobic respiration: oxidiser demand and its yield */
+AZ_TRAIT(PREDATION,     social,  ROW)         /* how much of a beaten body's matter the winner can use */
+AZ_TRAIT(STORE_CAP,     metab,   ROW)         /* size of the energy store before surplus is turned into growth */
+AZ_TRAIT(TOX_SECRETE,   metab,   ROW)         /* making and releasing toxin as a defence       */
+AZ_TRAIT(WASTE_RATE,    metab,   ROW)         /* how early waste is excreted                   */
+AZ_TRAIT(BUILD,         econ,    ROW)         /* turning carried structure into reef or nest   */
+AZ_TRAIT(GROWTH,        metab,   ROW)         /* share of surplus going to body wall and germ store */
+AZ_TRAIT(DORMANCY,      life,    ROW)         /* readiness to encyst when starving             */
+
+/* ---- life history and reproduction ------------------------------------ */
+AZ_TRAIT(MATING_MODE,   mate,    AZ_P_MATE)   /* the mating system AZ_MM_*                     */
+AZ_TRAIT(REPRO_THRESH,  life,    ROW)         /* energy a ripe adult must hold                 */
+AZ_TRAIT(CLUTCH,        life,    ROW)         /* children per brood                            */
+AZ_TRAIT(PROVISION,     life,    ROW)         /* share of the mother's stores a brood receives */
+AZ_TRAIT(EGG_TIME,      life,    ROW)         /* laid as an egg or born live; ticks to hatching */
+AZ_TRAIT(MATURITY,      life,    ROW)         /* length of the juvenile stage                  */
+AZ_TRAIT(DISPERSAL,     life,    ROW)         /* how far from the mother a child is placed     */
+AZ_TRAIT(CARE,          social,  ROW)         /* feeding and grooming one's own young          */
+AZ_TRAIT(SEX_BIAS,      mate,    ROW)         /* hermaphrodites: readiness to be the bearing side */
+AZ_TRAIT(MUT_RATE,      genome,  ROW)         /* mutations per offspring genome                */
+AZ_TRAIT(RECOMB,        genome,  ROW)         /* crossovers per gamete                         */
+AZ_TRAIT(SELFING,       life,    ROW)         /* a ripe hermaphrodite without a partner selfs  */
+
+/* ---- social dispositions ---------------------------------------------- */
+AZ_TRAIT(AGGR,          social,  AZ_P_AGGR)   /* urge to attack                                */
+AZ_TRAIT(SOCIAL,        social,  AZ_P_SOCIAL) /* urge to affiliate                             */
+AZ_TRAIT(ALTRUISM,      social,  ROW)         /* size of a gift                                */
+AZ_TRAIT(KIN_BIAS,      scan,    AZ_P_KIN)    /* width of the kin window on tag distance       */
+AZ_TRAIT(RECIPROCITY,   social,  ROW)         /* weight of remembered help and harm            */
+AZ_TRAIT(FORGIVE,       social,  ROW)         /* how fast a remembered harm fades              */
+AZ_TRAIT(PUNISH,        social,  ROW)         /* extra harm done to an aggressor, at a cost    */
+AZ_TRAIT(STEAL,         social,  ROW)         /* urge and skill to take inventory              */
+AZ_TRAIT(TRUST,         econ,    ROW)         /* accepting a trade from a stranger             */
+AZ_TRAIT(DOMINANCE,     social,  ROW)         /* rank won by a victory                         */
+AZ_TRAIT(SUBMISSION,    social,  ROW)         /* yielding to a higher rank: smaller loss, no fight */
+AZ_TRAIT(TERRITORIAL,   social,  ROW)         /* laying territory marks and defending them     */
+AZ_TRAIT(COLONIALITY,   colony,  ROW)         /* founding a colony                             */
+AZ_TRAIT(CONFORMITY,    tier1,   ROW)         /* pull of the colony's culture on the own context */
+AZ_TRAIT(BOLDNESS,      social,  ROW)         /* standing against a larger opponent            */
+AZ_TRAIT(MOODINESS,     tier1,   ROW)         /* volatility of arousal                         */
+
+/* ---- mate choice and signalling --------------------------------------- */
+AZ_TRAIT(PREF_SIGNAL,   mate,    ROW)         /* chooser's weight on the suitor's signal       */
+AZ_TRAIT(PREF_SIZE,     mate,    ROW)         /* ... on its size                               */
+AZ_TRAIT(PREF_SIMILAR,  mate,    ROW)         /* ... on tag similarity (assortative mating)    */
+AZ_TRAIT(PREF_RANK,     mate,    ROW)         /* ... on its rank                               */
+AZ_TRAIT(CHOOSY,        mate,    AZ_P_MATE)   /* acceptance threshold                          */
+AZ_TRAIT(ORNAMENT,      mate,    ROW)         /* display: attracts choosers, costs the bearer  */
+AZ_TRAIT(SIG_A_GAIN,    social,  ROW)         /* emitted signal A per unit of motor drive      */
+AZ_TRAIT(SIG_B_GAIN,    social,  ROW)         /* emitted signal B per unit of motor drive      */
+AZ_TRAIT(SIG_HONESTY,   social,  ROW)         /* how far the signal is tied to true condition  */
+AZ_TRAIT(BOND,          mate,    ROW)         /* forming and strengthening a pair bond         */
+AZ_TRAIT(FIDELITY,      mate,    ROW)         /* a bonded chooser refusing others              */
+AZ_TRAIT(GUARD,         mate,    ROW)         /* keeping one's partner from rivals             */
+
+/* ---- economy ----------------------------------------------------------- */
+AZ_TRAIT(VAL_0,         econ,    ROW)         /* subjective value of inventory resource 0      */
+AZ_TRAIT(VAL_1,         econ,    ROW)
+AZ_TRAIT(VAL_2,         econ,    ROW)
+AZ_TRAIT(VAL_3,         econ,    ROW)
+AZ_TRAIT(HOARD,         econ,    ROW)         /* reserve kept out of the market                */
+AZ_TRAIT(TRADE_DRIVE,   econ,    ROW)         /* urge to propose a trade                       */
+AZ_TRAIT(CARRY_CAP,     econ,    ROW)         /* how much is gathered into the inventory       */
+AZ_TRAIT(STORE_SHARE,   econ,    ROW)         /* share of the load given to the colony store   */
+
+/* ---- cognition and learning ------------------------------------------- */
+AZ_TRAIT(LEARN_RATE,    tier1,   ROW)         /* step size of the plasticity rule              */
+AZ_TRAIT(EXPLORE,       tier1,   ROW)         /* exploration noise on the modulation           */
+AZ_TRAIT(MEMORY,        tier1,   ROW)         /* how readily a state is stored as a pattern    */
+AZ_TRAIT(PLASTICITY,    tier1,   ROW)         /* persistence of the eligibility trace          */
+AZ_TRAIT(CTX_GAIN,      tier1,   ROW)         /* coupling of the context to the modulation     */
+AZ_TRAIT(Q_DEPTH,       tier1,   ROW)         /* length of the state-vector program            */
+AZ_TRAIT(Q_COUPLE,      tier1,   ROW)         /* coupling of its sample to the context         */
+AZ_TRAIT(HOPFIELD,      tier1,   ROW)         /* recall temperature and coupling of the recalled pattern */
+AZ_TRAIT(ATTENTION,     tier1,   ROW)         /* coupling of the neighbourhood descriptor to the gains */
+AZ_TRAIT(AROUSAL_GAIN,  tier1,   ROW)         /* rise of arousal with surprise                 */
+AZ_TRAIT(AROUSAL_DECAY, tier1,   ROW)         /* its decay                                     */
+AZ_TRAIT(IMITATE,       social,  ROW)         /* how much of a teacher's modulation a learner copies */
+
+/* ---- appearance (causal through recognition, mate choice and detection) */
+AZ_TRAIT(HUE,           scan,    TAG)         /* high byte of the tag: kin recognition         */
+AZ_TRAIT(SAT,           social,  ROW)         /* conspicuous: an attacker is seen coming       */
+AZ_TRAIT(PATTERN,       mate,    TAG)         /* low byte of the tag: assortative mating       */
+AZ_TRAIT(GLOW,          social,  ROW)         /* passive light: adds to signal A               */
+AZ_TRAIT(SHAPE_M,       mate,    ROW)         /* body plan: choosers prefer their own          */
+AZ_TRAIT(SHAPE_N,       social,  ROW)         /* reach in a contest                            */
+AZ_TRAIT(SPIKES,        social,  ROW)         /* harm done to whoever attacks the bearer       */
+AZ_TRAIT(SHEEN,         mate,    ROW)         /* multiplies the ornament in a chooser's eyes   */
+
+/* ---- body, genome and brain: what the creature is built of -------------- */
+AZ_TRAIT(SEGMENT,       genome,  ROW)         /* parts at birth (az_develop_body); life: readiness to grow more */
+AZ_TRAIT(ALLOMETRY,     metab,   ROW)         /* how intake is shared among the parts          */
+AZ_TRAIT(DEV_PLAST,     life,    ROW)         /* how far the birth place bends development     */
+AZ_TRAIT(GENE_DUP,      genome,  ROW)         /* rate of gene and block duplication            */
+AZ_TRAIT(GENE_DEL,      genome,  ROW)         /* rate of gene and block loss                   */
+AZ_TRAIT(GENE_NEW,      genome,  ROW)         /* rate of new genes and of family change        */
+AZ_TRAIT(NEURO_MUT,     brain,   ROW)         /* rate of weight and bias change                */
+AZ_TRAIT(NEURO_GROW,    brain,   ROW)         /* rate of new tiles and new neurons             */
+AZ_TRAIT(NEURO_PRUNE,   brain,   ROW)         /* rate of lost tiles and lost neurons           */
+
+/* ---- responses and strategies ------------------------------------------ */
+AZ_TRAIT(TAXIS,         sense,   MIND_CACHE)         /* gain of the gradient channels                 */
+AZ_TRAIT(CURVE,         sense,   MIND_CACHE)         /* shape of the sensory response curve           */
+AZ_TRAIT(IMPROV,        tier1,   ROW)         /* own noise let into actions (with AZ_M_IMPROV) */
+AZ_TRAIT(STAKE,         social,  ROW)         /* what it risks in a game (with AZ_M_STAKE)     */
+AZ_TRAIT(SIG_AIM,       social,  ROW)         /* how directed its signals are                  */
+AZ_TRAIT(CASTE,         colony,  ROW)         /* which role it leans to                        */
+AZ_TRAIT(COMMONS,       econ,    ROW)         /* share of gains given to the colony's pools    */
+
+/* ---- lesions ----------------------------------------------------------- */
+AZ_LESION_OWNER(BRAIN,      tick)      /* motor outputs masked                                  */
+AZ_LESION_OWNER(RECURRENCE, tick)      /* hidden state masked                                   */
+AZ_LESION_OWNER(PLASTICITY, tier1)     /* mod_gain and mod_bias are not learned                 */
+AZ_LESION_OWNER(SOCIAL,     tick)      /* every proposal dropped                                */
+AZ_LESION_OWNER(TRADE,      tick)      /* trade proposals dropped, az_econ_global skipped       */
+AZ_LESION_OWNER(MATING,     tick)      /* mate proposals dropped (budding and selfing remain)   */
+AZ_LESION_OWNER(MUTATION,   genome)    /* no new mutation                                       */
+AZ_LESION_OWNER(WEATHER,    tick)      /* az_weather_cell and az_weather_global skipped         */
+AZ_LESION_OWNER(CHEM,       tick)      /* az_chem_cell skipped                                  */
+AZ_LESION_OWNER(SIGNALS,    social)    /* the sig column is written 0                           */
+AZ_LESION_OWNER(COLONY,     tick)      /* az_colony_tier2 skipped                               */
+AZ_LESION_OWNER(COLONY,     social)    /* no recruit proposal, a recruit never joins            */
+AZ_LESION_OWNER(TIER1_Q,    tier1)     /* the tk_qsv step is skipped                            */
+AZ_LESION_OWNER(TIER1_SH,   tier1)     /* the tk_sh descriptor is skipped                       */
+AZ_LESION_OWNER(MEMORY,     tier1)     /* the tk_hop store and recall are skipped               */
+AZ_LESION_OWNER(GRAVITY,    physics)   /* no weight on bodies                                   */
+AZ_LESION_OWNER(GRAVITY,    chem)      /* no settling of matter                                 */
+AZ_LESION_OWNER(NOISE,      tick)      /* the noise channel masked                              */
+AZ_LESION_OWNER(KIN,        scan)      /* kin window closed                                     */
+AZ_LESION_OWNER(TOXIN,      genome)    /* no toxin term in the mutation rate                    */
+AZ_LESION_OWNER(TOXIN,      metab)     /* no uptake of, damage from or secretion of toxin       */
+AZ_LESION_OWNER(METRIC,     tier1)     /* the tk_qgt preconditioner is replaced by the identity */
+AZ_LESION_OWNER(CARE,       social)    /* no care proposals toward one's young                  */
+AZ_LESION_OWNER(SENSES,     tick)      /* exteroceptive channels masked                         */
+
+AZ_LESION_OWNER(TAXIS, sense) /* suppress the field-gradient receptor gain */
+AZ_LESION_OWNER(THRUST, physics) /* suppress powered translation */

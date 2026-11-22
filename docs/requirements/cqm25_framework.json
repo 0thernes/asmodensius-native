@@ -1,0 +1,186 @@
+{
+  "set_id": "cqm25_framework",
+  "title": "CQM-25 as Suite 3 of the ALife Build Framework v3.0 (CQM01..CQM25, quantitative gates, FWER family m=25)",
+  "source_files": [
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv",
+    "W:/ALife-Build-Framework-Template.md",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md"
+  ],
+  "items": [
+    {
+      "id": "CQM01",
+      "text": "Heredity: Offspring inherit genomic/epigenetic parameters and exhibit positive parent-offspring trait heritability (`h² > 0.25` above random population draw).",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L26; W:/ALife-Build-Framework-Template.md:L510; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L252; CQM repo axis 'reproduction_heredity' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM02",
+      "text": "Open-endedness: Lineages exhibit non-saturating growth in held-out behavioral niche competence and interaction complexity significantly exceeding neutral-mutation drift controls.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L27; W:/ALife-Build-Framework-Template.md:L511; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L253; CQM repo axis 'evolutionary_innovation' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM03",
+      "text": "Ecological coupling: Births, carrying capacity, and survival depend strictly on conserved dome primary production, grazing depletion, and detritus mineralization.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L28; W:/ALife-Build-Framework-Template.md:L512; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L254; CQM repo axis 'environmental_coupling' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM04",
+      "text": "Adaptive morphology: Heritable soft-body geometry, compliance, and chamber traits trade off energetically across distinct physical niches (`2-niche` fitness crossover).",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L29; W:/ALife-Build-Framework-Template.md:L513; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L255; CQM repo axis 'morphology_development' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM05",
+      "text": "Embodied thermodynamic consistency: 11-pool compensated `FP64` ledger closes (`|ΔE| / (E_0 + E_in,cum) < 1e-12`), `E_diss_num ≥ 0`, and internal ATP/fuel state causally drives behavior.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L30; W:/ALife-Build-Framework-Template.md:L514; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L256; CQM repo axis 'embodied_dynamics' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM06",
+      "text": "Perceptual integration: Multimodal sensory fusion outperforms best unimodal ablation under matched channel noise (`δ_pair ≥ 0.33`).",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L31; W:/ALife-Build-Framework-Template.md:L515; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L257; CQM repo axis 'perception' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM07",
+      "text": "Within-lifetime learning: Online synaptic/state plasticity measurably improves survival and net kJ intake over weight-frozen genetic clones on identical locked seeds.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L32; W:/ALife-Build-Framework-Template.md:L516; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L258; CQM repo axis 'learning' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM08",
+      "text": "Continual retention: Metaplastic cascade consolidation retains Task-A survival competence (`LCB_95% > -0.05`) after acquiring sequential Task-B/C contingencies.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L33; W:/ALife-Build-Framework-Template.md:L517; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L259; CQM repo axis 'memory' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM09",
+      "text": "Causal interoceptive model: Internal visceral forward model forecasts blood/store trajectories and initiates corrective foraging/shade action prior to homeostatic deficit.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L34; W:/ALife-Build-Framework-Template.md:L518; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L260; CQM repo axis 'predictive_causal_models' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM10",
+      "text": "Autonomous goal regulation: Maintains blood glucose, core temperature, and osmolarity within viable bounds via self-selected meal termination, rest, and microclimate choice.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L35; W:/ALife-Build-Framework-Template.md:L519; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L261; CQM repo axis 'autonomous_goals' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM11",
+      "text": "Multi-step planning: Internal latent rollout or Riemannian geodesic search selects hazard-avoiding detours over myopic Euclidean greedy trajectories.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L36; W:/ALife-Build-Framework-Template.md:L520; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L262; CQM repo axis 'reasoning_planning' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM12",
+      "text": "Compositional transfer: Recombines factorized learned cue/action primitives to solve held-out compound contingencies zero-shot (`Acc ≥ 0.75` vs `≤ 0.40` tabular control).",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L37; W:/ALife-Build-Framework-Template.md:L521; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L263; CQM repo axis 'transfer_generalization' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM13",
+      "text": "Metacognition: Calibrated uncertainty estimate gates active scanning and trap opt-out (direct cross-suite mirror of `HOT-2`; tracked once in de-duplicated tallies).",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L38; W:/ALife-Build-Framework-Template.md:L522; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L264; CQM repo axis 'metacognition_self_model' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM14",
+      "text": "Costly signalling game: Senders pay proportional ATP to emit condition/alarm signals and receivers decode them above phase-shuffled stream controls.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L39; W:/ALife-Build-Framework-Template.md:L523; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L265; CQM repo axis 'social_communication' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM15",
+      "text": "Autopoietic boundary: Actively synthesizes membrane lipid `T`, pumps ions against osmotic lysis, and clots physical punctures (`SOFT17`, `SOFT21`).",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L40; W:/ALife-Build-Framework-Template.md:L524; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L266; CQM repo axis 'individuality' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM16",
+      "text": "Proactive self-maintenance: Acquires enthalpy, water, precursors, and thermal shelter ahead of lethal physiological thresholds (`TTC` margin > 0).",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L41; W:/ALife-Build-Framework-Template.md:L525; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L267; CQM repo axis 'resource_maintenance' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM17",
+      "text": "Closed-loop homeostasis: Autonomic and endocrine feedback loops reject step disturbances in fuel, O2, and pH with bounded settling time.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L42; W:/ALife-Build-Framework-Template.md:L526; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L268; CQM repo axis 'homeostasis' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM18",
+      "text": "Structural resilience: Recovers viable foraging and homeostasis (`≥ 70%` intact lifespan) following `20%` random synapse loss or peripheral lobe trauma.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L43; W:/ALife-Build-Framework-Template.md:L527; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L269; CQM repo axis 'repair_resilience' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM19",
+      "text": "Recurrent persistence: Maintains task-relevant working state across stimulus-free delays via recurrent dynamics (direct mirror of `RPT-1`).",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L44; W:/ALife-Build-Framework-Template.md:L528; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L270; CQM repo axis 'recurrent_processing' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM20",
+      "text": "Workspace broadcast: Capacity-limited ignition broadcasts winning coalitions across specialist spheres (direct mirror of `GWT-3`).",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L45; W:/ALife-Build-Framework-Template.md:L529; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L271; CQM repo axis 'global_availability' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM21",
+      "text": "Non-circular integration: Perturbational complexity `PCI*` drops significantly under inter-module cut or NREM synchrony (direct mirror of `F2`).",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L46; W:/ALife-Build-Framework-Template.md:L530; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L272; CQM repo axis 'causal_integration' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM22",
+      "text": "Common-currency valence: Unified affective arbitration trades off caloric payoff against nociceptive damage and predation risk.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L47; W:/ALife-Build-Framework-Template.md:L531; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L273; CQM repo axis 'valence_tradeoffs' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM23",
+      "text": "Substrate pluralism: Canonical `.alifebin` organism snapshot restores and executes consistently across CPU, WASM, and headless CI runtimes.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L48; W:/ALife-Build-Framework-Template.md:L532; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L274; CQM repo axis 'substrate_pluralism' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM24",
+      "text": "Deterministic reproducibility: Identical seed + Tier-1 config yields bit-exact SHA-256 state hash; perturbing any declared causal part diverges trajectory `> ε_noise` in its active regime.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L49; W:/ALife-Build-Framework-Template.md:L533; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L275; CQM repo axis 'instrumentation_reproducibility' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    },
+    {
+      "id": "CQM25",
+      "text": "Competence-validated scale: Scaling neural/morphological capacity produces statistically significant competence lift over a tuned `Competent Simple Baseline` on complex tasks.",
+      "category": "L3_CQM25 / Core Organism Qualities",
+      "criterion": "Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=25) & delta_pair >= 0.33 & LCB_95% > -Delta_NI; control arms: Intact vs Targeted/Sham Lesion [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]; Min_Paired_Seeds: 24; FWER_Family_M: 25",
+      "source_ref": "W:/ALife-Framework-v3.0-Master-Checklists.csv:L50; W:/ALife-Build-Framework-Template.md:L534; W:/Clean-Slate-Creature-Blueprint-Checklist.md:L276; CQM repo axis 'visual_embodied_scale' (same position in both 25-lists; correspondence inferred by order and name, not stated in either source)"
+    }
+  ]
+}

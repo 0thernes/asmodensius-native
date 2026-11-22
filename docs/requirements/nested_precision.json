@@ -1,0 +1,949 @@
+{
+ "set_id": "nested_precision",
+ "title": "NESTOR nested-precision brain: levels, precision ladder and tiers, per-cell precisions, sizes and clocks",
+ "source_files": [
+  "W:/Nested-Precision-Brain-Framework.pdf",
+  "W:/Apex-Composite-Creature-Report.pdf",
+  "W:/Frontier-Sweep-2026.pdf"
+ ],
+ "items": [
+  {
+   "id": "NP-CELL",
+   "text": "A cell C is a tuple C = (M, pi, tau, G, I_in, I_out, {C_k}_k, Lambda): M is the cell's model type (spiking, LTC, SSM, ...), pi its precision profile (one format per tensor role), tau its native timescale and clock policy, G its geometric embedding, I its typed input/output ports, {C_k} its child cells (possibly empty), and Lambda its ledger: the observability record every cell must emit.",
+   "category": "cell-contract",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 206-217)"
+  },
+  {
+   "id": "NP-LVL-MICRO",
+   "text": "Micro (units and motifs). Individual neurons, synapses and small motifs of 1–100 units: a spiking neuron with STDP, an LTC cell, a ternary perceptron, a Clifford rotor unit, a fractional-order integrator. The micro level is where most parameters live, so it is where low precision pays the most.",
+   "category": "level",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 219-221)"
+  },
+  {
+   "id": "NP-LVL-MESO",
+   "text": "Meso (circuits and organs). Circuits of 10^2–10^5 units that perform one function: a central pattern generator, a reservoir 'retina', a Mamba-style sequence summariser, a Hopfield episodic store, a homeostatic integrator. Each meso cell has one dominant model type and a precision profile.",
+   "category": "level",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 222-224)"
+  },
+  {
+   "id": "NP-LVL-MACRO",
+   "text": "Macro (the organism and its society). The whole brain: arbitration, global neuromodulation, the world model, the body schema, and (optionally) the links between organisms in a population. The macro level holds few parameters but long-lived, error-intolerant state, so it often warrants the highest precision.",
+   "category": "level",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 225-227)"
+  },
+  {
+   "id": "NP-LVL-RELATIVE",
+   "text": "Levels are relative, not absolute: a meso cell may itself be a complete NESTOR brain (brains within brains), and an entire organism may be one micro cell in a colony-level brain.",
+   "category": "level",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 228-229)"
+  },
+  {
+   "id": "NP-TIMESCALES-WHY",
+   "text": "Why nested: an A-Life organism has to do many different things on many different timescales at once: reflexes in milliseconds, locomotion rhythms in tenths of a second, foraging plans over minutes, homeostasis and 'mood' over hours, development and learning over a lifetime.",
+   "category": "update-rate",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p3 (dump lines 104-108)"
+  },
+  {
+   "id": "NP-POPULATION-WHY",
+   "text": "Why mixed precision: precision is a resource, like energy or wiring length; in an A-Life setting, where many organisms must run in parallel on modest hardware, allocating precision well is the difference between a population of ten and a population of ten thousand.",
+   "category": "scale",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p3 (dump lines 109-114)"
+  },
+  {
+   "id": "NP-FIG1-MACRO",
+   "text": "MACRO: organism brain (arbiter + world model + homeostasis) — contains the meso cells below; any cell may itself contain a full sub-brain.",
+   "category": "service",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 271, 305-306)"
+  },
+  {
+   "id": "NP-FIG1-RESERVOIR",
+   "text": "Sensory reservoir (LSM): analog / stochastic FP8; tau ~ 1 ms.",
+   "category": "meso-cell",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 272-274)"
+  },
+  {
+   "id": "NP-FIG1-CPG",
+   "text": "sLTC motor CPG: event-driven sLTC, ternary w. (weights); INT8 state, tau adaptive.",
+   "category": "meso-cell",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 275-277)"
+  },
+  {
+   "id": "NP-FIG1-CONTROLLER",
+   "text": "LTC / CfC controller: BF16 + FP32 tau-params; tau ~ 20–200 ms.",
+   "category": "meso-cell",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 278-280)"
+  },
+  {
+   "id": "NP-FIG1-SUMMARISER",
+   "text": "Mamba summariser: FP8 E4M3 / BF16 scan; event-driven.",
+   "category": "meso-cell",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 281-283)"
+  },
+  {
+   "id": "NP-FIG1-WORLDMODEL",
+   "text": "World model (RSSM): BF16, posit16 latents; imagination clock.",
+   "category": "meso-cell",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 284-286)"
+  },
+  {
+   "id": "NP-FIG1-HOMEOSTAT",
+   "text": "Homeostat + mood: FP64 integrators; tau ~ minutes–hours.",
+   "category": "meso-cell",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 287-289)"
+  },
+  {
+   "id": "NP-FIG1-HUB",
+   "text": "Hub / sphere core routes global traffic between sub-brains over tokenless S2S channels.",
+   "category": "service",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 290-303)"
+  },
+  {
+   "id": "NP-FIG1-DSD",
+   "text": "DSD service: canonical motif library (shared, hash-consed).",
+   "category": "service",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 294-296)"
+  },
+  {
+   "id": "NP-FIG1-GOVERNOR",
+   "text": "Self-rewrite governor: propose -> sandbox -> verify -> commit / rollback; mediates every change to weights and biases.",
+   "category": "service",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 297-299)"
+  },
+  {
+   "id": "NP-FIG1-BUS",
+   "text": "Observability bus: every cell emits its ledger Lambda (states, spikes, gates, precisions, rewrites, DSD merges) -> Parquet / HDF5 / Zarr / NWB.",
+   "category": "service",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 304)"
+  },
+  {
+   "id": "NP-LADDER",
+   "text": "NESTOR treats numeric format as a per-tensor, per-role, per-time decision; the ladder runs from noisy analog and event codes at the bottom to FP64 and beyond at the top; 'bits' are per stored value, excluding shared scale metadata where block formats apply. Default zones: bulk micro weights, activations and signals, meso compute, slow error-intolerant macro state; the modifiers cut across rungs; the adaptive allocator moves tensors up and down the ladder at run time.",
+   "category": "ladder",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 231-232); p7 (dump lines 380-383)"
+  },
+  {
+   "id": "NP-RUNG-01",
+   "text": "Precision ladder rung 1 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): Analog conductance — noise is the precision; effective 4–8 bits; in-memory compute.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 332-333)"
+  },
+  {
+   "id": "NP-RUNG-02",
+   "text": "Precision ladder rung 2 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): Spike timing / event code — information in when, not how much; precision set by clock resolution.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 334-336)"
+  },
+  {
+   "id": "NP-RUNG-03",
+   "text": "Precision ladder rung 3 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): Stochastic bitstream — value = probability of a 1; precision grows with stream length.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 337-339)"
+  },
+  {
+   "id": "NP-RUNG-04",
+   "text": "Precision ladder rung 4 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): Binary {-1,+1} (1 bit) — sign-only reflexes, hashing, HDC bipolar vectors.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 340-341)"
+  },
+  {
+   "id": "NP-RUNG-05",
+   "text": "Precision ladder rung 5 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): Ternary {-1,0,+1} (1.58 bit) — BitNet b1.58 style weights: add/subtract/skip.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 342-343)"
+  },
+  {
+   "id": "NP-RUNG-06",
+   "text": "Precision ladder rung 6 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): INT2 / INT3 — bulk sensory weights after DSD sharing.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 344-345)"
+  },
+  {
+   "id": "NP-RUNG-07",
+   "text": "Precision ladder rung 7 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): INT4 / NF4 — weight storage; NF4 matched to normal-shaped weights.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 346-347)"
+  },
+  {
+   "id": "NP-RUNG-08",
+   "text": "Precision ladder rung 8 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): FP4 E2M1 / MXFP4 / NVFP4 — NVFP4: FP8 scale per 16 values + FP32 tensor scale.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 348-349)"
+  },
+  {
+   "id": "NP-RUNG-09",
+   "text": "Precision ladder rung 9 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): MXFP6 (E2M3 / E3M2) — block-scaled middle ground.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 350-351)"
+  },
+  {
+   "id": "NP-RUNG-10",
+   "text": "Precision ladder rung 10 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): INT8 / Q8 (per-channel scale) — activations, spike counters, fixed-point membrane.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 352-353)"
+  },
+  {
+   "id": "NP-RUNG-11",
+   "text": "Precision ladder rung 11 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): FP8 E4M3 — forward activations and weights.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 354-355)"
+  },
+  {
+   "id": "NP-RUNG-12",
+   "text": "Precision ladder rung 12 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): FP8 E5M2 — gradients and wide-range signals.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 356-357)"
+  },
+  {
+   "id": "NP-RUNG-13",
+   "text": "Precision ladder rung 13 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): posit8 / LNS8 — tapered or log-domain: multiplies become adds.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 358-359)"
+  },
+  {
+   "id": "NP-RUNG-14",
+   "text": "Precision ladder rung 14 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): FP16 (IEEE half) — general compute; narrow range needs loss scaling.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 360-361)"
+  },
+  {
+   "id": "NP-RUNG-15",
+   "text": "Precision ladder rung 15 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): BF16 — default meso compute: FP32 range, 8-bit mantissa.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 362-363)"
+  },
+  {
+   "id": "NP-RUNG-16",
+   "text": "Precision ladder rung 16 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): posit16 / LNS16 — latents near ±1 get extra resolution.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 364-365)"
+  },
+  {
+   "id": "NP-RUNG-17",
+   "text": "Precision ladder rung 17 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): TF32 (19-bit compute) — tensor-core matmul with FP32 accumulate.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 366-367)"
+  },
+  {
+   "id": "NP-RUNG-18",
+   "text": "Precision ladder rung 18 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): FP32 — time constants, master weights, optimizer state.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 368-369)"
+  },
+  {
+   "id": "NP-RUNG-19",
+   "text": "Precision ladder rung 19 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): posit32 — alternative to FP32 for accumulators.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 370-371)"
+  },
+  {
+   "id": "NP-RUNG-20",
+   "text": "Precision ladder rung 20 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): FP64 — homeostasis, long-horizon integrators, audit replay.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 372-373)"
+  },
+  {
+   "id": "NP-RUNG-21",
+   "text": "Precision ladder rung 21 of 21 (1 = bottom: cheaper, denser; 21 = top: more bits, range, fidelity): double-double / FP128 — reference runs, chaos checks only.",
+   "category": "ladder-rung",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 374-375)"
+  },
+  {
+   "id": "NP-MOD-1",
+   "text": "Ladder modifier: stoch. rounding, Kahan — apply to any rung; unbiased low-bit updates.",
+   "category": "ladder-modifier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 376-377)"
+  },
+  {
+   "id": "NP-MOD-2",
+   "text": "Ladder modifier: per-component multivector — scalar / vector / bivector parts on different rungs (Sec. 5).",
+   "category": "ladder-modifier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 378-379)"
+  },
+  {
+   "id": "NP-TIER-1",
+   "text": "Precision tier column 1 of 6 in the hybrid grid (model type x precision tier): Analog / stochastic.",
+   "category": "precision-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2648-2658)"
+  },
+  {
+   "id": "NP-TIER-2",
+   "text": "Precision tier column 2 of 6 in the hybrid grid (model type x precision tier): 1–1.58 bit.",
+   "category": "precision-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2648-2658)"
+  },
+  {
+   "id": "NP-TIER-3",
+   "text": "Precision tier column 3 of 6 in the hybrid grid (model type x precision tier): 2–4 bit.",
+   "category": "precision-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2648-2658)"
+  },
+  {
+   "id": "NP-TIER-4",
+   "text": "Precision tier column 4 of 6 in the hybrid grid (model type x precision tier): 8 bit (INT8, FP8, posit8, LNS8).",
+   "category": "precision-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2648-2658)"
+  },
+  {
+   "id": "NP-TIER-5",
+   "text": "Precision tier column 5 of 6 in the hybrid grid (model type x precision tier): 16 bit (FP16, BF16, posit16).",
+   "category": "precision-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2648-2658)"
+  },
+  {
+   "id": "NP-TIER-6",
+   "text": "Precision tier column 6 of 6 in the hybrid grid (model type x precision tier): 32–64 bit.",
+   "category": "precision-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2648-2658)"
+  },
+  {
+   "id": "NP-TIER-ROWS",
+   "text": "Model-type rows of the hybrid grid: sLTC / spiking; LTC / CfC; Reservoir / LSM; SSM / Mamba; World model; Clifford / geometric; Hopfield / HDC; NCA / PDE cells; ODE / DDE / fractional. A recipe appears in several cells because it is a hybrid; empty cells are open design space; the arrow shows R8's developmental annealing from high to low precision.",
+   "category": "precision-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2659-2690, 2719-2721)"
+  },
+  {
+   "id": "NP-ALLOC-PRINCIPLE",
+   "text": "Principle: precision follows sensitivity times lifetime. A tensor deserves more bits when (a) the organism's behaviour is sensitive to small errors in it and (b) those errors accumulate over its lifetime instead of being washed out.",
+   "category": "allocation-rule",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 234-235)"
+  },
+  {
+   "id": "NP-ALLOC-DEMAND",
+   "text": "Precision demand D(theta) = E[ ||grad_theta L|| ] * sigma_q(theta) [first-order sensitivity] x T_life(theta) / tau_wash(theta) [accumulation], where sigma_q is the quantisation noise at the current rung, T_life is how long the value persists, and tau_wash is how fast downstream dynamics forget perturbations; L may be a task loss, a homeostatic error, or divergence of behaviour from a high-precision shadow run.",
+   "category": "allocation-rule",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 236-256)"
+  },
+  {
+   "id": "NP-DEFAULT-1",
+   "text": "Static default 1: Bulk micro weights (sensory reservoirs, spiking motifs): ternary to INT4. Their errors are averaged over many synapses.",
+   "category": "static-default",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 258-259)"
+  },
+  {
+   "id": "NP-DEFAULT-2",
+   "text": "Static default 2: Activations and spike/state traffic: INT8 or FP8 E4M3; E5M2 for gradients and rarely large signals.",
+   "category": "static-default",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 260)"
+  },
+  {
+   "id": "NP-DEFAULT-3",
+   "text": "Static default 3: Time constants, gates, leak rates, LTC tau parameters: FP32. Small errors in tau shift the whole dynamical regime.",
+   "category": "static-default",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 261-262)"
+  },
+  {
+   "id": "NP-DEFAULT-4",
+   "text": "Static default 4: Accumulators (membrane potentials over long windows, eligibility traces, reward integrals): FP32 or posit32, with stochastic rounding if stored lower.",
+   "category": "static-default",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 263-264)"
+  },
+  {
+   "id": "NP-DEFAULT-5",
+   "text": "Static default 5: Homeostatic set points and slow integrators: FP64. These are few, long-lived and drift-sensitive.",
+   "category": "static-default",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 265)"
+  },
+  {
+   "id": "NP-DEFAULT-6",
+   "text": "Static default 6: Master copies for self-rewrite: FP32 shadow of any weight that the governor may modify (Section 6).",
+   "category": "static-default",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p5 (dump lines 266)"
+  },
+  {
+   "id": "NP-ADAPT-1",
+   "text": "Adaptive precision trigger 1 (precision moves at run time): Shadow divergence: periodically run a cell at one rung higher on the same input and measure behavioural divergence; promote if divergence exceeds a budget, demote if it stays negligible.",
+   "category": "adaptive-trigger",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 311-312)"
+  },
+  {
+   "id": "NP-ADAPT-2",
+   "text": "Adaptive precision trigger 2 (precision moves at run time): Surprise: when a cell's prediction error spikes (novel environment, injury), temporarily promote its precision so learning is not swamped by quantisation noise; demote as surprise decays.",
+   "category": "adaptive-trigger",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 313-314)"
+  },
+  {
+   "id": "NP-ADAPT-3",
+   "text": "Adaptive precision trigger 3 (precision moves at run time): Energy budget: an organism-level energy variable (itself a causal part of the simulation) caps total bit-operations; the allocator solves a knapsack-like problem, maximising sum D(theta) * benefit subject to cost.",
+   "category": "adaptive-trigger",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 315-316)"
+  },
+  {
+   "id": "NP-ADAPT-ANNEAL",
+   "text": "A useful developmental schedule (Recipe R8) starts the organism at high precision and anneals toward lower precision as structure stabilises, the reverse of the usual train-then-quantise pipeline.",
+   "category": "adaptive-trigger",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 317-318)"
+  },
+  {
+   "id": "NP-MODEL-1",
+   "text": "Model-type allocation row 1: sub-problem character 'Sparse, event-like, energy-critical' -> preferred family sLTC (flagship), LIF, Izhikevich — why: events only; adaptive tau from LTC; reported energy savings.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 388-393)"
+  },
+  {
+   "id": "NP-MODEL-2",
+   "text": "Model-type allocation row 2: sub-problem character 'Rich transient features of a fast stream' -> preferred family Reservoir / LSM / ESN — why: fixed random dynamics, cheap linear readout.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 394-398)"
+  },
+  {
+   "id": "NP-MODEL-3",
+   "text": "Model-type allocation row 3: sub-problem character 'Smooth control with variable timescales' -> preferred family LTC / CfC / neural ODE — why: input-dependent time constants.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 399-402)"
+  },
+  {
+   "id": "NP-MODEL-4",
+   "text": "Model-type allocation row 4: sub-problem character 'Long sequences, memory compression' -> preferred family Selective SSM (Mamba), S4 — why: linear-time scan, selective retention.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 403-406)"
+  },
+  {
+   "id": "NP-MODEL-5",
+   "text": "Model-type allocation row 5: sub-problem character 'Prediction, imagination, planning' -> preferred family World model (RSSM, JEPA-style) — why: latent rollouts without acting.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 407-411)"
+  },
+  {
+   "id": "NP-MODEL-6",
+   "text": "Model-type allocation row 6: sub-problem character 'Pose, contact, rotation, body schema' -> preferred family Clifford / equivariant nets — why: group structure by construction.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 412-415)"
+  },
+  {
+   "id": "NP-MODEL-7",
+   "text": "Model-type allocation row 7: sub-problem character 'Episodic recall, pattern completion' -> preferred family Modern Hopfield, HDC — why: content addressing.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 416-419)"
+  },
+  {
+   "id": "NP-MODEL-8",
+   "text": "Model-type allocation row 8: sub-problem character 'Morphogenesis, tissue, growth' -> preferred family Neural cellular automata, PDE cells — why: local rules, global form.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 420-424)"
+  },
+  {
+   "id": "NP-MODEL-9",
+   "text": "Model-type allocation row 9: sub-problem character 'Slow physiology, mood, homeostasis' -> preferred family Low-dim ODE/DDE/fractional integrators — why: interpretable, stable, high precision.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p7 (dump lines 425-429)"
+  },
+  {
+   "id": "NP-MODEL-SLTC",
+   "text": "sLTC as the flagship micro/meso block: the default choice for any sub-brain that is event-driven, energy-limited or a candidate for low precision; NESTOR-specific hypotheses (untested by the published work): sLTC cells tolerate ternary weights and INT8 state, their spikes are a natural S2S payload, and banks of sLTC cells with similar time constants are good DSD targets.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p6 (dump lines 321-326); p8 (dump line 435)"
+  },
+  {
+   "id": "NP-MODEL-CHOOSER",
+   "text": "Allocation can be fixed by the designer, chosen by evolution (the model type is a gene), or learned by a router that instantiates candidate families in parallel and lets DSD merge the winners.",
+   "category": "model-type",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p8 (dump lines 436-437)"
+  },
+  {
+   "id": "NP-PORTS",
+   "text": "Interfaces: every port is typed by (algebra, shape, precision, clock, semantics tag); spikes, continuous states, latent caches and scalar neuromodulators are all legal port types; text tokens are not required anywhere.",
+   "category": "port",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p8 (dump lines 460-462)"
+  },
+  {
+   "id": "NP-NEUROMOD",
+   "text": "Shared state (ii): global neuromodulators — a handful of FP32/FP64 scalars, e.g. 'arousal', 'reward prediction error', 'fatigue' — that multiply gains and plasticity rates everywhere.",
+   "category": "shared-state",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p8 (dump lines 463-466)"
+  },
+  {
+   "id": "NP-CLOCKS",
+   "text": "Timescales: each cell runs on its own clock: fixed-step, event-driven, or adaptive-step (ODE solver). The runtime is a multi-rate scheduler: fast cells take many steps per slow step; slow cells see fast cells through time-aggregating adapters (rate, last value, leaky average, or a learned summariser); fast cells see slow cells as piecewise-constant or interpolated context.",
+   "category": "update-rate",
+   "criterion": "Communication across a timescale boundary is always mediated, never a raw read of another cell's internal buffer.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p8 (dump lines 467-471)"
+  },
+  {
+   "id": "NP-DIFFWEIGHT",
+   "text": "Differential weights and biases: each weight may be stored as a base value plus differentials, w = w0 + dw(position) + dw(context) + dw(time); the base w0 can be shared across many synapses by DSD, while the small differentials are stored at low precision.",
+   "category": "format",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p8 (dump lines 451-454)"
+  },
+  {
+   "id": "NP-PLACEMENT",
+   "text": "Placement manifold / differential spacing: every cell and unit has coordinates in a placement space (a 3D body frame, a sphere S2 or hypersphere, or a hyperbolic disc); wiring probability, conduction delay and plasticity rate are functions of placement distance — spacing is not cosmetic layout but a parameter that changes delays and coupling.",
+   "category": "update-rate",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p8 (dump lines 444-447)"
+  },
+  {
+   "id": "NP-S2S-PREC-1",
+   "text": "S2S precision mismatch rule (1): decode with the source's scale metadata (block scales, zero points) before projecting; never project raw integer codes.",
+   "category": "mismatch-rule",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p13 (dump lines 826-831)"
+  },
+  {
+   "id": "NP-S2S-PREC-2",
+   "text": "S2S precision mismatch rule (2): project in an interchange precision at least as high as the higher of the two endpoints, BF16 by default and FP32 for channels into slow integrators.",
+   "category": "mismatch-rule",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p13 (dump lines 826-831)"
+  },
+  {
+   "id": "NP-S2S-PREC-3",
+   "text": "S2S precision mismatch rule (3): re-quantise into the target's format with stochastic rounding so that repeated small updates are not rounded away.",
+   "category": "mismatch-rule",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p13 (dump lines 826-831)"
+  },
+  {
+   "id": "NP-S2S-PREC-4",
+   "text": "S2S precision mismatch rule (4): monitor the channel's precision loss, the divergence between the fused result at interchange precision and at target precision, and let the allocator promote the channel if it is large.",
+   "category": "mismatch-rule",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p13 (dump lines 826-831)"
+  },
+  {
+   "id": "NP-S2S-TIME-1",
+   "text": "S2S timescale mismatch rule 1: Fast to slow: aggregate (spike counts, exponential traces with time constant matched to the target, or a tiny learned summariser). Aliasing is the main risk; low-pass before downsampling.",
+   "category": "mismatch-rule",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p13 (dump lines 833-834)"
+  },
+  {
+   "id": "NP-S2S-TIME-2",
+   "text": "S2S timescale mismatch rule 2: Slow to fast: hold (zero-order), interpolate, or send as a modulatory context rather than a driving input.",
+   "category": "mismatch-rule",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p13 (dump lines 835)"
+  },
+  {
+   "id": "NP-S2S-TIME-3",
+   "text": "S2S timescale mismatch rule 3: Event-driven: send only when the source state changes by more than a threshold (delta coding), which also makes the channel sparse and cheap.",
+   "category": "mismatch-rule",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p13 (dump lines 836-837)"
+  },
+  {
+   "id": "NP-S2S-TIME-4",
+   "text": "S2S timescale mismatch rule 4: Continuous-time targets (LTC, neural ODE/CDE): treat the incoming state as a control path X(t); neural controlled differential equations are a natural fit, since they consume irregularly sampled paths.",
+   "category": "mismatch-rule",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p13 (dump lines 838-839)"
+  },
+  {
+   "id": "NP-MVW-PREC",
+   "text": "Precision per component: a multi-dimensional weight is a small vector of numbers, and each component, or each grade of a multivector, may have its own rung. A reasonable default, to be tested: scalar part at the highest precision (it sets overall gain), vector part one rung lower, bivector (rotation) part at a precision chosen by how finely orientation must be resolved, and higher grades lowest.",
+   "category": "format",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p14 (dump lines 914-917)"
+  },
+  {
+   "id": "NP-MVW-POLAR",
+   "text": "Alternative: store the weight in a polar form — magnitude at high precision and direction on a quantised sphere (e.g. a geodesic grid of 2^b points for b bits); ternary generalises to ternary per component (3^k states for k components) or to a small codebook of unit directions, a 'polyhedral' weight.",
+   "category": "format",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p14 (dump lines 917-920)"
+  },
+  {
+   "id": "NP-REWRITE-TIER-0",
+   "text": "Tiers of rewrite authority: tier 0 (fast weights, bounded plasticity) acts freely within hard norm bounds.",
+   "category": "rewrite-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p16 (dump lines 990-992)"
+  },
+  {
+   "id": "NP-REWRITE-TIER-1",
+   "text": "Tiers of rewrite authority: tier 1 (weight deltas from hypernetworks or learned optimisers) requires sandbox verification.",
+   "category": "rewrite-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p16 (dump lines 990-992)"
+  },
+  {
+   "id": "NP-REWRITE-TIER-2",
+   "text": "Tiers of rewrite authority: tier 2 (structural changes, model-type swaps, DSD merges) requires verification plus a rate limit.",
+   "category": "rewrite-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p16 (dump lines 990-992)"
+  },
+  {
+   "id": "NP-REWRITE-INVARIANTS",
+   "text": "Invariants: spectral radius limits on recurrent matrices, bounds on time constants, homeostatic set-point protection (the FP64 homeostat cannot be rewritten by the cells it regulates), energy budget.",
+   "category": "rewrite-tier",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p16 (dump lines 993-994)"
+  },
+  {
+   "id": "NP-CB4-LAYOUT",
+   "text": "ChronoBlock-4 (CB4): a block-scaled 4-bit format with a temporal (spike-count) precision channel and a geometric grade map. A tensor is cut into blocks of 16 elements; each block stores a shared FP8 (E4M3) scale s_b, as in NVFP4, and a 2-bit mode tag mu_b; 16 element codes of 4 bits each; plus one tensor-level FP32 scale S.",
+   "category": "format",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p22 (dump lines 1431-1438)"
+  },
+  {
+   "id": "NP-CB4-MODES",
+   "text": "CB4 element codes are interpreted according to the mode tag: FP4 mode (E2M1, as NVFP4); ternary-plus-time mode (2 bits ternary q in {-1, 0, +1} and a 2-bit temporal dither phase); grade mode (the 64 element bits are reallocated across two Cl(3,0) multivectors, e.g. scalar 6, each vector component 4, each bivector component 3, trivector 2 bits, totalling 58 bits plus spare).",
+   "category": "format",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p22 (dump lines 1434-1437)"
+  },
+  {
+   "id": "NP-CB4-DECODE",
+   "text": "CB4 decoded value of element i at time step t: x_i(t) = S * s_b * ( q_i + eps_b [ b_i(t) - 1/2 ] ), b_i(t) = 1[ (t + phi_i) mod L < r_i ], where q_i is the stored code, eps_b one unit in the last place for the block, phi_i the stored dither phase, r_i a residual rate; over an integration window of L steps the time average recovers sub-ULP resolution: precision grows with integration time, so a cell receives a 4-bit value per step but effectively more bits per window.",
+   "category": "format",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p22 (dump lines 1439-1453)"
+  },
+  {
+   "id": "NP-CB4-SIZE",
+   "text": "CB4 storage is 4 + (8 + 2)/16 ~ 4.63 bits per element, plus a negligible tensor scale, versus about 4.5 for NVFP4; the allocator flips one 2-bit tag per block, so adaptive precision costs no data movement.",
+   "category": "format",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p22 (dump lines 1458-1460)"
+  },
+  {
+   "id": "NP-CB4-COST",
+   "text": "CB4 cost: decoding needs a mode switch and a phase counter per block; on current hardware this would be emulated (no native support), so speed claims must be measured on custom kernels, FPGAs or neuromorphic hardware.",
+   "category": "format",
+   "criterion": "Specialist test (E11b): emulate CB4 against NVFP4, MXFP4, INT4 and ternary at matched bits per element on (i) weight storage of an sLTC network, (ii) multivector weights in a rotation task; measure accuracy versus integration window L and drift of slow integrators.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p22 (dump lines 1464-1468)"
+  },
+  {
+   "id": "NP-SPINDLE-SIZE",
+   "text": "Spindle synapse cost per synapse: a pointer (12–16 bits for a library of 4k–64k rotors) plus a 3-component bivector at about 4 bits each, i.e. roughly 24–28 bits per synapse for a full 3D rotation and gain, with the distance computed from positions (cacheable); with CB4 storage, the differential lives in grade mode at 3–4 bits per component; the sandwich product costs on the order of tens of multiply–adds.",
+   "category": "format",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p23 (dump lines 1500-1503)"
+  },
+  {
+   "id": "NP-SPINDLE-DELAY",
+   "text": "Spindle synapse: W_ij = g(d_H(p_i, p_j)) R_cij exp(-delta_ij/2), g(d) = exp(-d/lambda); delay dt_ij = d_H(p_i, p_j) / v_c — each synapse rotates a multivector signal, attenuates it by hyperbolic distance, and delays it by distance.",
+   "category": "update-rate",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p22 (dump lines 1470-1486)"
+  },
+  {
+   "id": "NP-PRIME",
+   "text": "Frankenstein Prime: a CHIMERA unit whose input synapses are Spindle synapses and whose every stored tensor (W_in differentials, Xi, A, B, C, state checkpoints) is held in ChronoBlock-4; coupling (a): the CHIMERA step Delta also sets the CB4 integration window L (fast, salient moments get coarser but faster updates; quiet periods integrate more bits).",
+   "category": "format",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p23 (dump lines 1508-1520)"
+  },
+  {
+   "id": "NP-R1",
+   "text": "Recipe R1. Ternary sLTC cortex with an FP32 liquid thalamus. Bulk sensory and associative layers are sLTC units with ternary weights and INT8 membrane state, learning by neuromodulated STDP; a small CfC/LTC 'thalamus' at FP32 gates which spiking areas are active and sets their thresholds; S2S channels carry spike traces up and gain fields down.",
+   "category": "recipe",
+   "criterion": "Tests: whether a cheap bulk plus a precise router matches a uniform BF16 brain.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p32 (dump lines 2585-2593)"
+  },
+  {
+   "id": "NP-R2",
+   "text": "Recipe R2. Liquid reservoir with a Mamba narrator. An analog-noise or stochastic-bitstream liquid state machine turns raw sensory streams into rich transients; a selective SSM at FP8/BF16 reads the reservoir through an S2S random-feature projector and maintains a compressed long-horizon summary; only the readout and the SSM adapt.",
+   "category": "recipe",
+   "criterion": "Tests: whether a fixed, cheap, noisy front end plus selective memory is enough for foraging with long gaps between cues.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2594-2598)"
+  },
+  {
+   "id": "NP-R3",
+   "text": "Recipe R3. Clifford body schema. A geometric-algebra network with rotor-valued weights (BF16 scalar/vector parts, INT4 bivectors) represents limb poses and contacts in Cl(3,0) or a projective algebra; a hypernetwork writes the weights of ternary spiking motor primitives from the current body schema.",
+   "category": "recipe",
+   "criterion": "Tests: sample efficiency on a morphologically variable body (limbs added/removed).",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2599-2602)"
+  },
+  {
+   "id": "NP-R4",
+   "text": "Recipe R4. Dream loop with an FP64 homeostat. A latent world model (RSSM style, BF16, posit16 latents) runs imagination rollouts on its own clock; a low-dimensional FP64 ODE homeostat holds energy, temperature and 'mood' set points and injects them as S2S context into imagined rollouts.",
+   "category": "recipe",
+   "criterion": "Tests: planning quality versus imagination horizon, and drift of the homeostat under precision changes.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2603-2607)"
+  },
+  {
+   "id": "NP-R5",
+   "text": "Recipe R5. Fractal colony. Hundreds of identical micro-brains (neural cellular automaton cells at posit8) tile a body; DSD formalisations F3/F4 keep one canonical cell plus INT2 differentials per position; evolution acts on the canonical cell and the differential generator.",
+   "category": "recipe",
+   "criterion": "Tests: whether DSD keeps memory near-constant as the colony grows, and how much diversity is lost.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2608-2611)"
+  },
+  {
+   "id": "NP-R6",
+   "text": "Recipe R6. Hub-and-sphere associative core. A modern Hopfield memory whose stored patterns live on a hypersphere, with LNS8 arithmetic, is the hub; hyperdimensional bipolar vectors (1 bit per component) bind context to items; fast weights store the last few minutes of episodes.",
+   "category": "recipe",
+   "criterion": "Tests: episodic recall under heavy noise and low precision.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2612-2615)"
+  },
+  {
+   "id": "NP-R7",
+   "text": "Recipe R7. Event-driven sLTC-to-Mamba bridge. An sLTC front end emits events; an S2S delta-coded channel feeds them to a selective SSM whose step size is driven by event timing rather than a fixed clock; complex-valued weights in the bridge encode spike phase relative to a hub rhythm.",
+   "category": "recipe",
+   "criterion": "Tests: compute saved by event-driven updates versus fixed-step, at equal task performance, and whether the sLTC energy advantage reported in isolation survives inside a hybrid.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2616-2620)"
+  },
+  {
+   "id": "NP-R8",
+   "text": "Recipe R8. Precision-annealing embryo. The organism is born with all cells at FP32 and quaternion-valued weights in its controller; as each cell's shadow divergence falls, the allocator demotes it rung by rung, potentially to ternary components, while DSD merges stabilised motifs; evolution selects the annealing schedule.",
+   "category": "recipe",
+   "criterion": "Tests: whether develop-then-compress beats train-low-precision-from-scratch.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2621-2624)"
+  },
+  {
+   "id": "NP-R9",
+   "text": "Recipe R9. Differential twin. Two copies of one LTC (or sLTC) cell run in parallel, one at ternary and one at FP32; their difference is itself a signal, interpreted as a novelty or uncertainty detector; the difference drives neuromodulated plasticity and precision promotion.",
+   "category": "recipe",
+   "criterion": "Tests: whether twin disagreement predicts out-of-distribution inputs and errors.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2625-2628)"
+  },
+  {
+   "id": "NP-R10",
+   "text": "Recipe R10. Fractional jet homeostat. Slow physiological variables follow fractional-order ODEs (learned alpha) with geometry-derived delays; each outputs a jet (x, x', x'', x(3)) at FP64, and complex-valued weights couple variables into damped oscillations; downstream controllers read jerk as a 'something changed' signal.",
+   "category": "recipe",
+   "criterion": "Tests: whether higher-derivative channels improve anticipation of regime shifts beyond what the level and trend give.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2629-2633)"
+  },
+  {
+   "id": "NP-P1",
+   "text": "Design principle P1. Hard-wired and causal; nothing cosmetic. Every variable in a NESTOR brain must lie on a causal path to behaviour or to another causal variable; a 'mood' must change gains, thresholds, precision or plasticity; a placement coordinate must set delays or wiring.",
+   "category": "principle",
+   "criterion": "A cosmetic-variable audit is run on every build, clamping each named variable and measuring the effect on behaviour; any variable with no measurable effect is flagged; labels in the code are never trusted as evidence of function; interventions are.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p31 (dump lines 2341-2345)"
+  },
+  {
+   "id": "NP-P2",
+   "text": "Design principle P2. Adaptive, reactive, responsive, dynamic. Structure, precision, model type, wiring and weights can all change at run time within governed bounds.",
+   "category": "principle",
+   "criterion": "Reactive means a fast path exists from any sensor to some actuator without passing through slow cells; responsive means latency budgets are declared per cell and monitored.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p31 (dump lines 2346-2349)"
+  },
+  {
+   "id": "NP-P3",
+   "text": "Design principle P3. Omnitemporal. The framework supports many clocks at once (event-driven, fixed-step, adaptive-step), many timescales (sub-millisecond to lifetime), and many temporal operators (derivatives, fractional memory, delays, imagination rollouts into the future, replay of the past). Time is a typed property of every port.",
+   "category": "principle",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p31 (dump lines 2350-2352)"
+  },
+  {
+   "id": "NP-P4",
+   "text": "Design principle P4. Omnimodal. Senses and actuators are just typed ports: spike trains, continuous fields, multivectors, images, audio, proprioception, chemical gradients. No modality is privileged and none is converted to tokens.",
+   "category": "principle",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p31 (dump lines 2353-2354)"
+  },
+  {
+   "id": "NP-P5",
+   "text": "Design principle P5. Multiplatform. The cell contract is substrate-neutral: a cell can run on CPU, GPU, a neuromorphic chip, an analog accelerator or a microcontroller, provided it honours its port types and precision declarations; precision declarations double as portability declarations (a ternary/INT8 cell can be moved to an integer-only device).",
+   "category": "principle",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p32 (dump lines 2571-2573)"
+  },
+  {
+   "id": "NP-P6",
+   "text": "Design principle P6. Fully observable, data exportable. Every cell emits a ledger Lambda: states (sampled or full), spikes, gates, precision rung history, S2S traffic, DSD merges and splits, self-rewrite events, energy use, and random seeds; export formats are open (Parquet/Arrow, HDF5/Zarr, NWB for spike data, JSON for configuration).",
+   "category": "principle",
+   "criterion": "A run must be replayable from its ledger and seeds, which is why a small set of values is kept at FP64 even when the live organism does not need it.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p32 (dump lines 2574-2577)"
+  },
+  {
+   "id": "NP-P7",
+   "text": "Design principle P7. Reversible structure. Every structural operation (unfold, merge, rewrite, precision change) is logged with enough information to undo it.",
+   "category": "principle",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p32 (dump lines 2578-2579)"
+  },
+  {
+   "id": "NP-P8",
+   "text": "Design principle P8. Speculation is labelled. Configuration files mark which components are established methods and which are experimental NESTOR proposals, so that results can be attributed correctly.",
+   "category": "principle",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p32 (dump lines 2580-2581)"
+  },
+  {
+   "id": "NP-EXP-PHILOSOPHY",
+   "text": "Experimental philosophy: no fixed grade thresholds or pass/fail cut-offs are used; every comparison is reported as an effect size with uncertainty (bootstrap confidence intervals over at least several independent seeds), against a stated baseline, with the comparisons declared before running; negative results are first-class outcomes.",
+   "category": "experiment",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2636-2640)"
+  },
+  {
+   "id": "NP-EXP-WORLDS",
+   "text": "Worlds: three generic test worlds of increasing difficulty: (W1) a 2D foraging arena with delayed cues and predators; (W2) a 3D articulated or soft-body locomotion world with variable morphology; (W3) a multi-organism ecology with resource cycles, where homeostasis and long-horizon memory matter.",
+   "category": "experiment",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p33 (dump lines 2641-2643)"
+  },
+  {
+   "id": "NP-EXP-BASELINES",
+   "text": "Baselines: a monolithic BF16 recurrent controller (GRU/LSTM) of matched parameter count; a monolithic SSM; a uniform-precision version of each recipe; and the same recipe with all NESTOR-specific mechanisms disabled.",
+   "category": "experiment",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2722-2723)"
+  },
+  {
+   "id": "NP-E1",
+   "text": "E1. Precision sensitivity map. For each tensor role (weights, activations, time constants, accumulators, homeostatic state), sweep the ladder rung by rung while holding others at FP32.",
+   "category": "experiment",
+   "criterion": "Measure behavioural divergence from an FP64 reference and task competence; output: an empirical version of Figure 2 for each model family.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2725-2727)"
+  },
+  {
+   "id": "NP-E2",
+   "text": "E2. Adaptive versus static precision. Compare the shadow-divergence, surprise and energy-budget triggers against the best static allocation from E1.",
+   "category": "experiment",
+   "criterion": "Comparison at equal average bit-operations.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2728-2729)"
+  },
+  {
+   "id": "NP-E2B",
+   "text": "E2b. sLTC under NESTOR conditions. First reproduce the published sLTC vs LTC vs LSM comparison on an event-driven benchmark as a sanity check, then test sLTC at ternary/INT4/INT8 weights, sLTC as an S2S source, and DSD merging of sLTC banks.",
+   "category": "experiment",
+   "criterion": "Report energy proxies (synaptic events, bit-operations) and accuracy.",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p34 (dump lines 2730-2733)"
+  },
+  {
+   "id": "NP-ABL-UNIFORM",
+   "text": "Ablation: uniform precision (each rung) — is heterogeneous precision better than the best single rung?",
+   "category": "experiment",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p35 (dump lines 2769-2770)"
+  },
+  {
+   "id": "NP-ABL-FREEZE",
+   "text": "Ablation: freeze precision allocator — what does adaptivity add?",
+   "category": "experiment",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p35 (dump lines 2771-2772)"
+  },
+  {
+   "id": "NP-METRIC-FIDELITY",
+   "text": "Metric — Fidelity: behavioural divergence from an FP64 reference run (e.g. action-distribution divergence, trajectory distance).",
+   "category": "experiment",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p35 (dump lines 2803-2804)"
+  },
+  {
+   "id": "NP-METRIC-EFFICIENCY",
+   "text": "Metric — Efficiency: bit-operations, memory bytes (including DSD library), wall-clock and energy on target hardware, sample efficiency (episodes to competence).",
+   "category": "experiment",
+   "criterion": "",
+   "source_ref": "W:/Nested-Precision-Brain-Framework.pdf p35 (dump lines 2801-2802)"
+  },
+  {
+   "id": "NP-X-AFFECT-JET",
+   "text": "Heptarch: functional arousal a, valence v and dominance d are carried as jets (a, a', a'', a(3)), estimated by state observers at a promoted ChronoBlock-4 rung, since each derivative order amplifies noise.",
+   "category": "cross-doc",
+   "criterion": "",
+   "source_ref": "W:/Apex-Composite-Creature-Report.pdf p24 (dump lines 2468-2470); p25 (dump lines 2519-2520)"
+  },
+  {
+   "id": "NP-X-U4",
+   "text": "Heptarch upgrade U4 (Spindle): mechanical relaxation (tau ~ 1–10 s) for slow charge.",
+   "category": "cross-doc",
+   "criterion": "",
+   "source_ref": "W:/Apex-Composite-Creature-Report.pdf p36 (dump lines 3827)"
+  },
+  {
+   "id": "NP-X-U9",
+   "text": "Heptarch upgrade U9 (Capacitor): fast, medium and slow metabolic homeostats; Supernova overdraws and Zenkai repays.",
+   "category": "cross-doc",
+   "criterion": "",
+   "source_ref": "W:/Apex-Composite-Creature-Report.pdf p35 (dump lines 3796-3797)"
+  },
+  {
+   "id": "NP-X-HJEPA",
+   "text": "Frontier Sweep upgrade-map row (H-JEPA): make Chronoscope's horizons explicit JEPA levels (fast/medium/slow) with LongGame planning top-down; this matches the ChronoBlock-4 tiering.",
+   "category": "cross-doc",
+   "criterion": "",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p45 (dump lines 2254-2264)"
+  },
+  {
+   "id": "NP-X-F1",
+   "text": "Frontier Sweep F1 DASL cell: one unit — an sLTC soma fed by 4-8 dendritic branches; synapses on a branch have ternary weights (a sign and a mask).",
+   "category": "cross-doc",
+   "criterion": "Test / metric: in-episode adaptation speed vs CHIMERA-1; energy per tick; ternary-vs-FP accuracy on reflexes.",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p70 (dump lines 6195-6203)"
+  },
+  {
+   "id": "NP-X-F2",
+   "text": "Frontier Sweep F2 VISC-Spindle: each synapse holds a hidden state s, a slow ferro-precision accumulator f, a mechanical-relaxation term m (tau 1-10 s) and a fatigue term z; each synapse has a finite write budget.",
+   "category": "cross-doc",
+   "criterion": "Test / metric: seconds-scale integration test (16 sub-threshold pulses cause a fire); recall stability after Supernova.",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p70 (dump lines 6209-6218)"
+  },
+  {
+   "id": "NP-X-F3",
+   "text": "Frontier Sweep F3 Thermocore: a simulated sparse Ising lattice (16 neighbours, chromatic Gibbs updates); 2-8 chained denoising energy steps for Chronoscope's multimodal futures; annealing ternary Spindle weights.",
+   "category": "cross-doc",
+   "criterion": "Test / metric: sample quality vs steps; ternary training loss vs SGD baseline; Wildcard unpredictability per energy.",
+   "source_ref": "W:/Frontier-Sweep-2026.pdf p71 (dump lines 6229-6237)"
+  }
+ ]
+}

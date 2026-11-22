@@ -1,0 +1,291 @@
+{
+  "set_id": "framework825_soft40",
+  "title": "SOFT-40 Continuum & Wet Bio (ALife Framework v3.0)",
+  "source_files": [
+    "ALife-Framework-v3.0-Master-Checklists.csv",
+    "ALife-Framework-v3.0-Master-Spec.json",
+    "Asmodensius-evidence-crosswalk.xlsx"
+  ],
+  "items": [
+    {
+      "id": "SOFT01",
+      "text": "Incompressible hydrostatic coelom\nClosed fluid-filled cavity conserving volume (`|\u0394V|/V_0 < 0.01`) so radial muscle contraction drives axial extension.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / A. Hydrostatic skeletons, XPBD viscoelasticity & biotensegrity (SOFT01\u2013SOFT10)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 763; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/761; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 763"
+    },
+    {
+      "id": "SOFT02",
+      "text": "Compliance-scaled XPBD membrane\nViscoelastic cuticle integrated via `\u03b1\u0303 = \u03b1 / dt\u00b2` (`0` Euler `NaN` blowups under `10\u00d7` nominal impact velocity).",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / A. Hydrostatic skeletons, XPBD viscoelasticity & biotensegrity (SOFT01\u2013SOFT10)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 764; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/762; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 764"
+    },
+    {
+      "id": "SOFT03",
+      "text": "Pre-stressed biotensegrity web\nContinuous tension-cable network + discontinuous compression struts distributing localized impact strain globally.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / A. Hydrostatic skeletons, XPBD viscoelasticity & biotensegrity (SOFT01\u2013SOFT10)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 765; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/763; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 765"
+    },
+    {
+      "id": "SOFT04",
+      "text": "Mutable catch-state stiffness\nCollagen-like rapid compliance modulation (`\u2265 10\u00d7` stiffness dynamic range) trading low-ATP posture lock against squeeze agility.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / A. Hydrostatic skeletons, XPBD viscoelasticity & biotensegrity (SOFT01\u2013SOFT10)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 766; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/764; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 766"
+    },
+    {
+      "id": "SOFT05",
+      "text": "Narrow-aperture compression traversal\nCompresses cross-section to `\u2264 0.55\u00d7` resting diameter at booked `ATP + \u0394P\u00b7dV` cost to traverse crevices blocking rigid clones.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / A. Hydrostatic skeletons, XPBD viscoelasticity & biotensegrity (SOFT01\u2013SOFT10)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 767; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/765; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 767"
+    },
+    {
+      "id": "SOFT06",
+      "text": "First-Law elastic recoil & `E_diss_num`\nStores reversible strain energy in `E_elastic` (`\u2265 60%` cyclic return) and books positive XPBD numerical damping strictly to `E_diss_num \u2265 0`.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / A. Hydrostatic skeletons, XPBD viscoelasticity & biotensegrity (SOFT01\u2013SOFT10)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 768; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/766; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 768"
+    },
+    {
+      "id": "SOFT07",
+      "text": "Valved multi-chamber pressure routing\nActive inter-chamber sphincters shunt coelomic pressure `P_1..P_k` to extend/curl selected soft lobes independently.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / A. Hydrostatic skeletons, XPBD viscoelasticity & biotensegrity (SOFT01\u2013SOFT10)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 769; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/767; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 769"
+    },
+    {
+      "id": "SOFT08",
+      "text": "Equal-competence neural spike offload\nOnce Stage-4 brain is wired, compliant body achieves **`\u2265 50%` fewer central spikes/meter at non-inferior speed & failure rate** vs stiffened `\u03b1\u21920` clone.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / A. Hydrostatic skeletons, XPBD viscoelasticity & biotensegrity (SOFT01\u2013SOFT10)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 770; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/768; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 770"
+    },
+    {
+      "id": "SOFT09",
+      "text": "Conformable soft-pad friction grasp\nHigh-compliance distal pad conforms around irregular stones/food (`\u2265 2.0\u00d7` contact area & pullout force vs rigid point contact).",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / A. Hydrostatic skeletons, XPBD viscoelasticity & biotensegrity (SOFT01\u2013SOFT10)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 771; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/769; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 771"
+    },
+    {
+      "id": "SOFT10",
+      "text": "Active buoyancy / density regulation\nAdjusts internal gas/lipid ballast to hold depth station in aquatic columns at `\u2264 25%` of continuous-swimming fin ATP cost.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / A. Hydrostatic skeletons, XPBD viscoelasticity & biotensegrity (SOFT01\u2013SOFT10)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 772; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/770; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 772"
+    },
+    {
+      "id": "SOFT11",
+      "text": "Peristaltic retrograde/direct waves\nTraveling axial-radial contraction waves propel soft soma through confined burrows and high-friction substrates.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / B. Continuum locomotion, fluids, adhesion & wound repair (SOFT11\u2013SOFT20)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 773; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/771; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 773"
+    },
+    {
+      "id": "SOFT12",
+      "text": "Low- vs high-Reynolds aquatic modes\nCaptures non-reciprocal undulatory/ciliary thrust at `Re \u226a 1` and inertial vortex shedding at `Re \u226b 1` under drag laws.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / B. Continuum locomotion, fluids, adhesion & wound repair (SOFT11\u2013SOFT20)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 774; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/772; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 774"
+    },
+    {
+      "id": "SOFT13",
+      "text": "Sol-gel amoeboid cytoplasmic crawl\nFront cortical tension release + rear actomyosin-like squeeze drives protrusion and engulfment on flat substrates.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / B. Continuum locomotion, fluids, adhesion & wound repair (SOFT11\u2013SOFT20)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 775; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/773; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 775"
+    },
+    {
+      "id": "SOFT14",
+      "text": "ATP-gated wet adhesion & suction\nSwitchable mucus adhesion / pressure-cup suction holds station against fluid shear (`\u2265 3.0\u00d7` slip threshold vs un-adhered control).",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / B. Continuum locomotion, fluids, adhesion & wound repair (SOFT11\u2013SOFT20)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 776; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/774; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 776"
+    },
+    {
+      "id": "SOFT15",
+      "text": "Viscoelastic stigmergic slime trails\nSecreted mucus modifies local substrate drag (`-20%` follower cost) and carries decaying chemical provenance.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / B. Continuum locomotion, fluids, adhesion & wound repair (SOFT11\u2013SOFT20)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 777; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/775; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 777"
+    },
+    {
+      "id": "SOFT16",
+      "text": "Continuum surface strain & slip sheet\nDistributed mechanoreceptor field encodes local stretch `\u03b5`, bending curvature `\u03ba`, normal pressure, and tangential slip.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / B. Continuum locomotion, fluids, adhesion & wound repair (SOFT11\u2013SOFT20)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 778; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/776; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 778"
+    },
+    {
+      "id": "SOFT17",
+      "text": "Membrane puncture leak & coagulation\nSharp hazard breach causes real coelomic `\u0394P` drop and nutrient bleed until ATP/protein coagulation seals the aperture.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / B. Continuum locomotion, fluids, adhesion & wound repair (SOFT11\u2013SOFT20)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 779; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/777; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 779"
+    },
+    {
+      "id": "SOFT18",
+      "text": "Emergency fibrous scar vs blastema\nFast emergency scar seals wounds quickly with `+30%` local stiffness penalty; slow amino-funded blastema restores native compliance.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / B. Continuum locomotion, fluids, adhesion & wound repair (SOFT11\u2013SOFT20)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 780; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/778; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 780"
+    },
+    {
+      "id": "SOFT19",
+      "text": "Deformable-substrate burrow excavation\nDisplaces granular soil cells at booked mechanical work to construct thermally buffered predator refuges.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / B. Continuum locomotion, fluids, adhesion & wound repair (SOFT11\u2013SOFT20)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 781; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/779; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 781"
+    },
+    {
+      "id": "SOFT20",
+      "text": "Hydrodynamic lateral-line wake array\nSurface hair-cell gradient detects unseen moving predator/prey dipole wakes at `\u2265 4` body lengths in total darkness.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / B. Continuum locomotion, fluids, adhesion & wound repair (SOFT11\u2013SOFT20)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 782; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/780; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 782"
+    },
+    {
+      "id": "SOFT21",
+      "text": "G\u00e1nti Chemoton 3-cycle polymer closure\nStoichiometrically locks autocatalytic cycle `A`, membrane lipid `T`, and **template polymer `pV_n` (`n \u2265 N*` division threshold)**.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / C. Wet biochemistry & G\u00e1nti Chemoton autopoiesis (SOFT21\u2013SOFT30)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 783; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/781; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 783"
+    },
+    {
+      "id": "SOFT22",
+      "text": "Michaelis-Menten saturating kinetics\nAll enzymatic & transporter fluxes obey `v = V_max\u00b7[S]/(K_m + [S])`, guaranteeing finite rates under bolus loads.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / C. Wet biochemistry & G\u00e1nti Chemoton autopoiesis (SOFT21\u2013SOFT30)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 784; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/782; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 784"
+    },
+    {
+      "id": "SOFT23",
+      "text": "Allosteric end-product feedback\nElevated cytosolic `[ATP]/[ADP]` ratio automatically throttles upstream catabolic burn without central neural intervention.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / C. Wet biochemistry & G\u00e1nti Chemoton autopoiesis (SOFT21\u2013SOFT30)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 785; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/783; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 785"
+    },
+    {
+      "id": "SOFT24",
+      "text": "Active osmotic pump & lysis boundary\n`Na+/K+`-like ATPase counters Donnan osmotic influx; sustained ATP collapse causes cellular swelling and membrane lysis.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / C. Wet biochemistry & G\u00e1nti Chemoton autopoiesis (SOFT21\u2013SOFT30)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 786; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/784; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 786"
+    },
+    {
+      "id": "SOFT25",
+      "text": "Anaerobic lactate & pH buffering\nBurst exertion above O2 delivery accumulates `[H+/lactate]`, reducing contractile force until cleared via post-sprint Cori oxidation.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / C. Wet biochemistry & G\u00e1nti Chemoton autopoiesis (SOFT21\u2013SOFT30)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 787; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/785; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 787"
+    },
+    {
+      "id": "SOFT26",
+      "text": "Arrhenius `Q10` & thermal denaturation\nReaction and channel rates scale via `Q10` (`~1.8\u20132.4`) below `T_opt` and suffer steep reversible/irreversible denaturation above `T_max`.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / C. Wet biochemistry & G\u00e1nti Chemoton autopoiesis (SOFT21\u2013SOFT30)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 788; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/786; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 788"
+    },
+    {
+      "id": "SOFT27",
+      "text": "Dietary precursor neurotransmitter caps\nEssential amino/choline intake bounds synthesis pools for `5-HT`, `DA/NE`, and `ACh`, coupling diet quality to neural gain.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / C. Wet biochemistry & G\u00e1nti Chemoton autopoiesis (SOFT21\u2013SOFT30)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 789; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/787; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 789"
+    },
+    {
+      "id": "SOFT28",
+      "text": "Aerobic ROS wear vs antioxidant cost\nHigh mitochondrial oxidative flux generates reactive-oxygen tissue damage mitigated by ATP-costly glutathione/SOD synthesis.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / C. Wet biochemistry & G\u00e1nti Chemoton autopoiesis (SOFT21\u2013SOFT30)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 790; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/788; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 790"
+    },
+    {
+      "id": "SOFT29",
+      "text": "Cryptobiotic trehalose vitrification\nPre-drought/freeze bioprotectant synthesis drops metabolic burn to `< 2%` basal while preserving structural + `Fusi` memory state.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / C. Wet biochemistry & G\u00e1nti Chemoton autopoiesis (SOFT21\u2013SOFT30)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 791; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/789; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 791"
+    },
+    {
+      "id": "SOFT30",
+      "text": "Ordered autophagic famine bridge\nPhase-II/III starvation recycles non-vital somatic proteins into amino/ATP pools prior to irreversible Ring-0 organ failure.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / C. Wet biochemistry & G\u00e1nti Chemoton autopoiesis (SOFT21\u2013SOFT30)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 792; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/790; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 792"
+    },
+    {
+      "id": "SOFT31",
+      "text": "Yolk-conserved zygote mitotic cleavage\nMulti-chamber soma and neural primordia divide from one founder cell strictly funded by maternal yolk `E_stores` (`|\u0394E| < 1e-12`).",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / D. Multicellular morphogenesis, Blackiston metamorphosis & symbiogenesis (SOFT31\u2013SOFT40)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 793; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/791; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 793"
+    },
+    {
+      "id": "SOFT32",
+      "text": "Steinberg differential cadherin sorting\nCell-type surface-adhesion matrix `J_{\u03b1\u03b2}` self-sorts ectoderm, mesoderm, endoderm, and neural progenitors from perturbed starts.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / D. Multicellular morphogenesis, Blackiston metamorphosis & symbiogenesis (SOFT31\u2013SOFT40)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 794; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/792; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 794"
+    },
+    {
+      "id": "SOFT33",
+      "text": "Apoptotic lumen & digit sculpting\nProgrammed cell death carves internal gut/coelom cavities and separates appendage lobes with recycled amino recovery.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / D. Multicellular morphogenesis, Blackiston metamorphosis & symbiogenesis (SOFT31\u2013SOFT40)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 795; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/793; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 795"
+    },
+    {
+      "id": "SOFT34",
+      "text": "Mechanotransductive `YAP/TAZ` remodeling\nSustained local tensile/compressive stress upregulates structural fiber deposition along principal load trajectories.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / D. Multicellular morphogenesis, Blackiston metamorphosis & symbiogenesis (SOFT31\u2013SOFT40)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 796; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/794; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 796"
+    },
+    {
+      "id": "SOFT35",
+      "text": "Blackiston-assay holometabolous remap\nLarval crawler replaces `\u2265 80%` somatic muscle/motor edges in pupa yet **retains larval conditioned odor-toxin aversion (`\u2265 70%`, Blackiston 2008)**.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / D. Multicellular morphogenesis, Blackiston metamorphosis & symbiogenesis (SOFT31\u2013SOFT40)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 797; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/795; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 797"
+    },
+    {
+      "id": "SOFT36",
+      "text": "Ecdysis / molting growth vulnerability\nCuticle-armored morphs must shed stiff outer layer to expand volume, surviving a high-compliance vulnerable post-molt window.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / D. Multicellular morphogenesis, Blackiston metamorphosis & symbiogenesis (SOFT31\u2013SOFT40)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 798; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/796; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 798"
+    },
+    {
+      "id": "SOFT37",
+      "text": "Bioelectric `V_mem` regeneration polarity\nGap-junction anterior-posterior voltage gradient directs blastema to regrow head sensors anteriorly and propulsors posteriorly.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / D. Multicellular morphogenesis, Blackiston metamorphosis & symbiogenesis (SOFT31\u2013SOFT40)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 799; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/797; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 799"
+    },
+    {
+      "id": "SOFT38",
+      "text": "Stoichiometric facultative endosymbiosis\nMaintains internal phototrophic or detox micro-symbionts under First-Law nutrient exchange and host immune regulation.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / D. Multicellular morphogenesis, Blackiston metamorphosis & symbiogenesis (SOFT31\u2013SOFT40)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 800; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/798; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 800"
+    },
+    {
+      "id": "SOFT39",
+      "text": "Vascularly linked colonial zooid castes\nBudded kin modules remain fluid-coupled and specialize into feeding, propulsion, and reproductive zooids.",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / D. Multicellular morphogenesis, Blackiston metamorphosis & symbiogenesis (SOFT31\u2013SOFT40)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 801; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/799; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 801"
+    },
+    {
+      "id": "SOFT40",
+      "text": "Closed carcass biogeochemical lysis\nPost-mortem soft soma mineralizes `100%` of remaining carbon/nitrogen/enthalpy back into dome `E_detritus` (`|\u0394E| < 1e-12`).",
+      "category": "L8_SOFT40 / SOFT-40 Continuum & Wet Bio / D. Multicellular morphogenesis, Blackiston metamorphosis & symbiogenesis (SOFT31\u2013SOFT40)",
+      "criterion": "Primary contrast and controls: Compliant Wet Body vs Rigid/Unclotted/Severed Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=40) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 48\nFWER family size: 40\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 802; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/800; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 802"
+    }
+  ]
+}

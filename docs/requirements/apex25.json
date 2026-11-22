@@ -1,0 +1,186 @@
+{
+  "set_id": "apex25",
+  "title": "APEX Ultimate suite v5.0-Apex-Ultimate-Synthesis: 25 checks (25/25 recorded as passed in the v40 lab artifact)",
+  "source_files": [
+    "V:/creatures/001/results/sc-port/apex_ultimate_v50.json",
+    "V:/creatures/001/organism/apex_ultimate_suite.ts",
+    "V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md"
+  ],
+  "items": [
+    {
+      "id": "APEX_01_precision_ladder_23_and_famine_atp_downshift",
+      "text": "`APEX_01` (`NESTOR`): `23` precision rungs; famine elastic downshift saves `87.5%` neural bit-switching ATP ($p = 5.24 \\times 10^{-7}$, $p_{\\text{Holm}} = 3.14 \\times 10^{-6}$, $\\Delta_{\\text{pair}} = 1.00$).",
+      "category": "NESTOR",
+      "criterion": "ok := ladderValid && savingsFrac >= 0.45 && st.pOneSided <= 0.001",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L18 (idx 1); V:/creatures/001/organism/apex_ultimate_suite.ts:L185 (ok at L216); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L71"
+    },
+    {
+      "id": "APEX_02_tokenless_s2s_coherence_and_llm_free_runtime",
+      "text": "`APEX_02` (`NESTOR`): `0` external LLM/HTTP runtime tokens or calls across all organism modules; S2S cross-scale latent coherence `0.990`.",
+      "category": "NESTOR",
+      "criterion": "ok := forbiddenApiHits === 0 && coh > 0.25 && coh <= 1.0",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L29 (idx 2); V:/creatures/001/organism/apex_ultimate_suite.ts:L224 (ok at L242); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L72"
+    },
+    {
+      "id": "APEX_03_bicursive_self_sync_monotone_lyapunov_and_dsd_compression",
+      "text": "`APEX_03` (`NESTOR`): Bicursive Self Sync (`BSS = RSR + DSD`) yields `0` discrete Lyapunov violations and higher signal-per-ATP gain (`9.191 > 9.126`) than `dsd`-lesioned control.",
+      "category": "NESTOR",
+      "criterion": "ok := viol === 0 && gainIntact > gainNoDsd",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L37 (idx 3); V:/creatures/001/organism/apex_ultimate_suite.ts:L248 (ok at L265); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L73"
+    },
+    {
+      "id": "APEX_04_clifford_cl30_8blade_rotor_norm_invariance",
+      "text": "`APEX_04` (`NESTOR`): 8-blade `Cl(3,0)` geometric algebra rotors preserve Euclidean 3-vector norms to `6.66e-16`.",
+      "category": "NESTOR",
+      "criterion": "ok := maxErr < 1e-12",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L45 (idx 4); V:/creatures/001/organism/apex_ultimate_suite.ts:L271 (ok at L285); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L74"
+    },
+    {
+      "id": "APEX_05_caputo_fractional_memory_dual_jet_ad_and_turing_pde",
+      "text": "`APEX_05` (`NESTOR`): Forward-mode `Jet` dual-number AD matches central finite differences to `1.28e-10`; Caputo fractional memory ($\\alpha = 0.45$) retains power-law tail (`0.0008 > 8.89e-6`); Schnakenberg/Turing PDE ring forms spatial contrast `0.0617`.",
+      "category": "NESTOR",
+      "criterion": "ok := adErr < 1e-9 && caputoTail > 5 * expTrace && nb.turingContrast > 0.01 && initContrast === 0",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L53 (idx 5); V:/creatures/001/organism/apex_ultimate_suite.ts:L291 (ok at L326); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L75"
+    },
+    {
+      "id": "APEX_06_ring0_guarded_wse12_dsl_norm_clamp_and_0bit_rollback",
+      "text": "`APEX_06` (`NESTOR`): Ring-0 immutability blocks `2/2` survival-invariant tampering attempts; `WSE-12` clamps spectral norm `||W||_2 = 0.9900`, keeps checkpoint diff at `656 B < 16 KB`, and achieves `0`-bit `ROLLBACK`.",
+      "category": "NESTOR",
+      "criterion": "ok := !r0a.accepted && !r0b.accepted && nb.state().ring0Intact && nb.ring0BlockedCount === 2 && maxSpec <= 0.9900001 && maxDiffBytes < 16384 && mutatedHash !== initRing1Hash && rb.ring1Hash === initRing1Hash",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L61 (idx 6); V:/creatures/001/organism/apex_ultimate_suite.ts:L331 (ok at L358); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L76"
+    },
+    {
+      "id": "APEX_07_chimera_xor_visc_spindle_chronoblock4_and_frankenstein_prime",
+      "text": "`APEX_07` (`NESTOR`): `F1 CHIMERA` solves non-linear XOR (`1.00 vs 0.50`); `F4 Frankenstein Prime` Modern Hopfield + 32D VSA achieves `1.000 vs 0.818` masked pattern completion (`vsaCos = 0.82`); `F2 VISC-Spindle` improves NREM episode consolidation ($p = 9.72 \\times 10^{-6}$, $p_{\\text{Holm}} = 3.89 \\times 10^{-5}$).",
+      "category": "NESTOR",
+      "criterion": "ok := xorIntactScore === 1.0 && xorCutScore <= 0.5 && cosIntact >= 0.95 && cosIntact > cosLesion + 0.15 && vsaCos > 0.45 && wSp.pOneSided <= 0.01",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L69 (idx 7); V:/creatures/001/organism/apex_ultimate_suite.ts:L371 (ok at L434); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L77"
+    },
+    {
+      "id": "APEX_08_M007_guarded_quantum_register_Q_le_10_and_invalid_trap",
+      "text": "`APEX_08` (`NESTOR` / `M007`): `GuardedQuantumRegister` enforces `0 <= Q <= 10` (`16,384 B <= 16,384 B`), preserves unitary norm (`0.00e+0`), and deterministically traps `7/7` invalid qubit counts and wire indices.",
+      "category": "NESTOR",
+      "criterion": "ok := q10.byteFootprint() === 16384 && q10.normError() < 1e-14 && trapped === badInputs.length",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L80 (idx 8); V:/creatures/001/organism/apex_ultimate_suite.ts:L442 (ok at L457); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L78"
+    },
+    {
+      "id": "APEX_09_seven_seat_council_synergy_and_regime_differentiation",
+      "text": "`APEX_09` (`HEPTARCH`): 7-seat simplex sums to `1.000000`; `SURGE` seat shifts `0.015 -> 0.244` from calm baseline to acute threat.",
+      "category": "HEPTARCH",
+      "criterion": "ok := HEPTARCH_SEATS.length === 7 && HEPTARCH_MODES.length === 7 && Math.abs(sumSeats - 1.0) < 1e-9 && threatOut.seatActivations[0] > calmOut.seatActivations[0] + 0.08",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L88 (idx 9); V:/creatures/001/organism/apex_ultimate_suite.ts:L465 (ok at L494); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L79"
+    },
+    {
+      "id": "APEX_10_phase_portrait_cold_strike_cortisol_suppression_and_marine_recon",
+      "text": "`APEX_10` (`HEPTARCH`): `CAPACITOR -> COLD_STRIKE` suppresses panic cortisol vs `capacitor`-lesioned `SURGE_BREAKOUT` (`-0.2170`, $p = 1.10 \\times 10^{-5}$, $p_{\\text{Holm}} = 3.89 \\times 10^{-5}$); `What-Is-What` physics anomaly triggers `MARINE_RECON` stealth (`0.28`).",
+      "category": "HEPTARCH",
+      "criterion": "ok := wCort.pOneSided <= 0.001 && reconOut.mode === \"MARINE_RECON\" && reconOut.stealthSignature <= 0.35 && reconOut.realityCaution > 0.3",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L96 (idx 10); V:/creatures/001/organism/apex_ultimate_suite.ts:L503 (ok at L547); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L80"
+    },
+    {
+      "id": "APEX_11_M018_post_absorptive_0kJ_sweet_decoy_extinction",
+      "text": "`APEX_11` (`HEPTARCH` / `M018`): Post-absorptive gut enthalpy audit extinguishes `0-kJ` sweet decoys to `0.0% <= 10%` late selection and gains `+29.61 kJ` real intake over `jester`-lesioned control ($p = 1.69 \\times 10^{-5}$, $p_{\\text{Holm}} = 3.89 \\times 10^{-5}$).",
+      "category": "HEPTARCH",
+      "criterion": "ok := meanLateDecoyFrac <= 0.10 && wCal.pOneSided <= 0.005",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L107 (idx 11); V:/creatures/001/organism/apex_ultimate_suite.ts:L555 (ok at L597); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L81"
+    },
+    {
+      "id": "APEX_12_M065_zero_trial_offline_outcome_devaluation",
+      "text": "`APEX_12` (`HEPTARCH` / `M065`): Zero-trial offline visceral devaluation switches immediately on trial 1 (`100.0% vs 13.3%`, $p = 8.13 \\times 10^{-6}$, $p_{\\text{Holm}} = 3.89 \\times 10^{-5}$).",
+      "category": "HEPTARCH",
+      "criterion": "ok := meanIntactSafe >= 0.88 && meanLesionSafe <= 0.35 && wDev.pOneSided <= 0.001",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L118 (idx 12); V:/creatures/001/organism/apex_ultimate_suite.ts:L605 (ok at L634); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L82"
+    },
+    {
+      "id": "APEX_13_M066_riemannian_danger_geodesic_obstacle_detour",
+      "text": "`APEX_13` (`HEPTARCH` / `M066`): Riemannian danger-geodesic planner routes `[0 -> 1 -> 2 -> 6 -> 10]` around central toxic barrier (`0.00` integrated hazard vs `2.55` greedy Manhattan).",
+      "category": "HEPTARCH",
+      "criterion": "ok := geo.path[0] === 0 && geo.path[geo.path.length - 1] === 10 && ratio <= 0.20 && les.greedyHazardIntegrated >= 1.5",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L129 (idx 13); V:/creatures/001/organism/apex_ultimate_suite.ts:L642 (ok at L655); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L83"
+    },
+    {
+      "id": "APEX_14_M069_unlearnable_noise_humility_gate_and_landauer_bits_per_kJ",
+      "text": "`APEX_14` (`HEPTARCH` / `M069`): Epistemic humility gate throttles unlearnable white-noise distractor channels to `0.120x <= 0.20x` ATP ($p = 7.78 \\times 10^{-6}$, $p_{\\text{Holm}} = 3.89 \\times 10^{-5}$) while tracking `250,000 bits/kJ` Landauer efficiency.",
+      "category": "HEPTARCH",
+      "criterion": "ok := ratio <= 0.20 && wHum.pOneSided <= 0.001 && landauer > 10",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L137 (idx 14); V:/creatures/001/organism/apex_ultimate_suite.ts:L660 (ok at L692); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L84"
+    },
+    {
+      "id": "APEX_15_M002_philox4x32_domain_and_cross_organ_0bit_isolation",
+      "text": "`APEX_15` (`Clean-Slate` / `M002`): Counter-based `Philox-4x32-10` achieves `0/256` cross-domain and cross-organ bit changes when unrelated organs draw extra random variates.",
+      "category": "CLEANSLATE_OMNI",
+      "criterion": "ok := bitDiffs === 0 && sink !== 0x12345678",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L148 (idx 15); V:/creatures/001/organism/apex_ultimate_suite.ts:L702 (ok at L718); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L85"
+    },
+    {
+      "id": "APEX_16_M001_M005_soa_arena_and_5gear_multirate_speed_and_accuracy",
+      "text": "`APEX_16` (`Clean-Slate` / `M001, M005`): Zero-allocation `SoAArena` + 5-gear multirate substepper achieves `>3.0x` 10,000-tick speedup (`6.0x–7.5x` typical) at `0.3401% < 1%` relative deviation vs single-gear reference.",
+      "category": "CLEANSLATE_OMNI",
+      "criterion": "ok := maxRelErr < 0.01 && speedup >= 3.0",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L156 (idx 16); V:/creatures/001/organism/apex_ultimate_suite.ts:L723 (ok at L747); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L86"
+    },
+    {
+      "id": "APEX_17_M006_alifebin_xor_checkpoint_and_apex_organism_0bit_restore",
+      "text": "`APEX_17` (`Clean-Slate` / `M006`): `.alifebin` + `22 B < 64 KB` sparse XOR diff restores `SoAArena` and full `apexMind` `Organism` with `0`-bit hash identity (`d3f317a1 === d3f317a1`).",
+      "category": "CLEANSLATE_OMNI",
+      "criterion": "ok := xorDelta.byteLength < 65536 && restoredArena.fnv1aHash() === targetHash && hashA === hashB",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L164 (idx 17); V:/creatures/001/organism/apex_ultimate_suite.ts:L752 (ok at L776); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L87"
+    },
+    {
+      "id": "APEX_18_M004_GATE03_11pool_neumaier_first_and_second_law_closure",
+      "text": "`APEX_18` (`Clean-Slate` / `M004, GATE-03`): Full 1,440-tick biosphere day closes First Law to `worldErr = 1.72e-15`, `orgErr = 5.15e-16`, `11PoolErr = 5.37e-16`, and `0` Second-Law violations.",
+      "category": "CLEANSLATE_OMNI",
+      "criterion": "ok := worldErr < 1e-12 && orgErr < 1e-12 && csState.ledger11RelErr < 5e-14 && csState.secondLawViolations === 0",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L172 (idx 18); V:/creatures/001/organism/apex_ultimate_suite.ts:L785 (ok at L796); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L88"
+    },
+    {
+      "id": "APEX_19_M011_M012_M014_chemoton_3of3_mm_100xKm_bolus_and_positive_antithetic",
+      "text": "`APEX_19` (`Clean-Slate` / `M011, M012, M014`): Gánti Chemoton demonstrates `3/3` subsystem essentiality (`3` divisions intact vs `0` when cutting metabolism, membrane, or template); Michaelis-Menten `100x K_m` bolus stays bounded (`0.1188 <= 0.12`); positive-orthant antithetic homeostat holds steady state to `0.046% < 1%` with `min(Z1, Z2) = 0.274 > 0`.",
+      "category": "CLEANSLATE_OMNI",
+      "criterion": "ok := intact.viable && intact.divisions >= 1 && !cutA.viable && !cutM.viable && !cutV.viable && mmSafe && minZ > 0 && ssErr < 0.01",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L180 (idx 19); V:/creatures/001/organism/apex_ultimate_suite.ts:L802 (ok at L833); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L89"
+    },
+    {
+      "id": "APEX_20_M021_M024_M044_hollow_shell_xpbd_crevice_and_morphological_offload",
+      "text": "`APEX_20` (`Clean-Slate` / `M021–M024, M044`): Pressurized hollow-shell XPBD hydrostat traverses a `0.55x` body-diameter crevice (`soft:PASS, rigid:FAIL`) with `0.000% < 1%` coelomic area drift, `7.41x` anisotropic directional friction ramp climb, `0.34x` passive impact peak, and `95.4% >= 50%` morphological catch-tissue spike offload.",
+      "category": "CLEANSLATE_OMNI",
+      "criterion": "ok := !rigidTry.passed && softTry.passed && softTry.volErrFrac < 0.01 && softShell.dissNumKJ >= 0 && distRatio >= 1.8 && impactRatio <= 0.5 && spikeReduction >= 0.5",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L188 (idx 20); V:/creatures/001/organism/apex_ultimate_suite.ts:L846 (ok at L862); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L90"
+    },
+    {
+      "id": "APEX_21_M084_blackiston_somatic_limb_remap_memory_retention",
+      "text": "`APEX_21` (`Clean-Slate` / `M084`): Somatic self-calibration retains `100.0% >= 80%` goal navigation after radical limb-index remapping (`20.0%` uncalibrated).",
+      "category": "CLEANSLATE_OMNI",
+      "criterion": "ok := accIntact >= 0.85 && accLesion <= 0.40",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L196 (idx 21); V:/creatures/001/organism/apex_ultimate_suite.ts:L874 (ok at L882); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L91"
+    },
+    {
+      "id": "APEX_22_omni_harness_43_caps_52_sensors_hot_lesion_and_sensorlog_0bit_replay",
+      "text": "`APEX_22` (`Omni-Harness`): `43` `qwm.cap.*` capabilities, `52` sensor profiles, `5` Hardware Tiers, `0` crashes across live modality hot-drop/restore, and `0`-bit `.sensorlog` replay (`3e9177d6`, `64` frames).",
+      "category": "CLEANSLATE_OMNI",
+      "criterion": "ok := OMNI_CAPABILITIES_43.length === 43 && OMNI_SENSOR_PROFILES_52.length === 52 && HARDWARE_TIERS_5.length === 5 && rep1.frames === 64 && rep1.stateHash === rep2.stateHash",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L204 (idx 22); V:/creatures/001/organism/apex_ultimate_suite.ts:L887 (ok at L901); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L92"
+    },
+    {
+      "id": "APEX_23_GATE04_all_5_negative_mutants_caught_and_rejected",
+      "text": "`APEX_23` (`GATE-04`): `5/5` negative mutants (`Leaky -2e-11 kJ/tick`, `Cosmetic 0-effect`, `Oracle pTrue peeker`, `Frozen plasticity on reversal`, `Shuffled Hopfield recall`) deterministically caught and rejected.",
+      "category": "GATES_ANTILARP",
+      "criterion": "ok := caughtCount === 5",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L212 (idx 23); V:/creatures/001/organism/apex_ultimate_suite.ts:L914 (ok at L1019); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L93"
+    },
+    {
+      "id": "APEX_24_GATE11_observer_independence_1000_ticks_0bit_diff",
+      "text": "`APEX_24` (`GATE-11`): 1,000-tick observer-independence holds with `0`-bit trajectory hash (`3852c34b === 3852c34b`) and byte-for-byte identical `979,329 B` JSON snapshots while hammering every telemetry/inspector endpoint on the observed twin; `spawn001()` propagates heritable `HEPTARCH` traits cleanly.",
+      "category": "GATES_ANTILARP",
+      "criterion": "ok := hObs === hUnobs && snapObs === snapUnobs && childOk",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L220 (idx 24); V:/creatures/001/organism/apex_ultimate_suite.ts:L1024 (ok at L1053); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L94"
+    },
+    {
+      "id": "APEX_25_GATE01_to_GATE13_master_release_and_parity_rollup",
+      "text": "`APEX_25` (`GATE-01..GATE-13`): All `13/13` release gates green, baseline parity `15f21609` intact, `originalityFails = 0`, `maxHolmP = 3.89e-5`, `worstLedger = 3.09e-15`.",
+      "category": "GATES_ANTILARP",
+      "criterion": "ok := gatesPassed === 13",
+      "source_ref": "V:/creatures/001/results/sc-port/apex_ultimate_v50.json:L228 (idx 25); V:/creatures/001/organism/apex_ultimate_suite.ts:L1065 (ok at L1101); V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md:L95"
+    }
+  ]
+}

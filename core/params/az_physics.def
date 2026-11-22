@@ -1,0 +1,15 @@
+/* params/az_physics.def - the world parameters of az_physics.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not a law of the physics from az_abi.h
+ * and not read from the creature (a trait, its brain, its body, its memory)
+ * is declared here, with its default and the range it may be set to, and is
+ * read as w->param[AZ_WP_<name>]. Names start with the module's name in
+ * capitals so that they cannot collide.
+ */
+AZ_PARAM(PHYS_BUOY_SHIFT,   4,   0, 15,  "right shift of the signed buoyancy impulse")
+AZ_PARAM(PHYS_FIN_GAIN,     192, 0, 255, "fin coupling to the surrounding medium")
+AZ_PARAM(PHYS_CONTACT_GAIN, 128, 0, 255, "traction coupling at a supporting face")
+AZ_PARAM(PHYS_THRUST_COST,  4,   1, 255, "energy cost scale of a powered motor request")
+AZ_PARAM(PHYS_ANG_RETAIN,   192, 0, 255, "fraction of prior angular velocity retained, in 256ths")

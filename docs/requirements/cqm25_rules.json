@@ -1,0 +1,143 @@
+{
+  "set_id": "cqm25_rules",
+  "title": "CQM-25 governance rules (7) and evaluation protocol clauses (12); ids assigned by the extractor in source order",
+  "source_files": [
+    "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json",
+    "W:/Cosmogonic Quantum Mechalogodrom/docs/adr/0018-cqm-25-capability-law-2026-10-22.md"
+  ],
+  "items": [
+    {
+      "id": "CQM25-RULE-1",
+      "text": "CQM-25 is the canonical capability framework of this repository. Every claim about life-like organization, cognition, consciousness-linked mechanisms, valence-related control or engineering scale, in documentation, user interface text, commits and agent output, is made against it.",
+      "category": "governance rule",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1214 (governance.rules[0]); W:/Cosmogonic Quantum Mechalogodrom/docs/adr/0018-cqm-25-capability-law-2026-10-22.md:L29-40"
+    },
+    {
+      "id": "CQM25-RULE-2",
+      "text": "A capability claim names its CQM-25 axis and that axis's current evidence state, and claims no more than that state supports.",
+      "category": "governance rule",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1215 (governance.rules[1]); W:/Cosmogonic Quantum Mechalogodrom/docs/adr/0018-cqm-25-capability-law-2026-10-22.md:L29-40"
+    },
+    {
+      "id": "CQM25-RULE-3",
+      "text": "An evidence state changes only with repository evidence that exists at the pinned commit and a passing test. Raising a state follows the axis's acceptance experiment and survives its falsifier.",
+      "category": "governance rule",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1216 (governance.rules[2]); W:/Cosmogonic Quantum Mechalogodrom/docs/adr/0018-cqm-25-capability-law-2026-10-22.md:L29-40"
+    },
+    {
+      "id": "CQM25-RULE-4",
+      "text": "Numeric capability scores stay null until a calibrated successor edition executes the axis protocols with controls, independent experimental units and reported rater agreement.",
+      "category": "governance rule",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1217 (governance.rules[3]); W:/Cosmogonic Quantum Mechalogodrom/docs/adr/0018-cqm-25-capability-law-2026-10-22.md:L29-40"
+    },
+    {
+      "id": "CQM25-RULE-5",
+      "text": "The nine-axis, 155-system peer survey is a legacy comparison view. It keeps its own rubric and scores, is crosswalked to CQM-25 at the level of constructs only, and never supplies or receives CQM-25 scores. Construct correspondence does not imply that the legacy survey measured or validated CQM-25 acceptance protocols.",
+      "category": "governance rule",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1218 (governance.rules[4]); W:/Cosmogonic Quantum Mechalogodrom/docs/adr/0018-cqm-25-capability-law-2026-10-22.md:L29-40"
+    },
+    {
+      "id": "CQM25-RULE-6",
+      "text": "No aggregate life, consciousness, sentience, AGI or superintelligence score is derived from the axes.",
+      "category": "governance rule",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1219 (governance.rules[5]); W:/Cosmogonic Quantum Mechalogodrom/docs/adr/0018-cqm-25-capability-law-2026-10-22.md:L29-40"
+    },
+    {
+      "id": "CQM25-RULE-7",
+      "text": "Separately labeled provisional author estimates may use the declared uncalibrated heuristic rubric in cqm-capability-estimates.json. They remain pending-review proposals, never populate canonical assessment.score and supply no aggregate or domain mean.",
+      "category": "governance rule",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L1220 (governance.rules[6]); W:/Cosmogonic Quantum Mechalogodrom/docs/adr/0018-cqm-25-capability-law-2026-10-22.md:L29-40"
+    },
+    {
+      "id": "CQM25-PROT-01",
+      "text": "Feature plans and capability claims identify affected stable CQM-25 axis IDs and their evidence requirements. Taxonomy changes require an explicit framework version and contract review; evidence updates preserve axis identity and pinned provenance.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L14 (evaluationProtocol[0])"
+    },
+    {
+      "id": "CQM25-PROT-02",
+      "text": "Declare the unit of analysis, entity boundary, intended modeling fidelity and applicable axes before evaluation. Treat individual, population and world measurements separately. N/A needs a scope reason; missing or failed evidence cannot be relabeled N/A.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L15 (evaluationProtocol[1])"
+    },
+    {
+      "id": "CQM25-PROT-03",
+      "text": "Freeze the implementation, task generator, development and held-out distributions, training exposure, horizon, hardware and resource budget. Preregister primary metrics, meaningful effect sizes, failure conditions and stopping rules.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L16 (evaluationProtocol[2])"
+    },
+    {
+      "id": "CQM25-PROT-04",
+      "text": "Use controls appropriate to the claim: random/fixed policy, frozen learning, interrupted recurrence, disconnected broadcast, replayed environment or matched sham intervention. Match compute and other confounds where feasible.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L17 (evaluationProtocol[3])"
+    },
+    {
+      "id": "CQM25-PROT-05",
+      "text": "Report independent experimental units and their dependence. Consecutive frames are not independent replicates; population studies must account for shared lineages and use independently initialized runs.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L18 (evaluationProtocol[4])"
+    },
+    {
+      "id": "CQM25-PROT-06",
+      "text": "Publish outcome distributions, uncertainty intervals, negative results, missingness and sensitivity analyses. Use multiplicity control for families of inferential tests; do not select only favorable seeds.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L19 (evaluationProtocol[5])"
+    },
+    {
+      "id": "CQM25-PROT-07",
+      "text": "Archive the commit, configuration, seeds or recorded entropy inputs, interventions and raw outputs. Reproduce each result within stated numerical tolerances, and seek independent replication of the specific result.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L20 (evaluationProtocol[6])"
+    },
+    {
+      "id": "CQM25-PROT-08",
+      "text": "Separate capability measurement, implementation evidence, causal evidence and external validity. A unit-test pass or a named module does not establish the full axis protocol. Strong evidence can support a negative result.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L21 (evaluationProtocol[7])"
+    },
+    {
+      "id": "CQM25-PROT-09",
+      "text": "Before cross-system scoring, calibrate task-specific anchors on multiple systems, use independent raters and report agreement. Publish all eligible denominators and resource limits. Do not translate nine historical scores into 25 new scores.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L22 (evaluationProtocol[8])"
+    },
+    {
+      "id": "CQM25-PROT-10",
+      "text": "For AGI or superintelligence comparisons, declare task-family coverage, capability depth, reference populations, adaptation budget, tool access, compute, time and human assistance. Report weak domains; neither a single exceptional task nor a profile average establishes general superhuman ability.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L23 (evaluationProtocol[9])"
+    },
+    {
+      "id": "CQM25-PROT-11",
+      "text": "For neurometric analogues, identify the estimator, perturbation design, null models and validation domain. Human PCI thresholds, brain-score correlations and animal sentience criteria do not automatically transfer to software.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L24 (evaluationProtocol[10])"
+    },
+    {
+      "id": "CQM25-PROT-12",
+      "text": "Reuse relevant existing evaluation resources such as Avida, MODES, EvoGym, Animal-AI, Melting Pot and Brain-Score with their own protocols. This profile organizes several research goals; it is not the first ALife benchmark or a universal standard.",
+      "category": "evaluation protocol",
+      "criterion": "",
+      "source_ref": "W:/Cosmogonic Quantum Mechalogodrom/docs/alife/cqm-capability-profile.json:L25 (evaluationProtocol[11])"
+    }
+  ]
+}

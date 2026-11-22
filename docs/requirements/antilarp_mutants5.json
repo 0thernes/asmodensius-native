@@ -1,0 +1,46 @@
+{
+  "set_id": "antilarp_mutants5",
+  "title": "GATE-04: the 5 Anti-LARP negative mutants (Leaky-2e-11, Cosmetic, Oracle, Frozen, Shuffled); ids assigned by the extractor",
+  "source_files": [
+    "V:/creatures/001/organism/apex_ultimate_suite.ts",
+    "W:/ALife-Build-Framework-Template.md",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv"
+  ],
+  "items": [
+    {
+      "id": "MUTANT-1-Leaky-2e-11",
+      "text": "Mutant 1: Subtle -2e-11 kJ/tick enthalpy leak caught by Ledger11Pool",
+      "category": "GATE-04 negative mutant",
+      "criterion": "caughtLeaky := leakLedger.leakDetected after 800 x Ledger11Pool.transfer(4, 9, 0.005, -2e-11) ; gate rule: all 5 mutants caught (caughtCount === 5)",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L915 (rule at L918); names from W:/ALife-Build-Framework-Template.md:L1468"
+    },
+    {
+      "id": "MUTANT-2-Cosmetic",
+      "text": "Mutant 2: State-evolving disconnected FAKE_CORTEX organ injected into Creature001 caught by real conformance() C-NC check!",
+      "category": "GATE-04 negative mutant",
+      "criterion": "cosmeticZeroEffectDetected := !mutantConf.pass && !!cncCheck && !cncCheck.pass && cncCheck.detail.includes(\"FAKE_CORTEX\") ; gate rule: all 5 mutants caught (caughtCount === 5)",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L920 (rule at L955); names from W:/ALife-Build-Framework-Template.md:L1468"
+    },
+    {
+      "id": "MUTANT-3-Oracle",
+      "text": "Mutant 3: Oracle ground-truth peeker caught on blinded zero-cue trap",
+      "category": "GATE-04 negative mutant",
+      "criterion": "caughtOracle := oracleEv - legitEv > 0.12 && legitEv < 0.46 ; gate rule: all 5 mutants caught (caughtCount === 5)",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L957 (rule at L969); names from W:/ALife-Build-Framework-Template.md:L1468"
+    },
+    {
+      "id": "MUTANT-4-Frozen",
+      "text": "Mutant 4: Frozen-plasticity mutant fails post-reversal behavioral adaptation vs plastic learner",
+      "category": "GATE-04 negative mutant",
+      "criterion": "caughtFrozen := plastRev.pickFrac >= 0.75 && frozRev.pickFrac <= 0.25 && Math.abs(frozRev.w3 - 0.22) < 1e-6 ; gate rule: all 5 mutants caught (caughtCount === 5)",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L971 (rule at L991); names from W:/ALife-Build-Framework-Template.md:L1468"
+    },
+    {
+      "id": "MUTANT-5-Shuffled",
+      "text": "Mutant 5: Shuffled-memory/query mutant collapses associative recall vs intact across multi-pattern Hopfield bank",
+      "category": "GATE-04 negative mutant",
+      "criterion": "caughtShuffled := cosI > 0.95 && cosI > cosS + 0.35 ; gate rule: all 5 mutants caught (caughtCount === 5)",
+      "source_ref": "V:/creatures/001/organism/apex_ultimate_suite.ts:L993 (rule at L1014); names from W:/ALife-Build-Framework-Template.md:L1468"
+    }
+  ]
+}

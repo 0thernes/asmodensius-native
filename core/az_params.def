@@ -1,0 +1,55 @@
+/* az_params.def - the world parameters.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)
+ *
+ * A world parameter is a number of the physics or of the starting conditions
+ * that is NOT carried by a gene: the scale of a mutation process, what a
+ * founder starts with, how much one cell can hold. Everything else that
+ * shapes a creature is heritable and lives in its genome, its brain or its
+ * body (az_owners.def lists the traits).
+ *
+ * Rules:
+ *   - a parameter is set at run time, before worldgen (az_param_set; az_run
+ *     --param name=value); it has a recorded default and a range, is part of
+ *     the state hash and is saved in snapshots;
+ *   - no parameter is a cap on what life may become. Where the engine needs
+ *     a bound (memory, the width of a ledger entry), the bound is a
+ *     parameter or a config field, the event of reaching it is recorded,
+ *     and it never ends the run;
+ *   - a module reads w->param[AZ_WP_<name>]; it never hard-codes one.
+ *
+ * Rates are in 1/256 unless said otherwise.
+ */
+
+/* ---- heredity (az_genome.c) ---- */
+AZ_PARAM(FAMILY_SPACE,     4096, 256, 65536, "gene families that exist in this world: a new gene takes a family number below this")
+AZ_PARAM(FOUNDER_GENE_LOSS,   0,   0,   128, "chance in 256 that a founder species lacks a core gene family (marker families are never lost)")
+AZ_PARAM(GENE_DUP_RATE,      48,   0,  4096, "scale of gene and block duplication, with the mother's GENE_DUP trait")
+AZ_PARAM(GENE_DEL_RATE,      48,   0,  4096, "scale of gene and block deletion, with the mother's GENE_DEL trait")
+AZ_PARAM(GENE_NEW_RATE,      16,   0,  4096, "scale of the birth of new genes (insertion, family drift), with the mother's GENE_NEW trait")
+AZ_PARAM(EXPR_MUT_RATE,      64,   0,  4096, "scale of changes to a gene's expression level")
+
+/* ---- brains (az_brain.c) ---- */
+AZ_PARAM(BRAIN_FOUND_HID,     4,   1,   256, "hidden blocks (of 8 neurons) in a founder's brain")
+AZ_PARAM(BRAIN_DENSITY,      96,   1,   256, "chance in 256 that a founder brain has each possible tile of connections; 256 = fully connected")
+AZ_PARAM(NEURO_RATE,         64,   0,  4096, "scale of neural mutation at birth (weights, connections, neurons), with the mother's NEURO traits")
+
+/* ---- bodies and what they hold ---- */
+AZ_PARAM(CELL_HOLD,  1073741824, 65536, 1073741824, "most matter (mu) or energy (eu) one body or one colony pool holds: a body's remains must fit the books of its cell")
+AZ_PARAM(PART_HOLD,        4096,    16, 1073741824, "matter (mu) one body part can hold per unit of the SIZE trait's scale; capacity grows with parts, not with a constant")
+
+/* ---- the wave-2 modules' own parameters: each owner edits its own file ---- */
+#include "params/az_social.def"
+#include "params/az_mate.def"
+#include "params/az_econ.def"
+#include "params/az_metab.def"
+#include "params/az_life.def"
+#include "params/az_chem.def"
+#include "params/az_weather.def"
+#include "params/az_colony.def"
+#include "params/az_tier1.def"
+#include "params/az_stats.def"
+#include "params/az_worldgen.def"
+/* Existing descriptors keep their numeric identifiers. */
+#include "params/az_sense.def"
+#include "params/az_physics.def"

@@ -1,0 +1,45 @@
+/* params/az_metab.def - the world parameters of az_metab.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not a law of the physics from az_abi.h
+ * (the redox cycle, the energy content of matter) and not read from the
+ * creature (a trait, its brain, its body, its memory) is declared here, with
+ * its default and the range it may be set to, and is read as
+ * w->param[AZ_WP_<name>]. Names start with the module's name in capitals so
+ * that they cannot collide.
+ *
+ * "Pace" below is METAB_PACE_BASE + the creature's METAB trait; "size" is
+ * its mass to the power 3/4 (Kleiber 1932). A pulse is the slow physiology
+ * of four ticks done at once, on one tick in four per creature.
+ */
+AZ_PARAM(METAB_PACE_BASE,        64, 0,     65536, "pace of life of a creature whose METAB trait is 0; the trait (0..255) adds itself")
+AZ_PARAM(METAB_UPTAKE_SCALE,    256, 0,      4096, "uptake asked per tick on a channel: size x affinity x pace x appetite x this / 2^32 matter units (appetite 0..255 from the brain's EAT drive)")
+AZ_PARAM(METAB_COST_SCALE,       48, 0,     65536, "basal cost per tick: size x pace x this / 2^16 eu, paid as heat")
+AZ_PARAM(METAB_COST_MIN,          1, 0,   1048576, "basal cost (eu) every active creature pays per tick whatever its size")
+AZ_PARAM(METAB_SENSE_COST,        4, 0,     65536, "what a sense range of 255 adds to the basal cost per tick (eu)")
+AZ_PARAM(METAB_STARVE_DAMAGE,   256, 0,     65535, "health lost per eu of cost that could not be paid")
+AZ_PARAM(METAB_THERMAL_COST,      2, 0,     65536, "extra cost per tick (eu) per 1024 of temperature outside the creature's comfortable band")
+AZ_PARAM(METAB_THERMAL_DAMAGE,   16, 0,     65536, "health lost per tick per 1024 of temperature outside the comfortable band")
+AZ_PARAM(METAB_TOXIN_INTAKE,    256, 0,       256, "toxin taken with the food, of 256: at 256 the food carries the toxin at the concentration it has among the food of the cell")
+AZ_PARAM(METAB_TOXIN_DAMAGE,      4, 0,     65536, "health lost per tick per unit of toxin carried, by a creature without resistance (TOXRES 255 takes 1/256 of it)")
+AZ_PARAM(METAB_DETOX,            16, 0,       256, "share (of 256) of the toxin carried that a pulse turns into waste, and 1 unit more; 2 eu of heat per unit")
+AZ_PARAM(METAB_BURN_SCALE,       32, 0,     65536, "most biomass respired per tick: size x pace x this / 2^16 mu and 1 more, times (384 - EFFIC) / 256: a thrifty burner is a slow one")
+AZ_PARAM(METAB_STORE_EU,         16, 0,   1048576, "energy store (eu) per unit of the STORE_CAP trait plus one: respiration refills it, energy above it builds")
+AZ_PARAM(METAB_BUILD_EU,          4, 0,   1048576, "energy (eu), paid as heat, to build one unit of the free pool into the wall or the germ store")
+AZ_PARAM(METAB_BUILD_SHARE,       4, 0,       256, "most of the free pool (of 256) one pulse builds into wall and germ store, and 1 unit more")
+AZ_PARAM(METAB_WALL_SHARE,       16, 0,       256, "the wall (pool_m) is built up to this share (of 256) of what the body's parts can hold")
+AZ_PARAM(METAB_HEAL,            512, 0,     65535, "health one unit of wall restores; the unit becomes waste and its energy heat")
+AZ_PARAM(METAB_HEAL_RATE,         4, 0,   1048576, "most units of wall a pulse spends on repair")
+AZ_PARAM(METAB_PART_SHARE,        4, 0,       256, "share of the free pool a pulse builds into the part whose turn it is: (8 + ALLOMETRY) x this / 2^15")
+AZ_PARAM(METAB_SECRETE_SHARE,    64, 0,       256, "share (of 256) of the waste carried that a TOX_SECRETE trait of 256 would turn into toxin in one pulse")
+AZ_PARAM(METAB_WASTE_HOLD,        4, 0,   1048576, "waste (mu) a body carries before it excretes, per 16 units of 255 - WASTE_RATE")
+AZ_PARAM(METAB_WASTE_DAMAGE,     16, 0,     65536, "health lost per pulse per 16 units of waste still carried after excretion")
+AZ_PARAM(METAB_PRESS_UNIT,       64, 1,   1048576, "pressure a creature bears per unit of its PRESS_TOL trait plus one")
+AZ_PARAM(METAB_PRESS_DAMAGE,    256, 0,     65536, "health lost per pulse per METAB_PRESS_UNIT of pressure above what the creature bears")
+AZ_PARAM(METAB_RAD_DAMAGE,       16, 0,     65536, "health lost per pulse per unit of cell charge above the creature's RAD_TOL trait")
+AZ_PARAM(METAB_TOLERANCE_UPKEEP,  2, 0,     65536, "energy (eu) per pulse per 256 units of TTOL + TOXRES + PRESS_TOL + RAD_TOL: the price of bearing more")
+AZ_PARAM(METAB_PART_UPKEEP,       1, 0,   1048576, "energy (eu) per pulse per body part")
+AZ_PARAM(METAB_BRAIN_UPKEEP,      1, 0,   1048576, "energy (eu) per pulse per 256 bytes of brain")
+AZ_PARAM(METAB_WORD_UPKEEP,      16, 0,     65536, "share (of 256) of TIER1_WORD_EU that one word of long-term memory costs per pulse")
+AZ_PARAM(METAB_ORNAMENT_UPKEEP,   4, 0,   1048576, "energy (eu) per pulse an ORNAMENT trait of 255 costs to carry (the handicap: Zahavi 1975, Grafen 1990)")

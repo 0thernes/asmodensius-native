@@ -1,0 +1,61 @@
+cpu: Intel(R) Core(TM) Ultra 9 275HX
+cpu_features() = 0x1ff  OSYMM=1 AVX=1 AVX2=1 FMA=1 BMI1=1 BMI2=1 AVX-VNNI=1 VNNI-INT8=1 VNNI-INT16=1 AVX512F=0
+cpu: asm mask vs gcc <cpuid.h> + _xgetbv: 0x1ff vs 0x1ff; gcc builtin avx2=1 fma=1 bmi2=1 avxvnni=1  PASS
+abi: clobber_all  (8 gpr, 10 xmm, 32 locals)    changed-register mask = 0x00000  PASS
+abi: clobber_odd  (3 gpr, 1 xmm, 32 locals)     changed-register mask = 0x00000  PASS
+abi: clobber_min  (1 gpr)                       changed-register mask = 0x00000  PASS
+abi: clobber_even (2 gpr, 3 xmm, 48 locals)     changed-register mask = 0x00000  PASS
+abi: clobber_xmm  (0 gpr, 10 xmm, 32 locals)    changed-register mask = 0x00000  PASS
+abi: clobber_bad  (control: trashes r12, xmm9)     changed-register mask = 0x00810  PASS (detected, expected 0x00810)
+abi: stack misaligned inside a PROC body: 0 times  PASS
+unwind: RtlVirtualUnwind through clobber_all  -> abi_check: flags 0x00, ran 1  PASS (all 8 GPR + 10 XMM recovered)
+unwind: RtlVirtualUnwind through clobber_odd  -> abi_check: flags 0x00, ran 1  PASS (all 8 GPR + 10 XMM recovered)
+unwind: RtlVirtualUnwind through clobber_even -> abi_check: flags 0x00, ran 1  PASS (all 8 GPR + 10 XMM recovered)
+unwind: RtlVirtualUnwind through clobber_xmm  -> abi_check: flags 0x00, ran 1  PASS (all 8 GPR + 10 XMM recovered)
+morton3: 10010243 encodes vs scalar bit loop, pext round trip, batch of 4099: 0 mismatches  PASS
+kernels: 102077 cases (2077 edge + 100000 random) x 6 variants vs scalar C: 0 mismatches  PASS
+  reference output mix: 915362 zero, 1856294 inside 1..126, 494808 at 127
+  out-of-contract x=255 w=127: scalar y[0]=64, vnni y[0]=64 (same), avx2 y[0]=0 (differs, expected: vpmaddubsw saturates)
+RESULT: ALL PASS
+
+== timing on logical cpu 0: P core (Intel Core)   [noisy, parallel load]
+   TSC 3071.9 MHz (vs QPC); core clock ~ 1.58 cycles per TSC tick (~4849 MHz, from an 8-cycle add chain)
+   4000 batches per row; a batch is 512 calls; figures are per call
+   the core clock is re-measured before and after every row (column cyc/tick)
+   kernel       mode         min tick  med tick  p90 tick  cyc/tick  min cycles   min ns
+   vnni_c4x4    throughput      24.12     24.30     24.39     1.685       40.63    7.851
+   vnni_c4x4    latency         42.52     42.66     45.72     1.665       70.79   13.842
+   vnni_c4x8    throughput      21.85     22.04     22.38     1.670       36.49    7.113
+   vnni_c4x8    latency         33.22     33.41     34.94     1.686       56.00   10.813
+   vnni_c4x12   throughput      21.39     21.59     21.84     1.684       36.02    6.965
+   vnni_c4x12   latency         34.53     34.73     34.91     1.657       57.23   11.241
+   avx2_c4      throughput      40.47     40.68     40.82     1.679       67.93   13.175
+   avx2_c4      latency         46.63     46.89     47.32     1.676       78.15   15.181
+   vnni_rm      throughput      28.64     29.05     29.83     1.662       47.61    9.325
+   vnni_rm      latency         47.49     47.79     48.06     1.679       79.76   15.460
+   int8_c4x8    throughput      21.88     22.03     22.21     1.676       36.65    7.121
+   int8_c4x8    latency         33.21     33.43     33.60     1.674       55.59   10.811
+   scalar C -O2 throughput     202.12    204.88    206.38     1.651      333.73   65.799
+   morton pdep  throughput       1.81      1.84      1.85     1.686        3.05    0.589   per encode, batch of 4096
+   morton C     throughput      26.02     26.58     26.88     1.643       42.74    8.469   per encode, C bit loop
+
+== timing on logical cpu 2: E core (Intel Atom)   [noisy, parallel load]
+   TSC 3071.9 MHz (vs QPC); core clock ~ 1.49 cycles per TSC tick (~4582 MHz, from an 8-cycle add chain)
+   4000 batches per row; a batch is 512 calls; figures are per call
+   the core clock is re-measured before and after every row (column cyc/tick)
+   kernel       mode         min tick  med tick  p90 tick  cyc/tick  min cycles   min ns
+   vnni_c4x4    throughput      37.31     37.62     37.77     1.492       55.68   12.146
+   vnni_c4x4    latency         44.23     44.53     44.66     1.492       65.97   14.399
+   vnni_c4x8    throughput      37.62     37.89     37.99     1.490       56.06   12.245
+   vnni_c4x8    latency         44.17     44.46     44.57     1.492       65.89   14.379
+   vnni_c4x12   throughput      39.09     39.39     39.62     1.492       58.34   12.726
+   vnni_c4x12   latency         44.18     44.63     44.78     1.492       65.92   14.380
+   avx2_c4      throughput      90.70     91.06     91.22     1.488      134.91   29.524
+   avx2_c4      latency         95.62     95.72     95.79     1.492      142.70   31.127
+   vnni_rm      throughput      79.02     79.59     79.77     1.493      117.96   25.723
+   vnni_rm      latency         89.32     89.69     89.83     1.490      133.05   29.076
+   int8_c4x8    throughput      37.64     37.89     37.99     1.491       56.13   12.252
+   int8_c4x8    latency         44.05     44.49     44.66     1.492       65.71   14.341
+   scalar C -O2 throughput     279.12    282.75    284.00     1.493      416.64   90.863
+   morton pdep  throughput       2.03      2.04      2.05     1.492        3.02    0.660   per encode, batch of 4096
+   morton C     throughput      32.22     32.48     32.56     1.489       47.99   10.488   per encode, C bit loop

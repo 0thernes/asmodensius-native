@@ -1,0 +1,20 @@
+/* params/az_econ.def - the world parameters of az_econ.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not a law of the physics from az_abi.h
+ * and not read from the creature (a trait, its brain, its body, its memory)
+ * is declared here, with its default and the range it may be set to, and is
+ * read as w->param[AZ_WP_<name>]. Names start with the module's name in
+ * capitals so that they cannot collide.
+ */
+AZ_PARAM(ECON_CARRY,        64, 0, 256, "share (of 256) of the matter a body can hold (PART_HOLD per part) that the pantry of a creature with CARRY_CAP 256 holds, the four resources together")
+AZ_PARAM(ECON_KEEP,         32, 0, 256, "free pool, as a share (of 256) of its own body mass, a creature is at ease with: above it the surplus is set aside by HOARD, under half of it the pantry is opened")
+AZ_PARAM(ECON_STORE_SHARE,  16, 0, 256, "most (of 256) of the surplus above its ease that a creature with HOARD 256 sets aside in one pulse (one tick in four); what is stored does not grow the body: tests/test_econ.c prints births against this share")
+AZ_PARAM(ECON_OPEN_SHARE,   64, 0, 256, "share (of 256) of its energy store (STORE_CAP) under which a creature opens its stored NUT_X for the 8 eu a unit carries")
+AZ_PARAM(ECON_LOT_SHARE,   128, 0, 256, "most (of 256) of what a creature offers that one trade moves")
+AZ_PARAM(ECON_SMOOTH,        3, 0,   8, "the market's memory of volume moves 1 / 2^this of the way to the tick's volume each tick")
+AZ_PARAM(ECON_URGE,        48, 0, 256, "urge (of 256) of a trade proposal by a creature with TRADE_DRIVE 256 whose holdings are as lopsided as can be counted (8 doublings); the other acts compete with it for the one pair of the tick")
+AZ_PARAM(ECON_GIVE_SHARE,    64, 0,  256, "most (of 256) of a good in its pantry, or of its energy above its own store, that a colony member with STORE_SHARE (or COMMONS) 256 and its GIVE motor pushed gives to the colony's pools in one pulse; half of that with the motor at rest")
+AZ_PARAM(ECON_FORAGER_SHARE, 512, 0, 4096, "what a member with the role FORAGER gives to the colony's pools, of 256 = as any other member")
+AZ_PARAM(ECON_NEST,          32, 0,  255, "strength of the NEST mark a member with the role BUILDER lays on its cell per pulse with its BUILD motor pushed; half of that with the motor at rest")

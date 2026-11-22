@@ -1,0 +1,2149 @@
+{
+ "set_id": "passes100",
+ "title": "Creature #1 Master 100-Pass Ledger (Pass 001..100): target item, weakness fixed, lesion/control verification",
+ "source_files": [
+  "V:/creatures/001/PASS-100-LEDGER.md",
+  "W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf",
+  "V:/creatures/001/results/sc-port/passes_100_v40.json",
+  "V:/creatures/001/organism/passes_100_suite.ts"
+ ],
+ "items": [
+  {
+   "id": "PASS-001",
+   "text": "LIFE-100 #4 Osmoregulation & ADH — fixes: Urea existed without water/electrolyte volume or kidney ATP transport",
+   "category": "Wave 01 (creatures/001/organism/life_systems.ts)",
+   "criterion": "lsOff(\"kidney\") abolishes hyperosmolar ADH water retention & thirst drive",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L26; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 1,
+    "wave": "W1",
+    "target_item": "LIFE-100 #4 Osmoregulation & ADH",
+    "weakness_fixed": "Urea existed without water/electrolyte volume or kidney ATP transport",
+    "implementation": "organism/life_systems.ts:176",
+    "target_codes": [],
+    "suite_same_number_id": "CQM10_satiation_brake_prevents_binge_overeating",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-002",
+   "text": "LIFE-100 #2, #3, #27 5-Taste & Digestion — fixes: Gut took raw scalar kJ with zero taste receptor pre-screening or bile/protease split",
+   "category": "Wave 01 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Umami/sweet vs bitter taste profile + vagal stretch + enzymatic breakdown",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L27; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 2,
+    "wave": "W1",
+    "target_item": "LIFE-100 #2, #3, #27 5-Taste & Digestion",
+    "weakness_fixed": "Gut took raw scalar kJ with zero taste receptor pre-screening or bile/protease split",
+    "implementation": "organism/life_systems.ts:201",
+    "target_codes": [],
+    "suite_same_number_id": "C16R_pre_deficit_visceral_anticipation",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-003",
+   "text": "LIFE-100 #12 Emesis & Detox — fixes: Ingested gut toxin could not be expelled before systemic absorption",
+   "category": "Wave 01 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Area postrema emesis expels gut bolus + toxic load to excreted conserving kJ",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L28; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 3,
+    "wave": "W1",
+    "target_item": "LIFE-100 #12 Emesis & Detox",
+    "weakness_fixed": "Ingested gut toxin could not be expelled before systemic absorption",
+    "implementation": "organism/life_systems.ts:227",
+    "target_codes": [],
+    "suite_same_number_id": "DELARP_C1_normalized_epistemic_drive_arbiter",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-004",
+   "text": "LIFE-100 #8, #36 Antithetic Ca2+ — fixes: Single-integrator homeostasis drifted under step disturbances",
+   "category": "Wave 01 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Briat–Gupta–Khammash (z1, z2) antithetic integral clamp holds bloodCa",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L29; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 4,
+    "wave": "W1",
+    "target_item": "LIFE-100 #8, #36 Antithetic Ca2+",
+    "weakness_fixed": "Single-integrator homeostasis drifted under step disturbances",
+    "implementation": "organism/life_systems.ts:242",
+    "target_codes": [],
+    "suite_same_number_id": "astrocyte_glycogen_lactate_brain_shuttle",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-005",
+   "text": "LIFE-100 #6 Intrinsic SA Heart Brain — fixes: Heart rate was a passive formula of autonomic tone with no intrinsic pacemaker",
+   "category": "Wave 01 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Sinoatrial funny-current (I_f) oscillator + baroreflex MAP + vagotomy release",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L30; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 5,
+    "wave": "W1",
+    "target_item": "LIFE-100 #6 Intrinsic SA Heart Brain",
+    "weakness_fixed": "Heart rate was a passive formula of autonomic tone with no intrinsic pacemaker",
+    "implementation": "organism/life_systems.ts:255",
+    "target_codes": [],
+    "suite_same_number_id": "hydration_osmolality_and_garcia_taste_aversion",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-006",
+   "text": "LIFE-100 #6, #5 Arterial Tree & Shunt — fixes: Single scalar perfusion could not redistribute blood between brain, gut, and skin",
+   "category": "Wave 01 (creatures/001/organism/life_systems.ts)",
+   "criterion": "3-bed vascular conductance shunts to skin in heat and brain/muscle under threat",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L31; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 6,
+    "wave": "W1",
+    "target_item": "LIFE-100 #6, #5 Arterial Tree & Shunt",
+    "weakness_fixed": "Single scalar perfusion could not redistribute blood between brain, gut, and skin",
+    "implementation": "organism/life_systems.ts:276",
+    "target_codes": [],
+    "suite_same_number_id": "micronutrient_cofactor_oxphos_efficiency",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-007",
+   "text": "LIFE-100 #7, F02 Pasteur Switch & Cori — fixes: Hypoxia lacked glycolytic ATP surge, lactate pH drop, and Cori-cycle clearance",
+   "category": "Wave 01 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Hypoxia activates anaerobic glycolysis + lactate accumulation; normoxia clears it",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L32; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 7,
+    "wave": "W1",
+    "target_item": "LIFE-100 #7, F02 Pasteur Switch & Cori",
+    "weakness_fixed": "Hypoxia lacked glycolytic ATP surge, lactate pH drop, and Cori-cycle clearance",
+    "implementation": "organism/life_systems.ts:297",
+    "target_codes": [
+     "F02"
+    ],
+    "suite_same_number_id": "anaerobic_glycolysis_lactate_and_hepatic_cori_cycle",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-008",
+   "text": "LIFE-100 #11 Hemostasis & Pain Splint — fixes: Bleeding wounds had no platelet/fibrin seal and locomotion tore open fresh clots",
+   "category": "Wave 01 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Clot cascade + nociceptive motor splint reduces secondary mechanical bleed loss",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L33; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 8,
+    "wave": "W1",
+    "target_item": "LIFE-100 #11 Hemostasis & Pain Splint",
+    "weakness_fixed": "Bleeding wounds had no platelet/fibrin seal and locomotion tore open fresh clots",
+    "implementation": "organism/life_systems.ts:321",
+    "target_codes": [],
+    "suite_same_number_id": "sa_node_pacemaker_and_baroreceptor_reflex",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-009",
+   "text": "LIFE-100 #13, F47 Innate/Adaptive MHC — fixes: Immunity had no clonal T/B memory — second infection was as slow as primary",
+   "category": "Wave 01 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Antigenic secondary challenge clears >2x faster than naive primary exposure",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L34; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 9,
+    "wave": "W1",
+    "target_item": "LIFE-100 #13, F47 Innate/Adaptive MHC",
+    "weakness_fixed": "Immunity had no clonal T/B memory — second infection was as slow as primary",
+    "implementation": "organism/life_systems.ts:346",
+    "target_codes": [
+     "F47"
+    ],
+    "suite_same_number_id": "N97_decentralized_organ_parliament_quorum",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-010",
+   "text": "LIFE-100 #14 Anabolic Regeneration — fixes: Tissue repair occurred without draining amino-acid/muscle substrate",
+   "category": "Wave 01 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Anabolic tissue regrowth explicitly transfers kJ from muscle/blood.aa to tissue",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L35; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 10,
+    "wave": "W1",
+    "target_item": "LIFE-100 #14 Anabolic Regeneration",
+    "weakness_fixed": "Tissue repair occurred without draining amino-acid/muscle substrate",
+    "implementation": "organism/life_systems.ts:378",
+    "target_codes": [],
+    "suite_same_number_id": "N67_body_first_skepticism_on_zero_calorie_sweetener",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-011",
+   "text": "LIFE-100 #15 Sequestration & Depuration — fixes: Persistent heavy-metal bioaccumulation had no metallothionein fat-binding model",
+   "category": "Wave 02 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Fat-bound sequestration buffers acute serum toxicity + slow ATP-paid depuration",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L36; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.2 (Part I)",
+   "extra": {
+    "pass": 11,
+    "wave": "W2",
+    "target_item": "LIFE-100 #15 Sequestration & Depuration",
+    "weakness_fixed": "Persistent heavy-metal bioaccumulation had no metallothionein fat-binding model",
+    "implementation": "organism/life_systems.ts:397",
+    "target_codes": [],
+    "suite_same_number_id": "hepatic_cyp_glutathione_detoxification",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-012",
+   "text": "LIFE-100 #15, #16, N35 DNA Repair/p53 — fixes: Somatic mutations accumulated unchecked without p53 apoptosis or radiation shelter drive",
+   "category": "Wave 02 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Nucleotide excision repair + p53 apoptotic culling suppresses neoplasmLoad",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L37; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 12,
+    "wave": "W2",
+    "target_item": "LIFE-100 #15, #16, N35 DNA Repair/p53",
+    "weakness_fixed": "Somatic mutations accumulated unchecked without p53 apoptosis or radiation shelter drive",
+    "implementation": "organism/life_systems.ts:416",
+    "target_codes": [
+     "N35"
+    ],
+    "suite_same_number_id": "adaptive_immune_memory_faster_secondary_clearance",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-013",
+   "text": "CQM10, FREAK #32 Satiation Cascade — fixes: Fixed CQM10 over-eating bug (300 -> 1300 kJ bloat) & DELARP C1 drive saturation",
+   "category": "Wave 02 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Gastric stretch (fast) + CCK/GLP-1 (med) + leptin (slow) halts gluttony",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L38; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 13,
+    "wave": "W2",
+    "target_item": "CQM10, FREAK #32 Satiation Cascade",
+    "weakness_fixed": "Fixed CQM10 over-eating bug (300 -> 1300 kJ bloat) & DELARP C1 drive saturation",
+    "implementation": "organism/life_systems.ts:442",
+    "target_codes": [
+     "CQM10"
+    ],
+    "suite_same_number_id": "radiation_dna_damage_and_sleep_repair",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-014",
+   "text": "C16R, CQM16 Predictive Allostasis — fixes: Fixed C16R reactive-only lag where defensive action waited until stores were already low",
+   "category": "Wave 02 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Learned cue-triggered cephalic prep (insulin/vasomotor) fires *before* deficit",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L39; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 14,
+    "wave": "W2",
+    "target_item": "C16R, CQM16 Predictive Allostasis",
+    "weakness_fixed": "Fixed C16R reactive-only lag where defensive action waited until stores were already low",
+    "implementation": "organism/life_systems.ts:472",
+    "target_codes": [
+     "C16R",
+     "CQM16"
+    ],
+    "suite_same_number_id": "persistent_inflammatory_ache_limb_guarding",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-015",
+   "text": "N20, LIFE-100 #9 Organ ATP Voting — fixes: Fixed static organ metabolic budgets under famine/exercise/infection",
+   "category": "Wave 02 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Brain, gut, immune, muscle & kidney bid urgency; hypothalamus arbitrates shares",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L40; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 15,
+    "wave": "W2",
+    "target_item": "N20, LIFE-100 #9 Organ ATP Voting",
+    "weakness_fixed": "Fixed static organ metabolic budgets under famine/exercise/infection",
+    "implementation": "organism/life_systems.ts:498",
+    "target_codes": [
+     "N20"
+    ],
+    "suite_same_number_id": "N15_sleep_connectome_mask_self_repair",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-016",
+   "text": "LIFE-100 #17 2-Process Sleep & Chronotype — fixes: Fixed rigid circadian sleep threshold insensitive to heritable chronotype",
+   "category": "Wave 02 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Borbély Process S × Process C + heritable chronotypePhase (lark vs owl)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L41; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 16,
+    "wave": "W2",
+    "target_item": "LIFE-100 #17 2-Process Sleep & Chronotype",
+    "weakness_fixed": "Fixed rigid circadian sleep threshold insensitive to heritable chronotype",
+    "implementation": "organism/life_systems.ts:525",
+    "target_codes": [],
+    "suite_same_number_id": "N50_necromone_avoidance_vs_famine_carrion_scavenging",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-017",
+   "text": "LIFE-100 #18, F08 NREM Triad Coupling — fixes: Spindle/slow-wave/ripple replay lacked explicit phase-locked coupling gate",
+   "category": "Wave 02 (creatures/001/organism/life_systems.ts)",
+   "criterion": "N3 slow-oscillation up-state + thalamic spindle + CA1 sharp-wave ripple gain",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L42; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 17,
+    "wave": "W2",
+    "target_item": "LIFE-100 #18, F08 NREM Triad Coupling",
+    "weakness_fixed": "Spindle/slow-wave/ripple replay lacked explicit phase-locked coupling gate",
+    "implementation": "organism/life_systems.ts:542",
+    "target_codes": [
+     "F08"
+    ],
+    "suite_same_number_id": "N61_emergency_autotomy_and_first_law_regeneration",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-018",
+   "text": "LIFE-100 #19 Ultradian REM & Atonia — fixes: REM lacked ultradian alternation and brainstem glycinergic muscle atonia",
+   "category": "Wave 02 (creatures/001/organism/life_systems.ts)",
+   "criterion": "NREM/REM ultradian cycle + pontine remAtonia clamps MOT dream enactment",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L43; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 18,
+    "wave": "W2",
+    "target_item": "LIFE-100 #19 Ultradian REM & Atonia",
+    "weakness_fixed": "REM lacked ultradian alternation and brainstem glycinergic muscle atonia",
+    "implementation": "organism/life_systems.ts:557",
+    "target_codes": [],
+    "suite_same_number_id": "N92_inducible_structural_armor_speed_protection_tradeoff",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-019",
+   "text": "LIFE-100 #20 Unihemispheric Sleep — fixes: Sleeping under high predation (cortisol) left organism 100% blind (DELARP conflict)",
+   "category": "Wave 02 (creatures/001/organism/life_systems.ts)",
+   "criterion": "High threat induces unihemisphericMode: half-cortex rests while open eye watches",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L44; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 19,
+    "wave": "W2",
+    "target_item": "LIFE-100 #20 Unihemispheric Sleep",
+    "weakness_fixed": "Sleeping under high predation (cortisol) left organism 100% blind (DELARP conflict)",
+    "implementation": "organism/life_systems.ts:575",
+    "target_codes": [],
+    "suite_same_number_id": "N96_metabolic_save_point_checkpoint_and_shock_rollback",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-020",
+   "text": "LIFE-100 #20 Sleep Debt & Microsleeps — fixes: Prolonged forced wakefulness had no lapses, slow-wave rebound, or lethal collapse",
+   "category": "Wave 02 (creatures/001/organism/life_systems.ts)",
+   "criterion": "Debt drives involuntary microsleepActive lapses and post-deprivation N3 rebound",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L45; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 20,
+    "wave": "W2",
+    "target_item": "LIFE-100 #20 Sleep Debt & Microsleeps",
+    "weakness_fixed": "Prolonged forced wakefulness had no lapses, slow-wave rebound, or lethal collapse",
+    "implementation": "organism/life_systems.ts:593",
+    "target_codes": [],
+    "suite_same_number_id": "N93_N99_disposable_soma_heritable_allocation_and_telomeres",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-021",
+   "text": "F06, RPT-2 Dendritic XOR (Gidon 2020) — fixes: Point neurons could not solve single-unit nonlinear XOR coincidence (RPT-2 weak spot)",
+   "category": "Wave 03 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Human L2/3 dCaAP window fires maximally at single-input XOR, suppressed on dual input",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L46; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 21,
+    "wave": "W3",
+    "target_item": "F06, RPT-2 Dendritic XOR (Gidon 2020)",
+    "weakness_fixed": "Point neurons could not solve single-unit nonlinear XOR coincidence (RPT-2 weak spot)",
+    "implementation": "organism/cognition_passes.ts:201",
+    "target_codes": [
+     "F06",
+     "RPT2"
+    ],
+    "suite_same_number_id": "human_L23_apical_dCaAP_XOR_and_L5_burst_multiplexing",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-022",
+   "text": "FREAK #51, PP-1 Burst Credit Multiplex — fixes: Bottom-up rate and top-down error collided on the same scalar firing rate",
+   "category": "Wave 03 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Naud & Sprekeler 2018 event rate vs apical-gated burst fraction credit assignment",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L47; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 22,
+    "wave": "W3",
+    "target_item": "FREAK #51, PP-1 Burst Credit Multiplex",
+    "weakness_fixed": "Bottom-up rate and top-down error collided on the same scalar firing rate",
+    "implementation": "organism/cognition_passes.ts:218",
+    "target_codes": [
+     "PP1"
+    ],
+    "suite_same_number_id": "theta_gamma_4slot_ordered_working_memory_capacity",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-023",
+   "text": "GWT-3, LIFE #53 7±2 Theta–Gamma WM — fixes: Working memory lacked bounded multi-item phase-precession slots",
+   "category": "Wave 03 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Lisman–Idiart 7 gamma subcycles nested in 1 theta cycle with oldest-item displacement",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L48; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 23,
+    "wave": "W3",
+    "target_item": "GWT-3, LIFE #53 7±2 Theta–Gamma WM",
+    "weakness_fixed": "Working memory lacked bounded multi-item phase-precession slots",
+    "implementation": "organism/cognition_passes.ts:238",
+    "target_codes": [
+     "GWT3"
+    ],
+    "suite_same_number_id": "sliding_BCM_metaplastic_threshold_and_apical_basal_learning",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-024",
+   "text": "LIFE-100 #45 BCM Metaplasticity — fixes: Unbounded Hebbian potentiation caused runaway saturation without sliding $\\theta_M$",
+   "category": "Wave 03 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Bienenstock–Cooper–Munro r^2 sliding modification threshold stabilizes weights",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L49; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 24,
+    "wave": "W3",
+    "target_item": "LIFE-100 #45 BCM Metaplasticity",
+    "weakness_fixed": "Unbounded Hebbian potentiation caused runaway saturation without sliding $\\theta_M$",
+    "implementation": "organism/cognition_passes.ts:264",
+    "target_codes": [],
+    "suite_same_number_id": "foldiak_anti_hebbian_lateral_sensory_decorrelation",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-025",
+   "text": "LIFE-100 #47 Földiák Lateral Decorrelation — fixes: Redundant correlated sensory channels wasted cortical representation capacity",
+   "category": "Wave 03 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Anti-Hebbian inhibitory lateral weights W_inh reduce pairwise channel correlation",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L50; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 25,
+    "wave": "W3",
+    "target_item": "LIFE-100 #47 Földiák Lateral Decorrelation",
+    "weakness_fixed": "Redundant correlated sensory channels wasted cortical representation capacity",
+    "implementation": "organism/cognition_passes.ts:281",
+    "target_codes": [],
+    "suite_same_number_id": "CQM08_synaptic_tag_capture_and_fusi_metaplastic_cascade",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-026",
+   "text": "CQM08, F36 Synaptic Tagging & Cascade — fixes: Fixed CQM08 catastrophic forgetting when Task B overwrote Task A weights",
+   "category": "Wave 03 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Frey–Morris synTag × PRP + Fusi cascade metaplasticity preserves Task A under Task B",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L51; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 26,
+    "wave": "W3",
+    "target_item": "CQM08, F36 Synaptic Tagging & Cascade",
+    "weakness_fixed": "Fixed CQM08 catastrophic forgetting when Task B overwrote Task A weights",
+    "implementation": "organism/cognition_passes.ts:303",
+    "target_codes": [
+     "CQM08",
+     "F36"
+    ],
+    "suite_same_number_id": "mushroom_body_kenyon_cell_nonlinear_XOR_patterning",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-027",
+   "text": "LIFE-100 #54 Modern Hopfield Recall — fixes: Partial/noisy cues could not complete stored episodic patterns in 1 step",
+   "category": "Wave 03 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Ramsauer 2021 softmax(beta * X^T q) exponential-capacity pattern completion",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L52; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 27,
+    "wave": "W3",
+    "target_item": "LIFE-100 #54 Modern Hopfield Recall",
+    "weakness_fixed": "Partial/noisy cues could not complete stored episodic patterns in 1 step",
+    "implementation": "organism/cognition_passes.ts:337",
+    "target_codes": [],
+    "suite_same_number_id": "modern_continuous_hopfield_CA3_50pct_masked_completion",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-028",
+   "text": "LIFE-100 #48 Split-Brain Callosotomy — fixes: Cortical sheet lacked left/right callosal tract and lateralized lesion dissociation",
+   "category": "Wave 03 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Intact corpus callosum transfers lateralized cue; callosotomy isolates hemispheres",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L53; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.3 (Part I)",
+   "extra": {
+    "pass": 28,
+    "wave": "W3",
+    "target_item": "LIFE-100 #48 Split-Brain Callosotomy",
+    "weakness_fixed": "Cortical sheet lacked left/right callosal tract and lateralized lesion dissociation",
+    "implementation": "organism/cognition_passes.ts:361",
+    "target_codes": [],
+    "suite_same_number_id": "oligodendrocyte_myelin_phase_alignment_and_pv_gap_synchrony",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-029",
+   "text": "LIFE-100 #48, #50 Hemispheric Consensus — fixes: Left exploit vs right novelty/vigilance had no conflict-arbitration mechanism",
+   "category": "Wave 03 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Specialist hemispheric voting shifts callosalExploreScale under threat/novelty",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L54; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 29,
+    "wave": "W3",
+    "target_item": "LIFE-100 #48, #50 Hemispheric Consensus",
+    "weakness_fixed": "Left exploit vs right novelty/vigilance had no conflict-arbitration mechanism",
+    "implementation": "organism/cognition_passes.ts:382",
+    "target_codes": [],
+    "suite_same_number_id": "dual_hemisphere_callosal_balance_and_thousand_brains_consensus",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-030",
+   "text": "N18, N3 Plasticity ATP Auction & Pruning — fixes: All regions burned learning budget equally regardless of surprise (N18 dilemma)",
+   "category": "Wave 03 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Regions bid prediction_error for finite plasticity ATP; weak tags pruned in N3",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L55; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 30,
+    "wave": "W3",
+    "target_item": "N18, N3 Plasticity ATP Auction & Pruning",
+    "weakness_fixed": "All regions burned learning budget equally regardless of surprise (N18 dilemma)",
+    "implementation": "organism/cognition_passes.ts:401",
+    "target_codes": [
+     "N18",
+     "N03"
+    ],
+    "suite_same_number_id": "N18_plasticity_ATP_auction_and_N3_microglial_pruning",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N18",
+     "N03"
+    ]
+   }
+  },
+  {
+   "id": "PASS-031",
+   "text": "GWT-1..4 Attentional Blink & Masking — fixes: Global workspace lacked lag-1 T2 refractory blink and sub-threshold priming trace",
+   "category": "Wave 04 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Post-ignition refractory blink suppresses lag-1 T2 while preserving unconscious trace",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L56; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 31,
+    "wave": "W4",
+    "target_item": "GWT-1..4 Attentional Blink & Masking",
+    "weakness_fixed": "Global workspace lacked lag-1 T2 refractory blink and sub-threshold priming trace",
+    "implementation": "organism/cognition_passes.ts:428",
+    "target_codes": [
+     "GWT1"
+    ],
+    "suite_same_number_id": "attentional_blink_refractory_and_unconscious_reservoir",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-032",
+   "text": "AST-1, Q-SELFATTN Learned Endogenous AST — fixes: Attention Schema had fixed weights instead of learning to predict own focus shifts",
+   "category": "Wave 04 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Graziano internal schema learns W_ast online, reducing astPredErr over exposure",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L57; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 32,
+    "wave": "W4",
+    "target_item": "AST-1, Q-SELFATTN Learned Endogenous AST",
+    "weakness_fixed": "Attention Schema had fixed weights instead of learning to predict own focus shifts",
+    "implementation": "organism/cognition_passes.ts:455",
+    "target_codes": [
+     "AST1",
+     "QSELFATTN"
+    ],
+    "suite_same_number_id": "Q_SELFATTN_learned_endogenous_attention_schema",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "QSELFATTN"
+    ]
+   }
+  },
+  {
+   "id": "PASS-033",
+   "text": "Q-SOCIAL-ATTN, F14 Peer Gaze Projection — fixes: Creature could not infer which Dome patch a neighbor was attending to",
+   "category": "Wave 04 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Projects peer (dx, dy, heading) ray onto 16-sector site ring (observePeerGaze)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L58; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 33,
+    "wave": "W4",
+    "target_item": "Q-SOCIAL-ATTN, F14 Peer Gaze Projection",
+    "weakness_fixed": "Creature could not infer which Dome patch a neighbor was attending to",
+    "implementation": "organism/cognition_passes.ts:478",
+    "target_codes": [
+     "QSOCIALATTN",
+     "F14"
+    ],
+    "suite_same_number_id": "Q_SOCIAL_ATTN_F14_peer_gaze_heading_ray_projection",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F14"
+    ]
+   }
+  },
+  {
+   "id": "PASS-034",
+   "text": "HOT-3, F42 Opt-Out & 5-HT Patience — fixes: Low confidence forced bad guesses; low 5-HT failed to steepen delay discounting",
+   "category": "Wave 04 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "conf < 0.28 triggers epistemic scan opt-out; 5-HT scales hyperbolic gamma5HT",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L59; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 34,
+    "wave": "W4",
+    "target_item": "HOT-3, F42 Opt-Out & 5-HT Patience",
+    "weakness_fixed": "Low confidence forced bad guesses; low 5-HT failed to steepen delay discounting",
+    "implementation": "organism/cognition_passes.ts:495",
+    "target_codes": [
+     "HOT3",
+     "F42"
+    ],
+    "suite_same_number_id": "HOT3_metacognitive_opt_out_scan_and_F42_serotonin_patience",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "HOT3",
+     "F42"
+    ]
+   }
+  },
+  {
+   "id": "PASS-035",
+   "text": "CQM21, PCI Non-Circular PCI (LZ76) — fixes: Fixed DELARP §4 circular iit4 proxy (which inflated on lesion!)",
+   "category": "Wave 04 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Perturbational spatiotemporal LZ76 complexity: wake > N3 sleep & wake > lesioned",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L60; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 35,
+    "wave": "W4",
+    "target_item": "CQM21, PCI Non-Circular PCI (LZ76)",
+    "weakness_fixed": "Fixed DELARP §4 circular iit4 proxy (which inflated on lesion!)",
+    "implementation": "organism/cognition_passes.ts:512",
+    "target_codes": [
+     "CQM21",
+     "PCI"
+    ],
+    "suite_same_number_id": "CQM21_non_circular_perturbational_complexity_index_PCI",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "CQM21",
+     "PCI"
+    ]
+   }
+  },
+  {
+   "id": "PASS-036",
+   "text": "CQM18, AE-1, F41 Zero-Oracle Agency — fixes: Fixed DELARP C4 oracle leak: self-recognition uses strictly efference contingency",
+   "category": "Wave 04 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Haggard intentional binding + Gallup mirror self-contingency (self > stranger video)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L61; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 36,
+    "wave": "W4",
+    "target_item": "CQM18, AE-1, F41 Zero-Oracle Agency",
+    "weakness_fixed": "Fixed DELARP C4 oracle leak: self-recognition uses strictly efference contingency",
+    "implementation": "organism/cognition_passes.ts:555",
+    "target_codes": [
+     "CQM18",
+     "AE1",
+     "F41"
+    ],
+    "suite_same_number_id": "zero_oracle_agency_intentional_binding_and_F41_mirror_self_test",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F41"
+    ]
+   }
+  },
+  {
+   "id": "PASS-037",
+   "text": "F81, UAL Kamin Blocking & Bouton Renewal — fixes: Naive associative updates suffered redundant cue learning and erased fear permanently",
+   "category": "Wave 04 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Rescorla–Wagner CS_A blocks CS_B; context-indexed extinction (C_1) renews in C_2",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L62; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 37,
+    "wave": "W4",
+    "target_item": "F81, UAL Kamin Blocking & Bouton Renewal",
+    "weakness_fixed": "Naive associative updates suffered redundant cue learning and erased fear permanently",
+    "implementation": "organism/cognition_passes.ts:580",
+    "target_codes": [
+     "F81",
+     "UAL"
+    ],
+    "suite_same_number_id": "F80_F83_kamin_blocking_habituation_and_spontaneous_recovery",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-038",
+   "text": "LIFE #56, UAL Operant FR/VI & Reversal — fixes: Creature could not adapt press tempo between Fixed-Ratio and Variable-Interval rules",
+   "category": "Wave 04 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "FR drives high press rate vs VI steady pacing; habit/model-based arbitration",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L63; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 38,
+    "wave": "W4",
+    "target_item": "LIFE #56, UAL Operant FR/VI & Reversal",
+    "weakness_fixed": "Creature could not adapt press tempo between Fixed-Ratio and Variable-Interval rules",
+    "implementation": "organism/cognition_passes.ts:615",
+    "target_codes": [
+     "UAL"
+    ],
+    "suite_same_number_id": "Q_GOAL_outcome_devaluation_sensitivity_vs_DLS_habit",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-039",
+   "text": "LIFE #57, #58, #60 Transitive & Causal do() — fixes: Could not infer A > C from A > B, B > C or distinguish do(X) from P(Y|X)",
+   "category": "Wave 04 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Ordered rank embedding solves B > D unseen; interventional vs observational table",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L64; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 39,
+    "wave": "W4",
+    "target_item": "LIFE #57, #58, #60 Transitive & Causal do()",
+    "weakness_fixed": "Could not infer A > C from A > B, B > C or distinguish do(X) from P(Y|X)",
+    "implementation": "organism/cognition_passes.ts:638",
+    "target_codes": [],
+    "suite_same_number_id": "F62_subcortical_blindsight_under_gwLesion_and_F64_bistable_rivalry",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-040",
+   "text": "F60, LIFE #61 Self-Generated Goal Stack — fixes: Goals could get stuck in unreachable loops with no frustration abandonment",
+   "category": "Wave 04 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Autonomous selection, subgoal progress tracking, and frustration-triggered abandonment",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L65; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 40,
+    "wave": "W4",
+    "target_item": "F60, LIFE #61 Self-Generated Goal Stack",
+    "weakness_fixed": "Goals could get stuck in unreachable loops with no frustration abandonment",
+    "implementation": "organism/cognition_passes.ts:675",
+    "target_codes": [
+     "F60"
+    ],
+    "suite_same_number_id": "F19_counterfactual_regret_and_F60_subgoal_bottleneck",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F60"
+    ]
+   }
+  },
+  {
+   "id": "PASS-041",
+   "text": "N03, N04 Topological Chern Mood & QGT NatGrad — fixes: Continuous mood flipped under small noise; Euclidean gradient ignored qubit curvature",
+   "category": "Wave 05 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Integer winding topologicalMood resists noise flips; Fubini–Study G^-1 preconditioning",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L66; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 41,
+    "wave": "W5",
+    "target_item": "N03, N04 Topological Chern Mood & QGT NatGrad",
+    "weakness_fixed": "Continuous mood flipped under small noise; Euclidean gradient ignored qubit curvature",
+    "implementation": "organism/cognition_passes.ts:703",
+    "target_codes": [
+     "N03",
+     "N04"
+    ],
+    "suite_same_number_id": "N03_berry_mood_winding_and_N04_QGT_natural_gradient",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N03",
+     "N04"
+    ]
+   }
+  },
+  {
+   "id": "PASS-042",
+   "text": "N06, N07, N98 Chosen Basis & Order Interference — fixes: Qubit readout used fixed basis and classical order-invariant option evaluation",
+   "category": "Wave 05 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Uncertainty chooses $\\theta_{\\text{basis}}$; non-commuting projections yield A->B != B->A",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L67; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 42,
+    "wave": "W5",
+    "target_item": "N06, N07, N98 Chosen Basis & Order Interference",
+    "weakness_fixed": "Qubit readout used fixed basis and classical order-invariant option evaluation",
+    "implementation": "organism/cognition_passes.ts:729",
+    "target_codes": [
+     "N06",
+     "N07",
+     "N98"
+    ],
+    "suite_same_number_id": "N06_chosen_qubit_basis_N07_order_interference_and_N98_circadian_entropy",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N06",
+     "N07",
+     "N98"
+    ]
+   }
+  },
+  {
+   "id": "PASS-043",
+   "text": "N05 Statistical Chance Literacy — fixes: Creature formed superstitious weights on pure 50/50 coin-flip sites",
+   "category": "Wave 05 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Lag-1 autocorrelation + entropy test damps superstitious learning (chanceSuppress)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L68; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 43,
+    "wave": "W5",
+    "target_item": "N05 Statistical Chance Literacy",
+    "weakness_fixed": "Creature formed superstitious weights on pure 50/50 coin-flip sites",
+    "implementation": "organism/cognition_passes.ts:756",
+    "target_codes": [
+     "N05"
+    ],
+    "suite_same_number_id": "N05_statistical_chance_literacy_damps_superstitious_learning",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N05"
+    ]
+   }
+  },
+  {
+   "id": "PASS-044",
+   "text": "N10, F84 Riemannian Geodesic Detour — fixes: Straight-line latent transitions walked directly across high-danger states",
+   "category": "Wave 05 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Danger-curved metric $g_{ij} = \\delta_{ij}(1 + \\lambda \\text{risk}_j)$ plans safe detours",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L69; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 44,
+    "wave": "W5",
+    "target_item": "N10, F84 Riemannian Geodesic Detour",
+    "weakness_fixed": "Straight-line latent transitions walked directly across high-danger states",
+    "implementation": "organism/cognition_passes.ts:779",
+    "target_codes": [
+     "N10",
+     "F84"
+    ],
+    "suite_same_number_id": "N10_F84_riemannian_danger_weighted_geodesic_detour_planner",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N10",
+     "F84"
+    ]
+   }
+  },
+  {
+   "id": "PASS-045",
+   "text": "N14, N16 Sleep Micro-Lesion & Identity Audit — fixes: Synaptic pruning could accidentally cut high-payoff couplings; drift went unnoticed",
+   "category": "Wave 05 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "NREM virtual lesion probes protect critical featC; cosine identityDrift boosts caution",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L70; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.4 (Part I)",
+   "extra": {
+    "pass": 45,
+    "wave": "W5",
+    "target_item": "N14, N16 Sleep Micro-Lesion & Identity Audit",
+    "weakness_fixed": "Synaptic pruning could accidentally cut high-payoff couplings; drift went unnoticed",
+    "implementation": "organism/cognition_passes.ts:813",
+    "target_codes": [
+     "N14",
+     "N16"
+    ],
+    "suite_same_number_id": "N14_NREM_virtual_micro_lesion_probing_and_N16_identity_anchor",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N14",
+     "N16"
+    ]
+   }
+  },
+  {
+   "id": "PASS-046",
+   "text": "N19, N95 Reconsolidation Erasure & State Recall — fixes: Persistent false-alarm fears wasted energy; episodic recall ignored hormone state",
+   "category": "Wave 05 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Repeated zero-harm prediction errors erase stale wAv; N95 hormone-congruent recall",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L71; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 46,
+    "wave": "W5",
+    "target_item": "N19, N95 Reconsolidation Erasure & State Recall",
+    "weakness_fixed": "Persistent false-alarm fears wasted energy; episodic recall ignored hormone state",
+    "implementation": "organism/cognition_passes.ts:840",
+    "target_codes": [
+     "N19",
+     "N95"
+    ],
+    "suite_same_number_id": "N19_reconsolidation_erasure_of_false_alarm_fear_and_N95_hormone_recall",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N19",
+     "N95"
+    ]
+   }
+  },
+  {
+   "id": "PASS-047",
+   "text": "N23, N24, N25, N27 Anomaly, Déjà Vu & Jitter — fixes: Closed-physics violations, exact trajectory replays, and tick jitter were invisible",
+   "category": "Wave 05 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "energy() - eaten - E0 monitor (N23), FNV-1a replay recognition (N24), wall probe (N27)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L72; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 47,
+    "wave": "W5",
+    "target_item": "N23, N24, N25, N27 Anomaly, Déjà Vu & Jitter",
+    "weakness_fixed": "Closed-physics violations, exact trajectory replays, and tick jitter were invisible",
+    "implementation": "organism/cognition_passes.ts:868",
+    "target_codes": [
+     "N23",
+     "N24",
+     "N25",
+     "N27"
+    ],
+    "suite_same_number_id": "N23_N24_N25_N27_physics_anomaly_deja_vu_and_jitter_fatigue",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N23",
+     "N24",
+     "N25",
+     "N27"
+    ]
+   }
+  },
+  {
+   "id": "PASS-048",
+   "text": "N29, N87, N90 Respawn Blankness & Known-Unknowns — fixes: Fresh respawns with adult reserves acted like experienced elders instead of seeking tutors",
+   "category": "Wave 05 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "High-fat + empty-episodic signature triggers elderSeekDrive; N87 unknown-feature count",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L73; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 48,
+    "wave": "W5",
+    "target_item": "N29, N87, N90 Respawn Blankness & Known-Unknowns",
+    "weakness_fixed": "Fresh respawns with adult reserves acted like experienced elders instead of seeking tutors",
+    "implementation": "organism/cognition_passes.ts:904",
+    "target_codes": [
+     "N29",
+     "N87",
+     "N90"
+    ],
+    "suite_same_number_id": "N29_respawn_blankness_N87_known_unknowns_and_N90_sim_composite",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N29",
+     "N87",
+     "N90"
+    ]
+   }
+  },
+  {
+   "id": "PASS-049",
+   "text": "N31, N36, N37 3D Neural Field & Gravity Map — fixes: Lacked spatial locoCostRatio memory for heavy-gravity patches and circadian shade shift",
+   "category": "Wave 05 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "3D regional activity dipole (N31), SCN phase self-entrainment (N36), gravityAvoid (N37)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L74; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 49,
+    "wave": "W5",
+    "target_item": "N31, N36, N37 3D Neural Field & Gravity Map",
+    "weakness_fixed": "Lacked spatial locoCostRatio memory for heavy-gravity patches and circadian shade shift",
+    "implementation": "organism/cognition_passes.ts:927",
+    "target_codes": [
+     "N31",
+     "N36",
+     "N37"
+    ],
+    "suite_same_number_id": "N31_3d_neural_field_N36_circadian_shade_and_N37_gravity_avoidance",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N31",
+     "N36",
+     "N37"
+    ]
+   }
+  },
+  {
+   "id": "PASS-050",
+   "text": "N39, N40, N26, N30, F78 Illusion & Numerosity — fixes: Lateral Mach-band contrast illusions never adapted; lacked Weber-law set-size channels",
+   "category": "Wave 05 (creatures/001/organism/cognition_passes.ts)",
+   "criterion": "Persistent surround exposure unlearns contrast bias (N39) + 1..8 Weber numerosity (F78)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L75; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 50,
+    "wave": "W5",
+    "target_item": "N39, N40, N26, N30, F78 Illusion & Numerosity",
+    "weakness_fixed": "Lateral Mach-band contrast illusions never adapted; lacked Weber-law set-size channels",
+    "implementation": "organism/cognition_passes.ts:952",
+    "target_codes": [
+     "N39",
+     "N40",
+     "N26",
+     "N30",
+     "F78"
+    ],
+    "suite_same_number_id": "N39_sensory_contrast_illusion_adaptation_and_F78_weber_numerosity",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N39",
+     "F78"
+    ]
+   }
+  },
+  {
+   "id": "PASS-051",
+   "text": "CQM04, MORPH-1R, N68 Opposite-Optima Body — fixes: Fixed DELARP C2 single-optimum conflict: thick coat wins Arctic, sleek coat wins Tropics",
+   "category": "Wave 06 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "coatInsulation saves heat in cold but overheats/slows in heat; N68 gravity stanceWidth",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L76; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 51,
+    "wave": "W6",
+    "target_item": "CQM04, MORPH-1R, N68 Opposite-Optima Body",
+    "weakness_fixed": "Fixed DELARP C2 single-optimum conflict: thick coat wins Arctic, sleek coat wins Tropics",
+    "implementation": "organism/embodied_ontogeny.ts:135",
+    "target_codes": [
+     "CQM04",
+     "MORPH1R",
+     "N68"
+    ],
+    "suite_same_number_id": "CQM04_MORPH1R_two_niche_opposite_optima_coat_and_N68_stance",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "CQM04",
+     "MORPH1R",
+     "N68"
+    ]
+   }
+  },
+  {
+   "id": "PASS-052",
+   "text": "LIFE #22, #23, F54 Limb CPG, APA & Gait — fixes: Limbs lacked anticipatory postural adjustment (APA) and land-vs-water gait switching",
+   "category": "Wave 06 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "4-oscillator phase-coupled CPG switches trot (0) vs swim (1) + pre-reach APA",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L77; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 52,
+    "wave": "W6",
+    "target_item": "LIFE #22, #23, F54 Limb CPG, APA & Gait",
+    "weakness_fixed": "Limbs lacked anticipatory postural adjustment (APA) and land-vs-water gait switching",
+    "implementation": "organism/embodied_ontogeny.ts:164",
+    "target_codes": [
+     "F54"
+    ],
+    "suite_same_number_id": "limb_CPG_local_reflex_APA_and_land_water_gait_transition",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-053",
+   "text": "N65, F26, N66, N69 Levin Bioelectric Pattern — fixes: Injury deformed morphology with no endogenous bioelectric target-pattern recovery",
+   "category": "Wave 06 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "Gap-junction Vm restores V_target (Levin 2014); bioelectricLesion blocks recovery",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L78; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 53,
+    "wave": "W6",
+    "target_item": "N65, F26, N66, N69 Levin Bioelectric Pattern",
+    "weakness_fixed": "Injury deformed morphology with no endogenous bioelectric target-pattern recovery",
+    "implementation": "organism/embodied_ontogeny.ts:193",
+    "target_codes": [
+     "N65",
+     "F26",
+     "N66",
+     "N69"
+    ],
+    "suite_same_number_id": "N65_F26_levin_bioelectric_voltage_restoration_and_N69_REM_calibration",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N65",
+     "F26",
+     "N69"
+    ]
+   }
+  },
+  {
+   "id": "PASS-054",
+   "text": "F74, F75, F76 Grid/Place Cells & Permanence — fixes: Navigation lacked 2D path integration, context place remapping, and occluded target memory",
+   "category": "Wave 06 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "3-scale 60° hexagonal grid modules + context remapping + F76 occluded-goal decay buffer",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L79; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 54,
+    "wave": "W6",
+    "target_item": "F74, F75, F76 Grid/Place Cells & Permanence",
+    "weakness_fixed": "Navigation lacked 2D path integration, context place remapping, and occluded target memory",
+    "implementation": "organism/embodied_ontogeny.ts:223",
+    "target_codes": [
+     "F74",
+     "F75",
+     "F76"
+    ],
+    "suite_same_number_id": "path_integration_hex_grid_cells_context_remapping_and_object_permanence",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-055",
+   "text": "F39, N70 Active Saccades & Motion Parallax — fixes: Vision passively read uniform slots without foveal saccades or self-motion depth cues",
+   "category": "Wave 06 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "Uncertainty-steered foveaSector (2.2x gain) + optic-flow / speed depthEst (N70)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L80; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 55,
+    "wave": "W6",
+    "target_item": "F39, N70 Active Saccades & Motion Parallax",
+    "weakness_fixed": "Vision passively read uniform slots without foveal saccades or self-motion depth cues",
+    "implementation": "organism/embodied_ontogeny.ts:258",
+    "target_codes": [
+     "F39",
+     "N70"
+    ],
+    "suite_same_number_id": "F39_active_foveal_saccades_and_N70_motion_parallax_depth",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F39",
+     "N70"
+    ]
+   }
+  },
+  {
+   "id": "PASS-056",
+   "text": "F53, LIFE #28, N62 Plume Chemotaxis & Cochlea — fixes: Lacked stereo/klinotaxis odor-plume casting and body-mass-coupled acoustic pitch honesty",
+   "category": "Wave 06 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "Bilateral nostril C_L - C_R + casting, 32-band cochlea, ITD azimuth & f0 ~ M^-0.33",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L81; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 56,
+    "wave": "W6",
+    "target_item": "F53, LIFE #28, N62 Plume Chemotaxis & Cochlea",
+    "weakness_fixed": "Lacked stereo/klinotaxis odor-plume casting and body-mass-coupled acoustic pitch honesty",
+    "implementation": "organism/embodied_ontogeny.ts:279",
+    "target_codes": [
+     "F53",
+     "N62"
+    ],
+    "suite_same_number_id": "F53_olfactory_plume_chemotaxis_32band_cochlea_and_N62_resonant_pitch",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F53",
+     "N62"
+    ]
+   }
+  },
+  {
+   "id": "PASS-057",
+   "text": "LIFE #29, N32, N38 Nocturnal EOD & Fidelity — fixes: Darkness blinded visual foraging with no active electrolocation or contact state fidelity",
+   "category": "Wave 06 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "ATP-paid nocturnal weakly-electric eodPower + N32 peer E-field + N38 |<psi_1|psi_2>|^2",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L82; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 57,
+    "wave": "W6",
+    "target_item": "LIFE #29, N32, N38 Nocturnal EOD & Fidelity",
+    "weakness_fixed": "Darkness blinded visual foraging with no active electrolocation or contact state fidelity",
+    "implementation": "organism/embodied_ontogeny.ts:306",
+    "target_codes": [
+     "N32",
+     "N38"
+    ],
+    "suite_same_number_id": "nocturnal_electrolocation_N32_peer_efield_and_N38_quantum_touch_fidelity",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N32",
+     "N38"
+    ]
+   }
+  },
+  {
+   "id": "PASS-058",
+   "text": "LIFE #30, #96 Noisy Dome Field + Shuffle — fixes: \"Remote field\" sense required strict physical simulation, ATP price, and shuffle null",
+   "category": "Wave 06 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "Pays ATP for 2-bit noisy Dome quadrant gradient; fieldShuffleControl drops to chance",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L83; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 58,
+    "wave": "W6",
+    "target_item": "LIFE #30, #96 Noisy Dome Field + Shuffle",
+    "weakness_fixed": "\"Remote field\" sense required strict physical simulation, ATP price, and shuffle null",
+    "implementation": "organism/embodied_ontogeny.ts:328",
+    "target_codes": [],
+    "suite_same_number_id": "ATP_priced_2bit_noisy_long_range_dome_field_vs_shuffle",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-059",
+   "text": "N63, N58, LIFE #24 Chromatophore Crypsis — fixes: High-visibility social display conflicted with predator stealth under high cortisol",
+   "category": "Wave 06 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "Fear drives substrate camouflageMatch; calm social contact switches to dialectVec display",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L84; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 59,
+    "wave": "W6",
+    "target_item": "N63, N58, LIFE #24 Chromatophore Crypsis",
+    "weakness_fixed": "High-visibility social display conflicted with predator stealth under high cortisol",
+    "implementation": "organism/embodied_ontogeny.ts:352",
+    "target_codes": [
+     "N63",
+     "N58"
+    ],
+    "suite_same_number_id": "N63_chromatophore_crypsis_under_fear_vs_social_dialect_display",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N63"
+    ]
+   }
+  },
+  {
+   "id": "PASS-060",
+   "text": "LIFE #64, #65, #69, F88 Rich Affect & Play — fixes: Play occurred indiscriminately or not at all; barren patches trapped local random walks",
+   "category": "Wave 06 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "Disgust/anger/grief/care + surplus-only playActive (fat>280, safe) + Lévy mu=1.6 jump",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L85; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 60,
+    "wave": "W6",
+    "target_item": "LIFE #64, #65, #69, F88 Rich Affect & Play",
+    "weakness_fixed": "Play occurred indiscriminately or not at all; barren patches trapped local random walks",
+    "implementation": "organism/embodied_ontogeny.ts:371",
+    "target_codes": [
+     "F88"
+    ],
+    "suite_same_number_id": "disgust_anger_grief_care_surplus_play_and_levy_drought_relocation",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-061",
+   "text": "N42, N46 Contact Shared REM Dreaming — fixes: Sleeping pairs could not co-replay trajectories or coin shared dream motifs",
+   "category": "Wave 07 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "Simultaneous REM in physical contact blends featC into shared dreamMotif",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L86; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 61,
+    "wave": "W7",
+    "target_item": "N42, N46 Contact Shared REM Dreaming",
+    "weakness_fixed": "Sleeping pairs could not co-replay trajectories or coin shared dream motifs",
+    "implementation": "organism/embodied_ontogeny.ts:403",
+    "target_codes": [
+     "N42",
+     "N46"
+    ],
+    "suite_same_number_id": "N42_contact_shared_REM_dreaming_and_N46_coined_motif",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N42",
+     "N46"
+    ]
+   }
+  },
+  {
+   "id": "PASS-062",
+   "text": "N47, F87, N48 Stress-Gated Evolvability — fixes: Fixed germline mutation rate under-explored in crisis and over-mutated in calm niches",
+   "category": "Wave 07 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "germlineMutRate scales with cortisol × volU; N48 parental wAv dream priors",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L87; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.5 (Part I)",
+   "extra": {
+    "pass": 62,
+    "wave": "W7",
+    "target_item": "N47, F87, N48 Stress-Gated Evolvability",
+    "weakness_fixed": "Fixed germline mutation rate under-explored in crisis and over-mutated in calm niches",
+    "implementation": "organism/embodied_ontogeny.ts:421",
+    "target_codes": [
+     "N47",
+     "F87",
+     "N48"
+    ],
+    "suite_same_number_id": "N47_F87_stress_uncertainty_evolvability_and_N48_dream_priors",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N47",
+     "F87",
+     "N48"
+    ]
+   }
+  },
+  {
+   "id": "PASS-063",
+   "text": "F97, N49 Cryptobiotic Dormancy & Revival — fixes: Lethal cold/famine killed creatures that lacked reversible metabolic suspension",
+   "category": "Wave 07 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "Extreme cold/famine drops metabolicScale -> 0.08, runs N49 slow dream, revives warm",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L88; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 63,
+    "wave": "W7",
+    "target_item": "F97, N49 Cryptobiotic Dormancy & Revival",
+    "weakness_fixed": "Lethal cold/famine killed creatures that lacked reversible metabolic suspension",
+    "implementation": "organism/embodied_ontogeny.ts:436",
+    "target_codes": [
+     "F97",
+     "N49"
+    ],
+    "suite_same_number_id": "F97_N49_cryptobiotic_dormancy_saves_stores_and_revives",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F97",
+     "N49"
+    ]
+   }
+  },
+  {
+   "id": "PASS-064",
+   "text": "F24, F35 4-TF GRN & Turing Morphogens — fixes: Adult body traits mapped 1-to-1 from scalar genes without developmental GRN or striping",
+   "category": "Wave 07 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "4-transcription-factor regulatory network + 8-cell activator–inhibitor Turing stripe ring",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L89; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 64,
+    "wave": "W7",
+    "target_item": "F24, F35 4-TF GRN & Turing Morphogens",
+    "weakness_fixed": "Adult body traits mapped 1-to-1 from scalar genes without developmental GRN or striping",
+    "implementation": "organism/embodied_ontogeny.ts:96",
+    "target_codes": [
+     "F24",
+     "F35"
+    ],
+    "suite_same_number_id": "F24_F35_4TF_GRN_and_turing_morphogen_striping",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F24",
+     "F35"
+    ]
+   }
+  },
+  {
+   "id": "PASS-065",
+   "text": "LIFE #72–#74, F92, N89 Ontogeny & Kleiber — fixes: Newborns started as miniature static adults without critical periods or M^0.75 scaling",
+   "category": "Wave 07 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "juvenile -> adolescent -> adult -> elder + 2.1x critical-period plasticity + M^0.75 + N89",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L90; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 65,
+    "wave": "W7",
+    "target_item": "LIFE #72–#74, F92, N89 Ontogeny & Kleiber",
+    "weakness_fixed": "Newborns started as miniature static adults without critical periods or M^0.75 scaling",
+    "implementation": "organism/embodied_ontogeny.ts:456",
+    "target_codes": [
+     "F92",
+     "N89"
+    ],
+    "suite_same_number_id": "ontogeny_4_stages_kleiber_M075_scaling_and_N89_self_remap",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N89"
+    ]
+   }
+  },
+  {
+   "id": "PASS-066",
+   "text": "LIFE #76, #77, F19 Sex, Ornament & Kin Avoid — fixes: Reproduction was asexual cloning only, lacking sexual crossover and inbreeding avoidance",
+   "category": "Wave 07 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "Sexual recombination + condition-dependent ornamentQuality + kinSim > 0.72 rejection",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L91; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 66,
+    "wave": "W7",
+    "target_item": "LIFE #76, #77, F19 Sex, Ornament & Kin Avoid",
+    "weakness_fixed": "Reproduction was asexual cloning only, lacking sexual crossover and inbreeding avoidance",
+    "implementation": "organism/embodied_ontogeny.ts:482",
+    "target_codes": [
+     "F19"
+    ],
+    "suite_same_number_id": "sexual_recombination_honest_zahavi_ornament_and_inbreeding_avoidance",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-067",
+   "text": "N53, LIFE #78 Kin Nursing & Weaning Conflict — fixes: Maternal care lacked odor-signature kin discrimination and Trivers weaning transition",
+   "category": "Wave 07 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "lineageSig kin nursing transfers exact kJ (mom -> child) until juvenile age > 600 weaning",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L92; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 67,
+    "wave": "W7",
+    "target_item": "N53, LIFE #78 Kin Nursing & Weaning Conflict",
+    "weakness_fixed": "Maternal care lacked odor-signature kin discrimination and Trivers weaning transition",
+    "implementation": "organism/embodied_ontogeny.ts:505",
+    "target_codes": [
+     "N53"
+    ],
+    "suite_same_number_id": "N53_kin_recognition_first_law_nursing_and_trivers_weaning_conflict",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N53"
+    ]
+   }
+  },
+  {
+   "id": "PASS-068",
+   "text": "LIFE #78, N55 Elder Waking & Sleep Teaching — fixes: Juveniles had to rediscover dangerous sites by fatal trial-and-error",
+   "category": "Wave 07 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "ATP-paid elder waking demonstration (wSite/wAv) + N55 auditory teaching into NREM",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L93; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 68,
+    "wave": "W7",
+    "target_item": "LIFE #78, N55 Elder Waking & Sleep Teaching",
+    "weakness_fixed": "Juveniles had to rediscover dangerous sites by fatal trial-and-error",
+    "implementation": "organism/embodied_ontogeny.ts:524",
+    "target_codes": [
+     "N55"
+    ],
+    "suite_same_number_id": "elder_waking_demonstration_teaching_and_N55_teaching_into_sleep",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N55"
+    ]
+   }
+  },
+  {
+   "id": "PASS-069",
+   "text": "LIFE #80, F86 Baldwin Effect & Speciation — fixes: Lifetime somatic acclimation never guided germline evolution; diverged dialects interbred",
+   "category": "Wave 07 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "Lifetime coatExposureAccum biases offspring morphGene; dialectDist > 0.65 blocks mating",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L94; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 69,
+    "wave": "W7",
+    "target_item": "LIFE #80, F86 Baldwin Effect & Speciation",
+    "weakness_fixed": "Lifetime somatic acclimation never guided germline evolution; diverged dialects interbred",
+    "implementation": "organism/embodied_ontogeny.ts:548",
+    "target_codes": [
+     "F86"
+    ],
+    "suite_same_number_id": "baldwin_somatic_to_germline_assimilation_and_F86_dialect_speciation",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F86"
+    ]
+   }
+  },
+  {
+   "id": "PASS-070",
+   "text": "CQM03, ECO-1R Ecological Fecundity Gate — fixes: Fixed DELARP C3 decoupled birth rate: reproduction ignored food bloom vs drought/crowd",
+   "category": "Wave 07 (creatures/001/organism/embodied_ontogeny.ts)",
+   "criterion": "fecundityGate couples fat surplus, localFoodAvail, and crowding inhibition",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L95; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 70,
+    "wave": "W7",
+    "target_item": "CQM03, ECO-1R Ecological Fecundity Gate",
+    "weakness_fixed": "Fixed DELARP C3 decoupled birth rate: reproduction ignored food bloom vs drought/crowd",
+    "implementation": "organism/embodied_ontogeny.ts:575",
+    "target_codes": [
+     "CQM03",
+     "ECO1R"
+    ],
+    "suite_same_number_id": "CQM03_ECO1R_density_and_resource_coupled_ecological_fecundity",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "CQM03",
+     "ECO1R"
+    ]
+   }
+  },
+  {
+   "id": "PASS-071",
+   "text": "F13, F58, LIFE #85 Observational Culture — fixes: Naive peers next to successful foragers learned nothing from watching them",
+   "category": "Wave 08 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Observers copy demonstrator wSite weights and converge dialectVec",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L96; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 71,
+    "wave": "W8",
+    "target_item": "F13, F58, LIFE #85 Observational Culture",
+    "weakness_fixed": "Naive peers next to successful foragers learned nothing from watching them",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:103",
+    "target_codes": [
+     "F13",
+     "F58"
+    ],
+    "suite_same_number_id": "F13_F58_observational_social_learning_and_dialect_convergence",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F13",
+     "F58"
+    ]
+   }
+  },
+  {
+   "id": "PASS-072",
+   "text": "LIFE #67, #82, #83, F59 Altruism & Inequity — fixes: Lacked costly predator alarm calls, consolation touch, kJ sharing, and unfairness protest",
+   "category": "Wave 08 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "ATP-paid alarm alerts peers, consolation cuts cortisol, kJ food sharing, F59 inequity anger",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L97; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 72,
+    "wave": "W8",
+    "target_item": "LIFE #67, #82, #83, F59 Altruism & Inequity",
+    "weakness_fixed": "Lacked costly predator alarm calls, consolation touch, kJ sharing, and unfairness protest",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:127",
+    "target_codes": [
+     "F59"
+    ],
+    "suite_same_number_id": "alarm_calls_consolation_food_sharing_and_F59_inequity_aversion",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F59"
+    ]
+   }
+  },
+  {
+   "id": "PASS-073",
+   "text": "N33, N54 Peer Adenosine & Sentinel Sleep — fixes: Whole-group simultaneous sleep left social clusters undefended",
+   "category": "Wave 08 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "N33 adenosine chemosense + N54 rotating awake sentinel lowers sleepers' cortisol",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L98; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 73,
+    "wave": "W8",
+    "target_item": "N33, N54 Peer Adenosine & Sentinel Sleep",
+    "weakness_fixed": "Whole-group simultaneous sleep left social clusters undefended",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:169",
+    "target_codes": [
+     "N33",
+     "N54"
+    ],
+    "suite_same_number_id": "N33_peer_adenosine_chemosense_and_N54_sentinel_social_sleep_sync",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N33",
+     "N54"
+    ]
+   }
+  },
+  {
+   "id": "PASS-074",
+   "text": "N51, N60 First-Law Skill Market & Credit — fixes: Learned skills died with specialists unless genetically inherited; favours went untracked",
+   "category": "Wave 08 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Buyer pays real fat kJ to seller (transferSkillForEnergy) + N60 creditLedger",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L99; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 74,
+    "wave": "W8",
+    "target_item": "N51, N60 First-Law Skill Market & Credit",
+    "weakness_fixed": "Learned skills died with specialists unless genetically inherited; favours went untracked",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:194",
+    "target_codes": [
+     "N51",
+     "N60"
+    ],
+    "suite_same_number_id": "N51_first_law_skill_market_and_N60_credit_debt_ledger",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N51",
+     "N60"
+    ]
+   }
+  },
+  {
+   "id": "PASS-075",
+   "text": "N52, N64 MHC-Checked Horizontal Grafting — fixes: Horizontal state transfer risked overwriting incompatible circuits without immune rejection",
+   "category": "Wave 08 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Compatible lineageSig transfers featC motif; incompatible donor triggers immune rejection",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L100; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 75,
+    "wave": "W8",
+    "target_item": "N52, N64 MHC-Checked Horizontal Grafting",
+    "weakness_fixed": "Horizontal state transfer risked overwriting incompatible circuits without immune rejection",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:224",
+    "target_codes": [
+     "N52",
+     "N64"
+    ],
+    "suite_same_number_id": "N52_N64_MHC_immune_checked_neural_module_grafting",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N52",
+     "N64"
+    ]
+   }
+  },
+  {
+   "id": "PASS-076",
+   "text": "F16, F57, LIFE #87 Stepping-Stone Tool Use — fixes: Environment had no movable physical objects required to unlock recessed food caches",
+   "category": "Wave 08 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Creature pushes DomeStone (paying ATP -> heat) onto DomeCache, unlocking kJ harvest",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L101; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 76,
+    "wave": "W8",
+    "target_item": "F16, F57, LIFE #87 Stepping-Stone Tool Use",
+    "weakness_fixed": "Environment had no movable physical objects required to unlock recessed food caches",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:245",
+    "target_codes": [
+     "F16",
+     "F57"
+    ],
+    "suite_same_number_id": "F16_F57_stepping_stone_tool_use_unlocks_recessed_cache",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F16",
+     "F57"
+    ]
+   }
+  },
+  {
+   "id": "PASS-077",
+   "text": "LIFE #86, N76 Food Caching, Spoilage & Stamp — fixes: Surplus forage could not be cached externally with realistic spoilage and pilfering risk",
+   "category": "Wave 08 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "First-Law kJ deposit (spoilage -> heat), territorial pilfer defense & N76 Berry stamp",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L102; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 77,
+    "wave": "W8",
+    "target_item": "LIFE #86, N76 Food Caching, Spoilage & Stamp",
+    "weakness_fixed": "Surplus forage could not be cached externally with realistic spoilage and pilfering risk",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:276",
+    "target_codes": [
+     "N76"
+    ],
+    "suite_same_number_id": "physical_food_caches_spoilage_pilfering_and_territorial_defense",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-078",
+   "text": "F33, F55, N56, N57 Swarm Flocking & Castes — fixes: Multi-creature populations lacked Boids/Vicsek alignment, perimeter defense, and castes",
+   "category": "Wave 08 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Separation/alignment/cohesion, N56 threat ring, N57 gravity consensus, F33 castes",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L103; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 78,
+    "wave": "W8",
+    "target_item": "F33, F55, N56, N57 Swarm Flocking & Castes",
+    "weakness_fixed": "Multi-creature populations lacked Boids/Vicsek alignment, perimeter defense, and castes",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:313",
+    "target_codes": [
+     "F33",
+     "F55",
+     "N56",
+     "N57"
+    ],
+    "suite_same_number_id": "reynolds_vicsek_swarm_N56_threat_blanket_N57_consensus_and_F33_castes",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F33",
+     "N56",
+     "N57"
+    ]
+   }
+  },
+  {
+   "id": "PASS-079",
+   "text": "F66 Physarum Slime Transport Network — fixes: Repeated foraging traffic did not carve low-drag trails or prune unused paths",
+   "category": "Wave 08 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Tero 2010 nonlinear flux reinforcement I^1.6 / (1 + I^1.6) - decay * D cuts loco cost",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L104; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.6 (Part I)",
+   "extra": {
+    "pass": 79,
+    "wave": "W8",
+    "target_item": "F66 Physarum Slime Transport Network",
+    "weakness_fixed": "Repeated foraging traffic did not carve low-drag trails or prune unused paths",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:352",
+    "target_codes": [
+     "F66"
+    ],
+    "suite_same_number_id": "physarum_adaptive_slime_trail_corridor_drag_reduction",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-080",
+   "text": "F63 Ashby 1952 Ultrastable Homeostat — fixes: Continuous gradient descent failed under sign-inverted sensorimotor catastrophes",
+   "category": "Wave 08 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Essential-variable breach triggers discrete PRNG relay jumps until homeostasis stabilizes",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L105; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 80,
+    "wave": "W8",
+    "target_item": "F63 Ashby 1952 Ultrastable Homeostat",
+    "weakness_fixed": "Continuous gradient descent failed under sign-inverted sensorimotor catastrophes",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:375",
+    "target_codes": [
+     "F63"
+    ],
+    "suite_same_number_id": "ashby_1952_ultrastable_homeostat_step_function_reconfiguration",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-081",
+   "text": "F22, F89, LIFE #88 Red-Queen Predator Arms — fixes: Static scalar danger could not co-evolve against prey speed/crypsis",
+   "category": "Wave 09 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Coevolving PredatorAgent (speed, acuity) with closed biomassKJ + predatorHeatKJ",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L106; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 81,
+    "wave": "W9",
+    "target_item": "F22, F89, LIFE #88 Red-Queen Predator Arms",
+    "weakness_fixed": "Static scalar danger could not co-evolve against prey speed/crypsis",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:397",
+    "target_codes": [
+     "F22",
+     "F89"
+    ],
+    "suite_same_number_id": "coevolving_predators_camouflage_protection_and_closed_first_law_ledger",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-082",
+   "text": "N74, F90 Parasite Manipulation & Self-Med — fixes: Sick hosts had no behavioral hijacking conflict or bitter-herb antiparasitic pharmacognosy",
+   "category": "Wave 09 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Parasite inflates boldness (Toxoplasma-like); bitter medicinal patch clears load",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L107; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 82,
+    "wave": "W9",
+    "target_item": "N74, F90 Parasite Manipulation & Self-Med",
+    "weakness_fixed": "Sick hosts had no behavioral hijacking conflict or bitter-herb antiparasitic pharmacognosy",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:435",
+    "target_codes": [
+     "N74",
+     "F90"
+    ],
+    "suite_same_number_id": "N74_F90_parasite_manipulation_and_zoopharmacognosy_self_medication",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N74",
+     "F90"
+    ]
+   }
+  },
+  {
+   "id": "PASS-083",
+   "text": "F64, N71 Daisyworld Albedo Homeostasis — fixes: Ambient solar drift had no biotic dark/light ground-cover feedback (Watson & Lovelock)",
+   "category": "Wave 09 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Creatures regulate dark vs reflective patchAlbedo, stabilizing Dome temperature toward 22°C",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L108; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 83,
+    "wave": "W9",
+    "target_item": "F64, N71 Daisyworld Albedo Homeostasis",
+    "weakness_fixed": "Ambient solar drift had no biotic dark/light ground-cover feedback (Watson & Lovelock)",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:465",
+    "target_codes": [
+     "F64",
+     "N71"
+    ],
+    "suite_same_number_id": "watson_lovelock_daisyworld_albedo_homeostasis_and_N71_niche",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N71"
+    ]
+   }
+  },
+  {
+   "id": "PASS-084",
+   "text": "F61 Conservative Turing Mineral Substrate — fixes: Patch regrowth lacked spatial reaction–diffusion self-organized nutrient spots",
+   "category": "Wave 09 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Zero-sum conservative Gray–Scott activator–inhibitor ring shapes spatial fertility",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L109; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 84,
+    "wave": "W9",
+    "target_item": "F61 Conservative Turing Mineral Substrate",
+    "weakness_fixed": "Patch regrowth lacked spatial reaction–diffusion self-organized nutrient spots",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:491",
+    "target_codes": [
+     "F61"
+    ],
+    "suite_same_number_id": "turing_gray_scott_reaction_diffusion_substrate_conservation",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-085",
+   "text": "N78, F91 3-Guild Trophic Coexistence — fixes: Homogeneous populations competed on a single resource channel only",
+   "category": "Wave 09 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Producer/harvester, detritivore (soil), and scavenger guilds coexist in closed kJ loop",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L110; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 85,
+    "wave": "W9",
+    "target_item": "N78, F91 3-Guild Trophic Coexistence",
+    "weakness_fixed": "Homogeneous populations competed on a single resource channel only",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:518",
+    "target_codes": [
+     "N78",
+     "F91"
+    ],
+    "suite_same_number_id": "N78_three_guild_trophic_web_holling_coexistence",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N78"
+    ]
+   }
+  },
+  {
+   "id": "PASS-086",
+   "text": "N75, N34, N77 Time-Warp & Storm Sheltering — fixes: Periodic lethal storms hit creatures by surprise; lacked spatial timeWarp niches",
+   "category": "Wave 09 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Learns stormPeriodEst across cycles and pre-emptively moves into central shelter",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L111; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 86,
+    "wave": "W9",
+    "target_item": "N75, N34, N77 Time-Warp & Storm Sheltering",
+    "weakness_fixed": "Periodic lethal storms hit creatures by surprise; lacked spatial timeWarp niches",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:542",
+    "target_codes": [
+     "N75",
+     "N34",
+     "N77"
+    ],
+    "suite_same_number_id": "N75_timewarp_niche_and_N77_storm_interval_preemptive_sheltering",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N75",
+     "N77"
+    ]
+   }
+  },
+  {
+   "id": "PASS-087",
+   "text": "CQM19 Hell-Ladder Rungs 0..6 Resilience — fixes: Hell-Ladder stress needed verified autonomous multi-organ survival without NaNs or leaks",
+   "category": "Wave 09 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Rung-3 multi-stressor Dome run maintains living homeostasis and <1e-11 First-Law error",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L112; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 87,
+    "wave": "W9",
+    "target_item": "CQM19 Hell-Ladder Rungs 0..6 Resilience",
+    "weakness_fixed": "Hell-Ladder stress needed verified autonomous multi-organ survival without NaNs or leaks",
+    "implementation": "lab/src/biosphere/god.ts:62",
+    "target_codes": [
+     "CQM19"
+    ],
+    "suite_same_number_id": "N72_hell_ladder_acclimation_vs_N73_utopia_relaxed_selection",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-088",
+   "text": "N79 Multi-Dome Archipelago Migration — fixes: Single-dome isolation prevented allopatric divergence and cross-dome dispersal",
+   "category": "Wave 09 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Archipelago.migrate() moves agent across Domes adjusting d1.born/d2.born (0.0 kJ leak)",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L113; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 88,
+    "wave": "W9",
+    "target_item": "N79 Multi-Dome Archipelago Migration",
+    "weakness_fixed": "Single-dome isolation prevented allopatric divergence and cross-dome dispersal",
+    "implementation": "lab/src/biosphere/ecology_passes.ts:575",
+    "target_codes": [
+     "N79"
+    ],
+    "suite_same_number_id": "N79_multi_dome_archipelago_migration_exact_first_law_conservation",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "N79"
+    ]
+   }
+  },
+  {
+   "id": "PASS-089",
+   "text": "F50, F93, F94 Assembly, Blanket & Waves — fixes: Lacked Cronins Assembly Index, Friston Markov blanket test, and traveling-wave metrics",
+   "category": "Wave 09 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "assemblyIndex (repeat < random), markovBlanketTest, and corticalTravelingWave",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L114; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 89,
+    "wave": "W9",
+    "target_item": "F50, F93, F94 Assembly, Blanket & Waves",
+    "weakness_fixed": "Lacked Cronins Assembly Index, Friston Markov blanket test, and traveling-wave metrics",
+    "implementation": "lab/src/instruments/alife_metrics.ts:12",
+    "target_codes": [
+     "F50",
+     "F93",
+     "F94"
+    ],
+    "suite_same_number_id": "F50_assembly_theory_F93_markov_blanket_and_F94_cortical_waves",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "F50",
+     "F93",
+     "F94"
+    ]
+   }
+  },
+  {
+   "id": "PASS-090",
+   "text": "CQM02, Q-NOVEL MAP-Elites Illumination — fixes: Single-objective selection collapsed phenotypic diversity into one archetype",
+   "category": "Wave 09 (lab/src/biosphere/ecology_passes.ts + lab/src/instruments/alife_metrics.ts)",
+   "criterion": "Mouret & Clune 2015 2D (morph, boldness) archive illuminates distinct niches",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L115; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 90,
+    "wave": "W9",
+    "target_item": "CQM02, Q-NOVEL MAP-Elites Illumination",
+    "weakness_fixed": "Single-objective selection collapsed phenotypic diversity into one archetype",
+    "implementation": "lab/src/instruments/alife_metrics.ts:95",
+    "target_codes": [
+     "CQM02",
+     "QNOVEL"
+    ],
+    "suite_same_number_id": "CQM02_Q_NOVEL_MAP_elites_quality_diversity_behavioral_illumination",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": [
+     "CQM02",
+     "QNOVEL"
+    ]
+   }
+  },
+  {
+   "id": "PASS-091",
+   "text": "DELARP §7.3 Unified CI & originality Fix — fixes: Fixed .github/workflows/harness.yml v1-only bug & originality(\".\") inside lab/ self-match",
+   "category": "Wave 10 (pipeline, conformance and bug-fix hardening)",
+   "criterion": "Unified 5-stage pipeline + originality(root) & originality(lab) both 0 fail",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L116; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 91,
+    "wave": "W10",
+    "target_item": "DELARP §7.3 Unified CI & originality Fix",
+    "weakness_fixed": "Fixed .github/workflows/harness.yml v1-only bug & originality(\".\") inside lab/ self-match",
+    "implementation": "pipeline/run_all.mjs:1, lab/conformance/originality.ts:13",
+    "target_codes": [],
+    "suite_same_number_id": "DELARP_7_3_unified_CI_workflow_and_originality_cwd_fix",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-092",
+   "text": "DELARP §10.4 C-NC No Cosmetic Parts — fixes: Built missing C-NC conformance gate so dead/ornamental regions cannot sneak in",
+   "category": "Wave 10 (pipeline, conformance and bug-fix hardening)",
+   "criterion": "001 & template pass 17/17 required checks; CosmeticRegion mutant is rejected!",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L117; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 92,
+    "wave": "W10",
+    "target_item": "DELARP §10.4 C-NC No Cosmetic Parts",
+    "weakness_fixed": "Built missing C-NC conformance gate so dead/ornamental regions cannot sneak in",
+    "implementation": "lab/conformance/suite.ts:74, lab/conformance/run.ts:16",
+    "target_codes": [],
+    "suite_same_number_id": "DELARP_10_4_C_NC_no_cosmetic_parts_conformance_and_mutant_rejection",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-093",
+   "text": "DELARP P5 Dome.snapshotFull() Roundtrip — fixes: Fixed Dome.snapshotFull() Float32Array (neoMarks) & missing attachNeo restore bug",
+   "category": "Wave 10 (pipeline, conformance and bug-fix hardening)",
+   "criterion": "JSON serialize -> Dome.fromSnapshot() preserves Float32Array and bit-exact org hash",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L118; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 93,
+    "wave": "W10",
+    "target_item": "DELARP P5 Dome.snapshotFull() Roundtrip",
+    "weakness_fixed": "Fixed Dome.snapshotFull() Float32Array (neoMarks) & missing attachNeo restore bug",
+    "implementation": "lab/src/biosphere/dome.ts:87",
+    "target_codes": [],
+    "suite_same_number_id": "Dome_snapshotFull_Float32Array_and_full_stack_bit_exact_roundtrip",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-094",
+   "text": "Long-Horizon 2,000-Tick Stability Audit — fixes: Unbounded history arrays or numerical drift can explode over multi-day runs",
+   "category": "Wave 10 (pipeline, conformance and bug-fix hardening)",
+   "criterion": "2,000 full-stack ticks: 100% finite view(), bounded ring buffers, <1e-11 ledger",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L119; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 94,
+    "wave": "W10",
+    "target_item": "Long-Horizon 2,000-Tick Stability Audit",
+    "weakness_fixed": "Unbounded history arrays or numerical drift can explode over multi-day runs",
+    "implementation": "creatures/001/organism/passes_100_suite.ts:1076",
+    "target_codes": [],
+    "suite_same_number_id": "long_horizon_2000_tick_ring_buffer_and_finite_state_stability",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-095",
+   "text": "Simultaneous Multi-Lesion + Hell-Stress Audit — fixes: Combined lesions (PAG + GW + vagotomy + hypoxia + heat + tox + 2.5g) risked pool underflow",
+   "category": "Wave 10 (pipeline, conformance and bug-fix hardening)",
+   "criterion": "All metabolic pools remain non-negative and First-Law energy balance holds <1e-11",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L120; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.7 (Part I)",
+   "extra": {
+    "pass": 95,
+    "wave": "W10",
+    "target_item": "Simultaneous Multi-Lesion + Hell-Stress Audit",
+    "weakness_fixed": "Combined lesions (PAG + GW + vagotomy + hypoxia + heat + tox + 2.5g) risked pool underflow",
+    "implementation": "creatures/001/organism/passes_100_suite.ts:1085",
+    "target_codes": [],
+    "suite_same_number_id": "simultaneous_multi_lesion_and_hell_stress_conservation_audit",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-096",
+   "text": "All 34 DELARP-PLAN v4.0 Qualities Wired — fixes: Verified full integration of all 9 v4.0+ subsystem buses & >7,500 active parameters",
+   "category": "Wave 10 (pipeline, conformance and bug-fix hardening)",
+   "criterion": "v40State() exposes bus, self, curv, neo, fa, ni, ls, cp, eo + non-circular pci",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L121; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.8 (Part I)",
+   "extra": {
+    "pass": 96,
+    "wave": "W10",
+    "target_item": "All 34 DELARP-PLAN v4.0 Qualities Wired",
+    "weakness_fixed": "Verified full integration of all 9 v4.0+ subsystem buses & >7,500 active parameters",
+    "implementation": "creatures/001/organism/organism.ts:1049",
+    "target_codes": [],
+    "suite_same_number_id": "all_34_DELARP_v40_qualities_causally_wired_and_active",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-097",
+   "text": "Creature #1 Visual Renderer Contract — fixes: Enforced user constraint: zero changes to Creature #1's physical/visual body design",
+   "category": "Wave 10 (pipeline, conformance and bug-fix hardening)",
+   "criterion": "app.tsx & page.tsx untouched; all 24 o.view() UI keys finite and browser-bundled",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L122; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.8 (Part I)",
+   "extra": {
+    "pass": 97,
+    "wave": "W10",
+    "target_item": "Creature #1 Visual Renderer Contract",
+    "weakness_fixed": "Enforced user constraint: zero changes to Creature #1's physical/visual body design",
+    "implementation": "creatures/001/src/app.tsx:1",
+    "target_codes": [],
+    "suite_same_number_id": "creature_001_visual_renderer_contract_preserved_unchanged",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-098",
+   "text": "Backward Bit-Identical Parity & Seed Firewall — fixes: New modules must never alter default Organism trajectories or touch official seeds >=1224",
+   "category": "Wave 10 (pipeline, conformance and bug-fix hardening)",
+   "criterion": "OFF = 8358e0be (BIT-IDENTICAL), ORG_V5=11 = 1b9782a (BIT-IDENTICAL), firewall clean",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L123; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.8 (Part I)",
+   "extra": {
+    "pass": 98,
+    "wave": "W10",
+    "target_item": "Backward Bit-Identical Parity & Seed Firewall",
+    "weakness_fixed": "New modules must never alter default Organism trajectories or touch official seeds >=1224",
+    "implementation": "creatures/001/organism/passes_100_suite.ts:1115",
+    "target_codes": [],
+    "suite_same_number_id": "backward_bit_identical_parity_and_seed_firewall_integrity",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-099",
+   "text": "PASS-100-LEDGER.md & ORIGINS.md Audit — fixes: Every scientific concept and pass must be documented and cited to published literature",
+   "category": "Wave 10 (pipeline, conformance and bug-fix hardening)",
+   "criterion": "Complete 100-pass ledger + peer-reviewed neuroscience, physiology & A-Life citations",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L124; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.8 (Part I)",
+   "extra": {
+    "pass": 99,
+    "wave": "W10",
+    "target_item": "PASS-100-LEDGER.md & ORIGINS.md Audit",
+    "weakness_fixed": "Every scientific concept and pass must be documented and cited to published literature",
+    "implementation": "creatures/001/PASS-100-LEDGER.md, ORIGINS.md",
+    "target_codes": [],
+    "suite_same_number_id": "PASS_100_LEDGER_and_ORIGINS_documentation_completeness",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  },
+  {
+   "id": "PASS-100",
+   "text": "Master 100-Pass & First-Law Completion Gate — fixes: Final end-to-end assertion over all 99 prior passes + global worst ledger error <1e-11",
+   "category": "Wave 10 (pipeline, conformance and bug-fix hardening)",
+   "criterion": "100 / 100 PASSED with exact First-Law conservation across organism & biosphere",
+   "source_ref": "V:/creatures/001/PASS-100-LEDGER.md:L125; W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf p.8 (Part I)",
+   "extra": {
+    "pass": 100,
+    "wave": "W10",
+    "target_item": "Master 100-Pass & First-Law Completion Gate",
+    "weakness_fixed": "Final end-to-end assertion over all 99 prior passes + global worst ledger error <1e-11",
+    "implementation": "creatures/001/organism/passes_100_suite.ts:1136",
+    "target_codes": [],
+    "suite_same_number_id": "master_100_pass_completion_and_global_first_law_conservation_gate",
+    "suite_same_number_recorded_ok": true,
+    "same_number_shared_codes": []
+   }
+  }
+ ]
+}

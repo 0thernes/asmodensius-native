@@ -1,0 +1,1098 @@
+{
+ "set_id": "bench_foundations",
+ "title": "NOVEL-100 Foundations F01..F100 (capabilities that are not novel but are groundwork)",
+ "source_files": [
+  "W:/Creature1-Benchmarks.pdf"
+ ],
+ "items": [
+  {
+   "id": "F01",
+   "text": "Self-repair of a damaged limb after injury",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F02",
+   "text": "Metabolic closure from an internal autocatalytic set",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F03",
+   "text": "Heritable variation across generations",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F04",
+   "text": "Self-reproduction of the full creature state",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Done (per repo)",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F05",
+   "text": "Open-ended morphological novelty",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F06",
+   "text": "Active dendrites as coincidence gates (replaces FlyWire subgraph import)",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F07",
+   "text": "Grown approach/escape switching circuit",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F08",
+   "text": "Sleep-like offline consolidation",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F09",
+   "text": "Homeostatic temperature regulation",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F10",
+   "text": "Interoceptive prediction of energy",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F11",
+   "text": "Pain-avoidance learning with one-shot generalization",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F12",
+   "text": "One curiosity drive: learning progress + empowerment",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F13",
+   "text": "Social learning by observation",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F14",
+   "text": "Theory-of-mind of a peer's attention",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F15",
+   "text": "Emergent signalling channel",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F16",
+   "text": "Tool use: moving an object to reach food",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F17",
+   "text": "Planning over long horizons",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F18",
+   "text": "Episodic memory of specific events",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F19",
+   "text": "Counterfactual self-model",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F20",
+   "text": "Bit-reproducible evolution",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Done (per repo)",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F21",
+   "text": "Substrate-independent genome",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Combination of existing ideas"
+   }
+  },
+  {
+   "id": "F22",
+   "text": "Quantum-sampled mutation operator",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Done (per repo)",
+    "why_not_novel": "Combination of existing ideas"
+   }
+  },
+  {
+   "id": "F23",
+   "text": "Eshkol-compiled controller with autodiff",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Combination of existing ideas"
+   }
+  },
+  {
+   "id": "F24",
+   "text": "Morphogenesis from a single seed cell",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F25",
+   "text": "Regeneration after 50% tissue removal",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F26",
+   "text": "Bioelectric body plan (morphospace memory)",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F27",
+   "text": "Immune-like anomaly detection",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F28",
+   "text": "Circadian rhythm entrainment",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Done (per repo)",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F29",
+   "text": "Lifelong learning without catastrophic forgetting",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F30",
+   "text": "Self-tuned criticality (replaces developmental curriculum)",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Combination of existing ideas"
+   }
+  },
+  {
+   "id": "F31",
+   "text": "Ecological niche construction",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F32",
+   "text": "Predator–prey coevolution",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F33",
+   "text": "Multicellular division of labour",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F34",
+   "text": "Sexual recombination with mate choice",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F35",
+   "text": "Genome-to-connectome developmental encoding",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F36",
+   "text": "Neuromodulator-gated plasticity",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F37",
+   "text": "Spiking cortex with state-dependent time constants",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F38",
+   "text": "Energy-accurate neuron cost accounting",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F39",
+   "text": "Vision from its own sensory array",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F40",
+   "text": "Proprioceptive body schema learning",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F41",
+   "text": "Mirror self-recognition analogue",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F42",
+   "text": "Delayed gratification",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F43",
+   "text": "Play without extrinsic reward",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F44",
+   "text": "Neuromodulator cocktail modes",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F45",
+   "text": "Gut–brain microbiome (replaces language grounding from text)",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Combination of existing ideas"
+   }
+  },
+  {
+   "id": "F46",
+   "text": "Reversible computing core",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Combination of existing ideas"
+   }
+  },
+  {
+   "id": "F47",
+   "text": "Cryptographic lineage provenance",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Done (per repo)",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F48",
+   "text": "Astrocyte slow glial layer (replaces multi-tab BroadcastChannel)",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F50",
+   "text": "Assembly index of behaviour and form (replaces ASAL embeddings)",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Combination of existing ideas"
+   }
+  },
+  {
+   "id": "F51",
+   "text": "Self-model of its own failure modes",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F52",
+   "text": "Graceful degradation under neuron loss",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F53",
+   "text": "Gradient-estimating chemotaxis",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F54",
+   "text": "Anticipatory postural adjustment",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F55",
+   "text": "Rhythm-generator gait switching",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F56",
+   "text": "Locomotion in dome water zones",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F57",
+   "text": "Collective construction with peers",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.28 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F58",
+   "text": "Memetic cultural transmission",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F59",
+   "text": "Inequity aversion in sharing",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F60",
+   "text": "Self-generated goals",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F61",
+   "text": "Metacognitive confidence",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Done (per repo)",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F62",
+   "text": "Blindsight-like dissociation",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F63",
+   "text": "Global ignition threshold dynamics",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Done (per repo)",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F64",
+   "text": "Perceptual bistability",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F65",
+   "text": "Attentional blink",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F66",
+   "text": "Change blindness",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F67",
+   "text": "Masking-dependent reportability",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F68",
+   "text": "Working-memory limit ~4",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F69",
+   "text": "Serial dependence",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F70",
+   "text": "Anesthesia-like collapse of integration",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F71",
+   "text": "Perturbational complexity on the creature",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F72",
+   "text": "Dreams that seed evolution",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F73",
+   "text": "Hunger-driven risk sensitivity",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F74",
+   "text": "Grid-like spatial code",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F75",
+   "text": "Place remapping",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F76",
+   "text": "Object permanence",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F77",
+   "text": "Causal intervention learning",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F78",
+   "text": "Numerosity with Weber law",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F79",
+   "text": "Felt time (interval timing + temporal sense)",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F80",
+   "text": "Habituation and dishabituation",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F81",
+   "text": "Classical conditioning with blocking",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F82",
+   "text": "Extinction and spontaneous recovery",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F83",
+   "text": "Latent learning",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F84",
+   "text": "Detour behaviour",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F85",
+   "text": "Ornament evolution by mate choice",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F86",
+   "text": "Speciation by isolation",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F87",
+   "text": "Evolution of evolvability",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F88",
+   "text": "Endosymbiosis",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F89",
+   "text": "Horizontal gene transfer",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F90",
+   "text": "Parasite coevolution",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F91",
+   "text": "Red Queen dynamics",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F92",
+   "text": "Metabolic scaling across sizes",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F93",
+   "text": "Markov-blanket instrument (replaces allometric limbs)",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F94",
+   "text": "Traveling waves and phase codes (replaces non-carbon chemistry)",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.29 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F95",
+   "text": "Titan-like environment model [speculative]",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.30 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F96",
+   "text": "Radiation-tolerant genome repair",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.30 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F97",
+   "text": "Dormancy/cryptobiosis",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.30 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F98",
+   "text": "Explainable state verified against ablation",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.30 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Partial",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F99",
+   "text": "Public replication by an independent runner",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.30 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  },
+  {
+   "id": "F100",
+   "text": "Thermotaxis with learned set point",
+   "category": "NOVEL-100 Foundations (not novel; needed groundwork)",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.30 (section 6, Foundations)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "why_not_novel": "Exists elsewhere"
+   }
+  }
+ ]
+}

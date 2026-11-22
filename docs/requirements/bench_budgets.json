@@ -1,0 +1,309 @@
+{
+ "set_id": "bench_budgets",
+ "title": "Asmodensius-v40 performance, thermodynamic and statistical budgets (metric, target, hard limit, measured v5.0.0)",
+ "source_files": [
+  "V:/docs/BUDGETS.md"
+ ],
+ "items": [
+  {
+   "id": "BUD-1.1",
+   "text": "Organism First-Law relative enthalpy error",
+   "category": "v40 budgets / 1. Thermodynamic & Numerical Accuracy Budgets",
+   "criterion": "target <= 1e-14; hard ceiling/floor <= 1e-12",
+   "source_ref": "V:/docs/BUDGETS.md:L11",
+   "extra": {
+    "measured": "Organism First-Law relative enthalpy error",
+    "unit": "dimensionless (relative error, rate or probability)",
+    "target": "<= 1e-14",
+    "hard_limit": "<= 1e-12",
+    "measured_v5_0_0": "<= 3.09e-15",
+    "gate": "Gates 4, 5, 6 (qualities_v40, passes_100_suite, apex_ultimate_suite)"
+   }
+  },
+  {
+   "id": "BUD-1.2",
+   "text": "Biosphere (Dome) world First-Law error",
+   "category": "v40 budgets / 1. Thermodynamic & Numerical Accuracy Budgets",
+   "criterion": "target <= 5e-14; hard ceiling/floor <= 1e-11",
+   "source_ref": "V:/docs/BUDGETS.md:L12",
+   "extra": {
+    "measured": "Biosphere (Dome) world First-Law error",
+    "unit": "dimensionless (relative error, rate or probability)",
+    "target": "<= 5e-14",
+    "hard_limit": "<= 1e-11",
+    "measured_v5_0_0": "9.33e-15",
+    "gate": "Gate 7 (EMP_09) & T-REL-001"
+   }
+  },
+  {
+   "id": "BUD-1.3",
+   "text": "Closed-vessel Chemoton moiety drift |M(t) - M(0)|",
+   "category": "v40 budgets / 1. Thermodynamic & Numerical Accuracy Budgets",
+   "criterion": "target <= 1e-12; hard ceiling/floor <= 1e-10",
+   "source_ref": "V:/docs/BUDGETS.md:L13",
+   "extra": {
+    "measured": "Closed-vessel Chemoton moiety drift |M(t) - M(0)|",
+    "unit": "dimensionless (relative error, rate or probability)",
+    "target": "<= 1e-12",
+    "hard_limit": "<= 1e-10",
+    "measured_v5_0_0": "4.45e-13",
+    "gate": "Gate 7 (THM_04) & T-NUM-003"
+   }
+  },
+  {
+   "id": "BUD-1.4",
+   "text": "Prigogine–Schnakenberg entropy rate $\\dot{\\Sigma}_{\\text{chem}}$",
+   "category": "v40 budgets / 1. Thermodynamic & Numerical Accuracy Budgets",
+   "criterion": "target >= 0; hard ceiling/floor >= -1e-15",
+   "source_ref": "V:/docs/BUDGETS.md:L14",
+   "extra": {
+    "measured": "Prigogine–Schnakenberg entropy rate $\\dot{\\Sigma}_{\\text{chem}}$",
+    "unit": "dimensionless (relative error, rate or probability)",
+    "target": ">= 0",
+    "hard_limit": ">= -1e-15",
+    "measured_v5_0_0": ">= +1.60e-27 (0 violations)",
+    "gate": "Gate 7 (THM_04) & Gate 8 (AUDIT_04)"
+   }
+  },
+  {
+   "id": "BUD-1.5",
+   "text": "WASM 1.0 vs TypeScript kernel parity (philox, dot_f64, chemoton)",
+   "category": "v40 budgets / 1. Thermodynamic & Numerical Accuracy Budgets",
+   "criterion": "target 0 ULP; hard ceiling/floor 0 ULP",
+   "source_ref": "V:/docs/BUDGETS.md:L15",
+   "extra": {
+    "measured": "WASM 1.0 vs TypeScript kernel parity (philox, dot_f64, chemoton)",
+    "unit": "ULP",
+    "target": "0 ULP",
+    "hard_limit": "0 ULP",
+    "measured_v5_0_0": "0 diffs / 512 vectors",
+    "gate": "Gate 7 (THM_07) & T-NUM-001"
+   }
+  },
+  {
+   "id": "BUD-1.6",
+   "text": "Python 80-digit Decimal vs TypeScript Float64 mathematical constants",
+   "category": "v40 budgets / 1. Thermodynamic & Numerical Accuracy Budgets",
+   "criterion": "target <= 1e-13; hard ceiling/floor <= 1e-11",
+   "source_ref": "V:/docs/BUDGETS.md:L16",
+   "extra": {
+    "measured": "Python 80-digit Decimal vs TypeScript Float64 mathematical constants",
+    "unit": "dimensionless (relative error, rate or probability)",
+    "target": "<= 1e-13",
+    "hard_limit": "<= 1e-11",
+    "measured_v5_0_0": "<= 3.34e-14",
+    "gate": "Gate 8 (AUDIT_02..06)"
+   }
+  },
+  {
+   "id": "BUD-1.7",
+   "text": "Morris–Lecar RK4 action-potential parity (Python Float64 vs TypeScript)",
+   "category": "v40 budgets / 1. Thermodynamic & Numerical Accuracy Budgets",
+   "criterion": "target <= 1e-12 mV; hard ceiling/floor <= 1e-9 mV",
+   "source_ref": "V:/docs/BUDGETS.md:L17",
+   "extra": {
+    "measured": "Morris–Lecar RK4 action-potential parity (Python Float64 vs TypeScript)",
+    "unit": "mV",
+    "target": "<= 1e-12 mV",
+    "hard_limit": "<= 1e-9 mV",
+    "measured_v5_0_0": "0.00e+00 mV (I105_spk = 8, twin-pulse refractory 1 vs 2 spikes)",
+    "gate": "Gate 8 (AUDIT_09)"
+   }
+  },
+  {
+   "id": "BUD-2.1",
+   "text": "Held-out seed firewall (PREREG-V50-HELDOUT.json)",
+   "category": "v40 budgets / 2. Statistical & Experimental Rigor Budgets",
+   "criterion": "target seed >= 5000; hard ceiling/floor Zero dev overlap (< 5000)",
+   "source_ref": "V:/docs/BUDGETS.md:L23",
+   "extra": {
+    "measured": "Held-out seed firewall (PREREG-V50-HELDOUT.json)",
+    "unit": "seed index",
+    "target": "seed >= 5000",
+    "hard_limit": "Zero dev overlap (< 5000)",
+    "measured_v5_0_0": "5001..5024, 5101..5124",
+    "gate": "Gate 7 & Gate 8 (AUDIT_01)"
+   }
+  },
+  {
+   "id": "BUD-2.2",
+   "text": "5-Arm Berger IUT + Holm–Bonferroni family-wise error rate",
+   "category": "v40 budgets / 2. Statistical & Experimental Rigor Budgets",
+   "criterion": "target <= 0.02; hard ceiling/floor <= 0.05",
+   "source_ref": "V:/docs/BUDGETS.md:L24",
+   "extra": {
+    "measured": "5-Arm Berger IUT + Holm–Bonferroni family-wise error rate",
+    "unit": "dimensionless (relative error, rate or probability)",
+    "target": "<= 0.02",
+    "hard_limit": "<= 0.05",
+    "measured_v5_0_0": "max p_Holm = 1.06e-2 (177227/16777216)",
+    "gate": "Gate 7 (EMP_09) & Gate 8 (AUDIT_07)"
+   }
+  },
+  {
+   "id": "BUD-2.3",
+   "text": "Mutant falsification catch rate (apex_ultimate_suite.ts)",
+   "category": "v40 budgets / 2. Statistical & Experimental Rigor Budgets",
+   "criterion": "target 5/5 (100%); hard ceiling/floor 5/5 (100%)",
+   "source_ref": "V:/docs/BUDGETS.md:L25",
+   "extra": {
+    "measured": "Mutant falsification catch rate (apex_ultimate_suite.ts)",
+    "unit": "percent",
+    "target": "5/5 (100%)",
+    "hard_limit": "5/5 (100%)",
+    "measured_v5_0_0": "5/5 [1,1,1,1,1]",
+    "gate": "Gate 6"
+   }
+  },
+  {
+   "id": "BUD-2.4",
+   "text": "Native V8 production line coverage (7 core modules: wasm_kernels, cleanslate_foundation, heptarch_council, nestor_brain, server, god, dome)",
+   "category": "v40 budgets / 2. Statistical & Experimental Rigor Budgets",
+   "criterion": "target >= 92%; hard ceiling/floor >= 90.0%",
+   "source_ref": "V:/docs/BUDGETS.md:L26",
+   "extra": {
+    "measured": "Native V8 production line coverage (7 core modules: wasm_kernels, cleanslate_foundation, heptarch_council, nestor_brain, server, god, dome)",
+    "unit": "percent",
+    "target": ">= 92%",
+    "hard_limit": ">= 90.0%",
+    "measured_v5_0_0": "93.1% (3590/3856 lines)",
+    "gate": "Gate 9 (tests/run_grade_a_tests.mjs)"
+   }
+  },
+  {
+   "id": "BUD-3.1",
+   "text": "Hand-assembled WASM 1.0 module (wasm_kernels.ts)",
+   "category": "v40 budgets / 3. Bundle Size, Wire Format & HTTP Server Budgets",
+   "criterion": "target <= 1.0 KB; hard ceiling/floor <= 4.0 KB",
+   "source_ref": "V:/docs/BUDGETS.md:L32",
+   "extra": {
+    "measured": "Hand-assembled WASM 1.0 module (wasm_kernels.ts)",
+    "unit": "bytes (KB)",
+    "target": "<= 1.0 KB",
+    "hard_limit": "<= 4.0 KB",
+    "measured_v5_0_0": "518 B (0.51 KB)",
+    "gate": "THM_07 & T-NUM-001"
+   }
+  },
+  {
+   "id": "BUD-3.2",
+   "text": "Binary .alifebin snapshot & sparse XOR delta (SoAArena.toAlifeBin / encodeXorCheckpoint)",
+   "category": "v40 budgets / 3. Bundle Size, Wire Format & HTTP Server Budgets",
+   "criterion": "target <= 8 KB; hard ceiling/floor < 64 KB",
+   "source_ref": "V:/docs/BUDGETS.md:L33",
+   "extra": {
+    "measured": "Binary .alifebin snapshot & sparse XOR delta (SoAArena.toAlifeBin / encodeXorCheckpoint)",
+    "unit": "bytes (KB)",
+    "target": "<= 8 KB",
+    "hard_limit": "< 64 KB",
+    "measured_v5_0_0": "2,060 B full (32 entities) / 22–36 B XOR delta",
+    "gate": "apex_ultimate_suite, THM_07 & T-NUM-004"
+   }
+  },
+  {
+   "id": "BUD-3.3",
+   "text": "Browser ESM organism bundle (organism.browser.mjs, unminified)",
+   "category": "v40 budgets / 3. Bundle Size, Wire Format & HTTP Server Budgets",
+   "criterion": "target <= 500 KB; hard ceiling/floor <= 750 KB",
+   "source_ref": "V:/docs/BUDGETS.md:L34",
+   "extra": {
+    "measured": "Browser ESM organism bundle (organism.browser.mjs, unminified)",
+    "unit": "bytes (KB)",
+    "target": "<= 500 KB",
+    "hard_limit": "<= 750 KB",
+    "measured_v5_0_0": "449.7 KB",
+    "gate": "Gate 1 & Gate 9"
+   }
+  },
+  {
+   "id": "BUD-3.4",
+   "text": "Browser ESM lab bundle (lab.browser.mjs, unminified)",
+   "category": "v40 budgets / 3. Bundle Size, Wire Format & HTTP Server Budgets",
+   "criterion": "target <= 600 KB; hard ceiling/floor <= 900 KB",
+   "source_ref": "V:/docs/BUDGETS.md:L35",
+   "extra": {
+    "measured": "Browser ESM lab bundle (lab.browser.mjs, unminified)",
+    "unit": "bytes (KB)",
+    "target": "<= 600 KB",
+    "hard_limit": "<= 900 KB",
+    "measured_v5_0_0": "562.3 KB",
+    "gate": "Gate 1 & Gate 9"
+   }
+  },
+  {
+   "id": "BUD-3.5",
+   "text": "Viewer client script + stylesheet (viewer-app.mjs + viewer.css)",
+   "category": "v40 budgets / 3. Bundle Size, Wire Format & HTTP Server Budgets",
+   "criterion": "target <= 25 KB; hard ceiling/floor <= 64 KB",
+   "source_ref": "V:/docs/BUDGETS.md:L36",
+   "extra": {
+    "measured": "Viewer client script + stylesheet (viewer-app.mjs + viewer.css)",
+    "unit": "bytes (KB)",
+    "target": "<= 25 KB",
+    "hard_limit": "<= 64 KB",
+    "measured_v5_0_0": "~18.4 KB",
+    "gate": "lab/viewer/"
+   }
+  },
+  {
+   "id": "BUD-3.6",
+   "text": "HTTP POST JSON payload size (MAX_BODY_BYTES)",
+   "category": "v40 budgets / 3. Bundle Size, Wire Format & HTTP Server Budgets",
+   "criterion": "target <= 4 KB; hard ceiling/floor 65,536 B (64 KB, HTTP 413)",
+   "source_ref": "V:/docs/BUDGETS.md:L37",
+   "extra": {
+    "measured": "HTTP POST JSON payload size (MAX_BODY_BYTES)",
+    "unit": "bytes (KB)",
+    "target": "<= 4 KB",
+    "hard_limit": "65,536 B (64 KB, HTTP 413)",
+    "measured_v5_0_0": "Enforced (413 verified)",
+    "gate": "T-SEC-001"
+   }
+  },
+  {
+   "id": "BUD-3.7",
+   "text": "/healthz & /state loopback response latency (p95, local)",
+   "category": "v40 budgets / 3. Bundle Size, Wire Format & HTTP Server Budgets",
+   "criterion": "target <= 5 ms; hard ceiling/floor <= 50 ms",
+   "source_ref": "V:/docs/BUDGETS.md:L38",
+   "extra": {
+    "measured": "/healthz & /state loopback response latency (p95, local)",
+    "unit": "ms",
+    "target": "<= 5 ms",
+    "hard_limit": "<= 50 ms",
+    "measured_v5_0_0": "< 2 ms",
+    "gate": "T-API-001"
+   }
+  },
+  {
+   "id": "BUD-3.8",
+   "text": "Mobile Core Web Vitals (4x-CPU throttled Chrome CDP: LCP / INP / CLS)",
+   "category": "v40 budgets / 3. Bundle Size, Wire Format & HTTP Server Budgets",
+   "criterion": "target <= 1.5 s / <= 100 ms / <= 0.05; hard ceiling/floor <= 2.5 s / <= 200 ms / <= 0.10",
+   "source_ref": "V:/docs/BUDGETS.md:L39",
+   "extra": {
+    "measured": "Mobile Core Web Vitals (4x-CPU throttled Chrome CDP: LCP / INP / CLS)",
+    "unit": "s / ms / unitless (LCP / INP / CLS)",
+    "target": "<= 1.5 s / <= 100 ms / <= 0.05",
+    "hard_limit": "<= 2.5 s / <= 200 ms / <= 0.10",
+    "measured_v5_0_0": "LCP = 328 ms, INP = 30.59 ms, CLS = 0",
+    "gate": "npm run test:browser (docs/badges/cwv-mobile-lab.json)"
+   }
+  },
+  {
+   "id": "BUD-3.9",
+   "text": "Full 9-Gate verification pipeline wall-clock runtime",
+   "category": "v40 budgets / 3. Bundle Size, Wire Format & HTTP Server Budgets",
+   "criterion": "target <= 90 s; hard ceiling/floor <= 300 s",
+   "source_ref": "V:/docs/BUDGETS.md:L40",
+   "extra": {
+    "measured": "Full 9-Gate verification pipeline wall-clock runtime",
+    "unit": "s",
+    "target": "<= 90 s",
+    "hard_limit": "<= 300 s",
+    "measured_v5_0_0": "~55 s",
+    "gate": "CI timeout-minutes: 15"
+   }
+  }
+ ]
+}

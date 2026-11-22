@@ -1,0 +1,49 @@
+/* params/az_chem.def - the world parameters of az_chem.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not a law of the physics from az_abi.h
+ * and not read from the creature (a trait, its brain, its body, its memory)
+ * is declared here, with its default and the range it may be set to, and is
+ * read as w->param[AZ_WP_<name>]. Names start with the module's name in
+ * capitals so that they cannot collide.
+ *
+ * The eight CHEM_MELT_ and the eight CHEM_BOIL_ lines stand in the order of
+ * the species (AZ_SP_*): az_chem.c reads them by species number and refuses
+ * to compile when the order is broken.
+ */
+AZ_PARAM(CHEM_DOUBLE,       1024, 64, 32767, "rise in temperature that doubles the rate of a reaction (and the fall that halves it)")
+AZ_PARAM(CHEM_OXIDATION,       4, 0, 65536, "share (of 65536) of the scarcer of organic matter and oxidiser in a cell that reacts per step at the worldgen temperature")
+AZ_PARAM(CHEM_TOX_DECAY,    4096, 0, 65536, "share (of 65536) of the radiotoxin in a cell that decays per step, whatever the temperature")
+AZ_PARAM(CHEM_PRECIP_TEMP, 10240, 0, 32767, "temperature at or above which, in a cell or beside it, mineral settles out as structure: the chimneys of the vents")
+AZ_PARAM(CHEM_PRECIP,       2048, 0, 65536, "share (of 65536) of the mineral in such a cell that becomes structure per step")
+AZ_PARAM(CHEM_BURIAL,         16, 0, 65536, "share (of 65536) of the waste, organic matter and structure in the lowest open cell of a column that is buried into the reservoir per step")
+AZ_PARAM(CHEM_MARK_DECAY,      8, 0, 256, "share (of 256) of each mark a cell loses per step, besides the one unit it always loses")
+AZ_PARAM(CHEM_PLASMA_CHARGE, 192, 1, 255, "charge at which what is gas in a cell is plasma")
+AZ_PARAM(CHEM_MELT_SOLV,    6144, 0, 32767, "temperature under which the solvent is solid")
+AZ_PARAM(CHEM_MELT_GAS,      256, 0, 32767, "temperature under which the carrier gas is solid")
+AZ_PARAM(CHEM_MELT_OXI,      512, 0, 32767, "temperature under which the oxidiser is solid")
+AZ_PARAM(CHEM_MELT_NUT_X,  16384, 0, 32767, "temperature under which the mineral is solid")
+AZ_PARAM(CHEM_MELT_ORG_Y,   9216, 0, 32767, "temperature under which organic matter is solid")
+AZ_PARAM(CHEM_MELT_TOX_Z,   4096, 0, 32767, "temperature under which the radiotoxin is solid")
+AZ_PARAM(CHEM_MELT_WST_W,   5120, 0, 32767, "temperature under which waste is solid")
+AZ_PARAM(CHEM_MELT_STR_S,  28000, 0, 32767, "temperature under which structure is solid")
+AZ_PARAM(CHEM_BOIL_SOLV,   12288, 0, 32767, "temperature from which the solvent is gas")
+AZ_PARAM(CHEM_BOIL_GAS,     1024, 0, 32767, "temperature from which the carrier gas is gas")
+AZ_PARAM(CHEM_BOIL_OXI,     2048, 0, 32767, "temperature from which the oxidiser is gas")
+AZ_PARAM(CHEM_BOIL_NUT_X,  30000, 0, 32767, "temperature from which the mineral is gas")
+AZ_PARAM(CHEM_BOIL_ORG_Y,  20000, 0, 32767, "temperature from which organic matter is gas")
+AZ_PARAM(CHEM_BOIL_TOX_Z,  14000, 0, 32767, "temperature from which the radiotoxin is gas")
+AZ_PARAM(CHEM_BOIL_WST_W,  11264, 0, 32767, "temperature from which waste is gas")
+AZ_PARAM(CHEM_BOIL_STR_S,  32767, 0, 32767, "temperature from which structure is gas")
+AZ_PARAM(CHEM_DENS_LIQUID,  4096, 0, 1048576, "density of the medium (of 255) per 65536 units of liquid in the cell")
+AZ_PARAM(CHEM_DENS_SOLID,   8192, 0, 1048576, "density of the medium per 65536 units of solid grains in the cell")
+AZ_PARAM(CHEM_DENS_GAS,      128, 0, 1048576, "density of the medium per 65536 units of gas or plasma in the cell")
+AZ_PARAM(CHEM_VISC_LIQUID,  4096, 0, 1048576, "viscosity of the medium (of 255) per 65536 units of liquid in the cell")
+AZ_PARAM(CHEM_VISC_SOLID,  16384, 0, 1048576, "viscosity of the medium per 65536 units of solid grains in the cell: structure and detritus thicken it")
+AZ_PARAM(CHEM_VISC_GAS,       64, 0, 1048576, "viscosity of the medium per 65536 units of gas or plasma in the cell")
+AZ_PARAM(CHEM_DIFFUSE_SOLID,  256, 0, 10922, "share (of 65536) of the difference to a face neighbour that holds less of a species, moved to it per step, for a species that is solid in the cell: grains creep")
+AZ_PARAM(CHEM_DIFFUSE_LIQUID, 2048, 0, 10922, "the same for a species that is liquid in the cell")
+AZ_PARAM(CHEM_DIFFUSE_GAS,   8192, 0, 10922, "the same for a species that is gas or plasma in the cell (10922 is a sixth: six sides cannot take more than there is)")
+AZ_PARAM(CHEM_SETTLE,          64, 0, 512, "share (of 65536) of a species that is solid in the cell that moves one cell with the pull per step, per unit of the gravity of the cell on that axis: grains sink")
+AZ_PARAM(CHEM_RISE,            16, 0, 512, "share (of 65536) of a species that is gas or plasma in the cell that moves one cell against the pull per step, per unit of gravity: bubbles rise")

@@ -1,0 +1,32 @@
+/* params/az_life.def - the world parameters of az_life.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not a law of the physics from az_abi.h
+ * and not read from the creature (a trait, its brain, its body, its memory)
+ * is declared here, with its default and the range it may be set to, and is
+ * read as w->param[AZ_WP_<name>]. Names start with the module's name in
+ * capitals so that they cannot collide.
+ *
+ * The life-history traits are bytes; these parameters are the units they are
+ * counted in (a scale of 16 means one unit of the trait per unit of the
+ * quantity). None of them is a cap: a trait of 255 with the largest scale is
+ * the most this world's bookkeeping can express, and a world can be made
+ * with other scales.
+ */
+AZ_PARAM(LIFE_CHECK_LOG2,       4,   2,       8, "a creature's life-history check runs once in 2^this ticks, at a phase of its own")
+AZ_PARAM(LIFE_EGG_SCALE,        4,   0,   65536, "ticks in the egg per 16 units of the child's EGG_TIME trait; a child with no egg time is born live")
+AZ_PARAM(LIFE_MATURITY_SCALE,   8,   0,   65536, "ticks as a juvenile per 16 units of the MATURITY trait")
+AZ_PARAM(LIFE_SIZE_MU,         16,   0,   65536, "body matter (mu) an adult needs per 16 units of the SIZE trait")
+AZ_PARAM(LIFE_SPAN_SCALE,     128,   1, 1048576, "ticks before senescence per 16 units of the LIFESPAN trait")
+AZ_PARAM(LIFE_REPRO_EU,        64,   0, 1048576, "energy (eu) a ripe adult holds per 16 units of the REPRO_THRESH trait")
+AZ_PARAM(LIFE_CLUTCH_SCALE,     4,   0,   65536, "young beyond the first per 256 units of the CLUTCH trait")
+AZ_PARAM(LIFE_HAZARD,        1024,   0, 1048576, "chance in 2^20 per check of dying of no cause that the creature could help, at any stage")
+AZ_PARAM(LIFE_SENESC_HAZARD, 8192,   0, 1048576, "chance in 2^20 per check of dying of age at the start of senescence")
+AZ_PARAM(LIFE_SENESC_DOUBLING, 128,  1, 1048576, "ticks in which the hazard of age doubles (Gompertz)")
+AZ_PARAM(LIFE_DORMANT_EU,      16,   0, 1048576, "energy (eu) per 16 units of the DORMANCY trait below which a resting creature may encyst")
+AZ_PARAM(LIFE_WAKE_FOOD,       64,   0, 1073741824, "organic matter (mu) in its cell that wakes a cyst")
+AZ_PARAM(LIFE_WAKE_CHANCE,   2048,   0,   65536, "chance in 65536 per check that a cyst of middling DORMANCY wakes by itself")
+AZ_PARAM(LIFE_BIRTH_HEALTH, 40000,   1,   65535, "health of a newborn")
+AZ_PARAM(LIFE_DISPERSAL_SCALE,  4,   0,    4096, "how far from its mother a child is placed: 1/256 of a cell per unit of her DISPERSAL trait plus one")
+AZ_PARAM(LIFE_FOUNDER_SPREAD, 128,   0,     256, "founders start at an age up to this share (of 256) of their time to senescence, so that they are not one cohort")

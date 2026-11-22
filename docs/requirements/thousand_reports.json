@@ -1,0 +1,1829 @@
+{
+ "set_id": "thousand_reports",
+ "title": "Three 1000-row Omega reports: taxonomy + selected items (creature diversity, world substances/hazards, Tsotchke substrate mappings)",
+ "source_files": [
+  "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md",
+  "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md",
+  "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md"
+ ],
+ "taxonomy": {
+  "alife": {
+   "file": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md",
+   "title": "DIMENSION Ω v5.0 // OMEGA-3000 A-LIFE CREATURE & CONSCIOUSNESS SINGULARITY REPORT (#2001–#3000)",
+   "line_count": 1194,
+   "row_id_first": 2001,
+   "row_id_last": 3000,
+   "rows": 1000,
+   "row_ids_unique_and_contiguous": true,
+   "domains": 20,
+   "rows_per_domain": 50,
+   "distinct_base_mechanisms": 500,
+   "variants_per_base": 2,
+   "variant_row_counts": {
+    "Forward Dynamical Coupling & Live ODE Integration": 500,
+    "Reciprocal Back-Action, Lesion Guard & Plastic Consolidation": 500
+   },
+   "distinct_operator_cells": 2,
+   "domain_list": [
+    {
+     "domain": "D41",
+     "code": "BUTLIN14_IND",
+     "title": "14 Consciousness Indicator Properties (Butlin, Chalmers, Bengio 2023)",
+     "id_first": 2001,
+     "id_last": 2050,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 54,
+     "provenance": ""
+    },
+    {
+     "domain": "D42",
+     "code": "FRAMEWORKS10",
+     "title": "10 Consciousness Frameworks (GWT, RPT, HOT, AST, PP, IIT4, UAL, CTM, Thaler9, Projective/CEMI)",
+     "id_first": 2051,
+     "id_last": 2100,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 111,
+     "provenance": ""
+    },
+    {
+     "domain": "D43",
+     "code": "ALIFE25_CQM",
+     "title": "25 A-Life & CQM Organism Dimensions (CQM-01 to CQM-25)",
+     "id_first": 2101,
+     "id_last": 2150,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 168,
+     "provenance": ""
+    },
+    {
+     "domain": "D44",
+     "code": "LIFE_METAB5",
+     "title": "LIFE-100 Group I: 5-Pool Cahill/Owen Metabolism, Hormones & Exact Energy Ledger",
+     "id_first": 2151,
+     "id_last": 2200,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 225,
+     "provenance": ""
+    },
+    {
+     "domain": "D45",
+     "code": "LIFE_HEALTH",
+     "title": "LIFE-100 Group II: Tissue Integrity, Nociception, Sickness, Ageing & Nutrient Cycle",
+     "id_first": 2201,
+     "id_last": 2250,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 282,
+     "provenance": ""
+    },
+    {
+     "domain": "D46",
+     "code": "LIFE_SLEEP",
+     "title": "LIFE-100 Group III: Circadian SCN, Borbely 2-Process Sleep, NREM Replay & Lucid REM Dreams",
+     "id_first": 2251,
+     "id_last": 2300,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 339,
+     "provenance": ""
+    },
+    {
+     "domain": "D47",
+     "code": "LIFE_BODY",
+     "title": "LIFE-100 Group IV: 3D Hydrostatic Body Plan, Octopus Limb Brains, CPGs & Bioelectric Morphing",
+     "id_first": 2301,
+     "id_last": 2350,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 396,
+     "provenance": ""
+    },
+    {
+     "domain": "D48",
+     "code": "LIFE_SENSES",
+     "title": "LIFE-100 Group V: Multisensory Bus, Fly Mushroom-Body Expansion & Ernst-Banks Fusion",
+     "id_first": 2351,
+     "id_last": 2400,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 453,
+     "provenance": ""
+    },
+    {
+     "domain": "D49",
+     "code": "ALIFE_ALIEN_SENSE",
+     "title": "LIFE-100 Group V-B: Alien Magnetoreception, QGT Quantum Sense, Remote Viewing & Wireless CEMI",
+     "id_first": 2401,
+     "id_last": 2450,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 510,
+     "provenance": ""
+    },
+    {
+     "domain": "D50",
+     "code": "SUBSTRATE_TAP",
+     "title": "DELARP Part VII §30: SubstrateTap Digital Machine Senses (Timing Jitter, GC, Frame Delta, RV32I)",
+     "id_first": 2451,
+     "id_last": 2500,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 567,
+     "provenance": ""
+    },
+    {
+     "domain": "D51",
+     "code": "LIFE_CNS",
+     "title": "LIFE-100 Group VI-A: 14-Region Spiking CNS, sLTC Neurons, L5 Dendritic BAC & Tripartite Glia",
+     "id_first": 2501,
+     "id_last": 2550,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 624,
+     "provenance": ""
+    },
+    {
+     "domain": "D52",
+     "code": "LIFE_PLASTICITY",
+     "title": "LIFE-100 Group VI-B: 3-Factor e-prop, Multiplicative STDP, Sinkhorn Scaling & 100M Virtual Cortex",
+     "id_first": 2551,
+     "id_last": 2600,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 681,
+     "provenance": ""
+    },
+    {
+     "domain": "D53",
+     "code": "LIFE_MIND",
+     "title": "LIFE-100 Group VII: Predictive World Model, EFE Active Inference, UAL & Tokenless Cognition",
+     "id_first": 2601,
+     "id_last": 2650,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 738,
+     "provenance": ""
+    },
+    {
+     "domain": "D54",
+     "code": "SELF_SIM_NEO",
+     "title": "DELARP Parts VIII–X: Unified SELF Model, Simulation Insight (SIM), Thought Curvature & Neo Hooks",
+     "id_first": 2651,
+     "id_last": 2700,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 795,
+     "provenance": ""
+    },
+    {
+     "domain": "D55",
+     "code": "LIFE_AFFECT",
+     "title": "LIFE-100 Group VIII: Panksepp 7 Emotions, Russell Circumplex Mood, Attitudes & Heritable Persona",
+     "id_first": 2701,
+     "id_last": 2750,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 852,
+     "provenance": ""
+    },
+    {
+     "domain": "D56",
+     "code": "LIFE_CYCLE",
+     "title": "LIFE-100 Group IX: Reproduction, Developmental Genome, Epigenetics, Parenting & Evolution",
+     "id_first": 2751,
+     "id_last": 2800,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 909,
+     "provenance": ""
+    },
+    {
+     "domain": "D57",
+     "code": "LIFE_SOCIAL",
+     "title": "LIFE-100 Group X: Multi-Creature Biodome Social Ecology, Calls, Empathy, Predation & Culture",
+     "id_first": 2801,
+     "id_last": 2850,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 966,
+     "provenance": ""
+    },
+    {
+     "domain": "D58",
+     "code": "NOVEL100_A_E",
+     "title": "NOVEL-100 Part 1 (N01–N50): Quantum-Metabolic Clocks, Free-Wont, Lucid Dreams & Self-Surgery",
+     "id_first": 2851,
+     "id_last": 2900,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 1023,
+     "provenance": ""
+    },
+    {
+     "domain": "D59",
+     "code": "NOVEL100_F_J",
+     "title": "NOVEL-100 Part 2 (N51–N100): Ecological Engineering, Cryptobiosis & High-Weirdness A-Life",
+     "id_first": 2901,
+     "id_last": 2950,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 1080,
+     "provenance": ""
+    },
+    {
+     "domain": "D60",
+     "code": "FOUNDATIONS100",
+     "title": "Foundations-100 & Multi-Substrate Integration (JS + RV32I + Eshkol + Moonlab + WebGL2 + WebAudio)",
+     "id_first": 2951,
+     "id_last": 3000,
+     "rows": 50,
+     "base_mechanisms": 25,
+     "heading_line": 1137,
+     "provenance": ""
+    }
+   ],
+   "sublists": {
+    "Butlin-14 indicators + 14 brain qualities (D41)": 25,
+    "10 frameworks + extended theories (D42)": 25,
+    "CQM-01..CQM-25 (D43)": 25,
+    "LIFE-100 groups I-X (D44-D57, incl. alien senses, SubstrateTap, SELF/SIM/Neo)": 350,
+    "NOVEL-100 rows present: N01-N25 (D58) + N51-N75 (D59)": 50,
+    "NOVEL-100 not enumerated as rows: N26-N50, N76-N100": 50,
+    "Foundations-100 rows present: F01-F25 (D60)": 25,
+    "Foundations-100 not enumerated as rows: F26-F100": 75
+   }
+  },
+  "super": {
+   "file": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md",
+   "title": "THE OMEGA-2000 SUPER-INTELLIGENCE & HIGH-WEIRDNESS MASTER ARCHITECTURAL REPORT",
+   "line_count": 1265,
+   "row_id_first": 1001,
+   "row_id_last": 2000,
+   "rows": 1000,
+   "row_ids_unique_and_contiguous": true,
+   "domains": 20,
+   "rows_per_domain": 50,
+   "distinct_base_mechanisms": 200,
+   "variants_per_base": 5,
+   "variant_row_counts": {
+    "Primal Forward Operator": 200,
+    "Strange-Loop Metacognitive & Precision Gate": 200,
+    "Non-Hermitian QGTL & Exceptional-Point Preconditioner": 200,
+    "Octonionic & Floquet Subharmonic Phase Resonator": 200,
+    "Retrocausal CTC & Allostatic Fixed-Point Integrator": 200
+   },
+   "distinct_operator_cells": 1000,
+   "domain_list": [
+    {
+     "domain": "D21",
+     "code": "RV32I-AUTOPOIETIC-DIE",
+     "title": "Embedded RV32I 32-Bit RISC-V Self-Writing Silicon Co-Processor & Autopoietic Machine-Code Synthesis",
+     "id_first": 1001,
+     "id_last": 1050,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 65,
+     "provenance": "Asmodensius-v40/creatures/001 (RV32I Silicon Die) + tsotchke/eshkol (JIT Bytecode)"
+    },
+    {
+     "domain": "D22",
+     "code": "EVERETT-BRANCH-FORK",
+     "title": "Everettian Many-Worlds Counterfactual Timeline Forking & Quantum Darwinism Branch Selection",
+     "id_first": 1051,
+     "id_last": 1100,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 125,
+     "provenance": "tsotchke/moonlab (Multi-Branch Wavefunction) + Eshkol Active Inference Rollout Engine"
+    },
+    {
+     "domain": "D23",
+     "code": "HOFSTADTER-STRANGE-LOOP",
+     "title": "Hofstadter Strange-Loop Metacognitive Self-Model & Godelian Self-Reference Fixed-Point Observer",
+     "id_first": 1101,
+     "id_last": 1150,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 185,
+     "provenance": "Asmodensius-v40 (SelfModel Observer) + tsotchke/eshkol (Homoiconic Quote/Eval Reflection)"
+    },
+    {
+     "domain": "D24",
+     "code": "LORA-VIRTUAL-CORTEX",
+     "title": "Procedural 100-Million-Weight Hash-Synthesized Virtual Cortex & Online Rank-16 LoRA Fast-Adapter",
+     "id_first": 1151,
+     "id_last": 1200,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 245,
+     "provenance": "Asmodensius-v40 (Procedural SplitMix64 Backbone + Online Rank-16 LoRA Fast Weights)"
+    },
+    {
+     "domain": "D25",
+     "code": "PT-EXCEPTIONAL-POINT",
+     "title": "Non-Hermitian PT-Symmetric Quantum Mechanics & Exceptional-Point (EP_n) Phase Singularities",
+     "id_first": 1201,
+     "id_last": 1250,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 305,
+     "provenance": "tsotchke/quantum_geometric_tensor (Non-Hermitian Extension) + Biorthogonal Quantum Dynamics"
+    },
+    {
+     "domain": "D26",
+     "code": "ADS-CFT-HOLOGRAPHIC",
+     "title": "AdS/CFT Holographic Bulk-Boundary Duality, Ryu-Takayanagi Minimal Surfaces & MERA Geodesics",
+     "id_first": 1251,
+     "id_last": 1300,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 365,
+     "provenance": "tsotchke/moonlab (MPS Boundary Entanglement -> Poincare AdS_3 Bulk Geometry)"
+    },
+    {
+     "domain": "D27",
+     "code": "FLOQUET-TIME-CRYSTAL",
+     "title": "Discrete Floquet Time-Crystal Subharmonic Locking & Non-Equilibrium Driven Chrono-Synapses",
+     "id_first": 1301,
+     "id_last": 1350,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 425,
+     "provenance": "tsotchke/moonlab (Floquet Periodic Spin Chain & Many-Body Localization Prethermal Engine)"
+    },
+    {
+     "domain": "D28",
+     "code": "HDC-VSA-HYPERVECTOR",
+     "title": "10,000-D Hyperdimensional Computing (HDC) & Holographic Vector Symbolic Architecture (VSA)",
+     "id_first": 1351,
+     "id_last": 1400,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 485,
+     "provenance": "tsotchke/eshkol (Symbolic-Vector Bridge) + Plate Holographic Reduced Representations (HRR)"
+    },
+    {
+     "domain": "D29",
+     "code": "PADIC-ULTRAMETRIC-TREE",
+     "title": "p-Adic Ultrametric Dendritic Hierarchies & Non-Archimedean Bruhat-Tits Tree Cognition",
+     "id_first": 1401,
+     "id_last": 1450,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 545,
+     "provenance": "tsotchke/eshkol (Exact Number Theory) + Parisi Ultrametric Spin-Glass Hierarchy"
+    },
+    {
+     "domain": "D30",
+     "code": "OCTONION-E8-SPINOR",
+     "title": "Octonionic Non-Associative Division-Algebra Spinors, Fano-Plane Triplets & G_2 / E_8 Projections",
+     "id_first": 1451,
+     "id_last": 1500,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 605,
+     "provenance": "tsotchke/libirrep (Exceptional Lie Groups) + Cayley-Dickson 8D Octonion Algebra"
+    },
+    {
+     "domain": "D31",
+     "code": "PERSISTENT-HOMOLOGY-TDA",
+     "title": "Vietoris-Rips Simplicial Complex Filtration, Betti Numbers (beta_0, beta_1, beta_2) & Euler Topology",
+     "id_first": 1501,
+     "id_last": 1550,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 665,
+     "provenance": "tsotchke/georefine (Simplicial Mesh Topology) + Real-Time Persistent Homology TDA Engine"
+    },
+    {
+     "domain": "D32",
+     "code": "SOLOMONOFF-KOLMOGOROV",
+     "title": "Algorithmic Solomonoff Induction, Kolmogorov Minimum Description Length (MDL) & Epiphany Drive",
+     "id_first": 1551,
+     "id_last": 1600,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 725,
+     "provenance": "tsotchke/eshkol (Homoiconic S-Expression Program Synthesis & Universal Prior 2^{-|p|})"
+    },
+    {
+     "domain": "D33",
+     "code": "FROHLICH-ORCH-OR",
+     "title": "Frohlich Terahertz Bose-Einstein Dipolar Condensates & Penrose-Diosi Orch-OR Gravitational Reduction",
+     "id_first": 1601,
+     "id_last": 1650,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 785,
+     "provenance": "tsotchke/moonlab (Open-Quantum Dipolar Condensate) + Penrose-Diosi Gravitational Self-Energy"
+    },
+    {
+     "domain": "D34",
+     "code": "DICKE-BIOPHOTON-AXON",
+     "title": "Dicke Superradiant N^2 Optical Bursts, Squeezed Biophoton Luminescence & Myelinated Waveguides",
+     "id_first": 1651,
+     "id_last": 1700,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 845,
+     "provenance": "tsotchke/moonlab (Collective Spin-J Dicke Model) + Myelinated Axonal Cavity QED"
+    },
+    {
+     "domain": "D35",
+     "code": "EPIGENETIC-RETROTRANSPOSON",
+     "title": "Epigenetic Histone H3K4me3/H3K27me3 Chromatin Folding, CpG Methylation & LINE-1 Retrotransposons",
+     "id_first": 1701,
+     "id_last": 1750,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 905,
+     "provenance": "Biomimetic Genomic Plasticity Engine (Chromatin Accessibility & Somatic Retrotransposition)"
+    },
+    {
+     "domain": "D36",
+     "code": "PRION-CPEB3-CONDENSATE",
+     "title": "Prion-Like CPEB3 Conformational Amyloid Memory Oligomers & Cahn-Hilliard LLPS Condensates",
+     "id_first": 1751,
+     "id_last": 1800,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 965,
+     "provenance": "Biophysical Synaptic Droplet Engine (Functional Prion Fold-Switch & Spinodal Decomposition)"
+    },
+    {
+     "domain": "D37",
+     "code": "LEVIN-BIOELECTRIC-MORPH",
+     "title": "Morphogenetic Non-Neural Bioelectric Resting-Potential (V_mem) Gap-Junction Blueprints",
+     "id_first": 1801,
+     "id_last": 1850,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 1025,
+     "provenance": "Michael Levin Somatic Bioelectric Collective Intelligence & Anatomical Homeostasis Engine"
+    },
+    {
+     "domain": "D38",
+     "code": "RETROGRADE-NO-CANNABINOID",
+     "title": "Retrograde Endocannabinoid (2-AG/AEA) DSI/DSE & 3D Nitric Oxide (NO) Gas Volume Diffusion",
+     "id_first": 1851,
+     "id_last": 1900,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 1085,
+     "provenance": "Retrograde Volume-Transmission Neurochemistry Engine (CB1 Presynaptic Brake & 3D Gas PDE)"
+    },
+    {
+     "domain": "D39",
+     "code": "UNRUH-CASIMIR-SCHWINGER",
+     "title": "Relativistic Unruh Acceleration Thermal Bath, Casimir Vacuum Pressure & Schwinger Pair Creation",
+     "id_first": 1901,
+     "id_last": 1950,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 1145,
+     "provenance": "Quantum Field Theory in Curved/Accelerated Cognitive Manifolds (Rindler Horizon & QED Vacuum)"
+    },
+    {
+     "domain": "D40",
+     "code": "DEUTSCH-CTC-RETROCAUSAL",
+     "title": "Deutschian Closed Timelike Curve (CTC) Retrocausal Fixed-Point Solver & Wheeler-Feynman Absorber",
+     "id_first": 1951,
+     "id_last": 2000,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 1205,
+     "provenance": "Retrocausal Quantum Temporal Consistency Engine (Deutsch CTC Fixed Point & Advanced Waves)"
+    }
+   ]
+  },
+  "tsotchke": {
+   "file": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md",
+   "title": "THE 1,000-SUBSTRATE TSOTCHKE OMEGA ORGANISM — MASTER ARCHITECTURAL REPORT",
+   "line_count": 1264,
+   "row_id_first": 1,
+   "row_id_last": 1000,
+   "rows": 1000,
+   "row_ids_unique_and_contiguous": true,
+   "domains": 20,
+   "rows_per_domain": 50,
+   "distinct_base_mechanisms": 200,
+   "variants_per_base": 5,
+   "variant_row_counts": {
+    "Primal Forward Operator": 200,
+    "Adaptive Gain & Precision Modulator": 200,
+    "Second-Order Curvature & Natural-Gradient Preconditioner": 200,
+    "Cross-Tier Spectral & Phase-Locked Resonator": 200,
+    "Homeostatic Allostatic Feedback & Landauer Bound": 200
+   },
+   "distinct_operator_cells": 1000,
+   "domain_list": [
+    {
+     "domain": "D01",
+     "code": "ESHKOL-AD-JET",
+     "title": "ESHKOL v1.3.6-evolve Homoiconic Differentiable Lisp, Taylor Jet Towers & Pearlmutter HVP",
+     "id_first": 1,
+     "id_last": 50,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 64,
+     "provenance": "tsotchke/eshkol (lib/core/vm_autodiff + cqm_eshkol_taylor_diff)"
+    },
+    {
+     "domain": "D02",
+     "code": "ESHKOL-DBSP-CYCLO",
+     "title": "ESHKOL DBSP Incremental Differential Stream Tensor Calculus & Exact Cyclotomic Z[zeta_8] Rings",
+     "id_first": 51,
+     "id_last": 100,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 124,
+     "provenance": "tsotchke/eshkol (PR #782 core.dbsp.tensor + PR #783 core.cyclotomic)"
+    },
+    {
+     "domain": "D03",
+     "code": "ESHKOL-CONSCIOUSNESS",
+     "title": "ESHKOL Consciousness Engine — Symbolic Knowledge Base, Factor Graph Active Inference & GWT Ignition",
+     "id_first": 101,
+     "id_last": 150,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 184,
+     "provenance": "tsotchke/eshkol (lib/core/logic.cpp + inference.cpp + workspace.cpp + consciousness.esk)"
+    },
+    {
+     "domain": "D04",
+     "code": "MOONLAB-32Q-MPS",
+     "title": "MOONLAB v1.2.1 32-Qubit Matrix Product State (MPS) & MPO Tensor Networks with Jacobi SVD",
+     "id_first": 151,
+     "id_last": 200,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 244,
+     "provenance": "tsotchke/moonlab (src/algorithms/tensor_network/tensor.c + math/mps-svd.ts)"
+    },
+    {
+     "domain": "D05",
+     "code": "MOONLAB-ISING-VQE",
+     "title": "MOONLAB Transverse-Field Ising / QUBO Suzuki-Trotter Quantum Annealing & Parameter-Shift VQE",
+     "id_first": 201,
+     "id_last": 250,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 304,
+     "provenance": "tsotchke/moonlab (quantum_annealing.h + cqm_moonlab_ising_anneal + math/quantum-ad.ts)"
+    },
+    {
+     "domain": "D06",
+     "code": "QGTL-GEOMETRIC-TENSOR",
+     "title": "QGTL v0.777 Beta — Full Quantum Geometric Tensor, Fubini-Study Metric & Berry Curvature",
+     "id_first": 251,
+     "id_last": 300,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 364,
+     "provenance": "tsotchke/quantum_geometric_tensor (cqm_qgtl_full_tensor_2d + math/curvature-aware-qng.ts)"
+    },
+    {
+     "domain": "D07",
+     "code": "QWZ-CHERN-TOPOLOGY",
+     "title": "MOONLAB × QGTL Topological Matter — Qi-Wu-Zhang Dirac Chern Insulators & FHS Lattice Flux",
+     "id_first": 301,
+     "id_last": 350,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 424,
+     "provenance": "tsotchke/moonlab v1.2.1 + quantum_geometric_tensor (cqm_moonlab_qwz_chern_fhs)"
+    },
+    {
+     "domain": "D08",
+     "code": "LIBIRREP-SKYRMION-MZM",
+     "title": "LIBIRREP v1.5.0 — BdG Superconducting Skyrmions, Berg-Lüscher Charge & Braided Majorana Zero-Modes",
+     "id_first": 351,
+     "id_last": 400,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 484,
+     "provenance": "tsotchke/libirrep (src/bdg_skyrmion.c + sim/irrep-symmetry.ts + cqm_libirrep_bdg_skyrmion_mzm)"
+    },
+    {
+     "domain": "D09",
+     "code": "SBNN-NQS-MINSR",
+     "title": "SPIN_BASED_NEURAL_NETWORK v0.6 — Neural Quantum States (NQS), Sample-Space MinSR & Spin Glasses",
+     "id_first": 401,
+     "id_last": 450,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 544,
+     "provenance": "tsotchke/spin_based_neural_network (src/nqs/nqs_optimizer.c + cqm_sbnn_minsr_step)"
+    },
+    {
+     "domain": "D10",
+     "code": "TSOTCHKE-QRNG-TOEPLITZ",
+     "title": "TSOTCHKE QRNG v3.0.1 — Bell-Entangled Statevector Chaos, Toeplitz Whitening & NIST SP 800-90B",
+     "id_first": 451,
+     "id_last": 500,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 604,
+     "provenance": "tsotchke/quantum_rng + Tsotchke-Corporation/Quantum-RNG-API (cqm_qrng_quantum_chaos_step + qrng_py.py)"
+    },
+    {
+     "domain": "D11",
+     "code": "SLTC-SELECTIVE-SSM",
+     "title": "Biomimetic sLTC × Selective SSM Hybrid Cortical Columns & Two-Compartment NMDA Dendrites",
+     "id_first": 501,
+     "id_last": 550,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 664,
+     "provenance": "tsotchke-diffusion-app/core/neuro.py + Asmodensius-v40/creatures/001/src/page.tsx"
+    },
+    {
+     "domain": "D12",
+     "code": "CONNECTOME-14R-ESHKOL",
+     "title": "14-Region Anatomical Macro-Connectome & ESHKOL 2-Hop Tensor-Logic Transitive Reach",
+     "id_first": 551,
+     "id_last": 600,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 724,
+     "provenance": "Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html"
+    },
+    {
+     "domain": "D13",
+     "code": "PLASTICITY-EPROP-STDP",
+     "title": "Multi-Timescale Synaptic Plasticity — Three-Factor e-prop, STDP, Tsodyks-Markram STP & Homeostasis",
+     "id_first": 601,
+     "id_last": 650,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 784,
+     "provenance": "Asmodensius-v40/creatures/001/src/page.tsx + organism/v40mods.ts"
+    },
+    {
+     "domain": "D14",
+     "code": "NEUROMOD-4POOL-MM",
+     "title": "Four-Pool Neuromodulatory Volume Transmission (DA, ACh, NE, 5-HT) & Michaelis-Menten Kinetics",
+     "id_first": 651,
+     "id_last": 700,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 844,
+     "provenance": "Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html"
+    },
+    {
+     "domain": "D15",
+     "code": "ASTROCYTE-EPHAPTIC-SWR",
+     "title": "Tripartite Astrocyte Ca²⁺ Syncytium, Ephaptic LFP Wireless Coupling & Hippocampal SWR Replay",
+     "id_first": 701,
+     "id_last": 750,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 904,
+     "provenance": "Asmodensius-v40/creatures/001/src/organism/v40mods.ts + dimension-omega-singularity"
+    },
+    {
+     "domain": "D16",
+     "code": "ENS-GUT-THERMODYNAMICS",
+     "title": "Enteric Nervous System (ENS Gut-Brain), Vagal Axis, Kilojoule ATP Ledger & Landauer Heat",
+     "id_first": 751,
+     "id_last": 800,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 964,
+     "provenance": "Asmodensius-v40/creatures/001/src/page.tsx + CORE-ARCHITECTURE.md"
+    },
+    {
+     "domain": "D17",
+     "code": "KAN-TTT-ROUGH-WAVES",
+     "title": "Next-Gen Differential AI — Kolmogorov-Arnold Chebyshev Synapses, Test-Time Training & Graph Waves",
+     "id_first": 801,
+     "id_last": 850,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 1024,
+     "provenance": "Cosmogonic Quantum Mechalogodrom/src/sim + dimension-omega-singularity"
+    },
+    {
+     "domain": "D18",
+     "code": "PINN-PIMC-GRAYSCOTT-TDSE",
+     "title": "Tsotchke Physics Substrates — PINN Residuals, PIMC Path Integrals, Gray-Scott & Symplectic TDSE",
+     "id_first": 851,
+     "id_last": 900,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 1084,
+     "provenance": "tsotchke/PINN + tsotchke/PIMC + zig/src/root.zig (cqm_gray_scott_step + cqm_tdse_step)"
+    },
+    {
+     "domain": "D19",
+     "code": "ROSETTE-PQ-GEOREFINE-BONSAI",
+     "title": "Tsotchke Wave-2 — Rosette-Wire FNV-1a, Post-Quantum BFT, GeoRefine Simplex & Bonsai 63-Layer SAE",
+     "id_first": 901,
+     "id_last": 950,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 1144,
+     "provenance": "tsotchke/rosette-wire + Tsotchke-Corporation/{pq-consensus-bandwidth, GeoRefine, bonsai-fidelity-study, ulg, logo-lab}"
+    },
+    {
+     "domain": "D20",
+     "code": "CURVATURE-EMPOWERMENT-FINSLER",
+     "title": "Frenet-Serret Thought Curvature κ(t), Information Empowerment, Integrated Φ & Finsler Bizarro Land",
+     "id_first": 951,
+     "id_last": 1000,
+     "rows": 50,
+     "base_mechanisms": 10,
+     "heading_line": 1204,
+     "provenance": "Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html"
+    }
+   ]
+  },
+  "totals": {
+   "rows": 3000,
+   "distinct_base_mechanisms": 900,
+   "domains": 60,
+   "global_row_id_range": "#0001-#3000 (TSOTCHKE #0001-#1000, SUPER #1001-#2000, ALIFE #2001-#3000)"
+  },
+  "selection": {
+   "items": 150,
+   "by_category": {
+    "diversity.disposition": 10,
+    "diversity.ecological_role": 24,
+    "diversity.mating": 15,
+    "diversity.social": 16,
+    "mapping.lab_source": 8,
+    "mapping.tsotchke_repo": 32,
+    "world.conservation": 3,
+    "world.food": 8,
+    "world.hazard": 9,
+    "world.phase_of_matter": 7,
+    "world.toxicity": 4,
+    "world.waste": 5,
+    "world.weather": 9
+   },
+   "by_report": {
+    "ALIFE": 104,
+    "SUPER": 19,
+    "TSOT": 27
+   },
+   "id_scheme": "ALIFE-/SUPER-/TSOT-<first row id of the base mechanism>; -Dnn = domain-level item. A base mechanism spans 2 rows (ALIFE) or 5 rows (SUPER, TSOT); source_ref gives the row range."
+  }
+ },
+ "items": [
+  {
+   "id": "ALIFE-2701",
+   "text": "Fast Emotion 1 — FEAR: Driven by LC-NE, Cortisol, Tissue Damage & Pain (Freezes Foraging)",
+   "category": "diversity.disposition",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:858-859 (#2701-#2702, D55)"
+  },
+  {
+   "id": "ALIFE-2709",
+   "text": "Fast Emotion 5 — PLAY (Panksepp): Joyful Varied Non-Extrinsic Motor Exploration When Sated & Safe",
+   "category": "diversity.disposition",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:866-867 (#2709-#2710, D55)"
+  },
+  {
+   "id": "ALIFE-2711",
+   "text": "Fast Emotion 6 — CARE / NURTURE: Oxytocin-Gated Maternal Provisioning & Juvenile Protection Drive",
+   "category": "diversity.disposition",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:868-869 (#2711-#2712, D55)"
+  },
+  {
+   "id": "ALIFE-2713",
+   "text": "Fast Emotion 7 — GRIEF / PANIC & DISGUST: Separation Distress & Toxin/Pathogen Rejection Reflex",
+   "category": "diversity.disposition",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:870-871 (#2713-#2714, D55)"
+  },
+  {
+   "id": "ALIFE-2725",
+   "text": "Associative Social Attitudes Toward Conspecifics (others[id] Learned from Contact Valence)",
+   "category": "diversity.disposition",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:882-883 (#2725-#2726, D55)"
+  },
+  {
+   "id": "ALIFE-2727",
+   "text": "Réale Heritable 6-Gene Personality Vector: Bold, Curious, Reactive, Vuln, Hedge, RiskScar",
+   "category": "diversity.disposition",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:884-885 (#2727-#2728, D55)"
+  },
+  {
+   "id": "ALIFE-2729",
+   "text": "Lifetime Experiential Personality Drift (Slow Mood Reshaping Boldness & Reactivity Over Age)",
+   "category": "diversity.disposition",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:886-887 (#2729-#2730, D55)"
+  },
+  {
+   "id": "ALIFE-2731",
+   "text": "Slatkin Diversified Bet-Hedging Gene (hedge): Controlling Offspring Temperament Scatter Width",
+   "category": "diversity.disposition",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:888-889 (#2731-#2732, D55)"
+  },
+  {
+   "id": "ALIFE-2733",
+   "text": "Caraco Risk-Sensitive Foraging Gene (riskScar): Risk-Averse When Fed, Variance-Seeking When Starving",
+   "category": "diversity.disposition",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:890-891 (#2733-#2734, D55)"
+  },
+  {
+   "id": "ALIFE-2743",
+   "text": "Depressive Lock-In & Recovery Dynamics in High-Vulnerability Lineages Under Chronic Stress",
+   "category": "diversity.disposition",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:900-901 (#2743-#2744, D55)"
+  },
+  {
+   "id": "ALIFE-2751",
+   "text": "Organism-Side Energy-Gated Reproduction Decision (Mating/Budding Only When Fat & ATP Surplus Allow)",
+   "category": "diversity.mating",
+   "criterion": "Mating/budding only when fat and ATP surplus allow.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:915-916 (#2751-#2752, D56)"
+  },
+  {
+   "id": "ALIFE-2753",
+   "text": "Sexual Recombination & Meiotic Crossover of Developmental Connectome & Personality Genomes",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:917-918 (#2753-#2754, D56)"
+  },
+  {
+   "id": "ALIFE-2755",
+   "text": "Smith-Fretwell Maternal Energy Provisioning (Transferring Parental Adipose kJ to Offspring Egg/Seed)",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:919-920 (#2755-#2756, D56)"
+  },
+  {
+   "id": "ALIFE-2757",
+   "text": "Density-Dependent Fecundity & Carrying-Capacity Regulation in the Shared Biodome",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:921-922 (#2757-#2758, D56)"
+  },
+  {
+   "id": "ALIFE-2765",
+   "text": "Drake Evolvable Mutation Rate & Slatkin Bet-Hedging Offspring Scatter",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:929-930 (#2765-#2766, D56)"
+  },
+  {
+   "id": "ALIFE-2769",
+   "text": "Structural Evolutionary Mutations (Adding/Removing Sensory Transducers & Cortical Sub-Modules)",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:933-934 (#2769-#2770, D56)"
+  },
+  {
+   "id": "ALIFE-2773",
+   "text": "Heijmans Transgenerational Epigenetic Methylation Switches (Parental Starvation & Stress Memory)",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:937-938 (#2773-#2774, D56)"
+  },
+  {
+   "id": "ALIFE-2777",
+   "text": "Juvenile Life-History Stage: High Plasticity, Dependency Period, Weaning & Juvenile Mortality Risk",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:941-942 (#2777-#2778, D56)"
+  },
+  {
+   "id": "ALIFE-2779",
+   "text": "Clutton-Brock Parental Care: Feeding Young, Defensive Shielding & Parent-Offspring Energy Conflict",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:943-944 (#2779-#2780, D56)"
+  },
+  {
+   "id": "ALIFE-2783",
+   "text": "Life-History Growth-vs-Reproduction Soma Allocation Trade-Off Gene",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:947-948 (#2783-#2784, D56)"
+  },
+  {
+   "id": "ALIFE-2785",
+   "text": "Survival-Only Natural Selection in the Biodome (Zero Artificial Fitness Function)",
+   "category": "diversity.mating",
+   "criterion": "Zero artificial fitness function: selection by survival only.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:949-950 (#2785-#2786, D56)"
+  },
+  {
+   "id": "ALIFE-2789",
+   "text": "Allopatric & Niche-Driven Speciation with Reproductive Incompatibility Emergence",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:953-954 (#2789-#2790, D56)"
+  },
+  {
+   "id": "ALIFE-2793",
+   "text": "Margulis Endosymbiosis & Horizontal Gene Transfer (HGT) Between Co-Inhabiting Lineages",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:957-958 (#2793-#2794, D56)"
+  },
+  {
+   "id": "ALIFE-2797",
+   "text": "Charnov Optimal Foraging & Food Caching/Cultivation in the Shared Ecological Pool",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:961-962 (#2797-#2798, D56)"
+  },
+  {
+   "id": "ALIFE-2833",
+   "text": "Andersson Sexual Selection, Courtship Displays & Fisherian Runaway Ornament Evolution",
+   "category": "diversity.mating",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1004-1005 (#2833-#2834, D57)"
+  },
+  {
+   "id": "ALIFE-2801",
+   "text": "5-to-N Creature Shared Biodome Arena with 3x Touch-Radius Contact & Neighbor Sensing",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:972-973 (#2801-#2802, D57)"
+  },
+  {
+   "id": "ALIFE-2803",
+   "text": "Associative Social Stance Learning (Approaching Liked Conspecifics & Avoiding Disliked Peers)",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:974-975 (#2803-#2804, D57)"
+  },
+  {
+   "id": "ALIFE-2805",
+   "text": "Hamilton Kin Recognition via Developmental Genome Tag Similarity & Altruistic Food Sharing",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:976-977 (#2805-#2806, D57)"
+  },
+  {
+   "id": "ALIFE-2807",
+   "text": "Emergent Dominance Hierarchies, Territory Defense & Contest Competition Over Rich Sites",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:978-979 (#2807-#2808, D57)"
+  },
+  {
+   "id": "ALIFE-2809",
+   "text": "Bradbury-Vehrencamp Multi-Channel Communication: Scent Marks, Acoustic Calls & Chromatophore Displays",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:980-981 (#2809-#2810, D57)"
+  },
+  {
+   "id": "ALIFE-2811",
+   "text": "Lazaridou Emergent Referential Signalling Game (Mutual Information I(Signal; Referent) > 0.5 Bits)",
+   "category": "diversity.social",
+   "criterion": "Mutual information I(Signal; Referent) > 0.5 bits.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:982-983 (#2811-#2812, D57)"
+  },
+  {
+   "id": "ALIFE-2813",
+   "text": "Predator-Prey Alarm Calls & Mimetic Deceptive Signalling Under Competition",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:984-985 (#2813-#2814, D57)"
+  },
+  {
+   "id": "ALIFE-2821",
+   "text": "Laland/Kirby Cultural Transmission & Iterated Social Learning Across 5+ Generations",
+   "category": "diversity.social",
+   "criterion": "Transmission persists across 5+ generations.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:992-993 (#2821-#2822, D57)"
+  },
+  {
+   "id": "ALIFE-2823",
+   "text": "Observational Foraging Route Acquisition & Peer Teaching of Neo Rule-Hook Levers",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:994-995 (#2823-#2824, D57)"
+  },
+  {
+   "id": "ALIFE-2825",
+   "text": "Frans de Waal Emotional Contagion & Shared Affective Fields (Feeling Neighbor Fear/Calm)",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:996-997 (#2825-#2826, D57)"
+  },
+  {
+   "id": "ALIFE-2827",
+   "text": "Oxytocin-Mediated Consolation Contact & Cooperative Group Foraging / Collective Construction",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:998-999 (#2827-#2828, D57)"
+  },
+  {
+   "id": "ALIFE-2829",
+   "text": "Wilterson-Graziano Theory-of-Mind Kalman Filter (other: Kal) Tracking Peer Attention Focus & Drift",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1000-1001 (#2829-#2830, D57)"
+  },
+  {
+   "id": "ALIFE-2831",
+   "text": "Moral-Like Inequity Aversion in Resource Sharing & Reciprocal Grooming Valence",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1002-1003 (#2831-#2832, D57)"
+  },
+  {
+   "id": "ALIFE-2835",
+   "text": "Couzin Collective Swarm Motion, Alignment/Cohesion/Separation & Consensus Group Decision-Making",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1006-1007 (#2835-#2836, D57)"
+  },
+  {
+   "id": "ALIFE-2837",
+   "text": "Eusocial Division of Labor (Scouts, Foragers, Sentinels & Caregivers in Multi-Creature Colonies)",
+   "category": "diversity.social",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1008-1009 (#2837-#2838, D57)"
+  },
+  {
+   "id": "ALIFE-2843",
+   "text": "Social Lesion Controls (Blocking Observation or Shuffling Partner Identities to Prove Social Causality)",
+   "category": "diversity.social",
+   "criterion": "Blocking observation or shuffling partner identities must remove the effect (proves social causality).",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1014-1015 (#2843-#2844, D57)"
+  },
+  {
+   "id": "ALIFE-2101",
+   "text": "CQM-01 Heredity: Developmental Genome & Personality Trait Transmission Across Births",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:174-175 (#2101-#2102, D43)"
+  },
+  {
+   "id": "ALIFE-2103",
+   "text": "CQM-02 Open-Endedness: Unbounded Behavioral Archive & Novelty Growth Slope",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:176-177 (#2103-#2104, D43)"
+  },
+  {
+   "id": "ALIFE-2105",
+   "text": "CQM-03 Ecological Coupling: Shared Biodome Resource Pool Depletion & Regrowth",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:178-179 (#2105-#2106, D43)"
+  },
+  {
+   "id": "ALIFE-2127",
+   "text": "CQM-14 Emergent Signalling Game: Tokenless Scent-Mark & Acoustic Frequency Referents",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:200-201 (#2127-#2128, D43)"
+  },
+  {
+   "id": "ALIFE-2233",
+   "text": "Scavenging & Nutrient Recycling Loop Closing the Multi-Creature Ecological Ledger",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:320-321 (#2233-#2234, D45)"
+  },
+  {
+   "id": "ALIFE-2323",
+   "text": "Cephalopod Chromatophore Skin State: Dynamic Camouflage, Threat Display & Affective Coloration",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:424-425 (#2323-#2324, D47)"
+  },
+  {
+   "id": "ALIFE-2341",
+   "text": "Morphological Novelty Archive (Chromaria/POET Open-Ended Body-Brain Co-Adaptation)",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:442-443 (#2341-#2342, D47)"
+  },
+  {
+   "id": "ALIFE-2815",
+   "text": "Lotka-Volterra Predator-Prey Coevolution, Escape Circuits & Red-Queen Arms-Race Dynamics",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:986-987 (#2815-#2816, D57)"
+  },
+  {
+   "id": "ALIFE-2817",
+   "text": "Lima-Dill Predation Risk-Foraging Trade-Off (Balancing Danger Field Against Starvation)",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:988-989 (#2817-#2818, D57)"
+  },
+  {
+   "id": "ALIFE-2819",
+   "text": "Hutchinson Ecological Niche Differentiation & Laland Niche Construction (Modifying Dome Marks/Shade)",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:990-991 (#2819-#2820, D57)"
+  },
+  {
+   "id": "ALIFE-2839",
+   "text": "Tierra-Style Viral Parasite Coevolution & Polymorphic Immune Defense Diversity",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1010-1011 (#2839-#2840, D57)"
+  },
+  {
+   "id": "ALIFE-2849",
+   "text": "Closed Multi-Creature Ecological Energy & Nutrient Balance Across Births, Forages & Decay",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1020-1021 (#2849-#2850, D57)"
+  },
+  {
+   "id": "ALIFE-2869",
+   "text": "N10 Bell-Violation Social Bond: Entangled Conspecific Pair Coordinating Foraging Without Classical Signals",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1047-1048 (#2869-#2870, D58)"
+  },
+  {
+   "id": "ALIFE-2885",
+   "text": "N18 Ulterior-Motive Deceptive Marking (Placing False Scent Marks When Observed by Competitors)",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1063-1064 (#2885-#2886, D58)"
+  },
+  {
+   "id": "ALIFE-2901",
+   "text": "N51 Farming & Resource Cultivation: Leaving Seed Energy at Depleted Sites to Accelerate Regrowth",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1086-1087 (#2901-#2902, D59)"
+  },
+  {
+   "id": "ALIFE-2903",
+   "text": "N52 Medicinal Botany: Discovering & Harvesting Anti-Inflammatory Sites When Sick",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1088-1089 (#2903-#2904, D59)"
+  },
+  {
+   "id": "ALIFE-2905",
+   "text": "N53 Architectural Shelter Construction: Arranging Dome Marks/Shade to Buffer Thermal Drift",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1090-1091 (#2905-#2906, D59)"
+  },
+  {
+   "id": "ALIFE-2907",
+   "text": "N54 Pheromone Cryptography: Kin-Specific Phase-Encoded Scent Trails Invisible to Competitors",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1092-1093 (#2907-#2908, D59)"
+  },
+  {
+   "id": "ALIFE-2909",
+   "text": "N55 Ecological Suicide / Altruistic Autolysis: Terminally Sick Creature Moving Away From Kin Before Decay",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1094-1095 (#2909-#2910, D59)"
+  },
+  {
+   "id": "ALIFE-2911",
+   "text": "N56 Symbiotic Gut-Microbe Trading Through Conspecific Grooming Contact",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1096-1097 (#2911-#2912, D59)"
+  },
+  {
+   "id": "ALIFE-2913",
+   "text": "N57 Predator Decoy Projection Using Chromatophore & Acoustic Ventriloquism",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1098-1099 (#2913-#2914, D59)"
+  },
+  {
+   "id": "ALIFE-2915",
+   "text": "N58 Seasonal Migration & Hibernation/Torpor Preparation From Photoperiod Drift",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1100-1101 (#2915-#2916, D59)"
+  },
+  {
+   "id": "ALIFE-2917",
+   "text": "N59 Tool-Assisted Reach Extension & Multi-Step Lever Chaining",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1102-1103 (#2917-#2918, D59)"
+  },
+  {
+   "id": "ALIFE-2919",
+   "text": "N60 Grave-Site Recognition & Avoidance/Grief Response Near Conspecific Detritus",
+   "category": "diversity.ecological_role",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1104-1105 (#2919-#2920, D59)"
+  },
+  {
+   "id": "ALIFE-2151",
+   "text": "Gut Pool: Glucose, Fat & Protein Luminal Digestion & Motility-Gated Absorption",
+   "category": "world.food",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:231-232 (#2151-#2152, D44)"
+  },
+  {
+   "id": "ALIFE-2153",
+   "text": "Blood Pool: Circulating Glucose, Free Fatty Acids, Amino Acids, Ketones & Urea",
+   "category": "world.food",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:233-234 (#2153-#2154, D44)"
+  },
+  {
+   "id": "ALIFE-2155",
+   "text": "Liver Pool: Glycogen Storage (60 kJ), Glycogenolysis, Lipogenesis & Ketogenesis",
+   "category": "world.food",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:235-236 (#2155-#2156, D44)"
+  },
+  {
+   "id": "ALIFE-2157",
+   "text": "Adipose Fat Pool (400 kJ): ATGL/HSL Lipolysis, FFA Re-Esterification & Leptin Secretion",
+   "category": "world.food",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:237-238 (#2157-#2158, D44)"
+  },
+  {
+   "id": "ALIFE-2159",
+   "text": "Skeletal Muscle Pool (120 kJ): Glucocorticoid Proteolysis, Protein Accretion & Deamination",
+   "category": "world.food",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:239-240 (#2159-#2160, D44)"
+  },
+  {
+   "id": "ALIFE-2371",
+   "text": "AIY/AIZ-Style Derivative Chemotaxis Circuit Climbing Nutrient Gradients Faster Than Random Walk",
+   "category": "world.food",
+   "criterion": "Climbs nutrient gradients faster than a random walk.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:479-480 (#2371-#2372, D48)"
+  },
+  {
+   "id": "ALIFE-2547",
+   "text": "Gut-Brain Microbiome Axis: Enteric Microbial Population Modulating Tryptophan/5-HT Precursor Supply",
+   "category": "world.food",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:676-677 (#2547-#2548, D51)"
+  },
+  {
+   "id": "TSOT-0771",
+   "text": "Hypothalamic (HYP) Allostatic Hunger & Thermal Drive | operator: r_HYP = sigma(3.2 * (E_{ATP,target} - E_ATP) + 2.1 * |T_brain - T_set|)",
+   "category": "world.food",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:991-995 (#0771-#0775, D16)"
+  },
+  {
+   "id": "ALIFE-2163",
+   "text": "Oxidative Phosphorylation Engine: 40% ATP Yield + 60% Thermodynamic Heat Dissipation",
+   "category": "world.waste",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:243-244 (#2163-#2164, D44)"
+  },
+  {
+   "id": "ALIFE-2185",
+   "text": "Hepatic Urea Cycle Deamination & Renal Urea/Ketone Reabsorption & Excretion Ledger",
+   "category": "world.waste",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:265-266 (#2185-#2186, D44)"
+  },
+  {
+   "id": "ALIFE-2231",
+   "text": "Corpse Biomass Deposition & Closed Biodome Detritus-to-Nutrient Decomposition Cycle",
+   "category": "world.waste",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:318-319 (#2231-#2232, D45)"
+  },
+  {
+   "id": "ALIFE-2269",
+   "text": "Glymphatic Astrocytic Waste & Adenosine Flush Coupled to N3 Slow-Wave Synchrony",
+   "category": "world.waste",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:363-364 (#2269-#2270, D46)"
+  },
+  {
+   "id": "TSOT-0776",
+   "text": "Landauer Thermodynamic Bit-Erasure Heat Dissipation Law | operator: dot(Q)_Landauer = k_B * T_brain * ln(2) * sum_{k} |dtheta_k / dt| / delta_bit",
+   "category": "world.waste",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:996-1000 (#0776-#0780, D16)"
+  },
+  {
+   "id": "ALIFE-2109",
+   "text": "CQM-05 Embodied Energy Consistency: Exact Closed First-Law kJ Ledger (Err < 1e-9)",
+   "category": "world.conservation",
+   "criterion": "First-law kJ ledger closes with error < 1e-9.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:182-183 (#2109-#2110, D43)"
+  },
+  {
+   "id": "ALIFE-2199",
+   "text": "Exact First-Law Energy Conservation Audit (Relative Ledger Error |dE|/E0 < 1e-9)",
+   "category": "world.conservation",
+   "criterion": "Relative ledger error |dE|/E0 < 1e-9.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:279-280 (#2199-#2200, D44)"
+  },
+  {
+   "id": "TSOT-0766",
+   "text": "Exact Kilojoule (kJ) ATP Cellular Energy Ledger | operator: dE_ATP/dt = J_{intake} - (P_{basal} + P_{spikes} + P_{plasticity} + P_{motor})",
+   "category": "world.conservation",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:986-990 (#0766-#0770, D16)"
+  },
+  {
+   "id": "ALIFE-2191",
+   "text": "Oxygen Respiration Pool & Aerobic vs Anaerobic Lactate Threshold Accounting",
+   "category": "world.phase_of_matter",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:271-272 (#2191-#2192, D44)"
+  },
+  {
+   "id": "SUPER-1776",
+   "text": "Cahn-Hilliard 4th-Order Conserving Spinodal Decomposition PDE | operator: d(phi_i)/dt = M_{mobility} * nabla^2_{graph} (phi_i^3 - phi_i - kappa_{surface} * nabla^2_{graph} phi_i)",
+   "category": "world.phase_of_matter",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:997-1001 (#1776-#1780, D36)"
+  },
+  {
+   "id": "SUPER-1781",
+   "text": "Ostwald Ripening & Lifshitz-Slyozov-Wagner Droplet Coarsening | operator: R_{drop}^3(t) - R_{drop}^3(0) = K_{LSW} * sigma_{tension} * t * P_i",
+   "category": "world.phase_of_matter",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:1002-1006 (#1781-#1785, D36)"
+  },
+  {
+   "id": "SUPER-1876",
+   "text": "Neuronal Nitric Oxide Synthase (nNOS) Ca2+/Calmodulin NO Gas Source | operator: S_{NO}(i) = k_{nNOS} * (Ca_i^4 / (K_{CaM}^4 + Ca_i^4)) * NMDA_gate_i",
+   "category": "world.phase_of_matter",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:1117-1121 (#1876-#1880, D38)"
+  },
+  {
+   "id": "SUPER-1881",
+   "text": "3D Euclidean Membrane-Permeable Nitric Oxide (NO) Gas Diffusion PDE | operator: [NO](x_i, t) = sum_{j=1}^{14} S_{NO}(j) * exp(-||p_i - p_j||_{3D} / lambda_{NO}) / (4*pi*D_{NO}*||p_i-p_j|| + 0.2)",
+   "category": "world.phase_of_matter",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:1122-1126 (#1881-#1885, D38)"
+  },
+  {
+   "id": "TSOT-0871",
+   "text": "2D Toroidal Gray-Scott Reaction-Diffusion Activator PDE (u) | operator: du/dt = D_u * lap(u) - u*v^2 + F_feed*(1 - u)",
+   "category": "world.phase_of_matter",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:1111-1115 (#0871-#0875, D18)"
+  },
+  {
+   "id": "TSOT-0876",
+   "text": "2D Toroidal Gray-Scott Reaction-Diffusion Inhibitor PDE (v) | operator: dv/dt = D_v * lap(v) + u*v^2 - (F_feed + k_kill)*v",
+   "category": "world.phase_of_matter",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:1116-1120 (#0876-#0880, D18)"
+  },
+  {
+   "id": "ALIFE-2225",
+   "text": "Hormesis & Toxin Exposure: Low-Dose Stress Resilience vs High-Dose Metabolic Poisoning",
+   "category": "world.toxicity",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:312-313 (#2225-#2226, D45)"
+  },
+  {
+   "id": "ALIFE-2369",
+   "text": "Chemosensory Odor Gradient, Toxin Detector & Conspecific Pheromone Trail Transducer",
+   "category": "world.toxicity",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:477-478 (#2369-#2370, D48)"
+  },
+  {
+   "id": "SUPER-1686",
+   "text": "Reactive Oxygen Species (ROS) Singlet-Oxygen Triplet Carbonyl Source | operator: R_{photon} = k_{ROS} * [O_2(^1Delta_g)] * [Carbonyl^*] ~ MetabolicHeat_Landauer",
+   "category": "world.toxicity",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:887-891 (#1686-#1690, D34)"
+  },
+  {
+   "id": "SUPER-1891",
+   "text": "Carbon Monoxide (CO / HO-2) & Hydrogen Sulfide (H2S / CBS) Gasotransmitters | operator: G_{gas}(i) = 0.6 * [cGMP]_i + 0.25 * [CO]_i + 0.15 * [H2S]_i",
+   "category": "world.toxicity",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:1132-1136 (#1891-#1895, D38)"
+  },
+  {
+   "id": "ALIFE-2133",
+   "text": "CQM-17 Homeostatic Regulation: Hypothalamic PI Setpoint Control of Glucose & Temperature",
+   "category": "world.weather",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:206-207 (#2133-#2134, D43)"
+  },
+  {
+   "id": "ALIFE-2299",
+   "text": "Host-Load & Photoperiod Entrainment (Adapting Sleep Schedule to Biodome Light Dials)",
+   "category": "world.weather",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:393-394 (#2299-#2300, D46)"
+  },
+  {
+   "id": "ALIFE-2373",
+   "text": "AFD-Style Thermotaxis Circuit with Learned Preferred Temperature Setpoint",
+   "category": "world.weather",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:481-482 (#2373-#2374, D48)"
+  },
+  {
+   "id": "ALIFE-2421",
+   "text": "God-Panel World-Dial Sense (Directly Sensing Biodome Gravity, Light, Chaos & Metric Inversion)",
+   "category": "world.weather",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:536-537 (#2421-#2422, D49)"
+  },
+  {
+   "id": "ALIFE-2423",
+   "text": "Tokenless Raw Data-Stream Sense (Ingesting Live Numeric Weather/Telemetry Feeds Without Text)",
+   "category": "world.weather",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:538-539 (#2423-#2424, D49)"
+  },
+  {
+   "id": "ALIFE-2689",
+   "text": "Legal In-Dome Neo Rule Hooks: Shade Hook (Self Sensory Light Off <=120 Ticks) & Mark Hook (Site Scent)",
+   "category": "world.weather",
+   "criterion": "Shade hook switches own sensory light off for <= 120 ticks.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:839-840 (#2689-#2690, D54)"
+  },
+  {
+   "id": "ALIFE-2865",
+   "text": "N08 Spin-Boson Thermal Sense: Dissipation-Coupled Qubit Bath Sensing Ambient Biodome Temperature",
+   "category": "world.weather",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1043-1044 (#2865-#2866, D58)"
+  },
+  {
+   "id": "ALIFE-2967",
+   "text": "F09 Ashby Homeostat Temperature & Glucose Setpoint Regulation Under External Drift",
+   "category": "world.weather",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1159-1160 (#2967-#2968, D60)"
+  },
+  {
+   "id": "TSOT-0781",
+   "text": "Cerebral Thermal Balance & Blood-Perfusion Cooling ODE | operator: C_therm * dT_brain/dt = dot(Q)_Landauer + P_{spikes} - g_{cooling} * (T_brain - T_ambient)",
+   "category": "world.weather",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:1001-1005 (#0781-#0785, D16)"
+  },
+  {
+   "id": "ALIFE-2169",
+   "text": "Cahill Phase-III Terminal Starvation: Adipose Exhaustion & Rapid Structural Proteolysis",
+   "category": "world.hazard",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:249-250 (#2169-#2170, D44)"
+  },
+  {
+   "id": "ALIFE-2201",
+   "text": "Tissue Integrity Pool (10 kJ Structural Biomass) & Acute Noxious Damage Liberation to Blood AA",
+   "category": "world.hazard",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:288-289 (#2201-#2202, D45)"
+  },
+  {
+   "id": "ALIFE-2211",
+   "text": "Inflammatory Cytokine Cascade from Chronic Stress, Energy Crisis, Injury & Chance Infection",
+   "category": "world.hazard",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:298-299 (#2211-#2212, D45)"
+  },
+  {
+   "id": "ALIFE-2213",
+   "text": "Sickness Behavior Syndrome: Lethargy (0.5x Forage), Anhedonia (0.3x Delight) & Hypersomnia",
+   "category": "world.hazard",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:300-301 (#2213-#2214, D45)"
+  },
+  {
+   "id": "ALIFE-2227",
+   "text": "Hypoglycemic & ATP-Failure Viability Guard (2-Hour Critical Threshold -> Organism Death)",
+   "category": "world.hazard",
+   "criterion": "2-hour critical hypoglycemia/ATP-failure threshold ends in organism death.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:314-315 (#2227-#2228, D45)"
+  },
+  {
+   "id": "ALIFE-2229",
+   "text": "Phase-III Protein-Depletion Organ Failure (Cardiac/Respiratory Muscle < mDeath Threshold)",
+   "category": "world.hazard",
+   "criterion": "Cardiac/respiratory muscle below the mDeath threshold ends in death.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:316-317 (#2229-#2230, D45)"
+  },
+  {
+   "id": "ALIFE-2237",
+   "text": "Tardigrade-Inspired Cryptobiosis / Dormancy State Under Extreme Zero-Energy Scarcity",
+   "category": "world.hazard",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:324-325 (#2237-#2238, D45)"
+  },
+  {
+   "id": "ALIFE-2239",
+   "text": "Deinococcus-Style Checksum Genome & Weight Repair Against High-Dose Noise Corruption",
+   "category": "world.hazard",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:326-327 (#2239-#2240, D45)"
+  },
+  {
+   "id": "ALIFE-2841",
+   "text": "Utopia-to-Hell Biodome Environmental Ladder & Post-Perturbation Ecological Resilience Curves",
+   "category": "world.hazard",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1012-1013 (#2841-#2842, D57)"
+  },
+  {
+   "id": "ALIFE-2145",
+   "text": "CQM-23 Multi-Substrate Pluralism: Bit-Equivalent JS, RV32I Silicon, Eshkol AD & WebGL2 Execution",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "Bit-equivalent execution across the listed substrates.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:218-219 (#2145-#2146, D43)"
+  },
+  {
+   "id": "ALIFE-2767",
+   "text": "Moonlab 32-Qubit Born-Rule Quantum-Sourced Mutation & Temperament Draws",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:931-932 (#2767-#2768, D56)"
+  },
+  {
+   "id": "ALIFE-2991",
+   "text": "F21 Substrate-Independent Genome Decoding Identically Across JS, RV32I & WebGL2",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "Genome decodes identically across the listed substrates.",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1183-1184 (#2991-#2992, D60)"
+  },
+  {
+   "id": "ALIFE-2993",
+   "text": "F22 Moonlab 32-Qubit Born-Rule Quantum-Sampled Mutation & Decision-Noise Operator",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1185-1186 (#2993-#2994, D60)"
+  },
+  {
+   "id": "ALIFE-2995",
+   "text": "F23 Eshkol HoTT-Compiled Autodiff Controller & Sleep/Wake Flip-Flop Rule Engine",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1187-1188 (#2995-#2996, D60)"
+  },
+  {
+   "id": "TSOT-0496",
+   "text": "Matched-Seed Classical-Contrast Experimental Control | operator: Delta_Q_vs_C = ||State_QRNG(t) - State_ClassicalLCG(t)||_2",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:656-660 (#0496-#0500, D10)"
+  },
+  {
+   "id": "TSOT-D01",
+   "text": "ESHKOL v1.3.6-evolve Homoiconic Differentiable Lisp, Taylor Jet Towers & Pearlmutter HVP <- tsotchke/eshkol (lib/core/vm_autodiff + cqm_eshkol_taylor_diff). Role: Higher-order forward/reverse automatic differentiation, 0th-to-4th order Taylor polynomial jets, Pearlmutter R-operator Hessian-vector products, and 3D vector-calculus divergence/curl operators.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:64-67 (domain D01 header, rows #0001-#0050)"
+  },
+  {
+   "id": "TSOT-D02",
+   "text": "ESHKOL DBSP Incremental Differential Stream Tensor Calculus & Exact Cyclotomic Z[zeta_8] Rings <- tsotchke/eshkol (PR #782 core.dbsp.tensor + PR #783 core.cyclotomic). Role: Bilinear incremental stream matrix updates retaining simultaneous cross-terms Delta A * Delta B, exact algebraic Clifford+T gate arithmetic in Z[zeta_8]/(zeta_8^4+1), and Galois field norms.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:124-127 (domain D02 header, rows #0051-#0100)"
+  },
+  {
+   "id": "TSOT-D03",
+   "text": "ESHKOL Consciousness Engine — Symbolic Knowledge Base, Factor Graph Active Inference & GWT Ignition <- tsotchke/eshkol (lib/core/logic.cpp + inference.cpp + workspace.cpp + consciousness.esk). Role: Deterministic symbolic fact store (kb-assert!/kb-query), sum-product belief propagation on factor graphs (fg-infer!), Expected Free Energy minimization, and Global Workspace broadcast competition.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:184-187 (domain D03 header, rows #0101-#0150)"
+  },
+  {
+   "id": "TSOT-D04",
+   "text": "MOONLAB v1.2.1 32-Qubit Matrix Product State (MPS) & MPO Tensor Networks with Jacobi SVD <- tsotchke/moonlab (src/algorithms/tensor_network/tensor.c + math/mps-svd.ts). Role: 32-qubit Matrix Product State chain spanning a 2^32 = 4,294,967,296 dimensional Hilbert space via rank-chi bond tensors, One-Sided Jacobi SVD decomposition, and Eckart-Young Schmidt truncation.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:244-247 (domain D04 header, rows #0151-#0200)"
+  },
+  {
+   "id": "TSOT-D05",
+   "text": "MOONLAB Transverse-Field Ising / QUBO Suzuki-Trotter Quantum Annealing & Parameter-Shift VQE <- tsotchke/moonlab (quantum_annealing.h + cqm_moonlab_ising_anneal + math/quantum-ad.ts). Role: Second-order Suzuki-Trotter time evolution under transverse-field Ising Hamiltonians, linear/quadratic/cosine annealing schedules, exact parameter-shift quantum gradients, and Grover amplitude amplification.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:304-307 (domain D05 header, rows #0201-#0250)"
+  },
+  {
+   "id": "TSOT-D06",
+   "text": "QGTL v0.777 Beta — Full Quantum Geometric Tensor, Fubini-Study Metric & Berry Curvature <- tsotchke/quantum_geometric_tensor (cqm_qgtl_full_tensor_2d + math/curvature-aware-qng.ts). Role: Provost-Vallee Quantum Geometric Tensor Q_{mu,nu} = <d_mu psi|(I - |psi><psi|)|d_nu psi>, separating the Riemannian Fubini-Study metric g_{mu,nu} from the symplectic Berry curvature Omega_{mu,nu}.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:364-367 (domain D06 header, rows #0251-#0300)"
+  },
+  {
+   "id": "TSOT-D07",
+   "text": "MOONLAB × QGTL Topological Matter — Qi-Wu-Zhang Dirac Chern Insulators & FHS Lattice Flux <- tsotchke/moonlab v1.2.1 + quantum_geometric_tensor (cqm_moonlab_qwz_chern_fhs). Role: 2D Brillouin torus T^2 Qi-Wu-Zhang Dirac Chern insulator H(k) = d(k).sigma, two-hemisphere Hopf bundle eigenstates, Bargmann U(1) link variables, and Fukui-Hatsugai-Suzuki integer Chern numbers C in {-1,0,+1}.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:424-427 (domain D07 header, rows #0301-#0350)"
+  },
+  {
+   "id": "TSOT-D08",
+   "text": "LIBIRREP v1.5.0 — BdG Superconducting Skyrmions, Berg-Lüscher Charge & Braided Majorana Zero-Modes <- tsotchke/libirrep (src/bdg_skyrmion.c + sim/irrep-symmetry.ts + cqm_libirrep_bdg_skyrmion_mzm). Role: 2D Bogoliubov-de Gennes Belavin-Polyakov superconducting skyrmion spin textures, discrete Berg-Luscher spherical-triangle topological charge Q_lat, 2|Q| Majorana zero-modes, and SO(3)/SU(2) irreps.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:484-487 (domain D08 header, rows #0351-#0400)"
+  },
+  {
+   "id": "TSOT-D09",
+   "text": "SPIN_BASED_NEURAL_NETWORK v0.6 — Neural Quantum States (NQS), Sample-Space MinSR & Spin Glasses <- tsotchke/spin_based_neural_network (src/nqs/nqs_optimizer.c + cqm_sbnn_minsr_step). Role: Variational Neural Quantum States psi_theta(s), Sample-Space Minimum-Step Stochastic Reconfiguration (MinSR) via the N_s x N_s Gram matrix push-through identity, and frustrated Hopfield spin-glass attractors.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:544-547 (domain D09 header, rows #0401-#0450)"
+  },
+  {
+   "id": "TSOT-D10",
+   "text": "TSOTCHKE QRNG v3.0.1 — Bell-Entangled Statevector Chaos, Toeplitz Whitening & NIST SP 800-90B <- tsotchke/quantum_rng + Tsotchke-Corporation/Quantum-RNG-API (cqm_qrng_quantum_chaos_step + qrng_py.py). Role: 64-bit BigInt wave-interference oscillators (FINE, PLANCK, RYD, HEIS, SCHR), Bell-entangled xoshiro256 + SplitMix64 Toeplitz post-measurement whitening, NIST SP 800-90B RCT/APT health tests, and CHSH 2*sqrt(2) audits.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:604-607 (domain D10 header, rows #0451-#0500)"
+  },
+  {
+   "id": "TSOT-D11",
+   "text": "Biomimetic sLTC × Selective SSM Hybrid Cortical Columns & Two-Compartment NMDA Dendrites <- tsotchke-diffusion-app/core/neuro.py + Asmodensius-v40/creatures/001/src/page.tsx. Role: 112 hybrid units (14 regions x 8 cortical columns) fusing input/neuromodulator-warped Liquid Time Constants tau(u) with Mamba-style Selective State-Space recurrence and two-compartment Apical/Basal NMDA coincidence plateaus.",
+   "category": "mapping.lab_source",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:664-667 (domain D11 header, rows #0501-#0550)"
+  },
+  {
+   "id": "TSOT-D12",
+   "text": "14-Region Anatomical Macro-Connectome & ESHKOL 2-Hop Tensor-Logic Transitive Reach <- Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html. Role: 14 biological neuro-anatomical organs (CTX, THAL, HIP, STR, INS, LC, VTA, BF, RAPHE, HYP, SCN, SENS, MOT, ENS) wired by 24 structural projections expanded via Eshkol 2-hop reach into 73 directed pathways.",
+   "category": "mapping.lab_source",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:724-727 (domain D12 header, rows #0551-#0600)"
+  },
+  {
+   "id": "TSOT-D13",
+   "text": "Multi-Timescale Synaptic Plasticity — Three-Factor e-prop, STDP, Tsodyks-Markram STP & Homeostasis <- Asmodensius-v40/creatures/001/src/page.tsx + organism/v40mods.ts. Role: Real-time biological learning across 4 timescales: milliseconds (Tsodyks-Markram short-term vesicle depression), tens of milliseconds (asymmetric STDP), seconds (3-factor e-prop eligibility traces), and minutes (Turrigiano synaptic scaling).",
+   "category": "mapping.lab_source",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:784-787 (domain D13 header, rows #0601-#0650)"
+  },
+  {
+   "id": "TSOT-D14",
+   "text": "Four-Pool Neuromodulatory Volume Transmission (DA, ACh, NE, 5-HT) & Michaelis-Menten Kinetics <- Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html. Role: Extracellular volume transmission of Dopamine (DA), Acetylcholine (ACh), Norepinephrine (NE), and Serotonin (5-HT) governed by saturating Michaelis-Menten enzymatic clearance (DAT, AChE, NET, SERT) and receptor subtype opposing gates.",
+   "category": "mapping.lab_source",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:844-847 (domain D14 header, rows #0651-#0700)"
+  },
+  {
+   "id": "TSOT-D15",
+   "text": "Tripartite Astrocyte Ca²⁺ Syncytium, Ephaptic LFP Wireless Coupling & Hippocampal SWR Replay <- Asmodensius-v40/creatures/001/src/organism/v40mods.ts + dimension-omega-singularity. Role: Non-synaptic wetware physics: IP3-triggered astrocytic calcium reaction-diffusion waves across gap-junction syncytia, extracellular Local Field Potential (LFP) ephaptic voltage coupling, and 10x time-reversed Sharp-Wave Ripple replay.",
+   "category": "mapping.lab_source",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:904-907 (domain D15 header, rows #0701-#0750)"
+  },
+  {
+   "id": "TSOT-D16",
+   "text": "Enteric Nervous System (ENS Gut-Brain), Vagal Axis, Kilojoule ATP Ledger & Landauer Heat <- Asmodensius-v40/creatures/001/src/page.tsx + CORE-ARCHITECTURE.md. Role: Autonomous 48-neuron Enteric Nervous System (myenteric & submucosal plexuses), bidirectional vagus nerve signaling, exact kilojoule (kJ) ATP metabolic energy accounting, and Landauer bit-erasure thermodynamic heat dissipation.",
+   "category": "mapping.lab_source",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:964-967 (domain D16 header, rows #0751-#0800)"
+  },
+  {
+   "id": "TSOT-D17",
+   "text": "Next-Gen Differential AI — Kolmogorov-Arnold Chebyshev Synapses, Test-Time Training & Graph Waves <- Cosmogonic Quantum Mechalogodrom/src/sim + dimension-omega-singularity. Role: Learnable 1D Chebyshev polynomial synaptic edges (KAN), per-frame inner-loop self-supervised fast weights (Test-Time Training), Chen iterated rough-path Levy area signatures, and Graph Laplacian cortical traveling waves.",
+   "category": "mapping.lab_source",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:1024-1027 (domain D17 header, rows #0801-#0850)"
+  },
+  {
+   "id": "TSOT-D18",
+   "text": "Tsotchke Physics Substrates — PINN Residuals, PIMC Path Integrals, Gray-Scott & Symplectic TDSE <- tsotchke/PINN + tsotchke/PIMC + zig/src/root.zig (cqm_gray_scott_step + cqm_tdse_step). Role: Physics-Informed Neural Network (PINN) conservation PDE residuals, Path-Integral Monte Carlo (PIMC) Euclidean action worldline sampling, 2D Gray-Scott reaction-diffusion Turing morphogenesis, and symplectic 1D TDSE wavepackets.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:1084-1087 (domain D18 header, rows #0851-#0900)"
+  },
+  {
+   "id": "TSOT-D19",
+   "text": "Tsotchke Wave-2 — Rosette-Wire FNV-1a, Post-Quantum BFT, GeoRefine Simplex & Bonsai 63-Layer SAE <- tsotchke/rosette-wire + Tsotchke-Corporation/{pq-consensus-bandwidth, GeoRefine, bonsai-fidelity-study, ulg, logo-lab}. Role: Deterministic 64-bit FNV-1a binary envelope verification, post-quantum BFT consensus wire profiling (ML-DSA-65/Falcon-512/SLH-DSA), GeoRefine simplex orientation & BF16 codecs, Bonsai 63-layer SAE rare-feature survival, ULG, and Logo-Lab.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:1144-1147 (domain D19 header, rows #0901-#0950)"
+  },
+  {
+   "id": "TSOT-D20",
+   "text": "Frenet-Serret Thought Curvature κ(t), Information Empowerment, Integrated Φ & Finsler Bizarro Land <- Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html. Role: 6D cognitive manifold trajectory projection, discrete Frenet-Serret curvature kappa(t) and torsion tau_F(t), Klyubin-Polani Empowerment, Geometric Integrated Information Phi_G, and Finsler-Randers / Poincare non-Euclidean 3D space warping.",
+   "category": "mapping.lab_source",
+   "criterion": "",
+   "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:1204-1207 (domain D20 header, rows #0951-#1000)"
+  },
+  {
+   "id": "SUPER-D21",
+   "text": "Embedded RV32I 32-Bit RISC-V Self-Writing Silicon Co-Processor & Autopoietic Machine-Code Synthesis <- Asmodensius-v40/creatures/001 (RV32I Silicon Die) + tsotchke/eshkol (JIT Bytecode). Role: Live 16-register, 64-word RAM virtual 32-bit RISC-V processor die embedded inside the neural loop that synthesizes, mutates, and executes machine instructions at 60 Hz to co-process cortical signals.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:65-68 (domain D21 header, rows #1001-#1050)"
+  },
+  {
+   "id": "SUPER-D22",
+   "text": "Everettian Many-Worlds Counterfactual Timeline Forking & Quantum Darwinism Branch Selection <- tsotchke/moonlab (Multi-Branch Wavefunction) + Eshkol Active Inference Rollout Engine. Role: Spawns K=8 parallel counterfactual future worldlines every frame, integrates their short-horizon dynamics under distinct candidate policies, and collapses onto the branch minimizing Expected Free Energy.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:125-128 (domain D22 header, rows #1051-#1100)"
+  },
+  {
+   "id": "SUPER-D23",
+   "text": "Hofstadter Strange-Loop Metacognitive Self-Model & Godelian Self-Reference Fixed-Point Observer <- Asmodensius-v40 (SelfModel Observer) + tsotchke/eshkol (Homoiconic Quote/Eval Reflection). Role: A second-order observer sub-network that models and predicts the main 14-region brain state vector itself, computing Godel/Lawvere diagonal self-reference residuals and metacognitive agency.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:185-188 (domain D23 header, rows #1101-#1150)"
+  },
+  {
+   "id": "SUPER-D25",
+   "text": "Non-Hermitian PT-Symmetric Quantum Mechanics & Exceptional-Point (EP_n) Phase Singularities <- tsotchke/quantum_geometric_tensor (Non-Hermitian Extension) + Biorthogonal Quantum Dynamics. Role: Balanced quantum gain/loss non-Hermitian Hamiltonians H != H^dagger operating near Exceptional Points (EP_2/EP_3) where eigenvalues and eigenvectors coalesce to yield square-root Puiseux hyper-sensitivity.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:305-308 (domain D25 header, rows #1201-#1250)"
+  },
+  {
+   "id": "SUPER-D26",
+   "text": "AdS/CFT Holographic Bulk-Boundary Duality, Ryu-Takayanagi Minimal Surfaces & MERA Geodesics <- tsotchke/moonlab (MPS Boundary Entanglement -> Poincare AdS_3 Bulk Geometry). Role: Projects the 32-qubit boundary MPS entanglement entropy spectrum into a 3D hyperbolic Anti-de Sitter (AdS_3) bulk spacetime via the Ryu-Takayanagi minimal-surface formula and MERA renormalization.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:365-368 (domain D26 header, rows #1251-#1300)"
+  },
+  {
+   "id": "SUPER-D27",
+   "text": "Discrete Floquet Time-Crystal Subharmonic Locking & Non-Equilibrium Driven Chrono-Synapses <- tsotchke/moonlab (Floquet Periodic Spin Chain & Many-Body Localization Prethermal Engine). Role: Periodically driven non-equilibrium Floquet spin-neural oscillators that spontaneously break discrete time-translation symmetry, locking at 2T and 3T subharmonic periods without thermalizing.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:425-428 (domain D27 header, rows #1301-#1350)"
+  },
+  {
+   "id": "SUPER-D28",
+   "text": "10,000-D Hyperdimensional Computing (HDC) & Holographic Vector Symbolic Architecture (VSA) <- tsotchke/eshkol (Symbolic-Vector Bridge) + Plate Holographic Reduced Representations (HRR). Role: Holographic 10,000-dimensional quasi-orthogonal hypervectors supporting circular convolution binding, majority-sum bundling, cyclic permutation sequences, and one-shot analogical unbinding.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:485-488 (domain D28 header, rows #1351-#1400)"
+  },
+  {
+   "id": "SUPER-D29",
+   "text": "p-Adic Ultrametric Dendritic Hierarchies & Non-Archimedean Bruhat-Tits Tree Cognition <- tsotchke/eshkol (Exact Number Theory) + Parisi Ultrametric Spin-Glass Hierarchy. Role: Non-Archimedean p-adic valuation metrics |x - y|_p = p^{-v_p(x-y)} satisfying the strong triangle inequality |x + y|_p <= max(|x|_p, |y|_p) for hierarchical Bruhat-Tits tree memory and dendritic routing.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:545-548 (domain D29 header, rows #1401-#1450)"
+  },
+  {
+   "id": "SUPER-D30",
+   "text": "Octonionic Non-Associative Division-Algebra Spinors, Fano-Plane Triplets & G_2 / E_8 Projections <- tsotchke/libirrep (Exceptional Lie Groups) + Cayley-Dickson 8D Octonion Algebra. Role: 8D non-associative octonion division algebra (O) governed by the 7-line Fano plane, non-vanishing associator [A,B,C] = (AB)C - A(BC) for cognitive order-context sensitivity, and 240-root E_8 lattice projections.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:605-608 (domain D30 header, rows #1451-#1500)"
+  },
+  {
+   "id": "SUPER-D31",
+   "text": "Vietoris-Rips Simplicial Complex Filtration, Betti Numbers (beta_0, beta_1, beta_2) & Euler Topology <- tsotchke/georefine (Simplicial Mesh Topology) + Real-Time Persistent Homology TDA Engine. Role: Sweeps filtration scales epsilon across the 14-organ phase-space point cloud to build Vietoris-Rips simplicial complexes, tracking live 0D clusters (beta_0), 1D cognitive loops (beta_1), and 2D cavities (beta_2).",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:665-668 (domain D31 header, rows #1501-#1550)"
+  },
+  {
+   "id": "SUPER-D32",
+   "text": "Algorithmic Solomonoff Induction, Kolmogorov Minimum Description Length (MDL) & Epiphany Drive <- tsotchke/eshkol (Homoiconic S-Expression Program Synthesis & Universal Prior 2^{-|p|}). Role: Weighs symbolic Eshkol generative programs under Solomonoff algorithmic probability P(p) ~ 2^{-K(p)}, computing real-time Minimum Description Length (MDL) compression progress as a mathematical Eureka reward.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:725-728 (domain D32 header, rows #1551-#1600)"
+  },
+  {
+   "id": "SUPER-D33",
+   "text": "Frohlich Terahertz Bose-Einstein Dipolar Condensates & Penrose-Diosi Orch-OR Gravitational Reduction <- tsotchke/moonlab (Open-Quantum Dipolar Condensate) + Penrose-Diosi Gravitational Self-Energy. Role: Metabolic pumping of cytoskeletal tubulin dipoles into a coherent terahertz Frohlich condensate coupled to Penrose-Diosi gravitational self-energy E_G = hbar / tau_OR gating objective reduction moments.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:785-788 (domain D33 header, rows #1601-#1650)"
+  },
+  {
+   "id": "SUPER-D34",
+   "text": "Dicke Superradiant N^2 Optical Bursts, Squeezed Biophoton Luminescence & Myelinated Waveguides <- tsotchke/moonlab (Collective Spin-J Dicke Model) + Myelinated Axonal Cavity QED. Role: Coherent ultra-weak biophoton emission, N^2 Dicke superradiant optical pulses, two-mode squeezed photon states, and guided polariton propagation through myelinated axonal dielectric waveguides.",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:845-848 (domain D34 header, rows #1651-#1700)"
+  },
+  {
+   "id": "ALIFE-D60",
+   "text": "Foundations-100 & Multi-Substrate Integration (JS + RV32I + Eshkol + Moonlab + WebGL2 + WebAudio). Governing equation: $\\mathcal{H}_{total} = \\text{FNV1a}(E_{ledger}, \\text{DA}, S, w_{Site}, W_{syn}, Q_{32}, D_{01..60})$",
+   "category": "mapping.tsotchke_repo",
+   "criterion": "",
+   "source_ref": "W:/ALIFE_CONSCIOUSNESS_1000_CREATURE_REPORT.md:1137-1139 (domain D60 header, rows #2951-#3000)"
+  }
+ ]
+}

@@ -1,0 +1,1109 @@
+{
+ "set_id": "bench_novel100",
+ "title": "NOVEL-100: 100 new capabilities N01..N100 (0 done, 2 built-not-tested, 98 not yet)",
+ "source_files": [
+  "W:/Creature1-Benchmarks.pdf"
+ ],
+ "items": [
+  {
+   "id": "N01",
+   "text": "Berry-phase clock: tells subjective time of day from the geometric phase its internal qubit accumulates over the day loop",
+   "category": "NOVEL-100 / A. Quantum and geometric interior",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N02",
+   "text": "Quantum-metric surprise: Fubini–Study distance between successive qubit states is a surprise signal that drives attention",
+   "category": "NOVEL-100 / A. Quantum and geometric interior",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N03",
+   "text": "Topological moods: mood states labelled by an integer (Chern-like) invariant of the internal state, so they flip only at topological transitions",
+   "category": "NOVEL-100 / A. Quantum and geometric interior",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N04",
+   "text": "Quantum-metric plasticity: synaptic updates preconditioned by the QGT of its own state (natural gradient inside a living creature)",
+   "category": "NOVEL-100 / A. Quantum and geometric interior",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N05",
+   "text": "Chance literacy: learns to tell world events driven by Moonlab dice from PRNG-driven ones, and only where they differ",
+   "category": "NOVEL-100 / A. Quantum and geometric interior",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N06",
+   "text": "Chosen randomness: picks the measurement basis of its own qubit as an action, shaping how random its next choice is",
+   "category": "NOVEL-100 / A. Quantum and geometric interior",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N07",
+   "text": "Order-effect decisions: options interfere in its decision state, so the order it considers them changes the choice",
+   "category": "NOVEL-100 / A. Quantum and geometric interior",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N08",
+   "text": "Quantum-path sleep pressure: sleep need grows with the quantum-metric path length its state travelled that day",
+   "category": "NOVEL-100 / A. Quantum and geometric interior",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N09",
+   "text": "Thought-curvature metacognition: intrinsic curvature of its neural state trajectory triggers a metacognitive check and workspace re-ignition",
+   "category": "NOVEL-100 / A. Quantum and geometric interior",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Built-not-tested",
+    "v40_top20": true
+   }
+  },
+  {
+   "id": "N10",
+   "text": "Geodesic imagination: plans by following geodesics on its own learned neural manifold, so thought detours around \"conceptual obstacles\"",
+   "category": "NOVEL-100 / A. Quantum and geometric interior",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N11",
+   "text": "Self-surgery with the lab's own lesion tool: chooses couplings to cut or boost from its self-model's prediction",
+   "category": "NOVEL-100 / B. Self-modification by its own choice",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": true
+   }
+  },
+  {
+   "id": "N12",
+   "text": "Self-steering: injects stimulation into its own regions to set its mood before a hard task",
+   "category": "NOVEL-100 / B. Self-modification by its own choice",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N13",
+   "text": "Free won't: reads its own motor-lens prediction and vetoes predicted bad actions",
+   "category": "NOVEL-100 / B. Self-modification by its own choice",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": true
+   }
+  },
+  {
+   "id": "N14",
+   "text": "Self circuit discovery in sleep: runs a lesion search on its own wiring while asleep and protects the couplings it finds critical",
+   "category": "NOVEL-100 / B. Self-modification by its own choice",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N15",
+   "text": "Creature-initiated save points: stores a partial snapshot before a risky act and restores chosen parts after injury, paying energy",
+   "category": "NOVEL-100 / B. Self-modification by its own choice",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N16",
+   "text": "Identity audit: measures how much of its own hidden state survived since yesterday and grows cautious when identity drift is high",
+   "category": "NOVEL-100 / B. Self-modification by its own choice",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N17",
+   "text": "Self-preregistration: commits a hash of its prediction before acting, checks it afterwards and penalises its own overconfidence",
+   "category": "NOVEL-100 / B. Self-modification by its own choice",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": true
+   }
+  },
+  {
+   "id": "N18",
+   "text": "Plasticity auction: brain regions bid energy for the right to learn, and the creature decides where learning happens",
+   "category": "NOVEL-100 / B. Self-modification by its own choice",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.23 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N19",
+   "text": "Deliberate forgetting: chooses to erase memories that keep driving costly false alarms",
+   "category": "NOVEL-100 / B. Self-modification by its own choice",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N20",
+   "text": "Organ re-budgeting by vote: organs negotiate their energy share via interoceptive signals, and the brain arbitrates",
+   "category": "NOVEL-100 / B. Self-modification by its own choice",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N21",
+   "text": "Substrate sense: detects whether its rules run on the Eshkol VM, TS or RV32I from timing/rounding signatures, and acts on it",
+   "category": "NOVEL-100 / C. Simulation and substrate awareness",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Built-not-tested",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N22",
+   "text": "Physics-constant tracking: continuously estimates the current gravity, temperature and time-dilation dial values as latent variables",
+   "category": "NOVEL-100 / C. Simulation and substrate awareness",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N23",
+   "text": "Conservation-anomaly sense: senses where energy is not conserved (anomaly dial) and avoids or exploits those zones",
+   "category": "NOVEL-100 / C. Simulation and substrate awareness",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N24",
+   "text": "Déjà vu on replay: a restored creature recognises it is re-living an exact replay and exploits its foreknowledge",
+   "category": "NOVEL-100 / C. Simulation and substrate awareness",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N25",
+   "text": "Universe-load sense: senses compute-tick jitter as a bodily signal (\"fatigue of the world\")",
+   "category": "NOVEL-100 / C. Simulation and substrate awareness",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N26",
+   "text": "Signalling the experimenter: learns which displays tend to be followed by God-panel changes and uses them",
+   "category": "NOVEL-100 / C. Simulation and substrate awareness",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N27",
+   "text": "Wall probing after anomalies: explores the dome's limits more after witnessing physics anomalies",
+   "category": "NOVEL-100 / C. Simulation and substrate awareness",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N28",
+   "text": "Nested-dome self-location: infers which level of nested domes it lives in from physics differences",
+   "category": "NOVEL-100 / C. Simulation and substrate awareness",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N29",
+   "text": "Respawn self-knowledge: a respawned creature detects that it is a respawn (blank history) and seeks elders to learn from",
+   "category": "NOVEL-100 / C. Simulation and substrate awareness",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N30",
+   "text": "Lab-probe accounting: knows the cost each lab instrument adds to its ledger and budgets around inspection",
+   "category": "NOVEL-100 / C. Simulation and substrate awareness",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N31",
+   "text": "Field sense of its own brain: reads its own 3D neural-activity field as a sense organ (interoception of thought)",
+   "category": "NOVEL-100 / D. Senses beyond the usual",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N32",
+   "text": "Peer field reading: senses a peer's neural-activity field at contact range and predicts its next action",
+   "category": "NOVEL-100 / D. Senses beyond the usual",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N33",
+   "text": "Sleep-pressure smell: senses peers' adenosine level and times approaches to their drowsiness",
+   "category": "NOVEL-100 / D. Senses beyond the usual",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N34",
+   "text": "Time-gradient sense: perceives time-dilation gradients in the dome and forages in fast zones when hungry",
+   "category": "NOVEL-100 / D. Senses beyond the usual",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N35",
+   "text": "Mutation-rate sense: senses its own somatic mutation rate under radiation and seeks shelter",
+   "category": "NOVEL-100 / D. Senses beyond the usual",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N36",
+   "text": "Self-entrainment: chooses its light exposure to phase-shift itself ahead of predicted food windows",
+   "category": "NOVEL-100 / D. Senses beyond the usual",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N37",
+   "text": "Gravity-anomaly memory: stores places by local gravity anomalies",
+   "category": "NOVEL-100 / D. Senses beyond the usual",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N38",
+   "text": "Fidelity touch: senses the similarity (fidelity) of a peer's qubit state to its own at contact",
+   "category": "NOVEL-100 / D. Senses beyond the usual",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N39",
+   "text": "Illusion unlearning: falls for designed dome illusions, then learns to see through them",
+   "category": "NOVEL-100 / D. Senses beyond the usual",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N40",
+   "text": "Voluntary percept flips: flips its own bistable percept on demand when it pays",
+   "category": "NOVEL-100 / D. Senses beyond the usual",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N41",
+   "text": "Dream-seeded germline: REM-sampled motor programs that worked awake are favoured in gametes",
+   "category": "NOVEL-100 / E. Sleep, dreams and heredity",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.24 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": true
+   }
+  },
+  {
+   "id": "N42",
+   "text": "Shared dreaming: creatures asleep in contact exchange replay sequences, so a listener learns routes it never walked",
+   "category": "NOVEL-100 / E. Sleep, dreams and heredity",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N43",
+   "text": "Threat-calibrated nightmares: REM rehearses dangers in proportion to the hell-ladder rung",
+   "category": "NOVEL-100 / E. Sleep, dreams and heredity",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N44",
+   "text": "Lucid REM: detects that it is dreaming from impossible states and steers the dream towards its open uncertainty",
+   "category": "NOVEL-100 / E. Sleep, dreams and heredity",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N45",
+   "text": "REM uncertainty maps: REM writes uncertainty (not values) into a map that guides the next day's exploration",
+   "category": "NOVEL-100 / E. Sleep, dreams and heredity",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": true
+   }
+  },
+  {
+   "id": "N46",
+   "text": "Dream-born signals: new signals invented in dreams spread through waking culture",
+   "category": "NOVEL-100 / E. Sleep, dreams and heredity",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N47",
+   "text": "Uncertainty-set somatic mutation: the sleep-time mutation rate rises with unresolved uncertainty",
+   "category": "NOVEL-100 / E. Sleep, dreams and heredity",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N48",
+   "text": "Inherited dreams: offspring dreams replay parental experiences (epigenetic replay)",
+   "category": "NOVEL-100 / E. Sleep, dreams and heredity",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N49",
+   "text": "Dormant dreaming: dreams continue during dormancy and update the world model, so it wakes ready",
+   "category": "NOVEL-100 / E. Sleep, dreams and heredity",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N50",
+   "text": "Quantum dream audit: dream diversity under Moonlab vs PRNG sampling, with a preregistered null",
+   "category": "NOVEL-100 / E. Sleep, dreams and heredity",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N51",
+   "text": "Skill market: creatures trade partial neural snapshots (skills) for food",
+   "category": "NOVEL-100 / F. Social, trade and culture",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N52",
+   "text": "Neural grafting with rejection: integrates a peer's partial state; the immune layer rejects incompatible grafts",
+   "category": "NOVEL-100 / F. Social, trade and culture",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N53",
+   "text": "Cryptographic kin check: verifies a peer's claimed lineage hash before cooperating",
+   "category": "NOVEL-100 / F. Social, trade and culture",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N54",
+   "text": "Sleep-schedule culture: groups converge on shared sleep timing by observation, beyond the light cycle",
+   "category": "NOVEL-100 / F. Social, trade and culture",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N55",
+   "text": "Teaching into sleep: an elder signals a route while a juvenile sleeps, and the juvenile wakes knowing it",
+   "category": "NOVEL-100 / F. Social, trade and culture",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N56",
+   "text": "Group Markov blanket under threat: a group's statistical boundary appears only under threat",
+   "category": "NOVEL-100 / F. Social, trade and culture",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N57",
+   "text": "Collective dial estimation: a group pools estimates of God-panel changes",
+   "category": "NOVEL-100 / F. Social, trade and culture",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N58",
+   "text": "Skin-colour dialects: shader-skin colour patterns become signals that drift into group dialects",
+   "category": "NOVEL-100 / F. Social, trade and culture",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N59",
+   "text": "Honest costly signals priced by the ledger: signal cost is exact energy, so receivers learn honesty",
+   "category": "NOVEL-100 / F. Social, trade and culture",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N60",
+   "text": "Inter-species debt: 001 and a second species keep exchange balances over days",
+   "category": "NOVEL-100 / F. Social, trade and culture",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N61",
+   "text": "Eversion defence: turns itself inside out to change which tissue faces toxins",
+   "category": "NOVEL-100 / G. Body and morphology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N62",
+   "text": "Cavity voice: tunes body-cavity resonance to change its voice; cavity size evolves",
+   "category": "NOVEL-100 / G. Body and morphology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N63",
+   "text": "Translucency control: adjusts body translucency for camouflage vs display",
+   "category": "NOVEL-100 / G. Body and morphology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N64",
+   "text": "Organ exchange: two creatures swap an organ module and both re-adapt",
+   "category": "NOVEL-100 / G. Body and morphology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N65",
+   "text": "Bioelectric limb vote: the number of limbs grown is set by a bioelectric vote of body regions",
+   "category": "NOVEL-100 / G. Body and morphology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N66",
+   "text": "Posture memory: body posture stores a short-term memory",
+   "category": "NOVEL-100 / G. Body and morphology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N67",
+   "text": "Famine autotomy with ledgered regrowth: sheds limbs to save energy and regrows when fed",
+   "category": "NOVEL-100 / G. Body and morphology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N68",
+   "text": "Gravity reshaping: body proportions shift within life in response to the gravity dial",
+   "category": "NOVEL-100 / G. Body and morphology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.25 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N69",
+   "text": "Body-plan dreams: REM simulates alternative bodies and steers bioelectric growth",
+   "category": "NOVEL-100 / G. Body and morphology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N70",
+   "text": "Seven-eye parallax depth: depth from 7 non-coplanar eyes with a learned geometry",
+   "category": "NOVEL-100 / G. Body and morphology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N71",
+   "text": "Shading engineering: creatures shade patches to steer grazers and food growth",
+   "category": "NOVEL-100 / H. Ecology of the dome",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N72",
+   "text": "Ladder acclimation: populations adapt to their hell-ladder rung over generations",
+   "category": "NOVEL-100 / H. Ecology of the dome",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N73",
+   "text": "Utopia decay: under utopia, capabilities decay from relaxed selection",
+   "category": "NOVEL-100 / H. Ecology of the dome",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N74",
+   "text": "Parasite manipulation: parasites evolve to change host foraging to their benefit",
+   "category": "NOVEL-100 / H. Ecology of the dome",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N75",
+   "text": "Time-niche species: species specialise in dilated or frozen time zones",
+   "category": "NOVEL-100 / H. Ecology of the dome",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N76",
+   "text": "Berry-stamped caches: food caches are remembered with geometric-phase timestamps",
+   "category": "NOVEL-100 / H. Ecology of the dome",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N77",
+   "text": "God-dice predator learning: learns the statistics of dice-driven disasters and pre-empts them",
+   "category": "NOVEL-100 / H. Ecology of the dome",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N78",
+   "text": "Dome-scale criticality: the whole ecosystem self-tunes to a critical point",
+   "category": "NOVEL-100 / H. Ecology of the dome",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N79",
+   "text": "Culture migration between domes: migrants carry traditions to another dome",
+   "category": "NOVEL-100 / H. Ecology of the dome",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N80",
+   "text": "Waste gardens: creatures deposit waste where it grows the food they eat",
+   "category": "NOVEL-100 / H. Ecology of the dome",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N81",
+   "text": "Confidence-gated self-surgery: self-edits happen only above a confidence threshold",
+   "category": "NOVEL-100 / I. Metacognition and self-model",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N82",
+   "text": "Model of its own randomness: predicts its own noise statistics and plans for them",
+   "category": "NOVEL-100 / I. Metacognition and self-model",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N83",
+   "text": "Measured self-model depth: decodes level-2 (confidence about confidence) and level-3 representations",
+   "category": "NOVEL-100 / I. Metacognition and self-model",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N84",
+   "text": "Knows it slept: reports elapsed sleep duration and stage mix from its own traces",
+   "category": "NOVEL-100 / I. Metacognition and self-model",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N85",
+   "text": "Pre-symptomatic self-diagnosis: predicts organ failure from interoceptive patterns before symptoms",
+   "category": "NOVEL-100 / I. Metacognition and self-model",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": true
+   }
+  },
+  {
+   "id": "N86",
+   "text": "Signals carrying its own confidence: peers use the confidence it signals",
+   "category": "NOVEL-100 / I. Metacognition and self-model",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N87",
+   "text": "Known unknowns about God: tracks which dials it cannot predict and avoids reliance on them",
+   "category": "NOVEL-100 / I. Metacognition and self-model",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N88",
+   "text": "Measured strange loop: the self-symbol's influence on the dynamics it models is measured as closed-loop gain",
+   "category": "NOVEL-100 / I. Metacognition and self-model",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N89",
+   "text": "Self-model through metamorphosis: keeps and remaps its self-model across a body rebuild",
+   "category": "NOVEL-100 / I. Metacognition and self-model",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N90",
+   "text": "Simulation-awareness score: composite of substrate sense, physics tracking and wall probing",
+   "category": "NOVEL-100 / I. Metacognition and self-model",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N91",
+   "text": "Energy futures: commits stores against predicted seasons and dial changes",
+   "category": "NOVEL-100 / J. Energy and physiology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": true
+   }
+  },
+  {
+   "id": "N92",
+   "text": "Ketosis cognition mode: cognition style switches with ketosis (slower, more exploratory)",
+   "category": "NOVEL-100 / J. Energy and physiology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N93",
+   "text": "Thermal thinking schedule: schedules costly thinking for temperature windows where cognition is cheap",
+   "category": "NOVEL-100 / J. Energy and physiology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N94",
+   "text": "Neuron triage in famine: prunes least-used neurons under famine and regrows them when fed",
+   "category": "NOVEL-100 / J. Energy and physiology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N95",
+   "text": "Hormone-coded valence memory: episode valence stored in slow hormone pulses",
+   "category": "NOVEL-100 / J. Energy and physiology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N96",
+   "text": "Fever for learning: immune fever raises plasticity to learn the cause of an illness",
+   "category": "NOVEL-100 / J. Energy and physiology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.26 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N97",
+   "text": "Microbiome-written dreams: gut flora signals change dream content",
+   "category": "NOVEL-100 / J. Energy and physiology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N98",
+   "text": "Entropy circadian: the entropy of its Moonlab draws follows a circadian rhythm it controls",
+   "category": "NOVEL-100 / J. Energy and physiology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N99",
+   "text": "Ledgered honesty audit: it can show any peer the exact ledger of a claimed meal",
+   "category": "NOVEL-100 / J. Energy and physiology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  },
+  {
+   "id": "N100",
+   "text": "Starvation-ordered memory sacrifice: under starvation it gives up the least-valuable memories first",
+   "category": "NOVEL-100 / J. Energy and physiology",
+   "criterion": "",
+   "source_ref": "W:/Creature1-Benchmarks.pdf p.27 (section 6)",
+   "extra": {
+    "status_pdf": "Not yet",
+    "v40_top20": false
+   }
+  }
+ ]
+}

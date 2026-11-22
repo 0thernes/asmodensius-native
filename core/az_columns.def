@@ -1,0 +1,124 @@
+/* az_columns.def - the per-entity memory ABI, as an X-macro.
+ *
+ * AZ_COL(name, type, per, tier)
+ *   name : field name; the world has a pointer `type *name`
+ *   type : element type
+ *   per  : elements per entity (the column holds cap * per elements;
+ *          entity i owns name[i*per .. i*per + per - 1])
+ *   tier : HOT  - read or written every tick by the hot loops
+ *          WARM - touched on events (an entity actually acting), at birth
+ *                 and death, and by the phased Tier 1 pass; never
+ *                 unconditionally per entity per tick
+ *          EPH  - per-tick scratch: valid only inside one tick, never hashed,
+ *                 never saved, never moved by a reorder
+ *
+ * This file is the single source of truth. Allocation, reordering, hashing,
+ * snapshots and the byte-budget report are all generated from it. (No column
+ * is uploaded to a GPU today: gpu/ runs two kernels on arrays its test
+ * builds; a device image generated from this file is plan step S2.)
+ * Only the project lead edits this file. A module that needs a new field asks
+ * for it; it does not hide state anywhere else.
+ *
+ * ABI 4: every column has one writing module, named at its line as [owner]
+ * ("spawn" = az_spawn zeroes it, "commit" = az_life_commit fills it at
+ * birth). Nothing was dropped (finding v59): the fifteen columns that had no
+ * reader in the stub world are the state of wave-2 mechanisms, listed with
+ * their owners in docs/agents/ABI-V4-NOTICE.md. Any module may read any
+ * column of its own slot within rules D2 and D8.
+ *
+ * Column bases are deliberately staggered in memory: assume 64-byte alignment
+ * and nothing more. Never keep a column pointer across az_tick calls.
+ *
+ * HOT budget: exactly 140 bytes per entity, checked at compile time in
+ * az_world.c. With the scratch and the public record a creature costs about
+ * 270 bytes of memory traffic per tick (tools/az_budget prints the table).
+ */
+
+/* ---- HOT / kinematics : 32 bytes ------------------------------------- */
+AZ_COL(pos_x,   u32, 1, HOT)   /* [physics; commit] position; top bits = cell index (see az_abi.h) */
+AZ_COL(pos_y,   u32, 1, HOT)
+AZ_COL(pos_z,   u32, 1, HOT)
+AZ_COL(vel_x,   i16, 1, HOT)   /* [physics] velocity, 1/65536 cell per tick, |v| <= AZ_VEL_MAX */
+AZ_COL(vel_y,   i16, 1, HOT)
+AZ_COL(vel_z,   i16, 1, HOT)
+AZ_COL(rot_w,   i16, 1, HOT)   /* [physics; spawn sets identity] orientation rotor: unit quaternion (w, a, b, c), Q1.14 */
+AZ_COL(rot_a,   i16, 1, HOT)
+AZ_COL(rot_b,   i16, 1, HOT)
+AZ_COL(rot_c,   i16, 1, HOT)
+AZ_COL(ang_a,   i16, 1, HOT)   /* [physics] angular velocity (bivector), Q1.14 radians per tick; az_rotor_step */
+AZ_COL(ang_b,   i16, 1, HOT)
+AZ_COL(ang_c,   i16, 1, HOT)
+
+/* ---- HOT / physiology : 32 bytes -------------------------------------- */
+AZ_COL(blk,     u32, 1, HND)   /* [store] handle of the creature's block in the creature store, 0 = none */
+AZ_COL(energy,  i32, 1, HOT)   /* [metab; every hook for its own slot under C1-C7] free energy store (eu) */
+AZ_COL(uid,     u64, 1, HOT)   /* [spawn] stable identity, 64-bit (never reused, never runs out); canonical ordering and RNG key */
+AZ_COL(pool_a,  u32, 1, HOT)   /* [metab] autocatalytic metabolic pool, matter units (mu) */
+AZ_COL(pool_m,  u32, 1, HOT)   /* [metab] membrane pool (mu): the body wall; health is repaired from it */
+AZ_COL(pool_t,  u32, 1, HOT)   /* [metab] template pool (mu): the germ line store a brood is provisioned from */
+AZ_COL(waste,   u32, 1, HOT)   /* [metab] internal waste (mu)                     */
+AZ_COL(toxin,   u32, 1, HOT)   /* [metab; social removes it from a groomed slot] internal toxin load (mu) */
+AZ_COL(health,  u16, 1, HOT)   /* [metab heals and harms; social wounds] structural integrity 0..65535 */
+AZ_COL(mass,    u32, 1, HOT)   /* [metab, last writer of the block; commit] cached total body matter (mu) */
+AZ_COL(clade,   u32, 1, HOT)   /* [commit] index into the lineage table (az_clade_assign) */
+AZ_COL(colony,  u32, 1, HOT)   /* [commit; social: a recruit joins; colony tier 2 clears] colony id, 0 = solitary */
+AZ_COL(tag,     u16, 1, HOT)   /* [genome: az_develop] recognition tag: HUE << 8 | PATTERN */
+AZ_COL(flags,   u8,  1, HOT)   /* [life: stages; grid: INIT; social: COOP] AZ_F_* bits */
+AZ_COL(arousal, u8,  1, HOT)   /* [tier1] global neuromodulator level             */
+AZ_COL(sig,     u8,  2, HOT)   /* [social] emitted signal intensity, channels A and B */
+
+/* ---- HOT / mind : 64 bytes -------------------------------------------- */
+AZ_COL(phen,     u8, 16, HOT)  /* [genome: az_develop] hot phenotype scalars AZ_P_* */
+
+/* ---- HOT / social : 12 bytes (every offer is built from these each tick) */
+AZ_COL(inv,      u32, 4, HOT)  /* [econ; social moves stolen units] inventory of AZ_NINV resources (mu) */
+AZ_COL(rank,     i16, 1, HOT)  /* [social] dominance score, 0 = neutral            */
+AZ_COL(role,     u8,  1, HOT)  /* [colony tier 2] caste / role AZ_ROLE_*           */
+AZ_COL(bond,     u8,  1, HOT)  /* [mate] pair-bond strength, 0 = none              */
+
+/* ---- WARM / heredity --------------------------------------------------- */
+AZ_COL(trait,      u8, 112, WARM) /* [genome: az_develop] developed quantitative traits AZ_T_* */
+AZ_COL(parent_a,   u64, 1, WARM)  /* [commit] uid of the bearing parent (0 = founder) */
+AZ_COL(parent_b,   u64, 1, WARM)  /* [commit] uid of the other parent (0 = none)   */
+AZ_COL(birth_tick, u64, 1, WARM)  /* [commit] tick of birth: age = tick - birth_tick */
+AZ_COL(lineage,    u32, 1, WARM)  /* [commit; worldgen] founder species this entity descends from */
+AZ_COL(generation, u32, 1, WARM)  /* [commit]                                      */
+
+/* ---- WARM / society ---------------------------------------------------- */
+AZ_COL(partner,  u64, 1, WARM)  /* [mate] pair-bond partner uid, 0 = none          */
+AZ_COL(archetype,u8,  1, WARM)  /* reserved snapshot byte; behavioural classification is on demand */
+AZ_COL(sex,      u8,  1, WARM)  /* [genome: az_develop] mating type                */
+AZ_COL(rep_tag,  u16, 4, WARM)  /* [social] tags of the last partners remembered   */
+AZ_COL(rep_val,  i8,  4, WARM)  /* [social] what each remembered tag did to me: > 0 helped, < 0 harmed */
+AZ_COL(stat,     u32, 16, WARM) /* [every module for its own counters: az_stat_bump] behaviour counters AZ_ST_* */
+
+/* ---- WARM / slow cognition (Tier 1) ------------------------------------ */
+AZ_COL(elig,    i8,  8, WARM)   /* [tier1] eligibility trace per hidden group      */
+AZ_COL(rbase,   i16, 1, WARM)   /* [tier1] reward baseline                         */
+AZ_COL(rprev,   i32, 1, WARM)   /* [tier1] energy at the previous Tier 1 visit     */
+AZ_COL(ctx,     i8,  8, WARM)   /* [tier1] slow context vector / learned circuit angles */
+AZ_COL(qstate,  i16, 16, WARM)  /* [tier1] 8 complex amplitudes Q1.14: classical state-vector module (tk_qsv) */
+AZ_COL(memory,  u64, 1, WARM)   /* [tier1] 64 spins: current state of the associative memory (a tk_hop word) */
+AZ_COL(engram,  u64, 4, WARM)   /* [tier1] AZ_HOP_PATTERNS learned 64-spin patterns (tk_hop_store) */
+AZ_COL(hop_n,   u8,  1, WARM)   /* [tier1] patterns stored in engram, 0..AZ_HOP_PATTERNS */
+
+/* ---- EPH / per-tick scratch -------------------------------------------- */
+AZ_COL(cell,    u32, 1, EPH)    /* cell index (AZ_NONE for a dead slot); valid from birth */
+AZ_COL(spos,    u32, 1, EPH)    /* alive: sorted position (order[spos[s]] == s), AZ_NONE if born */
+                                /* this tick; dead: link of the free list          */
+AZ_COL(blk_req,  u32, 3, EPH)    /* [own slot, through az_part_request, az_part_shed_request, az_memory_request] this tick's requests on the block: [0] kind of the new part, [1] index of the part to give up, [2] wanted memory words + 1 (0 = no request) */
+AZ_COL(motor,   i8, 24, EPH)    /* [tick] brain outputs AZ_M_*                     */
+AZ_COL(acc,     i16, 3, EPH)    /* [physics] acceleration request, world frame (thrust + contact) */
+AZ_COL(pair,    AzPair, 1, EPH) /* pair matching: act, urge, peer, claim, req      */
+AZ_COL(offer,   u8, 32, EPH)    /* [social, econ, mate] public commitments AZ_O_* (see az_abi.h) */
+AZ_COL(eat,     u32, 8, EPH)    /* [metab] uptake demand per channel AZ_D_*        */
+AZ_COL(gather,  u32, 4, EPH)    /* [econ] what a colony member asks of its colony's pools on its pantry     */
+                                /* tick (az_econ.c, colony_ask): [0], [1] units of the store's NUT_X and    */
+                                /* ORG_Y, [3] energy, [2] the colony asked (0: none). Written in phase 1    */
+                                /* by every creature on its econ phase tick (az_phase_due) and read in      */
+                                /* phase 3 on the same tick only, so it needs no reset                      */
+AZ_COL(birth,   AzBirth, 1, EPH)/* reproduction request (az_birth_request)         */
+/* Appended after all previous IDs so older hash salts and snapshot columns retain their order. */
+AZ_COL(travel_carry, u32, 1, HOT) /* [physics] accepted path length since the UID's last travel flush */
+AZ_COL(phys_passive, i16, 3, EPH) /* [physics] passive xyz impulse retained from phase 1 for phase 3 */
+AZ_COL(phys_quote,   u16, 1, EPH) /* [physics] quoted thrust cost in eu for this tick */

@@ -1,0 +1,68 @@
+Iterations:        1000
+Instructions:      12000
+Total Cycles:      3025
+Total uOps:        12000
+
+Dispatch Width:    6
+uOps Per Cycle:    3.97
+IPC:               3.97
+Block RThroughput: 3.0
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 1      5     0.33    *                   movzwl	(%rcx,%r11,2), %eax
+ 1      5     0.33    *                   movzwl	(%rdx,%r11,2), %r12d
+ 1      5     0.33    *                   movzwl	(%r8,%r11,2), %r13d
+ 1      3     1.00                        pdepl	%ebx, %eax, %eax
+ 1      3     1.00                        pdepl	%esi, %r12d, %r12d
+ 1      3     1.00                        pdepl	%edi, %r13d, %r13d
+ 1      2     0.20                        orl	%r12d, %eax
+ 1      2     0.20                        orl	%r13d, %eax
+ 2      12    0.50           *            movl	%eax, (%r9,%r11,4)
+ 0      1     0.00                        incq	%r11
+ 1      1     0.20                        cmpq	%r10, %r11
+ 1      1     0.50                        jb	.L0
+
+
+Resources:
+[0]   - ADLPPort00
+[1]   - ADLPPort01
+[2]   - ADLPPort02
+[3]   - ADLPPort03
+[4]   - ADLPPort04
+[5]   - ADLPPort05
+[6]   - ADLPPort06
+[7]   - ADLPPort07
+[8]   - ADLPPort08
+[9]   - ADLPPort09
+[10]  - ADLPPort10
+[11]  - ADLPPort11
+[12]  - ADLPPortInvalid
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   
+1.00   3.00   1.00   1.00   0.50   1.00   1.00   0.50   0.50   0.50   1.00   1.00    -     
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   Instructions:
+ -      -      -      -      -      -      -      -      -      -     1.00    -      -     movzwl	(%rcx,%r11,2), %eax
+ -      -      -     1.00    -      -      -      -      -      -      -      -      -     movzwl	(%rdx,%r11,2), %r12d
+ -      -     1.00    -      -      -      -      -      -      -      -      -      -     movzwl	(%r8,%r11,2), %r13d
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     pdepl	%ebx, %eax, %eax
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     pdepl	%esi, %r12d, %r12d
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -     pdepl	%edi, %r13d, %r13d
+0.01    -      -      -      -     0.02   0.01    -      -      -      -     0.96    -     orl	%r12d, %eax
+0.01    -      -      -      -     0.96   0.01    -      -      -      -     0.02    -     orl	%r13d, %eax
+ -      -      -      -     0.50    -      -     0.50   0.50   0.50    -      -      -     movl	%eax, (%r9,%r11,4)
+ -      -      -      -      -      -      -      -      -      -      -      -      -     incq	%r11
+0.01    -      -      -      -     0.02   0.95    -      -      -      -     0.02    -     cmpq	%r10, %r11
+0.97    -      -      -      -      -     0.03    -      -      -      -      -      -     jb	.L0

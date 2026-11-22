@@ -1,0 +1,248 @@
+Iterations:        1000
+Instructions:      102000
+Total Cycles:      41101
+Total uOps:        168000
+
+Dispatch Width:    6
+uOps Per Cycle:    4.09
+IPC:               2.48
+Block RThroughput: 35.0
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 0      1     0.00                        subq	$8, %rsp
+ 1      8     0.33    *                   vmovdqu	(%r8), %ymm0
+ 1      8     0.33    *                   vmovdqu	32(%r8), %ymm1
+ 1      8     0.33    *                   vmovdqu	64(%r8), %ymm2
+ 1      8     0.33    *                   vmovdqu	96(%r8), %ymm3
+ 1      8     0.33    *                   vpbroadcastd	(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	32(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	64(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	96(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	4(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	128(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	160(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	192(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	224(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	8(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	256(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	288(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	320(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	352(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	12(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	384(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	416(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	448(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	480(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	16(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	512(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	544(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	576(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	608(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	20(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	640(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	672(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	704(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	736(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	24(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	768(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	800(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	832(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	864(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	28(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	896(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	928(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	960(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	992(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	32(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	1024(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	1056(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	1088(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	1120(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	36(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	1152(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	1184(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	1216(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	1248(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	40(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	1280(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	1312(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	1344(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	1376(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	44(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	1408(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	1440(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	1472(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	1504(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	48(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	1536(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	1568(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	1600(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	1632(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	52(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	1664(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	1696(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	1728(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	1760(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	56(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	1792(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	1824(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	1856(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	1888(%rdx), %ymm4, %ymm3
+ 1      8     0.33    *                   vpbroadcastd	60(%rcx), %ymm4
+ 2      13    0.50    *                   {vex}	vpdpbusd	1920(%rdx), %ymm4, %ymm0
+ 2      13    0.50    *                   {vex}	vpdpbusd	1952(%rdx), %ymm4, %ymm1
+ 2      13    0.50    *                   {vex}	vpdpbusd	1984(%rdx), %ymm4, %ymm2
+ 2      13    0.50    *                   {vex}	vpdpbusd	2016(%rdx), %ymm4, %ymm3
+ 1      3     1.00                        vmovd	%r9d, %xmm4
+ 2      4     1.00                        vpsrad	%xmm4, %ymm0, %ymm0
+ 2      4     1.00                        vpsrad	%xmm4, %ymm1, %ymm1
+ 2      4     1.00                        vpsrad	%xmm4, %ymm2, %ymm2
+ 2      4     1.00                        vpsrad	%xmm4, %ymm3, %ymm3
+ 1      3     1.00                        vpackssdw	%ymm1, %ymm0, %ymm0
+ 1      3     1.00                        vpackssdw	%ymm3, %ymm2, %ymm2
+ 1      8     0.33    *                   vmovdqa	(%rip), %ymm5
+ 1      1     0.50                        vpminsw	%ymm5, %ymm0, %ymm0
+ 1      1     0.50                        vpminsw	%ymm5, %ymm2, %ymm2
+ 1      3     1.00                        vpackuswb	%ymm2, %ymm0, %ymm0
+ 1      8     0.33    *                   vmovdqa	32(%rip), %ymm4
+ 1      3     1.00                        vpermd	%ymm0, %ymm4, %ymm0
+ 1      5     0.33    *                   movq	48(%rsp), %rax
+ 2      12    0.50           *            vmovdqu	%ymm0, (%rax)
+ 0      0     0.00                  U     vzeroupper
+ 0      1     0.00                        addq	$8, %rsp
+
+
+Resources:
+[0]   - ADLPPort00
+[1]   - ADLPPort01
+[2]   - ADLPPort02
+[3]   - ADLPPort03
+[4]   - ADLPPort04
+[5]   - ADLPPort05
+[6]   - ADLPPort06
+[7]   - ADLPPort07
+[8]   - ADLPPort08
+[9]   - ADLPPort09
+[10]  - ADLPPort10
+[11]  - ADLPPort11
+[12]  - ADLPPortInvalid
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   
+35.00  35.00  29.00  29.00  0.50   9.00    -     0.50   0.50   0.50   29.00   -      -     
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   Instructions:
+ -      -      -      -      -      -      -      -      -      -      -      -      -     subq	$8, %rsp
+ -      -     0.29   0.14    -      -      -      -      -      -     0.57    -      -     vmovdqu	(%r8), %ymm0
+ -      -     0.14   0.56    -      -      -      -      -      -     0.29    -      -     vmovdqu	32(%r8), %ymm1
+ -      -     0.85   0.01    -      -      -      -      -      -     0.15    -      -     vmovdqu	64(%r8), %ymm2
+ -      -     0.71   0.14    -      -      -      -      -      -     0.15    -      -     vmovdqu	96(%r8), %ymm3
+ -      -     0.28   0.15    -      -      -      -      -      -     0.57    -      -     vpbroadcastd	(%rcx), %ymm4
+0.01   0.99   0.43   0.43    -      -      -      -      -      -     0.15    -      -     {vex}	vpdpbusd	(%rdx), %ymm4, %ymm0
+0.15   0.85   0.56   0.15    -      -      -      -      -      -     0.29    -      -     {vex}	vpdpbusd	32(%rdx), %ymm4, %ymm1
+0.01   0.99   0.01   0.71    -      -      -      -      -      -     0.28    -      -     {vex}	vpdpbusd	64(%rdx), %ymm4, %ymm2
+0.15   0.85   0.01   0.57    -      -      -      -      -      -     0.43    -      -     {vex}	vpdpbusd	96(%rdx), %ymm4, %ymm3
+ -      -     0.28   0.01    -      -      -      -      -      -     0.71    -      -     vpbroadcastd	4(%rcx), %ymm4
+0.01   0.99   0.15   0.85    -      -      -      -      -      -      -      -      -     {vex}	vpdpbusd	128(%rdx), %ymm4, %ymm0
+0.15   0.85   0.57   0.15    -      -      -      -      -      -     0.29    -      -     {vex}	vpdpbusd	160(%rdx), %ymm4, %ymm1
+0.01   0.99   0.01   0.71    -      -      -      -      -      -     0.28    -      -     {vex}	vpdpbusd	192(%rdx), %ymm4, %ymm2
+0.57   0.43   0.01   0.57    -      -      -      -      -      -     0.43    -      -     {vex}	vpdpbusd	224(%rdx), %ymm4, %ymm3
+ -      -     0.01   0.84    -      -      -      -      -      -     0.15    -      -     vpbroadcastd	8(%rcx), %ymm4
+0.85   0.15   0.15   0.85    -      -      -      -      -      -      -      -      -     {vex}	vpdpbusd	256(%rdx), %ymm4, %ymm0
+0.29   0.71   0.71    -      -      -      -      -      -      -     0.29    -      -     {vex}	vpdpbusd	288(%rdx), %ymm4, %ymm1
+0.01   0.99   0.01   0.99    -      -      -      -      -      -      -      -      -     {vex}	vpdpbusd	320(%rdx), %ymm4, %ymm2
+0.58   0.42   0.57   0.29    -      -      -      -      -      -     0.14    -      -     {vex}	vpdpbusd	352(%rdx), %ymm4, %ymm3
+ -      -     0.15   0.15    -      -      -      -      -      -     0.71    -      -     vpbroadcastd	12(%rcx), %ymm4
+0.85   0.15   0.29   0.71    -      -      -      -      -      -     0.01    -      -     {vex}	vpdpbusd	384(%rdx), %ymm4, %ymm0
+0.29   0.71   0.71   0.01    -      -      -      -      -      -     0.29    -      -     {vex}	vpdpbusd	416(%rdx), %ymm4, %ymm1
+0.01   0.99   0.01   0.99    -      -      -      -      -      -     0.01    -      -     {vex}	vpdpbusd	448(%rdx), %ymm4, %ymm2
+0.58   0.42   0.57   0.29    -      -      -      -      -      -     0.15    -      -     {vex}	vpdpbusd	480(%rdx), %ymm4, %ymm3
+ -      -      -     0.98    -      -      -      -      -      -     0.02    -      -     vpbroadcastd	16(%rcx), %ymm4
+0.85   0.15   0.28   0.71    -      -      -      -      -      -     0.01    -      -     {vex}	vpdpbusd	512(%rdx), %ymm4, %ymm0
+0.29   0.71   0.71    -      -      -      -      -      -      -     0.28    -      -     {vex}	vpdpbusd	544(%rdx), %ymm4, %ymm1
+0.70   0.30   0.14   0.30    -      -      -      -      -      -     0.56    -      -     {vex}	vpdpbusd	576(%rdx), %ymm4, %ymm2
+0.29   0.71   0.29   0.57    -      -      -      -      -      -     0.14    -      -     {vex}	vpdpbusd	608(%rdx), %ymm4, %ymm3
+ -      -     0.99    -      -      -      -      -      -      -     0.01    -      -     vpbroadcastd	20(%rcx), %ymm4
+0.43   0.57   0.42   0.57    -      -      -      -      -      -     0.01    -      -     {vex}	vpdpbusd	640(%rdx), %ymm4, %ymm0
+0.57   0.43   0.01   0.71    -      -      -      -      -      -     0.28    -      -     {vex}	vpdpbusd	672(%rdx), %ymm4, %ymm1
+0.01   0.99   0.56   0.14    -      -      -      -      -      -     0.29    -      -     {vex}	vpdpbusd	704(%rdx), %ymm4, %ymm2
+0.29   0.71   0.29   0.29    -      -      -      -      -      -     0.42    -      -     {vex}	vpdpbusd	736(%rdx), %ymm4, %ymm3
+ -      -     0.15   0.15    -      -      -      -      -      -     0.71    -      -     vpbroadcastd	24(%rcx), %ymm4
+0.99   0.01   0.01   0.85    -      -      -      -      -      -     0.14    -      -     {vex}	vpdpbusd	768(%rdx), %ymm4, %ymm0
+0.71   0.29   0.84   0.15    -      -      -      -      -      -     0.01    -      -     {vex}	vpdpbusd	800(%rdx), %ymm4, %ymm1
+0.29   0.71   0.29   0.15    -      -      -      -      -      -     0.56    -      -     {vex}	vpdpbusd	832(%rdx), %ymm4, %ymm2
+0.57   0.43   0.15   0.15    -      -      -      -      -      -     0.71    -      -     {vex}	vpdpbusd	864(%rdx), %ymm4, %ymm3
+ -      -      -     0.99    -      -      -      -      -      -     0.02    -      -     vpbroadcastd	28(%rcx), %ymm4
+0.99   0.01   0.01   0.85    -      -      -      -      -      -     0.14    -      -     {vex}	vpdpbusd	896(%rdx), %ymm4, %ymm0
+0.71   0.29   0.85   0.15    -      -      -      -      -      -      -      -      -     {vex}	vpdpbusd	928(%rdx), %ymm4, %ymm1
+0.43   0.57   0.29   0.15    -      -      -      -      -      -     0.56    -      -     {vex}	vpdpbusd	960(%rdx), %ymm4, %ymm2
+0.15   0.85   0.14   0.15    -      -      -      -      -      -     0.71    -      -     {vex}	vpdpbusd	992(%rdx), %ymm4, %ymm3
+ -      -     0.99    -      -      -      -      -      -      -      -      -      -     vpbroadcastd	32(%rcx), %ymm4
+0.99   0.01   0.01   0.85    -      -      -      -      -      -     0.15    -      -     {vex}	vpdpbusd	1024(%rdx), %ymm4, %ymm0
+0.71   0.29   0.14   0.15    -      -      -      -      -      -     0.71    -      -     {vex}	vpdpbusd	1056(%rdx), %ymm4, %ymm1
+0.43   0.57   0.29   0.56    -      -      -      -      -      -     0.14    -      -     {vex}	vpdpbusd	1088(%rdx), %ymm4, %ymm2
+0.15   0.85   0.15   0.29    -      -      -      -      -      -     0.56    -      -     {vex}	vpdpbusd	1120(%rdx), %ymm4, %ymm3
+ -      -      -     0.15    -      -      -      -      -      -     0.85    -      -     vpbroadcastd	36(%rcx), %ymm4
+0.99   0.01   0.01   0.84    -      -      -      -      -      -     0.15    -      -     {vex}	vpdpbusd	1152(%rdx), %ymm4, %ymm0
+0.71   0.29   0.14   0.15    -      -      -      -      -      -     0.71    -      -     {vex}	vpdpbusd	1184(%rdx), %ymm4, %ymm1
+0.43   0.57   0.29   0.56    -      -      -      -      -      -     0.14    -      -     {vex}	vpdpbusd	1216(%rdx), %ymm4, %ymm2
+0.15   0.85   0.14   0.29    -      -      -      -      -      -     0.57    -      -     {vex}	vpdpbusd	1248(%rdx), %ymm4, %ymm3
+ -      -     0.99    -      -      -      -      -      -      -     0.01    -      -     vpbroadcastd	40(%rcx), %ymm4
+0.85   0.15   0.15   0.85    -      -      -      -      -      -      -      -      -     {vex}	vpdpbusd	1280(%rdx), %ymm4, %ymm0
+0.30   0.71   0.15   0.56    -      -      -      -      -      -     0.29    -      -     {vex}	vpdpbusd	1312(%rdx), %ymm4, %ymm1
+0.71   0.29   0.57   0.28    -      -      -      -      -      -     0.14    -      -     {vex}	vpdpbusd	1344(%rdx), %ymm4, %ymm2
+0.57   0.43   0.01   0.71    -      -      -      -      -      -     0.28    -      -     {vex}	vpdpbusd	1376(%rdx), %ymm4, %ymm3
+ -      -     0.01   0.15    -      -      -      -      -      -     0.84    -      -     vpbroadcastd	44(%rcx), %ymm4
+0.29   0.71   0.01   0.85    -      -      -      -      -      -     0.14    -      -     {vex}	vpdpbusd	1408(%rdx), %ymm4, %ymm0
+0.15   0.85   0.29   0.15    -      -      -      -      -      -     0.56    -      -     {vex}	vpdpbusd	1440(%rdx), %ymm4, %ymm1
+0.57   0.43   0.42   0.15    -      -      -      -      -      -     0.43    -      -     {vex}	vpdpbusd	1472(%rdx), %ymm4, %ymm2
+0.29   0.71   0.70   0.15    -      -      -      -      -      -     0.15    -      -     {vex}	vpdpbusd	1504(%rdx), %ymm4, %ymm3
+ -      -      -     0.14    -      -      -      -      -      -     0.85    -      -     vpbroadcastd	48(%rcx), %ymm4
+0.85   0.15   0.29    -      -      -      -      -      -      -     0.71    -      -     {vex}	vpdpbusd	1536(%rdx), %ymm4, %ymm0
+0.15   0.85   0.70   0.15    -      -      -      -      -      -     0.15    -      -     {vex}	vpdpbusd	1568(%rdx), %ymm4, %ymm1
+0.71   0.29   0.14   0.15    -      -      -      -      -      -     0.71    -      -     {vex}	vpdpbusd	1600(%rdx), %ymm4, %ymm2
+0.43   0.57   0.71    -      -      -      -      -      -      -     0.29    -      -     {vex}	vpdpbusd	1632(%rdx), %ymm4, %ymm3
+ -      -     0.99   0.01    -      -      -      -      -      -      -      -      -     vpbroadcastd	52(%rcx), %ymm4
+0.85   0.15   0.29    -      -      -      -      -      -      -     0.71    -      -     {vex}	vpdpbusd	1664(%rdx), %ymm4, %ymm0
+0.71   0.29   0.70   0.15    -      -      -      -      -      -     0.15    -      -     {vex}	vpdpbusd	1696(%rdx), %ymm4, %ymm1
+0.29   0.71   0.14   0.15    -      -      -      -      -      -     0.71    -      -     {vex}	vpdpbusd	1728(%rdx), %ymm4, %ymm2
+0.15   0.85   0.70   0.15    -      -      -      -      -      -     0.15    -      -     {vex}	vpdpbusd	1760(%rdx), %ymm4, %ymm3
+ -      -     0.01   0.15    -      -      -      -      -      -     0.84    -      -     vpbroadcastd	56(%rcx), %ymm4
+0.85   0.15   0.15   0.01    -      -      -      -      -      -     0.85    -      -     {vex}	vpdpbusd	1792(%rdx), %ymm4, %ymm0
+0.71   0.29   0.70   0.29    -      -      -      -      -      -     0.01    -      -     {vex}	vpdpbusd	1824(%rdx), %ymm4, %ymm1
+0.29   0.71   0.29   0.43    -      -      -      -      -      -     0.29    -      -     {vex}	vpdpbusd	1856(%rdx), %ymm4, %ymm2
+0.15   0.85   0.70   0.15    -      -      -      -      -      -     0.15    -      -     {vex}	vpdpbusd	1888(%rdx), %ymm4, %ymm3
+ -      -      -     0.14    -      -      -      -      -      -     0.85    -      -     vpbroadcastd	60(%rcx), %ymm4
+0.85   0.15   0.15    -      -      -      -      -      -      -     0.85    -      -     {vex}	vpdpbusd	1920(%rdx), %ymm4, %ymm0
+0.71   0.29   0.70   0.29    -      -      -      -      -      -     0.01    -      -     {vex}	vpdpbusd	1952(%rdx), %ymm4, %ymm1
+0.29   0.71   0.29   0.43    -      -      -      -      -      -     0.29    -      -     {vex}	vpdpbusd	1984(%rdx), %ymm4, %ymm2
+0.15   0.85   0.71   0.15    -      -      -      -      -      -     0.14    -      -     {vex}	vpdpbusd	2016(%rdx), %ymm4, %ymm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vmovd	%r9d, %xmm4
+0.85   0.15    -      -      -     1.00    -      -      -      -      -      -      -     vpsrad	%xmm4, %ymm0, %ymm0
+0.99   0.01    -      -      -     1.00    -      -      -      -      -      -      -     vpsrad	%xmm4, %ymm1, %ymm1
+0.99   0.01    -      -      -     1.00    -      -      -      -      -      -      -     vpsrad	%xmm4, %ymm2, %ymm2
+0.99   0.01    -      -      -     1.00    -      -      -      -      -      -      -     vpsrad	%xmm4, %ymm3, %ymm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpackssdw	%ymm1, %ymm0, %ymm0
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpackssdw	%ymm3, %ymm2, %ymm2
+ -      -     0.14   0.14    -      -      -      -      -      -     0.71    -      -     vmovdqa	(%rip), %ymm5
+0.99   0.01    -      -      -      -      -      -      -      -      -      -      -     vpminsw	%ymm5, %ymm0, %ymm0
+0.99   0.01    -      -      -      -      -      -      -      -      -      -      -     vpminsw	%ymm5, %ymm2, %ymm2
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpackuswb	%ymm2, %ymm0, %ymm0
+ -      -     0.71    -      -      -      -      -      -      -     0.29    -      -     vmovdqa	32(%rip), %ymm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     vpermd	%ymm0, %ymm4, %ymm0
+ -      -     0.42   0.01    -      -      -      -      -      -     0.57    -      -     movq	48(%rsp), %rax
+ -      -      -      -     0.50    -      -     0.50   0.50   0.50    -      -      -     vmovdqu	%ymm0, (%rax)
+ -      -      -      -      -      -      -      -      -      -      -      -      -     vzeroupper
+ -      -      -      -      -      -      -      -      -      -      -      -      -     addq	$8, %rsp

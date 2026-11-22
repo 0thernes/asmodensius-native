@@ -1,0 +1,64 @@
+/* params/az_worldgen.def - the world parameters of az_worldgen.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not a law of the physics from az_abi.h
+ * and not read from the creature (a trait, its brain, its body, its memory)
+ * is declared here, with its default and the range it may be set to, and is
+ * read as w->param[AZ_WP_<name>]. Names start with the module's name in
+ * capitals so that they cannot collide.
+ */
+/* terrain */
+AZ_PARAM(WORLDGEN_OCTAVES,        4,     1,        12, "octaves of value noise in the height field; octave o has 2 << o lattice points per axis (at most the grid)")
+AZ_PARAM(WORLDGEN_PERSIST,      128,     0,       256, "amplitude of each noise octave relative to the one before, of 256")
+AZ_PARAM(WORLDGEN_RELIEF,        96,     0,       256, "highest bedrock as a share of the column height, of 256 (at most all but two cells)")
+AZ_PARAM(WORLDGEN_SURFACE_SOLID, 16,     0,       254, "most rock fraction of the surface cell above the bedrock (rock traps light and holds no heat: a rocky floor warms)")
+AZ_PARAM(WORLDGEN_SEA_LEVEL,    154,     0,       256, "share of the open height above the mean terrain that is ocean, of 256")
+/* layers */
+AZ_PARAM(WORLDGEN_OCEAN_SOLV,  1000,     0,     65536, "solvent (mu) in an ocean cell")
+AZ_PARAM(WORLDGEN_OCEAN_OXI,    200,     0,     65536, "oxidiser (mu) in an ocean cell")
+AZ_PARAM(WORLDGEN_OCEAN_WST,     32,     0,     65536, "waste (mu) dissolved in an ocean cell: what a producer needs to build biomass from light")
+AZ_PARAM(WORLDGEN_FLOOR_ORG,    400,     0,     65536, "organic matter (mu) on a sea-floor cell")
+AZ_PARAM(WORLDGEN_AIR_GAS,      400,     0,     65536, "carrier gas (mu) in an air cell")
+AZ_PARAM(WORLDGEN_AIR_OXI,      100,     0,     65536, "oxidiser (mu) in an air cell")
+AZ_PARAM(WORLDGEN_DISSOLVE,       8,     0,       256, "share of a layer's own medium found in the other layer (gas in the ocean, vapour in the air, organic matter in open water), of 256")
+AZ_PARAM(WORLDGEN_PATCHINESS,   128,     0,       256, "spread of every cell amount around its layer value, of 256 (256: 0 to 2 times)")
+/* local features */
+AZ_PARAM(WORLDGEN_REACH,          2,     0,        16, "reach (cells) of vent warmth and mineral, toxin spots and reefs, falling off linearly")
+AZ_PARAM(WORLDGEN_TOX_SPOTS,     12,     0,      1024, "radiotoxin hot spots per 1024 columns")
+AZ_PARAM(WORLDGEN_TOX_AMOUNT,   256,     0,     65536, "radiotoxin (mu) at the centre of a hot spot")
+AZ_PARAM(WORLDGEN_REEF_SITES,    16,     0,      1024, "reef sites per 1024 ocean columns")
+AZ_PARAM(WORLDGEN_REEF_STR,     512,     0,     65536, "structural solid (mu) on the floor at the centre of a reef site")
+/* vents */
+AZ_PARAM(WORLDGEN_VENTS,         32,     1,     65536, "vents per 1024 ocean columns (at least 1, at most 64 in all)")
+AZ_PARAM(WORLDGEN_VENT_NUT,     256,     0,     65536, "reduced mineral (mu) at a vent cell")
+AZ_PARAM(WORLDGEN_RESERVOIR,  65536,     0, 1073741824, "buried matter (mu) per vent that the vents will bring up")
+/* heat */
+AZ_PARAM(WORLDGEN_TEMP_MID,    8192,     0,     32767, "temperature at mid ocean depth on the world's mean latitude")
+AZ_PARAM(WORLDGEN_TEMP_DEPTH,  1024,     0,     16384, "how much warmer the sea surface is than the deepest floor")
+AZ_PARAM(WORLDGEN_TEMP_POLE,    768,     0,     16384, "how much warmer the equator of y is than its poles")
+AZ_PARAM(WORLDGEN_TEMP_VENT,   2048,     0,     16384, "warmth added at a vent cell, falling off over the reach")
+/* suns and gravity */
+AZ_PARAM(WORLDGEN_SUN0_DAY,    2000,   256,  16777216, "ticks per day of sun 0")
+AZ_PARAM(WORLDGEN_SUN1_DAY,    3100,   256,  16777216, "ticks per day of sun 1 (raised to the next length coprime with sun 0)")
+AZ_PARAM(WORLDGEN_GRAV,          16,     1,       127, "downward pull (velocity units per tick) over terrain of mean height")
+AZ_PARAM(WORLDGEN_GRAV_BEND,     24,     0,       127, "pull toward high ground at the steepest slope, and extra downward pull over the highest terrain")
+AZ_PARAM(WORLDGEN_GRAV_SWIRL,     3,     0,       127, "amplitude of the low-order lateral bend of gravity that the terrain does not explain")
+/* founder niches */
+AZ_PARAM(WORLDGEN_FIT_ITERS,    800,    80,     65535, "single-family steps of the prototype fit (80 is one cycle over the core families)")
+AZ_PARAM(WORLDGEN_NICHE_HI,     208,   160,       255, "trait target of a niche's high end (at least 64 above the highest low end, so niches stay apart)")
+AZ_PARAM(WORLDGEN_NICHE_LO,      40,     0,        96, "trait target of a niche's low end")
+AZ_PARAM(WORLDGEN_W_CORE,       255,     1,       255, "fit weight of the traits that define the guild and the mating mode")
+AZ_PARAM(WORLDGEN_W_HABITAT,    160,     0,       255, "fit weight of the habitat traits (temperature optimum, density, pressure, radiation)")
+AZ_PARAM(WORLDGEN_W_STYLE,       96,     0,       255, "fit weight of size, social style, life history and look")
+AZ_PARAM(WORLDGEN_W_REST,        16,     0,       255, "fit weight that holds every trait the niche does not name at the value the species drew")
+AZ_PARAM(WORLDGEN_STYLES,         4,     1,        16, "levels between the low and the high end for size classes and social styles")
+AZ_PARAM(WORLDGEN_PHOTIC,        85,     1,       256, "share of an ocean column, from the surface down, that is the lit band, of 256")
+AZ_PARAM(WORLDGEN_DENS_OFFSET,   12,     0,       128, "body density above the medium for floor dwellers, below it for the lit band and the air")
+AZ_PARAM(WORLDGEN_PRESS_MARGIN,  64,     0,      1024, "pressure a niche bears above the deepest it lives at, of 256")
+/* founders */
+AZ_PARAM(WORLDGEN_PATCHES,        3,     1,        64, "patches per species that its founders start in")
+AZ_PARAM(WORLDGEN_VARY_LOCI,      3,     0,        76, "loci varied per founder away from the species prototype")
+AZ_PARAM(WORLDGEN_VARY_SIZE,     24,     0,       255, "largest allele shift of a varied locus")
+AZ_PARAM(WORLDGEN_FOUNDER_ENERGY,2000,   0,   1048576, "energy (eu) of a founder, at most what its body can hold (PART_HOLD per part, as metab rules)")
+AZ_PARAM(WORLDGEN_FOUNDER_POOL, 200,     0,   1048576, "metabolic pool (mu) of a founder of SIZE 128; it scales with (SIZE + 16) / 144, at most what its body can hold")

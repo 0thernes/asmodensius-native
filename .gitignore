@@ -1,0 +1,16 @@
+# build outputs
+/build/
+*.obj
+*.o
+*.a
+*.exe
+*.efi
+*.pdb
+*.ilk
+# run outputs
+/out/
+*.azsnap
+*.azlog
+# editor and OS noise
+.vscode/
+Thumbs.db

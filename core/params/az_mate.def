@@ -1,0 +1,16 @@
+/* params/az_mate.def - the world parameters of az_mate.c. Its owner edits this file.
+ *
+ * AZ_PARAM(name, default, lowest, highest, what)   (rules: ../az_params.def)
+ *
+ * Every number in the module that is not a law of the physics from az_abi.h
+ * and not read from the creature (a trait, its brain, its body, its memory)
+ * is declared here, with its default and the range it may be set to, and is
+ * read as w->param[AZ_WP_<name>]. Names start with the module's name in
+ * capitals so that they cannot collide.
+ */
+AZ_PARAM(MATE_SHOW_GAIN,    256, 0,   65536, "how well a display and a signal carry to a chooser, of 256; 0 = no chooser sees either")
+AZ_PARAM(MATE_SHEEN_GAIN,   128, 0,   65536, "what the SHEEN trait adds to an ornament in a chooser's eyes: at 128, a sheen of 255 doubles it")
+AZ_PARAM(MATE_CHOOSY_SCALE, 128, 0,   65536, "quality a chooser asks of a suitor per 256 units of its CHOOSY trait (her scale runs from 0 to about 255)")
+AZ_PARAM(MATE_GUARD_GAIN,    16, 0,   65536, "what a bonded partner's GUARD trait adds to its own claim on its partner, in 1/16 per unit")
+AZ_PARAM(MATE_BOND_STEP,     64, 0,   65536, "bond strength a mating with the partner adds beyond 1, per 256 units of the BOND trait")
+AZ_PARAM(MATE_COURT_EU,      16, 0, 1048576, "energy (eu) the siring side pays as heat for a full display at a mating")

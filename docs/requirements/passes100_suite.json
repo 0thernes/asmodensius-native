@@ -1,0 +1,1780 @@
+{
+ "set_id": "passes100_suite",
+ "title": "Creature #1 executed 100-pass verification suite (passes_100_suite.ts): test ids, pass expressions, recorded results (100/100 ok, worst ledger 3.62e-15)",
+ "source_files": [
+  "V:/creatures/001/organism/passes_100_suite.ts",
+  "V:/creatures/001/results/sc-port/passes_100_v40.json"
+ ],
+ "items": [
+  {
+   "id": "CQM10_satiation_brake_prevents_binge_overeating",
+   "text": "Pass 001 (WAVE_01): CQM10 satiation brake prevents binge overeating",
+   "category": "WAVE_01 — LifeSystems Homeostasis, Drive Arbitration & Viscera",
+   "criterion": "ok := gI < 0.72 && gL === 1 && intact.foraged <= lesioned.foraged; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L83; V:/creatures/001/results/sc-port/passes_100_v40.json results[0]",
+   "extra": {
+    "pass": 1,
+    "wave": "WAVE_01",
+    "recorded_ok": true,
+    "recorded_detail": "satGate=0.588 vs les=1 foraged=0/0",
+    "recorded_maxLedger": 3.8893889059738634e-16,
+    "codes": [
+     "CQM10"
+    ],
+    "ledger_same_number_target": "LIFE-100 #4 Osmoregulation & ADH"
+   }
+  },
+  {
+   "id": "C16R_pre_deficit_visceral_anticipation",
+   "text": "Pass 002 (WAVE_01): C16R pre deficit visceral anticipation",
+   "category": "WAVE_01 — LifeSystems Homeostasis, Drive Arbitration & Viscera",
+   "criterion": "ok := intact.blood.glc > 1.2 && intact.lsOut!.preDeficitDrive > 0.05 && lesioned.lsOut!.preDeficitDrive === 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L92; V:/creatures/001/results/sc-port/passes_100_v40.json results[1]",
+   "extra": {
+    "pass": 2,
+    "wave": "WAVE_01",
+    "recorded_ok": true,
+    "recorded_detail": "glc=2.65 preDef=0.166 vs les=0",
+    "recorded_maxLedger": 4.79378999381045e-16,
+    "codes": [
+     "C16R"
+    ],
+    "ledger_same_number_target": "LIFE-100 #2, #3, #27 5-Taste & Digestion"
+   }
+  },
+  {
+   "id": "DELARP_C1_normalized_epistemic_drive_arbiter",
+   "text": "Pass 003 (WAVE_01): DELARP C1 normalized epistemic drive arbiter",
+   "category": "WAVE_01 — LifeSystems Homeostasis, Drive Arbitration & Viscera",
+   "criterion": "ok := maxHungry <= 1.25 && maxTrauma < 0.45 * maxHungry; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L107; V:/creatures/001/results/sc-port/passes_100_v40.json results[2]",
+   "extra": {
+    "pass": 3,
+    "wave": "WAVE_01",
+    "recorded_ok": true,
+    "recorded_detail": "maxHungry=1.121 maxTrauma=0.390",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #12 Emesis & Detox"
+   }
+  },
+  {
+   "id": "astrocyte_glycogen_lactate_brain_shuttle",
+   "text": "Pass 004 (WAVE_01): astrocyte glycogen lactate brain shuttle",
+   "category": "WAVE_01 — LifeSystems Homeostasis, Drive Arbitration & Viscera",
+   "criterion": "ok := intact.brainGlc >= 0.21 && les.brainGlc === 0.18; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L117; V:/creatures/001/results/sc-port/passes_100_v40.json results[3]",
+   "extra": {
+    "pass": 4,
+    "wave": "WAVE_01",
+    "recorded_ok": true,
+    "recorded_detail": "brainGlc=0.215 vs les=0.180",
+    "recorded_maxLedger": 4.0129487370849287e-16,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #8, #36 Antithetic Ca2+"
+   }
+  },
+  {
+   "id": "hydration_osmolality_and_garcia_taste_aversion",
+   "text": "Pass 005 (WAVE_01): hydration osmolality and garcia taste aversion",
+   "category": "WAVE_01 — LifeSystems Homeostasis, Drive Arbitration & Viscera",
+   "criterion": "ok := o.ls!.ctaAversion[2] > 0.30 && o.lsOut!.nausea > 0.15; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L131; V:/creatures/001/results/sc-port/passes_100_v40.json results[4]",
+   "extra": {
+    "pass": 5,
+    "wave": "WAVE_01",
+    "recorded_ok": true,
+    "recorded_detail": "cta2=0.312 nausea=0.359",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #6 Intrinsic SA Heart Brain"
+   }
+  },
+  {
+   "id": "micronutrient_cofactor_oxphos_efficiency",
+   "text": "Pass 006 (WAVE_01): micronutrient cofactor oxphos efficiency",
+   "category": "WAVE_01 — LifeSystems Homeostasis, Drive Arbitration & Viscera",
+   "criterion": "ok := rich.lsOut!.cofactorEff > def.lsOut!.cofactorEff + 0.15; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L139; V:/creatures/001/results/sc-port/passes_100_v40.json results[5]",
+   "extra": {
+    "pass": 6,
+    "wave": "WAVE_01",
+    "recorded_ok": true,
+    "recorded_detail": "effRich=1.003 > effDef=0.350",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #6, #5 Arterial Tree & Shunt"
+   }
+  },
+  {
+   "id": "anaerobic_glycolysis_lactate_and_hepatic_cori_cycle",
+   "text": "Pass 007 (WAVE_01): anaerobic glycolysis lactate and hepatic cori cycle",
+   "category": "WAVE_01 — LifeSystems Homeostasis, Drive Arbitration & Viscera",
+   "criterion": "ok := lacPeak > 0.005 && o.ls!.bloodLactate < lacPeak; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L147; V:/creatures/001/results/sc-port/passes_100_v40.json results[6]",
+   "extra": {
+    "pass": 7,
+    "wave": "WAVE_01",
+    "recorded_ok": true,
+    "recorded_detail": "lacPeak=0.0292->cleared=0.0150",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #7, F02 Pasteur Switch & Cori"
+   }
+  },
+  {
+   "id": "sa_node_pacemaker_and_baroreceptor_reflex",
+   "text": "Pass 008 (WAVE_01): sa node pacemaker and baroreceptor reflex",
+   "category": "WAVE_01 — LifeSystems Homeostasis, Drive Arbitration & Viscera",
+   "criterion": "ok := symp.hr > calm.hr + 5 && symp.ls!.mapBP > 0.5; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L158; V:/creatures/001/results/sc-port/passes_100_v40.json results[7]",
+   "extra": {
+    "pass": 8,
+    "wave": "WAVE_01",
+    "recorded_ok": true,
+    "recorded_detail": "hrSymp=108.5 > hrCalm=85.2 bp=2.16",
+    "recorded_maxLedger": 1.2023512362325884e-16,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #11 Hemostasis & Pain Splint"
+   }
+  },
+  {
+   "id": "N97_decentralized_organ_parliament_quorum",
+   "text": "Pass 009 (WAVE_01): N97 decentralized organ parliament quorum",
+   "category": "WAVE_01 — LifeSystems Homeostasis, Drive Arbitration & Viscera",
+   "criterion": "ok := o.lsOut!.repairVote > 1.15 && o.ls!.organVotes[1] > 1.15; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L166; V:/creatures/001/results/sc-port/passes_100_v40.json results[8]",
+   "extra": {
+    "pass": 9,
+    "wave": "WAVE_01",
+    "recorded_ok": true,
+    "recorded_detail": "repairVote=1.464 liverVote=1.464",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N97"
+    ],
+    "ledger_same_number_target": "LIFE-100 #13, F47 Innate/Adaptive MHC"
+   }
+  },
+  {
+   "id": "N67_body_first_skepticism_on_zero_calorie_sweetener",
+   "text": "Pass 010 (WAVE_01): N67 body first skepticism on zero calorie sweetener",
+   "category": "WAVE_01 — LifeSystems Homeostasis, Drive Arbitration & Viscera",
+   "criterion": "ok := o.ls!.lastMealHonesty < 0.5 && o.ls!.dishonestMeals >= 2 && o.ls!.ctaAversion[4] > 0.15; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L173; V:/creatures/001/results/sc-port/passes_100_v40.json results[9]",
+   "extra": {
+    "pass": 10,
+    "wave": "WAVE_01",
+    "recorded_ok": true,
+    "recorded_detail": "honesty=0.000 cta4=0.700",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N67"
+    ],
+    "ledger_same_number_target": "LIFE-100 #14 Anabolic Regeneration"
+   }
+  },
+  {
+   "id": "hepatic_cyp_glutathione_detoxification",
+   "text": "Pass 011 (WAVE_02): hepatic cyp glutathione detoxification",
+   "category": "WAVE_02 — Immunity, DNA Repair, Pain, Autotomy, Armor & SavePoints",
+   "criterion": "ok := intact.ls!.gutToxin < les.ls!.gutToxin - 0.15; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L184; V:/creatures/001/results/sc-port/passes_100_v40.json results[10]",
+   "extra": {
+    "pass": 11,
+    "wave": "WAVE_02",
+    "recorded_ok": true,
+    "recorded_detail": "toxIntact=0.000 < toxLes=0.640",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #15 Sequestration & Depuration"
+   }
+  },
+  {
+   "id": "adaptive_immune_memory_faster_secondary_clearance",
+   "text": "Pass 012 (WAVE_02): adaptive immune memory faster secondary clearance",
+   "category": "WAVE_02 — Immunity, DNA Repair, Pain, Autotomy, Armor & SavePoints",
+   "criterion": "ok := mem2 > 0.15 && o.ls!.pathogenBurden[2] < naive.ls!.pathogenBurden[2]; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L192; V:/creatures/001/results/sc-port/passes_100_v40.json results[11]",
+   "extra": {
+    "pass": 12,
+    "wave": "WAVE_02",
+    "recorded_ok": true,
+    "recorded_detail": "mem2=0.708 secInf=0.126 < priInf=0.398",
+    "recorded_maxLedger": 6.019423105627393e-16,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #15, #16, N35 DNA Repair/p53"
+   }
+  },
+  {
+   "id": "radiation_dna_damage_and_sleep_repair",
+   "text": "Pass 013 (WAVE_02): radiation dna damage and sleep repair",
+   "category": "WAVE_02 — Immunity, DNA Repair, Pain, Autotomy, Armor & SavePoints",
+   "criterion": "ok := intact.ls!.mutationSense > 0.1 && intact.ls!.repairedSynapses > 0 && les.ls!.repairedSynapses === 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L203; V:/creatures/001/results/sc-port/passes_100_v40.json results[12]",
+   "extra": {
+    "pass": 13,
+    "wave": "WAVE_02",
+    "recorded_ok": true,
+    "recorded_detail": "mutSense=1.000 repIntact=20 vs repLes=0",
+    "recorded_maxLedger": 4.0129487370849287e-16,
+    "codes": [],
+    "ledger_same_number_target": "CQM10, FREAK #32 Satiation Cascade"
+   }
+  },
+  {
+   "id": "persistent_inflammatory_ache_limb_guarding",
+   "text": "Pass 014 (WAVE_02): persistent inflammatory ache limb guarding",
+   "category": "WAVE_02 — Immunity, DNA Repair, Pain, Autotomy, Armor & SavePoints",
+   "criterion": "ok := ache > 0.10 && impInjured < 0.92; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L212; V:/creatures/001/results/sc-port/passes_100_v40.json results[13]",
+   "extra": {
+    "pass": 14,
+    "wave": "WAVE_02",
+    "recorded_ok": true,
+    "recorded_detail": "ache=0.250 locoImp=0.840",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [],
+    "ledger_same_number_target": "C16R, CQM16 Predictive Allostasis"
+   }
+  },
+  {
+   "id": "N15_sleep_connectome_mask_self_repair",
+   "text": "Pass 015 (WAVE_02): N15 sleep connectome mask self repair",
+   "category": "WAVE_02 — Immunity, DNA Repair, Pain, Autotomy, Armor & SavePoints",
+   "criterion": "ok := restored > 0 && o.ls!.repairedSynapses > 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L220; V:/creatures/001/results/sc-port/passes_100_v40.json results[14]",
+   "extra": {
+    "pass": 15,
+    "wave": "WAVE_02",
+    "recorded_ok": true,
+    "recorded_detail": "restored=20/20 totalRep=20",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N15"
+    ],
+    "ledger_same_number_target": "N20, LIFE-100 #9 Organ ATP Voting"
+   }
+  },
+  {
+   "id": "N50_necromone_avoidance_vs_famine_carrion_scavenging",
+   "text": "Pass 016 (WAVE_02): N50 necromone avoidance vs famine carrion scavenging",
+   "category": "WAVE_02 — Immunity, DNA Repair, Pain, Autotomy, Armor & SavePoints",
+   "criterion": "ok := fed.lsOut!.carrionDesire < -0.1 && starving.lsOut!.carrionDesire > 0.1; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L229; V:/creatures/001/results/sc-port/passes_100_v40.json results[15]",
+   "extra": {
+    "pass": 16,
+    "wave": "WAVE_02",
+    "recorded_ok": true,
+    "recorded_detail": "fedCarrion=-0.960 starvCarrion=+0.680",
+    "recorded_maxLedger": 2.0798909206296383e-16,
+    "codes": [
+     "N50"
+    ],
+    "ledger_same_number_target": "LIFE-100 #17 2-Process Sleep & Chronotype"
+   }
+  },
+  {
+   "id": "N61_emergency_autotomy_and_first_law_regeneration",
+   "text": "Pass 017 (WAVE_02): N61 emergency autotomy and first law regeneration",
+   "category": "WAVE_02 — Immunity, DNA Repair, Pain, Autotomy, Armor & SavePoints",
+   "criterion": "ok := o.ls!.autotomyEvents >= 1 && o.lsOut!.intactLimbs <= 3; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L237; V:/creatures/001/results/sc-port/passes_100_v40.json results[16]",
+   "extra": {
+    "pass": 17,
+    "wave": "WAVE_02",
+    "recorded_ok": true,
+    "recorded_detail": "autotomies=1 intactLimbs=3",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N61"
+    ],
+    "ledger_same_number_target": "LIFE-100 #18, F08 NREM Triad Coupling"
+   }
+  },
+  {
+   "id": "N92_inducible_structural_armor_speed_protection_tradeoff",
+   "text": "Pass 018 (WAVE_02): N92 inducible structural armor speed protection tradeoff",
+   "category": "WAVE_02 — Immunity, DNA Repair, Pain, Autotomy, Armor & SavePoints",
+   "criterion": "ok := armored.lsOut!.armorFactor > unarmored.lsOut!.armorFactor + 0.15 && armored.lsOut!.locoImpairment < unarmored.lsOut!.locoImpairment && (preA - armored.integrity) < (preU - unarmored.integrity); AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L244; V:/creatures/001/results/sc-port/passes_100_v40.json results[17]",
+   "extra": {
+    "pass": 18,
+    "wave": "WAVE_02",
+    "recorded_ok": true,
+    "recorded_detail": "armor=0.720 dropA=0.160<dropU=0.215",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N92"
+    ],
+    "ledger_same_number_target": "LIFE-100 #19 Ultradian REM & Atonia"
+   }
+  },
+  {
+   "id": "N96_metabolic_save_point_checkpoint_and_shock_rollback",
+   "text": "Pass 019 (WAVE_02): N96 metabolic save point checkpoint and shock rollback",
+   "category": "WAVE_02 — Immunity, DNA Repair, Pain, Autotomy, Armor & SavePoints",
+   "criterion": "ok := o.ls!.saveRestores >= 1 && o.wSite[0] > 0.35; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L253; V:/creatures/001/results/sc-port/passes_100_v40.json results[18]",
+   "extra": {
+    "pass": 19,
+    "wave": "WAVE_02",
+    "recorded_ok": true,
+    "recorded_detail": "restores=1 restoredW0=0.550",
+    "recorded_maxLedger": 1.2023512362325884e-16,
+    "codes": [
+     "N96"
+    ],
+    "ledger_same_number_target": "LIFE-100 #20 Unihemispheric Sleep"
+   }
+  },
+  {
+   "id": "N93_N99_disposable_soma_heritable_allocation_and_telomeres",
+   "text": "Pass 020 (WAVE_02): N93 N99 disposable soma heritable allocation and telomeres",
+   "category": "WAVE_02 — Immunity, DNA Repair, Pain, Autotomy, Armor & SavePoints",
+   "criterion": "ok := hiSoma.ls!.telomere > loSoma.ls!.telomere && hiSoma.lsOut!.defendedFatSet > loSoma.lsOut!.defendedFatSet; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L263; V:/creatures/001/results/sc-port/passes_100_v40.json results[19]",
+   "extra": {
+    "pass": 20,
+    "wave": "WAVE_02",
+    "recorded_ok": true,
+    "recorded_detail": "telo(hi/lo)=0.9994/0.9989 fatSet(win/sum)=407.4/406.9",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N93",
+     "N99"
+    ],
+    "ledger_same_number_target": "LIFE-100 #20 Sleep Debt & Microsleeps"
+   }
+  },
+  {
+   "id": "human_L23_apical_dCaAP_XOR_and_L5_burst_multiplexing",
+   "text": "Pass 021 (WAVE_03): human L23 apical dCaAP XOR and L5 burst multiplexing",
+   "category": "WAVE_03 — Dendritic XOR, Working Memory, Cascade & Hopfield",
+   "criterion": "ok := xorSingle > xorBothSat && out.burstFrac[0] > 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L274; V:/creatures/001/results/sc-port/passes_100_v40.json results[20]",
+   "extra": {
+    "pass": 21,
+    "wave": "WAVE_03",
+    "recorded_ok": true,
+    "recorded_detail": "xorSingle=1.245 > xorSat=0.000 burst0=0.710",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "F06, RPT-2 Dendritic XOR (Gidon 2020)"
+   }
+  },
+  {
+   "id": "theta_gamma_4slot_ordered_working_memory_capacity",
+   "text": "Pass 022 (WAVE_03): theta gamma 4slot ordered working memory capacity",
+   "category": "WAVE_03 — Dendritic XOR, Working Memory, Cascade & Hopfield",
+   "criterion": "ok := o.cpOut!.wmActiveSlots === 4 && o.cp!.wmSlots[0] !== 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L289; V:/creatures/001/results/sc-port/passes_100_v40.json results[21]",
+   "extra": {
+    "pass": 22,
+    "wave": "WAVE_03",
+    "recorded_ok": true,
+    "recorded_detail": "slots=4/4 oldestDropped=true",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [],
+    "ledger_same_number_target": "FREAK #51, PP-1 Burst Credit Multiplex"
+   }
+  },
+  {
+   "id": "sliding_BCM_metaplastic_threshold_and_apical_basal_learning",
+   "text": "Pass 023 (WAVE_03): sliding BCM metaplastic threshold and apical basal learning",
+   "category": "WAVE_03 — Dendritic XOR, Working Memory, Cascade & Hopfield",
+   "criterion": "ok := o.cp!.thetaBCM[0] > th0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L298; V:/creatures/001/results/sc-port/passes_100_v40.json results[22]",
+   "extra": {
+    "pass": 23,
+    "wave": "WAVE_03",
+    "recorded_ok": true,
+    "recorded_detail": "thetaBCM=0.0400->0.2435",
+    "recorded_maxLedger": 3.5793652294265336e-16,
+    "codes": [],
+    "ledger_same_number_target": "GWT-3, LIFE #53 7±2 Theta–Gamma WM"
+   }
+  },
+  {
+   "id": "foldiak_anti_hebbian_lateral_sensory_decorrelation",
+   "text": "Pass 024 (WAVE_03): foldiak anti hebbian lateral sensory decorrelation",
+   "category": "WAVE_03 — Dendritic XOR, Working Memory, Cascade & Hopfield",
+   "criterion": "ok := o.cp!.latInhibW[0 * 16 + 1] > 0.01 && o.cpOut!.whitenedSens[0] < 0.9; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L305; V:/creatures/001/results/sc-port/passes_100_v40.json results[23]",
+   "extra": {
+    "pass": 24,
+    "wave": "WAVE_03",
+    "recorded_ok": true,
+    "recorded_detail": "latW01=0.1764 whitened0=0.622",
+    "recorded_maxLedger": 3.8737718933187597e-17,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #45 BCM Metaplasticity"
+   }
+  },
+  {
+   "id": "CQM08_synaptic_tag_capture_and_fusi_metaplastic_cascade",
+   "text": "Pass 025 (WAVE_03): CQM08 synaptic tag capture and fusi metaplastic cascade",
+   "category": "WAVE_03 — Dendritic XOR, Working Memory, Cascade & Hopfield",
+   "criterion": "ok := intact.cp!.cascadeDeep[3] > 0.36 && intact.cp!.cascadeDeep[3] > les.cp!.cascadeDeep[3] + 0.04; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L311; V:/creatures/001/results/sc-port/passes_100_v40.json results[24]",
+   "extra": {
+    "pass": 25,
+    "wave": "WAVE_03",
+    "recorded_ok": true,
+    "recorded_detail": "deepSite3=0.495 > les=0.233",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "CQM08"
+    ],
+    "ledger_same_number_target": "LIFE-100 #47 Földiák Lateral Decorrelation"
+   }
+  },
+  {
+   "id": "mushroom_body_kenyon_cell_nonlinear_XOR_patterning",
+   "text": "Pass 026 (WAVE_03): mushroom body kenyon cell nonlinear XOR patterning",
+   "category": "WAVE_03 — Dendritic XOR, Working Memory, Cascade & Hopfield",
+   "criterion": "ok := vA > 0.15 && vB > 0.15 && vAB < 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L321; V:/creatures/001/results/sc-port/passes_100_v40.json results[25]",
+   "extra": {
+    "pass": 26,
+    "wave": "WAVE_03",
+    "recorded_ok": true,
+    "recorded_detail": "v(A)=0.99 v(B)=0.99 v(AB)=-0.98",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "CQM08, F36 Synaptic Tagging & Cascade"
+   }
+  },
+  {
+   "id": "modern_continuous_hopfield_CA3_50pct_masked_completion",
+   "text": "Pass 027 (WAVE_03): modern continuous hopfield CA3 50pct masked completion",
+   "category": "WAVE_03 — Dendritic XOR, Working Memory, Cascade & Hopfield",
+   "criterion": "ok := cos > 0.92 && rec.estPayoff > 0.7; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L337; V:/creatures/001/results/sc-port/passes_100_v40.json results[26]",
+   "extra": {
+    "pass": 27,
+    "wave": "WAVE_03",
+    "recorded_ok": true,
+    "recorded_detail": "cosSim=1.0000 estPay=0.99",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #54 Modern Hopfield Recall"
+   }
+  },
+  {
+   "id": "oligodendrocyte_myelin_phase_alignment_and_pv_gap_synchrony",
+   "text": "Pass 028 (WAVE_03): oligodendrocyte myelin phase alignment and pv gap synchrony",
+   "category": "WAVE_03 — Dendritic XOR, Working Memory, Cascade & Hopfield",
+   "criterion": "ok := intact.cpOut!.gammaSyncGain > 1.01 && les.cpOut!.gammaSyncGain === 1.0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L353; V:/creatures/001/results/sc-port/passes_100_v40.json results[27]",
+   "extra": {
+    "pass": 28,
+    "wave": "WAVE_03",
+    "recorded_ok": true,
+    "recorded_detail": "syncGain=1.278 vs les=1.000",
+    "recorded_maxLedger": 4.386450338974349e-16,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #48 Split-Brain Callosotomy"
+   }
+  },
+  {
+   "id": "dual_hemisphere_callosal_balance_and_thousand_brains_consensus",
+   "text": "Pass 029 (WAVE_03): dual hemisphere callosal balance and thousand brains consensus",
+   "category": "WAVE_03 — Dendritic XOR, Working Memory, Cascade & Hopfield",
+   "criterion": "ok := threat.cpOut!.callosalExploreScale > calm.cpOut!.callosalExploreScale && calm.cpOut!.consensusClass === 2; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L360; V:/creatures/001/results/sc-port/passes_100_v40.json results[28]",
+   "extra": {
+    "pass": 29,
+    "wave": "WAVE_03",
+    "recorded_ok": true,
+    "recorded_detail": "explore(threat/calm)=1.23/1.11 vote=2",
+    "recorded_maxLedger": 1.2023512362325884e-16,
+    "codes": [],
+    "ledger_same_number_target": "LIFE-100 #48, #50 Hemispheric Consensus"
+   }
+  },
+  {
+   "id": "N18_plasticity_ATP_auction_and_N3_microglial_pruning",
+   "text": "Pass 030 (WAVE_03): N18 plasticity ATP auction and N3 microglial pruning",
+   "category": "WAVE_03 — Dendritic XOR, Working Memory, Cascade & Hopfield",
+   "criterion": "ok := o.cp!.microglialPruned >= 1 && o.cpOut!.ctxPlastScale > 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L368; V:/creatures/001/results/sc-port/passes_100_v40.json results[29]",
+   "extra": {
+    "pass": 30,
+    "wave": "WAVE_03",
+    "recorded_ok": true,
+    "recorded_detail": "pruned=1 ctxScale=0.20",
+    "recorded_maxLedger": 4.0129487370849287e-16,
+    "codes": [
+     "N18",
+     "N03"
+    ],
+    "ledger_same_number_target": "N18, N3 Plasticity ATP Auction & Pruning"
+   }
+  },
+  {
+   "id": "attentional_blink_refractory_and_unconscious_reservoir",
+   "text": "Pass 031 (WAVE_04): attentional blink refractory and unconscious reservoir",
+   "category": "WAVE_04 — Blink/Masking, AST, PCI, Agency, Conditioning & Goal",
+   "criterion": "ok := g2.wsGate < 0.50 && o.cp!.wsRefractory === 2; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L378; V:/creatures/001/results/sc-port/passes_100_v40.json results[30]",
+   "extra": {
+    "pass": 31,
+    "wave": "WAVE_04",
+    "recorded_ok": true,
+    "recorded_detail": "lag1Gate=0.320 refrac=2",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "GWT-1..4 Attentional Blink & Masking"
+   }
+  },
+  {
+   "id": "Q_SELFATTN_learned_endogenous_attention_schema",
+   "text": "Pass 032 (WAVE_04): Q SELFATTN learned endogenous attention schema",
+   "category": "WAVE_04 — Blink/Masking, AST, PCI, Agency, Conditioning & Goal",
+   "criterion": "ok := e1 < e0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L404; V:/creatures/001/results/sc-port/passes_100_v40.json results[31]",
+   "extra": {
+    "pass": 32,
+    "wave": "WAVE_04",
+    "recorded_ok": true,
+    "recorded_detail": "astErr=0.0797->0.0124",
+    "recorded_maxLedger": 6.33749081746949e-16,
+    "codes": [
+     "QSELFATTN"
+    ],
+    "ledger_same_number_target": "AST-1, Q-SELFATTN Learned Endogenous AST"
+   }
+  },
+  {
+   "id": "Q_SOCIAL_ATTN_F14_peer_gaze_heading_ray_projection",
+   "text": "Pass 033 (WAVE_04): Q SOCIAL ATTN F14 peer gaze heading ray projection",
+   "category": "WAVE_04 — Blink/Masking, AST, PCI, Agency, Conditioning & Goal",
+   "criterion": "ok := estSite === 4 && o.cp!.peerAttnEst[4] > 0.5; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L413; V:/creatures/001/results/sc-port/passes_100_v40.json results[32]",
+   "extra": {
+    "pass": 33,
+    "wave": "WAVE_04",
+    "recorded_ok": true,
+    "recorded_detail": "estSite=4 peerAttn4=0.55",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "QSOCIAL",
+     "F14"
+    ],
+    "ledger_same_number_target": "Q-SOCIAL-ATTN, F14 Peer Gaze Projection"
+   }
+  },
+  {
+   "id": "HOT3_metacognitive_opt_out_scan_and_F42_serotonin_patience",
+   "text": "Pass 034 (WAVE_04): HOT3 metacognitive opt out scan and F42 serotonin patience",
+   "category": "WAVE_04 — Blink/Masking, AST, PCI, Agency, Conditioning & Goal",
+   "criterion": "ok := o.cp!.optOutCount >= 1 && hiGamma > o.cpOut!.gamma5HT + 0.10; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L419; V:/creatures/001/results/sc-port/passes_100_v40.json results[33]",
+   "extra": {
+    "pass": 34,
+    "wave": "WAVE_04",
+    "recorded_ok": true,
+    "recorded_detail": "optOuts=2 gamma5HT=0.885>0.541",
+    "recorded_maxLedger": 2.7950762504627706e-16,
+    "codes": [
+     "HOT3",
+     "F42"
+    ],
+    "ledger_same_number_target": "HOT-3, F42 Opt-Out & 5-HT Patience"
+   }
+  },
+  {
+   "id": "CQM21_non_circular_perturbational_complexity_index_PCI",
+   "text": "Pass 035 (WAVE_04): CQM21 non circular perturbational complexity index PCI",
+   "category": "WAVE_04 — Blink/Masking, AST, PCI, Agency, Conditioning & Goal",
+   "criterion": "ok := pciW > pciL && pciW > pciN3 && lzZero < 0.05; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L428; V:/creatures/001/results/sc-port/passes_100_v40.json results[34]",
+   "extra": {
+    "pass": 35,
+    "wave": "WAVE_04",
+    "recorded_ok": true,
+    "recorded_detail": "PCI(wake=0.148 > N3=0.070, les=0.020)",
+    "recorded_maxLedger": 2.7950762504627706e-16,
+    "codes": [
+     "CQM21",
+     "PCI"
+    ],
+    "ledger_same_number_target": "CQM21, PCI Non-Circular PCI (LZ76)"
+   }
+  },
+  {
+   "id": "zero_oracle_agency_intentional_binding_and_F41_mirror_self_test",
+   "text": "Pass 036 (WAVE_04): zero oracle agency intentional binding and F41 mirror self test",
+   "category": "WAVE_04 — Blink/Masking, AST, PCI, Agency, Conditioning & Goal",
+   "criterion": "ok := selfScore > 0.70 && otherScore < 0.20; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L440; V:/creatures/001/results/sc-port/passes_100_v40.json results[35]",
+   "extra": {
+    "pass": 36,
+    "wave": "WAVE_04",
+    "recorded_ok": true,
+    "recorded_detail": "mirrorSelf=1.000 vs stranger=0.000",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "F41"
+    ],
+    "ledger_same_number_target": "CQM18, AE-1, F41 Zero-Oracle Agency"
+   }
+  },
+  {
+   "id": "F80_F83_kamin_blocking_habituation_and_spontaneous_recovery",
+   "text": "Pass 037 (WAVE_04): F80 F83 kamin blocking habituation and spontaneous recovery",
+   "category": "WAVE_04 — Blink/Masking, AST, PCI, Agency, Conditioning & Goal",
+   "criterion": "ok := vBBlocked < 0.45 * vBControl && postRest > postExt + 0.08; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L455; V:/creatures/001/results/sc-port/passes_100_v40.json results[36]",
+   "extra": {
+    "pass": 37,
+    "wave": "WAVE_04",
+    "recorded_ok": true,
+    "recorded_detail": "Kamin(vB=0.000<0.500) SpontRec(0.00->0.40)",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "F80",
+     "F83"
+    ],
+    "ledger_same_number_target": "F81, UAL Kamin Blocking & Bouton Renewal"
+   }
+  },
+  {
+   "id": "Q_GOAL_outcome_devaluation_sensitivity_vs_DLS_habit",
+   "text": "Pass 038 (WAVE_04): Q GOAL outcome devaluation sensitivity vs DLS habit",
+   "category": "WAVE_04 — Blink/Masking, AST, PCI, Agency, Conditioning & Goal",
+   "criterion": "ok := preBias === 0 && postBias < -0.25; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L475; V:/creatures/001/results/sc-port/passes_100_v40.json results[37]",
+   "extra": {
+    "pass": 38,
+    "wave": "WAVE_04",
+    "recorded_ok": true,
+    "recorded_detail": "devalBias0=0.00->-0.591",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "QGOAL"
+    ],
+    "ledger_same_number_target": "LIFE #56, UAL Operant FR/VI & Reversal"
+   }
+  },
+  {
+   "id": "F62_subcortical_blindsight_under_gwLesion_and_F64_bistable_rivalry",
+   "text": "Pass 039 (WAVE_04): F62 subcortical blindsight under gwLesion and F64 bistable rivalry",
+   "category": "WAVE_04 — Blink/Masking, AST, PCI, Agency, Conditioning & Goal",
+   "criterion": "ok := Number.isFinite(act.heading) && riv.cp!.bistableSwitches >= 1; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L486; V:/creatures/001/results/sc-port/passes_100_v40.json results[38]",
+   "extra": {
+    "pass": 39,
+    "wave": "WAVE_04",
+    "recorded_ok": true,
+    "recorded_detail": "blindsightHd=5.11 rivalrySw=2",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "F62",
+     "F64"
+    ],
+    "ledger_same_number_target": "LIFE #57, #58, #60 Transitive & Causal do()"
+   }
+  },
+  {
+   "id": "F19_counterfactual_regret_and_F60_subgoal_bottleneck",
+   "text": "Pass 040 (WAVE_04): F19 counterfactual regret and F60 subgoal bottleneck",
+   "category": "WAVE_04 — Blink/Masking, AST, PCI, Agency, Conditioning & Goal",
+   "criterion": "ok := o.cp!.lastRegret > 0.5 && o.cpOut!.subgoalSite === 7; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L497; V:/creatures/001/results/sc-port/passes_100_v40.json results[39]",
+   "extra": {
+    "pass": 40,
+    "wave": "WAVE_04",
+    "recorded_ok": true,
+    "recorded_detail": "regret=0.90 subgoal=7",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "F19",
+     "F60"
+    ],
+    "ledger_same_number_target": "F60, LIFE #61 Self-Generated Goal Stack"
+   }
+  },
+  {
+   "id": "N03_berry_mood_winding_and_N04_QGT_natural_gradient",
+   "text": "Pass 041 (WAVE_05): N03 berry mood winding and N04 QGT natural gradient",
+   "category": "WAVE_05 — Quantum Geometry, Chance Literacy, Geodesics & Anomalies",
+   "criterion": "ok := o.cpOut!.qgtStepScale.length === 3 && o.cpOut!.qgtStepScale[0] !== 1.0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L511; V:/creatures/001/results/sc-port/passes_100_v40.json results[40]",
+   "extra": {
+    "pass": 41,
+    "wave": "WAVE_05",
+    "recorded_ok": true,
+    "recorded_detail": "qgtScale=[0.66,0.65,0.63] winding=-0.279",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N03",
+     "N04"
+    ],
+    "ledger_same_number_target": "N03, N04 Topological Chern Mood & QGT NatGrad"
+   }
+  },
+  {
+   "id": "N06_chosen_qubit_basis_N07_order_interference_and_N98_circadian_entropy",
+   "text": "Pass 042 (WAVE_05): N06 chosen qubit basis N07 order interference and N98 circadian entropy",
+   "category": "WAVE_05 — Quantum Geometry, Chance Literacy, Geodesics & Anomalies",
+   "criterion": "ok := o.cpOut!.qBasisAngle > 0.1 && Math.abs(o.cpOut!.qOrderInterference) > 1e-3; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L517; V:/creatures/001/results/sc-port/passes_100_v40.json results[41]",
+   "extra": {
+    "pass": 42,
+    "wave": "WAVE_05",
+    "recorded_ok": true,
+    "recorded_detail": "basis=0.837 orderInt=0.3086 circEnt=1.01",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N06",
+     "N07",
+     "N98"
+    ],
+    "ledger_same_number_target": "N06, N07, N98 Chosen Basis & Order Interference"
+   }
+  },
+  {
+   "id": "N05_statistical_chance_literacy_damps_superstitious_learning",
+   "text": "Pass 043 (WAVE_05): N05 statistical chance literacy damps superstitious learning",
+   "category": "WAVE_05 — Quantum Geometry, Chance Literacy, Geodesics & Anomalies",
+   "criterion": "ok := o.cpOut!.chanceSuppress[8] < 0.75 && o.cpOut!.chanceSuppress[9] === 1.0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L524; V:/creatures/001/results/sc-port/passes_100_v40.json results[42]",
+   "extra": {
+    "pass": 43,
+    "wave": "WAVE_05",
+    "recorded_ok": true,
+    "recorded_detail": "suppressCoin=0.35 vs det=1.00",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N05"
+    ],
+    "ledger_same_number_target": "N05 Statistical Chance Literacy"
+   }
+  },
+  {
+   "id": "N10_F84_riemannian_danger_weighted_geodesic_detour_planner",
+   "text": "Pass 044 (WAVE_05): N10 F84 riemannian danger weighted geodesic detour planner",
+   "category": "WAVE_05 — Quantum Geometry, Chance Literacy, Geodesics & Anomalies",
+   "criterion": "ok := plan.action === 1; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L535; V:/creatures/001/results/sc-port/passes_100_v40.json results[43]",
+   "extra": {
+    "pass": 44,
+    "wave": "WAVE_05",
+    "recorded_ok": true,
+    "recorded_detail": "detourAction=1 cost=3.00",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N10",
+     "F84"
+    ],
+    "ledger_same_number_target": "N10, F84 Riemannian Geodesic Detour"
+   }
+  },
+  {
+   "id": "N14_NREM_virtual_micro_lesion_probing_and_N16_identity_anchor",
+   "text": "Pass 045 (WAVE_05): N14 NREM virtual micro lesion probing and N16 identity anchor",
+   "category": "WAVE_05 — Quantum Geometry, Chance Literacy, Geodesics & Anomalies",
+   "criterion": "ok := o.cp!.protectedFeatures[0] === 1 && o.cp!.anchorInitialized; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L546; V:/creatures/001/results/sc-port/passes_100_v40.json results[44]",
+   "extra": {
+    "pass": 45,
+    "wave": "WAVE_05",
+    "recorded_ok": true,
+    "recorded_detail": "protFeat0=1 drift=0.061",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N14",
+     "N16"
+    ],
+    "ledger_same_number_target": "N14, N16 Sleep Micro-Lesion & Identity Audit"
+   }
+  },
+  {
+   "id": "N19_reconsolidation_erasure_of_false_alarm_fear_and_N95_hormone_recall",
+   "text": "Pass 046 (WAVE_05): N19 reconsolidation erasure of false alarm fear and N95 hormone recall",
+   "category": "WAVE_05 — Quantum Geometry, Chance Literacy, Geodesics & Anomalies",
+   "criterion": "ok := o.cp!.fearedSafesCleared >= 1 && o.wAv[6] < 0.50; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L554; V:/creatures/001/results/sc-port/passes_100_v40.json results[45]",
+   "extra": {
+    "pass": 46,
+    "wave": "WAVE_05",
+    "recorded_ok": true,
+    "recorded_detail": "cleared=1 wAv6=0.412",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N19",
+     "N95"
+    ],
+    "ledger_same_number_target": "N19, N95 Reconsolidation Erasure & State Recall"
+   }
+  },
+  {
+   "id": "N23_N24_N25_N27_physics_anomaly_deja_vu_and_jitter_fatigue",
+   "text": "Pass 047 (WAVE_05): N23 N24 N25 N27 physics anomaly deja vu and jitter fatigue",
+   "category": "WAVE_05 — Quantum Geometry, Chance Literacy, Geodesics & Anomalies",
+   "criterion": "ok := cleanAnom === 0 && detectedAnom > 0.2 && normal.cp!.dejaVuScore > 0.2; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L562; V:/creatures/001/results/sc-port/passes_100_v40.json results[46]",
+   "extra": {
+    "pass": 47,
+    "wave": "WAVE_05",
+    "recorded_ok": true,
+    "recorded_detail": "cleanAnom=0 detAnom=0.68 dejaVu=1.00",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N23",
+     "N24",
+     "N25",
+     "N27"
+    ],
+    "ledger_same_number_target": "N23, N24, N25, N27 Anomaly, Déjà Vu & Jitter"
+   }
+  },
+  {
+   "id": "N29_respawn_blankness_N87_known_unknowns_and_N90_sim_composite",
+   "text": "Pass 048 (WAVE_05): N29 respawn blankness N87 known unknowns and N90 sim composite",
+   "category": "WAVE_05 — Quantum Geometry, Chance Literacy, Geodesics & Anomalies",
+   "criterion": "ok := fresh.cp!.respawnBlankness > 0.5 && fresh.cpOut!.simComposite > 0.05; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L573; V:/creatures/001/results/sc-port/passes_100_v40.json results[47]",
+   "extra": {
+    "pass": 48,
+    "wave": "WAVE_05",
+    "recorded_ok": true,
+    "recorded_detail": "blankness=1.00 simComp=0.237",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N29",
+     "N87",
+     "N90"
+    ],
+    "ledger_same_number_target": "N29, N87, N90 Respawn Blankness & Known-Unknowns"
+   }
+  },
+  {
+   "id": "N31_3d_neural_field_N36_circadian_shade_and_N37_gravity_avoidance",
+   "text": "Pass 049 (WAVE_05): N31 3d neural field N36 circadian shade and N37 gravity avoidance",
+   "category": "WAVE_05 — Quantum Geometry, Chance Literacy, Geodesics & Anomalies",
+   "criterion": "ok := o.cpOut!.gravityAvoid[3] > 0.05 && o.cp!.neuralField3D.length === 3; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L579; V:/creatures/001/results/sc-port/passes_100_v40.json results[48]",
+   "extra": {
+    "pass": 49,
+    "wave": "WAVE_05",
+    "recorded_ok": true,
+    "recorded_detail": "gravAvoid3=0.300 field3D=0.07/0.02/0.51",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N31",
+     "N36",
+     "N37"
+    ],
+    "ledger_same_number_target": "N31, N36, N37 3D Neural Field & Gravity Map"
+   }
+  },
+  {
+   "id": "N39_sensory_contrast_illusion_adaptation_and_F78_weber_numerosity",
+   "text": "Pass 050 (WAVE_05): N39 sensory contrast illusion adaptation and F78 weber numerosity",
+   "category": "WAVE_05 — Quantum Geometry, Chance Literacy, Geodesics & Anomalies",
+   "criterion": "ok := c1 > c25 && o.cp!.numerosityBank[0] > o.cp!.numerosityBank[6]; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L586; V:/creatures/001/results/sc-port/passes_100_v40.json results[49]",
+   "extra": {
+    "pass": 50,
+    "wave": "WAVE_05",
+    "recorded_ok": true,
+    "recorded_detail": "contrast1=0.976->adapt25=0.787 num1=0.60",
+    "recorded_maxLedger": 1.595994020047329e-16,
+    "codes": [
+     "N39",
+     "F78"
+    ],
+    "ledger_same_number_target": "N39, N40, N26, N30, F78 Illusion & Numerosity"
+   }
+  },
+  {
+   "id": "CQM04_MORPH1R_two_niche_opposite_optima_coat_and_N68_stance",
+   "text": "Pass 051 (WAVE_06): CQM04 MORPH1R two niche opposite optima coat and N68 stance",
+   "category": "WAVE_06 — Adaptive Body, Limbs, Bioelectric, Grid/Place & Play",
+   "criterion": "ok := coldAdv && hotAdv && arcticThick.eoOut!.stanceWidth > 1.05; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L599; V:/creatures/001/results/sc-port/passes_100_v40.json results[50]",
+   "extra": {
+    "pass": 51,
+    "wave": "WAVE_06",
+    "recorded_ok": true,
+    "recorded_detail": "coldSave=-0.0032 hotSprint=1.12>0.71",
+    "recorded_maxLedger": 4.0129487370849287e-16,
+    "codes": [
+     "CQM04",
+     "MORPH1R",
+     "N68"
+    ],
+    "ledger_same_number_target": "CQM04, MORPH-1R, N68 Opposite-Optima Body"
+   }
+  },
+  {
+   "id": "limb_CPG_local_reflex_APA_and_land_water_gait_transition",
+   "text": "Pass 052 (WAVE_06): limb CPG local reflex APA and land water gait transition",
+   "category": "WAVE_06 — Adaptive Body, Limbs, Bioelectric, Grid/Place & Play",
+   "criterion": "ok := land.eoOut!.gaitMode === 0 && water.eoOut!.gaitMode === 1 && land.eoOut!.locoEfficiencyMul > 0.9; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L615; V:/creatures/001/results/sc-port/passes_100_v40.json results[51]",
+   "extra": {
+    "pass": 52,
+    "wave": "WAVE_06",
+    "recorded_ok": true,
+    "recorded_detail": "gait(land=0,water=1) eff=0.92",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [],
+    "ledger_same_number_target": "LIFE #22, #23, F54 Limb CPG, APA & Gait"
+   }
+  },
+  {
+   "id": "N65_F26_levin_bioelectric_voltage_restoration_and_N69_REM_calibration",
+   "text": "Pass 053 (WAVE_06): N65 F26 levin bioelectric voltage restoration and N69 REM calibration",
+   "category": "WAVE_06 — Adaptive Body, Limbs, Bioelectric, Grid/Place & Play",
+   "criterion": "ok := intact.eoOut!.patternIntegrity > les.eoOut!.patternIntegrity && intact.eo!.remRehearsals >= 1; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L623; V:/creatures/001/results/sc-port/passes_100_v40.json results[52]",
+   "extra": {
+    "pass": 53,
+    "wave": "WAVE_06",
+    "recorded_ok": true,
+    "recorded_detail": "patInt=1.000>0.856 remReh=22",
+    "recorded_maxLedger": 1.0032371842712322e-15,
+    "codes": [
+     "N65",
+     "F26",
+     "N69"
+    ],
+    "ledger_same_number_target": "N65, F26, N66, N69 Levin Bioelectric Pattern"
+   }
+  },
+  {
+   "id": "path_integration_hex_grid_cells_context_remapping_and_object_permanence",
+   "text": "Pass 054 (WAVE_06): path integration hex grid cells context remapping and object permanence",
+   "category": "WAVE_06 — Adaptive Body, Limbs, Bioelectric, Grid/Place & Play",
+   "criterion": "ok := o.eoOut!.objectPermConf > 0.55 && o.eoOut!.contextMapId !== map0 && o.eoOut!.gridCoherence > 0.05; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L631; V:/creatures/001/results/sc-port/passes_100_v40.json results[53]",
+   "extra": {
+    "pass": 54,
+    "wave": "WAVE_06",
+    "recorded_ok": true,
+    "recorded_detail": "objPerm=0.70 map=0->1 grid=0.44",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [],
+    "ledger_same_number_target": "F74, F75, F76 Grid/Place Cells & Permanence"
+   }
+  },
+  {
+   "id": "F39_active_foveal_saccades_and_N70_motion_parallax_depth",
+   "text": "Pass 055 (WAVE_06): F39 active foveal saccades and N70 motion parallax depth",
+   "category": "WAVE_06 — Adaptive Body, Limbs, Bioelectric, Grid/Place & Play",
+   "criterion": "ok := o.eo!.saccadeCount >= 1 && o.eo!.parallaxDepth[4] < 15.0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L643; V:/creatures/001/results/sc-port/passes_100_v40.json results[54]",
+   "extra": {
+    "pass": 55,
+    "wave": "WAVE_06",
+    "recorded_ok": true,
+    "recorded_detail": "saccades=2 depth4=0.30",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "F39",
+     "N70"
+    ],
+    "ledger_same_number_target": "F39, N70 Active Saccades & Motion Parallax"
+   }
+  },
+  {
+   "id": "F53_olfactory_plume_chemotaxis_32band_cochlea_and_N62_resonant_pitch",
+   "text": "Pass 056 (WAVE_06): F53 olfactory plume chemotaxis 32band cochlea and N62 resonant pitch",
+   "category": "WAVE_06 — Adaptive Body, Limbs, Bioelectric, Grid/Place & Play",
+   "criterion": "ok := ps.plumeTurn > 0.1 && Number.isFinite(ps.soundAzimuth) && cJuv.pitchHz > cAd.pitchHz + 20; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L650; V:/creatures/001/results/sc-port/passes_100_v40.json results[55]",
+   "extra": {
+    "pass": 56,
+    "wave": "WAVE_06",
+    "recorded_ok": true,
+    "recorded_detail": "plumeTurn=0.55 pitch(juv=280Hz > adult=220Hz)",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "F53",
+     "N62"
+    ],
+    "ledger_same_number_target": "F53, LIFE #28, N62 Plume Chemotaxis & Cochlea"
+   }
+  },
+  {
+   "id": "nocturnal_electrolocation_N32_peer_efield_and_N38_quantum_touch_fidelity",
+   "text": "Pass 057 (WAVE_06): nocturnal electrolocation N32 peer efield and N38 quantum touch fidelity",
+   "category": "WAVE_06 — Adaptive Body, Limbs, Bioelectric, Grid/Place & Play",
+   "criterion": "ok := a.eoOut!.eodActive && fidSame > 0.95 && a.eo!.quantumTouchFidelity < 0.05; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L659; V:/creatures/001/results/sc-port/passes_100_v40.json results[56]",
+   "extra": {
+    "pass": 57,
+    "wave": "WAVE_06",
+    "recorded_ok": true,
+    "recorded_detail": "eod=true qFid(same=1.00,ortho=0.00)",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N32",
+     "N38"
+    ],
+    "ledger_same_number_target": "LIFE #29, N32, N38 Nocturnal EOD & Fidelity"
+   }
+  },
+  {
+   "id": "ATP_priced_2bit_noisy_long_range_dome_field_vs_shuffle",
+   "text": "Pass 058 (WAVE_06): ATP priced 2bit noisy long range dome field vs shuffle",
+   "category": "WAVE_06 — Adaptive Body, Limbs, Bioelectric, Grid/Place & Play",
+   "criterion": "ok := hitsIntact > hitsShuf + 8; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L671; V:/creatures/001/results/sc-port/passes_100_v40.json results[57]",
+   "extra": {
+    "pass": 58,
+    "wave": "WAVE_06",
+    "recorded_ok": true,
+    "recorded_detail": "quadHits(intact=20/20 > shuf=0/20)",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "LIFE #30, #96 Noisy Dome Field + Shuffle"
+   }
+  },
+  {
+   "id": "N63_chromatophore_crypsis_under_fear_vs_social_dialect_display",
+   "text": "Pass 059 (WAVE_06): N63 chromatophore crypsis under fear vs social dialect display",
+   "category": "WAVE_06 — Adaptive Body, Limbs, Bioelectric, Grid/Place & Play",
+   "criterion": "ok := scared.eoOut!.camouflageMatch > 0.75 && social.eoOut!.displayConspicuity > scared.eoOut!.displayConspicuity + 0.25; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L683; V:/creatures/001/results/sc-port/passes_100_v40.json results[58]",
+   "extra": {
+    "pass": 59,
+    "wave": "WAVE_06",
+    "recorded_ok": true,
+    "recorded_detail": "camoScared=0.88 dispSocial=0.80",
+    "recorded_maxLedger": 4.0129487370849287e-16,
+    "codes": [
+     "N63"
+    ],
+    "ledger_same_number_target": "N63, N58, LIFE #24 Chromatophore Crypsis"
+   }
+  },
+  {
+   "id": "disgust_anger_grief_care_surplus_play_and_levy_drought_relocation",
+   "text": "Pass 060 (WAVE_06): disgust anger grief care surplus play and levy drought relocation",
+   "category": "WAVE_06 — Adaptive Body, Limbs, Bioelectric, Grid/Place & Play",
+   "criterion": "ok := playOrg.eo!.playBouts >= 1 && affectOrg.eoOut!.anger > 0.2 && affectOrg.eoOut!.grief > 0.1 && droughtOrg.eoOut!.levyStepMul > 1.0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L691; V:/creatures/001/results/sc-port/passes_100_v40.json results[59]",
+   "extra": {
+    "pass": 60,
+    "wave": "WAVE_06",
+    "recorded_ok": true,
+    "recorded_detail": "play=5 anger=1.00 grief=0.99 levy=2.23",
+    "recorded_maxLedger": 1.2435806908107868e-16,
+    "codes": [],
+    "ledger_same_number_target": "LIFE #64, #65, #69, F88 Rich Affect & Play"
+   }
+  },
+  {
+   "id": "N42_contact_shared_REM_dreaming_and_N46_coined_motif",
+   "text": "Pass 061 (WAVE_07): N42 contact shared REM dreaming and N46 coined motif",
+   "category": "WAVE_07 — Shared Dreams, Cryptobiosis, GRN, Ontogeny & Sex/Kin",
+   "criterion": "ok := okSync && a.eo!.sharedDreamCount === 1 && a.eo!.dreamMotif[0] === b.eo!.dreamMotif[0]; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L706; V:/creatures/001/results/sc-port/passes_100_v40.json results[60]",
+   "extra": {
+    "pass": 61,
+    "wave": "WAVE_07",
+    "recorded_ok": true,
+    "recorded_detail": "shared=1 motif0=0.430",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N42",
+     "N46"
+    ],
+    "ledger_same_number_target": "N42, N46 Contact Shared REM Dreaming"
+   }
+  },
+  {
+   "id": "N47_F87_stress_uncertainty_evolvability_and_N48_dream_priors",
+   "text": "Pass 062 (WAVE_07): N47 F87 stress uncertainty evolvability and N48 dream priors",
+   "category": "WAVE_07 — Shared Dreams, Cryptobiosis, GRN, Ontogeny & Sex/Kin",
+   "criterion": "ok := chaotic.eoOut!.germlineMutRate > calm.eoOut!.germlineMutRate + 0.03 && child.wAv[7] > 0.15; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L714; V:/creatures/001/results/sc-port/passes_100_v40.json results[61]",
+   "extra": {
+    "pass": 62,
+    "wave": "WAVE_07",
+    "recorded_ok": true,
+    "recorded_detail": "mut(chaos=0.133>calm=0.020) childPrior7=0.22",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N47",
+     "F87",
+     "N48"
+    ],
+    "ledger_same_number_target": "N47, F87, N48 Stress-Gated Evolvability"
+   }
+  },
+  {
+   "id": "F97_N49_cryptobiotic_dormancy_saves_stores_and_revives",
+   "text": "Pass 063 (WAVE_07): F97 N49 cryptobiotic dormancy saves stores and revives",
+   "category": "WAVE_07 — Shared Dreams, Cryptobiosis, GRN, Ontogeny & Sex/Kin",
+   "criterion": "ok := dormDepth > 0.75 && dormScale < 0.25 && crypto.eoOut!.cryptobiosis < 0.15 && crypto.fat >= noCrypto.fat; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L724; V:/creatures/001/results/sc-port/passes_100_v40.json results[62]",
+   "extra": {
+    "pass": 63,
+    "wave": "WAVE_07",
+    "recorded_ok": true,
+    "recorded_detail": "depth=0.92 scale=0.16->revived=0.00",
+    "recorded_maxLedger": 3.9667424187584095e-16,
+    "codes": [
+     "F97",
+     "N49"
+    ],
+    "ledger_same_number_target": "F97, N49 Cryptobiotic Dormancy & Revival"
+   }
+  },
+  {
+   "id": "F24_F35_4TF_GRN_and_turing_morphogen_striping",
+   "text": "Pass 064 (WAVE_07): F24 F35 4TF GRN and turing morphogen striping",
+   "category": "WAVE_07 — Shared Dreams, Cryptobiosis, GRN, Ontogeny & Sex/Kin",
+   "criterion": "ok := maxU > minU + 0.02 && o.eo!.ornamentSymmetry > 0.4; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L734; V:/creatures/001/results/sc-port/passes_100_v40.json results[63]",
+   "extra": {
+    "pass": 64,
+    "wave": "WAVE_07",
+    "recorded_ok": true,
+    "recorded_detail": "morphU=[1.01..1.17] sym=0.89",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "F24",
+     "F35"
+    ],
+    "ledger_same_number_target": "F24, F35 4-TF GRN & Turing Morphogens"
+   }
+  },
+  {
+   "id": "ontogeny_4_stages_kleiber_M075_scaling_and_N89_self_remap",
+   "text": "Pass 065 (WAVE_07): ontogeny 4 stages kleiber M075 scaling and N89 self remap",
+   "category": "WAVE_07 — Shared Dreams, Cryptobiosis, GRN, Ontogeny & Sex/Kin",
+   "criterion": "ok := juvStage === 0 && adStage === 2 && juvCP > adCP + 0.5 && juvScale < adScale; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L740; V:/creatures/001/results/sc-port/passes_100_v40.json results[64]",
+   "extra": {
+    "pass": 65,
+    "wave": "WAVE_07",
+    "recorded_ok": true,
+    "recorded_detail": "stage=0->2 critGain=1.75->1.00 kleiber=0.58->1.00",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [
+     "N89"
+    ],
+    "ledger_same_number_target": "LIFE #72–#74, F92, N89 Ontogeny & Kleiber"
+   }
+  },
+  {
+   "id": "sexual_recombination_honest_zahavi_ornament_and_inbreeding_avoidance",
+   "text": "Pass 066 (WAVE_07): sexual recombination honest zahavi ornament and inbreeding avoidance",
+   "category": "WAVE_07 — Shared Dreams, Cryptobiosis, GRN, Ontogeny & Sex/Kin",
+   "criterion": "ok := sFit > sSick * 2 && sFit > sSibling * 2; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L749; V:/creatures/001/results/sc-port/passes_100_v40.json results[65]",
+   "extra": {
+    "pass": 66,
+    "wave": "WAVE_07",
+    "recorded_ok": true,
+    "recorded_detail": "mateScore(fit=0.73 > sick=0.04, kin=0.18)",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "LIFE #76, #77, F19 Sex, Ornament & Kin Avoid"
+   }
+  },
+  {
+   "id": "N53_kin_recognition_first_law_nursing_and_trivers_weaning_conflict",
+   "text": "Pass 067 (WAVE_07): N53 kin recognition first law nursing and trivers weaning conflict",
+   "category": "WAVE_07 — Shared Dreams, Cryptobiosis, GRN, Ontogeny & Sex/Kin",
+   "criterion": "ok := kinChild > 0.85 && kinStranger < 0.5 && paid > 0.5 && weanedKJ === 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L765; V:/creatures/001/results/sc-port/passes_100_v40.json results[66]",
+   "extra": {
+    "pass": 67,
+    "wave": "WAVE_07",
+    "recorded_ok": true,
+    "recorded_detail": "kin=0.96vs0.01 nursed=2.00kJ weaned=0",
+    "recorded_maxLedger": 2.1671147106674804e-16,
+    "codes": [
+     "N53"
+    ],
+    "ledger_same_number_target": "N53, LIFE #78 Kin Nursing & Weaning Conflict"
+   }
+  },
+  {
+   "id": "elder_waking_demonstration_teaching_and_N55_teaching_into_sleep",
+   "text": "Pass 068 (WAVE_07): elder waking demonstration teaching and N55 teaching into sleep",
+   "category": "WAVE_07 — Shared Dreams, Cryptobiosis, GRN, Ontogeny & Sex/Kin",
+   "criterion": "ok := pupil.wSite[9] > 0.45 && pupil.bA[11] > preBA + 2.0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L780; V:/creatures/001/results/sc-port/passes_100_v40.json results[67]",
+   "extra": {
+    "pass": 68,
+    "wave": "WAVE_07",
+    "recorded_ok": true,
+    "recorded_detail": "wakingW9=0.51 sleepBA11=1.0->3.4",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N55"
+    ],
+    "ledger_same_number_target": "LIFE #78, N55 Elder Waking & Sleep Teaching"
+   }
+  },
+  {
+   "id": "baldwin_somatic_to_germline_assimilation_and_F86_dialect_speciation",
+   "text": "Pass 069 (WAVE_07): baldwin somatic to germline assimilation and F86 dialect speciation",
+   "category": "WAVE_07 — Shared Dreams, Cryptobiosis, GRN, Ontogeny & Sex/Kin",
+   "criterion": "ok := desc.eo!.morphGene > 0.54 && !compat; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L792; V:/creatures/001/results/sc-port/passes_100_v40.json results[68]",
+   "extra": {
+    "pass": 69,
+    "wave": "WAVE_07",
+    "recorded_ok": true,
+    "recorded_detail": "baldwinMorph=0.50->0.590 divergedCompat=false",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "F86"
+    ],
+    "ledger_same_number_target": "LIFE #80, F86 Baldwin Effect & Speciation"
+   }
+  },
+  {
+   "id": "CQM03_ECO1R_density_and_resource_coupled_ecological_fecundity",
+   "text": "Pass 070 (WAVE_07): CQM03 ECO1R density and resource coupled ecological fecundity",
+   "category": "WAVE_07 — Shared Dreams, Cryptobiosis, GRN, Ontogeny & Sex/Kin",
+   "criterion": "ok := bloom.eoOut!.fecundityGate > 0.40 && crowdedDrought.eoOut!.fecundityGate < 0.08; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L804; V:/creatures/001/results/sc-port/passes_100_v40.json results[69]",
+   "extra": {
+    "pass": 70,
+    "wave": "WAVE_07",
+    "recorded_ok": true,
+    "recorded_detail": "fecundity(bloom=1.00 >> droughtCrowd=0.018)",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "CQM03",
+     "ECO1R"
+    ],
+    "ledger_same_number_target": "CQM03, ECO-1R Ecological Fecundity Gate"
+   }
+  },
+  {
+   "id": "F13_F58_observational_social_learning_and_dialect_convergence",
+   "text": "Pass 071 (WAVE_08): F13 F58 observational social learning and dialect convergence",
+   "category": "WAVE_08 — Culture, Empathy, Skill Market, Tools, Caches & Ashby",
+   "criterion": "ok := eco.socialLearns >= 1 && naive.o.wSite[4] > 0.29; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L815; V:/creatures/001/results/sc-port/passes_100_v40.json results[70]",
+   "extra": {
+    "pass": 71,
+    "wave": "WAVE_08",
+    "recorded_ok": true,
+    "recorded_detail": "learns=1 naiveW4=0.304",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "F13",
+     "F58"
+    ],
+    "ledger_same_number_target": "F13, F58, LIFE #85 Observational Culture"
+   }
+  },
+  {
+   "id": "alarm_calls_consolation_food_sharing_and_F59_inequity_aversion",
+   "text": "Pass 072 (WAVE_08): alarm calls consolation food sharing and F59 inequity aversion",
+   "category": "WAVE_08 — Culture, Empathy, Skill Market, Tools, Caches & Ashby",
+   "criterion": "ok := eco.alarmCalls >= 1 && eco.consolations >= 1 && eco.foodSharesKJ > 1.0 && ineq.rejectOffer; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L826; V:/creatures/001/results/sc-port/passes_100_v40.json results[71]",
+   "extra": {
+    "pass": 72,
+    "wave": "WAVE_08",
+    "recorded_ok": true,
+    "recorded_detail": "alarms=3 consol=1 shared=6.0kJ ineqReject=true",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "F59"
+    ],
+    "ledger_same_number_target": "LIFE #67, #82, #83, F59 Altruism & Inequity"
+   }
+  },
+  {
+   "id": "N33_peer_adenosine_chemosense_and_N54_sentinel_social_sleep_sync",
+   "text": "Pass 073 (WAVE_08): N33 peer adenosine chemosense and N54 sentinel social sleep sync",
+   "category": "WAVE_08 — Culture, Empathy, Skill Market, Tools, Caches & Ashby",
+   "criterion": "ok := diffPost < diffPre - 0.04; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L839; V:/creatures/001/results/sc-port/passes_100_v40.json results[72]",
+   "extra": {
+    "pass": 73,
+    "wave": "WAVE_08",
+    "recorded_ok": true,
+    "recorded_detail": "dS=0.600->0.530",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N33",
+     "N54"
+    ],
+    "ledger_same_number_target": "N33, N54 Peer Adenosine & Sentinel Sleep"
+   }
+  },
+  {
+   "id": "N51_first_law_skill_market_and_N60_credit_debt_ledger",
+   "text": "Pass 074 (WAVE_08): N51 first law skill market and N60 credit debt ledger",
+   "category": "WAVE_08 — Culture, Empathy, Skill Market, Tools, Caches & Ashby",
+   "criterion": "ok := traded && buyer.o.wSite[3] > 0.45 && blockedDefaulter; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L852; V:/creatures/001/results/sc-port/passes_100_v40.json results[73]",
+   "extra": {
+    "pass": 74,
+    "wave": "WAVE_08",
+    "recorded_ok": true,
+    "recorded_detail": "traded=true buyerW3=0.51 defaulterBlocked=true",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N51",
+     "N60"
+    ],
+    "ledger_same_number_target": "N51, N60 First-Law Skill Market & Credit"
+   }
+  },
+  {
+   "id": "N52_N64_MHC_immune_checked_neural_module_grafting",
+   "text": "Pass 075 (WAVE_08): N52 N64 MHC immune checked neural module grafting",
+   "category": "WAVE_08 — Culture, Empathy, Skill Market, Tools, Caches & Ashby",
+   "criterion": "ok := gKin.accepted && !gAlien.accepted && kinRec.o.featC[0] > 0.45; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L865; V:/creatures/001/results/sc-port/passes_100_v40.json results[74]",
+   "extra": {
+    "pass": 75,
+    "wave": "WAVE_08",
+    "recorded_ok": true,
+    "recorded_detail": "kinAccepted=true alienRejected=true",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N52",
+     "N64"
+    ],
+    "ledger_same_number_target": "N52, N64 MHC-Checked Horizontal Grafting"
+   }
+  },
+  {
+   "id": "F16_F57_stepping_stone_tool_use_unlocks_recessed_cache",
+   "text": "Pass 076 (WAVE_08): F16 F57 stepping stone tool use unlocks recessed cache",
+   "category": "WAVE_08 — Culture, Empathy, Skill Market, Tools, Caches & Ashby",
+   "criterion": "ok := !cache.locked && cache.foodKJ < 5.0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L877; V:/creatures/001/results/sc-port/passes_100_v40.json results[75]",
+   "extra": {
+    "pass": 76,
+    "wave": "WAVE_08",
+    "recorded_ok": true,
+    "recorded_detail": "unlocked=true cacheRemaining=4.99kJ",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "F16",
+     "F57"
+    ],
+    "ledger_same_number_target": "F16, F57, LIFE #87 Stepping-Stone Tool Use"
+   }
+  },
+  {
+   "id": "physical_food_caches_spoilage_pilfering_and_territorial_defense",
+   "text": "Pass 077 (WAVE_08): physical food caches spoilage pilfering and territorial defense",
+   "category": "WAVE_08 — Culture, Empathy, Skill Market, Tools, Caches & Ashby",
+   "criterion": "ok := def >= 1 && eco.cachePilfers >= 1; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L889; V:/creatures/001/results/sc-port/passes_100_v40.json results[76]",
+   "extra": {
+    "pass": 77,
+    "wave": "WAVE_08",
+    "recorded_ok": true,
+    "recorded_detail": "defenses=1 pilfers=1",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "LIFE #86, N76 Food Caching, Spoilage & Stamp"
+   }
+  },
+  {
+   "id": "reynolds_vicsek_swarm_N56_threat_blanket_N57_consensus_and_F33_castes",
+   "text": "Pass 078 (WAVE_08): reynolds vicsek swarm N56 threat blanket N57 consensus and F33 castes",
+   "category": "WAVE_08 — Culture, Empathy, Skill Market, Tools, Caches & Ashby",
+   "criterion": "ok := Math.abs(eco.collectiveTempEst - 20) < 0.5 && eco.casteMap.size === 4; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L904; V:/creatures/001/results/sc-port/passes_100_v40.json results[77]",
+   "extra": {
+    "pass": 78,
+    "wave": "WAVE_08",
+    "recorded_ok": true,
+    "recorded_detail": "pooledTemp=20.00C castes=4",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N56",
+     "N57",
+     "F33"
+    ],
+    "ledger_same_number_target": "F33, F55, N56, N57 Swarm Flocking & Castes"
+   }
+  },
+  {
+   "id": "physarum_adaptive_slime_trail_corridor_drag_reduction",
+   "text": "Pass 079 (WAVE_08): physarum adaptive slime trail corridor drag reduction",
+   "category": "WAVE_08 — Culture, Empathy, Skill Market, Tools, Caches & Ashby",
+   "criterion": "ok := dragOnTrail < 0.75 && dragOffTrail === 1.0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L916; V:/creatures/001/results/sc-port/passes_100_v40.json results[78]",
+   "extra": {
+    "pass": 79,
+    "wave": "WAVE_08",
+    "recorded_ok": true,
+    "recorded_detail": "drag(trail=0.68 < off=1.00)",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "F66 Physarum Slime Transport Network"
+   }
+  },
+  {
+   "id": "ashby_1952_ultrastable_homeostat_step_function_reconfiguration",
+   "text": "Pass 080 (WAVE_08): ashby 1952 ultrastable homeostat step function reconfiguration",
+   "category": "WAVE_08 — Culture, Empathy, Skill Market, Tools, Caches & Ashby",
+   "criterion": "ok := eco.homeostatJumps >= 1; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L926; V:/creatures/001/results/sc-port/passes_100_v40.json results[79]",
+   "extra": {
+    "pass": 80,
+    "wave": "WAVE_08",
+    "recorded_ok": true,
+    "recorded_detail": "homeostatJumps=1",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "F63 Ashby 1952 Ultrastable Homeostat"
+   }
+  },
+  {
+   "id": "coevolving_predators_camouflage_protection_and_closed_first_law_ledger",
+   "text": "Pass 081 (WAVE_09): coevolving predators camouflage protection and closed first law ledger",
+   "category": "WAVE_09 — Predators, Parasites, Daisyworld, RD, Archipelago & QD",
+   "criterion": "ok := eco.predators.length >= 1 && eco.predatorHeatKJ > 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L939; V:/creatures/001/results/sc-port/passes_100_v40.json results[80]",
+   "extra": {
+    "pass": 81,
+    "wave": "WAVE_09",
+    "recorded_ok": true,
+    "recorded_detail": "preds=2 predHeat=0.847kJ",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "F22, F89, LIFE #88 Red-Queen Predator Arms"
+   }
+  },
+  {
+   "id": "N74_F90_parasite_manipulation_and_zoopharmacognosy_self_medication",
+   "text": "Pass 082 (WAVE_09): N74 F90 parasite manipulation and zoopharmacognosy self medication",
+   "category": "WAVE_09 — Predators, Parasites, Daisyworld, RD, Archipelago & QD",
+   "criterion": "ok := eco.selfMedications >= 1 && (eco.parasiteLoads.get(\"h\") ?? 1) < 0.25; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L951; V:/creatures/001/results/sc-port/passes_100_v40.json results[81]",
+   "extra": {
+    "pass": 82,
+    "wave": "WAVE_09",
+    "recorded_ok": true,
+    "recorded_detail": "medicated=2 remLoad=0.071",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N74",
+     "F90"
+    ],
+    "ledger_same_number_target": "N74, F90 Parasite Manipulation & Self-Med"
+   }
+  },
+  {
+   "id": "watson_lovelock_daisyworld_albedo_homeostasis_and_N71_niche",
+   "text": "Pass 083 (WAVE_09): watson lovelock daisyworld albedo homeostasis and N71 niche",
+   "category": "WAVE_09 — Predators, Parasites, Daisyworld, RD, Archipelago & QD",
+   "criterion": "ok := devDaisy < devBarren - 2.5; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L963; V:/creatures/001/results/sc-port/passes_100_v40.json results[82]",
+   "extra": {
+    "pass": 83,
+    "wave": "WAVE_09",
+    "recorded_ok": true,
+    "recorded_detail": "T_daisy=25.8C vs T_barren=30.5C (target 22.5C)",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N71"
+    ],
+    "ledger_same_number_target": "F64, N71 Daisyworld Albedo Homeostasis"
+   }
+  },
+  {
+   "id": "turing_gray_scott_reaction_diffusion_substrate_conservation",
+   "text": "Pass 084 (WAVE_09): turing gray scott reaction diffusion substrate conservation",
+   "category": "WAVE_09 — Predators, Parasites, Daisyworld, RD, Archipelago & QD",
+   "criterion": "ok := d.patchFood() > 10; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L973; V:/creatures/001/results/sc-port/passes_100_v40.json results[83]",
+   "extra": {
+    "pass": 84,
+    "wave": "WAVE_09",
+    "recorded_ok": true,
+    "recorded_detail": "patchFood=1267.3kJ",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "F61 Conservative Turing Mineral Substrate"
+   }
+  },
+  {
+   "id": "N78_three_guild_trophic_web_holling_coexistence",
+   "text": "Pass 085 (WAVE_09): N78 three guild trophic web holling coexistence",
+   "category": "WAVE_09 — Predators, Parasites, Daisyworld, RD, Archipelago & QD",
+   "criterion": "ok := d.grazersXY.length === 3 && eco.predators.length >= 1 && d.pop.every((h) => h.c.alive!()); AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L981; V:/creatures/001/results/sc-port/passes_100_v40.json results[84]",
+   "extra": {
+    "pass": 85,
+    "wave": "WAVE_09",
+    "recorded_ok": true,
+    "recorded_detail": "grazers=3 preds=1 cAlive=2/2",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N78"
+    ],
+    "ledger_same_number_target": "N78, F91 3-Guild Trophic Coexistence"
+   }
+  },
+  {
+   "id": "N75_timewarp_niche_and_N77_storm_interval_preemptive_sheltering",
+   "text": "Pass 086 (WAVE_09): N75 timewarp niche and N77 storm interval preemptive sheltering",
+   "category": "WAVE_09 — Predators, Parasites, Daisyworld, RD, Archipelago & QD",
+   "criterion": "ok := eco.preemptiveShelters >= 1 && Math.abs(eco.stormIntervalEMA - 20) < 2; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L991; V:/creatures/001/results/sc-port/passes_100_v40.json results[85]",
+   "extra": {
+    "pass": 86,
+    "wave": "WAVE_09",
+    "recorded_ok": true,
+    "recorded_detail": "intervalHat=20.0 shelters=1",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N75",
+     "N77"
+    ],
+    "ledger_same_number_target": "N75, N34, N77 Time-Warp & Storm Sheltering"
+   }
+  },
+  {
+   "id": "N72_hell_ladder_acclimation_vs_N73_utopia_relaxed_selection",
+   "text": "Pass 087 (WAVE_09): N72 hell ladder acclimation vs N73 utopia relaxed selection",
+   "category": "WAVE_09 — Predators, Parasites, Daisyworld, RD, Archipelago & QD",
+   "criterion": "ok := hellParent.o.eo!.morphGene > utopiaParent.o.eo!.morphGene + 0.08; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1005; V:/creatures/001/results/sc-port/passes_100_v40.json results[86]",
+   "extra": {
+    "pass": 87,
+    "wave": "WAVE_09",
+    "recorded_ok": true,
+    "recorded_detail": "acclimMorph=0.589 > utopiaMorph=0.361",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N72",
+     "N73"
+    ],
+    "ledger_same_number_target": "CQM19 Hell-Ladder Rungs 0..6 Resilience"
+   }
+  },
+  {
+   "id": "N79_multi_dome_archipelago_migration_exact_first_law_conservation",
+   "text": "Pass 088 (WAVE_09): N79 multi dome archipelago migration exact first law conservation",
+   "category": "WAVE_09 — Predators, Parasites, Daisyworld, RD, Archipelago & QD",
+   "criterion": "ok := arch.migrations >= 1 && dB.pop.length === 2 && archErr < 1e-12; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1019; V:/creatures/001/results/sc-port/passes_100_v40.json results[87]",
+   "extra": {
+    "pass": 88,
+    "wave": "WAVE_09",
+    "recorded_ok": true,
+    "recorded_detail": "migrations=1 popB=2 archErr=0.0e+0",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "N79"
+    ],
+    "ledger_same_number_target": "N79 Multi-Dome Archipelago Migration"
+   }
+  },
+  {
+   "id": "F50_assembly_theory_F93_markov_blanket_and_F94_cortical_waves",
+   "text": "Pass 089 (WAVE_09): F50 assembly theory F93 markov blanket and F94 cortical waves",
+   "category": "WAVE_09 — Predators, Parasites, Daisyworld, RD, Archipelago & QD",
+   "criterion": "ok := aStruct.score > aRand.score && aiSingle <= 4 && mb.blanketHolds && Number.isFinite(wave.waveSpeedBinsPerTick); AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1032; V:/creatures/001/results/sc-port/passes_100_v40.json results[88]",
+   "extra": {
+    "pass": 89,
+    "wave": "WAVE_09",
+    "recorded_ok": true,
+    "recorded_detail": "Asm(50.0>0.0) MB_hold=true waveSpd=20.769",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "F50",
+     "F93",
+     "F94"
+    ],
+    "ledger_same_number_target": "F50, F93, F94 Assembly, Blanket & Waves"
+   }
+  },
+  {
+   "id": "CQM02_Q_NOVEL_MAP_elites_quality_diversity_behavioral_illumination",
+   "text": "Pass 090 (WAVE_09): CQM02 Q NOVEL MAP elites quality diversity behavioral illumination",
+   "category": "WAVE_09 — Predators, Parasites, Daisyworld, RD, Archipelago & QD",
+   "criterion": "ok := qd.archive.size >= 2 && qd.qdScore > 1.0 && qd.noveltyMean > 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1042; V:/creatures/001/results/sc-port/passes_100_v40.json results[89]",
+   "extra": {
+    "pass": 90,
+    "wave": "WAVE_09",
+    "recorded_ok": true,
+    "recorded_detail": "niches=7 qdScore=10.783 nov=0.1992",
+    "recorded_maxLedger": 0,
+    "codes": [
+     "CQM02",
+     "QNOVEL"
+    ],
+    "ledger_same_number_target": "CQM02, Q-NOVEL MAP-Elites Illumination"
+   }
+  },
+  {
+   "id": "DELARP_7_3_unified_CI_workflow_and_originality_cwd_fix",
+   "text": "Pass 091 (WAVE_10): DELARP 7 3 unified CI workflow and originality cwd fix",
+   "category": "WAVE_10 — Pipeline, C-NC, Snapshot Fix, Stress, 34 Qualities & Audit",
+   "criterion": "ok := hasPipeline && oRoot.pass && oRoot.fails === 0 && oLab.pass && oLab.fails === 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1051; V:/creatures/001/results/sc-port/passes_100_v40.json results[90]",
+   "extra": {
+    "pass": 91,
+    "wave": "WAVE_10",
+    "recorded_ok": true,
+    "recorded_detail": "wfUnified=true origRoot=0fail origLab=0fail",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "DELARP §7.3 Unified CI & originality Fix"
+   }
+  },
+  {
+   "id": "DELARP_10_4_C_NC_no_cosmetic_parts_conformance_and_mutant_rejection",
+   "text": "Pass 092 (WAVE_10): DELARP 10 4 C NC no cosmetic parts conformance and mutant rejection",
+   "category": "WAVE_10 — Pipeline, C-NC, Snapshot Fix, Stress, 34 Qualities & Audit",
+   "criterion": "ok := c001Res.pass && tplRes.pass && !mutRes.pass && !orgMutRes.pass && cncFailedOnMutant && cncFailedOnOrgan; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1063; V:/creatures/001/results/sc-port/passes_100_v40.json results[91]",
+   "extra": {
+    "pass": 92,
+    "wave": "WAVE_10",
+    "recorded_ok": true,
+    "recorded_detail": "001=17/17 tpl=17/17 mutRejected=true orgRejected=true",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "DELARP §10.4 C-NC No Cosmetic Parts"
+   }
+  },
+  {
+   "id": "Dome_snapshotFull_Float32Array_and_full_stack_bit_exact_roundtrip",
+   "text": "Pass 093 (WAVE_10): Dome snapshotFull Float32Array and full stack bit exact roundtrip",
+   "category": "WAVE_10 — Pipeline, C-NC, Snapshot Fix, Stress, 34 Qualities & Audit",
+   "criterion": "ok := isFloat32 && h1 === h2 && dE === 0; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1086; V:/creatures/001/results/sc-port/passes_100_v40.json results[92]",
+   "extra": {
+    "pass": 93,
+    "wave": "WAVE_10",
+    "recorded_ok": true,
+    "recorded_detail": "neoMarksFloat32=true hash=ff373641===ff373641 dE=0",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "DELARP P5 Dome.snapshotFull() Roundtrip"
+   }
+  },
+  {
+   "id": "long_horizon_2000_tick_ring_buffer_and_finite_state_stability",
+   "text": "Pass 094 (WAVE_10): long horizon 2000 tick ring buffer and finite state stability",
+   "category": "WAVE_10 — Pipeline, C-NC, Snapshot Fix, Stress, 34 Qualities & Audit",
+   "criterion": "ok := allFinite && boundedRings; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1101; V:/creatures/001/results/sc-port/passes_100_v40.json results[93]",
+   "extra": {
+    "pass": 94,
+    "wave": "WAVE_10",
+    "recorded_ok": true,
+    "recorded_detail": "t=2000 finite=true ringsBounded=true dead=false",
+    "recorded_maxLedger": 3.6185046728523616e-15,
+    "codes": [],
+    "ledger_same_number_target": "Long-Horizon 2,000-Tick Stability Audit"
+   }
+  },
+  {
+   "id": "simultaneous_multi_lesion_and_hell_stress_conservation_audit",
+   "text": "Pass 095 (WAVE_10): simultaneous multi lesion and hell stress conservation audit",
+   "category": "WAVE_10 — Pipeline, C-NC, Snapshot Fix, Stress, 34 Qualities & Audit",
+   "criterion": "ok := poolsNonNeg && Number.isFinite(o.energy()); AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1110; V:/creatures/001/results/sc-port/passes_100_v40.json results[94]",
+   "extra": {
+    "pass": 95,
+    "wave": "WAVE_10",
+    "recorded_ok": true,
+    "recorded_detail": "poolsNonNeg=true int=1.00",
+    "recorded_maxLedger": 6.019423105627393e-16,
+    "codes": [],
+    "ledger_same_number_target": "Simultaneous Multi-Lesion + Hell-Stress Audit"
+   }
+  },
+  {
+   "id": "all_34_DELARP_v40_qualities_causally_wired_and_active",
+   "text": "Pass 096 (WAVE_10): all 34 DELARP v40 qualities causally wired and active",
+   "category": "WAVE_10 — Pipeline, C-NC, Snapshot Fix, Stress, 34 Qualities & Audit",
+   "criterion": "ok := hasAllOrgans && pciActive && o.paramCount().total > 7500; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1120; V:/creatures/001/results/sc-port/passes_100_v40.json results[95]",
+   "extra": {
+    "pass": 96,
+    "wave": "WAVE_10",
+    "recorded_ok": true,
+    "recorded_detail": "organs9=true pci=0.077 params=8485",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [],
+    "ledger_same_number_target": "All 34 DELARP-PLAN v4.0 Qualities Wired"
+   }
+  },
+  {
+   "id": "creature_001_visual_renderer_contract_preserved_unchanged",
+   "text": "Pass 097 (WAVE_10): creature 001 visual renderer contract preserved unchanged",
+   "category": "WAVE_10 — Pipeline, C-NC, Snapshot Fix, Stress, 34 Qualities & Audit",
+   "criterion": "ok := appSrc.length > 1000 && hasView; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1129; V:/creatures/001/results/sc-port/passes_100_v40.json results[96]",
+   "extra": {
+    "pass": 97,
+    "wave": "WAVE_10",
+    "recorded_ok": true,
+    "recorded_detail": "viewKeys=24/24 appIntact=true",
+    "recorded_maxLedger": 2.0064743685424643e-16,
+    "codes": [],
+    "ledger_same_number_target": "Creature #1 Visual Renderer Contract"
+   }
+  },
+  {
+   "id": "backward_bit_identical_parity_and_seed_firewall_integrity",
+   "text": "Pass 098 (WAVE_10): backward bit identical parity and seed firewall integrity",
+   "category": "WAVE_10 — Pipeline, C-NC, Snapshot Fix, Stress, 34 Qualities & Audit",
+   "criterion": "ok := h === \"15f21609\" && h === h2 && !badSeedMatch; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1140; V:/creatures/001/results/sc-port/passes_100_v40.json results[97]",
+   "extra": {
+    "pass": 98,
+    "wave": "WAVE_10",
+    "recorded_ok": true,
+    "recorded_detail": "detHash=15f21609===15f21609 firewallClean=true",
+    "recorded_maxLedger": 6.022611922388276e-16,
+    "codes": [],
+    "ledger_same_number_target": "Backward Bit-Identical Parity & Seed Firewall"
+   }
+  },
+  {
+   "id": "PASS_100_LEDGER_and_ORIGINS_documentation_completeness",
+   "text": "Pass 099 (WAVE_10): PASS 100 LEDGER and ORIGINS documentation completeness",
+   "category": "WAVE_10 — Pipeline, C-NC, Snapshot Fix, Stress, 34 Qualities & Audit",
+   "criterion": "ok := hasDocs := existsSync(ledgerPath) && existsSync(originsPath) && readFileSync(ledgerPath, \"utf8\").includes(\"Pass 100\"); AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1154; V:/creatures/001/results/sc-port/passes_100_v40.json results[98]",
+   "extra": {
+    "pass": 99,
+    "wave": "WAVE_10",
+    "recorded_ok": true,
+    "recorded_detail": "ledgerDoc=true originsDoc=true",
+    "recorded_maxLedger": 0,
+    "codes": [],
+    "ledger_same_number_target": "PASS-100-LEDGER.md & ORIGINS.md Audit"
+   }
+  },
+  {
+   "id": "master_100_pass_completion_and_global_first_law_conservation_gate",
+   "text": "Pass 100 (WAVE_10): master 100 pass completion and global first law conservation gate",
+   "category": "WAVE_10 — Pipeline, C-NC, Snapshot Fix, Stress, 34 Qualities & Audit",
+   "criterion": "ok := priorPassed && GLOBAL_MAX_LEDGER < 1e-11; AND First-Law ledger error finite and < 1e-11 (check(), passes_100_suite.ts:L69)",
+   "source_ref": "V:/creatures/001/organism/passes_100_suite.ts:L1162; V:/creatures/001/results/sc-port/passes_100_v40.json results[99]",
+   "extra": {
+    "pass": 100,
+    "wave": "WAVE_10",
+    "recorded_ok": true,
+    "recorded_detail": "prior99=99/99 worstLedger=3.62e-15",
+    "recorded_maxLedger": 3.6185046728523616e-15,
+    "codes": [],
+    "ledger_same_number_target": "Master 100-Pass & First-Law Completion Gate"
+   }
+  }
+ ]
+}

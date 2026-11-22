@@ -1,0 +1,14 @@
+loaded C:\Windows\System32\nvcuda.dll
+cuDriverGetVersion=13040 devices=1 device0="NVIDIA GeForce RTX 5070 Ti Laptop GPU" compute=12.0 mem=12199 MiB
+ptx file=kernel.ptx bytes=2642 .version=7.0 .target=sm_80
+cuModuleLoadDataEx OK (driver JIT of PTX text) in 292 us (noisy, parallel load)
+cpu  histogram: N=1000000 bins=4096 fnv1a64=c7c227f2ba8f0d70
+gpu run 1: grid=3907 block=256 sum=1000000 fnv1a64=c7c227f2ba8f0d70 memcmp_vs_cpu=IDENTICAL  launch+sync 466 us (noisy, parallel load)
+gpu run 2: grid=3907 block=256 sum=1000000 fnv1a64=c7c227f2ba8f0d70 memcmp_vs_cpu=IDENTICAL  launch+sync 68 us (noisy, parallel load)
+gpu run 3: grid=977 block=1024 sum=1000000 fnv1a64=c7c227f2ba8f0d70 memcmp_vs_cpu=IDENTICAL  launch+sync 66 us (noisy, parallel load)
+gpu run 1 vs run 2: IDENTICAL
+bins[0..7] cpu: 208 255 263 255 235 257 213 230
+bins[0..7] gpu: 208 255 263 255 235 257 213 230
+lesion (non-atomic increment): sum=63273 of 1000000, lost=936727, memcmp_vs_cpu=DIFFERENT
+empty kernel launch+sync over 2000 iters: min 7.1 us, median 8.2 us, mean 11.9 us, p99 61.4 us, max 437.7 us (noisy, parallel load)
+RESULT: PASS

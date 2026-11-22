@@ -1,0 +1,35 @@
+== 1. assemble
+nasm + clang ok
+== 2. hand-encoded VEX vpdpbusd vs clang's assembler (bytes and operands of 24 forms)
+identical: 24 of 24 instructions  PASS
+kern.obj: 256 vpdpbusd, 256 of them VEX; EVEX-encoded instructions in the object: 0
+== 3. build and run tests
+cpu: Intel(R) Core(TM) Ultra 9 275HX
+cpu_features() = 0x1ff  OSYMM=1 AVX=1 AVX2=1 FMA=1 BMI1=1 BMI2=1 AVX-VNNI=1 VNNI-INT8=1 VNNI-INT16=1 AVX512F=0
+cpu: asm mask vs gcc <cpuid.h> + _xgetbv: 0x1ff vs 0x1ff; gcc builtin avx2=1 fma=1 bmi2=1 avxvnni=1  PASS
+abi: clobber_all  (8 gpr, 10 xmm, 32 locals)    changed-register mask = 0x00000  PASS
+abi: clobber_odd  (3 gpr, 1 xmm, 32 locals)     changed-register mask = 0x00000  PASS
+abi: clobber_min  (1 gpr)                       changed-register mask = 0x00000  PASS
+abi: clobber_even (2 gpr, 3 xmm, 48 locals)     changed-register mask = 0x00000  PASS
+abi: clobber_xmm  (0 gpr, 10 xmm, 32 locals)    changed-register mask = 0x00000  PASS
+abi: clobber_bad  (control: trashes r12, xmm9)     changed-register mask = 0x00810  PASS (detected, expected 0x00810)
+abi: stack misaligned inside a PROC body: 0 times  PASS
+unwind: RtlVirtualUnwind through clobber_all  -> abi_check: flags 0x00, ran 1  PASS (all 8 GPR + 10 XMM recovered)
+unwind: RtlVirtualUnwind through clobber_odd  -> abi_check: flags 0x00, ran 1  PASS (all 8 GPR + 10 XMM recovered)
+unwind: RtlVirtualUnwind through clobber_even -> abi_check: flags 0x00, ran 1  PASS (all 8 GPR + 10 XMM recovered)
+unwind: RtlVirtualUnwind through clobber_xmm  -> abi_check: flags 0x00, ran 1  PASS (all 8 GPR + 10 XMM recovered)
+morton3: 10010243 encodes vs scalar bit loop, pext round trip, batch of 4099: 0 mismatches  PASS
+kernels: 102077 cases (2077 edge + 100000 random) x 6 variants vs scalar C: 0 mismatches  PASS
+  reference output mix: 915362 zero, 1856294 inside 1..126, 494808 at 127
+  out-of-contract x=255 w=127: scalar y[0]=64, vnni y[0]=64 (same), avx2 y[0]=0 (differs, expected: vpmaddubsw saturates)
+RESULT: ALL PASS
+c++ throw through 2 NASM frames: caught 1000 of 1000, locals intact: yes  PASS
+== 4. negative controls (each must FAIL)
+kernels: 102077 cases (2077 edge + 100000 random) x 6 variants vs scalar C: 81935 mismatches  FAIL
+RESULT: FAIL
+unwind: RtlVirtualUnwind through clobber_all  -> abi_check: flags 0x02, ran 1  FAIL
+unwind: RtlVirtualUnwind through clobber_odd  -> abi_check: flags 0x02, ran 1  FAIL
+unwind: RtlVirtualUnwind through clobber_even -> abi_check: flags 0x02, ran 1  FAIL
+unwind: RtlVirtualUnwind through clobber_xmm  -> abi_check: flags 0x02, ran 1  FAIL
+RESULT: FAIL
+== done

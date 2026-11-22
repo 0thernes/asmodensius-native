@@ -1,0 +1,672 @@
+{
+ "index_id": "checklists_index",
+ "title": "Every list found in the ALife Framework v3.0 sources, with row count and file",
+ "generated_by": "S:/req/checklist500/extract.py",
+ "source_files": [
+  "V:/creatures/001/LIFE-100.md",
+  "V:/creatures/001/PASS-100-LEDGER.md",
+  "W:/ALife-Build-Framework-Template.md",
+  "W:/ALife-Framework-v3.0-Master-Checklists.csv",
+  "W:/ALife-Framework-v3.0-Master-Spec.json",
+  "W:/ALife-Framework/spec/implementation-map.json",
+  "W:/ALife-Hybrid-Cube-10x10x10.csv",
+  "W:/ALife-v3.0-Errata-Closure-Register.csv",
+  "W:/Clean-Slate-Creature-Blueprint-Checklist.md"
+ ],
+ "notes": [
+  "No artifact named '100 checklists' exists in the sources. Closest: LIFE100_AREAS (100 five-item checklists, the same 500 rows) and three separate 100-row lists: L4_FREAK100, L6_NOVEL100, MILESTONES_100.",
+  "Row counts are counted from the files, not copied from headings.",
+  "The 825-check scoreboard has 5 declared cross-suite mirrors (MIRRORS_5), so 820 unique assertions.",
+  "Two versions of the 500 exist: L5_LIFE500 (framework v3.0, dated 2026-11-11, ids LIFE-Lnnn-An, uniform statistical pass gate) and V40_LIFE100_500 (the v40 lab original with status labels, no ids in the source)."
+ ],
+ "lists": [
+  {
+   "list_id": "L1_BUTLIN14",
+   "title": "Butlin-14 Indicators",
+   "row_count": 14,
+   "first_id": "RPT-1",
+   "last_id": "AE-2",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/executable_checks_825/0..13",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 2-15",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 218-231 (14/14 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 476-489 (14/14 ids located)"
+   },
+   "extracted_to": null,
+   "note": "one of the nine suites of the 825-check scoreboard; not extracted by this agent"
+  },
+  {
+   "list_id": "L2_FRAMEWORKS10",
+   "title": "10 Consciousness Frameworks",
+   "row_count": 10,
+   "first_id": "F1",
+   "last_id": "F10",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/executable_checks_825/14..23",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 16-25",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 237-246 (10/10 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 495-504 (10/10 ids located)"
+   },
+   "extracted_to": null,
+   "note": "one of the nine suites of the 825-check scoreboard; not extracted by this agent"
+  },
+  {
+   "list_id": "L3_CQM25",
+   "title": "CQM-25 Core Qualities",
+   "row_count": 25,
+   "first_id": "CQM01",
+   "last_id": "CQM25",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/executable_checks_825/24..48",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 26-50",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 252-276 (25/25 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 510-534 (25/25 ids located)"
+   },
+   "extracted_to": null,
+   "note": "one of the nine suites of the 825-check scoreboard; not extracted by this agent"
+  },
+  {
+   "list_id": "L4_FREAK100",
+   "title": "FREAK-100 Mechanisms",
+   "row_count": 100,
+   "first_id": "F-001",
+   "last_id": "F-100",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/executable_checks_825/49..148",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 51-150",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 282-381 (100/100 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 540-639 (100/100 ids located)"
+   },
+   "extracted_to": null,
+   "note": "one of the nine suites of the 825-check scoreboard; not extracted by this agent"
+  },
+  {
+   "list_id": "L5_LIFE500",
+   "title": "LIFE-100 x 5 Biological Depth",
+   "row_count": 500,
+   "first_id": "LIFE-L001-A1",
+   "last_id": "LIFE-L100-A5",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/executable_checks_825/149..648",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 151-650",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 387-886 (500/500 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 645-1144 (500/500 ids located)"
+   },
+   "extracted_to": "N:/docs/requirements/checklist500.json",
+   "note": "the 500-item checklist; 100 areas x 5"
+  },
+  {
+   "list_id": "L6_NOVEL100",
+   "title": "NOVEL-100 Frontier Assays",
+   "row_count": 100,
+   "first_id": "N01",
+   "last_id": "N100",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/executable_checks_825/649..748",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 651-750",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 892-991 (100/100 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 1150-1249 (100/100 ids located)"
+   },
+   "extracted_to": null,
+   "note": "one of the nine suites of the 825-check scoreboard; not extracted by this agent"
+  },
+  {
+   "list_id": "L7_WSE12",
+   "title": "WSE-12 Weight-Space Editing",
+   "row_count": 12,
+   "first_id": "WSE01",
+   "last_id": "WSE12",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/executable_checks_825/749..760",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 751-762",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 997-1008 (12/12 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 1255-1266 (12/12 ids located)"
+   },
+   "extracted_to": null,
+   "note": "one of the nine suites of the 825-check scoreboard; not extracted by this agent"
+  },
+  {
+   "list_id": "L8_SOFT40",
+   "title": "SOFT-40 Continuum & Wet Bio",
+   "row_count": 40,
+   "first_id": "SOFT01",
+   "last_id": "SOFT40",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/executable_checks_825/761..800",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 763-802",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 1014-1053 (40/40 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 1272-1311 (40/40 ids located)"
+   },
+   "extracted_to": null,
+   "note": "one of the nine suites of the 825-check scoreboard; not extracted by this agent"
+  },
+  {
+   "list_id": "L9_HW24",
+   "title": "HW-24 Compute & Arena Guards",
+   "row_count": 24,
+   "first_id": "HW01",
+   "last_id": "HW24",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/executable_checks_825/801..824",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 803-826",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 1059-1082 (24/24 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 1317-1340 (24/24 ids located)"
+   },
+   "extracted_to": null,
+   "note": "one of the nine suites of the 825-check scoreboard; not extracted by this agent"
+  },
+  {
+   "list_id": "LIFE100_AREAS",
+   "title": "LIFE-100 areas (100 five-item checklists, derived grouping of L5_LIFE500)",
+   "row_count": 100,
+   "first_id": "LIFE-L001",
+   "last_id": "LIFE-L100",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 151-650 (Group_Or_Layer column)"
+   },
+   "extracted_to": "N:/docs/requirements/life100_areas.json",
+   "note": "derived: no separate source list; area names are the Area column of the Suite 5 table"
+  },
+  {
+   "list_id": "ALL_825",
+   "title": "All executable capability checks (9 suites: 14+10+25+100+500+100+12+40+24)",
+   "row_count": 825,
+   "first_id": "RPT-1",
+   "last_id": "HW24",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/executable_checks_825",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 2-826"
+   },
+   "extracted_to": null,
+   "note": "union of the nine suites above"
+  },
+  {
+   "list_id": "MILESTONES_100",
+   "title": "100-milestone acyclic build DAG (M001..M100), includes the First-15 sprint",
+   "row_count": 100,
+   "first_id": "M001",
+   "last_id": "M100",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/milestones_dag_100",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 827-926",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 98-182 (85/100 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 1376-1460 (85/100 ids located)"
+   },
+   "extracted_to": null,
+   "note": "each row has build contract, control/falsifier, pass target, prereqs; not extracted by this agent"
+  },
+  {
+   "list_id": "MILESTONES_FIRST15",
+   "title": "First-15 playable sprint (subset of the 100 milestones)",
+   "row_count": 15,
+   "first_id": "M001",
+   "last_id": "M015",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/milestones_dag_100 (is_first_15_playable=true)",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 827-841"
+   },
+   "extracted_to": null,
+   "note": "subset of MILESTONES_100"
+  },
+  {
+   "list_id": "RELEASE_GATES_13",
+   "title": "13 release promotion gates",
+   "row_count": 13,
+   "first_id": "GATE-01",
+   "last_id": "GATE-13",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/release_gates_13",
+    "W:/ALife-Framework-v3.0-Master-Checklists.csv": "lines 927-939",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 187-199 (13/13 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 1465-1477 (13/13 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "PRINCIPLES_10",
+   "title": "Ten clean-slate architectural invariants (P1-P10)",
+   "row_count": 10,
+   "first_id": "P1",
+   "last_id": "P10",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/principles_10",
+    "W:/ALife-Build-Framework-Template.md": "lines 11-20 (10/10 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "CLEAN_ROOM_10",
+   "title": "Clean-room principle transfer matrix (10 domains)",
+   "row_count": 10,
+   "first_id": "1. Autopoietic Chemistry & Metabolism",
+   "last_id": "10. Biosphere, Culture & Trophic Webs",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/clean_room_borrowing_10",
+    "W:/ALife-Build-Framework-Template.md": "lines 27-36 (10/10 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "COMPLEXITY_LEGEND_11",
+   "title": "Complexity legend (11 symbols)",
+   "row_count": 11,
+   "first_id": "N_units",
+   "last_id": "Q",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/complexity_legend_11",
+    "W:/ALife-Build-Framework-Template.md": "lines 43-53 (11/11 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "DIMENSIONS_8",
+   "title": "Eight orthogonal system dimensions (D1-D8)",
+   "row_count": 8,
+   "first_id": "D1",
+   "last_id": "D8",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/eight_dimensions"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "HARDWARE_TIERS_5",
+   "title": "Five hardware execution tiers",
+   "row_count": 5,
+   "first_id": "Tier E — Edge / Mobile / RPi",
+   "last_id": "Tier C — Headless CI Runner",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/hardware_tiers_5",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 59-63 (5/5 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 453-457 (5/5 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "MASTER_TABS_19",
+   "title": "19-tab master center",
+   "row_count": 19,
+   "first_id": "Tab 01",
+   "last_id": "Tab 19",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/master_center_tabs_19",
+    "W:/ALife-Build-Framework-Template.md": "lines 147-165 (19/19 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "FORENSIC_36",
+   "title": "36-item forensic triage registry",
+   "row_count": 36,
+   "first_id": "PRB-01",
+   "last_id": "CNF-06",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/forensic_triage_registry_36",
+    "W:/ALife-Build-Framework-Template.md": "lines 93-128 (36/36 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "PREREG_WORKSHEET_6",
+   "title": "Day-zero preregistration worksheet (W1-W6)",
+   "row_count": 6,
+   "first_id": "W1",
+   "last_id": "W6",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/preregistration_worksheet_6",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 11-16 (6/6 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "MIRRORS_5",
+   "title": "Five cross-suite mirrors (MIR-01..05)",
+   "row_count": 5,
+   "first_id": "MIR-01",
+   "last_id": "MIR-05",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/cross_suite_mirrors_5",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 208-212 (5/5 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 466-470 (5/5 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "BUILD_STAGES_9",
+   "title": "Nine build stages",
+   "row_count": 9,
+   "first_id": "Stage 0",
+   "last_id": "Stage 8",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/build_stages_9",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 70-78 (9/9 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 1348-1356 (9/9 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "CITATIONS_15",
+   "title": "Peer-reviewed citation register (CIT-01..15)",
+   "row_count": 15,
+   "first_id": "CIT-01",
+   "last_id": "CIT-15",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/citations_15",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 1090-1104 (15/15 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 1484-1498 (15/15 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "CHANGELOG_6",
+   "title": "Changelog (6 versions)",
+   "row_count": 6,
+   "first_id": "v1.0 Baseline",
+   "last_id": "v3.0 Errata Wave C",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/changelog",
+    "W:/ALife-Build-Framework-Template.md": "lines 1503-1508 (6/6 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "ERRATA_95",
+   "title": "v3.0 errata closure register (ALF-001..)",
+   "row_count": 95,
+   "first_id": "ALF-001",
+   "last_id": "MD-F01",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/errata_closure_register_95",
+    "W:/ALife-v3.0-Errata-Closure-Register.csv": "95 rows"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "PRECISIONS_25",
+   "title": "25 numeric precisions (PM01-PM25)",
+   "row_count": 25,
+   "first_id": "PM01",
+   "last_id": "PM25",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/substrates_75/numeric_precisions_25",
+    "W:/ALife-Build-Framework-Template.md": "lines 188-212 (25/25 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "MODEL_FAMILIES_25",
+   "title": "25 model families (MF01-MF25)",
+   "row_count": 25,
+   "first_id": "MF01",
+   "last_id": "MF25",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/substrates_75/experimental_models_25",
+    "W:/ALife-Build-Framework-Template.md": "lines 217-241 (25/25 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "GEOMETRIES_25",
+   "title": "25 geometries / wirings (GW01-GW25)",
+   "row_count": 25,
+   "first_id": "GW01",
+   "last_id": "GW25",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/substrates_75/geometries_25",
+    "W:/ALife-Build-Framework-Template.md": "lines 246-270 (25/25 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "WSE_OPERATORS_10",
+   "title": "Typed weight-space editing algebra (WSE-OP01..10)",
+   "row_count": 10,
+   "first_id": "WSE-OP01",
+   "last_id": "WSE-OP10",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/substrates_75/wse_operators_10",
+    "W:/ALife-Build-Framework-Template.md": "lines 172-181 (10/10 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "STARTER_TRIPLES_5",
+   "title": "Five reference starter configurations (cube cells)",
+   "row_count": 5,
+   "first_id": "T1 Peripheral Ganglion",
+   "last_id": "T5 Regenerative Soma",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/substrates_75/reference_starter_triples_5",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 50-54 (5/5 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 277-281 (5/5 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "POOLS_11",
+   "title": "11-pool thermodynamic ledger",
+   "row_count": 11,
+   "first_id": "E_patch",
+   "last_id": "E_diss_num",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/thermodynamic_contract_11_pools/pools_11",
+    "W:/Clean-Slate-Creature-Blueprint-Checklist.md": "lines 21-31 (11/11 ids located)",
+    "W:/ALife-Build-Framework-Template.md": "lines 62-72 (11/11 ids located)"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "MEMORY_ROWS_7",
+   "title": "Exact memory byte table (7 representations)",
+   "row_count": 7,
+   "first_id": "MEM-1",
+   "last_id": "MEM-7",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/memory_benchmark/rows_7"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "POWER_TIERS_3",
+   "title": "Statistical power sizing tiers",
+   "row_count": 3,
+   "first_id": "",
+   "last_id": "",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/statistical_power_protocol/powerSizingTiers"
+   },
+   "extracted_to": null,
+   "note": "not extracted by this agent"
+  },
+  {
+   "list_id": "CUBE_AXIS_X",
+   "title": "Cube X axis: 10 model families",
+   "row_count": 10,
+   "first_id": "X0",
+   "last_id": "X9",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/hybrid_cube_10x10x10/axes/x_models"
+   },
+   "extracted_to": "N:/docs/requirements/cube1000.json",
+   "note": "carried inside each cube item text"
+  },
+  {
+   "list_id": "CUBE_AXIS_Y",
+   "title": "Cube Y axis: 10 numeric precisions",
+   "row_count": 10,
+   "first_id": "Y0",
+   "last_id": "Y9",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/hybrid_cube_10x10x10/axes/y_precisions"
+   },
+   "extracted_to": "N:/docs/requirements/cube1000.json",
+   "note": "carried inside each cube item text"
+  },
+  {
+   "list_id": "CUBE_AXIS_Z",
+   "title": "Cube Z axis: 10 geometries / wirings",
+   "row_count": 10,
+   "first_id": "Z0",
+   "last_id": "Z9",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/hybrid_cube_10x10x10/axes/z_geometries"
+   },
+   "extracted_to": "N:/docs/requirements/cube1000.json",
+   "note": "carried inside each cube item text"
+  },
+  {
+   "list_id": "CUBE_1000",
+   "title": "Hybrid Cube 10x10x10 compatibility atlas (1000 cells)",
+   "row_count": 1000,
+   "first_id": "X0Y0Z0",
+   "last_id": "X9Y9Z9",
+   "files": {
+    "W:/ALife-Framework-v3.0-Master-Spec.json": "/hybrid_cube_10x10x10/cells_1000",
+    "W:/ALife-Hybrid-Cube-10x10x10.csv": "lines 2-1001",
+    "W:/ALife-Build-Framework-Template.md (slices)": "ten 10x10 badge tables, slice headings at lines 286-421 (badge only, no rationale)"
+   },
+   "extracted_to": "N:/docs/requirements/cube1000.json",
+   "note": "badges: {\"[OK]\": 661, \"[ADAPT]\": 274, \"[EXCL]\": 45, \"[OVER]\": 20}"
+  },
+  {
+   "list_id": "TS_IMPLEMENTATION_MAP",
+   "title": "Implementation map of the earlier TypeScript ALife-Framework build (sourceKey -> implementation, tests, status, limits)",
+   "row_count": 2340,
+   "first_id": "/build_stages_9/0",
+   "last_id": "/thermodynamic_contract_11_pools/pools_11/9",
+   "files": {
+    "W:/ALife-Framework/spec/implementation-map.json": "whole file"
+   },
+   "extracted_to": null,
+   "note": "not a requirement list; an existing traceability matrix keyed by Master-Spec JSON pointers; status counts {\"implemented\": 2340}"
+  },
+  {
+   "list_id": "V40_LIFE100_500",
+   "title": "LIFE-100 original, v40 lab: 100 areas x 5 attributes with BUILT/PARTIAL/PLANNED/MISSING status",
+   "row_count": 500,
+   "first_id": "V40-LIFE-L001-A1",
+   "last_id": "V40-LIFE-L100-A5",
+   "files": {
+    "V:/creatures/001/LIFE-100.md": "lines 40-1168",
+    "W:/Creature1-Benchmarks.pdf": "section 5 from page 12 (same list, reader wording; not parsed)",
+    "W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf": "LIFE-100 part (pages 26 onward mention it; not parsed)"
+   },
+   "extracted_to": "N:/docs/requirements/life100_v40_500.json",
+   "note": "earlier wording of the 500; status counts {\"BUILT\": 202, \"PLANNED\": 106, \"MISSING\": 165, \"PARTIAL\": 27}; v3.0 L5_LIFE500 keeps the same 100 area slots (32/100 area names identical by number) but rewrites every sub-check"
+  },
+  {
+   "list_id": "V40_PASSES_100",
+   "title": "Creature 001 100-pass ledger (Pass 001..100)",
+   "row_count": 100,
+   "first_id": "PASS-001",
+   "last_id": "PASS-100",
+   "files": {
+    "V:/creatures/001/PASS-100-LEDGER.md": "lines 26-125",
+    "W:/Asmodensius-Creature1-Lists-and-100-Passes.pdf": "Part I (not parsed)"
+   },
+   "extracted_to": "N:/docs/requirements/passes100_v40.json",
+   "note": "a development ledger of the TypeScript lab, not a forward requirement list; candidate reading of 'the 100'"
+  }
+ ],
+ "sets_written_by_other_agents_seen_at_index_time": [
+  {
+   "file": "N:/docs/requirements/antilarp13.json",
+   "set_id": "antilarp13",
+   "row_count": 13,
+   "title": "13 release gates GATE-01..GATE-13 (ALife Build Framework v3.0 / Clean-Slate Blueprint; GATE-04 is the 5 Anti-LARP mutants)"
+  },
+  {
+   "file": "N:/docs/requirements/antilarp13_v40impl.json",
+   "set_id": "antilarp13_v40impl",
+   "row_count": 13,
+   "title": "13-gate rollup as implemented in the v40 lab (apex_ultimate_suite.ts, APEX_25); names and scope differ from the framework's GATE-01..13"
+  },
+  {
+   "file": "N:/docs/requirements/antilarp_mutants5.json",
+   "set_id": "antilarp_mutants5",
+   "row_count": 5,
+   "title": "GATE-04: the 5 Anti-LARP negative mutants (Leaky-2e-11, Cosmetic, Oracle, Frozen, Shuffled); ids assigned by the extractor"
+  },
+  {
+   "file": "N:/docs/requirements/apex25.json",
+   "set_id": "apex25",
+   "row_count": 25,
+   "title": "APEX Ultimate suite v5.0-Apex-Ultimate-Synthesis: 25 checks (25/25 recorded as passed in the v40 lab artifact)"
+  },
+  {
+   "file": "N:/docs/requirements/butlin14.json",
+   "set_id": "butlin14",
+   "row_count": 14,
+   "title": "Butlin 14 (consciousness indicator properties) as used by the owner for Creature #1 - indicator only, never a consciousness claim"
+  },
+  {
+   "file": "N:/docs/requirements/consciousness10.json",
+   "set_id": "consciousness10",
+   "row_count": 10,
+   "title": "The 10 consciousness theories (\"frameworks\") as used by the owner for Creature #1 - indicator only, never a consciousness claim"
+  },
+  {
+   "file": "N:/docs/requirements/cqm25.json",
+   "set_id": "cqm25",
+   "row_count": 25,
+   "title": "CQM-25 capability law v1.0.0 (adopted 2026-10-22, ADR 0018): 25 stable capability axes"
+  },
+  {
+   "file": "N:/docs/requirements/cqm25_framework.json",
+   "set_id": "cqm25_framework",
+   "row_count": 25,
+   "title": "CQM-25 as Suite 3 of the ALife Build Framework v3.0 (CQM01..CQM25, quantitative gates, FWER family m=25)"
+  },
+  {
+   "file": "N:/docs/requirements/cqm25_rules.json",
+   "set_id": "cqm25_rules",
+   "row_count": 19,
+   "title": "CQM-25 governance rules (7) and evaluation protocol clauses (12); ids assigned by the extractor in source order"
+  },
+  {
+   "file": "N:/docs/requirements/cqm_scrutiny25.json",
+   "set_id": "cqm_scrutiny25",
+   "row_count": 25,
+   "title": "CQM 25-point critical scrutiny scorecard (2026-07-01 audit points; a scored audit, not a pass/fail law)"
+  },
+  {
+   "file": "N:/docs/requirements/gates9.json",
+   "set_id": "gates9",
+   "row_count": 9,
+   "title": "9-gate verification pipeline of the v40 lab (node pipeline/run_all.mjs)"
+  },
+  {
+   "file": "N:/docs/requirements/thousand_reports.json",
+   "set_id": "thousand_reports",
+   "row_count": 150,
+   "title": "Three 1000-row Omega reports: taxonomy + selected items (creature diversity, world substances/hazards, Tsotchke substrate mappings)"
+  },
+  {
+   "file": "N:/docs/requirements/thousand_reports_index.json",
+   "set_id": "thousand_reports_index",
+   "row_count": 900,
+   "title": "Three 1000-row Omega reports: complete index of the 900 distinct base mechanisms (500 ALIFE + 200 SUPER + 200 TSOT)"
+  }
+ ]
+}

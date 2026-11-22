@@ -1,0 +1,711 @@
+{
+  "set_id": "framework825_milestones100",
+  "title": "Build milestones (ALife Framework v3.0)",
+  "source_files": [
+    "ALife-Framework-v3.0-Master-Checklists.csv",
+    "ALife-Framework-v3.0-Master-Spec.json",
+    "ALife-Framework-v3.0-Master-Workbook.xls"
+  ],
+  "items": [
+    {
+      "id": "M001",
+      "text": "SoA TypedArray Memory Arena\nPre-allocate contiguous SoA TypedArray buffers for units, synapses, soft vertices & pools; fixed WASM pages.",
+      "category": "Layer: L0 Arena\nDimension: \u23f1 Oper",
+      "criterion": "Control/falsifier: Run 10,000 post-warmup ticks under heap/WASM profiler.\nPass target: 0 B alloc / 10k ticks\nPrerequisites: ROOT\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 827; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/0; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 2"
+    },
+    {
+      "id": "M002",
+      "text": "Domain-Isolated Philox4x32 PRNG\n32-bit `Math.imul` `Philox4x32-10` keyed by `(ver,seed,domain,entity,organ,tick,purpose,idx)` isolating `WORLD_EXOG`.",
+      "category": "Layer: L0 Arena\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Delete 1 unit inside Organ A -> check Organ B & `WORLD_EXOG` draws.\nPass target: 0 bit diff / 10k ticks\nPrerequisites: M001\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 828; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/1; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 3"
+    },
+    {
+      "id": "M003",
+      "text": "Seed Firewall, Repo & Manifest\nVerify standalone `.git` object store; partition Practice (`100\u2013999`), Tuning (`2000\u20132999`), Burn-on-Fail Test (`\u22655000`).",
+      "category": "Layer: L0 Arena\nDimension: \ud83c\udfc1 Stag",
+      "criterion": "Control/falsifier: Inject literal test seed `5001` into creature module -> AST gate.\nPass target: 0 leaks; 100% SHA\nPrerequisites: M001|M002\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 829; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/2; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 4"
+    },
+    {
+      "id": "M004",
+      "text": "11-Pool FP64 Kahan-Neumaier Ledger\nClosed 11 enthalpy/mass pools (`E_patch..E_heat_phys + E_diss_num \u2265 0`) in compensated `FP64` + Second-Law sink.",
+      "category": "Layer: L0 Arena\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Inject gross `-1e-5` AND subtle `-2e-11` leak mutants.\nPass target: |\u0394E|/(E0+Ein) < 1e-12\nPrerequisites: M001\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 830; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/3; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 5"
+    },
+    {
+      "id": "M005",
+      "text": "5-Gear Deterministic Multirate Clock\nInteger-divided gears (`0.5ms, 5ms, 50ms, 1s, 60s`) with explicit ZOH state hold and conservative flux accumulators.",
+      "category": "Layer: L0 Arena\nDimension: \u23f1 Oper",
+      "criterion": "Control/falsifier: Benchmark vs all-`0.5ms` single-rate + `2\u00d7` step-halving check.\nPass target: \u22655.0\u00d7 speed; err < 1%\nPrerequisites: M001|M004\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 831; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/4; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 6"
+    },
+    {
+      "id": "M006",
+      "text": "Canonical `.alifebin` & XOR Diff\nLittle-endian `.alifebin` snapshot serializer + `<64 KB` sparse XOR incremental checkpoint + core `exp_det`/`log_det`.",
+      "category": "Layer: L0 Arena\nDimension: \u23f1 Oper",
+      "criterion": "Control/falsifier: Save at `t=5,000`, reload on fresh worker -> compare `t=10,000` SHA-256.\nPass target: 0 bit diff; \u0394 < 64 KB\nPrerequisites: M002|M005\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 832; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/5; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 7"
+    },
+    {
+      "id": "M007",
+      "text": "Integer-Guarded Q\u226410 Register\nOptional coherent register validating integer `0 \u2264 Q \u2264 10` before allocating `2*(2**Q)` `Float64` (`\u226416 KiB`) + classical control.",
+      "category": "Layer: L0 Arena\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Pass `Q=32`, `Q=-1`, `Q=3.5` -> guard rejects without `1<<32` wrap.\nPass target: 0 \u2264 Q \u2264 10; \u226416 KiB\nPrerequisites: M001|M002\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [Q\u226410]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 833; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/6; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 8"
+    },
+    {
+      "id": "M008",
+      "text": "Universal Typed Organ Adapter\nImplement `parts(), couplings(), readState(), writeState(), stimulate(), lesion(), shamLesion(), metrics()` with SI tags.",
+      "category": "Layer: L0 Arena\nDimension: \ud83d\udcd0 Desn",
+      "criterion": "Control/falsifier: Inject `mM` into `kJ` port or `NaN` state -> runtime contract check.\nPass target: 0 untyped/NaN ports\nPrerequisites: M001|M004\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 834; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/7; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 9"
+    },
+    {
+      "id": "M009",
+      "text": "No-Cosmetic-Parts (`C-NC`) Sweep\nAutomated perturbation harness verifies every declared organ, modulator & soft parameter shifts active-regime trajectory.",
+      "category": "Layer: L0 Arena\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Attach disconnected display-only state array -> `C-NC` audit.\nPass target: 100% parts |\u0394y| > \u03b5\nPrerequisites: M006|M008\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(P)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 835; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/8; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 10"
+    },
+    {
+      "id": "M010",
+      "text": "Originality & 5-Mutant CI Gate\nStatic AST/import scanner bans world-oracle reads and verifies 0 copied external assets; runs 5 negative mutants.",
+      "category": "Layer: L0 Arena\nDimension: \ud83c\udfc1 Stag",
+      "criterion": "Control/falsifier: Run `Leaky-2e-11, Cosmetic, Oracle, Frozen, Shuffled` mutants.\nPass target: 5 / 5 mutants rejected\nPrerequisites: M003|M004|M009\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 836; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/9; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 11"
+    },
+    {
+      "id": "M011",
+      "text": "G\u00e1nti Chemoton Polymer Triad\nStoichiometrically couple autocatalytic cycle `A`, membrane lipid `T`, and template polymer `pV_n` (`n \u2265 N*` division).",
+      "category": "Layer: L1 WetBio\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Sever any 1 of the 3 cycles -> measure survival/division persistence.\nPass target: 3/3 cycles essential; \u03b4\u22650.8\nPrerequisites: M004|M008\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 837; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/10; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 12"
+    },
+    {
+      "id": "M012",
+      "text": "Michaelis-Menten Saturating Gut\nEnzymatic digestion & uptake obey `v = V_max\u00b7[S]/(K_m+[S])` with implicit stiff step & `[ATP]` allosteric brake.",
+      "category": "Layer: L1 WetBio\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Bolus `100\u00d7 K_m` nutrient shock vs linear-flux mutant.\nPass target: v \u2264 V_max; 0 blowups\nPrerequisites: M004|M011\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 838; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/11; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 13"
+    },
+    {
+      "id": "M013",
+      "text": "3-Phase Fasting & Ketone Sparing\nInsulin glycogenesis/lipogenesis; fasting mobilizes FFA + protein-sparing `\u03b2-HB` ketones prior to Phase-III proteolysis.",
+      "category": "Layer: L1 WetBio\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Fast replete organism vs ketogenesis-lesioned clone.\nPass target: \u22651.6\u00d7 protein-spared t\nPrerequisites: M012\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 839; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/12; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 14"
+    },
+    {
+      "id": "M014",
+      "text": "Positive-Orthant Antithetic Clamp\nNon-negative `z_1, z_2 \u2265 0` dual-rail antithetic integral controller (`\u03b3=0` undiluted regime) + seasonal rheostasis.",
+      "category": "Layer: L1 WetBio\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Apply `+25%` basal glucose step load vs P-only controller.\nPass target: |e_ss| < 1% set-point\nPrerequisites: M012\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 840; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/13; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 15"
+    },
+    {
+      "id": "M015",
+      "text": "3-Timescale Satiation & TTC Drive\nStretch + CCK + leptin meal termination; glucose `TTC` slope initiates foraging ahead of hypoglycemic threshold.",
+      "category": "Layer: L1 WetBio\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Compare intact vs TTC-lesioned & satiation-lesioned clones.\nPass target: Hypoglycemia t < 2%\nPrerequisites: M013|M014\nFirst 15 sprint: YES (Stage 0-2 MVP)\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 841; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/14; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 16"
+    },
+    {
+      "id": "M016",
+      "text": "Osmotic Pump & Cori Lactate Loop\nActive ion pump counters Donnan swelling; anaerobic burst builds `[H+/lactate]` cleared post-sprint via Cori cycle.",
+      "category": "Layer: L1 WetBio\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Block pump ATP (`lysis`) & run sprint-recovery assay.\nPass target: |\u0394Osm| < 3%; pH \u2265 7.1\nPrerequisites: M011|M012\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 842; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/15; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 17"
+    },
+    {
+      "id": "M017",
+      "text": "Garcia Delayed Taste Aversion\nSlow visceral emesis/toxin trace pairs ingested flavor cue across `\u2265 300 s` delay in 1 trial.",
+      "category": "Layer: L1 WetBio\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Present novel toxic flavor -> re-offer 1,000 s later vs sham.\nPass target: Re-ingest \u2264 15%; \u03b4\u22650.6\nPrerequisites: M012|M015\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 843; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/16; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 18"
+    },
+    {
+      "id": "M018",
+      "text": "Post-Absorptive Enthalpy Audit\nCross-checks absorbed `E_gut -> E_blood` kJ yield against oral sweet cue to extinguish `0-kJ` decoy lures.",
+      "category": "Layer: L1 WetBio\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Offer sweet `0-kJ` lure alongside bland caloric patch.\nPass target: Decoy share \u2264 10% \u22643 bouts\nPrerequisites: M015|M017\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 844; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/17; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 19"
+    },
+    {
+      "id": "M019",
+      "text": "Ring-0 Cardiac & O2 Perfusion\nIntrinsic Ring-0 cardiac + ventilatory CPGs scale organ O2/glucose delivery with exertion and ambient hypoxia.",
+      "category": "Layer: L1 WetBio\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Drop dome `pO2` by `40%` -> measure ventilation & perfusion.\nPass target: Vent lift \u2265 1.8\u00d7; 0 NaN\nPrerequisites: M012|M016\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 845; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/18; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 20"
+    },
+    {
+      "id": "M020",
+      "text": "CYP Detox, ROS & Immune Memory\nATP-debited toxin clearance, ROS antioxidant defense, sickness lethargy, and adaptive secondary pathogen clearance.",
+      "category": "Layer: L1 WetBio\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Primary vs secondary homologous pathogen challenge vs naive.\nPass target: 2nd clear time \u2264 0.5\u00d7 1st\nPrerequisites: M012|M019\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 846; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/19; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 21"
+    },
+    {
+      "id": "M021",
+      "text": "Incompressible Hydrostatic Coelom\n100% original parametric soft body conserving chamber volume (`C_vol`) so radial contraction drives axial extension.",
+      "category": "Layer: L2 Soft\nDimension: \ud83d\udcd0 Desn",
+      "criterion": "Control/falsifier: Radial squeeze test + cavity puncture negative control.\nPass target: |\u0394V|/V_0 < 1.0%\nPrerequisites: M004|M008\nFirst 15 sprint: NO\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 847; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/20; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 22"
+    },
+    {
+      "id": "M022",
+      "text": "XPBD Viscoelastic Membrane & Damping\nCompliance-scaled XPBD (`\u03b1\u0303 = \u03b1/dt\u00b2`) storing reversible `E_elastic` and booking numerical damping to `E_diss_num \u2265 0`.",
+      "category": "Layer: L2 Soft\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: 10\u00d7 nominal speed wall impact vs explicit-Euler baseline.\nPass target: 0 NaN; \u0394E_diss \u2265 -1e-15\nPrerequisites: M004|M021\nFirst 15 sprint: NO\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 848; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/21; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 23"
+    },
+    {
+      "id": "M023",
+      "text": "Biotensegrity & Crevice Squeeze\nPre-stressed cable-strut web + mutable catch-state (`\u226510\u00d7` stiffness range) compressing cross-section through narrow gaps.",
+      "category": "Layer: L2 Soft\nDimension: \ud83d\udcd0 Desn",
+      "criterion": "Control/falsifier: 0.55\u00d7 diameter crevice traversal vs rigid-strut (`\u03b1\u21920`) clone.\nPass target: Pass \u2265 90% vs 0% rigid\nPrerequisites: M021|M022\nFirst 15 sprint: NO\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 849; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/22; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 24"
+    },
+    {
+      "id": "M024",
+      "text": "0-Brain Passive Terrain Stability\nOpen-loop passive soft compliance absorbs uneven-terrain impacts and maintains forward CPG progression without central brain.",
+      "category": "Layer: L2 Soft\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Uneven obstacle ramp with 0-brain passive hydrostat vs rigid clone.\nPass target: \u22651.8\u00d7 dist; peak F \u2264 0.5\u00d7\nPrerequisites: M022|M023\nFirst 15 sprint: NO\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 850; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/23; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 25"
+    },
+    {
+      "id": "M025",
+      "text": "Dual-Medium Peristaltic & Swim Gaits\nPhase-coupled open-loop motor primitives propel soft body via land peristalsis and Reynolds-consistent aquatic undulation.",
+      "category": "Layer: L2 Soft\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Land-to-water ramp transition vs single-gait frozen control.\nPass target: Speed \u2265 0.4 BL/s both media\nPrerequisites: M022|M024\nFirst 15 sprint: NO\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 851; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/24; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 26"
+    },
+    {
+      "id": "M026",
+      "text": "Switchable Wet Adhesion & Slime\nATP-gated mucus adhesion/suction holds station in shear flow; secreted slime reduces follower drag (`-20%`).",
+      "category": "Layer: L2 Soft\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Fluid shear ramp vs adhesion-lesioned clone.\nPass target: Slip shear \u2265 3.0\u00d7 control\nPrerequisites: M012|M022\nFirst 15 sprint: NO\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 852; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/25; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 27"
+    },
+    {
+      "id": "M027",
+      "text": "Puncture Leak, Clotting & Blastema\nMembrane tear leaks coelomic pressure/stores until coagulation seals breach, followed by scar or amino-paid blastema.",
+      "category": "Layer: L2 Soft\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Standardized puncture vs clotting-lesioned negative control.\nPass target: Seal \u2264 15 s; loss < 8% E0\nPrerequisites: M011|M021\nFirst 15 sprint: NO\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 853; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/26; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 28"
+    },
+    {
+      "id": "M028",
+      "text": "Local Nociceptive Reflex & Autotomy\nFast `A\u03b4` withdrawal + slow `C` unloading; severe mechanical trapping triggers booked fracture-plane lobe autotomy.",
+      "category": "Layer: L2 Soft\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Pin distal lobe under lethal hazard vs autotomy-disabled clone.\nPass target: Escape \u2265 85%; |\u0394E| < 1e-12\nPrerequisites: M027\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 854; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/27; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 29"
+    },
+    {
+      "id": "M029",
+      "text": "Arrhenius Q10 & Insulation Trade-Off\nBiochemical `Q10` rate scaling + heritable cuticle insulation/albedo trading cold retention against hot sprint cooling.",
+      "category": "Layer: L2 Soft\nDimension: \ud83d\udcd0 Desn",
+      "criterion": "Control/falsifier: Reciprocal transplant across Cold (`5\u00b0C`) and Hot (`36\u00b0C`) domes.\nPass target: 2-niche fitness crossover \u03b4\u22650.5\nPrerequisites: M012|M022\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 855; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/28; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 30"
+    },
+    {
+      "id": "M030",
+      "text": "Turing Chromatophore Crypsis Skin\nReaction-diffusion / muscle-controlled surface pigment matches background luminance & spatial frequency.",
+      "category": "Layer: L2 Soft\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Visual-predator detection assay vs high-contrast locked mutant.\nPass target: Capture rate \u2264 0.55\u00d7 mutant\nPrerequisites: M022\nFirst 15 sprint: NO\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 856; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/29; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 31"
+    },
+    {
+      "id": "M031",
+      "text": "Unified Typed Omnimodal Bus\nAll simulated & `.sensorlog` transducers implement `(id, dim, gear, atp_cost, noise, read)` into flat SoA arena.",
+      "category": "Layer: L3 Sense\nDimension: \ud83d\udcd0 Desn",
+      "criterion": "Control/falsifier: Hot-lesion any 1 modality during run -> check survival & stability.\nPass target: 0 crashes; graceful \u226570%\nPrerequisites: M008|M021\nFirst 15 sprint: NO\nCost tag: [O(R)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 857; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/30; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 32"
+    },
+    {
+      "id": "M032",
+      "text": "Continuum Skin Strain & Slip Sheet\nSurface mechanoreceptor array encodes stretch `\u03b5`, curvature `\u03ba`, contact pressure, and tangential slip velocity.",
+      "category": "Layer: L3 Sense\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Apply sudden load slip to gripped stone vs slip-blind control.\nPass target: Grip recovery \u2264 35 ms\nPrerequisites: M022|M031\nFirst 15 sprint: NO\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 858; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/31; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 33"
+    },
+    {
+      "id": "M033",
+      "text": "Active Saccades & Motion Parallax\nFoveal ray fan + active lateral peering triangulates metric 3D target distance from optic bearing-rate.",
+      "category": "Layer: L3 Sense\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Depth-gap jump/reach vs peering-immobilized control.\nPass target: Range RMSE \u2264 12%; \u03b4\u22650.5\nPrerequisites: M025|M031\nFirst 15 sprint: NO\nCost tag: [O(R)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 859; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/32; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 34"
+    },
+    {
+      "id": "M034",
+      "text": "Bilateral Plume Chemotaxis & Taste\nPaired anterior chemoreceptors compute concentration + arrival-lag gradients in turbulent odor plumes + oral taste.",
+      "category": "Layer: L3 Sense\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Turbulent plume source localization vs crossed-antenna sham.\nPass target: Source hit \u2265 80% vs \u226425%\nPrerequisites: M017|M031\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 860; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/33; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 35"
+    },
+    {
+      "id": "M035",
+      "text": "Log-Cochlea & Lateral-Line Array\nLog-spaced spectral filterbank + surface hydrodynamic wake array localizing unseen moving agents in darkness.",
+      "category": "Layer: L3 Sense\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Dark ambush-predator approach vs deaf/lateral-line-lesioned arm.\nPass target: Azimuth MAE \u2264 18\u00b0; \u03b4\u22650.5\nPrerequisites: M031\nFirst 15 sprint: NO\nCost tag: [O(B)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 861; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/34; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 36"
+    },
+    {
+      "id": "M036",
+      "text": "ATP-Priced Nocturnal Active Sense\nActive electro-/echolocation pulses engage automatically in dark/turbid zones and silence in lit open water.",
+      "category": "Layer: L3 Sense\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Dark obstacle maze vs pulse-disabled & always-on wasteful clones.\nPass target: Collisions \u2264 10%; \u226535% ATP save\nPrerequisites: M031|M035\nFirst 15 sprint: NO\nCost tag: [O(R)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 862; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/35; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 37"
+    },
+    {
+      "id": "M037",
+      "text": "Topographic Visceral Insula Map\nDedicated interoceptive bus carries live pressure, 11-pool fuel margins, `pO2`, osmolarity, pH, and cytokines.",
+      "category": "Layer: L3 Sense\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Permute visceral channels across organs (`Shuffled` arm).\nPass target: Homeostatic survival \u03b4\u22650.6\nPrerequisites: M016|M031\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 863; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/36; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 38"
+    },
+    {
+      "id": "M038",
+      "text": "F\u00f6ldi\u00e1k Decorrelation & Reafference\nAnti-Hebbian lateral whitening reduces cross-channel redundancy and subtracts self-motion sensory predictions.",
+      "category": "Layer: L3 Sense\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Measure pairwise channel correlation & self-motion residual.\nPass target: Mean |r_ij| \u2264 0.15; cancel \u226570%\nPrerequisites: M031|M032\nFirst 15 sprint: NO\nCost tag: [O(S\u00b2)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 864; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/37; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 39"
+    },
+    {
+      "id": "M039",
+      "text": "Attenuated In-World Field Senses\nDipole compass + inverse-distance noisy peer bioelectric/wave sense with strict per-sample ATP debit.",
+      "category": "Layer: L3 Sense\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Compare intact navigation/coordination vs temporal-shuffle stream.\nPass target: \u03b4_pair \u2265 0.33 vs shuffle=chance\nPrerequisites: M031\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 865; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/38; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 40"
+    },
+    {
+      "id": "M040",
+      "text": "Immutable `.sensorlog` Replay Ring\nSandboxed Practice hardware transducer tap writing timestamped `.sensorlog` packets for bit-exact Test replay.",
+      "category": "Layer: L3 Sense\nDimension: \u23f1 Oper",
+      "criterion": "Control/falsifier: Replay 10,000-tick `.sensorlog` across 2 threads/OSes.\nPass target: SHA-256 0-bit diff\nPrerequisites: M006|M031\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 866; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/39; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 41"
+    },
+    {
+      "id": "M041",
+      "text": "Packed CSR Event-Driven Spiking Core\nBalanced E/I LIF/AdEx/sLTC sheets in 32-synapse packed `int4`/`b1.58` blocks (`k \u2248 1\u20134%` active rows, ATP/spike).",
+      "category": "Layer: L4 Neural\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Silent vs active metabolic audit + dense-matrix equivalence check.\nPass target: k \u2208 [1%,4%]; |\u0394E| < 1e-12\nPrerequisites: M004|M005|M031\nFirst 15 sprint: NO\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 867; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/40; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 42"
+    },
+    {
+      "id": "M042",
+      "text": "Adaptive sLTC / CfC Liquid Constants\nState- and modulator-gated time constants `\u03c4(x,I)` spanning `5 ms` to `60 s` without stiff ODE sub-step blowup.",
+      "category": "Layer: L4 Neural\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Multi-timescale cue integration vs fixed-`\u03c4` matched baseline.\nPass target: Accuracy lift \u2265 +20%; \u03b4\u22650.45\nPrerequisites: M041\nFirst 15 sprint: NO\nCost tag: [O(E)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 868; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/41; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 43"
+    },
+    {
+      "id": "M043",
+      "text": "Two-Compartment Apical dCaAP XOR\nSegregated basal drive + apical context calcium plateau solving single-layer nonlinear anti-coincidence/XOR.",
+      "category": "Layer: L4 Neural\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Contextual XOR task: intact vs apical-dendrite cut & sham cut.\nPass target: XOR Acc \u2265 0.90 vs \u22640.55 cut\nPrerequisites: M041\nFirst 15 sprint: NO\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 869; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/42; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 44"
+    },
+    {
+      "id": "M044",
+      "text": "Peripheral Ganglia & 50% Spike Offload\nAutonomous `int4` CfC limb/gut ganglia survive brain cut AND compliant body offloads `\u226550%` central spikes/m (`SOFT08`).",
+      "category": "Layer: L4 Neural\nDimension: \ud83d\udcd0 Desn",
+      "criterion": "Control/falsifier: 1) Decerebrate survival; 2) Compliant vs stiff `\u03b1\u21920` at equal speed/fail.\nPass target: \u226550% spike/m save @ \u2265speed\nPrerequisites: M024|M041|M042\nFirst 15 sprint: NO\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 870; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/43; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 45"
+    },
+    {
+      "id": "M045",
+      "text": "Homeostatic iSTDP, BCM & `\u2016W\u2016_2` Clamp\nFast inhibitory STDP + sliding BCM threshold + contractive norm `\u2016W\u2016_2 \u2264 0.99` + degenerate path survival.",
+      "category": "Layer: L4 Neural\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Randomly ablate `20%` of Ring-1 synapses vs non-homeostatic net.\nPass target: 0 runaway; \u226575% foraging kept\nPrerequisites: M041\nFirst 15 sprint: NO\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 871; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/44; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 46"
+    },
+    {
+      "id": "M046",
+      "text": "7 Precursor-Limited Neuromodulators\nDietary precursor-bounded `DA, 5-HT, NE, ACh, Glu, GABA, eCB` + slow peptide bus causally shifting routing.",
+      "category": "Layer: L4 Neural\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Clamp/deplete each of 7 channels -> measure preregistered signature.\nPass target: 7 / 7 directional shifts p_H\u22640.05\nPrerequisites: M020|M041\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 872; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/45; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 47"
+    },
+    {
+      "id": "M047",
+      "text": "Bounded Eligibility, e-prop & BTSP\nFixed-ring sparse `pre\u00d7post` eligibility (`\u22645%` syn) + `e-prop` + one-shot `1\u20135 s` plateau BTSP place writing.",
+      "category": "Layer: L4 Neural\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Delayed-reward T-maze (`3 s` gap) vs zero-trace Hebbian control.\nPass target: Solve \u2264 15 trials; \u03b4_pair \u2265 0.5\nPrerequisites: M041|M046\nFirst 15 sprint: NO\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 873; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/46; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 48"
+    },
+    {
+      "id": "M048",
+      "text": "PV+ Gamma Coherence & Delay Tuning\nGap-junction PV+ interneuron syncytium + adaptive integer axonal delays phase-locking bound features.",
+      "category": "Layer: L4 Neural\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Cross-modal binding under distractor noise vs jittered-delay sham.\nPass target: PLV \u2265 0.45; bind lift \u2265 +18%\nPrerequisites: M041|M043\nFirst 15 sprint: NO\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 874; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/47; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 49"
+    },
+    {
+      "id": "M049",
+      "text": "SCN Circadian \u00d7 Adenosine Flip-Flop\nPhotoperiod-entrained SCN oscillator \u00d7 Process-S sleep pressure driving Wake, NREM-SWS, and phasic REM.",
+      "category": "Layer: L4 Neural\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier:  Light phase-shift jetlag + constant-dark free-run vs SCN lesion.\nPass target: Entrains \u2264 3 d; period 24\u00b11h\nPrerequisites: M041|M046\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 875; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/48; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 50"
+    },
+    {
+      "id": "M050",
+      "text": "Size-Scaled NREM SHY & Pruning\nSlow-wave multiplicative weight renormalization & complement pruning scaled proportionally to current synapse count.",
+      "category": "Layer: L4 Neural\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Sleep-deprived clone vs NREM-permitted clone across 3 diurnal cycles.\nPass target: Weight norm CV \u2264 10%; +25% ret\nPrerequisites: M045|M049\nFirst 15 sprint: NO\nCost tag: [O(E)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 876; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/49; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 51"
+    },
+    {
+      "id": "M051",
+      "text": "Theta-Gamma 4-Slot Working Memory\nPhase-multiplexed oscillatory buffer + glial calcium bridge holding `4\u20137` ordered items across `10 s` silent gaps.",
+      "category": "Layer: L5 Memory\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Ordered serial recall + 5th/8th item overload capacity curve.\nPass target: \u226585% @ 4 items; predictable drop\nPrerequisites: M048\nFirst 15 sprint: NO\nCost tag: [O(D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 877; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/50; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 52"
+    },
+    {
+      "id": "M052",
+      "text": "Fusi Metaplastic Cascade Retention\nDiscrete biochemical synapse depth states yielding power-law retention across sequential Task A -> B -> C training.",
+      "category": "Layer: L5 Memory\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Task-A retention after Task-B/C vs single-state plastic baseline.\nPass target: Task-A LCB_95% > -0.05; \u03b4\u22650.5\nPrerequisites: M047|M050\nFirst 15 sprint: NO\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 878; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/51; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 53"
+    },
+    {
+      "id": "M053",
+      "text": "2% SDR Expansion & Configural XOR\nKenyon-inspired `2%` k-WTA sparse expansion + fan-in normalization solving negative patterning (`A+, B+, AB-`).",
+      "category": "Layer: L5 Memory\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Configural `AB-` discrimination vs dense linear readout baseline.\nPass target: AB- Acc \u2265 0.88 vs \u22640.52 linear\nPrerequisites: M041|M047\nFirst 15 sprint: NO\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 879; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/52; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 54"
+    },
+    {
+      "id": "M054",
+      "text": "Modern Hopfield + VSA CA3 Recall\nLog-sum-exp continuous Hopfield + algebraic VSA `(Place \u2297 Cue \u2297 Payoff)` completing `50%`-masked episodes.",
+      "category": "Layer: L5 Memory\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Cue completion at `50%` bit/feature occlusion vs Hopfield lesion.\nPass target: Cosine \u2265 0.90 vs \u22640.45 lesion\nPrerequisites: M051|M053\nFirst 15 sprint: NO\nCost tag: [O(M\u00b7D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 880; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/53; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 55"
+    },
+    {
+      "id": "M055",
+      "text": "Prioritized NREM & Counterfactual REM\nNREM replays high-TD-error transitions; REM synthesizes novel trajectory recombinations for zero-shot shortcutting.",
+      "category": "Layer: L5 Memory\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Detour shortcut test post-sleep vs shuffled-replay sleep control.\nPass target: Zero-shot shortcut \u2265 75%; \u03b4\u22650.45\nPrerequisites: M050|M054\nFirst 15 sprint: NO\nCost tag: [O(M\u00b7D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 881; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/54; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 56"
+    },
+    {
+      "id": "M056",
+      "text": "Perceptual & REM Reality Monitoring\n`HOT-1` source tag discriminates real sensory experience counts from REM counterfactual uncertainty (`N45`).",
+      "category": "Layer: L5 Memory\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Inject unvisited high-payoff REM rollout -> test morning certainty.\nPass target: False-visit rate \u2264 5%; AUROC\u22650.85\nPrerequisites: M055\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 882; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/55; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 57"
+    },
+    {
+      "id": "M057",
+      "text": "Kamin Blocking & Conditioned Inhib.\nCompetitive prediction-error update exhibits Kamin blocking (`A+` blocks `B` in `AB+`), extinction, and spontaneous recovery.",
+      "category": "Layer: L5 Memory\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Classic 2-stage Kamin blocking protocol vs non-competitive Hebbian.\nPass target: Blocked cue V_B \u2264 0.25\u00b7V_ctrl\nPrerequisites: M047|M053\nFirst 15 sprint: NO\nCost tag: [O(D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 883; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/56; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 58"
+    },
+    {
+      "id": "M058",
+      "text": "Latent Regime Context Switching\nUnexpected-surprise (`NE`) detector spawns/recalls latent context slots upon abrupt world-rule reversals without erasure.",
+      "category": "Layer: L5 Memory\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Repeated A <-> B rule reversals vs single-context learner.\nPass target: Re-adapt \u2264 2 trials vs \u226512\nPrerequisites: M046|M054\nFirst 15 sprint: NO\nCost tag: [O(K)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 884; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/57; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 59"
+    },
+    {
+      "id": "M059",
+      "text": "Toroidal Grid & 45-Tick Permanence\nContinuous hex/ring attractor path integration + landmark phase reset + occluded moving-prey trajectory tracking.",
+      "category": "Layer: L5 Memory\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Track prey behind opaque barrier for `45` Gear-1 ticks (`225 ms+`).\nPass target: Intercept err \u2264 1.5 BL; \u03b4\u22650.5\nPrerequisites: M033|M054\nFirst 15 sprint: NO\nCost tag: [O(D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 885; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/58; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 60"
+    },
+    {
+      "id": "M060",
+      "text": "Memory Reconsolidation & Checkpoint\nSafe reminder labilizes outdated fear trace (`N19`); ATP-paid `<64 KB` cortical save restores post-trauma (`N15`).",
+      "category": "Layer: L5 Memory\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Trauma shock corrupting policy -> rollback vs disabled-save arm.\nPass target: 100% Ring-1 hash / \u226585% skill\nPrerequisites: M006|M052\nFirst 15 sprint: NO\nCost tag: [O(D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 886; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/59; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 61"
+    },
+    {
+      "id": "M061",
+      "text": "Global Workspace & Lags 2\u20135 Blink\nUp-tree tournament ignites global down-tree broadcast (`K_ws` slots), exhibiting **lags 2\u20135 blink with lag-1 sparing**.",
+      "category": "Layer: L6 Exec\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Rapid dual-target stream (`T1, T2`) across lags 1..8 + hub lesion.\nPass target: Lag 2\u20135 drop \u226525%; |Lag1-8|\u226410%\nPrerequisites: M048|M051\nFirst 15 sprint: NO\nCost tag: [O(M_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 887; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/60; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 62"
+    },
+    {
+      "id": "M062",
+      "text": "Multiplicative Urgency-Gated EFE\nExpected-free-energy arbiter scales epistemic curiosity by `\u03c3((TTC - TTC_crit)/\u03c4)` so low-fuel agents prioritize food.",
+      "category": "Layer: L6 Exec\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: High-novelty decoy trap vs food patch at `20%` vs `90%` reserves.\nPass target: Starve rate \u2264 3% vs \u226545% add.\nPrerequisites: M015|M061\nFirst 15 sprint: NO\nCost tag: [O(M_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 888; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/61; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 63"
+    },
+    {
+      "id": "M063",
+      "text": "Endogenous & Social Attention Schema\n`AST-1` forward model forecasts own spotlight transitions and infers conspecific gaze obstruction/targets.",
+      "category": "Layer: L6 Exec\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Step attentional distractor + peer visual-occlusion competition.\nPass target: Spotlight MSE -35%; gaze \u03b4\u22650.4\nPrerequisites: M033|M061\nFirst 15 sprint: NO\nCost tag: [O(D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 889; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/62; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 64"
+    },
+    {
+      "id": "M064",
+      "text": "Calibrated HOT Confidence Opt-Out\n`HOT-2/3` reliability monitor achieves low calibration error and triggers scan/opt-out on ambiguous high-loss traps.",
+      "category": "Layer: L6 Exec\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Variable-SNR hazard discrimination with safe low-payoff opt-out.\nPass target: ECE \u2264 0.08; survival +30% vs blind\nPrerequisites: M056|M061\nFirst 15 sprint: NO\nCost tag: [O(D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 890; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/63; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 65"
+    },
+    {
+      "id": "M065",
+      "text": "0-Trial Outcome Devaluation Arbiter\nModel-based tree immediately suppresses actions toward newly sated/poisoned outcomes before re-experiencing action.",
+      "category": "Layer: L6 Exec\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Offline LiCl-like outcome devaluation vs dorsolateral habit clone.\nPass target: 0-trial press drop \u2265 65%; \u03b4\u22650.5\nPrerequisites: M017|M062\nFirst 15 sprint: NO\nCost tag: [O(G_p)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 891; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/64; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 66"
+    },
+    {
+      "id": "M066",
+      "text": "Riemannian Danger-Geodesic Planner\nPlans trajectories on learned latent graph weighted by metric harm cost `d_s\u00b7(1 + \u03bb\u00b7p_harm)`.",
+      "category": "Layer: L6 Exec\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Shortest-path lava/predator corridor vs longer safe detour.\nPass target: Hazard damage \u2264 0.3\u00d7 greedy\nPrerequisites: M059|M065\nFirst 15 sprint: NO\nCost tag: [O(G_p\u00b2)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 892; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/65; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 67"
+    },
+    {
+      "id": "M067",
+      "text": "Counterfactual Regret & Subgoals\nEvaluates unchosen branch counterfactuals to accelerate policy switch and identifies graph-bottleneck doorways.",
+      "category": "Layer: L6 Exec\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Multi-room bottleneck maze + suboptimal-arm counterfactual cue.\nPass target: Steps-to-goal \u2264 0.55\u00d7 flat RL\nPrerequisites: M066\nFirst 15 sprint: NO\nCost tag: [O(G_p)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 893; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/66; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 68"
+    },
+    {
+      "id": "M068",
+      "text": "Pre-Motor Visceral 'Free Won't' Veto\nHyperdirect pre-execution check aborts motor commands within `50 ms` if forward visceral model predicts lethal breach.",
+      "category": "Layer: L6 Exec\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Lure over sharp hazard when coelomic integrity `< 35%` vs sham veto.\nPass target: Veto latency \u2264 50ms; death -70%\nPrerequisites: M028|M061\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 894; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/67; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 69"
+    },
+    {
+      "id": "M069",
+      "text": "Unlearnable-Noise Humility Gate\nOnline entropy/runs test flags pure-chance (`I(X;Y) \u2248 0`) channels, halting active-sense ATP & synaptic churn.",
+      "category": "Layer: L6 Exec\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: 50/50 Bernoulli decoy lever alongside learnable patch.\nPass target: Noise \u0394w & ATP \u2264 0.25\u00d7 naive\nPrerequisites: M007|M064\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 895; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/68; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 70"
+    },
+    {
+      "id": "M070",
+      "text": "Ring-0 Guarded Tokenless WSE-12\nAll 10 `WSE-OP` operators live with Tier-0 `\u2016W\u2016_2 \u2264 0.99` guard, `<16 KB` diff, bit-exact rollback, and `Ring-0` write trap.",
+      "category": "Layer: L6 Exec\nDimension: \ud83d\udcd0 Desn",
+      "criterion": "Control/falsifier: Attempt endogenous `Ring-0` edit + norm-overflow edit + rollback.\nPass target: 100% Ring-0 blocked; 0-bit undo\nPrerequisites: M006|M045|M064\nFirst 15 sprint: NO\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 896; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/69; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 71"
+    },
+    {
+      "id": "M071",
+      "text": "4-Timescale Affective Architecture\nCausally nested fast emotions (`<5s`), peptide moods (`min`), peer attitudes (`hours`), and heritable temperament.",
+      "category": "Layer: L7 Self\nDimension: \ud83e\ude9c Ordr",
+      "criterion": "Control/falsifier: Perturb each timescale + compare vs flat scalar-reward ablation.\nPass target: 4 distinct \u03c4 bands; \u03b4_pair \u2265 0.4\nPrerequisites: M046|M062\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 897; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/70; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 72"
+    },
+    {
+      "id": "M072",
+      "text": "Context-Gated Play, Care & Defense\nSurplus-ATP juvenile play, kin-distress caregiving, toxin disgust, and immediate play suppression under threat/fasting.",
+      "category": "Layer: L7 Self\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Introduce predator looming or drop stores `<30%` during play.\nPass target: Play drops \u2265 95% within 200 ms\nPrerequisites: M071\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 898; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/71; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 73"
+    },
+    {
+      "id": "M073",
+      "text": "Efference-Copy Self-Recognition (`AE-2`)\nZero-oracle contingent sensorimotor forward model distinguishes own limb/reflection from delayed or peer motion.",
+      "category": "Layer: L7 Self\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Contingent mirror/shadow mark assay vs `250 ms`-delayed sham.\nPass target: Self-contingent d' \u2265 1.8\nPrerequisites: M038|M063\nFirst 15 sprint: NO\nCost tag: [O(D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 899; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/72; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 74"
+    },
+    {
+      "id": "M074",
+      "text": "Trajectory-Curvature & Glitch Caution\nHigh hidden-state curvature `\u03ba(t)` and visceral enthalpy-prediction residuals trigger braking and active re-scan.",
+      "category": "Layer: L7 Self\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Enter perturbed-physics / zero-calorie anomaly zone vs blind clone.\nPass target: Brake latency \u2264 3 steps; \u03b4\u22650.45\nPrerequisites: M018|M064\nFirst 15 sprint: NO\nCost tag: [O(D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 900; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/73; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 75"
+    },
+    {
+      "id": "M075",
+      "text": "Sandboxed Physical Lever Mastery\nDiscovers rate-limited in-world physical mechanisms (stone dams, shade canopies) with `0` host/DOM/FS access.",
+      "category": "Layer: L7 Self\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Security sandbox escape fuzzing + in-world lever utility test.\nPass target: 0 escapes; lever lift \u03b4 \u2265 0.45\nPrerequisites: M010|M066\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 901; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/74; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 76"
+    },
+    {
+      "id": "M076",
+      "text": "Metric-Preconditioned & Winding State\nDiagonal Fisher/QGT natural-gradient update + integer winding invariant preventing micro-noise mood chatter.",
+      "category": "Layer: L7 Self\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: Noisy non-stationary tracking vs unpreconditioned Euclidean step.\nPass target: Chatter flips -60%; MSE -20%\nPrerequisites: M047|M071\nFirst 15 sprint: NO\nCost tag: [O(D)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 902; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/75; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 77"
+    },
+    {
+      "id": "M077",
+      "text": "Salience-Ordered Famine Triage (`N100`)\nPhase-III energy crisis down-clocks associative spheres (`N94`) and sheds trivia tags before core survival engrams.",
+      "category": "Layer: L7 Self\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Severe fast + refeed recovery vs random-synapse-drop control.\nPass target: Core skill \u2265 85% vs \u226440% rand\nPrerequisites: M013|M052\nFirst 15 sprint: NO\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 903; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/76; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 78"
+    },
+    {
+      "id": "M078",
+      "text": "Forked-Snapshot Perturbational `PCI*`\nComputes Lempel-Ziv spatiotemporal response complexity across forked snapshots (`Wake vs NREM-SWS vs Cut`).",
+      "category": "Layer: L7 Self\nDimension: \u2699 Comp",
+      "criterion": "Control/falsifier: 24 paired seeds across Wake, SWS, Saturated, and Severed states.\nPass target: PCI*_W \u2265 0.35; W-SWS \u2265 0.12\nPrerequisites: M006|M049|M061\nFirst 15 sprint: NO\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 904; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/77; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 79"
+    },
+    {
+      "id": "M079",
+      "text": "Markov Blanket & Traveling Waves\nConditional sensory/active blanket autonomy (`I(Int;Ext|Blanket)` reduction) + coherent cortical wave propagation.",
+      "category": "Layer: L7 Self\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Topography-scrambled control vs intact sheet wave speed/PLV.\nPass target: Wave R\u00b2 \u2265 0.65 vs \u22640.15 scram\nPrerequisites: M048|M073\nFirst 15 sprint: NO\nCost tag: [O(N_u)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 905; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/78; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 80"
+    },
+    {
+      "id": "M080",
+      "text": "Controlled Butlin-14 + F10 Scorecard\nEvaluates all `14` Butlin indicators + `F1\u2013F10` profile across Intact, Passive, Shuffled, Targeted & Sham lesions.",
+      "category": "Layer: L7 Self\nDimension: \ud83c\udfc1 Stag",
+      "criterion": "Control/falsifier: Locked `N \u2265 24..64` seeds + exact Wilcoxon + Holm FWER `\u03b1 \u2264 0.05`.\nPass target: 14/14 p_Holm \u2264 0.05 & \u03b4 \u2265 0.33\nPrerequisites: M061|M064|M073|M078\nFirst 15 sprint: NO\nCost tag: [Suite]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 906; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/79; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 81"
+    },
+    {
+      "id": "M081",
+      "text": "Yolk-Conserved Cleavage & Adhesion\nSingle yolk-funded zygote divides via GRN + Steinberg differential adhesion + apoptosis into multi-chamber soma/brain.",
+      "category": "Layer: L8 Onto\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Perturb adhesion/GRN gene + audit zygote-to-hatchling `FP64` kJ.\nPass target: |\u0394E| < 1e-12; sort ARI \u2265 0.80\nPrerequisites: M011|M021\nFirst 15 sprint: NO\nCost tag: [O(Cells)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 907; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/80; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 82"
+    },
+    {
+      "id": "M082",
+      "text": "Critical-Period Overgrowth & Prune\nJuvenile synaptogenesis overshoot refined by early sensory statistics and size-scaled NREM complement pruning.",
+      "category": "Layer: L8 Onto\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Early monocular/plume deprivation vs normal juvenile rearing.\nPass target: Selectivity d' \u2265 1.5; -30% wires\nPrerequisites: M050|M081\nFirst 15 sprint: NO\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 908; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/81; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 83"
+    },
+    {
+      "id": "M083",
+      "text": "Kleiber M^0.75 Allometry & Stages\nBasal metabolic rate scales across `Embryo -> Larva -> Adult` as `B \u221d M^(0.75 \u00b1 0.05)` across `\u2265 8\u00d7` mass range.",
+      "category": "Layer: L8 Onto\nDimension: \ud83c\udfc1 Stag",
+      "criterion": "Control/falsifier: Log-log regression of basal `kJ/s` vs mass `M` vs `M^1.0` mutant.\nPass target: Slope \u2208 [0.70, 0.80]; R\u00b2 \u2265 0.95\nPrerequisites: M012|M081\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 909; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/82; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 84"
+    },
+    {
+      "id": "M084",
+      "text": "Blackiston Metamorphosis Retention\nLarva replaces `\u2265 80%` somatic muscle/motor map during pupation yet retains conditioned toxin-odor aversion (`N89`).",
+      "category": "Layer: L8 Onto\nDimension: \ud83c\udfc1 Stag",
+      "criterion": "Control/falsifier: Blackiston 2008 paradigm vs naive adult & scrambled-CA3 pupa.\nPass target: Adult avoid \u2265 0.70 vs \u22640.20 ctrl\nPrerequisites: M017|M054|M081\nFirst 15 sprint: NO\nCost tag: [O(V_m)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 910; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/83; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 85"
+    },
+    {
+      "id": "M085",
+      "text": "Bioelectric `V_mem` Polarity & Molt\nGap-junction voltage gradient guides anterior/posterior blastema regeneration; armored morphs survive soft ecdysis.",
+      "category": "Layer: L8 Onto\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: Amputate posterior lobe with intact vs clamped `V_mem` gradient.\nPass target: Correct polarity \u2265 90% vs \u226430%\nPrerequisites: M027|M081\nFirst 15 sprint: NO\nCost tag: [O(Cells)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 911; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/84; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 86"
+    },
+    {
+      "id": "M086",
+      "text": "Cryptobiotic Vitrification Survival\nPre-drought trehalose vitrification drops metabolic burn `< 2%` basal and restores viability + memory upon rehydration.",
+      "category": "Layer: L8 Onto\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: 10,000-s desiccation freeze vs vitrification-lesioned clone.\nPass target: Revive \u2265 90% vs 0% lesion\nPrerequisites: M029|M052\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 912; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/85; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 87"
+    },
+    {
+      "id": "M087",
+      "text": "Disposable-Soma Senescence Trade-Off\nHeritable ATP allocation split between somatic repair and early fecundity generates Pareto lifespan-reproduction front.",
+      "category": "Layer: L8 Onto\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Compare high-repair vs high-fecundity genotypes across niches.\nPass target: Spearman \u03c1(fec, span) \u2264 -0.55\nPrerequisites: M015|M081\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 913; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/86; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 88"
+    },
+    {
+      "id": "M088",
+      "text": "Stress Evolvability & F1 Thrift Mark\nChronic cortisol elevates canalized germline variance; maternal famine sets `1\u20132` gen reversible thrift mark (`N48`).",
+      "category": "Layer: L8 Onto\nDimension: \ud83c\udf0a Proc",
+      "criterion": "Control/falsifier: F1 famine survival + F3 washout check vs non-epigenetic clone.\nPass target: F1 span +25%; F3 washout <5%\nPrerequisites: M013|M081\nFirst 15 sprint: NO\nCost tag: [O(G)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 914; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/87; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 89"
+    },
+    {
+      "id": "M089",
+      "text": "Recombination & Zahavi/MHC Mate Choice\nMeiotic crossover + ATP-honest condition display + MHC dissimilarity avoidance preventing inbred depression.",
+      "category": "Layer: L8 Onto\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Choice test: replete outbred vs depleted or sibling suitor.\nPass target: Outbred replete pref \u2265 0.72\nPrerequisites: M020|M081\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 915; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/88; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 90"
+    },
+    {
+      "id": "M090",
+      "text": "Compensated Nursing & Baldwin Effect\nMaternal-to-juvenile `FP64` lactation (`|\u0394E|<1e-12`), Trivers weaning transition, and `\u226520`-gen Baldwin assimilation.",
+      "category": "Layer: L8 Onto\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Audit parent+offspring kJ sum + innate trial-to-learn at Gen 25.\nPass target: |\u0394E|/(E0+Ein)<1e-12; -40% trials\nPrerequisites: M004|M082|M089\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 916; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/89; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 91"
+    },
+    {
+      "id": "M091",
+      "text": "`O(N_pop+C_pairs)` Closed Biosphere\nUniform spatial-hash collisions, solar primary growth, waste gardens, carcass lysis, and dome-wide `FP64` closure.",
+      "category": "Layer: L9 Eco\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Scale `N_pop` `25 -> 200` at constant density + audit 11-pool kJ.\nPass target: Slope \u2264 1.15\u00d7 linear; <1e-12\nPrerequisites: M004|M020|M022\nFirst 15 sprint: NO\nCost tag: [O(N+C)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 917; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/90; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 92"
+    },
+    {
+      "id": "M092",
+      "text": "ATP-Honest Calls & Dialect Divergence\nProportional-ATP vocal/chromatophore signaling, observational foraging, and allopatric group dialect separation.",
+      "category": "Layer: L9 Eco\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Zero-cost bluff mutant invasion test + 2-island dialect classifier.\nPass target: Bluff extinct; dialect Acc \u2265 0.80\nPrerequisites: M035|M091\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 918; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/91; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 93"
+    },
+    {
+      "id": "M093",
+      "text": "Kin Alarm, Trophallaxis & Reciprocity\nMHC-gated alarm calls, caloric regurgitation to starving kin/reciprocators, and chronic-defector boycott (`N60`).",
+      "category": "Layer: L9 Eco\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Iterated sharing with reciprocator vs 100%-defector clone.\nPass target: Defector share drops \u2264 15%\nPrerequisites: M089|M092\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 919; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/92; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 94"
+    },
+    {
+      "id": "M094",
+      "text": "Elder Demonstration & Sentinel Sleep\nExperienced adult slows actions for naive young (`N55`); huddled clusters stagger circadian phase for sentinel watch.",
+      "category": "Layer: L9 Eco\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Nocturnal predator raids on staggered cluster vs synchronous-sleep.\nPass target: Ambush mortality \u2264 0.60\u00d7 sync\nPrerequisites: M049|M092\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 920; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/93; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 95"
+    },
+    {
+      "id": "M095",
+      "text": "Conformable Tool Use & Spoilage Cache\nSoft grip displaces barrier stones to unlock recessed caches; episodic age tracking skips rotted caches (`N76`).",
+      "category": "Layer: L9 Eco\nDimension: \ud83c\udfaf Func",
+      "criterion": "Control/falsifier: Recessed stone-blocked cache + fresh-vs-spoiled retrieval test.\nPass target: Unlock \u2265 80%; fresh pick \u2265 85%\nPrerequisites: M023|M054|M066\nFirst 15 sprint: NO\nCost tag: [O(N+C)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 921; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/94; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 96"
+    },
+    {
+      "id": "M096",
+      "text": "Swarm Gradient Pooling & Zooid Castes\nCollective threat blanket, distributed noisy-gradient pooling (`N57`), slime corridors, and optional colonial zooids.",
+      "category": "Layer: L9 Eco\nDimension: \ud83e\ude9c Ordr",
+      "criterion": "Control/falsifier: Noisy moving plume tracking: 16-agent swarm vs 16 solo clones.\nPass target: Swarm RMSE \u2264 0.65\u00d7 solo\nPrerequisites: M026|M091\nFirst 15 sprint: NO\nCost tag: [O(N+C)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 922; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/95; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 97"
+    },
+    {
+      "id": "M097",
+      "text": "3-Guild Food Web & Zoopharmacognosy\nPersistent primary patches, grazers, predators, manipulative parasites, and learned bitter medicinal self-cure.",
+      "category": "Layer: L9 Eco\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: 50,000-s 3-guild coexistence + infected medicinal-patch choice.\nPass target: 3 guilds > 0 @ 50ks; load -60%\nPrerequisites: M018|M020|M091\nFirst 15 sprint: NO\nCost tag: [O(N+C)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 923; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/96; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 98"
+    },
+    {
+      "id": "M098",
+      "text": "Daisyworld Albedo, Bridges & QD Map\nBiotic albedo thermal buffering, enthalpy-exact archipelago migration, and MAP-Elites guild illumination.",
+      "category": "Layer: L9 Eco\nDimension: \ud83d\udd04 Syst",
+      "criterion": "Control/falsifier: Solar luminosity ramp (`0.8\u20131.2\u00d7`) + cross-dome migration kJ audit.\nPass target: \u0394T_core \u2264 0.5\u00d7 barren; <1e-12\nPrerequisites: M029|M091\nFirst 15 sprint: NO\nCost tag: [O(N+C)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 924; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/97; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 99"
+    },
+    {
+      "id": "M099",
+      "text": "19-Tab SeqLock Center & Governor Gate\n`SharedArrayBuffer` 3-retry `SeqLock`, 19 tabs, decoupled lossless export, and contiguous render-only Tier-1 Governor.",
+      "category": "Layer: L10 Ops\nDimension: \u23f1 Oper",
+      "criterion": "Control/falsifier: 10,000 Tier-1 ticks: all 19 tabs open + exporting vs headless.\nPass target: SHA-256 0-bit diff; \u226416.7ms\nPrerequisites: M006|M091\nFirst 15 sprint: NO\nCost tag: [O(1)]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 925; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/98; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 100"
+    },
+    {
+      "id": "M100",
+      "text": "Unified 825-Check & 13-Gate CI Sign-Off\nSingle headless CI command verifying `.git`, 5 mutants, Tier budgets, `1e-12` ledger, Holm FWER, and provenance.",
+      "category": "Layer: L10 Ops\nDimension: \ud83c\udfc1 Stag",
+      "criterion": "Control/falsifier: Inject any 1 mutant, leak, or unprobed format -> CI exit code.\nPass target: 13 / 13 gates pass; 0 leaks\nPrerequisites: M010|M070|M080|M090|M099\nFirst 15 sprint: NO\nCost tag: [Gate]\nSource status: \u2610 Not Yet\nMinimum paired seeds: 24\nFWER family size: 100",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 926; ALife-Framework-v3.0-Master-Spec.json#/milestones_dag_100/99; ALife-Framework-v3.0-Master-Workbook.xls#Milestones_100 row 101"
+    }
+  ]
+}

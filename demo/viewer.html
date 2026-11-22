@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111b19"><title>Asmodensius | World viewer</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="/viewer.css">
+</head>
+<body>
+<header><div class="brand"><span class="mark" aria-hidden="true">&#9680;</span><h1>Asmodensius</h1><span class="subtitle">World viewer</span></div><span class="linkstate" id="connection" role="status">Connecting</span></header>
+<main>
+<section class="stage" id="stage" aria-label="Live simulated world">
+<canvas id="world" tabindex="0" aria-label="Interactive 3D world. Drag to orbit, scroll to zoom, click to inspect a creature."></canvas>
+<div class="stage-head"><span class="mode" id="worldMode">Waiting for world</span><span id="worldTick"></span></div>
+<div class="stage-foot"><span id="cameraHint">Drag to orbit &middot; Scroll to zoom &middot; Click a creature</span><button id="expand" title="Toggle full-screen view">Full screen</button></div>
+<div class="empty" id="empty">Waiting for the first snapshot</div>
+</section>
+<aside>
+<section><h2>World</h2>
+<div class="numbers"><div><strong id="population">&mdash;</strong><small>Creatures</small></div><div><strong id="fps">&mdash;</strong><small>Display FPS</small></div></div>
+<dl class="stats"><dt>Frame time, p99</dt><dd id="p99">&mdash;</dd><dt>Snapshots</dt><dd id="sps">&mdash;</dd><dt>World ticks</dt><dd id="tps">&mdash;</dd><dt>Last snapshot received</dt><dd id="lastReceipt">&mdash;</dd><dt>Snapshot age at arrival</dt><dd id="age">&mdash;</dd><dt>Observer failures</dt><dd id="observer">&mdash;</dd></dl>
+<button class="primary" id="measure" disabled>Measure 30 s</button><p class="status" id="measureStatus" role="status"></p>
+</section>
+<section><h2>Camera</h2><div class="segments" role="group" aria-label="Camera mode">
+<button data-mode="orbit" aria-pressed="true">Orbit</button><button data-mode="fly" aria-pressed="false">Fly</button><button data-mode="follow" id="follow" aria-pressed="false" disabled>Follow</button></div>
+<div class="control"><label for="detail">Creature detail</label><select id="detail"><option value="overview">Overview</option><option value="close">Detailed close-ups</option></select></div>
+<div class="control"><label for="smooth">Motion</label><select id="smooth"><option value="on">Smoothed between ticks</option><option value="off">Raw ticks</option></select></div>
+<div class="control"><label for="surface">Terrain</label><select id="surface"><option value="height">Heightfield</option><option value="voxels">Solid voxels</option></select></div>
+<div class="control"><label for="slice">Field slice</label><select id="slice"><option value="-1">Off</option><option value="0">Solvent phase</option><option value="1">Light</option><option value="2">Temperature</option></select></div>
+<label id="sliceRow" hidden>Layer <output id="layerNo">0</output><input id="layer" type="range" min="0" max="31" value="0"></label>
+<label class="check"><input id="grid" type="checkbox"> Cell grid and world box</label>
+</section>
+<section><h2>Creature inspector</h2><p id="selected">Click a creature in the world.</p><dl id="inspect" class="stats"></dl></section>
+<section><h2>Engine proof</h2><button id="proof" disabled>Proof picture</button><p class="status" id="proofStatus" role="status"></p><img id="proofView" alt="GPU view at the proof tick" hidden><img id="proofImage" alt="Reference image from the engine" hidden></section>
+<section><details><summary>World controls</summary><div class="controlsRow"><button id="pause">Pause</button><button id="step">Step 1</button></div><button id="save">Save world</button><p id="saveStatus" class="status" role="status"></p>
+<div class="control"><label for="speed">Ticks / s</label><input id="speed" type="number" min="0" max="99999" value="0" title="Zero runs freely"></div>
+<div class="control"><label for="rate">Snapshots / s</label><input id="rate" type="number" min="1" max="60" value="15"></div><button id="applyRate">Apply rates</button></details>
+<details><summary>Rendering details</summary><p id="gpu">Detecting graphics device</p><p id="shapes"></p><p id="legend"></p><p>The viewer interpolates between observations. Detailed close-ups use the streamed body shape, individual hue and pattern, and clade saturation, glow, sheen and spikes. The engine also has individual adjustments for these four traits and full body roll. Each sun follows its recorded phase and brightness. The combined light direction shades the world.</p></details></section>
+<p id="error" role="alert"></p>
+</aside></main>
+<script type="module" src="/viewer_gl.js"></script></body></html>

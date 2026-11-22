@@ -1,0 +1,711 @@
+{
+  "set_id": "framework825_novel100",
+  "title": "NOVEL-100 Frontier Assays (ALife Framework v3.0)",
+  "source_files": [
+    "ALife-Framework-v3.0-Master-Checklists.csv",
+    "ALife-Framework-v3.0-Master-Spec.json",
+    "Asmodensius-evidence-crosswalk.xlsx"
+  ],
+  "items": [
+    {
+      "id": "N01",
+      "text": "Berry-phase circadian clock\nEstimates photoperiod phase from geometric phase of a `Q \u2264 4` internal state; benchmarked against parameter-matched classical `SO(2)` phase ring.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / A. Quantum-inspired & geometric interior (mandatory classical controls on N01\u2013N08)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 651; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/649; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 651"
+    },
+    {
+      "id": "N02",
+      "text": "Fubini\u2013Study state-change surprise\nStepwise Fubini\u2013Study angle between internal states drives salience; must match or beat classical cosine-distance surprise at equal FLOPs.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / A. Quantum-inspired & geometric interior (mandatory classical controls on N01\u2013N08)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 652; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/650; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 652"
+    },
+    {
+      "id": "N03",
+      "text": "Topological winding-number mood lock\nDiscrete integer winding invariant prevents chattering mood flips from subthreshold noise while permitting true bifurcation switches.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / A. Quantum-inspired & geometric interior (mandatory classical controls on N01\u2013N08)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 653; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/651; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 653"
+    },
+    {
+      "id": "N04",
+      "text": "Metric-preconditioned natural plasticity\nUpdates preconditioned by diagonal/block Fisher or quantum geometric metric reduce overshoot (`\u2265 20%` fewer oscillations vs Euclidean SGD).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / A. Quantum-inspired & geometric interior (mandatory classical controls on N01\u2013N08)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 654; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/652; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 654"
+    },
+    {
+      "id": "N05",
+      "text": "Statistical chance literacy\nRuns/entropy monitor distinguishes pure `50/50` unlearnable noise dials from structured contingencies and suppresses superstitious `\u0394w` churn (`\u2265 60%` churn drop).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / A. Quantum-inspired & geometric interior (mandatory classical controls on N01\u2013N08)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 655; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/653; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 655"
+    },
+    {
+      "id": "N06",
+      "text": "Endogenous measurement-basis control\nSelects readout projection angle of internal state register to modulate exploratory variance intentionally vs fixed-basis ablation.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / A. Quantum-inspired & geometric interior (mandatory classical controls on N01\u2013N08)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 656; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/654; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 656"
+    },
+    {
+      "id": "N07",
+      "text": "Non-commuting context order effects\nSequential evaluation through non-commuting projections reproduces lawful context/framing sensitivity tested on reversed cue pairs.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / A. Quantum-inspired & geometric interior (mandatory classical controls on N01\u2013N08)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 657; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/655; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 657"
+    },
+    {
+      "id": "N08",
+      "text": "State-trajectory path-length sleep drive\nProcess-S sleep pressure integrates intrinsic manifold path length traveled while awake (`r \u2265 0.70` with post-wake NREM delta need).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / A. Quantum-inspired & geometric interior (mandatory classical controls on N01\u2013N08)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 658; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/656; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 658"
+    },
+    {
+      "id": "N09",
+      "text": "Trajectory-curvature metacognitive brake\nSharp intrinsic curvature `\u03ba(t)` of hidden neural trajectories triggers hesitation, active gaze scanning, and workspace re-ignition.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / A. Quantum-inspired & geometric interior (mandatory classical controls on N01\u2013N08)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 659; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/657; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 659"
+    },
+    {
+      "id": "N10",
+      "text": "Riemannian danger-geodesic planning\nPlans detours along metric-weighted danger geodesics (`cost = d_s \u00b7 (1 + \u03bb\u00b7p_harm)`), reducing hazard damage `\u2265 40%` vs Euclidean shortest path.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / A. Quantum-inspired & geometric interior (mandatory classical controls on N01\u2013N08)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 660; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/658; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 660"
+    },
+    {
+      "id": "N11",
+      "text": "Ring-guarded endogenous gain surgery\nAttenuates or boosts `Ring-1` specialist couplings via `WSE-OP01` when internal forward model predicts net survival lift (`Ring-0` untouched).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / B. Self-modification by endogenous Ring-1/2 operators",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 661; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/659; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 661"
+    },
+    {
+      "id": "N12",
+      "text": "Pre-task neuromodulatory self-priming\nReleases bounded preparatory `NE/ACh` gain shift prior to entering known high-predation or high-precision zones.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / B. Self-modification by endogenous Ring-1/2 operators",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 662; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/660; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 662"
+    },
+    {
+      "id": "N13",
+      "text": "Visceral pre-motor 'Free Won't' veto\nCancels initiated motor impulse within `50 ms` when forward visceral predictor forecasts lethal pressure/ATP loss (`M068`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / B. Self-modification by endogenous Ring-1/2 operators",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 663; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/661; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 663"
+    },
+    {
+      "id": "N14",
+      "text": "Sleep sensitivity-probe tagging\nInjects micro-perturbations during NREM/REM to estimate synapse survival salience and shields top-ranked wires against complement pruning.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / B. Self-modification by endogenous Ring-1/2 operators",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 664; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/662; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 664"
+    },
+    {
+      "id": "N15",
+      "text": "ATP-paid cortical checkpoint & rollback\nSpends booked `E_atp` prior to acute hazard to store `< 64 KB` `Ring-1` XOR checkpoint and restores on severe nociceptive trauma (`D_creature` scope).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / B. Self-modification by endogenous Ring-1/2 operators",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 665; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/663; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 665"
+    },
+    {
+      "id": "N16",
+      "text": "Longitudinal weight-drift self-audit\nMonitors cosine divergence of `Ring-1` weights from post-juvenile anchor and elevates caution/consolidation when drift spikes.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / B. Self-modification by endogenous Ring-1/2 operators",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 666; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/664; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 666"
+    },
+    {
+      "id": "N17",
+      "text": "Endogenous pre-action calibration commit\nCommits scalar payoff/sensory forecast prior to action execution and down-weights chronically overconfident specialist voters (`ECE \u2264 0.08`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / B. Self-modification by endogenous Ring-1/2 operators",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 667; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/665; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 667"
+    },
+    {
+      "id": "N18",
+      "text": "Metabolic ATP plasticity auction\nParallel specialists bid `E_atp` proportional to local TD/prediction surprise for bounded per-step synaptic write bandwidth.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / B. Self-modification by endogenous Ring-1/2 operators",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 668; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/666; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 668"
+    },
+    {
+      "id": "N19",
+      "text": "Active extinction of stale superstitions\nTargeted LTD/unbinding clears high-cost defensive Traces after `\u2265 K` safe disconfirmations (`\u2265 50%` faster recovery vs passive decay).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / B. Self-modification by endogenous Ring-1/2 operators",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 669; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/667; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 669"
+    },
+    {
+      "id": "N20",
+      "text": "Dynamic visceral perfusion arbitration\nAllostatic hub reallocates circulating glucose/O2 between brain, gut, and locomotor muscle according to acute survival phase.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / B. Self-modification by endogenous Ring-1/2 operators",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 670; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/668; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 670"
+    },
+    {
+      "id": "N21",
+      "text": "Replayable `.sensorlog` step-budget sense\nReads deterministic recorded step-budget counter from `.sensorlog` (`0` live `performance.now()` calls in Tier-1!) and adapts plan horizon.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / C. Sandboxed regime & replayable-substrate inference (zero host wall-clock leak)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 671; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/669; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 671"
+    },
+    {
+      "id": "N22",
+      "text": "Online latent physics-dial estimation\nContinuously infers dome gravity, fluid viscosity, thermal conductivity, and solar period as explicit latent context variables (`R\u00b2 \u2265 0.75`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / C. Sandboxed regime & replayable-substrate inference (zero host wall-clock leak)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 672; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/670; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 672"
+    },
+    {
+      "id": "N23",
+      "text": "Visceral enthalpy-anomaly avoidance\nDetects mismatch between ingested oral expectation and absorbed `E_gut` enthalpy (`N99`) or corrupted test zones and avoids them.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / C. Sandboxed regime & replayable-substrate inference (zero host wall-clock leak)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 673; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/671; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 673"
+    },
+    {
+      "id": "N24",
+      "text": "Snapshot-branch state-recurrence sense\nDetects exact sensory-visceral sequence match against episodic ring after sandbox branch/replay and adapts choice immediately.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / C. Sandboxed regime & replayable-substrate inference (zero host wall-clock leak)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 674; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/672; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 674"
+    },
+    {
+      "id": "N25",
+      "text": "Compute-scarcity horizon throttling\nUnder recorded high-load regime dials, smoothly truncates planning depth `G_plan` before violating action deadlines.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / C. Sandboxed regime & replayable-substrate inference (zero host wall-clock leak)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 675; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/673; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 675"
+    },
+    {
+      "id": "N26",
+      "text": "Logged dome-intervention contingency\nLearns lawful contingencies between display actions and preregistered automated dome-supply dispensers (strictly in-world).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / C. Sandboxed regime & replayable-substrate inference (zero host wall-clock leak)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 676; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/674; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 676"
+    },
+    {
+      "id": "N27",
+      "text": "Post-switch boundary exploration surge\nElevates epistemic exploration specifically after `NE` unexpected-uncertainty detector flags an environmental rule change.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / C. Sandboxed regime & replayable-substrate inference (zero host wall-clock leak)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 677; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/675; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 677"
+    },
+    {
+      "id": "N28",
+      "text": "Multi-dome regime self-localization\nIdentifies which archipelago dome biome (`aquatic, arid, high-drag, cold`) it occupies within `\u2264 200` sensory steps.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / C. Sandboxed regime & replayable-substrate inference (zero host wall-clock leak)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 678; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/676; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 678"
+    },
+    {
+      "id": "N29",
+      "text": "Blank-episodic / mature-soma adaptation\nWhen spawned with empty `CA3` episodic buffer inside an adult body, elevates social observation weight from experienced peers.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / C. Sandboxed regime & replayable-substrate inference (zero host wall-clock leak)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 679; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/677; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 679"
+    },
+    {
+      "id": "N30",
+      "text": "Self-inspection ATP budgeting\nAccounts for exact `E_atp` cost of active electrolocation, saccades, and `WSE` self-probes, silencing costly probes during fasting.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / C. Sandboxed regime & replayable-substrate inference (zero host wall-clock leak)",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 680; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/678; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 680"
+    },
+    {
+      "id": "N31",
+      "text": "Coarse cortical-activity interoception\nReads `O(1)` regional firing-rate & synchrony summary of its own brain as an internal cognitive-effort channel.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / D. Non-anthropomorphic & active sensory modalities",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 681; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/679; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 681"
+    },
+    {
+      "id": "N32",
+      "text": "Contact-range bioelectric peer reading\nDetects neighbor muscle/spike dipole field at `< 2` body lengths (inverse-cube attenuated) to anticipate lunges or cooperation.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / D. Non-anthropomorphic & active sensory modalities",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 682; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/680; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 682"
+    },
+    {
+      "id": "N33",
+      "text": "Secreted fatigue-metabolite chemosense\nDetects local peer adenosine/lactate exhalation to coordinate staggered sentinel sleep shifts (`N54`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / D. Non-anthropomorphic & active sensory modalities",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 683; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/681; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 683"
+    },
+    {
+      "id": "N34",
+      "text": "Spatial metabolic-rate zone navigation\nMaps dome temperature/nutrient-regrowth rate gradients (`Q10` zones) to rest in cool refuges and forage in productive warm bands.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / D. Non-anthropomorphic & active sensory modalities",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 684; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/682; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 684"
+    },
+    {
+      "id": "N35",
+      "text": "Somatic damage-rate radiation avoidance\nSenses elevated cellular ROS / mutation stress in hazardous patches via visceral damage afferents and retreats to shielded cover.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / D. Non-anthropomorphic & active sensory modalities",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 685; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/683; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 685"
+    },
+    {
+      "id": "N36",
+      "text": "Behavioral photoperiod self-entrainment\nRegulates burrow-shade vs sunlit exposure timing to keep SCN circadian clock phase-locked to brief food blooms.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / D. Non-anthropomorphic & active sensory modalities",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 686; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/684; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 686"
+    },
+    {
+      "id": "N37",
+      "text": "Topographic slope & substrate-stiffness map\nUses ground incline and viscoelastic substrate compliance as non-visual dead-reckoning landmarks in total darkness.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / D. Non-anthropomorphic & active sensory modalities",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 687; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/685; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 687"
+    },
+    {
+      "id": "N38",
+      "text": "Contact MHC / surface-peptide kin assay\nReads heritable surface-marker cosine similarity upon compliant touch to gate kin altruism and outbred mate choice.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / D. Non-anthropomorphic & active sensory modalities",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 688; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/686; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 688"
+    },
+    {
+      "id": "N39",
+      "text": "Context-illusion discount learning\nInitially exhibits surround-contrast perceptual bias, then learns top-down precision discounts when payoff feedback disconfirms illusion.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / D. Non-anthropomorphic & active sensory modalities",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 689; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/687; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 689"
+    },
+    {
+      "id": "N40",
+      "text": "Goal-steered bistable percept switching\nTop-down workspace bias flips interpretation of ambiguous figure-ground/plume mixtures according to current homeostatic need.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / D. Non-anthropomorphic & active sensory modalities",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 690; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/688; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 690"
+    },
+    {
+      "id": "N41",
+      "text": "Bounded maternal developmental priming\nValidated maternal survival niche biases `1\u20132` low-dimensional epigenetic receptor/gain priors in yolk (**explicitly non-Lamarckian: zero weight-matrix copy**).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / E. Sleep, replay & bounded transgenerational priors",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 691; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/689; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 691"
+    },
+    {
+      "id": "N42",
+      "text": "Acoustic/tactile huddle replay cueing\nCo-sleeping kin emit low-amplitude rhythmic cues biasing which shared daytime hazard landmarks undergo NREM replay.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / E. Sleep, replay & bounded transgenerational priors",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 692; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/690; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 692"
+    },
+    {
+      "id": "N43",
+      "text": "Trauma-proportional threat replay\nPost-predator NREM/REM defensive escape rehearsal frequency scales monotonically with daytime nociceptive/fear load.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / E. Sleep, replay & bounded transgenerational priors",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 693; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/691; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 693"
+    },
+    {
+      "id": "N44",
+      "text": "Reality-monitored REM rollout steering\n`HOT-1` tags REM rollouts as endogenous (`is_dream = 1`) while steering counterfactual branches toward high-uncertainty map frontiers.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / E. Sleep, replay & bounded transgenerational priors",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 694; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/692; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 694"
+    },
+    {
+      "id": "N45",
+      "text": "REM epistemic-uncertainty tagging\nREM synthesis writes variance/curiosity tags\u2014never false experienced visit counts\u2014preventing delusional food-patch certainty.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / E. Sleep, replay & bounded transgenerational priors",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 695; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/693; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 695"
+    },
+    {
+      "id": "N46",
+      "text": "REM-synthesized display motif spread\nNovel call/chromatophore sequences recombined during REM persist and spread culturally if positively reinforced in waking bouts.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / E. Sleep, replay & bounded transgenerational priors",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 696; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/694; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 696"
+    },
+    {
+      "id": "N47",
+      "text": "Stress-modulated germline variance\nChronic unresolved allostatic load elevates offspring mutation step-size within safe canalized bounds (`M088`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / E. Sleep, replay & bounded transgenerational priors",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 697; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/695; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 697"
+    },
+    {
+      "id": "N48",
+      "text": "Reversible F1 toxin-caution mark\nParental acute poisoning elevates F1 juvenile bitter-rejection gain for `1\u20132` generations, decaying cleanly without re-exposure.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / E. Sleep, replay & bounded transgenerational priors",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 698; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/696; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 698"
+    },
+    {
+      "id": "N49",
+      "text": "Ultra-slow torpor maintenance ticks\nDuring cryptobiotic/torpor arrest (`< 2%` basal burn), periodic low-energy checkpoints preserve core `Fusi` cascade memories.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / E. Sleep, replay & bounded transgenerational priors",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 699; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/697; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 699"
+    },
+    {
+      "id": "N50",
+      "text": "Quantum vs PRNG REM diversity audit\nControlled benchmark comparing `Q \u2264 8` superposition vs `Philox4x32-10` REM rollouts at matched parameters (`parity or lift` honestly reported).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / E. Sleep, replay & bounded transgenerational priors",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 700; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/698; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 700"
+    },
+    {
+      "id": "N51",
+      "text": "ATP-settled horizontal skill-packet trade\nIn horizontal-plasmid niche mode, mentor emits `< 4 KB` landmark/policy cue vector in exchange for booked caloric trophallaxis.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / F. Social markets, horizontal niche plasmids & culture",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 701; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/699; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 701"
+    },
+    {
+      "id": "N52",
+      "text": "MHC-gated plasmid validation sandbox\nEvaluates received peer weight/cue packets in Tier-1 shadow rollout and rejects norm-violating (`\u2016W\u2016_2 > 0.99`) or adversarial grafts.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / F. Social markets, horizontal niche plasmids & culture",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 702; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/700; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 702"
+    },
+    {
+      "id": "N53",
+      "text": "Cryptographic/MHC kin-signature check\nVerifies heritable biochemical kin distance before costly nursing (`M090`) or predator-distraction alarm calls.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / F. Social markets, horizontal niche plasmids & culture",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 703; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/701; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 703"
+    },
+    {
+      "id": "N54",
+      "text": "Emergent staggered sentinel sleep\nSocial clusters self-organize anti-phase sleep schedules so `\u2265 1` waking sentinel maintains predator watch (`\u2265 35%` ambush survival lift).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / F. Social markets, horizontal niche plasmids & culture",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 704; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/702; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 704"
+    },
+    {
+      "id": "N55",
+      "text": "Targeted waking-to-juvenile cueing\nExperienced adult slows foraging actions and emits contact cues near naive juveniles, halving juvenile trial-to-competence.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / F. Social markets, horizontal niche plasmids & culture",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 705; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/703; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 705"
+    },
+    {
+      "id": "N56",
+      "text": "Predator-triggered collective blanket\nDispersed grazers contract into a high-cohesion defensive ring under alarm plumes, reducing per-capita predation.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / F. Social markets, horizontal niche plasmids & culture",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 706; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/704; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 706"
+    },
+    {
+      "id": "N57",
+      "text": "Distributed swarm gradient pooling\nCoupled swarm tracks noisy moving resource peaks with `\u2264 0.65\u00d7` estimation RMSE of isolated solo clones.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / F. Social markets, horizontal niche plasmids & culture",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 707; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/705; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 707"
+    },
+    {
+      "id": "N58",
+      "text": "Allopatric chromatophore/call dialects\nIsolated sub-populations diverge into statistically separable (`F_ST` / classifier `Acc \u2265 0.80`) learned display dialects.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / F. Social markets, horizontal niche plasmids & culture",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 708; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/706; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 708"
+    },
+    {
+      "id": "N59",
+      "text": "Zahavi ATP-proportional signal honesty\nHigh-amplitude courtship/dominance calls deduct steep `E_atp` so depleted bluffers cannot sustain deceptive signaling.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / F. Social markets, horizontal niche plasmids & culture",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 709; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/707; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 709"
+    },
+    {
+      "id": "N60",
+      "text": "Pairwise reciprocity & defector boycott\nEpisodic social memory tracks net caloric/aid balance per peer ID and withholds sharing from chronic non-reciprocators.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / F. Social markets, horizontal niche plasmids & culture",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 710; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/708; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 710"
+    },
+    {
+      "id": "N61",
+      "text": "Inducible mucosal/cuticle toxin shield\nThickens outer protective barrier under chemical hazard at a measurable locomotor drag and `E_atp` penalty (`CNF-03`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / G. Soft continuum mechanics & adaptive morphology",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 711; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/709; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 711"
+    },
+    {
+      "id": "N62",
+      "text": "Hydrostatic cavity acoustic resonance\nCall fundamental frequency `f_0` scales inversely with coelomic chamber radius, physically anchoring body-size honesty.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / G. Soft continuum mechanics & adaptive morphology",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 712; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/710; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 712"
+    },
+    {
+      "id": "N63",
+      "text": "Context-switched crypsis vs display\nSuppresses high-contrast courtship patterns within `< 200 ms` of predator looming/wake detection.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / G. Soft continuum mechanics & adaptive morphology",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 713; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/711; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 713"
+    },
+    {
+      "id": "N64",
+      "text": "Facultative colonial zooid coupling\nCompatible kin hydrostats reversibly link vascular/mucus junctions (`SOFT39`) to share nutrients across patchy gradients.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / G. Soft continuum mechanics & adaptive morphology",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 714; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/712; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 714"
+    },
+    {
+      "id": "N65",
+      "text": "Bioelectric appendage-primordia count\nEmbryonic `V_mem` Turing peaks determine segment/lobe count (`2..6` lobes) from compact GRN rules.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / G. Soft continuum mechanics & adaptive morphology",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 715; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/713; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 715"
+    },
+    {
+      "id": "N66",
+      "text": "Viscoelastic passive posture memory\nSlow Kelvin-Voigt tissue relaxation holds defensive curl or grip preload for seconds at zero central spike burn.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / G. Soft continuum mechanics & adaptive morphology",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 716; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/714; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 716"
+    },
+    {
+      "id": "N67",
+      "text": "Booked famine/trap lobe autotomy\nCleanly severs trapped peripheral lobe along fracture plane (debiting exact biomass to world carcass) and regrows via blastema when fed.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / G. Soft continuum mechanics & adaptive morphology",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 717; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/715; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 717"
+    },
+    {
+      "id": "N68",
+      "text": "Mechanotransductive strut thickening\nSustained high-gravity/load strain thickens load-bearing biotensegrity elements within lifetime (`SOFT34`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / G. Soft continuum mechanics & adaptive morphology",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 718; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/716; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 718"
+    },
+    {
+      "id": "N69",
+      "text": "Myoclonic REM forward-model calibration\nPhasic REM muscle twitches sample proprioceptive Jacobians to recalibrate `AE-2` body schema after growth or autotomy.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / G. Soft continuum mechanics & adaptive morphology",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 719; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/717; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 719"
+    },
+    {
+      "id": "N70",
+      "text": "Active peering motion-parallax rangefinding\nLateral head/body oscillation computes metric obstacle/prey distance from optic bearing-rate (`RMSE \u2264 12%` of range).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / G. Soft continuum mechanics & adaptive morphology",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 720; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/718; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 720"
+    },
+    {
+      "id": "N71",
+      "text": "Local albedo & shade microclimate modification\nPigmented colonies/structures alter local patch solar absorption and soil moisture retention (`M098`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / H. Closed-biosphere niche construction & coevolution",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 721; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/719; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 721"
+    },
+    {
+      "id": "N72",
+      "text": "Curriculum-hardened lineage resilience\nPopulations evolved across stepped drought/toxin regimes survive held-out compound shocks at `\u2265 2.0\u00d7` naive-stock survival.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / H. Closed-biosphere niche construction & coevolution",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 722; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/720; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 722"
+    },
+    {
+      "id": "N73",
+      "text": "Relaxed-selection trait regression\nLineages maintained for `\u2265 50` generations in benign predator-free abundance downsize costly armor/venom organs (`ATP` economy proof).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / H. Closed-biosphere niche construction & coevolution",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 723; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/721; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 723"
+    },
+    {
+      "id": "N74",
+      "text": "Host-parasite manipulation & bitter meds\nParasite load biases host risk-taking until host learns prophylactic ingestion of bitter anti-parasitic patches (`M097`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / H. Closed-biosphere niche construction & coevolution",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 724; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/722; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 724"
+    },
+    {
+      "id": "N75",
+      "text": "Diurnal vs nocturnal temporal partitioning\nCompeting sympatric consumers diverge circadian phase preferences to reduce direct interference competition.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / H. Closed-biosphere niche construction & coevolution",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 725; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/723; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 725"
+    },
+    {
+      "id": "N76",
+      "text": "Elapsed-time spoilage cache management\nAssociates cached food items with circadian age (`episodic what-where-when`), retrieving fresh items before microbial rot.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / H. Closed-biosphere niche construction & coevolution",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 726; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/724; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 726"
+    },
+    {
+      "id": "N77",
+      "text": "Hazard-rate storm preparation learner\nEstimates inter-arrival hazard distribution of stochastic thermal/drought shocks and pre-accumulates lipid reserves (`N77` uppercase canonical).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / H. Closed-biosphere niche construction & coevolution",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 727; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/725; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 727"
+    },
+    {
+      "id": "N78",
+      "text": "Three-guild non-exploding persistence\nAutotroph patches, soft grazers, and predators coexist for `\u2265 50,000` ecological seconds without extinction or `NaN`/infinite population.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / H. Closed-biosphere niche construction & coevolution",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 728; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/726; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 728"
+    },
+    {
+      "id": "N79",
+      "text": "Enthalpy-conserving archipelago migration\nOrganisms crossing inter-dome bridges transfer exact somatic + gut + store `FP64` enthalpy between dome ledgers (`|\u0394E| < 1e-12`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / H. Closed-biosphere niche construction & coevolution",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 729; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/727; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 729"
+    },
+    {
+      "id": "N80",
+      "text": "Nitrogenous detritus grazing gardens\nLocalized waste deposition enriches soil mineral pools, accelerating subsequent primary patch regrowth.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / H. Closed-biosphere niche construction & coevolution",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 730; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/728; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 730"
+    },
+    {
+      "id": "N81",
+      "text": "Confidence-gated `WSE` execution\nBlocks endogenous `WSE` self-edits whenever `HOT-2` world-model confidence falls below preregistered safety margin.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / I. Second-order self-modeling & identity continuity",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 731; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/729; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 731"
+    },
+    {
+      "id": "N82",
+      "text": "Motor-tremor vs external-current separation\nKalman/predictive filter distinguishes intrinsic actuator noise variance from exogenous fluid current shear.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / I. Second-order self-modeling & identity continuity",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 732; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/730; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 732"
+    },
+    {
+      "id": "N83",
+      "text": "Nested first- & second-order state readout\nSimultaneously decodes bodily fuel level (`x\u0302`) and calibrated error variance (`\u03c3\u0302\u00b2_x`) from distinct internal populations.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / I. Second-order self-modeling & identity continuity",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 733; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/731; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 733"
+    },
+    {
+      "id": "N84",
+      "text": "Post-sleep duration & architecture readout\nWaking state accurately encodes elapsed sleep duration and NREM/REM ratio (`R\u00b2 \u2265 0.70` vs time-blind wake control).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / I. Second-order self-modeling & identity continuity",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 734; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/732; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 734"
+    },
+    {
+      "id": "N85",
+      "text": "Prodromal organ-decline resting\nDetects early slope degradation in repair/perfusion kinetics and initiates parasympathetic rest prior to acute failure.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / I. Second-order self-modeling & identity continuity",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 735; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/733; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 735"
+    },
+    {
+      "id": "N86",
+      "text": "Uncertainty-modulated alarm intensity\nAcoustic/skin alarm amplitude reflects calibrated predator-detection certainty, reducing false-panic herd stampedes.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / I. Second-order self-modeling & identity continuity",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 736; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/734; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 736"
+    },
+    {
+      "id": "N87",
+      "text": "Zero-effort disengagement from pure noise\nStops paying active-sensing `E_atp` on verified zero-mutual-information decoy channels within `\u2264 500` ticks.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / I. Second-order self-modeling & identity continuity",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 737; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/735; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 737"
+    },
+    {
+      "id": "N88",
+      "text": "Quantified self-symbol causal loop gain\nIntervening on the compressed self-state vector (`clamp/perturb`) produces lawful downstream shifts in policy risk posture.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / I. Second-order self-modeling & identity continuity",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 738; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/736; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 738"
+    },
+    {
+      "id": "N89",
+      "text": "Cross-metamorphosis aversion & self remap\nRetains larval conditioned toxin odor aversion (`\u2265 70%` retention, Blackiston 2008) while remapping adult motor kinematics (`SOFT35`, `M084`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / I. Second-order self-modeling & identity continuity",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 739; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/737; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 739"
+    },
+    {
+      "id": "N90",
+      "text": "Unified anomaly caution index\nFuses visceral ledger residuals, unexpected `NE` regime jumps, and boundary collisions into calibrated exploratory braking.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / I. Second-order self-modeling & identity continuity",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 740; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/738; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 740"
+    },
+    {
+      "id": "N91",
+      "text": "Photoperiodic pre-winter fattening\nShortening day-length cue shifts `F-033` rheostatic lipid set-point upward ahead of solar minimum.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / J. Bioenergetics & physiological state transitions",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 741; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/739; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 741"
+    },
+    {
+      "id": "N92",
+      "text": "Ketotic wide-area search transition\nPhase-II `\u03b2-HB` ketone elevation shifts foraging policy from local exploitation to thrifty wide-area L\u00e9vy search.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / J. Bioenergetics & physiological state transitions",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 742; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/740; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 742"
+    },
+    {
+      "id": "N93",
+      "text": "Thermally scheduled NREM remodeling\nConcentrates high-cost protein synthesis and morphogenesis inside thermally neutral microclimate windows.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / J. Bioenergetics & physiological state transitions",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 743; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/741; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 743"
+    },
+    {
+      "id": "N94",
+      "text": "Reversible famine cortical down-clocking\nSilences high-tier associative spheres (`Level 2/3`) during severe Phase-II/III fasting while keeping `Level 1` foraging/brainstem active (`\u2265 35%` ATP save).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / J. Bioenergetics & physiological state transitions",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 744; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/742; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 744"
+    },
+    {
+      "id": "N95",
+      "text": "Hormonal half-life affective bridge\nSlow endocrine clearance (`\u03c4 = 30\u2013300 s`) bridges aversive/nutritive context across silent intervals at `0` spike cost.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / J. Bioenergetics & physiological state transitions",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 745; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/743; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 745"
+    },
+    {
+      "id": "N96",
+      "text": "Cytokine-potentiated one-trial aversion\nCoincident immune fever (`IL-1\u03b2`-like surge) amplifies Garcia taste-aversion learning rate `\u2265 2\u00d7` on novel foods.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / J. Bioenergetics & physiological state transitions",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 746; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/744; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 746"
+    },
+    {
+      "id": "N97",
+      "text": "Deficit-selective NREM replay prioritization\nSpecific amino-acid or mineral deficiency selectively up-weights NREM replay of patches rich in the missing precursor.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / J. Bioenergetics & physiological state transitions",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 747; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/745; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 747"
+    },
+    {
+      "id": "N98",
+      "text": "Diurnal risk-entropy modulation\nBalances high early-window exploration when reserves/light are favorable with conservative refuge return before dusk.",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / J. Bioenergetics & physiological state transitions",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 748; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/746; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 748"
+    },
+    {
+      "id": "N99",
+      "text": "Post-absorptive caloric honesty check\nExtinguishes preference for sweet zero-enthalpy saccharin-like lures within `\u2264 3` post-absorptive bouts (`M018`).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / J. Bioenergetics & physiological state transitions",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 749; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/747; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 749"
+    },
+    {
+      "id": "N100",
+      "text": "Salience-ordered terminal memory shedding\nUnder extreme metabolic triage, sheds low-salience peripheral tags first while preserving core foraging/toxin skills (`\u2265 2.0\u00d7` retention vs random drop).",
+      "category": "L6_NOVEL100 / NOVEL-100 Frontier Assays / J. Bioenergetics & physiological state transitions",
+      "criterion": "Primary contrast and controls: Intact vs Sham/Classical/Shuffled Control [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=100) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 64\nFWER family size: 100\nCost tag: [Assay]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 750; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/748; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 750"
+    }
+  ]
+}

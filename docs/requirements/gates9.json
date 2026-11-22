@@ -1,0 +1,74 @@
+{
+  "set_id": "gates9",
+  "title": "9-gate verification pipeline of the v40 lab (node pipeline/run_all.mjs)",
+  "source_files": [
+    "V:/pipeline/run_all.mjs",
+    "V:/docs/SUMMARY.md",
+    "V:/creatures/001/V50-APEX-ULTIMATE-REPORT.md"
+  ],
+  "items": [
+    {
+      "id": "[1/9]",
+      "text": "Browser ESM Bundle Integrity (organism.ts + lab/src/index.ts)",
+      "category": "v40 pipeline gate (run_all.mjs, sequential)",
+      "criterion": "esbuild browser ESM bundles of creatures/001/organism/organism.ts and lab/src/index.ts compile without error; child process must exit 0 (execFileSync throws otherwise). Recorded status wording: Browser ESM bundles (`organism.ts`: `448.1 KB`, `lab/src/index.ts`: `556.0 KB`).",
+      "source_ref": "V:/pipeline/run_all.mjs:L3 (executed from L82); V:/docs/SUMMARY.md:L57"
+    },
+    {
+      "id": "[2/9]",
+      "text": "Lab Conformance + C-NC Disconnected-Organ Rejection + Originality Gate",
+      "category": "v40 pipeline gate (run_all.mjs, sequential)",
+      "criterion": "run lab/conformance/run.ts (bundled, node); child process must exit 0 (execFileSync throws otherwise). Recorded status wording: Lab Conformance + genuine `C-NC` disconnected-organ mutant rejection + Originality gate.",
+      "source_ref": "V:/pipeline/run_all.mjs:L4 (executed from L87); V:/docs/SUMMARY.md:L58"
+    },
+    {
+      "id": "[3/9]",
+      "text": "v3.9 Metabolic Viability Gate (0/30 deaths, starvation cascade, refeeding recovery)",
+      "category": "v40 pipeline gate (run_all.mjs, sequential)",
+      "criterion": "run creatures/001/organism/viability_v39.ts; child process must exit 0 (execFileSync throws otherwise). Recorded status wording: `v3.9` Metabolic Viability (`0/30` deaths in steady state, physiological starvation cascade, `16/16` refeeding recovery).",
+      "source_ref": "V:/pipeline/run_all.mjs:L5 (executed from L91); V:/docs/SUMMARY.md:L59"
+    },
+    {
+      "id": "[4/9]",
+      "text": "v4.0+ Functional & Causal Architecture Suite (28/28)",
+      "category": "v40 pipeline gate (run_all.mjs, sequential)",
+      "criterion": "run creatures/001/organism/qualities_v40.ts; child process must exit 0 (execFileSync throws otherwise). Recorded status wording: `v4.0+` Functional & Causal Architecture (`28/28`).",
+      "source_ref": "V:/pipeline/run_all.mjs:L6 (executed from L95); V:/docs/SUMMARY.md:L60"
+    },
+    {
+      "id": "[5/9]",
+      "text": "Creature 001 100-Pass Benchmark & Bug-Fix Verification Suite (100/100)",
+      "category": "v40 pipeline gate (run_all.mjs, sequential)",
+      "criterion": "run creatures/001/organism/passes_100_suite.ts; child process must exit 0 (execFileSync throws otherwise). Recorded status wording: `100-Pass` Benchmark & Errata Verification (`100/100`).",
+      "source_ref": "V:/pipeline/run_all.mjs:L7 (executed from L99); V:/docs/SUMMARY.md:L61"
+    },
+    {
+      "id": "[6/9]",
+      "text": "Apex Ultimate All-PDF Synthesis & 13-Gate Mutant-Catch Suite (25/25, mutantsCaught=5/5)",
+      "category": "v40 pipeline gate (run_all.mjs, sequential)",
+      "criterion": "run creatures/001/organism/apex_ultimate_suite.ts; child process must exit 0 (execFileSync throws otherwise). Recorded status wording: `Apex Ultimate` All-PDF Synthesis & 13-Gate Mutant-Catch Suite (`25/25`, `mutantsCaught = 5/5`).",
+      "source_ref": "V:/pipeline/run_all.mjs:L8 (executed from L103); V:/docs/SUMMARY.md:L62"
+    },
+    {
+      "id": "[7/9]",
+      "text": "Nobel / Fields / Turing / Santa Fe Proof & Held-Out IUT Suite (9/9, Holm FWER <= 0.05)",
+      "category": "v40 pipeline gate (run_all.mjs, sequential)",
+      "criterion": "run creatures/001/organism/scientific_rigor_suite.ts; child process must exit 0 (execFileSync throws otherwise). Recorded status wording: `Nobel / Fields / Turing / Santa Fe` Proof & Held-Out 5-Arm IUT Suite (`9/9`, exact $2^{24}$ signed-rank Holm FWER `max p = 1.06e-2 <= 0.05`).",
+      "source_ref": "V:/pipeline/run_all.mjs:L9 (executed from L107); V:/docs/SUMMARY.md:L63"
+    },
+    {
+      "id": "[8/9]",
+      "text": "Independent Python 3.12 80-Digit Decimal & Exact Rational Fraction Audit (9/9, zero shared code)",
+      "category": "v40 pipeline gate (run_all.mjs, sequential)",
+      "criterion": "run pipeline/independent_scientific_audit.py (Python); child process must exit 0 (execFileSync throws otherwise). Recorded status wording: Independent Python 3.12 80-Digit `Decimal` & Exact `Fraction` Audit (`9/9`, `0/14` rational p-value mismatches, `0.00e+00` Morris–Lecar RK4 drift).",
+      "source_ref": "V:/pipeline/run_all.mjs:L10 (executed from L111); V:/docs/SUMMARY.md:L64"
+    },
+    {
+      "id": "[9/9]",
+      "text": "Grade-A Zero-Warning Lint + Strict TypeScript + Automated Red-Team Security, V8 Coverage & Secret Scan",
+      "category": "v40 pipeline gate (run_all.mjs, sequential)",
+      "criterion": "run scripts/lint.mjs then tests/run_grade_a_tests.mjs; child process must exit 0 (execFileSync throws otherwise). Recorded status wording: Grade-A Zero-Warning Lint + Strict `tsc --noEmit` (`0` errors), Automated HTTP/Security/WCAG Suite (`14/14`), Live Chrome CDP CWV/Reflow Audit, Native V8 Coverage (`>= 90.0%`), and Secret/Bundle Hygiene (`0` leaks).",
+      "source_ref": "V:/pipeline/run_all.mjs:L11 (executed from L117); V:/docs/SUMMARY.md:L65"
+    }
+  ]
+}

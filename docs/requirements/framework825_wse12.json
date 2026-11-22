@@ -1,0 +1,95 @@
+{
+  "set_id": "framework825_wse12",
+  "title": "WSE-12 Weight-Space Editing (ALife Framework v3.0)",
+  "source_files": [
+    "ALife-Framework-v3.0-Master-Checklists.csv",
+    "ALife-Framework-v3.0-Master-Spec.json",
+    "Asmodensius-evidence-crosswalk.xlsx"
+  ],
+  "items": [
+    {
+      "id": "WSE01",
+      "text": "Typed 10-operator algebra\nEvery weight-space edit executes exclusively through `WSE-OP01..10` with declared domain, units, norm preconditions, and ATP cost.",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 751; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/749; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 751"
+    },
+    {
+      "id": "WSE02",
+      "text": "Tokenless tensor/graph native\nOperates directly on `SoA` weight blocks, `structuralMask` bitsets, and 3D coordinates\u2014zero LLM prompts or text tokens.",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 752; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/750; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 752"
+    },
+    {
+      "id": "WSE03",
+      "text": "Forward-model delta prediction\nInternal world/self model logs predicted behavioral & metabolic `\u0394` prior to applying an edit; post-edit calibration error is audited.",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 753; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/751; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 753"
+    },
+    {
+      "id": "WSE04",
+      "text": "Norm-matched weight scaling\n`WSE-OP01` shifts target behavioral gain significantly (`\u03b4_pair \u2265 0.33`) against a Frobenius-norm-matched random-direction sham edit.",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 754; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/752; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 754"
+    },
+    {
+      "id": "WSE05",
+      "text": "Continuous excitability bias field\n`WSE-OP04` paints smooth spatial threshold/gain fields over cortical sheets while keeping rates inside `[0, r_max]`.",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 755; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/753; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 755"
+    },
+    {
+      "id": "WSE06",
+      "text": "3D coordinate & CSR-overlay sculpting\n`WSE-OP03/05` updates 3D unit positions, integer delays, and explicit `CSR` delta overlays (when base blocks are procedural).",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 756; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/754; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 756"
+    },
+    {
+      "id": "WSE07",
+      "text": "Algebraic VSA / Hopfield relation edit\n`WSE-OP06` binds, unbinds, or reweights associative relations in `O(D_lat)` without retraining unrelated stored episodes.",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 757; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/755; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 757"
+    },
+    {
+      "id": "WSE08",
+      "text": "Compact `< 16 KB` single-edit diff\nEach individual operator application emits a versioned sparse/low-rank delta (`< 16 KB`; vs `< 64 KB` full-creature tick checkpoint in `HW06`).",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 758; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/756; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 758"
+    },
+    {
+      "id": "WSE09",
+      "text": "Domain-scoped bit-exact rollback\nReverting an edit restores the exact pre-edit SHA-256 hash within its declared rollback domain (`D_creature`, `D_coupled_patch`, or `D_full_sim`).",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 759; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/757; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 759"
+    },
+    {
+      "id": "WSE10",
+      "text": "3-Tier contractive verification gate\nEnforces Tier-0 online `\u2016W\u2016_2 \u2264 0.99` + ATP check (`< 0.1 ms`), Tier-1 sleep shadow rollout, and Tier-2 locked non-inferiority (`LCB_95% > -\u0394_NI`).",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 760; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/758; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 760"
+    },
+    {
+      "id": "WSE11",
+      "text": "Hardware-enforced `Ring-0` immutability\nEndogenous `WSE` writes only `Ring-1/2` buffers at booked ATP cost; `Ring-0` (`brainstem, nociception, ledger, harness`) throws on write.",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 761; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/759; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 761"
+    },
+    {
+      "id": "WSE12",
+      "text": "Lossless audit log & Tab-17/18 export\nEvery edit, predicted-vs-realized delta, norm bound, and rollback event streams losslessly to `Tab 15/17` and `.alifebin`/Parquet manifests.",
+      "category": "L7_WSE12 / WSE-12 Weight-Space Editing / Direct Weight-Space Editing",
+      "criterion": "Primary contrast and controls: Operator Edit vs Norm-Matched Sham Edit [Intact | Passive-Body (0-Brain) | Shuffled-Stream | Targeted-Lesion | Size-Matched-Sham]\nPass gate: Exact paired Wilcoxon p_Holm <= 0.05 (FWER m=12) & delta_pair >= 0.33 & LCB_95% > -Delta_NI\nMinimum paired seeds: 24\nFWER family size: 12\nCost tag: [O(k\u00b7E)]\nSource status: \u2610 Not Yet",
+      "source_ref": "ALife-Framework-v3.0-Master-Checklists.csv row 762; ALife-Framework-v3.0-Master-Spec.json#/executable_checks_825/760; Asmodensius-evidence-crosswalk.xlsx#Framework 825 row 762"
+    }
+  ]
+}
