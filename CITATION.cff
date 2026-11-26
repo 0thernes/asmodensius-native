@@ -7,7 +7,7 @@ date-released: "2026-11-25"
 license: "Apache-2.0"
 repository-code: "https://github.com/0thernes/asmodensius-native"
 url: "https://github.com/0thernes/asmodensius-native"
-abstract: "A Windows-native, freestanding C23 artificial-life simulation engine with 22 selectable core modules, 4 NASM AVX2/AVX-VNNI twins, a 41,817 B pure-integer CUDA PTX backend, 77/77 CTest targets, 164/164 GPU differential checks, and 30 Pure Lean 4.35.0 formal invariants architected for 6-kernel Palomar verification."
+abstract: "A Windows-native, freestanding C23 artificial-life simulation engine with 22 selectable core modules, 4 NASM AVX2/AVX-VNNI twins, a 41,817 B pure-integer CUDA PTX backend, 77/77 CTest targets, 164/164 GPU differential checks, and 30 Lean 4.35.0 theorems about an abstract Nat model of the engine rules, checked by six independent Lean checkers. The C23, NASM and PTX code is not verified in Lean, and 17 of the 30 theorems are definitional, constant or literal-arithmetic checks."
 authors:
   - family-names: "Donahue"
     given-names: "Alexander Stephen"

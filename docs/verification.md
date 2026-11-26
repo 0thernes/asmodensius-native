@@ -14,7 +14,8 @@
 
 - **30 Pure Lean 4.35.0 Theorems (`A01`..`A30`):** Zero Mathlib, zero `sorry` in `Solution`, zero `native_decide`, `autoImplicit = false`, `relaxedAutoImplicit = false`, `linter.unusedVariables = true`.
 - **Palomar Isolation:** Pure definitions in `AsmodensiusProofs/Spec.lean`, isolated statement-only `Challenge.lean` importing ONLY `Spec.lean`, sorry-free `Solution.lean`, and `comparator.json`.
-- **Multi-Kernel Replay:** Verified locally on Windows across 5 independent kernels (`lean4`, `leanchecker --fresh`, `leanchecker-paranoid --fresh`, `con-leche --verified`, `con-ron --verified`, `nanoda_bin` with `unpermitted_axiom_hard_error: true`, recorded in `results/lean4-multi-kernel.txt`); all 6/6 kernels including `lean4lean` + `bubblewrap` comparator wired in `.github/workflows/ci.yml`.
+- **Multi-Kernel Replay:** Checked locally on Windows by 6 checkers (`lean4` kernel, `leanchecker --fresh`, `leanchecker-paranoid --fresh`, `con-leche --verified`, `con-ron --verified`, `nanoda_bin` with `unpermitted_axiom_hard_error: true`, recorded in `results/lean4-multi-kernel.txt`). Ubuntu CI (`.github/workflows/ci.yml`) also runs `lake check --paranoid`, which adds `lean4lean`, and `lake comparator` under `bubblewrap`.
+- **Scope:** the theorems concern the `Nat` definitions in `Spec.lean`, not the C23, NASM or PTX code. 13 of the 30 are statements about those definitions; 17 are definitional, constant or literal-arithmetic checks (see `statement-fidelity.md`).
 - **Verbatim README Guard:** `python -I scripts/check_readme_axioms.py` checks 30/30 `#print axioms` lines in `README.md` against `results/lean4-asmodensius-audit.txt`.
 
 ## Layer 3: Publication & Citation Integrity (`paper/`, `dist/`)
@@ -24,5 +25,5 @@
 
 ## Layer 4: Law 14 Text Hygiene & Build Standard v1.2.0 Audit
 
-- `python -I build/work/scripts/check_text.py .` enforces pure 7-bit ASCII, LF line endings, zero tabs, and trailing newline (`0` violations).
-- `pwsh -NoProfile -File scripts/Audit-Repo.ps1` audits all 90 Build Standard v1.2.0 items (`A01`..`A45`, `B01`..`B45`).
+- The Law 14 text checker (`build/work/scripts/check_text.py`: 7-bit ASCII, LF line endings, no tabs, trailing newline) is not tracked in this repository and is not run in CI, so no violation count can be reproduced from the repository.
+- `pwsh -NoProfile -File scripts/Audit-Repo.ps1` audits the Build Standard v1.2.0 items. In CI this step is report-only (`continue-on-error: true`).

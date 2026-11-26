@@ -291,6 +291,10 @@ Rules for every module:
   1/8 of what the cell held at the start of the pass, so six faces can never
   overdraw. Round with a Philox bit, not by truncation, or gradients freeze
   into staircases.
+  Note (2026-11-26 statement audit): the transport code (`core/az_chem.c`,
+  `spread()`) does not apply this per-face 1/8 bound. It caps each species'
+  total outflow per pass at a/4 with a decreasing budget. Lean theorem `A22`
+  formalizes the 1/8 rule as written here, not the code. See `ERRATA.md`.
 - **Colony stores** use the cell pattern: a member posts a demand with an
   atomic add to `colony_eph[col].dem[k]` in phase 1; `az_colony_grant` turns
   demand into a fraction; in phase 3 the member takes

@@ -3,6 +3,15 @@
 All notable changes to `Asmodensius-Native` are documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and Semantic Versioning.
 
+## [Unreleased]
+
+### Changed (documentation only, 2026-11-26 statement audit)
+- Scoped the Lean suite in `README.md`, `CLAIMS.md`, `LIMITATIONS.md`, `CITATION.cff` and `docs/`: the 30 theorems concern an abstract `Nat` model, not the C23, NASM or PTX code; 13 are statements about the model and 17 are definitional, constant or literal-arithmetic checks.
+- Stated that `A22` formalizes documented Rule C7 (per-face `amt / 8`), while `core/az_chem.c` uses an `a / 4` per-species budget; corrected its source mapping in `docs/statement-fidelity.md`.
+- Corrected "5 Windows-capable kernels" to 6 local checkers.
+- Withdrew the "0 `check_text.py` violations" statement of the 1.1.0 entry: the checker is not tracked here and is not run in CI.
+- Recorded paper errors and known Lean naming and fidelity issues in `ERRATA.md`. No Lean, C, paper or CI file changed.
+
 ## [1.1.0] - 2026-11-25
 
 ### Added

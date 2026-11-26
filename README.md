@@ -1,6 +1,6 @@
 # Asmodensius-Native
 
-Asmodensius-Native is a Windows-native, freestanding C23, NASM AVX2/AVX-VNNI, and pure-integer CUDA PTX artificial-life simulation engine with exact integer conservation, bit-exact multi-substrate replay, and 30 Pure Lean 4.35.0 formal invariants.
+Asmodensius-Native is a Windows-native, freestanding C23, NASM AVX2/AVX-VNNI, and pure-integer CUDA PTX artificial-life simulation engine with exact integer conservation, bit-exact multi-substrate replay, and a 30-theorem Lean 4.35.0 suite about an abstract `Nat` model of its rules. The C23, NASM and CUDA PTX code itself is not verified in Lean.
 
 ![Status](https://img.shields.io/badge/status-active-2ea44f)
 ![Version](https://img.shields.io/badge/version-1.1.0-184e77)
@@ -21,12 +21,13 @@ status: active
 - **Exact Integer Conservation (Law 5):** Global matter (`az_total_matter`) and energy (`az_total_energy`) invariants hold with exact `==` after every tick, with `field_underflow == 0` and `dropped_events == 0`.
 - **Wild by Default, Bit-Exact in Lab Mode (Law 6):** Unflagged runs draw fresh OS entropy (`BCryptGenRandom`) every tick. `--lab --seed S` uses counter-based Philox4x32-10 streams and canonical UID order for bit-exact `az_state_hash` parity across scalar C23 (`--kernels 0`), AVX2/AVX-VNNI NASM twins (`--kernels 1`), 24-core P+E (`--ecores`), and RTX 5070 Ti CUDA PTX offload (`--gpu 1`).
 - **Pure-Integer CUDA PTX Backend (`gpu/`):** Clang 21 compiles literal freestanding `core/az_brain.c`, `core/az_rng.c`, and `core/az_kin_axis.c` to `41,817` bytes of PTX with 0 externs and 0 floats (`164/164` `test_gpu.exe` pass across 1,000,000 variable-size sparse brains and 1,000,000 kinematics lanes with 0 differing bits).
-- **6-Kernel Palomar-Ready Lean 4.35.0 Suite (`lean/`):** 30 machine-checked theorems (`A01`..`A30`, zero Mathlib, zero `sorry` in `Solution`, zero `native_decide`), verified locally across 5 Windows-capable kernels (`lean4`, `leanchecker`, `leanchecker-paranoid`, `con-leche`, `con-ron`, `nanoda_bin`) and wired for 6/6 kernels including `lean4lean` + `bubblewrap` comparator in Linux CI.
+- **Lean 4.35.0 Suite (`lean/`):** 30 machine-checked theorems (`A01`..`A30`, zero Mathlib, zero `sorry` in `Solution`, zero `native_decide`) about hand-written `Nat` definitions in `lean/AsmodensiusProofs/Spec.lean`, whose constants are copied by hand from `core/az_abi.h`. Checked locally on Windows by 6 checkers (`lean4` kernel, `leanchecker`, `leanchecker-paranoid`, `con-leche`, `con-ron`, `nanoda_bin`; `results/lean4-multi-kernel.txt`). Ubuntu CI also runs `lake check --paranoid` (which adds `lean4lean`) and `lake comparator` under `bubblewrap`. Of the 30 theorems, 13 are statements about the model definitions (`A01`..`A03`, `A17`, `A21`..`A24`, `A26`..`A30`); the other 17 are definitional, constant or literal-arithmetic checks, or restate their hypotheses (see [docs/statement-fidelity.md](docs/statement-fidelity.md)).
 - **White Paper (`paper/` & `dist/`):** Publication-grade AMS-LaTeX preprint (`dist/Donahue_2026_asmodensius_native.pdf`) and clean-room verified `dist/arxiv_submission.tar.gz` with 17 primary academic and technical references (13 live Crossref/arXiv DOIs + 2 live vendor ISA manuals + 2 published book/ISO standards).
 
 ## Honest Scope, Indicator-Only Boundary, and Mega-Atlas Non-Retirement
 
 - **Indicator-Only Discipline (Law 8):** `Asmodensius-Native` makes **zero claims** of consciousness, sentience, biological life, AGI, or quantum speedup. Biological names label deterministic integer structs; `butlin14` is an engineering indicator checklist only; `tk_qsv` and `tk_qgt` are classical fixed-point matrix routines.
+- **Formal Scope:** The Lean theorems are about an abstract model, not the compiled engine. `A22` proves that six face fluxes each at most `amt / 8` sum to at most `amt`; this is documented Rule C7, while the transport code in `core/az_chem.c` (`spread()`) uses a per-species budget of `a / 4` per pass. Theorem names such as `A12_observer_hash_d7_invariant`, `A15_dual_visual_worlds_verified` and `A19_prefetch_observational_transparency` describe intent; their statements are `x = x`, `1 + 1 = 2` and an identity function. See [ERRATA.md](ERRATA.md).
 - **Not Peer-Reviewed:** The white paper is an independent technical preprint by Alexander Stephen Donahue (Independent Researcher, Spokane, WA, USA; ORCID `0009-0006-8168-9648`).
 - **Mega-Atlas Cross-Check:** **`0 / 1,900` overarching problems** in `0thernes/unsolved-problems-mega-atlas` are solved or retired. See [docs/MEGA_ATLAS_CROSSCHECK.md](docs/MEGA_ATLAS_CROSSCHECK.md) for scoped probe mappings (`AI-045`, `BIO-001`, `BIO-008`, `SUB-047`, `SYS-050`).
 - **Honest Hardware Tradeoffs:** On Intel Core Ultra 9 275HX + RTX 5070 Ti (`--lab --seed 42`, `locked=1`), 24C AVX-VNNI+PF reaches `72.199 ms/tick` at 100k (`+56.7%`) and `757.988 ms/tick` at 1M (`+35.3%`, `9,260.6 MB` locked), whereas 1M GPU offload (`1,122.495 ms/tick`, bit-exact hash `31e5d00c106ce679`) is slower than 24C CPU due to PCIe staging and two-half store compaction. Windows `--large-pages` falls back cleanly to 4 KiB `VirtualLock` unless `SeLockMemoryPrivilege` is granted (`TR-03`).
@@ -63,7 +64,8 @@ lake env leanchecker-paranoid --fresh Solution
 python -I scripts/build_paper.py
 python -I scripts/check_citations.py --live
 python -I scripts/check_readme_axioms.py
-python -I build/work/scripts/check_text.py . --since 240
+# The Law 14 text checker (build/work/scripts/check_text.py) is not tracked in this
+# repository and is not run in CI; see ERRATA.md.
 pwsh -NoProfile -File scripts/Audit-Repo.ps1
 ```
 

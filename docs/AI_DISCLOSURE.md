@@ -17,12 +17,12 @@ AI coding assistants (including Codex CLI, Claude Code, and Gemini-based agents 
 
 ## 3. Independent Verification Guarantee (Zero Trust in LLM Prose)
 
-No claim in this repository rests on AI-generated prose. Every reported result is verified directly by deterministic machines:
+Reported results are checked by the tools below. A tool check covers what the tool tests and no more; the prose around it, including theorem names, can still overstate. The scope of each check is stated in [LIMITATIONS.md](../LIMITATIONS.md), and corrections are logged in [ERRATA.md](../ERRATA.md).
 
-1. **Lean 4.35.0 Formal Proofs:** Machine-checked by 5 independent kernels locally (`lean4`, `leanchecker`, `leanchecker-paranoid`, `con-leche`, `con-ron`, `nanoda_bin`) and 6/6 kernels including `lean4lean` + `bubblewrap` comparator in Linux CI (`results/lean4-asmodensius-audit.txt`, `results/lean4-multi-kernel.txt`).
+1. **Lean 4.35.0 Formal Proofs:** Machine-checked by 6 checkers locally on Windows (`lean4` kernel, `leanchecker`, `leanchecker-paranoid`, `con-leche`, `con-ron`, `nanoda_bin`); Ubuntu CI also runs `lake check --paranoid`, which adds `lean4lean`, and `lake comparator` under `bubblewrap` (`results/lean4-asmodensius-audit.txt`, `results/lean4-multi-kernel.txt`). The theorems concern an abstract `Nat` model, not the C23, NASM or PTX code.
 2. **Native C23 / NASM / CUDA PTX Engine:** Verified by `77/77` CTest targets (including `ubsan_trap_build`, `core_obj_gate`, `avx_stack_gate`, `lint_core`, determinism matrices) and `164/164` `test_gpu.exe`.
 3. **White Paper & Bibliography:** Verified by `scripts/build_paper.py` (zero `Overfull \hbox`, clean-room arXiv tarball compile) and `scripts/check_citations.py --live` (live Crossref DOI, retraction, and HTTP verification).
-4. **Repository Hygiene:** Verified by `build/work/scripts/check_text.py` (Law 14) and `scripts/Audit-Repo.ps1` (Build Standard v1.2.0).
+4. **Repository Hygiene:** `scripts/Audit-Repo.ps1` (Build Standard v1.2.0, report-only in CI). The Law 14 text checker (`build/work/scripts/check_text.py`) is not tracked in this repository and is not run in CI.
 
 ## 4. Platform Compliance Statement
 
