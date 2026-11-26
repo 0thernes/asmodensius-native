@@ -1,0 +1,31 @@
+# Asmodensius-Native (v1.1.0)
+
+> Windows-native freestanding C23, NASM AVX2/AVX-VNNI, and pure-integer CUDA PTX artificial-life simulation engine with exact integer matter/energy conservation, bit-exact multi-substrate replay, 77/77 CTest, 164/164 GPU differential checks, and 30 Pure Lean 4.35.0 formal invariants.
+
+Author: Alexander Stephen Donahue (Independent Researcher, Spokane, WA, USA; ORCID 0009-0006-8168-9648)
+Repository: https://github.com/0thernes/asmodensius-native
+Licenses: Apache-2.0 (code, Lean 4 proofs, scripts) and CC-BY-4.0 (white paper, docs, figures, datasets)
+
+## Canonical Entry Points
+
+- [README.md](README.md): Overview, quickstart, usage, and verbatim Lean `#print axioms` verification block.
+- [AGENTS.md](AGENTS.md): 15 non-negotiable engineering laws (including Law 5 exact books, Law 8 indicator-only, Law 14 pure 7-bit ASCII/LF/no-tabs).
+- [CLAIMS.md](CLAIMS.md): Numbered claims ledger (`C01`..`C12`) with epistemic tiers and explicit falsification conditions.
+- [LIMITATIONS.md](LIMITATIONS.md): Threats to validity, negative hardware tradeoffs, and real-vs-metaphor boundary.
+- [REPLICATION.md](REPLICATION.md): Clean-clone step-by-step reproduction protocol and dated replication log.
+
+## Formal Proofs & White Paper
+
+- [lean/README.md](lean/README.md): 30 Pure Lean 4.35.0 theorems (`A01`..`A30`), 6-kernel Palomar `Challenge.lean`/`Solution.lean` setup.
+- [results/lean4-asmodensius-audit.txt](results/lean4-asmodensius-audit.txt): Verbatim `#print axioms` output.
+- [results/lean4-multi-kernel.txt](results/lean4-multi-kernel.txt): Local 5-kernel replay transcript (`lean4`, `leanchecker`, `leanchecker-paranoid`, `con-leche`, `con-ron`, `nanoda_bin`).
+- [paper/main.tex](paper/main.tex): AMS-LaTeX white paper source (`dist/Donahue_2026_asmodensius_native.pdf`, `dist/arxiv_submission.tar.gz`).
+- [docs/statement-fidelity.md](docs/statement-fidelity.md): Line-by-line Lean-to-C/PTX statement-fidelity matrix.
+
+## Architecture, Benchmarks & Governance
+
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): Canonical ABI v4 architectural specification.
+- [docs/benchmarks.md](docs/benchmarks.md): Multi-substrate bare-metal benchmarks (`1k`, `10k`, `100k`, `1M`) and PCIe/large-pages tradeoffs.
+- [docs/TRIGGER-REGISTER.md](docs/TRIGGER-REGISTER.md): Deferred capability register (`TR-01`..`TR-18`).
+- [docs/MEGA_ATLAS_CROSSCHECK.md](docs/MEGA_ATLAS_CROSSCHECK.md): Cross-check confirming `0 / 1,900` overarching Mega-Atlas open problems retired.
+- [docs/AI_DISCLOSURE.md](docs/AI_DISCLOSURE.md): Transparent AI-assistance and CRediT authorship disclosure.

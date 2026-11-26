@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-label="Asmodensius-Native v1.1.0 Architecture and Verification Summary">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1623"/>
+      <stop offset="55%" stop-color="#112438"/>
+      <stop offset="100%" stop-color="#0d1e2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22a6c7"/>
+      <stop offset="100%" stop-color="#48cae4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect x="44" y="40" width="1192" height="560" rx="18" fill="#0f2134" stroke="#22a6c7" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="44" y="40" width="1192" height="8" rx="4" fill="url(#accent)"/>
+
+  <text x="86" y="114" fill="#90e0ef" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="2">FREESTANDING C23 + NASM AVX-VNNI + PURE-INTEGER CUDA PTX | VERSION 1.1.0</text>
+  <text x="86" y="176" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="700">Asmodensius-Native</text>
+  <text x="86" y="216" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="22">Single-arena page-locked artificial-life engine with exact integer conservation,</text>
+  <text x="86" y="246" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="22">bit-exact CPU/AVX-VNNI/RTX 5070 Ti parity, and 6-kernel Lean 4.35.0 proofs.</text>
+
+  <g font-family="Consolas, Menlo, monospace">
+    <rect x="86" y="286" width="262" height="128" rx="12" fill="#142d46" stroke="#22a6c7" stroke-opacity="0.5"/>
+    <text x="108" y="324" fill="#48cae4" font-size="16" font-weight="700">CORE &amp; CTEST</text>
+    <text x="108" y="366" fill="#ffffff" font-size="34" font-weight="700">77 / 77</text>
+    <text x="108" y="396" fill="#94a3b8" font-size="14">22 C23 modules | 0 FP | UBSan</text>
+
+    <rect x="368" y="286" width="262" height="128" rx="12" fill="#142d46" stroke="#22a6c7" stroke-opacity="0.5"/>
+    <text x="390" y="324" fill="#48cae4" font-size="16" font-weight="700">CUDA PTX GPU</text>
+    <text x="390" y="366" fill="#ffffff" font-size="34" font-weight="700">164 / 164</text>
+    <text x="390" y="396" fill="#94a3b8" font-size="14">41,817 B PTX | 1M brains 0 diff</text>
+
+    <rect x="650" y="286" width="262" height="128" rx="12" fill="#142d46" stroke="#22a6c7" stroke-opacity="0.5"/>
+    <text x="672" y="324" fill="#48cae4" font-size="16" font-weight="700">LEAN 4.35.0</text>
+    <text x="672" y="366" fill="#ffffff" font-size="34" font-weight="700">30 Proofs</text>
+    <text x="672" y="396" fill="#94a3b8" font-size="14">6-kernel Palomar | 0 sorry</text>
+
+    <rect x="932" y="286" width="262" height="128" rx="12" fill="#142d46" stroke="#22a6c7" stroke-opacity="0.5"/>
+    <text x="954" y="324" fill="#48cae4" font-size="16" font-weight="700">24C THROUGHPUT</text>
+    <text x="954" y="366" fill="#ffffff" font-size="34" font-weight="700">72.2 ms</text>
+    <text x="954" y="396" fill="#94a3b8" font-size="14">100k (+56.7%) | 1M 758.0 ms</text>
+  </g>
+
+  <rect x="86" y="442" width="1108" height="72" rx="10" fill="#0b1a2a" stroke="#334155"/>
+  <text x="110" y="472" fill="#e2e8f0" font-family="Consolas, Menlo, monospace" font-size="16">Parity Hashes: 1k 7bd9823448dd38b1 | 10k 21e4cfcdf0b08066 | 100k 5b8110b324d2603f | 1M 31e5d00c106ce679</text>
+  <text x="110" y="498" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="15">Indicator-only discipline (Law 8): zero claims of sentience, life, AGI, or quantum speedup | 0/1,900 Mega-Atlas retired</text>
+
+  <text x="86" y="562" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="16">Alexander Stephen Donahue (Independent Researcher, Spokane, WA, USA) | ORCID 0009-0006-8168-9648</text>
+  <text x="910" y="562" fill="#90e0ef" font-family="Consolas, Menlo, monospace" font-size="16">Apache-2.0 / CC-BY-4.0</text>
+</svg>

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security Disclosures (Private Email)
+    url: mailto:0_0@0thernes.art
+    about: Report suspected security defects privately per SECURITY.md
+  - name: Replication Protocol
+    url: https://github.com/0thernes/asmodensius-native/blob/main/REPLICATION.md
+    about: Clean-clone instructions for Lean 4.35.0, CTest, and Tectonic white paper verification

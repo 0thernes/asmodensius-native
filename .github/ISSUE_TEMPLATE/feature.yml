@@ -1,0 +1,25 @@
+name: Feature or Trigger Proposal
+description: Propose a new capability or evaluate an open Trigger Register item
+labels: ["issue"]
+body:
+  - type: input
+    id: trigger
+    attributes:
+      label: Related Trigger Register ID (if any)
+      placeholder: "e.g., TR-02, TR-03, TR-05, TR-14"
+    validations:
+      required: false
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Technical Proposal
+      placeholder: "Describe the mechanism, ABI impact (Law 13), and conservation impact (Law 5)."
+    validations:
+      required: true
+  - type: textarea
+    id: falsification
+    attributes:
+      label: Lesion / Falsification Criterion (Law 4)
+      placeholder: "How can this mechanism be lesioned and verified to have a measurable effect?"
+    validations:
+      required: true

@@ -1,0 +1,124 @@
+name: Asmodensius-Native CI (6-Kernel Lean 4.35, Paper, Hygiene & Security)
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+  attestations: write
+
+jobs:
+  lean-6kernel-linux:
+    name: Pure Lean 4.35.0 - 30 Theorems & 6-Kernel Palomar Comparator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install bubblewrap for 6-kernel Palomar sandbox
+        run: sudo apt-get update && sudo apt-get install -y bubblewrap
+      - name: Install elan and pinned Lean 4.35.0 toolchain
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Build AsmodensiusProofs, Solution, Challenge & VerifyAxioms
+        working-directory: lean
+        run: |
+          lake build
+          lake build Challenge
+          lake env lean VerifyAxioms.lean > /tmp/lean4-asmodensius-audit.txt
+          cat /tmp/lean4-asmodensius-audit.txt
+          COUNT=$(grep -cE "depends on axioms:|does not depend on any axioms" /tmp/lean4-asmodensius-audit.txt)
+          echo "Audited theorem count: $COUNT"
+          test "$COUNT" -eq 30
+          if grep -E "sorryAx|ofReduceBool|trustCompiler" /tmp/lean4-asmodensius-audit.txt; then
+            echo "FORBIDDEN AXIOM DETECTED" >&2
+            exit 1
+          fi
+      - name: Verify README verbatim axiom block matches audit
+        run: python3 -I scripts/check_readme_axioms.py
+      - name: Run all 6 independent kernels + Palomar comparator (bubblewrap)
+        working-directory: lean
+        run: |
+          lake env leanchecker --fresh Solution
+          lake env leanchecker-paranoid --fresh Solution
+          lake check --paranoid
+          lake comparator --config comparator.json --paranoid
+
+  windows-hygiene-and-lean:
+    name: Windows Law-14 Text Gate, Lean Build & Build Standard Audit
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Verify README verbatim axioms & offline bibliography coverage
+        run: |
+          python -I scripts/check_readme_axioms.py
+          python -I scripts/check_citations.py
+      - name: Run Build Standard v1.2.0 self-audit (report-only)
+        continue-on-error: true
+        run: pwsh -NoProfile -File scripts/Audit-Repo.ps1
+      - name: Install elan and verify Lean 4.35.0 on Windows
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/leanprover/elan/master/elan-init.ps1" -OutFile "$env:TEMP\elan-init.ps1"
+          & "$env:TEMP\elan-init.ps1" -y --default-toolchain none
+          $env:PATH = "$env:USERPROFILE\.elan\bin;$env:PATH"
+          Set-Location -LiteralPath lean
+          lake build
+          lake build Challenge
+          lake env lean VerifyAxioms.lean
+          lake env leanchecker --fresh Solution
+
+  paper-pdf-and-provenance:
+    name: AMS-LaTeX White Paper, Clean-Room arXiv & SLSA Provenance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install Tectonic
+        run: |
+          curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
+          sudo mv tectonic /usr/local/bin/tectonic
+      - name: Build paper, verify zero Overfull hbox, verify clean-room arXiv tarball
+        run: python3 -I scripts/build_paper.py
+      - name: Verify live Crossref DOIs, retractions and URLs (informational)
+        continue-on-error: true
+        run: python3 -I scripts/check_citations.py --live
+      - name: Generate CI SHA256SUMS
+        run: |
+          sha256sum dist/Donahue_2026_asmodensius_native.pdf dist/arxiv_submission.tar.gz results/lean4-asmodensius-audit.txt results/lean4-multi-kernel.txt > SHA256SUMS
+          cat SHA256SUMS
+      - name: Attest build provenance (SLSA)
+        uses: actions/attest-build-provenance@v2
+        continue-on-error: true
+        with:
+          subject-path: |
+            dist/Donahue_2026_asmodensius_native.pdf
+            dist/arxiv_submission.tar.gz
+            SHA256SUMS
+
+  audit-and-security:
+    name: Build Standard v1.2.0 Audit & Report-Only Secret Scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Build Standard v1.2.0 self-audit (report-only)
+        continue-on-error: true
+        run: bash scripts/audit-repo.sh .
+      - name: Secret scan via gitleaks (report-only)
+        continue-on-error: true
+        run: |
+          GITLEAKS_VER="8.21.2"
+          curl -sSL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VER}/gitleaks_${GITLEAKS_VER}_linux_x64.tar.gz" | tar -xz -C /tmp gitleaks
+          /tmp/gitleaks detect --source . --no-banner --redact

@@ -1,0 +1,42 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "AsmodensiusProofs.A01_bio_to_cell_mass_conserved",
+    "AsmodensiusProofs.A02_energy_dissipation_conserved",
+    "AsmodensiusProofs.A03_heat_sink_monotone",
+    "AsmodensiusProofs.A04_underflow_preserved_zero",
+    "AsmodensiusProofs.A05_dropped_events_preserved_zero",
+    "AsmodensiusProofs.A06_species_cap_exact",
+    "AsmodensiusProofs.A07_species_refusal_boundary",
+    "AsmodensiusProofs.A08_arena_rollback_exact",
+    "AsmodensiusProofs.A09_arena_retry_succeeds",
+    "AsmodensiusProofs.A10_store_release_reduces_live",
+    "AsmodensiusProofs.A11_store_release_exact_balance",
+    "AsmodensiusProofs.A12_observer_hash_d7_invariant",
+    "AsmodensiusProofs.A13_trait_abi_width_112",
+    "AsmodensiusProofs.A14_eps_bio_positive",
+    "AsmodensiusProofs.A15_dual_visual_worlds_verified",
+    "AsmodensiusProofs.A16_ecosystem_240_pure_lean4_theorems",
+    "AsmodensiusProofs.A17_bulk_philox_key_equivalence",
+    "AsmodensiusProofs.A18_gpu_cpu_twin_hash_parity",
+    "AsmodensiusProofs.A19_prefetch_observational_transparency",
+    "AsmodensiusProofs.A20_ecosystem_244_pure_lean4_theorems",
+    "AsmodensiusProofs.A21_receive_cap_mass_conserved",
+    "AsmodensiusProofs.A22_six_face_flux_never_overdraws",
+    "AsmodensiusProofs.A23_nut_x_to_bio_energy_conserved",
+    "AsmodensiusProofs.A24_lesion_mask_all_exact",
+    "AsmodensiusProofs.A25_brain_dim_kernel_alignment",
+    "AsmodensiusProofs.A26_gpu_offset8_injective_and_32gib_range",
+    "AsmodensiusProofs.A27_nonvacuity_ledger_and_arena_witness",
+    "AsmodensiusProofs.A28_nonvacuity_philox_and_gpu_witness",
+    "AsmodensiusProofs.A29_refute_unbounded_species_accepted",
+    "AsmodensiusProofs.A30_refute_unbounded_philox_bulk_key_eq"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

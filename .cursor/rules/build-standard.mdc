@@ -1,0 +1,11 @@
+---
+description: Canonical project laws and Build Standard v1.2.0 rules for Asmodensius-Native
+alwaysApply: true
+---
+
+Read and follow `AGENTS.md` at the repository root before making any changes.
+Key mandatory constraints:
+- Obey all 15 Laws in `AGENTS.md`, including Law 5 (exact integer matter/energy conservation), Law 8 (indicator-only, zero sentience/AGI/quantum-speedup claims), and Law 14 (pure 7-bit ASCII, LF line endings, zero tabs, trailing newline in every edited text file; verify via `python -I build/work/scripts/check_text.py . --since 240`).
+- Never delete files you did not create (including `docs/eval/TRACE.csv`).
+- Keep `77/77` CTest, `164/164` `test_gpu.exe`, and `30/30` Lean 4.35.0 multi-kernel checks passing.
+- Commit and push straight to `main` (Build Standard Rules R1-R2); no PR templates, no Dependabot/Renovate, no fabrication (Rule R6).

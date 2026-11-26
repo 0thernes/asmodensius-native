@@ -1,5 +1,7 @@
 # build outputs
 /build/
+/lean/.lake/
+/paper/build/
 *.obj
 *.o
 *.a
@@ -11,6 +13,9 @@
 /out/
 *.azsnap
 *.azlog
-# editor and OS noise
+# editor, secrets and OS noise
+.env
 .vscode/
 Thumbs.db
+__pycache__/
+*.pyc

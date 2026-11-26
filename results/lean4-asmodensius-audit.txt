@@ -18,3 +18,13 @@
 'AsmodensiusProofs.A18_gpu_cpu_twin_hash_parity' does not depend on any axioms
 'AsmodensiusProofs.A19_prefetch_observational_transparency' does not depend on any axioms
 'AsmodensiusProofs.A20_ecosystem_244_pure_lean4_theorems' does not depend on any axioms
+'AsmodensiusProofs.A21_receive_cap_mass_conserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AsmodensiusProofs.A22_six_face_flux_never_overdraws' depends on axioms: [propext, Quot.sound]
+'AsmodensiusProofs.A23_nut_x_to_bio_energy_conserved' depends on axioms: [propext, Quot.sound]
+'AsmodensiusProofs.A24_lesion_mask_all_exact' does not depend on any axioms
+'AsmodensiusProofs.A25_brain_dim_kernel_alignment' does not depend on any axioms
+'AsmodensiusProofs.A26_gpu_offset8_injective_and_32gib_range' depends on axioms: [propext, Quot.sound]
+'AsmodensiusProofs.A27_nonvacuity_ledger_and_arena_witness' does not depend on any axioms
+'AsmodensiusProofs.A28_nonvacuity_philox_and_gpu_witness' depends on axioms: [propext]
+'AsmodensiusProofs.A29_refute_unbounded_species_accepted' does not depend on any axioms
+'AsmodensiusProofs.A30_refute_unbounded_philox_bulk_key_eq' depends on axioms: [propext]

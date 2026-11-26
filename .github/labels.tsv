@@ -1,0 +1,15 @@
+name	color	description
+bug	d73a4a	Confirmed defect where code violates its documented contract or invariant
+error	b60205	Hard runtime, build, verification, or proof-checker failure
+issue	e99695	Functional or UX misbehavior needing remediation
+problem	d93f0b	Structural, legal, epistemic, or architectural defect
+concern	fbca04	Risk or fragility that may fail under future scaling or changes
+dilemma	f9d0c4	Engineering tradeoff without a dominant solution (e.g. PCIe vs CPU at 1M)
+conflict	c2e0c6	Tension between two standards, laws, or platform constraints
+gap	0075ca	Missing test, proof, documentation, or verification coverage
+hole	5319e7	Bypassable guard or incomplete boundary check
+blindspot	1d76db	Unexamined assumption, stale metric, or overlooked failure mode
+documentation	0075ca	Documentation and white paper updates
+formal-verification	0e8a16	Lean 4.35.0 proofs and multi-kernel checking
+performance	bfdadc	Bare-metal throughput, SIMD, and GPU benchmarks
+replication	c5def5	Independent clean-clone replication reports

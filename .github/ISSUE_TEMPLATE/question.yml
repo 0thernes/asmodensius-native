@@ -1,0 +1,11 @@
+name: Question or Replication Report
+description: Ask a technical question or submit an independent clean-clone replication log
+labels: ["replication"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question or Replication Summary
+      placeholder: "Include platform, Lean/CTest/paper commands run, and verbatim summary lines."
+    validations:
+      required: true

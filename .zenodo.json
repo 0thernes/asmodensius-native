@@ -1,0 +1,33 @@
+{
+  "title": "Asmodensius-Native: Freestanding C23, AVX-VNNI, and Pure-Integer PTX Artificial-Life Engine with 6-Kernel Lean 4.35.0 Formal Invariants",
+  "version": "1.1.0",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "apache-2.0",
+  "description": "Windows-native freestanding C23 artificial-life simulation engine (22 core modules, 4 NASM AVX2/AVX-VNNI twins, 41,817 B pure-integer CUDA PTX backend, exact integer matter/energy conservation, 77/77 CTest, 164/164 GPU differential checks) with a 30-theorem 6-kernel Palomar-ready Pure Lean 4.35.0 formal proof suite and AMS-LaTeX white paper. Independent research preprint; not peer-reviewed; 0/1,900 Mega-Atlas open problems retired.",
+  "creators": [
+    {
+      "name": "Donahue, Alexander Stephen",
+      "affiliation": "Independent Researcher, Spokane, WA, USA",
+      "orcid": "0009-0006-8168-9648"
+    }
+  ],
+  "keywords": [
+    "artificial life",
+    "freestanding C23",
+    "AVX-VNNI",
+    "CUDA PTX",
+    "Philox4x32-10",
+    "deterministic simulation",
+    "Lean 4",
+    "formal verification"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/0thernes/asmodensius-native",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Dual-licensed: Apache-2.0 for code, Lean 4 proofs, and scripts; CC-BY-4.0 for white paper, figures, documentation, and datasets. AI coding assistants assisted with implementation iterations, Lean refactoring, and documentation under human review and automated kernel/CTest verification."
+}

@@ -1,0 +1,35 @@
+name: Bug Report
+description: Report a confirmed bug, invariant failure, or parity mismatch
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Please include the exact command and verbatim stdout/stderr tail (Project Law 9)."
+  - type: input
+    id: commit
+    attributes:
+      label: Commit SHA / Version
+      placeholder: "e.g., v1.1.0 or git rev-parse HEAD"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS, CPU Topology, and GPU (if applicable)
+      placeholder: "e.g., Windows 11 x86-64, 24C (8P+16E), RTX 5070 Ti"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Exact Command and Minimal Reproduction
+      placeholder: "Paste exact command line and flags (--lab --seed ...)"
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Observed Output vs. Expected Invariant
+      placeholder: "Paste verbatim output tail, exit code, and state hash"
+    validations:
+      required: true

@@ -1,0 +1,117 @@
+# yaml-language-server: $schema=./repo-standard.schema.json
+# Project manifest for the Build Standard for LLMs v1.2.0. Read by scripts/audit-repo.sh and scripts/Audit-Repo.ps1.
+standard: "1.2.0"
+name: "asmodensius-native"
+description: "Windows-native freestanding C23, NASM AVX2/AVX-VNNI, and pure-integer CUDA PTX artificial-life engine (77/77 CTest, 164/164 test_gpu, 30 Lean 4.35.0 6-kernel proofs)"
+owner: "Alexander Stephen Donahue"
+year: "2026"
+project_type: research
+stack: [c-cpp, python, other]
+flags:
+  public: true
+  package: true
+  visual: true
+  ui: true
+  native: true
+  ai: false
+  personal_data: false
+  service: false
+  deployed: false
+  api: true
+  perf: true
+  concurrent: true
+  numeric: true
+  experimental: true
+  ml: false
+  formal: true
+items:
+  A01: {status: done}  # README with a one-line purpose [core]
+  A02: {status: done}  # Badge ribbon [recommended]
+  A03: {status: done}  # Quickstart that works from a clean clone [core]
+  A04: {status: done}  # Usage examples [core]
+  A05: {status: done}  # Demo media (docs/media/social-preview.svg) [recommended]
+  A06: {status: done}  # LICENSE (Apache-2.0 + LICENSE-DOCS CC-BY-4.0) [core]
+  A07: {status: done}  # CHANGELOG [core]
+  A08: {status: done}  # Semantic version 1.1.0 consistent across VERSION, CHANGELOG, CITATION.cff [core]
+  A09: {status: done}  # Automated tests that pass (77/77 CTest + 164/164 test_gpu) [core]
+  A10: {status: done}  # Informational CI (.github/workflows/ci.yml) [core]
+  A11: {status: done}  # Releases (tags v* trigger in CI) [recommended]
+  A12: {status: done}  # .gitignore [core]
+  A13: {status: done}  # .gitattributes and .editorconfig [recommended]
+  A14: {status: done}  # CONTRIBUTING guide [recommended]
+  A15: {status: done}  # CODE_OF_CONDUCT [recommended]
+  A16: {status: done}  # SECURITY.md [core]
+  A17: {status: done}  # SUPPORT.md [recommended]
+  A18: {status: done}  # Issue templates (bug, feature, question, config; zero PR templates) [recommended]
+  A19: {status: done, evidence: "gh repo edit 0thernes/asmodensius-native updated description and topics on 2026-11-25."}  # About description and topics [core]
+  A20: {status: done}  # docs/ folder (docs/ARCHITECTURE.md + full docs/ index) [recommended]
+  A21: {status: done}  # Architecture Decision Records (docs/adr/0001-*.md) [recommended]
+  A22: {status: done}  # CITATION.cff (plus CITATION.bib and .zenodo.json) [advanced]
+  A23: {status: done}  # Clean history and correct identity on main [core]
+  A24: {status: done}  # No secrets, build output or >5 MiB files committed (TRACE.csv is 4.98 MB) [core]
+  A25: {status: done}  # Cross-platform CI (ubuntu-latest + windows-latest) [recommended]
+  A26: {status: done}  # Social preview image (docs/media/social-preview.svg) [recommended]
+  A27: {status: n/a, note: "Windows bare-metal native engine (Law 10); static GitHub Pages deployment is not applicable (see DEVIATIONS.md)."}
+  A28: {status: done}  # Package manifest (CMakeLists.txt + lean/lakefile.toml) [recommended]
+  A29: {status: done}  # ROADMAP.md [recommended]
+  A30: {status: done}  # Labels for the 10 finding classes (.github/labels.tsv) [recommended]
+  A31: {status: done}  # Task runner with one-word commands (justfile) [core]
+  A32: {status: done}  # Agent entry points: AGENTS.md canonical (<32 KiB), CLAUDE.md, GEMINI.md, Cursor rule, llms.txt [core]
+  A33: {status: done}  # Environment and configuration documented (.env.example + docs/configuration.md) [core]
+  A34: {status: n/a, note: "Headless bare-metal simulation engine and local diagnostic viewer, not a long-running network service (service: false)."}
+  A35: {status: done}  # Data, migrations, backups and offsite repo mirror/bundle documented in docs/operations.md [recommended]
+  A36: {status: n/a, note: "Not deployed to hosted infrastructure (deployed: false)."}
+  A37: {status: done, evidence: "Performance budgets defined and measured in docs/benchmarks.md and docs/TRIGGER-REGISTER.md."}  # Performance budgets [advanced]
+  A38: {status: n/a, note: "Local Windows diagnostic viewer consoles (demo/*.html) are single-operator developer HUDs, not an internationalized public web app."}
+  A39: {status: done}  # Third-party licensing and attribution (THIRD_PARTY_NOTICES.md + NOTICE) [recommended]
+  A40: {status: n/a, note: "Zero LLMs, AI SDKs, or pretrained weights inside engine (Law 3, ai: false)."}
+  A41: {status: done}  # Deprecation and upgrade path (UPGRADING.md) [advanced]
+  A42: {status: done}  # Maintenance status (status: active in README.md) [recommended]
+  A43: {status: done}  # examples/ directory (examples/README.md + examples/parity_smoke.py) [recommended]
+  A44: {status: done}  # FAQ and glossary (docs/faq.md + docs/glossary.md) [recommended]
+  A45: {status: n/a, note: "Zero personal data collected, stored, or transmitted (personal_data: false)."}
+  B01: {status: done}  # Reproducible build from a clean clone (justfile reproduce target + REPLICATION.md) [core]
+  B02: {status: n/a, note: "Freestanding C23 core and stdlib Python tooling have zero third-party package-manager dependencies; Lean 4.35.0 is pinned via lean/lean-toolchain and lean/lake-manifest.json (see DEVIATIONS.md)."}
+  B03: {status: done, evidence: "cli_matrix_engine, cli_matrix_protocol, cli_gpu_tick_parity, and examples/parity_smoke.py verify bit-exact az_state_hash parity."}  # Determinism checks [core]
+  B04: {status: done}  # CLAIMS.md ledger [core]
+  B05: {status: done, evidence: "All 12 claims in CLAIMS.md map to executable CTest, test_gpu, Lean 4.35.0, or citation-check commands."}  # Falsifiable tests per claim [core]
+  B06: {status: done, evidence: "Negative controls in ubsan_trap_build (6 traps), core_obj_gate_selftest, lint_core_selftest, test_gpu bias-mutation control, --species 101 exit 2, and Lean A29/A30."}  # Negative tests [core]
+  B07: {status: done, evidence: "Regression tests in tests/test_core.c (P4-CORE-02, P4-CORE-03), cli_gpu_tick_parity, and cli_ws_selftest lock every confirmed bug fix."}  # Regression test per fixed bug [core]
+  B08: {status: done, evidence: "Golden bit-exact hashes (7bd9823448dd38b1, 21e4cfcdf0b08066, 5b8110b324d2603f, 31e5d00c106ce679) and snapshot round-trip tests (test_snapshot, cli_ledger_resume)."}  # Golden and snapshot tests [recommended]
+  B09: {status: done, evidence: "ABI v4 _Static_asserts in core/az_abi.h, 36-word GPU layout check in gpu/az_gpu_dev.c, and stream/WS contract tests (cli_ws_selftest, cli_viewer_transport)."}  # Contract and API tests [recommended]
+  B10: {status: n/a, note: "Custom C randomized property tests live across tests/test_*.c (using tests/az_test.h over 100k+ random inputs) rather than an external property-testing library."}
+  B11: {status: done, evidence: "Differential tests compare NASM AVX-VNNI/AVX2 twins and Clang 21 CUDA PTX kernels against freestanding C23 reference across 1,000,000 inputs (test_gpu 164/164, test_rng, test_brain, test_physics)."}  # Differential testing [recommended]
+  B12: {status: done, evidence: "Freestanding scalar C23 core serves as bit-exact reference oracle for all SIMD/GPU twins; vendored MIT oracles under tests/upstream/ check tk_sh, tk_hop, tk_qgt, tk_qsv."}  # Reference implementation as test oracle [recommended]
+  B13: {status: done, evidence: "Planted-fault mutation/self-tests in lint_core_selftest, core_obj_gate_selftest, avx_stack_gate_selftest, and ubsan_trap_build (tests/ubsan_probe.c)."}  # Mutation testing [recommended]
+  B14: {status: done, evidence: "Metamorphic invariance over worker counts (1..24), thread pinning, reorder periods (7/31/255), randomized work splits, prefetch 0/1, and snapshot resume (cli_matrix_*)."}  # Metamorphic testing [advanced]
+  B15: {status: n/a, note: "Native code uses randomized property testing, split-seed determinism matrices, and trap-mode UBSan (ubsan_trap_build) rather than libFuzzer/AFL++ (see DEVIATIONS.md)."}
+  B16: {status: done}  # Sanitizers and runtime checkers (ubsan_trap_build with -fsanitize=undefined -fsanitize-trap=undefined) [core]
+  B17: {status: n/a, note: "Project ships custom domain static analyzers and binary purity gates (tools/lint_core.py, tools/check_core_obj.py, tools/check_avx_stack.py) rather than external linters matched by generic regex."}
+  B18: {status: done}  # Strict type checking (-Wall -Wextra -Wstrict-prototypes -Werror=incompatible-pointer-types + Lean 4.35.0 dependent type checker) [recommended]
+  B19: {status: done, evidence: "Race-free parallel execution verified via cli_matrix_engine and cli_matrix_protocol across 1..24 workers, pinned/unpinned, and randomized work splits."}  # Concurrency and race testing [advanced]
+  B20: {status: done, evidence: "Zero floating point in core/ (core_obj_gate), trap-mode UBSan without -fwrapv (ubsan_trap_build), exact integer matter/energy equality, and fixed-point oracle tests (test_fx, test_tk_*)."}  # Numeric stability [advanced]
+  B21: {status: n/a, note: "Not a long-running network service (service: false); explicit refusal/failure paths tested in test_core, test_gpu, and DEMO-16."}
+  B22: {status: done}  # Formal specification and proof (lean/ - 30 Pure Lean 4.35.0 theorems, 6-kernel Palomar ready) [advanced]
+  B23: {status: n/a, note: "Protocol invariants are formalized directly in Lean 4.35.0 rather than a separate TLA+/Alloy model (see DEVIATIONS.md)."}
+  B24: {status: n/a, note: "Runtime targets bare-metal freestanding C23, NASM, and CUDA PTX; algebraic/protocol invariants are formalized in Lean 4.35.0."}
+  B25: {status: n/a, note: "Bounded C model checkers (CBMC/Frama-C) are not run; C core safety is guarded via ubsan_trap_build, core_obj_gate, avx_stack_gate, and 77/77 CTest."}
+  B26: {status: done}  # Honest benchmarks (docs/benchmarks.md + docs/BENCH.md disclosing 1M GPU PCIe tradeoff and TR-03 large-pages status) [core]
+  B27: {status: done, evidence: "Historical benchmark progression tracked in docs/benchmarks.md, docs/TRIGGER-REGISTER.md, and docs/run-log.md."}  # Performance tracking over time [advanced]
+  B28: {status: done, evidence: "24 paired development seeds (1-24) and reserved unburned 24-seed reporting/confirmation blocks (5001-5024, 6001-6024, 6101-6124) in docs/eval/SEEDS.md."}  # Controls and multiple seeds [core]
+  B29: {status: done, evidence: "Paired intact-vs-lesion statistical framework specified in docs/preregistration.md and docs/eval/MECHANISMS.md."}  # Significance testing [core]
+  B30: {status: done, evidence: "Paired effect thresholds and reporting protocol documented in docs/preregistration.md and docs/eval/MECHANISMS.md."}  # Effect sizes and confidence intervals [core]
+  B31: {status: done, evidence: "Holm-Bonferroni / Benjamini-Hochberg family-wise adjustment specified in docs/preregistration.md prior to confirmatory runs."}  # Multiple-comparison correction [recommended]
+  B32: {status: done}  # Pre-registration of hypotheses (docs/preregistration.md + docs/eval/SEEDS.md) [advanced]
+  B33: {status: n/a, note: "No ML training or model selection (ml: false)."}
+  B34: {status: n/a, note: "No runtime LLM or AI model inference (ai: false)."}
+  B35: {status: done}  # Security scanning, report-only (gitleaks in .github/workflows/ci.yml) [recommended]
+  B36: {status: done}  # Threat model (docs/threat-model.md) [recommended]
+  B37: {status: done}  # Release hashes and checksums (SHA256SUMS in CI + CHECKSUMS.sha256) [core]
+  B38: {status: done}  # Build provenance and attestations (actions/attest-build-provenance@v2 in CI) [recommended]
+  B39: {status: done}  # Data checksums and dataset versioning (data/MANIFEST.sha256) [recommended]
+  B40: {status: done}  # Audit trail (docs/run-log.md + build/work/PROGRESS.md) [recommended]
+  B41: {status: done}  # Limitations and real-vs-metaphor (LIMITATIONS.md) [core]
+  B42: {status: done}  # What would prove us wrong (CLAIMS.md explicit refutation column) [core]
+  B43: {status: done}  # Replication protocol (REPLICATION.md) [core]
+  B44: {status: done}  # Independent replication log (REPLICATION.md dated table, honestly marked awaiting external replication) [advanced]
+  B45: {status: done}  # Peer and red-team review (docs/reviews/2026-11-25-10-pass-red-team-audit.md) [recommended]
