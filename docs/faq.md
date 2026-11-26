@@ -26,7 +26,7 @@ No. **`0 / 1,900`** overarching Mega-Atlas open problems are solved or retired. 
 
 ## Why does `check_text.py` reject non-ASCII characters and CRLF?
 
-Project Law 14 enforces pure 7-bit ASCII, LF (`\n`) line endings, zero tabs (except `.tsv` data tables), and a trailing newline in every edited text file so diffs, cross-tool parsers, C23/PTX sources, and Lean proofs remain deterministic and free of encoding hazards.
+Project Law 14 asks for pure 7-bit ASCII, LF (`\n`) line endings, zero tabs (except `.tsv` data tables), and a trailing newline in every edited text file. The checker (`build/work/scripts/check_text.py`) is not tracked in this repository and no CI step runs it; the project's own handoff notes record files that break the rule (see `LIMITATIONS.md`).
 
 ## Can I verify the Lean 4.35.0 proofs without a Windows machine or NVIDIA GPU?
 
