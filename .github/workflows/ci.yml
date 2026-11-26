@@ -67,14 +67,20 @@ jobs:
       - name: Install elan and verify Lean 4.35.0 on Windows
         shell: pwsh
         run: |
-          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/leanprover/elan/master/elan-init.ps1" -OutFile "$env:TEMP\elan-init.ps1"
-          & "$env:TEMP\elan-init.ps1" -y --default-toolchain none
+          Invoke-WebRequest -Uri "https://github.com/leanprover/elan/releases/latest/download/elan-x86_64-pc-windows-msvc.zip" -OutFile "$env:TEMP\elan.zip"
+          Expand-Archive -Path "$env:TEMP\elan.zip" -DestinationPath "$env:TEMP\elan-inst" -Force
+          & "$env:TEMP\elan-inst\elan-init.exe" -y --default-toolchain none
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           $env:PATH = "$env:USERPROFILE\.elan\bin;$env:PATH"
           Set-Location -LiteralPath lean
           lake build
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           lake build Challenge
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           lake env lean VerifyAxioms.lean
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           lake env leanchecker --fresh Solution
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
   paper-pdf-and-provenance:
     name: AMS-LaTeX White Paper, Clean-Room arXiv & SLSA Provenance
