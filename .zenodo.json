@@ -1,10 +1,10 @@
 {
-  "title": "Asmodensius-Native: Freestanding C23, AVX-VNNI, and Pure-Integer PTX Artificial-Life Engine with 6-Kernel Lean 4.35.0 Formal Invariants",
-  "version": "1.1.0",
+  "title": "Asmodensius-Native: Freestanding C23, AVX-VNNI, and Pure-Integer PTX Artificial-Life Engine with Multi-Kernel Lean 4.35.0 Model Invariants",
+  "version": "1.2.0",
   "upload_type": "software",
   "access_right": "open",
   "license": "apache-2.0",
-  "description": "Windows-native freestanding C23 artificial-life simulation engine (22 core modules, 4 NASM AVX2/AVX-VNNI twins, 41,817 B pure-integer CUDA PTX backend, exact integer matter/energy conservation, 77/77 CTest, 164/164 GPU differential checks) with a 30-theorem 6-kernel Palomar-ready Pure Lean 4.35.0 formal proof suite and AMS-LaTeX white paper. Independent research preprint; not peer-reviewed; 0/1,900 Mega-Atlas open problems retired.",
+  "description": "Windows-native freestanding C23 artificial-life simulation engine (22 core modules, 4 NASM AVX2/AVX-VNNI twins, 41,817 B pure-integer CUDA PTX backend, exact integer matter/energy conservation, 77/77 CTest, 164/164 GPU differential checks) with a 38-declaration Pure Lean 4.35.0 model suite (26 substantive model, boundary, witness, and false-variant refutation theorems including the implemented core/az_chem.c a/4 spread budget, plus 12 explicitly labeled sanity checks) checked locally by 6 checkers and in Ubuntu CI by lean4lean and bubblewrap comparator, plus an AMS-LaTeX white paper and interactive strict-CSP proof blueprint. C23/NASM/PTX code is not verified in Lean. Independent research preprint; not peer-reviewed; 0/1,900 Mega-Atlas open problems retired.",
   "creators": [
     {
       "name": "Donahue, Alexander Stephen",
@@ -27,7 +27,12 @@
       "identifier": "https://github.com/0thernes/asmodensius-native",
       "relation": "isSupplementTo",
       "scheme": "url"
+    },
+    {
+      "identifier": "https://0thernes.github.io/asmodensius-native/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
     }
   ],
-  "notes": "Dual-licensed: Apache-2.0 for code, Lean 4 proofs, and scripts; CC-BY-4.0 for white paper, figures, documentation, and datasets. AI coding assistants assisted with implementation iterations, Lean refactoring, and documentation under human review and automated kernel/CTest verification."
+  "notes": "Dual-licensed: Apache-2.0 for code, Lean 4 proofs, and scripts; CC-BY-4.0 for white paper, figures, documentation, and datasets. Software Heritage snapshot: swh:1:snp:08a957772115194b51a4eadb77331b8bab261773. AI coding assistants assisted with implementation iterations, Lean refactoring, and documentation under human review and automated kernel/CTest verification."
 }

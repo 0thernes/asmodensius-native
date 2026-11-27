@@ -1,31 +1,37 @@
-# Asmodensius-Native (v1.1.0)
+# Asmodensius-Native (v1.2.0)
 
-> Windows-native freestanding C23, NASM AVX2/AVX-VNNI, and pure-integer CUDA PTX artificial-life simulation engine with exact integer matter/energy conservation, bit-exact multi-substrate replay, 77/77 CTest, 164/164 GPU differential checks, and 30 Pure Lean 4.35.0 formal invariants.
+> Windows-native freestanding C23, NASM AVX2/AVX-VNNI, and pure-integer CUDA PTX artificial-life simulation engine with exact integer matter/energy conservation, bit-exact multi-substrate replay, 77/77 CTest, 164/164 GPU differential checks, and 38 Pure Lean 4.35.0 declarations (26 substantive model, boundary, witness, and adversarial refutation theorems + 12 explicitly labeled sanity checks) about an abstract Nat model of its rules. C23/NASM/PTX code is not verified in Lean.
 
 Author: Alexander Stephen Donahue (Independent Researcher, Spokane, WA, USA; ORCID 0009-0006-8168-9648)
 Repository: https://github.com/0thernes/asmodensius-native
+Portal & Proof Blueprint: https://0thernes.github.io/asmodensius-native/
+Software Heritage Snapshot: swh:1:snp:08a957772115194b51a4eadb77331b8bab261773
 Licenses: Apache-2.0 (code, Lean 4 proofs, scripts) and CC-BY-4.0 (white paper, docs, figures, datasets)
 
 ## Canonical Entry Points
 
-- [README.md](README.md): Overview, quickstart, usage, and verbatim Lean `#print axioms` verification block.
-- [AGENTS.md](AGENTS.md): 15 non-negotiable engineering laws (including Law 5 exact books, Law 8 indicator-only, Law 14 pure 7-bit ASCII/LF/no-tabs).
+- [README.md](README.md): Overview, quickstart, usage, and verbatim 38-declaration Lean `#print axioms` verification block.
+- [AGENTS.md](AGENTS.md): 15 non-negotiable engineering laws (including Law 5 exact books, Law 8 indicator-only, Law 14 pure 7-bit ASCII/LF/no-tabs enforced on active tracked files by `tools/check_text.py`).
 - [CLAIMS.md](CLAIMS.md): Numbered claims ledger (`C01`..`C12`) with epistemic tiers and explicit falsification conditions.
-- [LIMITATIONS.md](LIMITATIONS.md): Threats to validity, negative hardware tradeoffs, and real-vs-metaphor boundary.
+- [LIMITATIONS.md](LIMITATIONS.md): Threats to validity, negative hardware tradeoffs, formal-to-binary gap, and real-vs-metaphor boundary.
+- [ERRATA.md](ERRATA.md): Chronological errata including the full 2026-11-26 statement audit (`#1`..`#11`) and `v1.2.0` closure table.
 - [REPLICATION.md](REPLICATION.md): Clean-clone step-by-step reproduction protocol and dated replication log.
+- [SUBMISSION_READINESS.md](SUBMISSION_READINESS.md): Archival & preprint readiness ledger (not peer-reviewed).
 
-## Formal Proofs & White Paper
+## Formal Proofs, Blueprint & White Paper
 
-- [lean/README.md](lean/README.md): 30 Pure Lean 4.35.0 theorems (`A01`..`A30`), 6-kernel Palomar `Challenge.lean`/`Solution.lean` setup.
-- [results/lean4-asmodensius-audit.txt](results/lean4-asmodensius-audit.txt): Verbatim `#print axioms` output.
-- [results/lean4-multi-kernel.txt](results/lean4-multi-kernel.txt): Local 5-kernel replay transcript (`lean4`, `leanchecker`, `leanchecker-paranoid`, `con-leche`, `con-ron`, `nanoda_bin`).
-- [paper/main.tex](paper/main.tex): AMS-LaTeX white paper source (`dist/Donahue_2026_asmodensius_native.pdf`, `dist/arxiv_submission.tar.gz`).
+- [lean/README.md](lean/README.md): 38 Pure Lean 4.35.0 declarations (`A01`..`A38`: 26 substantive + 12 labeled sanity checks), Palomar `Challenge.lean`/`Solution.lean` setup, and `scripts/test_lean_negative.py`.
+- [docs/blueprint.html](docs/blueprint.html): Interactive strict-CSP, zero-CDN, WCAG 2.2 AA Lean 4 Proof Blueprint (audited by `scripts/check_blueprint.py`).
+- [results/lean4-asmodensius-audit.txt](results/lean4-asmodensius-audit.txt): Verbatim `#print axioms` output (38/38).
+- [results/lean4-multi-kernel.txt](results/lean4-multi-kernel.txt): Local 6-checker Windows transcript (`lean4` kernel, `leanchecker`, `leanchecker-paranoid`, `con-leche`, `con-ron`, `nanoda_bin`; Ubuntu CI adds `lean4lean` + `bwrap` comparator).
+- [paper/main.tex](paper/main.tex): 10-page AMS-LaTeX white paper (`dist/Donahue_2026_asmodensius_native.pdf`, `dist/arxiv_submission.tar.gz`, `results/citation-audit.json`).
 - [docs/statement-fidelity.md](docs/statement-fidelity.md): Line-by-line Lean-to-C/PTX statement-fidelity matrix.
 
-## Architecture, Benchmarks & Governance
+## Architecture, Benchmarks, FAIR Metadata & Governance
 
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): Canonical ABI v4 architectural specification.
 - [docs/benchmarks.md](docs/benchmarks.md): Multi-substrate bare-metal benchmarks (`1k`, `10k`, `100k`, `1M`) and PCIe/large-pages tradeoffs.
 - [docs/TRIGGER-REGISTER.md](docs/TRIGGER-REGISTER.md): Deferred capability register (`TR-01`..`TR-18`).
 - [docs/MEGA_ATLAS_CROSSCHECK.md](docs/MEGA_ATLAS_CROSSCHECK.md): Cross-check confirming `0 / 1,900` overarching Mega-Atlas open problems retired.
 - [docs/AI_DISCLOSURE.md](docs/AI_DISCLOSURE.md): Transparent AI-assistance and CRediT authorship disclosure.
+- [docs/DATASHEET.md](docs/DATASHEET.md), [croissant.json](croissant.json), [ro-crate-metadata.json](ro-crate-metadata.json), [codemeta.json](codemeta.json), [REUSE.toml](REUSE.toml): FAIR metadata & SPDX licensing.

@@ -4,7 +4,7 @@ public import AsmodensiusProofs.Spec
 public import AsmodensiusProofs.Core
 
 /-!
-# AsmodensiusProofs.NonVacuity - Concrete Inhabitant Witnesses & Adversarial Refutations (A27..A30)
+# AsmodensiusProofs.NonVacuity - Concrete Inhabitant Witnesses & Guard Refutations (A27..A30)
 
 Constructs explicit concrete witnesses proving that hypothesis bundles in `Core.lean`
 are simultaneously satisfiable (non-vacuity) and proves sharp negative boundary
@@ -27,7 +27,8 @@ public theorem A27_nonvacuity_ledger_and_arena_witness :
     (dissipateToHeat s 250).droppedEvents = 0 /\
     arenaRollback 4096 1024 = 4096 /\
     (storeRelease st 42).liveUnits < st.liveUnits /\
-    (storeRelease st 42).liveUnits + 42 = st.liveUnits := by
+    (storeRelease st 42).liveUnits + 42 = st.liveUnits /\
+    chemSpreadSixFaces 100 10 10 10 10 10 10 = (25, 0) := by
   decide
 
 public theorem A28_nonvacuity_philox_and_gpu_witness :
@@ -36,7 +37,9 @@ public theorem A28_nonvacuity_philox_and_gpu_witness :
     tileBrainByteOffset 1048576 = 8388608 /\
     receiveCap 90 100 25 = (10, 15) /\
     totalChemThermalEnergy (metabolizeNutXToBio { nutXMass := 50, bioMass := 10, thermalEnergy := 100 } 12) =
-      totalChemThermalEnergy { nutXMass := 50, bioMass := 10, thermalEnergy := 100 } := by
+      totalChemThermalEnergy { nutXMass := 50, bioMass := 10, thermalEnergy := 100 } /\
+    validCap 1004096 = true /\
+    acceptSpecies 100 = true := by
   decide
 
 public theorem A29_refute_unbounded_species_accepted :

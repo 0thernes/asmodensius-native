@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none';">
+  <title>Lean 4.35.0 Proof Blueprint - Asmodensius-Native v1.2.0</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header>
+    <div class="header-inner">
+      <h1>Interactive Lean 4.35.0 Proof Blueprint</h1>
+      <p class="subtitle">Asmodensius-Native v1.2.0 - 38 Comparator Targets (26 Substantive Model Theorems + 12 Labeled Sanity Checks)</p>
+      <nav class="nav-bar" aria-label="Primary navigation">
+        <a href="index.html">Overview</a>
+        <a href="blueprint.html" aria-current="page">Lean 4 Proof Blueprint</a>
+        <a href="dist/Donahue_2026_asmodensius_native.pdf">White Paper PDF</a>
+        <a href="results/lean4-asmodensius-audit.txt">Verbatim Axiom Audit</a>
+        <a href="https://github.com/0thernes/asmodensius-native">GitHub Repository</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section aria-labelledby="sec-boundary">
+      <h2 id="sec-boundary">Formal Scope &amp; Palomar Module Architecture</h2>
+      <div class="callout-warn">
+        <strong>Explicit Verification Boundary:</strong>
+        All 38 declarations below are machine-checked in pure Lean 4.35.0 (zero Mathlib, zero <code>sorry</code> in <code>Solution</code>, zero <code>native_decide</code>, axioms strictly within <code>[propext, Classical.choice, Quot.sound]</code>) against the hand-written <code>Nat</code> definitions in <code>lean/AsmodensiusProofs/Spec.lean</code>.
+        Lean does <strong>not</strong> formally verify C23, NASM, or CUDA PTX codegen.
+        Twelve declarations are explicitly labeled definitional, constant, congruence, or legacy arithmetic sanity checks.
+      </div>
+      <div class="dag-wrap">
+        <svg class="dag-svg" viewBox="0 0 920 260" role="img" aria-labelledby="dag-title dag-desc">
+          <title id="dag-title">Palomar Module Dependency Graph for AsmodensiusProofs v1.2.0</title>
+          <desc id="dag-desc">Spec.lean feeds Challenge.lean directly (statement-only sorry boundary) and feeds Core.lean, which feeds NonVacuity.lean and AdversarialTests.lean; all proof modules aggregate into Solution.lean and are compared against Challenge.lean by lake comparator --paranoid.</desc>
+          <line class="dag-edge" x1="190" y1="125" x2="270" y2="60" />
+          <line class="dag-edge" x1="190" y1="125" x2="270" y2="175" />
+          <line class="dag-edge" x1="470" y1="60" x2="540" y2="60" />
+          <line class="dag-edge" x1="470" y1="60" x2="540" y2="145" />
+          <line class="dag-edge" x1="720" y1="60" x2="770" y2="110" />
+          <line class="dag-edge" x1="720" y1="145" x2="770" y2="110" />
+          <line class="dag-edge" x1="470" y1="175" x2="770" y2="195" />
+
+          <g class="dag-node dag-node-spec" transform="translate(20,90)">
+            <rect width="170" height="70" />
+            <text x="12" y="27">Spec.lean</text>
+            <text class="dag-sub" x="12" y="45">Pure ABI v4 &amp; model defs</text>
+            <text class="dag-sub" x="12" y="60">0 proofs, 0 sorry</text>
+          </g>
+          <g class="dag-node dag-node-core" transform="translate(270,25)">
+            <rect width="200" height="70" />
+            <text x="12" y="27">Core.lean (28 decls)</text>
+            <text class="dag-sub" x="12" y="45">16 substantive + 12 sanity</text>
+            <text class="dag-sub" x="12" y="60">A01..A26, A31..A32</text>
+          </g>
+          <g class="dag-node dag-node-chal" transform="translate(270,145)">
+            <rect width="200" height="70" />
+            <text x="12" y="27">Challenge.lean</text>
+            <text class="dag-sub" x="12" y="45">Imports ONLY Spec.lean</text>
+            <text class="dag-sub" x="12" y="60">38 statement-only targets</text>
+          </g>
+          <g class="dag-node dag-node-nonvac" transform="translate(540,20)">
+            <rect width="180" height="70" />
+            <text x="12" y="27">NonVacuity.lean</text>
+            <text class="dag-sub" x="12" y="45">2 witnesses + 2 refutes</text>
+            <text class="dag-sub" x="12" y="60">A27..A30</text>
+          </g>
+          <g class="dag-node dag-node-adv" transform="translate(540,110)">
+            <rect width="180" height="70" />
+            <text x="12" y="27">AdversarialTests.lean</text>
+            <text class="dag-sub" x="12" y="45">6 false-variant refutes</text>
+            <text class="dag-sub" x="12" y="60">A33..A38</text>
+          </g>
+          <g class="dag-node dag-node-sol" transform="translate(770,70)">
+            <rect width="135" height="75" />
+            <text x="10" y="27">Solution.lean</text>
+            <text class="dag-sub" x="10" y="45">38/38 proved</text>
+            <text class="dag-sub" x="10" y="60">0 sorry / 6+1 kernels</text>
+          </g>
+          <g class="dag-node dag-node-sol" transform="translate(770,165)">
+            <rect width="135" height="60" />
+            <text x="10" y="25">comparator.json</text>
+            <text class="dag-sub" x="10" y="44">bwrap paranoid CI</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section aria-labelledby="sec-table">
+      <h2 id="sec-table">Complete Audited Declaration Ledger (38 / 38 Comparator Targets)</h2>
+      <div class="controls" role="region" aria-label="Filter declarations">
+        <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">All (38)</button>
+        <button type="button" class="filter-btn" data-filter="substantive" aria-pressed="false">Substantive Model (16)</button>
+        <button type="button" class="filter-btn" data-filter="witness" aria-pressed="false">Non-Vacuity Witnesses (2)</button>
+        <button type="button" class="filter-btn" data-filter="adversarial" aria-pressed="false">Adversarial Refutations (8)</button>
+        <button type="button" class="filter-btn" data-filter="sanity" aria-pressed="false">Labeled Sanity Checks (12)</button>
+        <label for="decl-search" class="skip-link">Search declarations</label>
+        <input id="decl-search" class="search-input" type="search" placeholder="Filter by theorem name, module, or source file...">
+      </div>
+      <p id="filter-status" aria-live="polite">Showing 38 of 38 audited Lean 4.35.0 declarations.</p>
+      <div id="decl-detail" class="detail-panel" aria-live="polite">Select any row below (click or press Enter) to inspect its formalization boundary.</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Lean Declaration</th>
+              <th>Category</th>
+              <th>Module</th>
+              <th>Model Reference &amp; Boundary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A01_bio_to_cell_mass_conserved" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_world.c:745" data-summary="transferBioToCell preserves totalMass when dm <= bioMass.">
+              <td>A01</td><td><code>AsmodensiusProofs.A01_bio_to_cell_mass_conserved</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td><code>core/az_world.c:745</code>: integer mass transfer conservation.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A02_energy_dissipation_conserved" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_world.c:766" data-summary="dissipateToHeat preserves totalEnergy when de <= bioEnergy.">
+              <td>A02</td><td><code>AsmodensiusProofs.A02_energy_dissipation_conserved</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td><code>core/az_world.c:766</code>: integer energy dissipation conservation.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A03_heat_sink_monotone" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="docs/ARCHITECTURE.md Rule C3" data-summary="dissipateToHeat monotonically increases cellHeat.">
+              <td>A03</td><td><code>AsmodensiusProofs.A03_heat_sink_monotone</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Rule C3: thermal sink monotonicity.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A04_underflow_preserved_zero" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="Spec.lean record update" data-summary="Definitional check: transferBioToCell does not touch fieldUnderflow.">
+              <td>A04</td><td><code>AsmodensiusProofs.A04_underflow_preserved_zero</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>Definitional record-update check (field untouched).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A05_dropped_events_preserved_zero" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="Spec.lean record update" data-summary="Definitional check: dissipateToHeat does not touch droppedEvents.">
+              <td>A05</td><td><code>AsmodensiusProofs.A05_dropped_events_preserved_zero</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>Definitional record-update check (field untouched).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A06_species_cap_exact" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="core/az_worldgen.c:84" data-summary="Constant identity WG_MAX_SPECIES = 100.">
+              <td>A06</td><td><code>AsmodensiusProofs.A06_species_cap_exact</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>Constant identity check (<code>WG_MAX_SPECIES = 100</code>).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A07_species_refusal_boundary" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_worldgen.c:84, tools/az_run.c:174" data-summary="Restated in v1.2.0: invokes Spec.acceptSpecies to prove req > 100 returns false.">
+              <td>A07</td><td><code>AsmodensiusProofs.A07_species_refusal_boundary</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Invokes <code>Spec.acceptSpecies</code>: refuses all <code>req &gt; 100</code>.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A08_arena_rollback_exact" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_world.c:279 (P4-CORE-02)" data-summary="Restated in v1.2.0: invokes Spec.arenaRollback to prove exact restoration to saved.">
+              <td>A08</td><td><code>AsmodensiusProofs.A08_arena_rollback_exact</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Invokes <code>Spec.arenaRollback</code>: exact cursor restore.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A09_arena_retry_succeeds" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_world.c:279-372 (P4-CORE-02)" data-summary="Restated in v1.2.0: invokes Spec.arenaRollback to prove retry fits after rollback.">
+              <td>A09</td><td><code>AsmodensiusProofs.A09_arena_retry_succeeds</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Invokes <code>Spec.arenaRollback</code>: smaller retry fits in <code>avail</code>.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A10_store_release_reduces_live" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_store.c:192 (P4-CORE-03)" data-summary="Restated in v1.2.0: invokes Spec.storeRelease to prove liveUnits strictly decreases.">
+              <td>A10</td><td><code>AsmodensiusProofs.A10_store_release_reduces_live</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Invokes <code>Spec.storeRelease</code>: positive release reduces <code>liveUnits</code>.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A11_store_release_exact_balance" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_store.c:192 (P4-CORE-03)" data-summary="Restated in v1.2.0: invokes Spec.storeRelease for liveUnits balance and totalUnits invariance.">
+              <td>A11</td><td><code>AsmodensiusProofs.A11_store_release_exact_balance</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Invokes <code>Spec.storeRelease</code>: live balance + totalUnits unchanged.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A12_sanity_readonly_hash_refl" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="Renamed from inflated v1.1.0 label" data-summary="Definitional reflexivity check (hAfter = hBefore); NOT a proof of C D7 observers.">
+              <td>A12</td><td><code>AsmodensiusProofs.A12_sanity_readonly_hash_refl</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>Definitional reflexivity (NOT a C D7 observer proof).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A13_trait_abi_width_112" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="core/az_abi.h:35" data-summary="Constant identity AZ_TRAITS = 112.">
+              <td>A13</td><td><code>AsmodensiusProofs.A13_trait_abi_width_112</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>ABI constant identity (<code>AZ_TRAITS = 112</code>).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A14_eps_bio_positive" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="core/az_abi.h:421" data-summary="Constant positivity check 0 < AZ_EPS_BIO (16).">
+              <td>A14</td><td><code>AsmodensiusProofs.A14_eps_bio_positive</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>ABI constant positivity (<code>0 &lt; 16</code>).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A15_sanity_legacy_arith_two" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="Historical v1.0.0 arithmetic check" data-summary="Legacy literal arithmetic 1 + 1 = 2; NOT a proof about dual visual worlds.">
+              <td>A15</td><td><code>AsmodensiusProofs.A15_sanity_legacy_arith_two</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>Legacy literal arithmetic (<code>1 + 1 = 2</code>).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A16_sanity_legacy_sum_240" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="Historical v1.0.0 arithmetic check" data-summary="Legacy literal sum = 240; NOT a domain invariant.">
+              <td>A16</td><td><code>AsmodensiusProofs.A16_sanity_legacy_sum_240</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>Legacy literal sum check (<code>= 240</code>).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A17_bulk_philox_key_equivalence" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_tick.c, kernels/az_philox_avx2.asm (TR-13)" data-summary="Proves Spec.philoxBulkKey tkey0 uid = tkey0 whenever uid < 2^32.">
+              <td>A17</td><td><code>AsmodensiusProofs.A17_bulk_philox_key_equivalence</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>TR-13 <code>philoxBulkKey</code> identity for <code>uid &lt; 2^32</code>.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A18_sanity_congruence_twin_hash" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="Renamed from inflated v1.1.0 label" data-summary="Pure congruence given hTwin: stepGpu = stepCpu; NOT hardware GPU/CPU verification.">
+              <td>A18</td><td><code>AsmodensiusProofs.A18_sanity_congruence_twin_hash</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>Congruence check given <code>stepGpu = stepCpu</code> (NOT hardware parity).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A19_sanity_identity_prefetch_hash" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="Renamed from inflated v1.1.0 label" data-summary="Identity-function check fun x => x; NOT x86-64 PREFETCHT0 verification.">
+              <td>A19</td><td><code>AsmodensiusProofs.A19_sanity_identity_prefetch_hash</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>Identity-function check (NOT x86-64 PREFETCHT0 proof).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A20_sanity_legacy_sum_244" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="Historical v1.0.0 arithmetic check" data-summary="Legacy literal sum = 244; NOT a domain invariant.">
+              <td>A20</td><td><code>AsmodensiusProofs.A20_sanity_legacy_sum_244</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>Legacy literal sum check (<code>= 244</code>).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A21_receive_cap_mass_conserved" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="docs/ARCHITECTURE.md Rule C5" data-summary="Rule C5 receiveCap conserves kept + overflow = q and cur + kept <= cap.">
+              <td>A21</td><td><code>AsmodensiusProofs.A21_receive_cap_mass_conserved</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Rule C5 <code>receiveCap</code> exact mass + cap closure.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A22_documented_rule_c7_six_face_bound" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="docs/ARCHITECTURE.md Rule C7 (documented only)" data-summary="Formalizes documented Rule C7 (amt / 8 per face); NOT core/az_chem.c (see A31).">
+              <td>A22</td><td><code>AsmodensiusProofs.A22_documented_rule_c7_six_face_bound</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Documented Rule C7 (<code>amt / 8</code> per face; see A31 for C code).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A23_nut_x_to_bio_energy_conserved" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_abi.h:420-421, Rule C2" data-summary="metabolizeNutXToBio preserves totalChemThermalEnergy (24 -> 16 + 8 heat).">
+              <td>A23</td><td><code>AsmodensiusProofs.A23_nut_x_to_bio_energy_conserved</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Rule C2: <code>NUT_X</code> to biomass + heat exact balance.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A24_lesion_mask_all_exact" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_abi.h:409" data-summary="validLesionMask accepts 2^23 - 1 and rejects 2^23.">
+              <td>A24</td><td><code>AsmodensiusProofs.A24_lesion_mask_all_exact</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>ABI v4 23-bit <code>validLesionMask</code> acceptance/refusal boundary.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A25_brain_dim_kernel_alignment" data-category="sanity" data-category-label="Labeled Sanity Check" data-module="Core.lean" data-source="core/az_abi.h:28-34,51,61" data-summary="ABI constant alignment check for AZ_SENS=64, AZ_MOT=24, AZ_UNIT=64, AZ_CHUNK=128.">
+              <td>A25</td><td><code>AsmodensiusProofs.A25_brain_dim_kernel_alignment</code></td><td><span class="badge badge-sanity">Sanity Check</span></td><td>Core.lean</td><td>ABI constant alignment check (<code>64, 24, 64, 128</code>).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A26_gpu_offset8_injective_and_32gib_range" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="gpu/az_gpu_dev.c:103,118 (TR-18)" data-summary="tileBrainByteOffset is injective and stays below 32 GiB for all u32 offsets.">
+              <td>A26</td><td><code>AsmodensiusProofs.A26_gpu_offset8_injective_and_32gib_range</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>TR-18 <code>off8 * 8</code> injectivity &amp; 32 GiB range.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A27_nonvacuity_ledger_and_arena_witness" data-category="witness" data-category-label="Non-Vacuity Witness" data-module="NonVacuity.lean" data-source="AsmodensiusProofs.Spec" data-summary="Concrete witness satisfying ledger, rollback, storeRelease, and chemSpreadSixFaces (25, 0).">
+              <td>A27</td><td><code>AsmodensiusProofs.A27_nonvacuity_ledger_and_arena_witness</code></td><td><span class="badge badge-witness">Witness</span></td><td>NonVacuity.lean</td><td>Concrete inhabited witness incl. <code>chemSpreadSixFaces 100 ... = (25, 0)</code>.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A28_nonvacuity_philox_and_gpu_witness" data-category="witness" data-category-label="Non-Vacuity Witness" data-module="NonVacuity.lean" data-source="AsmodensiusProofs.Spec" data-summary="Concrete witness for Philox (uid=1004019), VRAM offset, receiveCap, validCap, acceptSpecies.">
+              <td>A28</td><td><code>AsmodensiusProofs.A28_nonvacuity_philox_and_gpu_witness</code></td><td><span class="badge badge-witness">Witness</span></td><td>NonVacuity.lean</td><td>Concrete witness for Philox, GPU offset, C5, C2, <code>validCap</code>.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A29_refute_unbounded_species_accepted" data-category="adversarial" data-category-label="Adversarial Refutation" data-module="NonVacuity.lean" data-source="core/az_worldgen.c:84" data-summary="Refutes universal acceptance of species counts (counterexample req = 101).">
+              <td>A29</td><td><code>AsmodensiusProofs.A29_refute_unbounded_species_accepted</code></td><td><span class="badge badge-adversarial">Adversarial</span></td><td>NonVacuity.lean</td><td>Refutes unbounded <code>acceptSpecies</code> (counterexample <code>101</code>).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A30_refute_unbounded_philox_bulk_key_eq" data-category="adversarial" data-category-label="Adversarial Refutation" data-module="NonVacuity.lean" data-source="kernels/az_philox_avx2.asm (TR-13)" data-summary="Refutes unguarded Philox key equivalence (counterexample uid = 2^32).">
+              <td>A30</td><td><code>AsmodensiusProofs.A30_refute_unbounded_philox_bulk_key_eq</code></td><td><span class="badge badge-adversarial">Adversarial</span></td><td>NonVacuity.lean</td><td>Refutes unguarded <code>philoxBulkKey</code> (counterexample <code>2^32</code>).</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A31_chem_spread_quarter_budget_safe" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_chem.c:180-199 (spread())" data-summary="Models actual core/az_chem.c decreasing-budget a/4 loop: total + rem = a/4, total <= a/4 <= a, (a-total)+total = a.">
+              <td>A31</td><td><code>AsmodensiusProofs.A31_chem_spread_quarter_budget_safe</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Implemented <code>core/az_chem.c</code> <code>spread()</code> <code>a / 4</code> decreasing-budget safety.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A32_chem_spread_small_pool_zero" data-category="substantive" data-category-label="Substantive Model" data-module="Core.lean" data-source="core/az_chem.c:160 (spread())" data-summary="Models core/az_chem.c line 160 fast-skip: when a < 4, quarter budget is 0 so total outflow is 0.">
+              <td>A32</td><td><code>AsmodensiusProofs.A32_chem_spread_small_pool_zero</code></td><td><span class="badge badge-substantive">Substantive</span></td><td>Core.lean</td><td>Implemented <code>core/az_chem.c</code> <code>a &lt; 4</code> zero-outflow guard.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A33_refute_unguarded_budget_overdraws_mass" data-category="adversarial" data-category-label="Adversarial Refutation" data-module="AdversarialTests.lean" data-source="Law 5 mass conservation" data-summary="Refutes unguarded (a - budget) + budget = a when budget > a (witness a=3, budget=4).">
+              <td>A33</td><td><code>AsmodensiusProofs.A33_refute_unguarded_budget_overdraws_mass</code></td><td><span class="badge badge-adversarial">Adversarial</span></td><td>AdversarialTests.lean</td><td>Refutes unguarded <code>budget &gt; a</code> mass overdraw.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A34_refute_out_of_range_species_accepted" data-category="adversarial" data-category-label="Adversarial Refutation" data-module="AdversarialTests.lean" data-source="core/az_worldgen.c:84" data-summary="Refutes acceptance of req = 0 or any req > WG_MAX_SPECIES (0-based index >= 100).">
+              <td>A34</td><td><code>AsmodensiusProofs.A34_refute_out_of_range_species_accepted</code></td><td><span class="badge badge-adversarial">Adversarial</span></td><td>AdversarialTests.lean</td><td>Refutes acceptance of <code>req = 0</code> or <code>req &gt; 100</code>.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A35_refute_nonzero_delta_without_rollback" data-category="adversarial" data-category-label="Adversarial Refutation" data-module="AdversarialTests.lean" data-source="core/az_world.c:279 (P4-CORE-02)" data-summary="Refutes arena cursor preservation when non-zero spent is not rolled back.">
+              <td>A35</td><td><code>AsmodensiusProofs.A35_refute_nonzero_delta_without_rollback</code></td><td><span class="badge badge-adversarial">Adversarial</span></td><td>AdversarialTests.lean</td><td>Refutes non-zero delta without <code>arenaRollback</code>.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A36_refute_invalid_cap_exceeds_max" data-category="adversarial" data-category-label="Adversarial Refutation" data-module="AdversarialTests.lean" data-source="core/az_abi.h:410" data-summary="Refutes acceptance of cap = AZ_CAP_MAX + 1 (0x7FFFFFC1).">
+              <td>A36</td><td><code>AsmodensiusProofs.A36_refute_invalid_cap_exceeds_max</code></td><td><span class="badge badge-adversarial">Adversarial</span></td><td>AdversarialTests.lean</td><td>Refutes caps exceeding <code>AZ_CAP_MAX</code>.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A37_refute_unaligned_brain_dim" data-category="adversarial" data-category-label="Adversarial Refutation" data-module="AdversarialTests.lean" data-source="core/az_abi.h:61" data-summary="Refutes 8-byte alignment for AZ_SENS + 1 (65) and AZ_MOT + 1 (25).">
+              <td>A37</td><td><code>AsmodensiusProofs.A37_refute_unaligned_brain_dim</code></td><td><span class="badge badge-adversarial">Adversarial</span></td><td>AdversarialTests.lean</td><td>Refutes non-8-aligned brain dimensions.</td>
+            </tr>
+            <tr class="decl-row" tabindex="0" data-lean-decl="AsmodensiusProofs.A38_refute_spread_exceeds_quarter" data-category="adversarial" data-category-label="Adversarial Refutation" data-module="AdversarialTests.lean" data-source="core/az_chem.c:180-199" data-summary="Refutes existence of any 6-face request tuple making chemSpreadSixFaces exceed a / 4.">
+              <td>A38</td><td><code>AsmodensiusProofs.A38_refute_spread_exceeds_quarter</code></td><td><span class="badge badge-adversarial">Adversarial</span></td><td>AdversarialTests.lean</td><td>Refutes any 6-face outflow sum exceeding <code>a / 4</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Audited by <code>python3 -I scripts/check_blueprint.py</code> against <code>results/lean4-asmodensius-audit.txt</code> and <code>lean/comparator.json</code>.
+    Copyright (c) 2026 Alexander Stephen Donahue (ORCID 0009-0006-8168-9648) - CC-BY-4.0.
+  </footer>
+  <script defer src="blueprint.js"></script>
+</body>
+</html>

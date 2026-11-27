@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Asmodensius-Native v1.1.0 - Verbatim README `#print axioms` Consistency Guard.
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (c) 2026 Alexander Stephen Donahue
+"""Asmodensius-Native v1.2.0 - Verbatim README `#print axioms` Consistency Guard.
 
 Ensures every `#print axioms` output line embedded inside README.md between
 `<!-- LEAN_AXIOMS_START -->` and `<!-- LEAN_AXIOMS_END -->` matches
-`results/lean4-asmodensius-audit.txt` character-for-character.
+`results/lean4-asmodensius-audit.txt` character-for-character and contains
+zero forbidden axioms.
 """
 
 from __future__ import annotations
@@ -17,6 +20,7 @@ AXIOM_LINE_RE = re.compile(
     r"^'[A-Za-z0-9_.]+' (depends on axioms: \[.*\]|does not depend on any axioms)$"
 )
 FORBIDDEN_TOKENS = ("sorryAx", "ofReduceBool", "trustCompiler")
+EXPECTED_MIN_THEOREMS = 38
 
 
 def main() -> None:
@@ -24,9 +28,10 @@ def main() -> None:
     audit = (ROOT / "results" / "lean4-asmodensius-audit.txt").read_text(encoding="utf-8")
 
     audit_lines = [line.strip() for line in audit.splitlines() if AXIOM_LINE_RE.match(line.strip())]
-    if len(audit_lines) < 30:
+    if len(audit_lines) < EXPECTED_MIN_THEOREMS:
         print(
-            f"[FAIL] Expected >= 30 audited theorem lines in results/lean4-asmodensius-audit.txt, found {len(audit_lines)}",
+            f"[FAIL] Expected >= {EXPECTED_MIN_THEOREMS} audited theorem lines in "
+            f"results/lean4-asmodensius-audit.txt, found {len(audit_lines)}",
             file=sys.stderr,
         )
         sys.exit(1)

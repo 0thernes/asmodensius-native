@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "audited_utc": "2026-11-26T23:41:05Z",
+  "bib_file": "paper/refs.bib",
+  "tex_file": "paper/main.tex",
+  "total_entries": 17,
+  "dois_verified_title_and_author": 13,
+  "vendor_urls_verified": 2,
+  "books_and_standards_cataloged": 2,
+  "retractions_detected": 0,
+  "entries": [
+    {
+      "key": "salmon2011parallel",
+      "kind": "crossref-doi",
+      "doi": "10.1145/2063384.2063405",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "2011",
+      "crossref_years": [
+        "2011"
+      ],
+      "retracted": false,
+      "remote_title": "Parallel random numbers",
+      "status": "PASS"
+    },
+    {
+      "key": "bedau2000open",
+      "kind": "crossref-doi",
+      "doi": "10.1162/106454600300103683",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "2000",
+      "crossref_years": [
+        "2000",
+        "2002"
+      ],
+      "retracted": false,
+      "remote_title": "Open Problems in Artificial Life",
+      "status": "PASS"
+    },
+    {
+      "key": "ofria2004avida",
+      "kind": "crossref-doi",
+      "doi": "10.1162/106454604773563612",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "2004",
+      "crossref_years": [
+        "2004"
+      ],
+      "retracted": false,
+      "remote_title": "Avida: A Software Platform for Research in Computational Evolutionary Biology",
+      "status": "PASS"
+    },
+    {
+      "key": "ackley2014indefinitely",
+      "kind": "crossref-doi",
+      "doi": "10.7551/978-0-262-32621-6-ch098",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "2014",
+      "crossref_years": [
+        "2014"
+      ],
+      "retracted": false,
+      "remote_title": "Indefinitely Scalable Computing = Artificial Life Engineering",
+      "status": "PASS"
+    },
+    {
+      "key": "taylor2016open",
+      "kind": "crossref-doi",
+      "doi": "10.1162/ARTL_a_00210",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "2016",
+      "crossref_years": [
+        "2016"
+      ],
+      "retracted": false,
+      "remote_title": "Open-Ended Evolution: Perspectives from the OEE Workshop in York",
+      "status": "PASS"
+    },
+    {
+      "key": "packard2019overview",
+      "kind": "crossref-doi",
+      "doi": "10.1162/artl_a_00291",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "2019",
+      "crossref_years": [
+        "2019"
+      ],
+      "retracted": false,
+      "remote_title": "An Overview of Open-Ended Evolution: Editorial Introduction to the Open-Ended Evolution II Special Issue",
+      "status": "PASS"
+    },
+    {
+      "key": "ray1991approach",
+      "kind": "book-or-standard",
+      "year": "1991",
+      "identifier": "978-0-201-52570-0",
+      "status": "CATALOGED"
+    },
+    {
+      "key": "butlin2023consciousness",
+      "kind": "arxiv-doi",
+      "doi": "10.48550/arXiv.2308.08708",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "retracted": false,
+      "remote_title": "Consciousness in Artificial Intelligence: Insights from the Science of Consciousness",
+      "status": "PASS"
+    },
+    {
+      "key": "moura2021lean4",
+      "kind": "crossref-doi",
+      "doi": "10.1007/978-3-030-79876-5_37",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "2021",
+      "crossref_years": [
+        "2021"
+      ],
+      "retracted": false,
+      "remote_title": "The Lean 4 Theorem Prover and Programming Language",
+      "status": "PASS"
+    },
+    {
+      "key": "carneiro2024lean4lean",
+      "kind": "arxiv-doi",
+      "doi": "10.48550/arXiv.2403.14064",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "retracted": false,
+      "remote_title": "Lean4Lean: Verifying a Typechecker for Lean, in Lean",
+      "status": "PASS"
+    },
+    {
+      "key": "hopfield1982neural",
+      "kind": "crossref-doi",
+      "doi": "10.1073/pnas.79.8.2554",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "1982",
+      "crossref_years": [
+        "1982",
+        "2006"
+      ],
+      "retracted": false,
+      "remote_title": "Neural networks and physical systems with emergent collective computational abilities.",
+      "status": "PASS"
+    },
+    {
+      "key": "perlin1985image",
+      "kind": "crossref-doi",
+      "doi": "10.1145/325165.325247",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "1985",
+      "crossref_years": [
+        "1985",
+        "2005"
+      ],
+      "retracted": false,
+      "remote_title": "An image synthesizer",
+      "status": "PASS"
+    },
+    {
+      "key": "hutchinson1957concluding",
+      "kind": "crossref-doi",
+      "doi": "10.1101/SQB.1957.022.01.039",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "1957",
+      "crossref_years": [
+        "1957",
+        "2012"
+      ],
+      "retracted": false,
+      "remote_title": "Concluding Remarks",
+      "status": "PASS"
+    },
+    {
+      "key": "intel2024sdm",
+      "kind": "vendor-url",
+      "url": "https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html",
+      "http_status": 200,
+      "status": "PASS"
+    },
+    {
+      "key": "nvidia2024ptx",
+      "kind": "vendor-url",
+      "url": "https://docs.nvidia.com/cuda/parallel-thread-execution/",
+      "http_status": 200,
+      "status": "PASS"
+    },
+    {
+      "key": "iso2024c23",
+      "kind": "book-or-standard",
+      "year": "2024",
+      "identifier": "ISO/IEC 9899:2024",
+      "status": "CATALOGED"
+    },
+    {
+      "key": "leroy2009formal",
+      "kind": "crossref-doi",
+      "doi": "10.1145/1538788.1538814",
+      "http_status": 200,
+      "title_overlap": 1.0,
+      "author_match": true,
+      "year_match": true,
+      "bib_year": "2009",
+      "crossref_years": [
+        "2009"
+      ],
+      "retracted": false,
+      "remote_title": "Formal verification of a realistic compiler",
+      "status": "PASS"
+    }
+  ],
+  "public_urls": [
+    {
+      "url": "https://github.com/0thernes/asmodensius-native",
+      "http_status": 200,
+      "status": "PASS"
+    },
+    {
+      "url": "https://orcid.org/0009-0006-8168-9648",
+      "http_status": 200,
+      "status": "PASS"
+    }
+  ]
+}

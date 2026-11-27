@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Deploy Documentation Portal & Lean 4 Proof Blueprint to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Verify strict-CSP Blueprint & Portal integrity
+        run: python3 -I scripts/check_blueprint.py
+      - uses: actions/configure-pages@v5
+      - name: Assemble static site (Portal, Lean Proof Blueprint, Media, FAIR & LLMs metadata)
+        run: |
+          mkdir -p _site/media _site/dist _site/results
+          cp docs/index.html docs/blueprint.html docs/site.css docs/blueprint.js _site/
+          cp docs/media/social-preview.svg _site/media/
+          cp dist/Donahue_2026_asmodensius_native.pdf _site/dist/
+          cp results/lean4-asmodensius-audit.txt results/lean4-multi-kernel.txt results/citation-audit.json _site/results/
+          cp llms.txt llms-full.txt croissant.json ro-crate-metadata.json codemeta.json _site/
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

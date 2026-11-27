@@ -1,0 +1,57 @@
+version = 1
+
+[[annotations]]
+path = [
+  "core/**",
+  "kernels/**",
+  "gpu/**",
+  "platform/**",
+  "tools/**",
+  "view/**",
+  "tests/**",
+  "demo/**",
+  "examples/**",
+  "lean/**",
+  "scripts/**",
+  ".github/**",
+  ".cursor/**",
+  "CMakeLists.txt",
+  "justfile",
+  ".gitignore",
+  ".gitattributes",
+  ".editorconfig",
+  ".env.example",
+  "repo.yaml",
+  "repo-standard.schema.json",
+  "codemeta.json"
+]
+SPDX-FileCopyrightText = "2026 Alexander Stephen Donahue"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = [
+  "paper/**",
+  "docs/**",
+  "dist/**",
+  "data/**",
+  "results/**",
+  "*.md",
+  "CITATION.cff",
+  "CITATION.bib",
+  ".zenodo.json",
+  "croissant.json",
+  "ro-crate-metadata.json",
+  "llms.txt",
+  "llms-full.txt",
+  "CHECKSUMS.sha256*",
+  "VERSION",
+  "NOTICE"
+]
+SPDX-FileCopyrightText = "2026 Alexander Stephen Donahue"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = ["tests/upstream/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "Upstream MIT oracle authors (see THIRD_PARTY_NOTICES.md)"
+SPDX-License-Identifier = "MIT"

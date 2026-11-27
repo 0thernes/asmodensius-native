@@ -1,8 +1,8 @@
 # Unsolved Problems Mega-Atlas Cross-Check (`docs/MEGA_ATLAS_CROSSCHECK.md`)
 
-**Bottom Line:** **`0 / 1,900` overarching open problems** in `0thernes/unsolved-problems-mega-atlas` (`outputs/MegaAtlas_Unsolved_Problems_V2.csv`, 1,900 entries) are solved, resolved, or retired by `Asmodensius-Native` v1.1.0.
+**Bottom Line:** **`0 / 1,900` overarching open problems** in `0thernes/unsolved-problems-mega-atlas` (`outputs/MegaAtlas_Unsolved_Problems_V2.csv`, 1,900 entries) are solved, resolved, or retired by `Asmodensius-Native` v1.2.0.
 
-Every related parent problem listed below remains strictly **OPEN**. This repository provides a deterministic, integer-conserving native artificial-life engineering substrate and formal specification of its software invariants (`A01`..`A30`), NOT a mathematical or scientific solution to any Mega-Atlas problem.
+Every related parent problem listed below remains strictly **OPEN**. This repository provides a deterministic, integer-conserving native artificial-life engineering substrate and formal specification of abstract `Nat` model invariants (`A01`..`A38`), NOT a mathematical or scientific solution to any Mega-Atlas problem.
 
 ## Scoped Probe Cross-Map
 

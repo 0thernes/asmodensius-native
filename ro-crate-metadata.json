@@ -1,0 +1,365 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "@id": "ro-crate-metadata.json",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Asmodensius-Native (v1.2.0)",
+      "version": "1.2.0",
+      "datePublished": "2026-11-26",
+      "description": "Freestanding C23, NASM AVX2/AVX-VNNI, and pure-integer CUDA PTX artificial-life engine with 38 Lean 4.35.0 model declarations (26 substantive + 12 labeled sanity checks), 10-page AMS-LaTeX preprint (not peer-reviewed), interactive strict-CSP proof blueprint, evaluation CSV catalogs, and dual cryptographic timestamps. C23/NASM/PTX code is not verified in Lean; 0 / 1,900 Mega-Atlas open problems retired.",
+      "url": "https://0thernes.github.io/asmodensius-native/",
+      "identifier": "https://github.com/0thernes/asmodensius-native",
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "author": {
+        "@id": "https://orcid.org/0009-0006-8168-9648"
+      },
+      "hasPart": [
+        {
+          "@id": "dist/Donahue_2026_asmodensius_native.pdf"
+        },
+        {
+          "@id": "dist/arxiv_submission.tar.gz"
+        },
+        {
+          "@id": "docs/index.html"
+        },
+        {
+          "@id": "docs/blueprint.html"
+        },
+        {
+          "@id": "docs/DATASHEET.md"
+        },
+        {
+          "@id": "docs/statement-fidelity.md"
+        },
+        {
+          "@id": "docs/eval/MECHANISMS.csv"
+        },
+        {
+          "@id": "docs/eval/dispositions.csv"
+        },
+        {
+          "@id": "docs/eval/TRACE.csv"
+        },
+        {
+          "@id": "docs/eval/ISSUES.csv"
+        },
+        {
+          "@id": "docs/eval/MECHANISMS-crosswalk.csv"
+        },
+        {
+          "@id": "docs/eval/MECHANISMS-historical.csv"
+        },
+        {
+          "@id": "lean/AsmodensiusProofs.lean"
+        },
+        {
+          "@id": "lean/comparator.json"
+        },
+        {
+          "@id": "results/lean4-asmodensius-audit.txt"
+        },
+        {
+          "@id": "results/lean4-multi-kernel.txt"
+        },
+        {
+          "@id": "results/citation-audit.json"
+        },
+        {
+          "@id": "CLAIMS.md"
+        },
+        {
+          "@id": "ERRATA.md"
+        },
+        {
+          "@id": "LIMITATIONS.md"
+        },
+        {
+          "@id": "SUBMISSION_READINESS.md"
+        },
+        {
+          "@id": "croissant.json"
+        },
+        {
+          "@id": "codemeta.json"
+        },
+        {
+          "@id": "data/MANIFEST.sha256"
+        },
+        {
+          "@id": "CHECKSUMS.sha256"
+        },
+        {
+          "@id": "CHECKSUMS.sha256.tsr"
+        },
+        {
+          "@id": "CHECKSUMS.sha256.ots"
+        }
+      ]
+    },
+    {
+      "@id": "https://orcid.org/0009-0006-8168-9648",
+      "@type": "Person",
+      "name": "Alexander Stephen Donahue",
+      "email": "0_0@0thernes.art",
+      "affiliation": "Independent Researcher, Spokane, WA, USA",
+      "url": "https://0thernes.art"
+    },
+    {
+      "@id": "https://creativecommons.org/licenses/by/4.0/",
+      "@type": "CreativeWork",
+      "name": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "@id": "dist/Donahue_2026_asmodensius_native.pdf",
+      "@type": "File",
+      "name": "Donahue_2026_asmodensius_native.pdf",
+      "description": "10-page AMS-LaTeX white paper v1.2.0 (Tectonic, 0 overfull hboxes, not peer-reviewed)",
+      "encodingFormat": "application/pdf",
+      "sha256": "d26db56027232dbc5bed1c4aea80bc1c8d39fb6cd0e7b05f9287c7bc9dc6cb3f",
+      "contentSize": 148849
+    },
+    {
+      "@id": "dist/arxiv_submission.tar.gz",
+      "@type": "File",
+      "name": "arxiv_submission.tar.gz",
+      "description": "Deterministic clean-room arXiv source tarball (mtime=0)",
+      "encodingFormat": "application/gzip",
+      "sha256": "c9baf465897fb2b24adb01bb187cb0c936e6843da2a1596496cf1360e39e8b92",
+      "contentSize": 20266
+    },
+    {
+      "@id": "docs/index.html",
+      "@type": "File",
+      "name": "index.html",
+      "description": "WCAG 2.2 AA strict-CSP zero-CDN documentation portal",
+      "encodingFormat": "text/html",
+      "sha256": "21154fb055ef669b7ac34838433388a71eb1d2ded348a2d510fa1476ffa54530",
+      "contentSize": 7022
+    },
+    {
+      "@id": "docs/blueprint.html",
+      "@type": "File",
+      "name": "blueprint.html",
+      "description": "Interactive Lean 4.35.0 Proof Blueprint (38 comparator targets)",
+      "encodingFormat": "text/html",
+      "sha256": "550fd1e036b00458fb15a14f9ec48e422ad399487ee1dc5c217642df1805adae",
+      "contentSize": 30777
+    },
+    {
+      "@id": "docs/DATASHEET.md",
+      "@type": "File",
+      "name": "DATASHEET.md",
+      "description": "Gebru et al. Datasheet for evaluation datasets",
+      "encodingFormat": "text/markdown",
+      "sha256": "037ec9d165096e80c710d5b93890670789bc652dc159704f733a94aece84cd30",
+      "contentSize": 4912
+    },
+    {
+      "@id": "docs/statement-fidelity.md",
+      "@type": "File",
+      "name": "statement-fidelity.md",
+      "description": "38-declaration Lean-to-C/PTX statement-fidelity matrix (26 substantive + 12 sanity checks)",
+      "encodingFormat": "text/markdown",
+      "sha256": "4c3b7d497d32a2437351dc29b80e389b163d0dc5235e2d331370da35dd1ec15f",
+      "contentSize": 10498
+    },
+    {
+      "@id": "docs/eval/MECHANISMS.csv",
+      "@type": "File",
+      "name": "MECHANISMS.csv",
+      "description": "Indicator-only mechanism-to-lesion catalog (958 rows)",
+      "encodingFormat": "text/csv",
+      "sha256": "767bff1f9c0c9be2b618d846f1bd171f85759781a4f44c99038e74ab658b1fab",
+      "contentSize": 544019
+    },
+    {
+      "@id": "docs/eval/dispositions.csv",
+      "@type": "File",
+      "name": "dispositions.csv",
+      "description": "Catalog item disposition ledger (6,305 rows)",
+      "encodingFormat": "text/csv",
+      "sha256": "66cb5adcb1ef395887c3db5189ff249f79b49656163496f97b2c3190ee0645f4",
+      "contentSize": 1582701
+    },
+    {
+      "@id": "docs/eval/TRACE.csv",
+      "@type": "File",
+      "name": "TRACE.csv",
+      "description": "Master evaluation provenance trace (9,838 rows)",
+      "encodingFormat": "text/csv",
+      "sha256": "0353445901aa52e7ddfd4b3d4617c2fc8746d3b9d04e764ba8a90e726e240620",
+      "contentSize": 4977947
+    },
+    {
+      "@id": "docs/eval/ISSUES.csv",
+      "@type": "File",
+      "name": "ISSUES.csv",
+      "description": "Engineering issue closure log (221 rows)",
+      "encodingFormat": "text/csv",
+      "sha256": "fc19d75ca7216f2bfe5590c4b5d7c5c6264efa36d054a048900ada3e09fb8030",
+      "contentSize": 160169
+    },
+    {
+      "@id": "docs/eval/MECHANISMS-crosswalk.csv",
+      "@type": "File",
+      "name": "MECHANISMS-crosswalk.csv",
+      "description": "Requirement-to-source crosswalk (958 rows)",
+      "encodingFormat": "text/csv",
+      "sha256": "b9064e13755322f08417d873d3d229e148ad6d3a9816f66dc0e3683522a936b5",
+      "contentSize": 815231
+    },
+    {
+      "@id": "docs/eval/MECHANISMS-historical.csv",
+      "@type": "File",
+      "name": "MECHANISMS-historical.csv",
+      "description": "Historical mechanism nomenclature archive (1,125 rows)",
+      "encodingFormat": "text/csv",
+      "sha256": "91b1a371467a13a0a32c2466594a43a78a3fbc1cd8685295a105195fb1aa50c3",
+      "contentSize": 214944
+    },
+    {
+      "@id": "lean/AsmodensiusProofs.lean",
+      "@type": "File",
+      "name": "AsmodensiusProofs.lean",
+      "description": "Zero-Mathlib Lean 4.35.0 model library (38 declarations)",
+      "encodingFormat": "text/plain",
+      "sha256": "d6628025beccd382f5a37bc8080b5eb90a685d56598565d401fd158ca02e1d59",
+      "contentSize": 1016
+    },
+    {
+      "@id": "lean/comparator.json",
+      "@type": "File",
+      "name": "comparator.json",
+      "description": "Palomar Challenge vs Solution comparator contract (38 targets)",
+      "encodingFormat": "application/json",
+      "sha256": "3310420000652b3ca4e4f002fe8ec591e5630bf8cda5a9d9988f971f50c0c701",
+      "contentSize": 2376
+    },
+    {
+      "@id": "results/lean4-asmodensius-audit.txt",
+      "@type": "File",
+      "name": "lean4-asmodensius-audit.txt",
+      "description": "Verbatim Lean 4.35.0 #print axioms transcript (38 declarations)",
+      "encodingFormat": "text/plain",
+      "sha256": "008730725f54ee2fabfbb090b49978371bf5c5ccba17690301ef0b7b4686ecf4",
+      "contentSize": 3427
+    },
+    {
+      "@id": "results/lean4-multi-kernel.txt",
+      "@type": "File",
+      "name": "lean4-multi-kernel.txt",
+      "description": "Local 6-checker Windows verification transcript",
+      "encodingFormat": "text/plain",
+      "sha256": "54a9662786558a4e56f10125b1e2dd135fa79487bc2057672ba014b46a631a4e",
+      "contentSize": 2841
+    },
+    {
+      "@id": "results/citation-audit.json",
+      "@type": "File",
+      "name": "citation-audit.json",
+      "description": "Live Crossref/arXiv title+author and retraction audit (17/17 references)",
+      "encodingFormat": "application/json",
+      "sha256": "ff4218f507b7e93927151cb767e87c5248fca27872fe864a28c5887bcb1cfb87",
+      "contentSize": 6802
+    },
+    {
+      "@id": "CLAIMS.md",
+      "@type": "File",
+      "name": "CLAIMS.md",
+      "description": "Falsifiable Claims Ledger (C01-C12)",
+      "encodingFormat": "text/markdown",
+      "sha256": "93bd0edcc06fc3143343604301364e1eaa8616d86f946cb8814400a25ad228a2",
+      "contentSize": 9337
+    },
+    {
+      "@id": "ERRATA.md",
+      "@type": "File",
+      "name": "ERRATA.md",
+      "description": "Chronological errata including 2026-11-26 statement audit and v1.2.0 closure",
+      "encodingFormat": "text/markdown",
+      "sha256": "a9760dabc3b8efd49f4a4dd3c9eafa12201080ed69d90994728293604ca37190",
+      "contentSize": 11864
+    },
+    {
+      "@id": "LIMITATIONS.md",
+      "@type": "File",
+      "name": "LIMITATIONS.md",
+      "description": "Threats to validity, formal-to-binary gap, and Law 8 boundary",
+      "encodingFormat": "text/markdown",
+      "sha256": "336cc394e09bc504ba38407be744253bce78c6b9a4117183f67b6c8dfd978e85",
+      "contentSize": 6781
+    },
+    {
+      "@id": "SUBMISSION_READINESS.md",
+      "@type": "File",
+      "name": "SUBMISSION_READINESS.md",
+      "description": "Preprint & archival submission readiness ledger",
+      "encodingFormat": "text/markdown",
+      "sha256": "a0b278011c3a0597ca855885142bc58ffc6351e52a32eeb6e1ba7c9d883aa091",
+      "contentSize": 5130
+    },
+    {
+      "@id": "croissant.json",
+      "@type": "File",
+      "name": "croissant.json",
+      "description": "MLCommons Croissant 1.0 dataset metadata",
+      "encodingFormat": "application/ld+json",
+      "sha256": "1d6b07fdf61175036f2cd7fa06ccc2111c96fb5143039cf414992a4775aa7f61",
+      "contentSize": 8488
+    },
+    {
+      "@id": "codemeta.json",
+      "@type": "File",
+      "name": "codemeta.json",
+      "description": "CodeMeta 2.0 software metadata",
+      "encodingFormat": "application/ld+json",
+      "sha256": "e15bd10b834bb87397bf0134704c2b6e524c69bc0926d5c6b9da6f0d7f121b12",
+      "contentSize": 2058
+    },
+    {
+      "@id": "data/MANIFEST.sha256",
+      "@type": "File",
+      "name": "MANIFEST.sha256",
+      "description": "Evaluation dataset & result SHA-256 manifest",
+      "encodingFormat": "text/plain",
+      "sha256": "b688db47ff216106876c0e9159ccd75d3b34befdc235dd153c11fd19d753ba50",
+      "contentSize": 853
+    },
+    {
+      "@id": "CHECKSUMS.sha256",
+      "@type": "File",
+      "name": "CHECKSUMS.sha256",
+      "description": "LF-canonical SHA-256 integrity manifest",
+      "encodingFormat": "text/plain"
+    },
+    {
+      "@id": "CHECKSUMS.sha256.tsr",
+      "@type": "File",
+      "name": "CHECKSUMS.sha256.tsr",
+      "description": "DigiCert RFC 3161 Trusted Timestamp token for CHECKSUMS.sha256",
+      "encodingFormat": "application/timestamp-reply"
+    },
+    {
+      "@id": "CHECKSUMS.sha256.ots",
+      "@type": "File",
+      "name": "CHECKSUMS.sha256.ots",
+      "description": "3-calendar Bitcoin OpenTimestamps proof for CHECKSUMS.sha256",
+      "encodingFormat": "application/octet-stream"
+    }
+  ]
+}

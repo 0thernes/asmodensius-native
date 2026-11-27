@@ -1,6 +1,6 @@
 # Bare-Metal Multi-Substrate Benchmarks (`docs/benchmarks.md`)
 
-This document consolidates the verified bare-metal throughput measurements, bit-exact state hashes, performance budgets, and honest hardware tradeoffs for `Asmodensius-Native` v1.1.0. For the low-level `az_bench` column specification and validity flags (`ok`, `L`, `B`, `U`, `T`), see [docs/BENCH.md](BENCH.md).
+This document consolidates the verified bare-metal throughput measurements, bit-exact state hashes, performance budgets, and honest hardware tradeoffs for `Asmodensius-Native` v1.2.0. For the low-level `az_bench` column specification and validity flags (`ok`, `L`, `B`, `U`, `T`), see [docs/BENCH.md](BENCH.md).
 
 ## 1. Measurement Host and Invariant Conditions
 

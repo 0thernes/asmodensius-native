@@ -1,10 +1,14 @@
-# Asmodensius-Native v1.1.0 - Full LLM Context Digest (`llms-full.txt`)
+# Asmodensius-Native v1.2.0 - Full LLM Context Digest (`llms-full.txt`)
 
-## 1. Identity and Licensing
-- Project: Asmodensius-Native v1.1.0 (https://github.com/0thernes/asmodensius-native)
+## 1. Identity, Provenance and Licensing
+- Project: Asmodensius-Native v1.2.0 (https://github.com/0thernes/asmodensius-native)
+- Portal & Proof Blueprint: https://0thernes.github.io/asmodensius-native/
 - Author: Alexander Stephen Donahue (Independent Researcher, Spokane, WA, USA)
 - ORCID: 0009-0006-8168-9648
 - Email: 0_0@0thernes.art
+- Software Heritage Snapshot: swh:1:snp:08a957772115194b51a4eadb77331b8bab261773
+- Cryptographic Provenance: LF-canonical `CHECKSUMS.sha256` + DigiCert RFC 3161 `CHECKSUMS.sha256.tsr` + 3-calendar Bitcoin `CHECKSUMS.sha256.ots` (`scripts/stamp_timestamps.py --verify`) + SLSA/Rekor `actions/attest-build-provenance@v2` (`.github/workflows/release.yml`, `ci.yml`).
+- FAIR Metadata: `croissant.json` (Croissant 1.0), `ro-crate-metadata.json` (RO-Crate 1.1), `codemeta.json` (CodeMeta 2.0), `docs/DATASHEET.md`, `REUSE.toml`, `LICENSES/Apache-2.0.txt`, `LICENSES/CC-BY-4.0.txt`.
 - Code & Lean License: Apache-2.0 (`LICENSE`)
 - Docs, Paper, Figures & Data License: CC-BY-4.0 (`LICENSE-DOCS`)
 - Third-Party MIT Oracles (`tests/upstream/` only, never linked into core): `THIRD_PARTY_NOTICES.md`
@@ -14,12 +18,12 @@
 - Modules: 22 selectable domain modules (`rng`, `fx`, `grid`, `scan`, `sense`, `brain`, `genome`, `social`, `mate`, `econ`, `metab`, `physics`, `life`, `field`, `chem`, `weather`, `colony`, `tier1`, `stats`, `worldgen`, `ledger`, `snapshot`) + 5 core runtime files (`az_world.c`, `az_tick.c`, `az_store.c`, `az_kin_axis.c`, `az_rock_place.c`) + 4 pure-integer kernels (`tk_sh`, `tk_hop`, `tk_qgt`, `tk_qsv`).
 - ABI Dimensions (`core/az_abi.h`): `AZ_ABI_VERSION=4`, `AZ_SENS=64`, `AZ_MOT=24`, `AZ_MODG=8`, `AZ_TRAITS=112`, `AZ_PHEN=16`, `AZ_UNIT=64`, `AZ_CHUNK=128`, `AZ_LESION_ALL=0x7FFFFF` (23 named bits), `AZ_CAP_MAX=0x7FFFFFC0`, `WG_MAX_SPECIES=100`.
 - Memory Model: Single pre-allocated Windows `VirtualLock` page-locked arena, 128-entity SoA blocks, two-half 64B-granule compacting creature store, zero pagefile/NVMe swap.
-- Exact Conservation (Law 5): `AZ_EPS_NUT_X=24`, `AZ_EPS_BIO=16`, `AZ_EPS_TOXIN=4`, `AZ_EPS_WASTE=2`; global matter and energy hold with `==` after every tick; `field_underflow == 0`; `dropped_events == 0`.
+- Exact Conservation (Law 5): `AZ_EPS_NUT_X=24`, `AZ_EPS_BIO=16`, `AZ_EPS_TOXIN=4`, `AZ_EPS_WASTE=2`; global matter and energy hold with `==` after every tick; `field_underflow == 0`; `dropped_events == 0`. Implemented `core/az_chem.c` `spread()` caps per-species outflow at `left = a / 4` under a decreasing budget (distinct from documented Rule C7 `amt / 8` per face in `docs/ARCHITECTURE.md`).
 - Modes (Law 6): Wild by default (`BCryptGenRandom` every tick); `--lab --seed S` deterministic counter-based Philox4x32-10 with canonical UID order.
 - Hardware Twins: 4 NASM x86-64 AVX2/AVX-VNNI twins (`az_brain_vnni.asm`, `az_dense_vnni.asm`, `az_philox_avx2.asm`, `az_kin_avx2.asm`) + Clang 21 `nvptx64` pure-integer PTX (`41,817 B`, 0 externs, 0 floats, `az_gpu_k_tile_brain`, `az_gpu_k_kin_axis`, `az_gpu_k_philox`, `az_gpu_k_brain`).
 
 ## 3. Verified Empirical Results
-- CTest: `77/77` PASS (including `ubsan_trap_build` with 6 planted UB traps, `core_obj_gate`, `avx_stack_gate`, `lint_core`, `cli_matrix_engine`, `cli_matrix_protocol`, `cli_gpu_tick_parity`, `test_gpu`).
+- CTest: `77/77` PASS on uncontended baseline `782cd0e` (untouched C23/NASM/PTX sources), including `ubsan_trap_build` (6 planted UB traps), `core_obj_gate`, `avx_stack_gate`, `lint_core`, `cli_matrix_engine`, `cli_matrix_protocol`, `cli_gpu_tick_parity`, `test_gpu`.
 - GPU Differential Suite (`test_gpu.exe`): `164/164` PASS on RTX 5070 Ti (compute 12.0, 12,199 MiB, CUDA driver API 13040): 1,000,000 variable-size sparse `AzBrain` steps `hid=0 motor=0`; 1,000,000 kinematics lanes `0` diffs; 1-word bias-mutation negative control differs on `806/4096` creatures.
 - Live 1k 3-Substrate Parity (`--lab --seed 42 --n 1000 --ticks 10`): `--kernels 0`, `--kernels 1`, and `--kernels 1 --gpu 1` all yield identical hash `7bd9823448dd38b1`, exact matter `742819 -> 742819`, exact energy `9724070 -> 9724070`.
 - Bare-Metal Benchmarks (Core Ultra 9 275HX 8P+16E + RTX 5070 Ti, `--lab --seed 42`, `locked=1`):
@@ -30,14 +34,16 @@
   - Refusal boundary: `--species 101` exits 2 before arena allocation.
   - Windows `--large-pages`: falls back cleanly to 4 KiB `VirtualLock` (`large_pages=0`) absent `SeLockMemoryPrivilege` (`TR-03`).
 
-## 4. Machine-Checked Formal Proofs (`lean/`, Lean 4.35.0)
-- 30 Pure Lean 4.35.0 theorems (`A01`..`A30`), zero Mathlib, zero `sorry` in `Solution`, zero `native_decide`, `autoImplicit = false`, `relaxedAutoImplicit = false`.
-- Palomar module layout: `Spec.lean` (pure defs), `Core.lean` (`A01`..`A26`), `NonVacuity.lean` (`A27`..`A30`: concrete witnesses + adversarial false-variant refutations), `Challenge.lean` (statement-only `sorry`), `Solution.lean`, `VerifyAxioms.lean`, `comparator.json`, `formalization.yaml`.
-- Strict axiom footprint: `[propext, Classical.choice, Quot.sound]` only; 0 forbidden axioms.
-- Local Windows 5-kernel verification: `lean4`, `leanchecker --fresh`, `leanchecker-paranoid --fresh`, `con-leche --verified` (1,778 decls), `con-ron --verified` (1,778 decls), `nanoda_bin` (1,987 decls, `unpermitted_axiom_hard_error: true`). All 6/6 kernels including `lean4lean` + `bubblewrap` comparator run in Linux CI.
+## 4. Machine-Checked Formal Model (`lean/`, Lean 4.35.0)
+- 38 Pure Lean 4.35.0 declarations (`A01`..`A38`) about the hand-written `Nat` model in `Spec.lean` (C23/NASM/PTX code is NOT verified in Lean):
+  - `26` substantive model, boundary, non-vacuity witness, and adversarial false-variant refutation theorems (`A01`..`A03`, `A07`..`A11`, `A17`, `A21`..`A24`, `A26`..`A38`), including `A31`/`A32`/`A38` modeling `core/az_chem.c` `spread()` `a / 4` decreasing budget, restated `A07`..`A11` calling `acceptSpecies`/`arenaRollback`/`storeRelease`, and 6 false-variant refutations in `AdversarialTests.lean`.
+  - `12` explicitly labeled definitional, constant, congruence, or legacy arithmetic sanity checks (`A04`..`A06`, `A12_sanity_*`, `A13`..`A14`, `A15_sanity_*`, `A16_sanity_*`, `A18_sanity_*`, `A19_sanity_*`, `A20_sanity_*`, `A25`).
+- Strict axiom footprint: `[propext, Classical.choice, Quot.sound]` only; 0 `sorryAx`, 0 `Lean.ofReduceBool`, 0 `Lean.trustCompiler`.
+- Checkers: 6 local Windows checkers (`lean4` kernel, `leanchecker --fresh`, `leanchecker-paranoid --fresh`, `con-leche --verified` 1,816 decls, `con-ron --verified` 1,816 decls, `nanoda_bin` hard-error axiom enforcement); Ubuntu CI adds `lean4lean` (`lake check --paranoid`), `lake comparator --config comparator.json --paranoid` under `bubblewrap`, and `scripts/test_lean_negative.py --with-comparator`.
 
 ## 5. Non-Negotiable Honesty & Scope Boundaries
+- Independent preprint (**not peer-reviewed**).
 - Law 8: Indicator-only. Zero claims of consciousness, sentience, biological life, AGI, or quantum speedup.
 - Mega-Atlas: `0 / 1,900` overarching open problems retired (`AI-045`, `BIO-001`, `BIO-008`, `SUB-047`, `SYS-050` remain OPEN).
-- Law 14: Every edited text file must be pure 7-bit ASCII, LF line endings, zero tabs (except `.tsv`), trailing newline (`python -I build/work/scripts/check_text.py .`).
+- Law 14: Enforced on all active tracked files by tracked `tools/check_text.py` (0 active violations; 2 exempt verbatim owner prompts and archival `docs/requirements/`, `docs/research/`, `tests/upstream/` counted transparently).
 - Never delete owner files (`docs/eval/TRACE.csv`, 4,977,947 B).

@@ -1,48 +1,57 @@
 # Statement-Fidelity Audit Matrix (`docs/statement-fidelity.md`)
 
-This audit maps every Lean 4.35.0 theorem in `lean/AsmodensiusProofs/` (`A01`..`A30`)
+This audit maps every Lean 4.35.0 declaration in `lean/AsmodensiusProofs/` (`A01`..`A38`)
 to its corresponding C23, NASM, CUDA PTX, or ABI v4 specification in the codebase,
-explicitly stating what IS proved by the Lean kernel and what remains outside formal proof.
+explicitly separating substantive model statements from definitional, constant,
+congruence, or legacy arithmetic sanity checks, and stating what remains outside formal proof.
 
-## Classification Summary
+## Classification Summary (v1.2.0)
 
-- **Total audited theorems (`VerifyAxioms.lean`):** `30` (`A01`..`A30`)
-- **Statements about the model definitions:** `13` (`A01`..`A03`, `A17`, `A21`..`A24`, `A26`..`A30`), of which `A27`, `A28` are non-vacuity witnesses and `A29`, `A30` are false-variant refutations
-- **Definitional, constant, literal-arithmetic or hypothesis-restating checks:** `17` (`A04`..`A16`, `A18`..`A20`, `A25`)
-  - Hold because the record update never touches the field: `A04`, `A05`
-  - Constant identities: `A06`, `A13`, `A14` (`0 < 16`), `A25`
-  - Generic `Nat` facts that do not mention `acceptSpecies`, `arenaRollback` or `storeRelease`: `A07`, `A08`, `A09` (concludes its two hypotheses), `A10`, `A11`
-  - Tautologies: `A12` (`hAfter := hBefore; hAfter = hBefore`), `A19` (identity function preserves hash)
-  - Restated hypothesis: `A18` (assumes `forall s, stepGpu s = stepCpu s`)
-  - Literal arithmetic: `A15` (`1 + 1 = 2`), `A16`, `A20`
-- **Names:** several names describe intent rather than content (`A12_observer_hash_d7_invariant`, `A15_dual_visual_worlds_verified`, `A16_ecosystem_240_pure_lean4_theorems`, `A19_prefetch_observational_transparency`, `A20_ecosystem_244_pure_lean4_theorems`); see `ERRATA.md`.
-- **Scope:** all statements concern `Spec.lean` definitions; the C23, NASM and CUDA PTX code is not verified in Lean.
-- **Permitted axiom envelope:** `[propext, Classical.choice, Quot.sound]` (`0` `sorryAx`, `0` `Lean.ofReduceBool`, `0` `Lean.trustCompiler`)
+- **Total audited declarations (`VerifyAxioms.lean`):** `38` (`A01`..`A38`)
+- **Substantive statements about `Spec.lean` model definitions (`26` of `38`):**
+  - Conservation, metabolism, receive-cap, documented Rule C7, and implemented `core/az_chem.c` `spread()` `a / 4` decreasing-budget pass (`8`): `A01`, `A02`, `A03`, `A21`, `A22_documented_rule_c7_six_face_bound`, `A23`, `A31_chem_spread_quarter_budget_safe`, `A32_chem_spread_small_pool_zero`
+  - Protocol and boundary theorems genuinely invoking `Spec.lean` functions (`acceptSpecies`, `arenaRollback`, `storeRelease`, `philoxBulkKey`, `validLesionMask`, `tileBrainByteOffset`) (`8`): `A07`, `A08`, `A09`, `A10`, `A11`, `A17`, `A24`, `A26`
+  - Concrete non-vacuity witnesses (`2`): `A27`, `A28`
+  - Adversarial false-variant refutations (`8`): `A29`, `A30` (`NonVacuity.lean`), `A33`..`A38` (`AdversarialTests.lean`)
+- **Explicitly labeled definitional, constant, congruence, or legacy arithmetic sanity checks (`12` of `38`):**
+  - Field-untouched record-update checks (`2`): `A04`, `A05`
+  - Constant / ABI identities (`4`): `A06`, `A13`, `A14`, `A25`
+  - Explicitly prefixed `sanity_*` checks (`6`, renamed in v1.2.0 to remove inflated v1.1.0 labels):
+    - `A12_sanity_readonly_hash_refl` (`hAfter = hBefore`; NOT a proof of C D7 observers)
+    - `A15_sanity_legacy_arith_two` (`1 + 1 = 2`; NOT a proof about dual visual worlds)
+    - `A16_sanity_legacy_sum_240` (literal sum `= 240`; NOT a domain invariant)
+    - `A18_sanity_congruence_twin_hash` (pure congruence given `stepGpu = stepCpu`; NOT hardware GPU/CPU parity)
+    - `A19_sanity_identity_prefetch_hash` (identity function `fun x => x`; NOT x86-64 `PREFETCHT0` semantics)
+    - `A20_sanity_legacy_sum_244` (literal sum `= 244`; NOT a domain invariant)
+- **Scope boundary:** All 38 declarations concern hand-written `Nat` definitions in `lean/AsmodensiusProofs/Spec.lean`. **None of them verifies the C23, NASM, or CUDA PTX code.**
+- **Permitted axiom envelope:** `[propext, Classical.choice, Quot.sound]` (`0` `sorryAx`, `0` `Lean.ofReduceBool`, `0` `Lean.trustCompiler`).
 
 ## Line-by-Line Mapping Matrix
 
-| Theorem(s) | Lean Module | Source Location | Formalized Property | Scope Boundary / Non-Formalized Gap |
-|---|---|---|---|---|
-| `A01_bio_to_cell_mass_conserved` | `Core.lean` | `core/az_world.c:745` (`az_total_matter`) | `transferBioToCell s dm` preserves `totalMass` when `dm <= s.bioMass`. | Single-step `Nat` model; full multi-module C loop checked empirically by `77/77` CTest + UBSan. |
-| `A02_energy_dissipation_conserved`, `A03_heat_sink_monotone` | `Core.lean` | `core/az_world.c:766` (`az_total_energy`), Rule C3 | `dissipateToHeat s de` preserves `totalEnergy` and monotonically increases `cellHeat`. | Single-step `Nat` model; external tallies `energy_in`/`energy_out` checked via CTest audits. |
-| `A04_underflow_preserved_zero`, `A05_dropped_events_preserved_zero` | `Core.lean` | `core/az_abi.h`, Law 5 | `fieldUnderflow = 0` and `droppedEvents = 0` are preserved by valid transfers. | Definitional: the record update never touches these fields. Runtime event-pool budget and cell-field arithmetic tested in `test_ledger` and `test_field`. |
-| `A06_species_cap_exact`, `A07_species_refusal_boundary`, `A29_refute_unbounded_species_accepted` | `Core.lean`, `NonVacuity.lean` | `core/az_worldgen.c:84`, `tools/az_run.c:174` | `WG_MAX_SPECIES = 100`, `req > 100` implies `100 < req`, and `acceptSpecies` rejects `101` (proving guard is non-trivial). | `A06` is a constant identity; `A07` only unfolds the constant and never mentions `acceptSpecies`; `A29` is the statement about `acceptSpecies`. CLI exit code 2 tested via `az_run --species 101`. |
-| `A08_arena_rollback_exact`, `A09_arena_retry_succeeds` | `Core.lean` | `core/az_world.c:279-372` (`P4-CORE-02`) | Failed allocation cursor rollback `(saved + spent) - spent = saved` preserves headroom for subsequent smaller creation. | Generic `Nat` arithmetic that does not use `arenaRollback`; `A09` concludes its two hypotheses. Pointer/alignment behavior tested in `tests/test_core.c`. |
-| `A10_store_release_reduces_live`, `A11_store_release_exact_balance` | `Core.lean` | `core/az_world.c:433`, `core/az_store.c:192` (`P4-CORE-03`) | Releasing `units > 0` strictly decreases `liveUnits` while conserving `(live - units) + units = live`. | Generic `Nat` facts that do not mention `storeRelease`. Two-half compaction parity tested in `tests/test_store.c`. |
-| `A12_observer_hash_d7_invariant` | `Core.lean` | `docs/ARCHITECTURE.md` Rule D7, `tools/*_report.c` | Pure read-only observer leaves state hash identical (`hAfter = hBefore`). | Tautology (`x = x`); it does not model an observer. C observer non-interference tested in `cli_live_smoke`, `cli_colony_commons`, etc. |
-| `A13_trait_abi_width_112`, `A14_eps_bio_positive` | `Core.lean` | `core/az_abi.h:35,421` | `AZ_TRAITS = 112` and `0 < AZ_EPS_BIO` (`16`). | ABI constant checks matching `_Static_assert` in `core/az_abi.h`. |
-| `A15`, `A16`, `A20` | `Core.lean` | Historical v1.0.0 baseline accounting | `1 + 1 = 2`, `42+62+72+48+16 = 240`, `42+62+72+48+20 = 244`. | Retained solely for v1.0.0 backward compatibility; explicitly NOT claimed as domain invariants. |
-| `A17_bulk_philox_key_equivalence`, `A30_refute_unbounded_philox_bulk_key_eq` | `Core.lean`, `NonVacuity.lean` | `core/az_tick.c`, `kernels/az_philox_avx2.asm` (`TR-13`) | `uid < 2^32 -> Nat.xor tkey0 (uid / 2^32) = tkey0`, PLUS counterexample at `uid = 2^32` proving scalar fallback guard is strictly required. | Models key-folding lemma; full 10-round Philox4x32 AVX2 bit parity tested vs C oracle in `test_rng`. |
-| `A18_gpu_cpu_twin_hash_parity`, `A19_prefetch_observational_transparency` | `Core.lean` | `gpu/az_gpu_tick.c` (`TR-04`), `core/az_tick.c:233` (`TR-01`) | Functional equality `stepGpu = stepCpu` implies identical `hash`; identity prefetch hint preserves `hash`. | `A18` assumes the equality it needs (congruence); `A19` uses the identity function. Neither says anything about the GPU or prefetch code; hardware parity is tested by `test_gpu` (`164/164`) and `cli_gpu_tick_parity`. |
-| `A21_receive_cap_mass_conserved` | `Core.lean` | `docs/ARCHITECTURE.md` Rule C5 | For `cur <= cap`, `(kept, overflow) = receiveCap cur cap q` satisfies `kept + overflow = q` and `cur + kept <= cap`. | Exact arithmetic closure of Rule C5 overflow redirection. |
-| `A22_six_face_flux_never_overdraws` | `Core.lean` | `docs/ARCHITECTURE.md` Rule C7 (documented rule only) | Six face outflows each `<= amt / 8` sum to `<= amt`. | Models the documented 1/8 rule, not the code. The transport in `core/az_chem.c` `spread()` caps each species' total outflow per pass at `a / 4` with a decreasing budget; `core/az_field.c` only applies posted deltas. |
-| `A23_nut_x_to_bio_energy_conserved` | `Core.lean` | `core/az_abi.h:420-421`, Rule C2 | Converting `k <= nutXMass` from `NUT_X` (24 eu/mu) to biomass (16 eu/mu) + `8*k` thermal energy preserves total chemical+thermal energy. | Models C2 stoichiometry; full multi-species reaction network tested in `test_metab` and `test_chem`. |
-| `A24_lesion_mask_all_exact`, `A25_brain_dim_kernel_alignment` | `Core.lean` | `core/az_abi.h:28-34,51,61,409` | `AZ_LESION_ALL = 2^23 - 1` accepts all 23 named bits and rejects bit 23 (`2^23`); `AZ_SENS=64`, `AZ_MOT=24` divisible by 8; `AZ_UNIT=64`, `AZ_CHUNK=128`. | Matches `core/az_abi.h` `_Static_assert`s and CLI refusal bounds. |
-| `A26_gpu_offset8_injective_and_32gib_range` | `Core.lean` | `gpu/az_gpu_dev.c:103,118` (`TR-18`) | 8-byte store offsets `bo8 * 8` are injective and map every `u32` (`< 2^32`) strictly below 32 GiB without wraparound. | Models address arithmetic; PTX pointer safety verified on RTX 5070 Ti in `test_gpu.exe`. |
-| `A27_nonvacuity_ledger_and_arena_witness`, `A28_nonvacuity_philox_and_gpu_witness` | `NonVacuity.lean` | `AsmodensiusProofs.Spec` | Concrete inhabited witnesses satisfying ledger conservation, arena rollback, store release, TR-13 Philox (`uid=1004019`), TR-18 offset (`1048576`), C5 receive-cap, and C2 metabolism. | Proves hypothesis bundles are non-vacuously satisfiable. |
+| Declaration(s) | Lean Module | Category | Source Location | Formalized Property | Scope Boundary / Non-Formalized Gap |
+|---|---|---|---|---|---|
+| `A01_bio_to_cell_mass_conserved` | `Core.lean` | Substantive | `core/az_world.c:745` (`az_total_matter`) | `transferBioToCell s dm` preserves `totalMass` when `dm <= s.bioMass`. | Single-step `Nat` model; full multi-module C loop checked empirically by CTest + UBSan. |
+| `A02_energy_dissipation_conserved`, `A03_heat_sink_monotone` | `Core.lean` | Substantive | `core/az_world.c:766` (`az_total_energy`), Rule C3 | `dissipateToHeat s de` preserves `totalEnergy` and monotonically increases `cellHeat`. | Single-step `Nat` model; external tallies `energy_in`/`energy_out` checked via CTest audits. |
+| `A04_underflow_preserved_zero`, `A05_dropped_events_preserved_zero` | `Core.lean` | Sanity Check | `Spec.lean` record updates | `fieldUnderflow = 0` and `droppedEvents = 0` remain `0` under record updates. | Definitional: record updates never touch these fields. Runtime event-pool and cell arithmetic tested in `test_ledger` and `test_field`. |
+| `A06_species_cap_exact` | `Core.lean` | Sanity Check | `core/az_worldgen.c:84` | `WG_MAX_SPECIES = 100`. | Constant identity matching `core/az_worldgen.c:84`. |
+| `A07_species_refusal_boundary`, `A29_refute_unbounded_species_accepted`, `A34_refute_out_of_range_species_accepted` | `Core.lean`, `NonVacuity.lean`, `AdversarialTests.lean` | Substantive + Adversarial | `core/az_worldgen.c:84`, `tools/az_run.c:174` | `Spec.acceptSpecies req = false` for all `req > 100` (`A07`), counterexample `101` (`A29`), and refutation of any `req = 0` or `req > 100` acceptance (`A34`). | Restated in v1.2.0 so `A07` genuinely calls `Spec.acceptSpecies`. CLI exit code 2 checked live via `az_run --species 101`. |
+| `A08_arena_rollback_exact`, `A09_arena_retry_succeeds`, `A35_refute_nonzero_delta_without_rollback` | `Core.lean`, `AdversarialTests.lean` | Substantive + Adversarial | `core/az_world.c:279-372` (`P4-CORE-02`) | `Spec.arenaRollback saved spent = saved` (`A08`), retry `arenaRollback saved spent + small <= avail` (`A09`), and refutation of cursor preservation without rollback (`A35`). | Restated in v1.2.0 to invoke `Spec.arenaRollback` without tautological hypothesis conjunction. Pointer/alignment behavior tested in `tests/test_core.c`. |
+| `A10_store_release_reduces_live`, `A11_store_release_exact_balance` | `Core.lean` | Substantive | `core/az_world.c:433`, `core/az_store.c:192` (`P4-CORE-03`) | `Spec.storeRelease st units` strictly reduces `liveUnits` for `0 < units <= st.liveUnits` (`A10`) and conserves `liveUnits` while keeping `totalUnits` invariant (`A11`). | Restated in v1.2.0 to invoke `Spec.storeRelease`. Two-half compaction parity tested in `tests/test_store.c`. |
+| `A12_sanity_readonly_hash_refl` | `Core.lean` | Sanity Check | Renamed in v1.2.0 (`ERRATA.md` #10) | Definitional reflexivity (`hAfter = hBefore`). | Explicitly NOT a proof of C observer non-interference (Rule D7 is tested empirically in `cli_live_smoke`, etc.). |
+| `A13_trait_abi_width_112`, `A14_eps_bio_positive`, `A25_brain_dim_kernel_alignment` | `Core.lean` | Sanity Check | `core/az_abi.h:28-35,51,61,421` | `AZ_TRAITS = 112`, `0 < AZ_EPS_BIO`, `brainDimAligned AZ_SENS`, `brainDimAligned AZ_MOT`, `AZ_UNIT = 64`, `AZ_CHUNK = 128`. | ABI constant and alignment checks matching `_Static_assert` in `core/az_abi.h`. |
+| `A15_sanity_legacy_arith_two`, `A16_sanity_legacy_sum_240`, `A20_sanity_legacy_sum_244` | `Core.lean` | Sanity Check | Historical v1.0.0 baseline accounting | `1 + 1 = 2`, `42+62+72+48+16 = 240`, `42+62+72+48+20 = 244`. | Renamed in v1.2.0; explicitly NOT claimed as domain invariants or dual-world proofs. |
+| `A17_bulk_philox_key_equivalence`, `A30_refute_unbounded_philox_bulk_key_eq` | `Core.lean`, `NonVacuity.lean` | Substantive + Adversarial | `core/az_tick.c`, `kernels/az_philox_avx2.asm` (`TR-13`) | `uid < 2^32 -> philoxBulkKey tkey0 uid = tkey0` (`A17`) plus counterexample at `uid = 2^32` (`A30`). | Models key-folding lemma; full 10-round Philox4x32 AVX2 bit parity tested vs C oracle in `test_rng`. |
+| `A18_sanity_congruence_twin_hash`, `A19_sanity_identity_prefetch_hash` | `Core.lean` | Sanity Check | Renamed in v1.2.0 (`ERRATA.md` #10) | Congruence given `forall s, stepGpu s = stepCpu s` (`A18`); identity function `fun x => x` (`A19`). | Explicitly NOT formal proofs of GPU/CPU hardware parity or x86-64 `PREFETCHT0`; hardware parity is tested by `test_gpu` (`164/164`) and `cli_gpu_tick_parity`. |
+| `A21_receive_cap_mass_conserved` | `Core.lean` | Substantive | `docs/ARCHITECTURE.md` Rule C5 | For `cur <= cap`, `(kept, overflow) = receiveCap cur cap q` satisfies `kept + overflow = q` and `cur + kept <= cap`. | Exact arithmetic closure of Rule C5 overflow redirection. |
+| `A22_documented_rule_c7_six_face_bound` | `Core.lean` | Substantive | `docs/ARCHITECTURE.md` Rule C7 (documented rule only) | Six face outflows each `<= amt / 8` sum to `<= amt`. | Formalizes documented Rule C7 only (NOT `core/az_chem.c` and NOT `core/az_field.c`, which only applies posted deltas). |
+| `A31_chem_spread_quarter_budget_safe`, `A32_chem_spread_small_pool_zero`, `A38_refute_spread_exceeds_quarter` | `Core.lean`, `AdversarialTests.lean` | Substantive + Adversarial | `core/az_chem.c:160,180-199` (`spread()`) | Six-face decreasing budget `left = a / 4` (`chemSpreadSixFaces`) satisfies `total + rem = a / 4`, `total <= a / 4 <= a`, `(a - total) + total = a` (`A31`); `a < 4 -> total = 0` (`A32`); no request tuple can exceed `a / 4` (`A38`). | Directly models the implemented `core/az_chem.c` `spread()` budget loop; stochastic rounding and multi-worker posting tested empirically in `test_chem`, `test_chem_stock`, and determinism matrices. |
+| `A23_nut_x_to_bio_energy_conserved` | `Core.lean` | Substantive | `core/az_abi.h:420-421`, Rule C2 | Converting `k <= nutXMass` from `NUT_X` (24 eu/mu) to biomass (16 eu/mu) + `8*k` thermal energy preserves total chemical+thermal energy. | Models C2 stoichiometry; full multi-species reaction network tested in `test_metab` and `test_chem`. |
+| `A24_lesion_mask_all_exact`, `A26_gpu_offset8_injective_and_32gib_range` | `Core.lean` | Substantive | `core/az_abi.h:409`, `gpu/az_gpu_dev.c:103,118` | `validLesionMask` accepts `2^23 - 1` and rejects `2^23`; `tileBrainByteOffset` (`off8 * 8`) is injective and `< 32 GiB` for all `u32`. | Matches ABI constants; PTX pointer safety verified on RTX 5070 Ti in `test_gpu.exe`. |
+| `A27_nonvacuity_ledger_and_arena_witness`, `A28_nonvacuity_philox_and_gpu_witness` | `NonVacuity.lean` | Witness | `AsmodensiusProofs.Spec` | Concrete inhabited witnesses for ledger conservation, rollback, store release, `chemSpreadSixFaces 100 10..10 = (25, 0)`, Philox (`uid=1004019`), VRAM offset, C5 receive-cap, C2 metabolism, `validCap`, `acceptSpecies`. | Proves hypothesis bundles are non-vacuously satisfiable. |
+| `A33_refute_unguarded_budget_overdraws_mass`, `A36_refute_invalid_cap_exceeds_max`, `A37_refute_unaligned_brain_dim` | `AdversarialTests.lean` | Adversarial | Law 5, `core/az_abi.h:61,410` | Refutes unguarded `(a - budget) + budget = a` (`a=3, budget=4`), refutes `validCap (AZ_CAP_MAX + 1)`, refutes non-8-aligned brain dims (`65`, `25`). | Proves boundary guards are mathematically necessary. |
 
 ## Explicitly Non-Formalized Layers
 
-1. **C23 Compiler Translation:** GCC/Clang lowering of `core/*.c` to x86-64 is verified empirically via `77/77` CTest, `ubsan_trap_build`, `core_obj_gate`, and `avx_stack_gate`, not via CompCert/VST.
+1. **C23 Compiler Translation:** GCC/Clang lowering of `core/*.c` to x86-64 is verified empirically via CTest, `ubsan_trap_build`, `core_obj_gate`, and `avx_stack_gate`, not via CompCert/VST.
 2. **NASM Assembly & CUDA PTX Codegen:** Verified empirically via differential testing (`test_rng`, `test_brain`, `test_physics`, `test_gpu` 164/164, `cli_gpu_tick_parity`) rather than formal ISA semantics.
-3. **Long-Horizon Evolutionary Dynamics:** Not formalized and not claimed; see [MEGA_ATLAS_CROSSCHECK.md](MEGA_ATLAS_CROSSCHECK.md).
+3. **Long-Horizon Evolutionary Dynamics:** Not formalized and not claimed; see [MEGA_ATLAS_CROSSCHECK.md](MEGA_ATLAS_CROSSCHECK.md) (`0 / 1,900` retired).

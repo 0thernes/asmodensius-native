@@ -1,0 +1,217 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileObject": "cr:fileObject",
+    "fileProperty": "cr:fileProperty",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "name": "Asmodensius-Native Evaluation & Mechanism Trace Catalogs",
+  "alternateName": "Asmodensius-Native v1.2.0 Empirical Evaluation Artifacts",
+  "description": "Indicator-only mechanism traceability, disposition, crosswalk, and issue audit CSV tables for Asmodensius-Native v1.2.0 (Law 8 compliant: zero consciousness, sentience, or AGI claims; confirmatory seed blocks 5001-5024, 6001-6024, and 6101-6124 remain unburned; 0 / 1,900 Mega-Atlas open problems retired).",
+  "version": "1.2.0",
+  "datePublished": "2026-11-26",
+  "url": "https://0thernes.github.io/asmodensius-native/",
+  "sameAs": "https://github.com/0thernes/asmodensius-native",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "citeAs": "Donahue, Alexander Stephen (2026). Asmodensius-Native (v1.2.0). Independent Researcher, Spokane, WA, USA. ORCID: 0009-0006-8168-9648. https://github.com/0thernes/asmodensius-native",
+  "creator": {
+    "@type": "sc:Person",
+    "name": "Alexander Stephen Donahue",
+    "identifier": "https://orcid.org/0009-0006-8168-9648",
+    "affiliation": "Independent Researcher, Spokane, WA, USA",
+    "url": "https://0thernes.art"
+  },
+  "keywords": [
+    "artificial life",
+    "lesion evaluation",
+    "mechanistic indicators",
+    "reproducibility",
+    "formal verification"
+  ],
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "eval-mechanisms-csv",
+      "name": "MECHANISMS.csv",
+      "description": "Indicator-only mechanism-to-lesion mapping catalog (958 rows, CC-BY-4.0).",
+      "contentUrl": "https://raw.githubusercontent.com/0thernes/asmodensius-native/main/docs/eval/MECHANISMS.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "767bff1f9c0c9be2b618d846f1bd171f85759781a4f44c99038e74ab658b1fab",
+      "contentSize": "544019 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "eval-dispositions-csv",
+      "name": "dispositions.csv",
+      "description": "Catalog item disposition and honesty ledger (6,305 rows, CC-BY-4.0).",
+      "contentUrl": "https://raw.githubusercontent.com/0thernes/asmodensius-native/main/docs/eval/dispositions.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "66cb5adcb1ef395887c3db5189ff249f79b49656163496f97b2c3190ee0645f4",
+      "contentSize": "1582701 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "eval-trace-csv",
+      "name": "TRACE.csv",
+      "description": "Full evaluation provenance trace table (9,838 rows, 4,977,947 B, CC-BY-4.0).",
+      "contentUrl": "https://raw.githubusercontent.com/0thernes/asmodensius-native/main/docs/eval/TRACE.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "0353445901aa52e7ddfd4b3d4617c2fc8746d3b9d04e764ba8a90e726e240620",
+      "contentSize": "4977947 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "eval-issues-csv",
+      "name": "ISSUES.csv",
+      "description": "Tracked engineering issue and verification closure log (221 rows, CC-BY-4.0).",
+      "contentUrl": "https://raw.githubusercontent.com/0thernes/asmodensius-native/main/docs/eval/ISSUES.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "fc19d75ca7216f2bfe5590c4b5d7c5c6264efa36d054a048900ada3e09fb8030",
+      "contentSize": "160169 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "eval-crosswalk-csv",
+      "name": "MECHANISMS-crosswalk.csv",
+      "description": "Requirement-to-source crosswalk catalog (958 rows, CC-BY-4.0).",
+      "contentUrl": "https://raw.githubusercontent.com/0thernes/asmodensius-native/main/docs/eval/MECHANISMS-crosswalk.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "b9064e13755322f08417d873d3d229e148ad6d3a9816f66dc0e3683522a936b5",
+      "contentSize": "815231 B"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "eval-historical-csv",
+      "name": "MECHANISMS-historical.csv",
+      "description": "Historical mechanism nomenclature archive (1,125 rows, CC-BY-4.0).",
+      "contentUrl": "https://raw.githubusercontent.com/0thernes/asmodensius-native/main/docs/eval/MECHANISMS-historical.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "91b1a371467a13a0a32c2466594a43a78a3fbc1cd8685295a105195fb1aa50c3",
+      "contentSize": "214944 B"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "mechanisms",
+      "name": "mechanisms",
+      "description": "Indicator-only mechanism catalog mapping requirements to C23 functions and lesion switches.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "mechanisms/catalog",
+          "name": "catalog",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "eval-mechanisms-csv" }, "extract": { "column": "catalog" } }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mechanisms/item",
+          "name": "item",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "eval-mechanisms-csv" }, "extract": { "column": "item" } }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mechanisms/mechanism",
+          "name": "mechanism file:function",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "eval-mechanisms-csv" }, "extract": { "column": "mechanism file:function" } }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mechanisms/lesion",
+          "name": "lesion switch or none",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "eval-mechanisms-csv" }, "extract": { "column": "lesion switch or none" } }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "mechanisms/disposition",
+          "name": "proposed disposition",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "eval-mechanisms-csv" }, "extract": { "column": "proposed disposition" } }
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "trace",
+      "name": "trace",
+      "description": "Item-level evaluation trace and preregistration provenance records.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "trace/catalog",
+          "name": "catalog",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "eval-trace-csv" }, "extract": { "column": "catalog" } }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "trace/item_id",
+          "name": "item_id",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "eval-trace-csv" }, "extract": { "column": "item_id" } }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "trace/disposition",
+          "name": "disposition",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "eval-trace-csv" }, "extract": { "column": "disposition" } }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "trace/verdict",
+          "name": "verdict",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "eval-trace-csv" }, "extract": { "column": "verdict" } }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "trace/honesty",
+          "name": "honesty",
+          "dataType": "sc:Text",
+          "source": { "fileObject": { "@id": "eval-trace-csv" }, "extract": { "column": "honesty" } }
+        }
+      ]
+    }
+  ]
+}

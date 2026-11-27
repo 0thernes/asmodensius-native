@@ -1,0 +1,57 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "identifier": "https://github.com/0thernes/asmodensius-native",
+  "name": "Asmodensius-Native",
+  "version": "1.2.0",
+  "dateCreated": "2026-11-22",
+  "dateModified": "2026-11-26",
+  "datePublished": "2026-11-26",
+  "description": "Windows-native freestanding C23, NASM AVX2/AVX-VNNI, and pure-integer CUDA PTX artificial-life engine with exact integer conservation, bit-exact multi-substrate lab replay, and 38 Lean 4.35.0 declarations (26 substantive model/boundary/witness/refutation theorems + 12 labeled sanity checks) about an abstract Nat model of its rules. C23/NASM/PTX code is not verified in Lean. Independent preprint (not peer-reviewed); 0 / 1,900 Mega-Atlas open problems retired.",
+  "codeRepository": "https://github.com/0thernes/asmodensius-native",
+  "url": "https://0thernes.github.io/asmodensius-native/",
+  "issueTracker": "https://github.com/0thernes/asmodensius-native/issues",
+  "license": [
+    "https://spdx.org/licenses/Apache-2.0",
+    "https://spdx.org/licenses/CC-BY-4.0"
+  ],
+  "programmingLanguage": [
+    "C",
+    "Assembly",
+    "CUDA PTX",
+    "Lean 4",
+    "Python"
+  ],
+  "operatingSystem": [
+    "Windows 11 x86-64 (native engine)",
+    "Linux x86-64 (Lean 4.35.0 multi-kernel CI & paper build)"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0009-0006-8168-9648",
+      "givenName": "Alexander Stephen",
+      "familyName": "Donahue",
+      "email": "0_0@0thernes.art",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Independent Researcher, Spokane, WA, USA"
+      }
+    }
+  ],
+  "keywords": [
+    "artificial-life",
+    "freestanding-c23",
+    "avx-vnni",
+    "cuda-ptx",
+    "philox",
+    "deterministic-simulation",
+    "lean4",
+    "formal-verification"
+  ],
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "url": "https://0thernes.github.io/asmodensius-native/blueprint.html"
+  },
+  "isPartOf": "swh:1:snp:08a957772115194b51a4eadb77331b8bab261773"
+}

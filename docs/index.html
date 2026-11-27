@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none';">
+  <title>Asmodensius-Native v1.2.0 - Research Portal &amp; Verification Hub</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header>
+    <div class="header-inner">
+      <h1>Asmodensius-Native v1.2.0</h1>
+      <p class="subtitle">Freestanding C23, NASM AVX2/AVX-VNNI, and Pure-Integer CUDA PTX Artificial-Life Engine with Multi-Kernel Lean 4.35.0 Model Invariants</p>
+      <nav class="nav-bar" aria-label="Primary navigation">
+        <a href="index.html" aria-current="page">Overview</a>
+        <a href="blueprint.html">Lean 4 Proof Blueprint (38 Declarations)</a>
+        <a href="dist/Donahue_2026_asmodensius_native.pdf">White Paper PDF</a>
+        <a href="results/lean4-asmodensius-audit.txt">Axiom Audit</a>
+        <a href="results/citation-audit.json">Citation Audit JSON</a>
+        <a href="https://github.com/0thernes/asmodensius-native">GitHub Repository</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section aria-labelledby="sec-scope">
+      <h2 id="sec-scope">Epistemic Scope and Verification Summary</h2>
+      <div class="callout-warn">
+        <strong>Independent Technical Preprint (Not Peer-Reviewed):</strong>
+        Authored by Alexander Stephen Donahue (Independent Researcher, Spokane, WA, USA; ORCID <code>0009-0006-8168-9648</code>).
+        Makes <strong>zero claims</strong> of consciousness, sentience, biological life, AGI, or quantum speedup (Law 8).
+        Retires <strong>0 / 1,900</strong> overarching problems in <code>unsolved-problems-mega-atlas</code>.
+        Lean 4.35.0 verifies the hand-written <code>Nat</code> model in <code>Spec.lean</code>; it does <strong>not</strong> formally verify C23, NASM, or CUDA PTX compilation.
+      </div>
+      <div class="grid-cards">
+        <div class="card">
+          <p class="metric">38 / 38</p>
+          <p class="label">Lean 4.35.0 declarations (26 substantive model/boundary/witness/refutation + 12 labeled sanity checks)</p>
+        </div>
+        <div class="card">
+          <p class="metric">6 Local + CI</p>
+          <p class="label">Independent checkers (lean, leanchecker, paranoid, con-leche, con-ron, nanoda_bin + Ubuntu lean4lean &amp; bwrap comparator)</p>
+        </div>
+        <div class="card">
+          <p class="metric">77 / 77 &amp; 164 / 164</p>
+          <p class="label">Native CTest targets (incl. UBSan traps &amp; purity gates) + RTX 5070 Ti GPU differential checks (0 differing bits)</p>
+        </div>
+        <div class="card">
+          <p class="metric">17 / 17</p>
+          <p class="label">White-paper references verified (13 DOIs with Crossref/arXiv title+author match, 0 retractions, 2 vendor URLs, 2 standards)</p>
+        </div>
+      </div>
+      <img class="hero-img" src="media/social-preview.svg" alt="Asmodensius-Native architecture diagram showing single locked arena, 7-stage deterministic tick pipeline, C23/AVX-VNNI/CUDA PTX substrates, and Lean 4 formal model boundary.">
+    </section>
+
+    <section aria-labelledby="sec-bench">
+      <h2 id="sec-bench">Measured Bare-Metal Benchmarks &amp; Honest Tradeoffs</h2>
+      <p>Recorded on Intel Core Ultra 9 275HX (24 physical cores: 8P + 16E) and NVIDIA GeForce RTX 5070 Ti (12,199 MiB VRAM, CUDA driver API 13040) under <code>--lab --seed 42</code> with <code>locked=1</code>, <code>field_underflow=0</code>, and <code>dropped_events=0</code>.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Scale</th>
+              <th>Live</th>
+              <th>State Hash</th>
+              <th>Substrate</th>
+              <th>ms/tick</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>100k (32t)</td>
+              <td>153,084</td>
+              <td><code>5b8110b324d2603f</code></td>
+              <td>8P C-ref (<code>--kernels 0</code>)</td>
+              <td>113.162</td>
+              <td>Baseline</td>
+            </tr>
+            <tr>
+              <td>100k (32t)</td>
+              <td>153,084</td>
+              <td><code>5b8110b324d2603f</code></td>
+              <td>24C (8P+16E) AVX-VNNI + Philox + PF</td>
+              <td>72.199</td>
+              <td>1.57x (+56.7%)</td>
+            </tr>
+            <tr>
+              <td>1M (locked)</td>
+              <td>1,004,019</td>
+              <td><code>31e5d00c106ce679</code></td>
+              <td>8P C-ref (9,260.6 MB locked)</td>
+              <td>1,025.332</td>
+              <td>Baseline</td>
+            </tr>
+            <tr>
+              <td>1M (locked)</td>
+              <td>1,004,019</td>
+              <td><code>31e5d00c106ce679</code></td>
+              <td>24C (8P+16E) AVX-VNNI + Philox + PF</td>
+              <td>757.988</td>
+              <td>1.35x (+35.3%)</td>
+            </tr>
+            <tr>
+              <td>1M (locked)</td>
+              <td>1,004,019</td>
+              <td><code>31e5d00c106ce679</code></td>
+              <td>RTX 5070 Ti GPU + 24C (0 fallbacks)</td>
+              <td>1,122.495</td>
+              <td>Slower (PCIe/compaction tradeoff, TR-05)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="sec-fair">
+      <h2 id="sec-fair">FAIR Metadata, Provenance &amp; Licensing</h2>
+      <ul>
+        <li><a href="blueprint.html">Interactive Lean 4.35.0 Proof Blueprint</a> (all 38 comparator targets, strict CSP, zero CDN)</li>
+        <li><a href="dist/Donahue_2026_asmodensius_native.pdf">AMS-LaTeX White Paper v1.2.0 (PDF)</a></li>
+        <li>Machine-readable metadata: <a href="croissant.json">croissant.json</a>, <a href="ro-crate-metadata.json">ro-crate-metadata.json</a>, <a href="codemeta.json">codemeta.json</a>, <a href="llms.txt">llms.txt</a>, <a href="llms-full.txt">llms-full.txt</a></li>
+        <li>Software Heritage snapshot: <code>swh:1:snp:08a957772115194b51a4eadb77331b8bab261773</code></li>
+        <li>Dual cryptographic timestamps: DigiCert RFC 3161 (<code>CHECKSUMS.sha256.tsr</code>) + 3-calendar Bitcoin OpenTimestamps (<code>CHECKSUMS.sha256.ots</code>)</li>
+        <li>Dual open licenses: <strong>Apache-2.0</strong> (code, Lean proofs, scripts) and <strong>CC-BY-4.0</strong> (white paper, documentation, figures, datasets)</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Copyright (c) 2026 Alexander Stephen Donahue (Independent Researcher, Spokane, WA, USA; ORCID 0009-0006-8168-9648; <code>0_0@0thernes.art</code>).
+    Documentation &amp; portal licensed under CC-BY-4.0; code &amp; Lean proofs under Apache-2.0.
+  </footer>
+</body>
+</html>

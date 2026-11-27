@@ -1,4 +1,5 @@
-name: Asmodensius-Native CI (6-Kernel Lean 4.35, Paper, Hygiene & Security)
+# SPDX-License-Identifier: Apache-2.0
+name: Asmodensius-Native CI (Lean 4.35 Multi-Checker, Paper, Law-14 Text Gate, Timestamps & Security)
 
 on:
   push:
@@ -13,17 +14,20 @@ permissions:
 
 jobs:
   lean-6kernel-linux:
-    name: Pure Lean 4.35.0 - 30 Theorems & 6-Kernel Palomar Comparator
+    name: Pure Lean 4.35.0 - 38 Declarations, Palomar Comparator & Live Negative Tamper
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install bubblewrap for 6-kernel Palomar sandbox
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install bubblewrap for Palomar sandbox
         run: sudo apt-get update && sudo apt-get install -y bubblewrap
       - name: Install elan and pinned Lean 4.35.0 toolchain
         run: |
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
-      - name: Build AsmodensiusProofs, Solution, Challenge & VerifyAxioms
+      - name: Build AsmodensiusProofs, Solution, Challenge & VerifyAxioms (38 declarations)
         working-directory: lean
         run: |
           lake build
@@ -31,24 +35,29 @@ jobs:
           lake env lean VerifyAxioms.lean > /tmp/lean4-asmodensius-audit.txt
           cat /tmp/lean4-asmodensius-audit.txt
           COUNT=$(grep -cE "depends on axioms:|does not depend on any axioms" /tmp/lean4-asmodensius-audit.txt)
-          echo "Audited theorem count: $COUNT"
-          test "$COUNT" -eq 30
+          echo "Audited declaration count: $COUNT"
+          test "$COUNT" -eq 38
           if grep -E "sorryAx|ofReduceBool|trustCompiler" /tmp/lean4-asmodensius-audit.txt; then
             echo "FORBIDDEN AXIOM DETECTED" >&2
             exit 1
           fi
-      - name: Verify README verbatim axiom block matches audit
-        run: python3 -I scripts/check_readme_axioms.py
-      - name: Run all 6 independent kernels + Palomar comparator (bubblewrap)
+          diff -u ../results/lean4-asmodensius-audit.txt /tmp/lean4-asmodensius-audit.txt
+      - name: Verify README verbatim axioms & Interactive Proof Blueprint
+        run: |
+          python3 -I scripts/check_readme_axioms.py
+          python3 -I scripts/check_blueprint.py
+      - name: Run independent checkers + Palomar comparator (bubblewrap)
         working-directory: lean
         run: |
           lake env leanchecker --fresh Solution
           lake env leanchecker-paranoid --fresh Solution
           lake check --paranoid
           lake comparator --config comparator.json --paranoid
+      - name: Run live negative elaboration & sorry-tamper rejection gate
+        run: python3 -I scripts/test_lean_negative.py --with-comparator
 
   windows-hygiene-and-lean:
-    name: Windows Law-14 Text Gate, Lean Build & Build Standard Audit
+    name: Windows Law-14 Text Gate, Lean Build, Timestamps & Build Standard Audit
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
@@ -57,14 +66,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-      - name: Verify README verbatim axioms & offline bibliography coverage
+      - name: Run tracked Law-14 text hygiene gate, README axioms, blueprint, offline citations & timestamp verify
         run: |
+          python -I tools/check_text.py --self-test
+          python -I tools/check_text.py
           python -I scripts/check_readme_axioms.py
+          python -I scripts/check_blueprint.py
           python -I scripts/check_citations.py
+          python -I scripts/stamp_timestamps.py --verify
       - name: Run Build Standard v1.2.0 self-audit (report-only)
         continue-on-error: true
         run: pwsh -NoProfile -File scripts/Audit-Repo.ps1
-      - name: Install elan and verify Lean 4.35.0 on Windows
+      - name: Install elan and verify Lean 4.35.0 + live negative gate on Windows
         shell: pwsh
         run: |
           Invoke-WebRequest -Uri "https://github.com/leanprover/elan/releases/latest/download/elan-x86_64-pc-windows-msvc.zip" -OutFile "$env:TEMP\elan.zip"
@@ -81,27 +94,39 @@ jobs:
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           lake env leanchecker --fresh Solution
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          lake env leanchecker-paranoid --fresh Solution
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Set-Location -LiteralPath ..
+          python -I scripts/test_lean_negative.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
   paper-pdf-and-provenance:
-    name: AMS-LaTeX White Paper, Clean-Room arXiv & SLSA Provenance
+    name: AMS-LaTeX White Paper, Clean-Room arXiv, Checksums & SLSA Provenance
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
+      - name: Verify tracked Law-14 text gate, checksums & dual timestamps
+        run: |
+          python3 -I tools/check_text.py --self-test
+          python3 -I tools/check_text.py
+          sha256sum -c CHECKSUMS.sha256
+          sha256sum -c data/MANIFEST.sha256
+          python3 -I scripts/stamp_timestamps.py --verify
       - name: Install Tectonic
         run: |
           curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
           sudo mv tectonic /usr/local/bin/tectonic
       - name: Build paper, verify zero Overfull hbox, verify clean-room arXiv tarball
         run: python3 -I scripts/build_paper.py
-      - name: Verify live Crossref DOIs, retractions and URLs (informational)
+      - name: Verify live Crossref/arXiv DOIs, title/author match, retractions and URLs (informational)
         continue-on-error: true
         run: python3 -I scripts/check_citations.py --live
       - name: Generate CI SHA256SUMS
         run: |
-          sha256sum dist/Donahue_2026_asmodensius_native.pdf dist/arxiv_submission.tar.gz results/lean4-asmodensius-audit.txt results/lean4-multi-kernel.txt > SHA256SUMS
+          sha256sum dist/Donahue_2026_asmodensius_native.pdf dist/arxiv_submission.tar.gz results/lean4-asmodensius-audit.txt results/lean4-multi-kernel.txt results/citation-audit.json CHECKSUMS.sha256 CHECKSUMS.sha256.tsr CHECKSUMS.sha256.ots > SHA256SUMS
           cat SHA256SUMS
       - name: Attest build provenance (SLSA)
         uses: actions/attest-build-provenance@v2

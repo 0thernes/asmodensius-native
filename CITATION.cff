@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 message: "If you use Asmodensius-Native, its Lean 4.35.0 formal proofs, or its white paper, please cite it as below."
 type: software
-title: "Asmodensius-Native: Freestanding C23, AVX-VNNI, and Pure-Integer PTX Artificial-Life Engine with 6-Kernel Lean 4.35.0 Formal Invariants"
-version: "1.1.0"
-date-released: "2026-11-25"
+title: "Asmodensius-Native: Freestanding C23, AVX-VNNI, and Pure-Integer PTX Artificial-Life Engine with Multi-Kernel Lean 4.35.0 Model Invariants"
+version: "1.2.0"
+date-released: "2026-11-26"
 license: "Apache-2.0"
 repository-code: "https://github.com/0thernes/asmodensius-native"
-url: "https://github.com/0thernes/asmodensius-native"
-abstract: "A Windows-native, freestanding C23 artificial-life simulation engine with 22 selectable core modules, 4 NASM AVX2/AVX-VNNI twins, a 41,817 B pure-integer CUDA PTX backend, 77/77 CTest targets, 164/164 GPU differential checks, and 30 Lean 4.35.0 theorems about an abstract Nat model of the engine rules, checked by six independent Lean checkers. The C23, NASM and PTX code is not verified in Lean, and 17 of the 30 theorems are definitional, constant or literal-arithmetic checks."
+url: "https://0thernes.github.io/asmodensius-native/"
+abstract: "A Windows-native, freestanding C23 artificial-life simulation engine with 22 selectable core modules, 4 NASM AVX2/AVX-VNNI twins, a 41,817 B pure-integer CUDA PTX backend, 77/77 CTest targets, 164/164 GPU differential checks, and 38 Lean 4.35.0 declarations (26 substantive model, boundary, witness, and adversarial refutation theorems including the implemented core/az_chem.c a/4 decreasing-budget spread rule, plus 12 explicitly labeled definitional, constant, congruence, or legacy arithmetic sanity checks) checked locally by six Lean checkers and in Ubuntu CI by lean4lean and lake comparator under bubblewrap. The C23, NASM, and PTX code is not verified in Lean. Independent technical preprint (not peer-reviewed); 0 / 1,900 Mega-Atlas open problems retired."
 authors:
   - family-names: "Donahue"
     given-names: "Alexander Stephen"

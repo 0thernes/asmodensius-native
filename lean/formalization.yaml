@@ -1,6 +1,6 @@
 schema_version: 1
 project: Asmodensius-Native
-version: "1.1.0"
+version: "1.2.0"
 author: "Alexander Stephen Donahue"
 orcid: "0009-0006-8168-9648"
 affiliation: "Independent Researcher, Spokane, WA, USA"
@@ -36,11 +36,14 @@ kernels:
     command: "lake check --paranoid"
 comparator_command_ci: "cd lean && lake comparator --config comparator.json --paranoid"
 comparator_command_local_windows: "cd lean && lake build && lake build Challenge && lake env leanchecker --fresh Solution && lake env leanchecker-paranoid --fresh Solution"
-theorem_count: 30
+negative_tamper_command: "python3 -I scripts/test_lean_negative.py --with-comparator"
+theorem_count: 38
+substantive_model_theorem_count: 26
+sanity_and_constant_check_count: 12
 non_vacuity_witness_count: 2
-adversarial_refutation_count: 2
+adversarial_refutation_count: 8
 human_credit_role: "Conceptualization, Architecture, Formal Invariant Selection, Verification Review, Writing"
-ai_assistance: "AI coding assistants assisted with Lean 4 tactic drafting, refactoring to Palomar module headers, and documentation; all proofs are independently machine-checked by 6 Lean kernels."
+ai_assistance: "AI coding assistants assisted with Lean 4 tactic drafting, refactoring to Palomar module headers, and documentation; all proofs are independently machine-checked by 6 Lean checkers locally and 7-check Ubuntu CI (adding lean4lean + bwrap comparator)."
 non_formalized_scope:
   - "C23 compiler translation of core/*.c to x86-64 machine code (verified empirically via 77/77 ctest, UBSan trap build, and Clang second-compiler check, not verified by CompCert/VST)"
   - "NASM AVX2/AVX-VNNI assembly twins and Clang nvptx64 PTX codegen (verified empirically via bit-exact differential tests over 1,000,000 inputs and 164/164 test_gpu)"
@@ -48,11 +51,14 @@ non_formalized_scope:
 modules:
   - name: "AsmodensiusProofs.Spec"
     theorems: 0
-    scope: "Pure ABI v4 constants, state structures, conservation/refusal/Philox/GPU offset definitions (zero proofs, zero sorry)"
+    scope: "Pure ABI v4 constants, state structures, conservation/refusal/Philox/GPU offset definitions, documented Rule C7 bound, and implemented core/az_chem.c a/4 spread model (zero proofs, zero sorry)"
   - name: "AsmodensiusProofs.Core"
-    theorems: 26
-    scope: "A01..A26: integer mass/energy conservation, 6-face flux non-overdraw, Rule C5 receive-cap, Rule C2 NUT_X metabolism, WG_MAX_SPECIES=100 refusal, arena rollback, store release, D7 observer invariance, TR-13 Philox key equivalence, TR-18/TR-04 GPU/CPU parity, TR-01 prefetch transparency, 23-bit lesion mask & 32 GiB VRAM addressing"
+    theorems: 28
+    scope: "A01..A26, A31..A32: 16 substantive model theorems (conservation, acceptSpecies refusal, arenaRollback, storeRelease, TR-13 Philox key fold, Rule C5 receive-cap, documented Rule C7 amt/8, implemented core/az_chem.c a/4 decreasing-budget spread and a < 4 zero skip, Rule C2 NUT_X metabolism, 23-bit lesion mask, 32 GiB VRAM offset) plus 12 explicitly labeled definitional, constant, congruence, or legacy arithmetic sanity checks"
   - name: "AsmodensiusProofs.NonVacuity"
     theorems: 4
-    scope: "A27..A30: explicit concrete non-vacuity inhabitants and adversarial false-variant refutations proving guard necessity"
+    scope: "A27..A30: 2 concrete non-vacuity inhabitants and 2 guard-necessity refutations"
+  - name: "AsmodensiusProofs.AdversarialTests"
+    theorems: 6
+    scope: "A33..A38: 6 concrete false-variant refutations (unguarded budget mass overdraw, out-of-range species acceptance, missing arena rollback mutation, cap > AZ_CAP_MAX, unaligned brain dim, spread exceeding a/4)"
 statement_fidelity_audit: "docs/statement-fidelity.md"
