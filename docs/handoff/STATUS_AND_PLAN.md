@@ -300,8 +300,8 @@ scratched by one of your laws.
 Where the A-Life work lives, all of it on Z: (searched 2026-11-17; nothing of it is on C:):
 
 - `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-Native`: this native engine and this catalog
-- `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-v40`: the TypeScript lab it rebuilds (read only)
-- `Z:\[Vibe Coded (AI)]\CLAUDECODE\gigachad-browser\brains\asmodensius-v40, and six checkouts under Z:\CodexIsolated\gigachad-clean-windows-...\*\brains\asmodensius-v40`: copies of the v40 lab inside the GIGACHAD browser and its isolated Codex checkouts
+- `<internal-ts-prototype>`: the internal TypeScript reference prototype it rebuilds (read only)
+- `<internal-browser-workspace>` and isolated Codex checkouts: copies of the internal TypeScript prototype inside the internal browser workspace
 - `Z:\[Vibe Coded (AI)]\CLAUDECODE\ALife-Framework`: the A-Life framework material
 - `Z:\[Vibe Coded (AI)]\CLAUDECODE\Frontier AI-ALife Tesseract Lab`: the frontier A-Life lab
 - `Z:\cosmogonic-quantum-mechalogodrom\docs\alife, Z:\[Vibe Coded (AI)]\CLAUDECODE\Cosmogonic Quantum Mechalogodrom\docs\alife, Z:\[Vibe Coded (AI)]\CLAUDECODE\CQM2\public\alife and \site\alife`: the A-Life pages of the CQM projects

@@ -2,7 +2,7 @@
 
 Audit date 2026-11-17. Everything marked **ran** was executed in this session with the
 command shown. Scratch folder: `S:\tsotchke\qgtl\`. The mirror at `T:` was only read.
-The prior audit (`W:\Glossodrom Language Lab\docs\research\qgtl.md`) was used as a map and
+The prior audit (`<internal-language-lab>/docs/research/qgtl.md`) was used as a map and
 re-checked; where this note says "confirmed" the check was re-run here, not copied.
 
 ## Verdict

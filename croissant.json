@@ -89,11 +89,11 @@
       "@type": "cr:FileObject",
       "@id": "eval-trace-csv",
       "name": "TRACE.csv",
-      "description": "Full evaluation provenance trace table (9,838 rows, 4,977,947 B, CC-BY-4.0).",
+      "description": "Full evaluation provenance trace table (9,838 rows, 4,978,031 B, CC-BY-4.0).",
       "contentUrl": "https://raw.githubusercontent.com/0thernes/asmodensius-native/main/docs/eval/TRACE.csv",
       "encodingFormat": "text/csv",
-      "sha256": "0353445901aa52e7ddfd4b3d4617c2fc8746d3b9d04e764ba8a90e726e240620",
-      "contentSize": "4977947 B"
+      "sha256": "6debf2ae7f69d30bf9fd47125f314e356a7a8481a2c6c84ab78a31d5ec072614",
+      "contentSize": "4978031 B"
     },
     {
       "@type": "cr:FileObject",
@@ -102,8 +102,8 @@
       "description": "Tracked engineering issue and verification closure log (221 rows, CC-BY-4.0).",
       "contentUrl": "https://raw.githubusercontent.com/0thernes/asmodensius-native/main/docs/eval/ISSUES.csv",
       "encodingFormat": "text/csv",
-      "sha256": "fc19d75ca7216f2bfe5590c4b5d7c5c6264efa36d054a048900ada3e09fb8030",
-      "contentSize": "160169 B"
+      "sha256": "bc80191ab5405e73e64aca3bfd984014300734ab820322dcfee4c64b4bcc70fe",
+      "contentSize": "160145 B"
     },
     {
       "@type": "cr:FileObject",
@@ -138,35 +138,70 @@
           "@id": "mechanisms/catalog",
           "name": "catalog",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "eval-mechanisms-csv" }, "extract": { "column": "catalog" } }
+          "source": {
+            "fileObject": {
+              "@id": "eval-mechanisms-csv"
+            },
+            "extract": {
+              "column": "catalog"
+            }
+          }
         },
         {
           "@type": "cr:Field",
           "@id": "mechanisms/item",
           "name": "item",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "eval-mechanisms-csv" }, "extract": { "column": "item" } }
+          "source": {
+            "fileObject": {
+              "@id": "eval-mechanisms-csv"
+            },
+            "extract": {
+              "column": "item"
+            }
+          }
         },
         {
           "@type": "cr:Field",
           "@id": "mechanisms/mechanism",
           "name": "mechanism file:function",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "eval-mechanisms-csv" }, "extract": { "column": "mechanism file:function" } }
+          "source": {
+            "fileObject": {
+              "@id": "eval-mechanisms-csv"
+            },
+            "extract": {
+              "column": "mechanism file:function"
+            }
+          }
         },
         {
           "@type": "cr:Field",
           "@id": "mechanisms/lesion",
           "name": "lesion switch or none",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "eval-mechanisms-csv" }, "extract": { "column": "lesion switch or none" } }
+          "source": {
+            "fileObject": {
+              "@id": "eval-mechanisms-csv"
+            },
+            "extract": {
+              "column": "lesion switch or none"
+            }
+          }
         },
         {
           "@type": "cr:Field",
           "@id": "mechanisms/disposition",
           "name": "proposed disposition",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "eval-mechanisms-csv" }, "extract": { "column": "proposed disposition" } }
+          "source": {
+            "fileObject": {
+              "@id": "eval-mechanisms-csv"
+            },
+            "extract": {
+              "column": "proposed disposition"
+            }
+          }
         }
       ]
     },
@@ -181,35 +216,70 @@
           "@id": "trace/catalog",
           "name": "catalog",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "eval-trace-csv" }, "extract": { "column": "catalog" } }
+          "source": {
+            "fileObject": {
+              "@id": "eval-trace-csv"
+            },
+            "extract": {
+              "column": "catalog"
+            }
+          }
         },
         {
           "@type": "cr:Field",
           "@id": "trace/item_id",
           "name": "item_id",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "eval-trace-csv" }, "extract": { "column": "item_id" } }
+          "source": {
+            "fileObject": {
+              "@id": "eval-trace-csv"
+            },
+            "extract": {
+              "column": "item_id"
+            }
+          }
         },
         {
           "@type": "cr:Field",
           "@id": "trace/disposition",
           "name": "disposition",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "eval-trace-csv" }, "extract": { "column": "disposition" } }
+          "source": {
+            "fileObject": {
+              "@id": "eval-trace-csv"
+            },
+            "extract": {
+              "column": "disposition"
+            }
+          }
         },
         {
           "@type": "cr:Field",
           "@id": "trace/verdict",
           "name": "verdict",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "eval-trace-csv" }, "extract": { "column": "verdict" } }
+          "source": {
+            "fileObject": {
+              "@id": "eval-trace-csv"
+            },
+            "extract": {
+              "column": "verdict"
+            }
+          }
         },
         {
           "@type": "cr:Field",
           "@id": "trace/honesty",
           "name": "honesty",
           "dataType": "sc:Text",
-          "source": { "fileObject": { "@id": "eval-trace-csv" }, "extract": { "column": "honesty" } }
+          "source": {
+            "fileObject": {
+              "@id": "eval-trace-csv"
+            },
+            "extract": {
+              "column": "honesty"
+            }
+          }
         }
       ]
     }

@@ -205,7 +205,7 @@ The engine is **Asmodensius-Native**: a freestanding C23 core (integers only, no
 no mutable statics, stack frames of at most 2,048 bytes), NASM assembly twins (AVX2 and AVX-VNNI), an
 optional PTX GPU component, a Windows host (page-locked arena, worker pool), a software view
 (`view\az_view.c`), tools, and a local web demo (`demo\live_server.py` and `demo\live.html`, at
-http://127.0.0.1:8765/). It rebuilds an earlier TypeScript lab (Asmodensius-v40) in native code. It runs
+http://127.0.0.1:8765/). It rebuilds an earlier internal TypeScript reference prototype in native code. It runs
 as a Windows program from the Z: Dev Drive (ReFS).
 
 The machine (`docs\agents\COMMON.md:43-51`): Intel Core Ultra 9 275HX, 24 cores and 24 threads (8 P + 16
@@ -520,7 +520,7 @@ The root holds spaces, `[ ]` and `( )`. Measured on PowerShell 7.6 (`00-PROMPT.m
 - POSIX shells (Git Bash): single-quote the path.
 - Never backtick-escape a bracketed path.
 - Old documents say `N:\` (this root), `T:\` (`Z:\[Vibe Coded (AI)]\(Tsotchke)`, read-only), `V:\`
-  (`Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-v40`, read-only), `W:\` (`Z:\[Vibe Coded (AI)]\CLAUDECODE`,
+  (`<internal-ts-prototype>`, read-only), `W:\` (`Z:\[Vibe Coded (AI)]\CLAUDECODE`,
   read-only), `S:\` (gone; copy in `build\work\c-scratch-2026-11-17\`). Read them through this table;
   never map them. Build folders configured from `N:/` (`build\full`, `build\clean-*`, `build\clang`,
   `build\ubsan`, `build\owners\*` and others) no longer work; use `build\z` or new folders.

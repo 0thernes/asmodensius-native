@@ -40,7 +40,7 @@ Three generators live in the tree (confirmed by reading, as the prior audit said
    with OS/CPU entropy (`quantum_rng_v3.c`, `quantum_state.c`, `quantum_gates.c`);
 3. `secure_rng`: hardware entropy that seeds generator 1.
 
-## 3. Check of the prior audit (`W:\Glossodrom Language Lab\docs\research\qrng.md`)
+## 3. Check of the prior audit (`<internal-language-lab>/docs/research/qrng.md`)
 
 | Prior claim | Result here |
 |---|---|

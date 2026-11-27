@@ -287,7 +287,7 @@
      "rows": 50,
      "base_mechanisms": 10,
      "heading_line": 65,
-     "provenance": "Asmodensius-v40/creatures/001 (RV32I Silicon Die) + tsotchke/eshkol (JIT Bytecode)"
+     "provenance": "internal TypeScript reference prototype (RV32I Silicon Die) + tsotchke/eshkol (JIT Bytecode)"
     },
     {
      "domain": "D22",
@@ -309,7 +309,7 @@
      "rows": 50,
      "base_mechanisms": 10,
      "heading_line": 185,
-     "provenance": "Asmodensius-v40 (SelfModel Observer) + tsotchke/eshkol (Homoiconic Quote/Eval Reflection)"
+     "provenance": "internal TypeScript reference prototype (SelfModel Observer) + tsotchke/eshkol (Homoiconic Quote/Eval Reflection)"
     },
     {
      "domain": "D24",
@@ -320,7 +320,7 @@
      "rows": 50,
      "base_mechanisms": 10,
      "heading_line": 245,
-     "provenance": "Asmodensius-v40 (Procedural SplitMix64 Backbone + Online Rank-16 LoRA Fast Weights)"
+     "provenance": "internal TypeScript reference prototype (Procedural SplitMix64 Backbone + Online Rank-16 LoRA Fast Weights)"
     },
     {
      "domain": "D25",
@@ -640,7 +640,7 @@
      "rows": 50,
      "base_mechanisms": 10,
      "heading_line": 664,
-     "provenance": "tsotchke-diffusion-app/core/neuro.py + Asmodensius-v40/creatures/001/src/page.tsx"
+     "provenance": "internal diffusion prototype (neuro.py) + internal TypeScript reference prototype (page.tsx)"
     },
     {
      "domain": "D12",
@@ -651,7 +651,7 @@
      "rows": 50,
      "base_mechanisms": 10,
      "heading_line": 724,
-     "provenance": "Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html"
+     "provenance": "internal TypeScript reference prototype (page.tsx) + dimension-omega-singularity/index.html"
     },
     {
      "domain": "D13",
@@ -662,7 +662,7 @@
      "rows": 50,
      "base_mechanisms": 10,
      "heading_line": 784,
-     "provenance": "Asmodensius-v40/creatures/001/src/page.tsx + organism/v40mods.ts"
+     "provenance": "internal TypeScript reference prototype (page.tsx) + organism/v40mods.ts"
     },
     {
      "domain": "D14",
@@ -673,7 +673,7 @@
      "rows": 50,
      "base_mechanisms": 10,
      "heading_line": 844,
-     "provenance": "Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html"
+     "provenance": "internal TypeScript reference prototype (page.tsx) + dimension-omega-singularity/index.html"
     },
     {
      "domain": "D15",
@@ -684,7 +684,7 @@
      "rows": 50,
      "base_mechanisms": 10,
      "heading_line": 904,
-     "provenance": "Asmodensius-v40/creatures/001/src/organism/v40mods.ts + dimension-omega-singularity"
+     "provenance": "internal TypeScript reference prototype (v40mods.ts) + dimension-omega-singularity"
     },
     {
      "domain": "D16",
@@ -695,7 +695,7 @@
      "rows": 50,
      "base_mechanisms": 10,
      "heading_line": 964,
-     "provenance": "Asmodensius-v40/creatures/001/src/page.tsx + CORE-ARCHITECTURE.md"
+     "provenance": "internal TypeScript reference prototype (page.tsx) + CORE-ARCHITECTURE.md"
     },
     {
      "domain": "D17",
@@ -739,7 +739,7 @@
      "rows": 50,
      "base_mechanisms": 10,
      "heading_line": 1204,
-     "provenance": "Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html"
+     "provenance": "internal TypeScript reference prototype (page.tsx) + dimension-omega-singularity/index.html"
     }
    ]
   },
@@ -1659,42 +1659,42 @@
   },
   {
    "id": "TSOT-D11",
-   "text": "Biomimetic sLTC × Selective SSM Hybrid Cortical Columns & Two-Compartment NMDA Dendrites <- tsotchke-diffusion-app/core/neuro.py + Asmodensius-v40/creatures/001/src/page.tsx. Role: 112 hybrid units (14 regions x 8 cortical columns) fusing input/neuromodulator-warped Liquid Time Constants tau(u) with Mamba-style Selective State-Space recurrence and two-compartment Apical/Basal NMDA coincidence plateaus.",
+   "text": "Biomimetic sLTC × Selective SSM Hybrid Cortical Columns & Two-Compartment NMDA Dendrites <- internal diffusion prototype (neuro.py) + internal TypeScript reference prototype (page.tsx). Role: 112 hybrid units (14 regions x 8 cortical columns) fusing input/neuromodulator-warped Liquid Time Constants tau(u) with Mamba-style Selective State-Space recurrence and two-compartment Apical/Basal NMDA coincidence plateaus.",
    "category": "mapping.lab_source",
    "criterion": "",
    "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:664-667 (domain D11 header, rows #0501-#0550)"
   },
   {
    "id": "TSOT-D12",
-   "text": "14-Region Anatomical Macro-Connectome & ESHKOL 2-Hop Tensor-Logic Transitive Reach <- Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html. Role: 14 biological neuro-anatomical organs (CTX, THAL, HIP, STR, INS, LC, VTA, BF, RAPHE, HYP, SCN, SENS, MOT, ENS) wired by 24 structural projections expanded via Eshkol 2-hop reach into 73 directed pathways.",
+   "text": "14-Region Anatomical Macro-Connectome & ESHKOL 2-Hop Tensor-Logic Transitive Reach <- internal TypeScript reference prototype (page.tsx) + dimension-omega-singularity/index.html. Role: 14 biological neuro-anatomical organs (CTX, THAL, HIP, STR, INS, LC, VTA, BF, RAPHE, HYP, SCN, SENS, MOT, ENS) wired by 24 structural projections expanded via Eshkol 2-hop reach into 73 directed pathways.",
    "category": "mapping.lab_source",
    "criterion": "",
    "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:724-727 (domain D12 header, rows #0551-#0600)"
   },
   {
    "id": "TSOT-D13",
-   "text": "Multi-Timescale Synaptic Plasticity — Three-Factor e-prop, STDP, Tsodyks-Markram STP & Homeostasis <- Asmodensius-v40/creatures/001/src/page.tsx + organism/v40mods.ts. Role: Real-time biological learning across 4 timescales: milliseconds (Tsodyks-Markram short-term vesicle depression), tens of milliseconds (asymmetric STDP), seconds (3-factor e-prop eligibility traces), and minutes (Turrigiano synaptic scaling).",
+   "text": "Multi-Timescale Synaptic Plasticity — Three-Factor e-prop, STDP, Tsodyks-Markram STP & Homeostasis <- internal TypeScript reference prototype (page.tsx) + organism/v40mods.ts. Role: Real-time biological learning across 4 timescales: milliseconds (Tsodyks-Markram short-term vesicle depression), tens of milliseconds (asymmetric STDP), seconds (3-factor e-prop eligibility traces), and minutes (Turrigiano synaptic scaling).",
    "category": "mapping.lab_source",
    "criterion": "",
    "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:784-787 (domain D13 header, rows #0601-#0650)"
   },
   {
    "id": "TSOT-D14",
-   "text": "Four-Pool Neuromodulatory Volume Transmission (DA, ACh, NE, 5-HT) & Michaelis-Menten Kinetics <- Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html. Role: Extracellular volume transmission of Dopamine (DA), Acetylcholine (ACh), Norepinephrine (NE), and Serotonin (5-HT) governed by saturating Michaelis-Menten enzymatic clearance (DAT, AChE, NET, SERT) and receptor subtype opposing gates.",
+   "text": "Four-Pool Neuromodulatory Volume Transmission (DA, ACh, NE, 5-HT) & Michaelis-Menten Kinetics <- internal TypeScript reference prototype (page.tsx) + dimension-omega-singularity/index.html. Role: Extracellular volume transmission of Dopamine (DA), Acetylcholine (ACh), Norepinephrine (NE), and Serotonin (5-HT) governed by saturating Michaelis-Menten enzymatic clearance (DAT, AChE, NET, SERT) and receptor subtype opposing gates.",
    "category": "mapping.lab_source",
    "criterion": "",
    "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:844-847 (domain D14 header, rows #0651-#0700)"
   },
   {
    "id": "TSOT-D15",
-   "text": "Tripartite Astrocyte Ca²⁺ Syncytium, Ephaptic LFP Wireless Coupling & Hippocampal SWR Replay <- Asmodensius-v40/creatures/001/src/organism/v40mods.ts + dimension-omega-singularity. Role: Non-synaptic wetware physics: IP3-triggered astrocytic calcium reaction-diffusion waves across gap-junction syncytia, extracellular Local Field Potential (LFP) ephaptic voltage coupling, and 10x time-reversed Sharp-Wave Ripple replay.",
+   "text": "Tripartite Astrocyte Ca²⁺ Syncytium, Ephaptic LFP Wireless Coupling & Hippocampal SWR Replay <- internal TypeScript reference prototype (v40mods.ts) + dimension-omega-singularity. Role: Non-synaptic wetware physics: IP3-triggered astrocytic calcium reaction-diffusion waves across gap-junction syncytia, extracellular Local Field Potential (LFP) ephaptic voltage coupling, and 10x time-reversed Sharp-Wave Ripple replay.",
    "category": "mapping.lab_source",
    "criterion": "",
    "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:904-907 (domain D15 header, rows #0701-#0750)"
   },
   {
    "id": "TSOT-D16",
-   "text": "Enteric Nervous System (ENS Gut-Brain), Vagal Axis, Kilojoule ATP Ledger & Landauer Heat <- Asmodensius-v40/creatures/001/src/page.tsx + CORE-ARCHITECTURE.md. Role: Autonomous 48-neuron Enteric Nervous System (myenteric & submucosal plexuses), bidirectional vagus nerve signaling, exact kilojoule (kJ) ATP metabolic energy accounting, and Landauer bit-erasure thermodynamic heat dissipation.",
+   "text": "Enteric Nervous System (ENS Gut-Brain), Vagal Axis, Kilojoule ATP Ledger & Landauer Heat <- internal TypeScript reference prototype (page.tsx) + CORE-ARCHITECTURE.md. Role: Autonomous 48-neuron Enteric Nervous System (myenteric & submucosal plexuses), bidirectional vagus nerve signaling, exact kilojoule (kJ) ATP metabolic energy accounting, and Landauer bit-erasure thermodynamic heat dissipation.",
    "category": "mapping.lab_source",
    "criterion": "",
    "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:964-967 (domain D16 header, rows #0751-#0800)"
@@ -1722,14 +1722,14 @@
   },
   {
    "id": "TSOT-D20",
-   "text": "Frenet-Serret Thought Curvature κ(t), Information Empowerment, Integrated Φ & Finsler Bizarro Land <- Asmodensius-v40/creatures/001/src/page.tsx + dimension-omega-singularity/index.html. Role: 6D cognitive manifold trajectory projection, discrete Frenet-Serret curvature kappa(t) and torsion tau_F(t), Klyubin-Polani Empowerment, Geometric Integrated Information Phi_G, and Finsler-Randers / Poincare non-Euclidean 3D space warping.",
+   "text": "Frenet-Serret Thought Curvature κ(t), Information Empowerment, Integrated Φ & Finsler Bizarro Land <- internal TypeScript reference prototype (page.tsx) + dimension-omega-singularity/index.html. Role: 6D cognitive manifold trajectory projection, discrete Frenet-Serret curvature kappa(t) and torsion tau_F(t), Klyubin-Polani Empowerment, Geometric Integrated Information Phi_G, and Finsler-Randers / Poincare non-Euclidean 3D space warping.",
    "category": "mapping.lab_source",
    "criterion": "",
    "source_ref": "W:/TSOTCHKE_1000_BIOLOGIC_SUBSTRATES_REPORT.md:1204-1207 (domain D20 header, rows #0951-#1000)"
   },
   {
    "id": "SUPER-D21",
-   "text": "Embedded RV32I 32-Bit RISC-V Self-Writing Silicon Co-Processor & Autopoietic Machine-Code Synthesis <- Asmodensius-v40/creatures/001 (RV32I Silicon Die) + tsotchke/eshkol (JIT Bytecode). Role: Live 16-register, 64-word RAM virtual 32-bit RISC-V processor die embedded inside the neural loop that synthesizes, mutates, and executes machine instructions at 60 Hz to co-process cortical signals.",
+   "text": "Embedded RV32I 32-Bit RISC-V Self-Writing Silicon Co-Processor & Autopoietic Machine-Code Synthesis <- internal TypeScript reference prototype (RV32I Silicon Die) + tsotchke/eshkol (JIT Bytecode). Role: Live 16-register, 64-word RAM virtual 32-bit RISC-V processor die embedded inside the neural loop that synthesizes, mutates, and executes machine instructions at 60 Hz to co-process cortical signals.",
    "category": "mapping.tsotchke_repo",
    "criterion": "",
    "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:65-68 (domain D21 header, rows #1001-#1050)"
@@ -1743,7 +1743,7 @@
   },
   {
    "id": "SUPER-D23",
-   "text": "Hofstadter Strange-Loop Metacognitive Self-Model & Godelian Self-Reference Fixed-Point Observer <- Asmodensius-v40 (SelfModel Observer) + tsotchke/eshkol (Homoiconic Quote/Eval Reflection). Role: A second-order observer sub-network that models and predicts the main 14-region brain state vector itself, computing Godel/Lawvere diagonal self-reference residuals and metacognitive agency.",
+   "text": "Hofstadter Strange-Loop Metacognitive Self-Model & Godelian Self-Reference Fixed-Point Observer <- internal TypeScript reference prototype (SelfModel Observer) + tsotchke/eshkol (Homoiconic Quote/Eval Reflection). Role: A second-order observer sub-network that models and predicts the main 14-region brain state vector itself, computing Godel/Lawvere diagonal self-reference residuals and metacognitive agency.",
    "category": "mapping.tsotchke_repo",
    "criterion": "",
    "source_ref": "W:/SUPER_INTELLIGENCE_1000_HIGH_WEIRDNESS_REPORT.md:185-188 (domain D23 header, rows #1101-#1150)"

@@ -10,7 +10,7 @@
 > Line numbers in citations are as of the compile time; files have grown since.
 
 
-Root of every relative path below: `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-Native\`. In the harvest files, `V:/...` means `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-v40\...` and `W:/...` means `Z:\[Vibe Coded (AI)]\CLAUDECODE\...`. `S:/req/...` (the extraction scripts) pointed into a C: scratchpad and is not on Z:. I read files only and ran nothing.
+Root of every relative path below: `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-Native\`. In the harvest files, `V:/...` means `<internal-ts-prototype>\...` and `W:/...` means `Z:\[Vibe Coded (AI)]\CLAUDECODE\...`. `S:/req/...` (the extraction scripts) pointed into a C: scratchpad and is not on Z:. I read files only and ran nothing.
 
 ### 0. Bottom line
 - **Not one suite has been run against the native engine.** STATUS_AND_PLAN says "None of these has been evaluated against Asmodensius-Native yet" (`docs\handoff\STATUS_AND_PLAN.md:189`). It also says "no requirement list has been run" (`:68`).

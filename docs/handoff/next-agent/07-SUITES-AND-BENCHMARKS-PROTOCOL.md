@@ -92,7 +92,7 @@ record the cause.
 | The three statistics rules | v40 R21 (d >= 0.8 and Welch t >= 2.75, seeds 1064-1111); framework v3.0 (Wilcoxon, Holm, delta_pair >= 0.33, LCB95 > -Delta_NI); native M8 (binding) | `04-GOALS-AND-BENCHMARKS.md:50-71` |
 | The 825 scoreboard | 14 + 10 + 25 + 100 + 500 + 100 + 12 + 40 + 24, 5 mirrors, 820 unique; only Butlin, theories, CQM and the 500 were extracted | `docs\requirements\checklists_index.json:17-19,170-181` |
 | Crosswalk workbook | 7 sheets: Guide (36 rows), Requested items (958), Supplementary items (4,854), Framework 825 (825), Framework mirrors (5), List index (42), Catalog sources (30); every Requested row says "Unrun at M8" | `C:\Users\Alexa\Documents\Codex\2026-11-18\the-bundle-is-clean-no-key\outputs\Asmodensius-evidence-crosswalk.xlsx` (read 2026-11-18) |
-| Master sources on Z: (read-only) | `Z:\[Vibe Coded (AI)]\CLAUDECODE\ALife-Framework-v3.0-Master-Checklists.csv`, `...\ALife-Framework-v3.0-Master-Spec.json`, `...\Creature1-Benchmarks.pdf`, `...\Asmodensius-v40\creatures\001\preregistrations\OFFICIAL-R21.md` exist | `Test-Path -LiteralPath`, 2026-11-18 (all True) |
+| Master sources on Z: (read-only) | `Z:\[Vibe Coded (AI)]\CLAUDECODE\ALife-Framework-v3.0-Master-Checklists.csv`, `...\ALife-Framework-v3.0-Master-Spec.json`, `...\Creature1-Benchmarks.pdf`, `<internal-ts-prototype>\preregistrations\OFFICIAL-R21.md` exist | `Test-Path -LiteralPath`, 2026-11-18 (all True) |
 
 ## 2. Hard constraints and how this protocol honours them
 

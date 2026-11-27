@@ -1,6 +1,6 @@
 {
  "set_id": "bench_budgets",
- "title": "Asmodensius-v40 performance, thermodynamic and statistical budgets (metric, target, hard limit, measured v5.0.0)",
+ "title": "Internal TypeScript reference prototype performance, thermodynamic and statistical budgets (metric, target, hard limit, measured v5.0.0)",
  "source_files": [
   "V:/docs/BUDGETS.md"
  ],

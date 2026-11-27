@@ -5,7 +5,7 @@ Read this whole file before your first action. It is short on purpose.
 ## What this project is
 
 Asmodensius-Native is the native rebuild of the owner's artificial-life lab
-(the existing TypeScript lab is Asmodensius-v40; see Paths below). Target: a 3D alien world with
+(the earlier TypeScript prototype is tracked internally; see Paths below). Target: a 3D alien world with
 hundreds of thousands to millions of individual creatures (colonies, swarms,
 fleets) running in cache-resident hot loops on one laptop:
 Intel Core Ultra 9 275HX + NVIDIA RTX 5070 Ti Laptop GPU.
@@ -81,7 +81,7 @@ in this table.
 |---|---|---|---|
 | `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-Native` | this project (the root) | write only where your task says | N: |
 | `Z:\[Vibe Coded (AI)]\(Tsotchke)` | Tsotchke corpus: `mirrors\<repo>`, `Eshkol\eshkol_repo` | READ-ONLY | T: |
-| `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-v40` | Asmodensius-v40, the existing TypeScript lab | READ-ONLY | V: |
+| `<internal-ts-prototype>` | internal TypeScript reference prototype | READ-ONLY | V: |
 | `Z:\[Vibe Coded (AI)]\CLAUDECODE` | the owner's workspace (framework PDFs, MD, CSV at its top level) | READ-ONLY | W: |
 | `<root>\build\` | builds and scratch, gitignored: the integration build `build\z`, owner builds `build\owners\<key>\`, scratch `build\work\<group>\<key>\` | read/write | |
 

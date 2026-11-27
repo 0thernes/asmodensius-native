@@ -159,7 +159,7 @@ It runs the build as a loop of `claude -p` sessions billed to an API key (README
 
 **Startup:**
 - Requires pwsh 7 (:42).
-- Hard-codes `$Project` and `$Workspace` as Z: paths (:48-49) and a drive-letter map: N: is the project, T: is `Z:\[Vibe Coded (AI)]\(Tsotchke)`, V: is `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-v40`, W: is the CLAUDECODE folder (:60-65).
+- Hard-codes `$Project` and `$Workspace` as Z: paths (:48-49) and a drive-letter map: N: is the project, T: is `Z:\[Vibe Coded (AI)]\(Tsotchke)`, V: is `<internal-ts-prototype>`, W: is the CLAUDECODE folder (:60-65).
 - Keeps the PC awake and turns off QuickEdit in the console (:98-111). Clears inherited ANTHROPIC_, CLAUDE and MCP_ environment variables (:112-119).
 
 **Key handling:**
@@ -260,7 +260,7 @@ Real targets of the old letters:
 |---|---|
 | N: | `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-Native` |
 | T: | `Z:\[Vibe Coded (AI)]\(Tsotchke)` |
-| V: | `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-v40` |
+| V: | `<internal-ts-prototype>` |
 | W: | `Z:\[Vibe Coded (AI)]\CLAUDECODE` |
 
 S: was an old scratch drive and is no longer used.

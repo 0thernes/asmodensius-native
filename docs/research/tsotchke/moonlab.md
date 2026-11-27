@@ -19,7 +19,7 @@ Verdict: **adapt**. The dense kernel is correct and compiles trimmed, but as wri
 (heap per state, global config, libm, FMA-sensitive doubles). A 208-line fixed-point port that follows its
 conventions was written and verified against it here.
 
-## 2. Prior audit check (`W:\Glossodrom Language Lab\docs\research\moonlab.md`)
+## 2. Prior audit check (`<internal-language-lab>/docs/research/moonlab.md`)
 
 | Prior claim | Status now |
 |---|---|

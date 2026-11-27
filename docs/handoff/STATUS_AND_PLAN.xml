@@ -164,8 +164,8 @@
   </components>
   <locations drive="Z:" checked="2026-11-17">
     <location path="Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-Native">this native engine and this catalog</location>
-    <location path="Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-v40">the TypeScript lab it rebuilds (read only)</location>
-    <location path="Z:\[Vibe Coded (AI)]\CLAUDECODE\gigachad-browser\brains\asmodensius-v40, and six checkouts under Z:\CodexIsolated\gigachad-clean-windows-...\*\brains\asmodensius-v40">copies of the v40 lab inside the GIGACHAD browser and its isolated Codex checkouts</location>
+    <location path="&lt;internal-ts-prototype&gt;">the internal TypeScript reference prototype it rebuilds (read only)</location>
+    <location path="&lt;internal-browser-workspace&gt;">copies of the internal TypeScript prototype inside the internal browser workspace and its isolated Codex checkouts</location>
     <location path="Z:\[Vibe Coded (AI)]\CLAUDECODE\ALife-Framework">the A-Life framework material</location>
     <location path="Z:\[Vibe Coded (AI)]\CLAUDECODE\Frontier AI-ALife Tesseract Lab">the frontier A-Life lab</location>
     <location path="Z:\cosmogonic-quantum-mechalogodrom\docs\alife, Z:\[Vibe Coded (AI)]\CLAUDECODE\Cosmogonic Quantum Mechalogodrom\docs\alife, Z:\[Vibe Coded (AI)]\CLAUDECODE\CQM2\public\alife and \site\alife">the A-Life pages of the CQM projects</location>

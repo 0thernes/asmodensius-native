@@ -166,8 +166,8 @@
       "name": "DATASHEET.md",
       "description": "Gebru et al. Datasheet for evaluation datasets",
       "encodingFormat": "text/markdown",
-      "sha256": "037ec9d165096e80c710d5b93890670789bc652dc159704f733a94aece84cd30",
-      "contentSize": 4912
+      "sha256": "b64d7b88bdf07e7b5b5c434d8ee1f27dbcd1f3a877d32ac504f4bfa22a64b81d",
+      "contentSize": 4944
     },
     {
       "@id": "docs/statement-fidelity.md",
@@ -202,8 +202,8 @@
       "name": "TRACE.csv",
       "description": "Master evaluation provenance trace (9,838 rows)",
       "encodingFormat": "text/csv",
-      "sha256": "0353445901aa52e7ddfd4b3d4617c2fc8746d3b9d04e764ba8a90e726e240620",
-      "contentSize": 4977947
+      "sha256": "6debf2ae7f69d30bf9fd47125f314e356a7a8481a2c6c84ab78a31d5ec072614",
+      "contentSize": 4978031
     },
     {
       "@id": "docs/eval/ISSUES.csv",
@@ -211,8 +211,8 @@
       "name": "ISSUES.csv",
       "description": "Engineering issue closure log (221 rows)",
       "encodingFormat": "text/csv",
-      "sha256": "fc19d75ca7216f2bfe5590c4b5d7c5c6264efa36d054a048900ada3e09fb8030",
-      "contentSize": 160169
+      "sha256": "bc80191ab5405e73e64aca3bfd984014300734ab820322dcfee4c64b4bcc70fe",
+      "contentSize": 160145
     },
     {
       "@id": "docs/eval/MECHANISMS-crosswalk.csv",
@@ -292,8 +292,8 @@
       "name": "ERRATA.md",
       "description": "Chronological errata including 2026-11-26 statement audit and v1.2.0 closure",
       "encodingFormat": "text/markdown",
-      "sha256": "a9760dabc3b8efd49f4a4dd3c9eafa12201080ed69d90994728293604ca37190",
-      "contentSize": 11864
+      "sha256": "f4c6bdb2967c9bb02f7663c10b6052dc09f6dc67ba227e4c6684b20a40095cf4",
+      "contentSize": 12351
     },
     {
       "@id": "LIMITATIONS.md",
@@ -319,8 +319,8 @@
       "name": "croissant.json",
       "description": "MLCommons Croissant 1.0 dataset metadata",
       "encodingFormat": "application/ld+json",
-      "sha256": "1d6b07fdf61175036f2cd7fa06ccc2111c96fb5143039cf414992a4775aa7f61",
-      "contentSize": 8488
+      "sha256": "9506cff0c1c566df34879b653f755c291737d9b9b9e28f918e24a8853ca34c30",
+      "contentSize": 9348
     },
     {
       "@id": "codemeta.json",
@@ -337,7 +337,7 @@
       "name": "MANIFEST.sha256",
       "description": "Evaluation dataset & result SHA-256 manifest",
       "encodingFormat": "text/plain",
-      "sha256": "b688db47ff216106876c0e9159ccd75d3b34befdc235dd153c11fd19d753ba50",
+      "sha256": "1e9633d8c0bdeb861b3483e3e7e9e0cd74d70718e661f2c7507aae22a88aca1b",
       "contentSize": 853
     },
     {

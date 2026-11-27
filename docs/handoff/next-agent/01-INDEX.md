@@ -10,7 +10,7 @@
 > Line numbers in citations are as of the compile time; files have grown since.
 
 
-Project root: `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-Native`. Every relative path below sits under that root. Older docs say `N:\`; that drive letter is gone (Z: only since 2026-11-18), so read `N:\` as this root. Old `V:\` is `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-v40`, old `T:\` is `Z:\[Vibe Coded (AI)]\(Tsotchke)` and old `W:\` is `Z:\[Vibe Coded (AI)]\CLAUDECODE`. Old `S:\` pointed into a C: scratchpad; its copied content is now `build\work\c-scratch-2026-11-17\`.
+Project root: `Z:\[Vibe Coded (AI)]\CLAUDECODE\Asmodensius-Native`. Every relative path below sits under that root. Older docs say `N:\`; that drive letter is gone (Z: only since 2026-11-18), so read `N:\` as this root. Old `V:\` is `<internal-ts-prototype>`, old `T:\` is `Z:\[Vibe Coded (AI)]\(Tsotchke)` and old `W:\` is `Z:\[Vibe Coded (AI)]\CLAUDECODE`. Old `S:\` pointed into a C: scratchpad; its copied content is now `build\work\c-scratch-2026-11-17\`.
 
 **Files that do not exist:** there is no `README.md` at the root and no `CHANGELOG` (the demo has `demo\README.md`). `ARCHITECTURE.md` is at `docs\ARCHITECTURE.md`, not at the root. The root holds `AGENTS.md` (since 2026-11-18), `CMakeLists.txt`, `THIRD_PARTY_NOTICES.md`, `.gitignore` and the folders `build core demo docs gpu kernels platform tests tools view`. Nothing is committed to git (`docs\handoff\STATUS_AND_PLAN.md:44,60`).
 

@@ -18,8 +18,8 @@ The evaluation dataset comprises six immutable UTF-8/ASCII CSV tables under `doc
 | `docs/eval/MECHANISMS-crosswalk.csv` | 958 | 815,231 | `b9064e13755322f08417d873d3d229e148ad6d3a9816f66dc0e3683522a936b5` | Crosswalk linking source criteria to pre-sense and R8 fixtures. |
 | `docs/eval/MECHANISMS-historical.csv` | 1,125 | 214,944 | `91b1a371467a13a0a32c2466594a43a78a3fbc1cd8685295a105195fb1aa50c3` | Historical nomenclature archive prior to wave-2 freeze. |
 | `docs/eval/dispositions.csv` | 6,305 | 1,582,701 | `66cb5adcb1ef395887c3db5189ff249f79b49656163496f97b2c3190ee0645f4` | Per-item disposition, rationale, and honesty flags. |
-| `docs/eval/TRACE.csv` | 9,838 | 4,977,947 | `0353445901aa52e7ddfd4b3d4617c2fc8746d3b9d04e764ba8a90e726e240620` | Master provenance trace linking dispositions, preregistration hashes, seed blocks, and verdicts. |
-| `docs/eval/ISSUES.csv` | 221 | 160,169 | `fc19d75ca7216f2bfe5590c4b5d7c5c6264efa36d054a048900ada3e09fb8030` | Engineering defect and verification closure register. |
+| `docs/eval/TRACE.csv` | 9,838 | 4,978,031 | `6debf2ae7f69d30bf9fd47125f314e356a7a8481a2c6c84ab78a31d5ec072614` | Master provenance trace linking dispositions, preregistration hashes, seed blocks, and verdicts. |
+| `docs/eval/ISSUES.csv` | 221 | 160,145 | `bc80191ab5405e73e64aca3bfd984014300734ab820322dcfee4c64b4bcc70fe` | Engineering defect and verification closure register. |
 
 - **Does the dataset contain data that might be considered confidential or personally identifiable?** No. All entries describe deterministic software mechanisms, synthetic integer-simulation runs, and architectural checklist items.
 
@@ -32,7 +32,7 @@ The evaluation dataset comprises six immutable UTF-8/ASCII CSV tables under `doc
 ## 4. Preprocessing, Cleaning, and Labeling
 
 - All six CSV files conform to strict 7-bit ASCII, LF line endings, zero tabs, and trailing final newline (verified by `python3 -I tools/check_text.py`).
-- `docs/eval/TRACE.csv` is retained byte-identical (`4,977,947` bytes, strictly under the 5 MiB repository hygiene limit) and verified by SHA-256 in `data/MANIFEST.sha256`.
+- `docs/eval/TRACE.csv` is retained at `4,978,031` bytes (after 2026-11-27 privacy-firewall redaction, strictly under the 5 MiB repository hygiene limit) and verified by SHA-256 in `data/MANIFEST.sha256`.
 
 ## 5. Uses and Non-Uses (Real-vs-Metaphor Boundary, Law 8)
 
